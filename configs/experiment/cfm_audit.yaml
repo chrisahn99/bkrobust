@@ -1,0 +1,38 @@
+# @package experiment
+# EXPERIMENT 5 -- amortized level.
+# Condition causal foundation models on consistent-but-false background
+# knowledge and measure how their effect estimates move. The question is
+# whether an amortized model inherits the same breakdown structure as an
+# explicit adjustment-set estimator, or degrades differently.
+name: cfm_audit
+entrypoint: experiments/run_cfm_audit.py
+
+checkpoints:                  # registry keys; see cfm/registry.py
+  - causalpfn
+  - causalfm
+  - dopfn
+
+conditioning_modes:           # ablation over how K is injected
+  - none
+  - attention_bias
+  - ancestral_matrix
+
+bias_scale_grid: [0.0, 0.5, 1.0, 2.0, 5.0]
+                              # 0.0 is the sanity check: it must reproduce
+                              # mode=none exactly, or the injection is buggy
+
+delta_grid: [0, 1, 2, 3, 4, 5]
+
+measure:
+  absolute_bias: true
+  pehe: true                  # for the CATE-capable checkpoints
+  coverage: false             # most checkpoints emit no calibrated interval
+  sensitivity_to_scale: true  # d(estimate) / d(bias_scale)
+  agreement_with_adjustment: true
+                              # does the CFM track the OLS-on-O* estimate as
+                              # delta grows, or diverge from it?
+
+# The classical arm is run on identical data so the comparison is like for like.
+reference_estimator: ols_adjustment
+
+n_replicates: 10

@@ -1,0 +1,20 @@
+# @package estimator
+# Do-PFN checkpoint, wrapped as an Estimator. Requires the [cfm] extra.
+name: dopfn
+target: bkrobust.cfm.adapters.dopfn.DoPFNAdapter
+
+checkpoint: null
+revision: null
+device: ${compute.device}
+dtype: float32
+batch_size: 64
+
+estimand: cate              # Do-PFN is natively interventional/conditional;
+                            # ATE is obtained by averaging, see the adapter
+requires_scm: false
+
+conditioning:
+  mode: attention_bias
+  bias_scale: 1.0
+  encode_forbidden: true
+  symmetrize: false

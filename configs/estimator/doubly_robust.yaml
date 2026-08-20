@@ -1,0 +1,24 @@
+# @package estimator
+# AIPW / DML with cross-fitting. Included so that the bias attributable to a
+# wrong adjustment SET is not confounded with bias from a wrong functional
+# form -- a doubly robust estimator on the wrong set is still biased, and
+# showing that is part of the estimation-level claim.
+name: doubly_robust
+target: bkrobust.estimation.doubly_robust.DoublyRobustEstimator
+
+estimand: ate
+method: aipw                # aipw | dml
+n_folds: 5
+cross_fitting: true
+
+outcome_model:
+  kind: linear              # linear | random_forest | gradient_boosting
+  params: {}
+
+propensity_model:
+  kind: logistic            # logistic | random_forest | gradient_boosting
+  params: {}
+  clip: [0.01, 0.99]        # propensity trimming
+
+alpha: 0.05
+requires_scm: false

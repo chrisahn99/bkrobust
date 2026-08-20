@@ -1,0 +1,32 @@
+# @package perturbation
+# Misspecification by orientation: assert `a -> b` on an edge whose true
+# orientation is `b -> a`. The canonical unit of perturbation; delta counts
+# flipped edges.
+name: orientation_flip
+kind: orientation
+
+# Radii to sweep. delta is measured in the `distance` metric below.
+delta_grid: [0, 1, 2, 3, 4, 5]
+
+# Which edges may be flipped.
+scope:
+  undirected_only: true     # only edges undirected in the CPDAG -- a directed
+                            # edge in the CPDAG is identified from data, so
+                            # contradicting it is *inconsistent*, not
+                            # consistent-but-false
+  restrict_to: all          # all | near_target | on_causal_path
+  radius_from_target: null  # graph distance from {treatment, outcome} when
+                            # restrict_to == near_target
+
+distance: orientation_flips  # see configs/../graphs/distances.py:
+                             # orientation_flips | shd | poset
+
+# Rejection sampling contract, enforced by knowledge.perturb:
+#   (a) consistent  -- Meek Algorithm 1 on (CPDAG, K) does not FAIL
+#   (b) false       -- K disagrees with true_graph on >= 1 imposed constraint
+sampling:
+  n_draws: 100              # accepted samples per (graph, delta)
+  max_rejections: 10000     # abort with a diagnostic rather than loop forever
+  require_false: true       # (b); set false to get the consistent-and-TRUE
+                            # control arm
+  exact_radius: true        # true = exactly delta, false = at most delta

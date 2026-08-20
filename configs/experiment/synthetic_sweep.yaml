@@ -1,0 +1,37 @@
+# @package experiment
+# EXPERIMENT 1 -- structural level.
+# Sweep the perturbation radius delta on synthetic MPDAGs and locate the two
+# breakdown radii empirically: the smallest delta at which O* stops being
+# optimal (delta_opt) and the smallest at which it stops being valid
+# (delta_valid). Primary evidence for the conjectured ordering
+# delta_opt <= delta_valid.
+name: synthetic_sweep
+entrypoint: experiments/run_synthetic_sweep.py
+
+# What is measured at each delta, over the sampled consistent-but-false
+# knowledge sets.
+measure:
+  validity_flip_rate: true    # P(O*_perturbed is not a valid adjustment set)
+  optimality_loss: true       # P(O*_perturbed is valid but not optimal)
+  variance_ratio: true        # asVar(O*_perturbed) / asVar(O*_true)
+  absolute_bias: true         # |E[tau_hat] - tau| under the perturbed set
+  cascade_size: true          # forced orientations per imposed constraint
+
+# Radius computation. `exact` enumerates all knowledge sets within the grid and
+# is only tractable for small graphs; `search` uses the documented heuristic in
+# theory/radius.py.
+radius:
+  method: exact               # exact | search | both
+  exact_max_nodes: 12         # fall back to `search` above this size
+  compute_delta_opt: true
+  compute_delta_valid: true
+  verify_ordering: true       # assert delta_opt <= delta_valid, record violations
+
+# Control arms. Without these the sweep cannot separate "knowledge is wrong"
+# from "knowledge is present".
+arms:
+  no_knowledge: true          # CPDAG only, no K
+  true_knowledge: true        # consistent AND true K at the same delta budget
+  false_knowledge: true       # the object of study
+
+n_replicates: 20              # per (graph, delta, arm)

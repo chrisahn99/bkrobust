@@ -1,0 +1,31 @@
+# @package model
+# Order embedding of the background-knowledge constraint poset (Vendrov et al.
+# style): entailment is encoded as coordinate-wise dominance in the positive
+# orthant, so the partial order is respected by construction.
+name: poset_embedding
+target: bkrobust.representations.embeddings.OrderEmbedding
+
+dim: 64
+nonneg: true                  # constrain coordinates to the positive orthant
+init: uniform                 # uniform | normal | orthogonal
+init_scale: 0.1
+
+loss:
+  kind: order_violation       # max(0, child - parent)^2 summed over coordinates
+  margin: 1.0
+  negative_sampling: 5        # non-entailed pairs per entailed pair
+  negative_strategy: uniform  # uniform | hard | mixed
+
+optim:
+  optimizer: adam
+  lr: 1.0e-3
+  weight_decay: 0.0
+  batch_size: 256
+  epochs: 100
+  patience: 10                # early stopping on val order-violation energy
+  grad_clip: null
+
+# Requires the [cfm] extra (torch). Guarded at import; see
+# representations/embeddings.py.
+device: ${compute.device}
+seed: ${seed}

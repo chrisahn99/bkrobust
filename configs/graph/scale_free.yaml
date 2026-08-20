@@ -1,0 +1,28 @@
+# @package graph
+# Scale-free DAG via preferential attachment (Barabasi-Albert style), then
+# oriented along a random topological order. Hub structure stresses the
+# Meek cascade: a single imposed orientation at a hub forces many others.
+name: scale_free
+generator: scale_free
+
+n_nodes: 10
+m_attach: 2             # edges added per new node
+power: 1.0              # preferential-attachment exponent
+max_in_degree: null
+
+scm:
+  family: linear_gaussian
+  weight_range: [0.5, 2.0]
+  weight_sign: random
+  noise: gaussian
+  noise_scale: [0.5, 1.5]
+  standardize: false
+
+target:
+  selection: random_pair
+  treatment: null
+  outcome: null
+  require_causal_path: true
+
+n_graphs: 50
+n_samples: 2000

@@ -1,0 +1,37 @@
+# @package experiment
+# EXPERIMENT 4 -- real data.
+# No ground-truth DAG, so delta_valid is not identifiable. What IS reportable
+# is the practitioner-facing certificate: given the knowledge an analyst
+# actually supplied, how far is it from breaking the conclusion?
+name: real_data
+entrypoint: experiments/run_real_data.py
+
+dataset: sachs                # sachs | ihdp | acic | twins | jobs | lalonde |
+                              # perturb_seq   -- provenance in docs/DATA.md
+split: null
+n_bootstrap: 200              # bootstrap the discovery step; the CPDAG is an
+                              # estimate, and pretending otherwise understates
+                              # the reported radii
+
+# Knowledge actually imposed, as an analyst would write it. Nodes are dataset
+# variable names; leaving these empty runs the no-knowledge arm only.
+knowledge:
+  required_edges: []          # [[a, b], ...] meaning a -> b
+  forbidden_edges: []
+  tiers: []                   # [[tier0 nodes], [tier1 nodes], ...]
+  ancestral: []               # [[a, b, true|false], ...] a is/ is not an ancestor of b
+  source: manual              # manual | kg | llm  -- see knowledge/elicit.py
+
+certificate:
+  compute: true
+  worst_case_bias: true
+  sensitivity_grid: [1, 2, 3] # report the certificate at these radii
+  emit_report: true           # write the human-readable __str__ output
+
+measure:
+  absolute_bias: false        # unavailable without ground truth
+  effect_spread: true         # range of estimates over the knowledge ball
+  variance_ratio: true
+  coverage: false
+
+n_replicates: 1

@@ -1,0 +1,32 @@
+# @package model
+# Box (axis-aligned hyperrectangle) embedding. Boxes give calibrated volumes,
+# so a constraint's "how much does this pin down" can be read off as a volume
+# ratio -- the natural candidate for a geometric proxy of delta.
+name: box_embedding
+target: bkrobust.representations.embeddings.BoxEmbedding
+
+dim: 32
+volume: soft                  # hard | soft | bessel -- soft volumes keep the
+                              # gradient alive when boxes are disjoint
+temperature: 1.0              # softplus temperature for soft volumes
+min_side: 1.0e-4              # numerical floor on box side length
+
+loss:
+  kind: box_conditional       # -log P(child | parent) under the volume measure
+  negative_sampling: 5
+  negative_strategy: hard
+  regularization:
+    volume_penalty: 0.0       # discourage degenerate universe-sized boxes
+    containment_margin: 0.0
+
+optim:
+  optimizer: adam
+  lr: 1.0e-3
+  weight_decay: 0.0
+  batch_size: 256
+  epochs: 100
+  patience: 10
+  grad_clip: 1.0
+
+device: ${compute.device}
+seed: ${seed}

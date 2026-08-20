@@ -1,0 +1,36 @@
+# @package experiment
+# EXPERIMENT 6 -- CONDITIONAL component, may be cut from the paper.
+# Learn a representation of the background-knowledge constraint poset and probe
+# whether its geometry (a) predicts delta and (b) separates consistent-and-true
+# from consistent-but-false knowledge. If the probes do not beat the structural
+# baselines below, this section does not go in the paper.
+name: knowledge_embedding
+entrypoint: experiments/run_knowledge_embedding.py
+
+defaults:
+  - /model: poset_embedding
+
+poset:
+  relation: entailment        # entailment | refinement
+  include_cascade: true       # add Meek-forced constraints as poset elements
+  max_elements: 5000
+
+probes:
+  predict_delta: true         # regression: embedding -> delta
+  separate_true_false: true   # classification: true K vs consistent-but-false K
+  predict_bias: true          # regression: embedding -> realised bias
+
+# A learned representation must beat these or it is not carrying its weight.
+baselines:
+  - constraint_count          # |K|
+  - cascade_size              # forced orientations
+  - shd_to_true_cpdag
+
+split:
+  by: graph                   # split by graph, never by constraint -- splitting
+                              # by constraint leaks the graph across folds
+  train_frac: 0.7
+  val_frac: 0.1
+  test_frac: 0.2
+
+n_replicates: 5
