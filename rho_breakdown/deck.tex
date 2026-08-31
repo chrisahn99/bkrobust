@@ -1,0 +1,422 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+\usetheme{metropolis}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\definecolor{good}{HTML}{1B7F4B}
+\definecolor{bad}{HTML}{B3261E}
+\definecolor{warn}{HTML}{B26A00}
+\newcommand{\ok}[1]{\textcolor{good}{#1}}
+\newcommand{\no}[1]{\textcolor{bad}{#1}}
+\newcommand{\wn}[1]{\textcolor{warn}{#1}}
+\metroset{block=fill}
+\setbeamertemplate{frame numbering}[fraction]
+
+\title{Breakdown radius for background knowledge}
+\subtitle{What we have measured, and the three places it changes the plan}
+\author{José Lucas De Melo Costa}
+\institute{with Seong Woo (Chris) Ahn \\ CentraleSupélec, Université Paris-Saclay, LISN}
+\date{31 August 2026 \\ \small ICLR 2027 abstract: 18 September, 18 days}
+
+\begin{document}
+\maketitle
+
+% ---------------------------------------------------------------
+\begin{frame}[shrink=8]{Where we agree, which is most of it}
+Your rewrite settles four things that were open since 14 August, and settles them the right way.
+\begin{itemize}
+  \item \ok{The object.} A breakdown radius, $r_{\mathrm{opt}} \le r_{\mathrm{val}}$ kept apart, and
+        \S5 says the radius is not a probability. The ``bound'' line is closed.
+  \item \ok{The reference.} Taeb, Guo \& Henckel is the methodological pivot, and \S10 is right that
+        the version must be pinned. It is \textbf{v3, 2026-06-30}.
+  \item \ok{The positioning.} Metricity demoted to a corollary (\S6); \S10 refuses to lead with
+        their open problem.
+  \item \ok{The literature you bring.} Masten \& Poirier on breakdown frontiers, Horowitz \& Manski.
+        Neither appeared anywhere in our corpus before your document.
+\end{itemize}
+\vfill
+\begin{alertblock}{The one thing to settle first}
+Your message says ``très empirique avec des valeurs nominales''. Your \S10 recommends UAI or
+AISTATS and the document carries no measured number. Nothing else decides until this does.
+\end{alertblock}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Three things that change the plan, and two that are already done}
+\begin{enumerate}
+  \item \no{The unit.} A flip costs two, so every number we hold moves by a factor of two.
+  \item \no{Locality is the result}, not a pruning heuristic in \S8.2.
+  \item \no{\S2 puts b-LOAD outside the framework}, and not cleanly.
+\end{enumerate}
+\vspace{1em}
+\begin{enumerate}\setcounter{enumi}{3}
+  \item \ok{WP0(d), the decisive statistic}: measured, three times, two runs.
+  \item \ok{The \S4.3 calibration experiment}: ran on 19 August.
+\end{enumerate}
+\vspace{1em}
+Plus one scope condition we have both been leaving implicit: \wn{amenability}.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{1. The unit changes every number we hold}
+\S4.1 prices a flip at two: a retraction followed by an assertion.
+
+\medskip
+Our pilot's operator \emph{is} a flip. It reverses an orientation that exists in the CPDAG skeleton,
+and the budget is global at \texttt{MAX\_K = 4}.
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+ & our unit & your unit \\
+\midrule
+one expert error & 1 (a flip) & 2 \\
+pilot budget \texttt{MAX\_K = 4} & 4 & \textbf{8} \\
+$\rho^\ast = 1$, breaks at the first error & 1 & 2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+It cuts both ways. Our feasibility evidence is \ok{stronger} than \S8.2 assumes (radius 8 on
+$p \le 10$, twenty minutes of CPU). And every censoring figure below sits on a \no{different
+abscissa} from the one your figures will use.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}[shrink=12]{2. Locality is the finding, not a speed-up}
+\S8.2 lists ``prune by relevance'' among the computational mitigations. That quotient is the result.
+
+\smallskip
+Censoring of $\rho^\ast_{\text{any}}$ at $n = 20\,000$, by minimum hop distance from an elicited
+statement to $\{X, Y\}$ on the CPDAG skeleton:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ensemble & dist 0 & dist 1 & dist $\ge 2$ \\
+\midrule
+\texttt{original} ($p$ 5--8)   & \textbf{0.037} \tiny(2\,539) & \textbf{1.000} \tiny(93)  & \\
+\texttt{licensed} ($p$ 5--10)  & \textbf{0.070} \tiny(1\,852) & \textbf{0.935} \tiny(229) & \\
+\texttt{k8}, $|K| = 8$         & \textbf{0.016} \tiny(563)    & 0.955 \tiny(22)           & \\
+\texttt{large} ($p$ 15--25)    & \textbf{0.330} \tiny(1\,472) & 0.977 \tiny(638)          & \textbf{1.000} \tiny(331) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\ok{13 to 27 fold.} Invariant in $n$ to four decimals (0.9345 at $n = 2\,000$, $20\,000$, $\infty$).
+Exactly 1.000 for all 331 \texttt{large} SCMs two or more hops out.
+
+\medskip
+$\rho^\ast$ is a functional of $O^\ast$ and $O^\ast$ is local, so a statement that does not reach the
+query cannot move it. No sample size repairs that.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{2b. What locality buys, and one anomaly it dissolves}
+\begin{block}{The second currency the abstract is missing}
+Elicited knowledge far from the query does not move the estimate. \textbf{Stop paying to elicit
+it.} A cost that goes down, with a number, is one of the two claims that survive adjustment for
+domain.
+\end{block}
+
+\medskip
+It also dissolves something we were both treating as a separate regime. \texttt{large} behaves
+differently because only \textbf{60.3\,\%} of its SCMs have a statement at distance 0, against
+88.7\,\% (\texttt{licensed}) and 96.3\,\% (\texttt{original}).
+
+\medskip
+Condition on distance 0 and it stops being a different regime.
+
+\medskip
+\wn{Your 22 August note reaches the same place from the other side}: if influence is local, one false
+statement touches $O(1)$ of $O(d^2)$ queries, so mean damage tends to zero as the graph grows.
+Aggregate worst-case or distributionally, never on the mean.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{3. The \S10 risk is real at both ends}
+\S10 fears $r_{\mathrm{val}}(O) = 1$ almost always. Both extremes are true at once in our runs.
+
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\begin{alertblock}{Saturates at the top}
+Censoring of $\rho^\ast_{\text{any}}$: \\
+\textbf{0.554} at $n = 200$ $\to$ \textbf{0.515} at $n = \infty$. \\
+3.9 points over \emph{five orders of magnitude}, against a hard floor. \\[0.4em]
+Because \textbf{64.6\,\%} of problems have $d(1) = 0$ exactly, at every $n$. The ball is
+\emph{inert}, not fragile.
+\end{alertblock}
+\end{column}
+\begin{column}{0.48\textwidth}
+\begin{alertblock}{Saturates at the bottom}
+Repair the other end with the composite $\min(\rho^\ast_{se}, \rho^\ast_{\text{ident}})$: \\[0.4em]
+censoring falls to \textbf{0.166}, and \textbf{69.0\,\%} of the mass lands at $\rho^\ast = 1$. \\[0.4em]
+That is literally your principal risk.
+\end{alertblock}
+\end{column}
+\end{columns}
+
+\vspace{0.6em}
+\begin{center}
+\large The switching variable is \textbf{hop distance}, and it is not in the document.
+\end{center}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{3b. So WP0 has one answer per stratum}
+Your three branches are not alternatives. They are strata.
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\S10 branch & when it holds \\
+\midrule
+the O-set always breaks at 1 & \textbf{near the query} \\
+the O-set survives            & \textbf{away from it} \\
+binary validity is the wrong criterion & where the ball is inert, i.e.\ most of the mass \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+An unstratified distribution of $r_{\mathrm{val}}$ averages two regimes and describes neither.
+
+\begin{alertblock}{One consequence for the venue paragraph}
+The empirical ICLR hook you propose, \emph{knowledge-informed methods break at radius 1--2 on
+standard benchmarks}, is \no{contradicted by our data as written}: more than half of problems never
+break inside the budget. The \ok{conditional} version survives, and is stronger, because it tells the
+practitioner what to do.
+\end{alertblock}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{4. \S2 puts b-LOAD outside the framework}
+\S2: adjacency knowledge is vacuous or refuted, so the space is forced to be orientations. The
+argument is good. The consequence is uncomfortable.
+
+\medskip
+b-LOAD's noise operator asserts a required edge on pairs that are mostly \textbf{non-adjacent}. Under
+\S2 those are refuted, so they fall outside $\mathfrak{G}_{\hat{C}}$ and outside the theory.
+
+\medskip
+We measured that disjointness on 14 August. \no{\S2 does not repair it. It formalises it.}
+
+\medskip
+That matters because the empirical demand driving this whole line sits on that side: all four CIKM
+reviewers and the metareview raised the perfect-knowledge assumption, and R4 asked specifically for a
+robustness analysis on Intervention Distance \emph{in the main body}.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}[shrink=10]{4b. And the exclusion is not clean}
+b-LOAD's own sampler, on \texttt{licensed} (8\,000 draws):
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+class & count & rate \\
+\midrule
+\texttt{pure\_spurious} \small(outside the space) & 5\,555 & \textbf{69.4\,\%} \\
+\texttt{reversal\_of\_true\_edge} \small(inside it) & 2\,445 & \textbf{30.6\,\%} \\
+the query pair itself & 1\,030 & 12.9\,\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\small \texttt{original} 73.1 / 27.0, \texttt{large} 91.4 / 8.6. Quote the ensemble you benchmark on.
+\wn{Oracle labels: no rate stratified by this is a triage rule.}
+
+\normalsize
+\medskip
+\begin{block}{The way out is yours, and it is publishable}
+\S2 offers a \emph{free consistency check}. Applied to b-LOAD it catches \textbf{all} of its spurious
+noise, and answers R4 directly. Written honestly it reverses the story: b-LOAD's robustness stops
+being a surprise and becomes a check that was never run. \wn{The current code cannot perform it: the
+assertion is written into the initialisation matrix and then protected.} Decide which of the two
+papers eats that sentence.
+\end{block}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}[shrink=12]{5. Amenability needs to be a fourth exit beside $\bot$}
+$\mathrm{cl}(\mathcal{G}, a \to b)$ returns $\bot$ for a cycle or a forbidden structure. It says
+nothing about $O(\mathcal{G})$ being \emph{undefined} because the MPDAG is not amenable.
+
+\medskip
+The fate of one wrong orientation, 2\,058 perturbations:
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+outcome & of all & of Meek-consistent \\
+\midrule
+Meek-inconsistent, caught free & \textbf{33.0\,\%} & --- \\
+$O^\ast$ unchanged, zero bias & 42.3\,\% & 63.1\,\% \\
+\wn{not amenable, \emph{loud} failure} & \wn{15.3\,\%} & \wn{\textbf{22.9\,\%}} \\
+$O^\ast$ changed and invalid, \no{silent bias} & 9.4\,\% & \no{14.1\,\%} \\
+$O^\ast$ changed but still valid & \textbf{0.0\,\%} \small(0/754) & 0.0\,\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip
+A loud failure is a different event: the analyst sees it. Pricing it as a breakdown inflates
+fragility, the objection \S4.2 already makes against collapsing $r_{\mathrm{opt}}$ and
+$r_{\mathrm{val}}$.
+
+\smallskip
+\wn{And note the last row: the efficiency-only band \texttt{THEORY.md} calls ``the one worth
+naming'' measured \textbf{empty} on our operator.}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{6. WP0(d) is done, and \S3 wins its argument}
+\S3: the case against naive assertion counting turns on the fraction of single flips that are
+logically inconsistent with $\hat{C}$. If it is substantial, the naive baseline is not coarser, it is
+incoherent.
+
+\begin{center}
+\Large It is substantial. Three measurements, two independent runs.
+\end{center}
+
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Meek-inconsistent, all single errors (pilot, 17 July) & \textbf{33.0\,\%} \\
+Meek-inconsistency rate, G1 denominator (E1$'$, 19 Aug) & \textbf{32.4\,\%} \\
+caught free by Meek, ARM 2 single errors & \textbf{23.6\,\%} \\
+caught free by Meek, ARM 2 double errors & 38.6\,\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+The pilot and E1$'$ agree to within half a point, from separate code paths.
+
+\medskip
+\S3 asks for this to be ``demonstrated, not argued''. It already is.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{7. The \S4.3 calibration experiment ran on 19 August}
+``Corrupt the knowledge, compute $r$ around the corrupted $\mathcal{G}_0$, check whether
+$d(\mathcal{G}_0, \mathcal{G}_{\text{true}}) < r$ predicted validity.''
+
+\medskip
+That is ARM 2 of E1$'$: \textbf{2\,500 SCMs} $\times$ 20 datasets. Coverage at $r = 0$ is
+\textbf{0.9509} against 0.95 nominal, zero regeneration-gate failures.
+
+\medskip
+And it produced the number \S5 asks for, the one comparable to a standard error ($n = 20\,000$):
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & $r = 0$ & $r = 1$ & $r = 2$ \\
+\midrule
+naive CI coverage & \textbf{0.951} & \textbf{0.720} \tiny[0.713, 0.727] & \textbf{0.568} \tiny[0.559, 0.577] \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{block}{}
+\centering \large One reversed statement costs \textbf{23 points} of coverage. Two cost \textbf{38}.
+\end{block}
+\small Among the errors Meek does not catch for free.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{7b. And the ignorance does not shrink with data}
+$SE_n \propto n^{-1/2}$, while $d(\rho)$ is free of $n$. So the two do not converge, they diverge.
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$n$ & 200 & 1\,000 & 5\,000 & 20\,000 \\
+\midrule
+mean robust / naive width ratio & 1.61 & 2.32 & 3.93 & \textbf{6.84} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+This is the best answer we have to ``collect more data''. Structural uncertainty about the
+orientations is not a small-sample problem that goes away, and at $n = 20\,000$ it dominates
+the sampling noise by a factor of seven on the mean.
+
+\medskip
+\wn{With the caveat from the next slide: the \emph{median} ratio is 1.00, because the ball is inert
+for 69\,\% of problems. Print both.}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Two numbers of ours you should stop using}
+I would rather you heard these from me than found them.
+
+\begin{alertblock}{$0/791$ is dead}
+Our own audit on 19 August marked it \emph{no provenance}. It is the figure your 22 August
+assessment quoted back at us. The locality claim is carried by the censoring table, which is a
+frequency, not a zero-existence result.
+\end{alertblock}
+
+\begin{alertblock}{The median width ratio of 1.00 flatters the method}
+The ball is inert for 69\,\% of problems, so the median is 1.00 by arithmetic. I pre-registered the
+median. The mean is \textbf{6.84}$\times$, which would have failed the pre-registered
+3$\times$ bar. Both belong in the paper.
+\end{alertblock}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{What I need from you before 18 September}
+\begin{enumerate}
+  \item \no{Read Taeb, Guo \& Henckel v3 in full and tell me what \S6 actually does.} Our corpus note
+        is explicit that everything it says about \S6, Lemma S6 and the open covering relation is
+        second-hand from your framing. \textbf{If their adjustment-set application already defines a
+        tolerance radius centred on the analyst's graph, the novelty surface shrinks a lot.} I would
+        rather know now than in a review.
+  \item \wn{The covering enumeration on four and five vertices} (your WP2). It doubles as the
+        independent correctness check on a preprint no referee has read, which \S10 correctly treats
+        as a small credibility gain.
+  \item \wn{Guo \& Perković 2010.08611 in full.} The framing rests on ``they never perturb $K$'' and
+        nobody on either side has read it.
+\end{enumerate}
+\vfill
+\begin{block}{From me}
+The code, on branch \texttt{rho-breakdown-evidence}. It is what you asked for on 21 August, and I am
+sorry it took ten days.
+\end{block}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{What is on the branch}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\texttt{pilot/} & 17 July: 600 + 1\,650 + 60 SCMs, iSCM, closed-form linear SEMs \\
+\texttt{e1prime/} & 19 Aug: the \texttt{se} criterion, the censoring floor, ARM 2 \\
+\texttt{locality/x1} & hop-distance stratification, operator arms, pool composition \\
+\texttt{locality/x2} & exhaustive enumeration, no SCM and no truth, complete at $p \le 5$ \\
+\texttt{REPORT.md} & this deck, in prose, point by point \\
+\texttt{NUMBERS.md} & every figure mapped to the file it came from \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+Each run directory carries a \texttt{PREREG.md} written before the first number and an
+\texttt{AUDIT.md} written against the design.
+
+\smallskip
+CPU only. numpy, scipy, pandas, networkx. No GPU, no private data.
+
+\smallskip
+\wn{\texttt{NUMBERS.md} also lists the four corrections we applied to ourselves, and the three things
+never run: an estimated CPDAG, nonlinear mechanisms beyond the pilot's 60, and the skeleton
+perturbation that would repair the oracle-CI assumption in your \S2.}
+\end{frame}
+
+\end{document}
