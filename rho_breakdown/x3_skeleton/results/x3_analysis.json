@@ -1,0 +1,818 @@
+{
+ "original": {
+  "n_drawn": 12000,
+  "n_returned": 3460,
+  "n_analysed": 2748,
+  "status": {
+   "ok": 2748,
+   "drop_nonamenable": 712
+  },
+  "cpdag_amenable": {
+   "k": 224,
+   "n": 2748
+  },
+  "n_perturbations": 19740,
+  "SK": {
+   "hop0": {
+    "label": "hop 0",
+    "k": 1354,
+    "n": 8469,
+    "rate": 0.15987719919707166,
+    "wilson": [
+     0.15222622473969516,
+     0.16783658677408786
+    ],
+    "cluster": [
+     0.15309164705118444,
+     0.1666272217280006
+    ],
+    "design_effect": 0.7266232343688739,
+    "n_scm": 2607,
+    "outcomes": {
+     "unchanged": 6687,
+     "not_amenable": 3127,
+     "changed_valid": 428,
+     "silent_bias": 1354
+    }
+   },
+   "hop1": {
+    "label": "hop 1",
+    "k": 274,
+    "n": 5980,
+    "rate": 0.045819397993311035,
+    "wilson": [
+     0.0408051216689882,
+     0.05141681679952398
+    ],
+    "cluster": [
+     0.040297169112198016,
+     0.051551640382776286
+    ],
+    "design_effect": 1.148210044189253,
+    "n_scm": 2351,
+    "outcomes": {
+     "unchanged": 5671,
+     "not_amenable": 285,
+     "silent_bias": 274,
+     "changed_valid": 35
+    }
+   },
+   "hop2p": {
+    "label": "hop >= 2",
+    "k": 0,
+    "n": 1879,
+    "rate": 0.0,
+    "wilson": [
+     2.168404344971009e-19,
+     0.002040245503782458
+    ],
+    "cluster": [
+     0.0,
+     0.0
+    ],
+    "design_effect": NaN,
+    "n_scm": 1067,
+    "outcomes": {
+     "unchanged": 1879
+    }
+   },
+   "hop1p": {
+    "label": "hop >= 1",
+    "k": 274,
+    "n": 7859,
+    "rate": 0.034864486575900244,
+    "wilson": [
+     0.031030805706244148,
+     0.03915265935671059
+    ],
+    "cluster": [
+     0.03058530581441393,
+     0.03944932793235564
+    ],
+    "design_effect": 1.2213594445668687,
+    "n_scm": 2598,
+    "outcomes": {
+     "unchanged": 7550,
+     "not_amenable": 285,
+     "silent_bias": 274,
+     "changed_valid": 35
+    }
+   },
+   "all": {
+    "label": "all",
+    "k": 1628,
+    "n": 16328,
+    "rate": 0.09970602645761882,
+    "wilson": [
+     0.09520423869656534,
+     0.10439612278380404
+    ],
+    "cluster": [
+     0.09535745468083597,
+     0.10399250177725586
+    ],
+    "design_effect": 0.9360290388503918,
+    "n_scm": 2748,
+    "outcomes": {
+     "unchanged": 14237,
+     "not_amenable": 3412,
+     "silent_bias": 1628,
+     "changed_valid": 463
+    }
+   },
+   "ratio_hop0_over_hop1p": 4.585674848502869
+  },
+  "S0": {
+   "hop0": {
+    "label": "hop 0",
+    "k": 69,
+    "n": 493,
+    "rate": 0.13995943204868155,
+    "wilson": [
+     0.11210941878183439,
+     0.17337693969833323
+    ],
+    "cluster": [
+     0.10381158133483367,
+     0.17948979591836736
+    ],
+    "design_effect": 1.5546750820136443,
+    "n_scm": 191,
+    "outcomes": {
+     "baseline_unusable": 10693,
+     "unchanged": 307,
+     "silent_bias": 69,
+     "not_amenable": 410,
+     "changed_valid": 117
+    }
+   },
+   "hop1": {
+    "label": "hop 1",
+    "k": 2,
+    "n": 711,
+    "rate": 0.0028129395218002813,
+    "wilson": [
+     0.0007717487216872161,
+     0.01019775888581855
+    ],
+    "cluster": [
+     0.0,
+     0.00711262882315514
+    ],
+    "design_effect": 0.9928850461969682,
+    "n_scm": 218,
+    "outcomes": {
+     "baseline_unusable": 5536,
+     "unchanged": 704,
+     "not_amenable": 18,
+     "changed_valid": 5,
+     "silent_bias": 2
+    }
+   },
+   "hop2p": {
+    "label": "hop >= 2",
+    "k": 0,
+    "n": 272,
+    "rate": 0.0,
+    "wilson": [
+     0.0,
+     0.013926328685751324
+    ],
+    "cluster": [
+     0.0,
+     0.0
+    ],
+    "design_effect": NaN,
+    "n_scm": 148,
+    "outcomes": {
+     "baseline_unusable": 1607,
+     "unchanged": 272
+    }
+   },
+   "hop1p": {
+    "label": "hop >= 1",
+    "k": 2,
+    "n": 983,
+    "rate": 0.002034587995930824,
+    "wilson": [
+     0.0005581348475457671,
+     0.007387881962555533
+    ],
+    "cluster": [
+     0.0,
+     0.005149463301729539
+    ],
+    "design_effect": 1.0036703437721561,
+    "n_scm": 224,
+    "outcomes": {
+     "baseline_unusable": 7143,
+     "unchanged": 976,
+     "not_amenable": 18,
+     "changed_valid": 5,
+     "silent_bias": 2
+    }
+   },
+   "all": {
+    "label": "all",
+    "k": 71,
+    "n": 1476,
+    "rate": 0.048102981029810296,
+    "wilson": [
+     0.038310730544492584,
+     0.060241352823219775
+    ],
+    "cluster": [
+     0.03486731282371009,
+     0.061611374407582936
+    ],
+    "design_effect": 1.5044922693751193,
+    "n_scm": 224,
+    "outcomes": {
+     "baseline_unusable": 17836,
+     "unchanged": 1283,
+     "not_amenable": 428,
+     "silent_bias": 71,
+     "changed_valid": 122
+    }
+   },
+   "ratio_hop0_over_hop1p": 68.79006085192698
+  },
+  "rel_bias_SK": {
+   "h1p": {
+    "n": 274,
+    "median": 0.5757376513609553,
+    "q90": 2.5408421277651487,
+    "max": 49.05309614817206
+   },
+   "h0": {
+    "n": 1354,
+    "median": 0.6134839652958213,
+    "q90": 2.8602649894217076,
+    "max": 228.14291551136074
+   }
+  },
+  "weight_deleted_edge": {
+   "silent": {
+    "n": 1628,
+    "median": 0.6825346879876871
+   },
+   "not_silent": {
+    "n": 14700,
+    "median": 0.6600339965854461
+   }
+  }
+ },
+ "licensed": {
+  "n_drawn": 16000,
+  "n_returned": 7468,
+  "n_analysed": 3853,
+  "status": {
+   "ok": 3853,
+   "drop_nonamenable": 3615
+  },
+  "cpdag_amenable": {
+   "k": 652,
+   "n": 3853
+  },
+  "n_perturbations": 47395,
+  "SK": {
+   "hop0": {
+    "label": "hop 0",
+    "k": 2984,
+    "n": 18215,
+    "rate": 0.1638210266264068,
+    "wilson": [
+     0.15851713973193676,
+     0.16926668078807844
+    ],
+    "cluster": [
+     0.15862748507688545,
+     0.16920807549368597
+    ],
+    "design_effect": 0.9762513965960519,
+    "n_scm": 3693,
+    "outcomes": {
+     "unchanged": 14145,
+     "not_amenable": 4396,
+     "silent_bias": 2984,
+     "changed_valid": 1086
+    }
+   },
+   "hop1": {
+    "label": "hop 1",
+    "k": 551,
+    "n": 20447,
+    "rate": 0.026947718491710276,
+    "wilson": [
+     0.024815469383793594,
+     0.029257682620606268
+    ],
+    "cluster": [
+     0.02455423597738502,
+     0.02939888716917927
+    ],
+    "design_effect": 1.24173415969955,
+    "n_scm": 3503,
+    "outcomes": {
+     "unchanged": 19727,
+     "not_amenable": 844,
+     "silent_bias": 551,
+     "changed_valid": 169
+    }
+   },
+   "hop2p": {
+    "label": "hop >= 2",
+    "k": 1,
+    "n": 3493,
+    "rate": 0.000286286859433152,
+    "wilson": [
+     5.0538448142405166e-05,
+     0.001619957309095657
+    ],
+    "cluster": [
+     0.0,
+     0.0008823594309745081
+    ],
+    "design_effect": 1.0347045446064387,
+    "n_scm": 1646,
+    "outcomes": {
+     "unchanged": 3489,
+     "changed_valid": 3,
+     "silent_bias": 1
+    }
+   },
+   "hop1p": {
+    "label": "hop >= 1",
+    "k": 552,
+    "n": 23940,
+    "rate": 0.02305764411027569,
+    "wilson": [
+     0.021231575446466977,
+     0.025036750407844734
+    ],
+    "cluster": [
+     0.020983387504882035,
+     0.025269318208702138
+    ],
+    "design_effect": 1.278402066630614,
+    "n_scm": 3768,
+    "outcomes": {
+     "unchanged": 23216,
+     "not_amenable": 844,
+     "silent_bias": 552,
+     "changed_valid": 172
+    }
+   },
+   "all": {
+    "label": "all",
+    "k": 3536,
+    "n": 42155,
+    "rate": 0.08388091566836674,
+    "wilson": [
+     0.08127242948829975,
+     0.0865652343083236
+    ],
+    "cluster": [
+     0.08107388804721886,
+     0.08653734265982356
+    ],
+    "design_effect": 1.0496415869733142,
+    "n_scm": 3853,
+    "outcomes": {
+     "unchanged": 37361,
+     "not_amenable": 5240,
+     "silent_bias": 3536,
+     "changed_valid": 1258
+    }
+   },
+   "ratio_hop0_over_hop1p": 7.104846698253946
+  },
+  "S0": {
+   "hop0": {
+    "label": "hop 0",
+    "k": 733,
+    "n": 3205,
+    "rate": 0.22870514820592824,
+    "wilson": [
+     0.21449440794012128,
+     0.24356544876619504
+    ],
+    "cluster": [
+     0.21130787491080721,
+     0.24571794129044874
+    ],
+    "design_effect": 1.3998334058772017,
+    "n_scm": 611,
+    "outcomes": {
+     "baseline_unusable": 18290,
+     "silent_bias": 733,
+     "not_amenable": 1116,
+     "changed_valid": 381,
+     "unchanged": 2091
+    }
+   },
+   "hop1": {
+    "label": "hop 1",
+    "k": 80,
+    "n": 4806,
+    "rate": 0.016645859342488557,
+    "wilson": [
+     0.013395661480737987,
+     0.020668134638825962
+    ],
+    "cluster": [
+     0.012366765982585234,
+     0.021325626408536795
+    ],
+    "design_effect": 1.521498337479756,
+    "n_scm": 637,
+    "outcomes": {
+     "baseline_unusable": 16392,
+     "unchanged": 4680,
+     "silent_bias": 80,
+     "changed_valid": 46,
+     "not_amenable": 93
+    }
+   },
+   "hop2p": {
+    "label": "hop >= 2",
+    "k": 0,
+    "n": 725,
+    "rate": 0.0,
+    "wilson": [
+     0.0,
+     0.005270637083282582
+    ],
+    "cluster": [
+     0.0,
+     0.0
+    ],
+    "design_effect": NaN,
+    "n_scm": 334,
+    "outcomes": {
+     "baseline_unusable": 2768,
+     "unchanged": 725
+    }
+   },
+   "hop1p": {
+    "label": "hop >= 1",
+    "k": 80,
+    "n": 5531,
+    "rate": 0.014463930573133249,
+    "wilson": [
+     0.0116375237296896,
+     0.017964310404075045
+    ],
+    "cluster": [
+     0.010777450015468135,
+     0.018538036802654295
+    ],
+    "design_effect": 1.5317255800126768,
+    "n_scm": 652,
+    "outcomes": {
+     "baseline_unusable": 19160,
+     "unchanged": 5405,
+     "silent_bias": 80,
+     "changed_valid": 46,
+     "not_amenable": 93
+    }
+   },
+   "all": {
+    "label": "all",
+    "k": 813,
+    "n": 8736,
+    "rate": 0.09306318681318682,
+    "wilson": [
+     0.08714863147346118,
+     0.09933546740865011
+    ],
+    "cluster": [
+     0.0860251551726239,
+     0.09980722913783385
+    ],
+    "design_effect": 1.2852071520731332,
+    "n_scm": 652,
+    "outcomes": {
+     "baseline_unusable": 37450,
+     "unchanged": 7496,
+     "silent_bias": 813,
+     "not_amenable": 1209,
+     "changed_valid": 427
+    }
+   },
+   "ratio_hop0_over_hop1p": 15.812102184087363
+  },
+  "rel_bias_SK": {
+   "h0": {
+    "n": 2984,
+    "median": 0.47492886581820604,
+    "q90": 2.133781580009142,
+    "max": 1496.1300119351895
+   },
+   "h1p": {
+    "n": 552,
+    "median": 0.3855265359089563,
+    "q90": 1.749255304283108,
+    "max": 1204.1574009738758
+   }
+  },
+  "weight_deleted_edge": {
+   "silent": {
+    "n": 3536,
+    "median": 0.572572095385049
+   },
+   "not_silent": {
+    "n": 38619,
+    "median": 0.5582529157214613
+   }
+  }
+ },
+ "large": {
+  "n_drawn": 4800,
+  "n_returned": 3826,
+  "n_analysed": 3120,
+  "status": {
+   "ok": 3120,
+   "drop_nonamenable": 706
+  },
+  "cpdag_amenable": {
+   "k": 1740,
+   "n": 3120
+  },
+  "n_perturbations": 62985,
+  "SK": {
+   "hop0": {
+    "label": "hop 0",
+    "k": 728,
+    "n": 10145,
+    "rate": 0.07175948743223262,
+    "wilson": [
+     0.06689773983069439,
+     0.07694542342533398
+    ],
+    "cluster": [
+     0.0662035934401201,
+     0.0772379197634583
+    ],
+    "design_effect": 1.2400361278405314,
+    "n_scm": 2898,
+    "outcomes": {
+     "unchanged": 6724,
+     "not_amenable": 4679,
+     "changed_valid": 2693,
+     "silent_bias": 728
+    }
+   },
+   "hop1": {
+    "label": "hop 1",
+    "k": 305,
+    "n": 17367,
+    "rate": 0.017562042955029653,
+    "wilson": [
+     0.015712480286586866,
+     0.019624982223554986
+    ],
+    "cluster": [
+     0.015193727140970207,
+     0.02013353360697108
+    ],
+    "design_effect": 1.5979029304801997,
+    "n_scm": 2909,
+    "outcomes": {
+     "not_amenable": 654,
+     "unchanged": 16325,
+     "changed_valid": 737,
+     "silent_bias": 305
+    }
+   },
+   "hop2p": {
+    "label": "hop >= 2",
+    "k": 14,
+    "n": 30129,
+    "rate": 0.00046466859172226093,
+    "wilson": [
+     0.0002768243919030777,
+     0.0007798784372744631
+    ],
+    "cluster": [
+     0.000233441105538057,
+     0.0007284074782516137
+    ],
+    "design_effect": 1.006913844342214,
+    "n_scm": 3115,
+    "outcomes": {
+     "unchanged": 30060,
+     "silent_bias": 14,
+     "changed_valid": 55,
+     "not_amenable": 11
+    }
+   },
+   "hop1p": {
+    "label": "hop >= 1",
+    "k": 319,
+    "n": 47496,
+    "rate": 0.006716355061478861,
+    "wilson": [
+     0.006020642756287086,
+     0.007491854109142018
+    ],
+    "cluster": [
+     0.005815665530810543,
+     0.0077177472449135075
+    ],
+    "design_effect": 1.7211675521760528,
+    "n_scm": 3120,
+    "outcomes": {
+     "unchanged": 46385,
+     "not_amenable": 665,
+     "changed_valid": 792,
+     "silent_bias": 319
+    }
+   },
+   "all": {
+    "label": "all",
+    "k": 1047,
+    "n": 57641,
+    "rate": 0.018164153987612983,
+    "wilson": [
+     0.01710561913279462,
+     0.019286908034086617
+    ],
+    "cluster": [
+     0.01670982026043955,
+     0.01965911975889166
+    ],
+    "design_effect": 1.814870513885385,
+    "n_scm": 3120,
+    "outcomes": {
+     "unchanged": 53109,
+     "not_amenable": 5344,
+     "changed_valid": 3485,
+     "silent_bias": 1047
+    }
+   },
+   "ratio_hop0_over_hop1p": 10.684290329408528
+  },
+  "S0": {
+   "hop0": {
+    "label": "hop 0",
+    "k": 321,
+    "n": 5687,
+    "rate": 0.056444522595393,
+    "wilson": [
+     0.05074056126748386,
+     0.06274730577187151
+    ],
+    "cluster": [
+     0.04966481218235797,
+     0.06315235634383932
+    ],
+    "design_effect": 1.280779727095221,
+    "n_scm": 1640,
+    "outcomes": {
+     "unchanged": 3576,
+     "not_amenable": 2924,
+     "changed_valid": 1790,
+     "baseline_unusable": 6213,
+     "silent_bias": 321
+    }
+   },
+   "hop1": {
+    "label": "hop 1",
+    "k": 106,
+    "n": 10256,
+    "rate": 0.010335413416536661,
+    "wilson": [
+     0.008553205960376656,
+     0.012484298340932865
+    ],
+    "cluster": [
+     0.007925742082729056,
+     0.012959502181695254
+    ],
+    "design_effect": 1.6212411122702477,
+    "n_scm": 1685,
+    "outcomes": {
+     "not_amenable": 427,
+     "unchanged": 9672,
+     "changed_valid": 478,
+     "baseline_unusable": 7338,
+     "silent_bias": 106
+    }
+   },
+   "hop2p": {
+    "label": "hop >= 2",
+    "k": 1,
+    "n": 17146,
+    "rate": 5.8322640849177654e-05,
+    "wilson": [
+     1.0295452407733843e-05,
+     0.0003303175401216917
+    ],
+    "cluster": [
+     0.0,
+     0.0001769089586023567
+    ],
+    "design_effect": 1.0394361702361952,
+    "n_scm": 1739,
+    "outcomes": {
+     "unchanged": 17129,
+     "baseline_unusable": 12991,
+     "changed_valid": 16,
+     "not_amenable": 3,
+     "silent_bias": 1
+    }
+   },
+   "hop1p": {
+    "label": "hop >= 1",
+    "k": 107,
+    "n": 27402,
+    "rate": 0.0039048244653674914,
+    "wilson": [
+     0.003232718442142496,
+     0.004716005159284486
+    ],
+    "cluster": [
+     0.0029984897865863603,
+     0.00488092279354135
+    ],
+    "design_effect": 1.643981588848402,
+    "n_scm": 1740,
+    "outcomes": {
+     "unchanged": 26801,
+     "not_amenable": 430,
+     "changed_valid": 494,
+     "baseline_unusable": 20329,
+     "silent_bias": 107
+    }
+   },
+   "all": {
+    "label": "all",
+    "k": 428,
+    "n": 33089,
+    "rate": 0.012934812173229775,
+    "wilson": [
+     0.01177263702502062,
+     0.014210065605415143
+    ],
+    "cluster": [
+     0.011355642374283088,
+     0.014520337684762928
+    ],
+    "design_effect": 1.700386075545547,
+    "n_scm": 1740,
+    "outcomes": {
+     "unchanged": 30377,
+     "not_amenable": 3354,
+     "changed_valid": 2284,
+     "baseline_unusable": 26542,
+     "silent_bias": 428
+    }
+   },
+   "ratio_hop0_over_hop1p": 14.455072973448216
+  },
+  "rel_bias_SK": {
+   "h0": {
+    "n": 728,
+    "median": 0.48173293041015885,
+    "q90": 2.1462351388874046,
+    "max": 92.26707999991261
+   },
+   "h1p": {
+    "n": 319,
+    "median": 0.42951528632743696,
+    "q90": 1.649371227125759,
+    "max": 76.8583529929135
+   }
+  },
+  "weight_deleted_edge": {
+   "silent": {
+    "n": 1047,
+    "median": 0.5675467386628736
+   },
+   "not_silent": {
+    "n": 56594,
+    "median": 0.6027526507857222
+   }
+  }
+ },
+ "_verdict": {
+  "rule": "arm SK, ensemble licensed",
+  "r_hop0": 0.1638210266264068,
+  "r_hop1p": 0.02305764411027569,
+  "ratio": 7.104846698253946,
+  "verdict": "INCONCLUSIVE"
+ },
+ "_gates": {
+  "G1_placebo": "0.0000 by construction (eligibility requires the unperturbed O* to be valid in D)",
+  "G3_dynamic_range": {
+   "overall_rate": 0.08388091566836674,
+   "ok": true
+  },
+  "G4_hop_mass": {
+   "n_hop1p": 23940,
+   "ok": true
+  },
+  "G5_not_amenable_reported": true
+ }
+}

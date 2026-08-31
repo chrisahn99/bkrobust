@@ -10,6 +10,7 @@ is the source.
 records the four corrections we applied to ourselves and the three things that have never been run.
 
 ```
+x3_skeleton/ 2026-08-31  skeleton perturbation + the worked example (see its own README)
 pilot/      2026-07-17   600 + 1 650 + 60 SCMs, iSCM, closed-form linear SEMs
 e1prime/    2026-08-19   the `se` criterion, the censoring floor, calibration and coverage (ARM 2)
 locality/x1 2026-08-19   hop-distance stratification, operator arms, pool composition

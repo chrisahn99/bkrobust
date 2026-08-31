@@ -219,6 +219,70 @@ failed the pre-registered 3× bar. Both belong in the paper.
 
 ---
 
+## 7b. Since writing the above: your second research question now has a measurement
+
+You posted two research questions for Thursday. The first one, *the ground truth is not known*, is
+answered by section 4.3 of your own document plus the calibration run in section 6 above: the ball is
+centred on the analyst's graph precisely so that no truth is needed, and where the truth is known by
+construction the certificate predicts validity correctly.
+
+The second one had no answer, because every run in this line uses the oracle CPDAG. It has one now.
+`x3_skeleton/` perturbs the **skeleton** instead of the orientations, on 9 721 SCMs and 130 120
+single-edge deletions, and asks whether damage obeys the same locality law.
+
+**The pre-registered rule returns INCONCLUSIVE.** It wanted `r(hop 0)/r(hop >= 1) >= 5` and
+`r(hop >= 1) < 0.02`. The ratio is 7.10, which clears; `r(hop >= 1)` is 0.0231, which does not. A
+missed edge one hop from the query still breaks the adjustment set 2.3 % of the time.
+
+The cut that does separate is at **two** hops, and I am flagging it as post hoc because it is:
+
+| distance of the deleted edge from {X, Y} | silent bias |
+|---|---|
+| hop 0 | 5 066 / 36 829 = **0.1376** |
+| hop >= 2 | **15 / 35 501 = 0.000423** |
+
+That is 326-fold, and it needs re-registering and re-running before either of us writes it down.
+
+Three things from that run that do not depend on the verdict:
+
+1. **Your `Severity.EFFICIENCY` band is not empty.** I reported in section 5 that our operator
+   measured it at 0/754. Under skeleton perturbation `changed_valid` runs **2.35 / 2.65 / 5.53 %**
+   across the three ensembles. The band exists and our instrument was the wrong one. That is a
+   correction to my side of the August 20 comparison, not to yours.
+2. **The CPDAG alone is amenable for the query in 8.2 / 16.9 / 55.8 % of problems.** On most of them
+   there is no adjustment set to be robust about until knowledge arrives, which is a cleaner argument
+   for the framework than any robustness number.
+3. **Weak edges are not the safe ones.** The median absolute weight of the deleted edge is
+   indistinguishable between damaging and harmless deletions. Distance predicts damage; strength does
+   not. The comfortable version of the finite-sample story does not survive the measurement.
+
+And one structural remark, from building the worked example rather than from the run. If `G'` refines
+`G` then `[G'] ⊆ [G]`, so a `Z` valid in every DAG of `[G]` is valid in every DAG of `[G']`. Orienting
+one more edge can therefore never invalidate a fixed valid `Z`: for `r_val`, only the upward moves
+bind. The downward move earns its place through `r_eps`. That removes a direction from the search and
+it belongs in section 8.
+
+## 7c. The concrete use case for Thursday
+
+`x3_skeleton/results/worked_example.txt` walks one problem end to end: CPDAG, `K`, `G0`, `O*`, the
+estimate, `r_val` with its witness, then `r_eps`. Synthetic, from the same generator as everything
+else, with names attached by topological position so the witness is arguable in words.
+
+It lands on the case that justifies reporting two radii:
+
+    r_val = 2      the adjustment set stops being provably valid here
+    r_eps > 2      the estimate does not move at all until r = 3
+
+The middle row of your section 5 table, fragile identification with a stable estimate. One number
+would have called this analysis fragile at `r = 2` while the quantity it was alarmed about had not
+moved by 1e-9. At `r = 3` it moves by 0.4520 against an effect of -0.4191.
+
+The witness reads:
+
+> "The estimate holds unless `BMI -> BloodPressure` is retracted and `Exercise -> BMI` is retracted."
+
+That is the output a domain expert can argue with, and it is what I would put on the slide.
+
 ## 8. What I need from you, and what I owe you
 
 From you, in order of value before the 18 September abstract:
