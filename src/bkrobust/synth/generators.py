@@ -176,72 +176,104 @@ def decoupled_backdoor_dag(n: int, rng: np.random.Generator, coupling: float) ->
     Builds treatment ``X`` and outcome ``Y`` confounded through **two**
     separate chains ``C1_0 -> C1_1 -> ... -> C1_{g1-1}`` and
     ``C2_0 -> ... -> C2_{g2-1}`` (each of length >= 2, splitting the
-    ``n - 2`` remaining nodes as evenly as possible; requires ``n >= 6``).
-    The last node of each chain directly confounds ``X`` and ``Y``:
+    ``n - 3`` remaining nodes as evenly as possible; requires ``n >= 7`` --
+    two chains of length >= 2, plus ``X``, ``Y``, and the ``W`` node below).
+    The last node of each chain directly confounds ``X`` and ``Y``, and a
+    dedicated node ``W`` is Y's fourth parent:
 
-        C1_last -> X,  C1_last -> Y,  C2_last -> X,  C2_last -> Y,  X -> Y
+        C1_last -> X,  C1_last -> Y,  C2_last -> X,  C2_last -> Y,
+        X -> Y,        W -> Y
 
-    Two structural facts, both load-bearing and verified directly in
-    ``tests/synth/test_generators.py``:
+    ``W`` has no other edge at all -- it exists purely to force ``X -> Y``.
 
-    1. **The X-Y edge is always ambiguous.** Because ``{C1_last, C2_last}``
-       are each adjacent to both ``X`` and ``Y``, neither pair is unshielded
-       at ``Y``, so ``X -> Y`` is never marked by a v-structure and Meek's
-       rules never force it either -- the CPDAG leaves it undirected. This is
-       what keeps every instance from this family non-degenerate: the space
-       always contains a reachable graph with ``Y -> X`` instead, at which
-       point the optimal set (fixed from ``G0``) is no longer valid, so
-       ``r_val`` and ``r_opt`` are finite whenever ``K_assumed`` orients
-       ``X - Y``.
-    2. **Coupling controls whether C1_last and C2_last are adjacent.** At
-       ``coupling = 0.0`` they are not: {C1_last, C2_last} are then each
-       other's only non-adjacent co-parent of ``X`` (and of ``Y``), so those
-       four confounding edges get marked by a v-structure and are compelled
-       -- frozen for the whole space. The two chains, having no edges to one
-       another, end up as genuinely separate undirected (chordal) components
-       of the CPDAG; ``C1_last``'s blocking role and ``C2_last``'s sit in
-       different components (three components total: chain 1, chain 2, and
-       the ``{X, Y}`` pair -- see point 1). Raising ``coupling`` adds cross
-       edges, **all sourced from C1_last**, into a suffix of chain 2 taken
-       tail-first: ``C1_last -> C2_last``, then ``C1_last -> C2_{g2-2}``,
-       and so on. ``n_cross = round(coupling * g2)`` of these are added.
-       Fanning every cross edge out of the *same single node* (rather than a
-       complete bipartite join between the two chains) is deliberate and
-       empirically load-bearing: a complete join creates fresh unshielded
-       colliders deep in chain 2 whenever a chain has length >= 3 (two
-       non-adjacent chain interior nodes both feeding the same chain-2 node)
-       and those get compelled and cascade, silently undoing the very merge
-       coupling is supposed to produce. The single-source fan-out never has
-       that problem, because by the time a chain-2 node has C1_last as a
-       parent, so does its own chain predecessor (added one step earlier in
-       the tail-first order) -- so the two are always adjacent and no new
-       v-structure fires. Empirically (see the generator test) this makes
-       the merge monotonic in ``n_cross`` for every chain-length combination
-       tried: 0 cross edges give three components, ``1..g2-1`` give two
-       (``{X, Y}`` joins chain 1 through the critical edge; chain 2 stays
-       separate), and ``g2`` (all of chain 2, i.e. ``coupling = 1.0``) give
-       one -- the regime the prior worked example lives in.
+    Revision history, because the first version of this docstring described a
+    design that turned out to be broken and it matters why: the original
+    construction omitted ``W`` and relied on ``X - Y`` staying *undirected* in
+    the CPDAG for the family's non-degeneracy (a reachable ``Y -> X`` graph
+    elsewhere in the space, invalidating the fixed optimal set). That is a
+    real mechanism, but it has a fatal cost: with ``X - Y`` undirected,
+    ``all_valid_adjustment_sets_mpdag(cpdag, "X", "Y")`` is **empty**, because
+    some CPDAG extensions have ``Y -> X`` and others ``X -> Y``, and no single
+    adjustment set is valid for both an "X causes Y" world and a "Y causes X"
+    world at once. Concretely: this made the degeneracy gate reject every
+    single instance from this generator with
+    ``reason="no_valid_adjustment_set"`` (checked against the true DAG) or, at
+    the CPDAG level relevant to identification at ``G0``, zero valid sets
+    outright -- the family was unusable. Fixed here the same way the prior
+    worked example avoids the analogous problem for its own treatment/outcome
+    edge (``Age -> CVD`` there): give ``Y`` a parent, ``W``, that is adjacent
+    to nothing else, so ``(X, W)`` is an unshielded pair at ``Y`` and
+    ``X -> Y`` is compelled. Verified directly in
+    ``tests/synth/test_generators.py``: ``("X", "Y")`` is always in
+    ``cpdag.directed_edges``, and
+    ``len(all_valid_adjustment_sets_mpdag(cpdag, "X", "Y")) >= 2`` at every
+    tested coupling.
+
+    A second consequence of forcing full identification at the bare-CPDAG
+    level, found while fixing the first bug and worth stating plainly rather
+    than glossing over: it also forces ``C1_last -> X``, ``C2_last -> X``,
+    ``C1_last -> Y`` and ``C2_last -> Y`` to be compelled **unconditionally**,
+    for the same reason (any residual ambiguity in a confounder's edge into
+    ``X`` lets some extension make it a descendant of ``X`` instead of an
+    ancestor, which breaks CPDAG-level identification exactly as the ``X - Y``
+    ambiguity did). Since the Henckel-Perkovic-Maathuis optimal set is a pure
+    function of that compelled backbone (``O = pa(Y) \\ {X}`` here, because
+    ``Y`` is ``X``'s only causal descendant), ``O`` is therefore *structurally
+    invariant across the entire perturbation space* for this family, no
+    matter what background knowledge does to the chain interiors: every
+    element of the space keeps the same ``O``, so ``r_val``, ``r_opt`` and
+    ``r_eps`` all come out ``UNREACHED`` and every instance is rejected by the
+    degeneracy gate's sanity check
+    (``reason="no_atomic_perturbation_changes_validity"``). This is not a
+    residual bug to chase further; it is the other side of the same coin as
+    the fix above, confirmed by exhausting the plausible alternative
+    placements of the remaining ambiguity (see the session notes) -- CPDAG-
+    level identification and a perturbable ``(X, Y)`` radius are in tension
+    for any "two disjoint DIRECT confounder groups" construction of this
+    shape. What the family *does* still deliver, and what the tests below
+    check, is the CPDAG-structural claim it was built for: two backdoor
+    routes whose blocking nodes provably sit in different chordal components
+    at ``coupling=0`` and the same component at ``coupling=1``, with each
+    chain's interior still genuinely perturbable (background knowledge can
+    still be wrong about it) even though that perturbability does not reach
+    ``(X, Y)``'s own radius.
+
+    Coupling mechanism, unchanged in spirit from before but now sourced away
+    from the compelled backbone: cross edges run from ``C1_{g1-2}`` (chain
+    1's second-to-last node -- never ``C1_last`` itself, so ``C1_last``'s
+    edges to ``X``/``Y`` are untouched) into a tail-first suffix of chain 2,
+    ``round(coupling * g2)`` of them. At ``coupling=0`` the two chains share
+    no edge and end up in different undirected components; at ``coupling=1``
+    every edge is added and ``C1_{g1-2}`` (hence, transitively via the chain
+    edge, ``C1_last``) becomes adjacent to every node of chain 2 (hence
+    ``C2_last``), merging the two chains' components into one. Sourcing every
+    cross edge from the single fixed node ``C1_{g1-2}`` (rather than a
+    complete bipartite join) avoids the same fresh-collider cascade described
+    in the previous revision of this docstring: whenever a chain-2 node
+    ``C2_j`` gets the cross edge, so does its chain predecessor ``C2_{j-1}``
+    (added one step earlier in the tail-first order), so the two are always
+    adjacent and no new v-structure fires at ``C2_j``.
 
     Args:
-        n: Number of nodes; must be >= 6 (two confounder chains of length
-            >= 2, plus X and Y).
+        n: Number of nodes; must be >= 7 (two confounder chains of length
+            >= 2, plus X, Y and W).
         rng: Sole source of randomness (unused: the construction is
             deterministic given ``(n, coupling)``; kept in the signature for
             interface uniformity with the other generators and the
             :data:`GENERATORS` registry).
         coupling: In ``[0, 1]``. Fraction of chain 2, counting from its tail,
-            that gets a direct edge from ``C1_last``; see above.
+            that gets a direct edge from ``C1_{g1-2}``; see above.
 
     Returns:
         A fully oriented, acyclic :class:`MPDAG` on ``n`` nodes.
     """
-    if n < 6:
-        raise ValueError(f"decoupled_backdoor_dag requires n >= 6, got {n}")
+    if n < 7:
+        raise ValueError(f"decoupled_backdoor_dag requires n >= 7, got {n}")
     if not (0.0 <= coupling <= 1.0):
         raise ValueError(f"coupling must be in [0, 1], got {coupling}")
     del rng  # reserved; the construction is otherwise deterministic given (n, coupling)
 
-    remaining = n - 2
+    remaining = n - 3
     g1 = -(-remaining // 2)  # ceil
     g2 = remaining - g1
     if g2 < 2:
@@ -249,7 +281,7 @@ def decoupled_backdoor_dag(n: int, rng: np.random.Generator, coupling: float) ->
 
     c1 = [f"C1_{i}" for i in range(g1)]
     c2 = [f"C2_{j}" for j in range(g2)]
-    nodes = ["X", "Y", *c1, *c2]
+    nodes = ["X", "Y", "W", *c1, *c2]
 
     directed: list[Edge] = []
     for i in range(g1 - 1):
@@ -261,11 +293,13 @@ def decoupled_backdoor_dag(n: int, rng: np.random.Generator, coupling: float) ->
     directed.append((c2[-1], "X"))
     directed.append((c2[-1], "Y"))
     directed.append(("X", "Y"))
+    directed.append(("W", "Y"))
 
+    cross_source = c1[g1 - 2]
     n_cross = round(coupling * g2)
     for k in range(n_cross):
         j = g2 - 1 - k
-        directed.append((c1[-1], c2[j]))
+        directed.append((cross_source, c2[j]))
 
     return MPDAG(nodes, directed=directed)
 

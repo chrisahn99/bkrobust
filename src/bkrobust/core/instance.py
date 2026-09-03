@@ -13,6 +13,7 @@ scaling plot uses it on the abscissa.
 
 from __future__ import annotations
 
+import json
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
@@ -156,8 +157,11 @@ class Instance:
             row[f"desc_{k}"] = v
         for k, v in self.r_eps.items():
             row[f"r_eps_{k}"] = v
-        for k, v in self.params.items():
-            row[f"param_{k}"] = v
+        # Params go in ONE stable column, not exploded into param_<key>.
+        # Exploding them makes the header depend on which generator produced the
+        # row, so a heterogeneous grid drifts schema mid-run. The results
+        # contract's strict guard caught exactly that; see LOG.md.
+        row["params_json"] = json.dumps(self.params, sort_keys=True, default=str)
         for k, v in self.timings.items():
             row[f"time_{k}"] = v
         return row

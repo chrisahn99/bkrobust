@@ -76,7 +76,14 @@ def h2_frontier(df: pd.DataFrame, by: str | None = None) -> dict[str, Any]:
     return out
 
 
-def h3_coupling(df: pd.DataFrame, coupling_col: str = "param_coupling") -> dict[str, Any]:
+def _coupling_series(df: pd.DataFrame) -> pd.Series:
+    """Extract the coupling parameter from the stable params_json column."""
+    import json as _json
+
+    return df["params_json"].map(lambda s: _json.loads(s).get("coupling"))
+
+
+def h3_coupling(df: pd.DataFrame, coupling_col: str = "coupling") -> dict[str, Any]:
     """H3: the frontier statistic as a function of the coupling parameter.
 
     The key designed test. If the fraction with a strictly more robust set does
@@ -84,8 +91,11 @@ def h3_coupling(df: pd.DataFrame, coupling_col: str = "param_coupling") -> dict[
     flat frontier is wrong or incomplete -- which is a more important finding
     than a confirmation.
     """
-    if coupling_col not in df.columns:
-        return {"error": f"missing column {coupling_col}"}
+    if "params_json" not in df.columns:
+        return {"error": "missing column params_json"}
+    df = df.assign(**{coupling_col: _coupling_series(df)})
+    if df[coupling_col].isna().all():
+        return {"error": "no coupling parameter present in params_json"}
     out: dict[str, Any] = {}
     for c, g in df.groupby(coupling_col):
         both = g[(g["r_val"] != UNREACHED) & (g["best_r_val"] != UNREACHED)]

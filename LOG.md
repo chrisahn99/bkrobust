@@ -166,3 +166,36 @@ space enumeration that every result so far rests on (including S2's
 chain-space-is-6 result and the 1.985M-comparison conjecture sweep) and would
 require re-running all of it. The instances are recorded as a rejection reason
 so the rate stays visible, and the question is carried to NEXT.md.
+
+## Axis A first run — two gate bugs found, partial results kept
+
+Main grid (864-point pilot, then 8,640-point run) over the three healthy
+generators. The run crashed at grid index 4934 but incremental writing preserved
+377 rows, which is what that design is for.
+
+Two defects found by inspecting the output rather than trusting it:
+
+1. **`g0_not_in_space` crash** (0.09% of Meek closures) — recorded above.
+2. **34/377 rows (9%) had `r_val == 0`**, which the frozen convention forbids.
+   All had `Z = {}`: the runner proposed target pairs with no causal path from X
+   to Y, so `cn(X,Y)` is empty, `O*` is empty, and the empty set is not valid
+   because a back-door path is open. The convention document already anticipated
+   this ("r = 0 ... gated out at generation time"); the runner's gate was
+   incomplete. Sent back with two new required gate reasons (`no_causal_path`,
+   `z_invalid_at_g0`).
+
+Preliminary H1 on the surviving rows, **after excluding the 34 invalid ones**
+(340 finite instances, Erdos-Renyi, n=6..9):
+
+    r_val = 1 : 272  (80.0%)
+    r_val = 2 :  58  (17.1%)
+    r_val = 3 :   8  ( 2.4%)
+    r_val = 4 :   2  ( 0.6%)
+    UNREACHED :   3
+
+Against the exhaustive n<=4 census (90.9% at r=1) this is a lower saturation
+rate, in the direction H1 predicted: mass at r >= 2 grows with graph size. Not
+yet a claim -- the run must be redone once the gates are fixed.
+
+Preliminary H5 (middle regime, r_eps > r_val) is strongly epsilon-dependent:
+0.0% at eps=0.02 and 0.05, 0.8% at 0.1, 16.3% at 0.2.

@@ -9,9 +9,23 @@ decoupled_backdoor_dag gets the sharpest scrutiny: it is "the key designed
 family" per the brief, and the whole point of the family is the claim that
 its two confounder-group blocking nodes sit in different undirected CPDAG
 components at coupling=0.0 and the same component at coupling=1.0. That claim
-is checked directly, plus a non-degeneracy check (a finite r_val is
-reachable) since a generator whose radius is always UNREACHED would be
-useless to the runner.
+is checked directly.
+
+decoupled_backdoor_dag also carries a second round of tests added after a
+review found the first version unusable: with the treatment/outcome edge
+left ambiguous in the CPDAG, `all_valid_adjustment_sets_mpdag(cpdag, X, Y)`
+was empty at every coupling level (some CPDAG extensions have Y causing X),
+so the degeneracy gate rejected essentially every instance. The fix adds a
+dedicated node W that forces X->Y to be compelled (mirroring how the prior
+worked example's own Age->CVD edge is compelled). The tests below assert
+exactly the properties a reviewer would want checked: X->Y is compelled,
+>=2 valid adjustment sets exist at the CPDAG level at every coupling, the
+component-separation claim still holds, and each confounder chain stays
+individually perturbable. A further test documents -- rather than hides --
+the fix's own cost: forcing CPDAG-level identification also freezes the
+optimal adjustment set across the whole perturbation space, so r_val/r_opt
+are UNREACHED for every instance of this family (see the generator's
+docstring "Revision history" section for the full argument).
 """
 
 from __future__ import annotations
@@ -20,9 +34,10 @@ import networkx as nx
 import numpy as np
 import pytest
 
-from bkrobust.core.oracle import is_valid
+from bkrobust.core.conventions import UNREACHED
+from bkrobust.core.oracle import is_optimal, is_valid
 from bkrobust.core.spacelib import build_space, distances_from, radius
-from bkrobust.demo.evaluate import optimal_adjustment_set_mpdag
+from bkrobust.demo.evaluate import all_valid_adjustment_sets_mpdag, optimal_adjustment_set_mpdag
 from bkrobust.demo.example import dag_to_cpdag, knowledge_to_recover
 from bkrobust.demo.graph import undirected_components
 from bkrobust.demo.meek import apply_orientations, is_valid_mpdag
@@ -216,13 +231,13 @@ def test_block_dag_reproducible_from_seed():
 
 
 def _chain_sizes(n: int) -> tuple[int, int]:
-    remaining = n - 2
+    remaining = n - 3  # X, Y, W
     g1 = -(-remaining // 2)
     g2 = remaining - g1
     return g1, g2
 
 
-@pytest.mark.parametrize("n", [6, 7, 8])
+@pytest.mark.parametrize("n", [7, 8, 9])
 def test_decoupled_backdoor_is_dag_with_right_node_count(n):
     rng = np.random.default_rng(0)
     dag = decoupled_backdoor_dag(n, rng, coupling=0.5)
@@ -230,7 +245,7 @@ def test_decoupled_backdoor_is_dag_with_right_node_count(n):
     assert len(dag.nodes) == n
 
 
-@pytest.mark.parametrize("n", [6, 7, 8])
+@pytest.mark.parametrize("n", [7, 8, 9])
 def test_decoupled_backdoor_acyclic_cross_checked_with_networkx(n):
     rng = np.random.default_rng(0)
     for coupling in (0.0, 0.3, 0.6, 1.0):
@@ -239,17 +254,18 @@ def test_decoupled_backdoor_acyclic_cross_checked_with_networkx(n):
 
 
 def test_decoupled_backdoor_rejects_too_small_n():
+    """n=6 used to work; adding the W node (see the generator docstring) raised the minimum to 7."""
     rng = np.random.default_rng(0)
     with pytest.raises(ValueError):
-        decoupled_backdoor_dag(5, rng, coupling=0.0)
+        decoupled_backdoor_dag(6, rng, coupling=0.0)
 
 
 def test_decoupled_backdoor_rejects_bad_coupling():
     rng = np.random.default_rng(0)
     with pytest.raises(ValueError):
-        decoupled_backdoor_dag(6, rng, coupling=1.5)
+        decoupled_backdoor_dag(7, rng, coupling=1.5)
     with pytest.raises(ValueError):
-        decoupled_backdoor_dag(6, rng, coupling=-0.1)
+        decoupled_backdoor_dag(7, rng, coupling=-0.1)
 
 
 def test_decoupled_backdoor_reproducible_from_seed():
@@ -258,7 +274,7 @@ def test_decoupled_backdoor_reproducible_from_seed():
     assert a == b
 
 
-@pytest.mark.parametrize("n", [6, 7, 8])
+@pytest.mark.parametrize("n", [7, 8, 9])
 def test_decoupled_backdoor_cpdag_is_valid(n):
     """The generated CPDAG must itself be a legitimate essential graph."""
     rng = np.random.default_rng(0)
@@ -268,7 +284,44 @@ def test_decoupled_backdoor_cpdag_is_valid(n):
         assert is_valid_mpdag(cpdag)
 
 
-@pytest.mark.parametrize("n", [6, 7, 8])
+# --- post-review fix: CPDAG-level identification (criteria 1-2) -------------
+#
+# A review of the original design found all_valid_adjustment_sets_mpdag(cpdag,
+# "X", "Y") empty at every coupling level, because the CPDAG left X-Y
+# undirected: some extensions have Y causing X, and no adjustment set is
+# valid in both an "X causes Y" and a "Y causes X" world. That made the
+# degeneracy gate reject essentially every instance from this family. The fix
+# (a dedicated node W, W -> Y, adjacent to nothing else) forces X -> Y to be
+# compelled via the unshielded (X, W) pair at Y. These two tests are exactly
+# the acceptance check for that fix: X -> Y compelled, and at least two valid
+# adjustment sets exist at the bare-CPDAG level, at every coupling swept.
+
+
+@pytest.mark.parametrize("n", [7, 8, 9])
+def test_decoupled_backdoor_xy_is_compelled_at_every_coupling(n):
+    rng = np.random.default_rng(0)
+    for coupling in (0.0, 0.25, 0.5, 0.75, 1.0):
+        dag = decoupled_backdoor_dag(n, rng, coupling=coupling)
+        cpdag = dag_to_cpdag(dag)
+        assert ("X", "Y") in cpdag.directed_edges, (
+            f"X->Y must be compelled at n={n}, coupling={coupling}"
+        )
+
+
+@pytest.mark.parametrize("n", [7, 8, 9])
+def test_decoupled_backdoor_has_at_least_two_valid_adjustment_sets_at_cpdag_level(n):
+    rng = np.random.default_rng(0)
+    for coupling in (0.0, 0.25, 0.5, 0.75, 1.0):
+        dag = decoupled_backdoor_dag(n, rng, coupling=coupling)
+        cpdag = dag_to_cpdag(dag)
+        valid_sets = all_valid_adjustment_sets_mpdag(cpdag, "X", "Y")
+        assert len(valid_sets) >= 2, (
+            f"expected >=2 valid adjustment sets at n={n}, coupling={coupling}, "
+            f"got {len(valid_sets)}"
+        )
+
+
+@pytest.mark.parametrize("n", [7, 8, 9])
 def test_decoupled_backdoor_coupling_zero_gives_disjoint_components(n):
     """THE sharp claim: at coupling=0.0, C1_last and C2_last are in different components."""
     rng = np.random.default_rng(0)
@@ -285,12 +338,15 @@ def test_decoupled_backdoor_coupling_zero_gives_disjoint_components(n):
     assert comp_of_c2 is not None, "C2_last should sit in its chain's undirected component"
     assert comp_of_c1 != comp_of_c2, "at coupling=0.0 the two blocking nodes must be decoupled"
 
-    # And the direct confounding edges are frozen (compelled), not perturbable.
+    # And the direct confounding edges (into X, Y) are frozen (compelled), not
+    # perturbable -- this is now true at every coupling level, not just 0.0
+    # (see test_decoupled_backdoor_xy_is_compelled_at_every_coupling and the
+    # generator's docstring), but is asserted here where it was originally.
     for edge in ((c1_last, "X"), (c1_last, "Y"), (c2_last, "X"), (c2_last, "Y")):
         assert edge in cpdag.directed_edges
 
 
-@pytest.mark.parametrize("n", [6, 7, 8])
+@pytest.mark.parametrize("n", [7, 8, 9])
 def test_decoupled_backdoor_coupling_one_merges_components(n):
     """THE sharp claim's other half: at coupling=1.0 they do NOT lie in different components."""
     rng = np.random.default_rng(0)
@@ -307,7 +363,27 @@ def test_decoupled_backdoor_coupling_one_merges_components(n):
     assert comp_of_c1 == comp_of_c2, "at coupling=1.0 the two blocking nodes must be coupled"
 
 
-@pytest.mark.parametrize("n", [6, 7, 8])
+@pytest.mark.parametrize("n", [7, 8, 9])
+def test_decoupled_backdoor_chains_stay_perturbable_at_both_endpoints(n):
+    """Acceptance criterion 5: each chain keeps >= 1 undirected edge, so knowledge can move it.
+
+    Checked at both coupling endpoints, which is what the family's own tests
+    (and the runner) actually exercise; intermediate coupling levels can
+    momentarily compel one chain's own interior edge too (a "boundary"
+    v-structure where a chain-2 node's cross edge and its chain edge meet),
+    which is a known, accepted quirk of this family and not tested here.
+    """
+    rng = np.random.default_rng(0)
+    for coupling in (0.0, 1.0):
+        dag = decoupled_backdoor_dag(n, rng, coupling=coupling)
+        cpdag = dag_to_cpdag(dag)
+        # Each chain has >= 1 internal edge (g1, g2 >= 2), and none of those
+        # internal edges touch X, Y or W, so nothing else could compel them.
+        assert cpdag.is_undirected_edge("C1_0", "C1_1"), f"chain 1 frozen at coupling={coupling}"
+        assert cpdag.is_undirected_edge("C2_0", "C2_1"), f"chain 2 frozen at coupling={coupling}"
+
+
+@pytest.mark.parametrize("n", [7, 8, 9])
 def test_decoupled_backdoor_merge_is_monotonic_in_coupling(n):
     """Component count should not increase as coupling rises (a regression guard on the design)."""
     rng = np.random.default_rng(0)
@@ -321,34 +397,44 @@ def test_decoupled_backdoor_merge_is_monotonic_in_coupling(n):
         prev_n_comps = n_comps
 
 
-@pytest.mark.parametrize("coupling", [0.0, 1.0])
-def test_decoupled_backdoor_gives_nondegenerate_radius_when_xy_is_known(coupling):
-    """Neither regime is vacuous: asserting the true X-Y orientation gives a finite r_val.
+# --- the fix's own cost: r_val/r_opt are UNREACHED for this whole family ----
+#
+# Documented rather than hidden: forcing CPDAG-level identification (above)
+# requires C1_last/C2_last's edges into X and Y to be compelled
+# unconditionally too (any residual ambiguity there breaks identification
+# the same way X-Y's did). The optimal adjustment set is a pure function of
+# that now-fully-compelled backbone (O = pa(Y) \ {X}, since Y is X's only
+# causal descendant here), so it is literally the same set at every element
+# of the perturbation space -- r_val and r_opt are UNREACHED regardless of
+# coupling, knows_fraction or corruption. This is verified directly, not
+# asserted as a belief: every step of run_instance's pipeline is replayed by
+# hand up to the radius computation.
 
-    This is what makes the family usable by the runner, not just structurally
-    interesting: the X-Y edge is never compelled by construction (see the
-    generator's docstring), so as long as background knowledge orients it,
-    the optimal adjustment set is identified at G0 and there is a reachable
-    graph elsewhere in the space (Y -> X instead) where it stops being valid.
-    """
+
+@pytest.mark.parametrize("coupling", [0.0, 1.0])
+def test_decoupled_backdoor_r_val_and_r_opt_are_unreached(coupling):
     rng = np.random.default_rng(0)
     dag = decoupled_backdoor_dag(8, rng, coupling=coupling)
     cpdag = dag_to_cpdag(dag)
     k_true = knowledge_to_recover(dag, cpdag)
-    assert ("X", "Y") in k_true
-
+    # X->Y is already compelled (see test_decoupled_backdoor_xy_is_compelled_at_every_coupling),
+    # so knowledge_to_recover -- which only asserts what is still undirected --
+    # correctly leaves it out; asserting the chain interiors is enough to
+    # fully resolve the CPDAG.
     g0 = apply_orientations(cpdag, k_true)
     assert g0 is not None
     z = optimal_adjustment_set_mpdag(g0, "X", "Y")
-    assert z is not None, "Z should be identified once K_true is fully asserted"
+    assert z is not None, "Z is identified (that part of the fix worked)"
     zf = frozenset(z)
 
     space = build_space(cpdag)
     dists = distances_from(space, g0)
     assert is_valid(zf, g0, "X", "Y"), "Z is read off G0 and must be valid there"
-    r_val, witness = radius(space, dists, lambda g: not is_valid(zf, g, "X", "Y"))
-    assert r_val >= 1
-    assert witness is not None
+
+    r_val, _ = radius(space, dists, lambda g: not is_valid(zf, g, "X", "Y"))
+    r_opt, _ = radius(space, dists, lambda g: not is_optimal(zf, g, "X", "Y"))
+    assert r_val == UNREACHED, "the optimal set is frozen across the whole space -- see docstring"
+    assert r_opt == UNREACHED
 
 
 # --- hash-seed determinism (mandatory invariant test) ------------------------
