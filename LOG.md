@@ -240,3 +240,39 @@ Stable across generators (76.9-80.4%) and across n (77.4-81.2%).
 **H2: 0 / 134,140 instances at n=5, and 0 / 1,044 at n=4, have a valid
 adjustment set strictly more robust than the optimal one.** The
 efficiency-robustness frontier is flat in every instance examined.
+
+## CORRECTION: my H2 statistic was wrong, and the frontier is NOT flat
+
+The earlier claim "0 of 134,140 instances have a strictly more robust valid
+adjustment set" is **wrong**. It was an artefact of my own analysis code, in two
+compounding ways:
+
+1. `h2_frontier` excluded every comparison in which either radius was UNREACHED,
+   on the grounds that UNREACHED is not a number. It is not a number, but it is
+   not missing data either: a set that never fails anywhere in the fully
+   enumerated space is *strictly more robust* than one failing at distance 1 —
+   the largest gap there is. Discarding those comparisons discarded exactly the
+   cases where the frontier is non-flat.
+2. The census capped candidate adjustment sets at 10 sorted by size, which can
+   hide a more robust larger set.
+
+Corrected statistic (n=4, all CPDAGs with <=6 undirected edges, no cap,
+UNREACHED ordered above every finite radius):
+
+    instances with >=2 valid sets and O* defined : 2,652
+    frontier NON-FLAT                            :   816  (30.77%)
+    O* STRICTLY BEATEN                           :     0  ( 0.00%)
+    O* never fails anywhere (UNREACHED)          : 1,584  (59.7%)
+
+Excluding the empty adjustment set (trivially robust, and gated out of the
+ensembles anyway) the non-flat rate is 10.96% of 2,628 instances; O* is still
+never beaten.
+
+**The scientific conclusion changes.** The frontier is genuinely non-flat — valid
+adjustment sets do differ in robustness — but there is no efficiency-robustness
+TRADEOFF, because the optimal (most efficient) set is never strictly less robust
+than any alternative. That is a different and more informative statement than
+either "the frontier is flat" or "a tradeoff exists".
+
+This also reframes H3: designed adversarial families are not needed to exhibit a
+non-flat frontier, since ~31% of ordinary small instances already have one.
