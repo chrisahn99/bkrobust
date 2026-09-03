@@ -25,10 +25,7 @@ redistribution terms that a convenience auto-download would quietly violate.
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
-
-if TYPE_CHECKING:  # pragma: no cover
-    import pandas as pd
+from typing import Any
 
 
 def load_sachs(

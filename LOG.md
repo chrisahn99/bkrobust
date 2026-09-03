@@ -23,3 +23,7 @@ discarded and why.
   them. Integration check: the new core reproduces the published radii 3/3/2.
 - **T0.3 determinism** extended to the core: 3 hash-seed-invariance tests.
 - 152 tests passing, ruff clean.
+- Inherited-code fix: `src/bkrobust/data/loaders.py` carried a dead
+  `import pandas as pd` under TYPE_CHECKING (scaffold commit c201cfb, never
+  used). Removed so the repo stays lint-clean. No behavioural change; that
+  module is stubbed.
