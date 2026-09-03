@@ -98,3 +98,39 @@ unblocked, for which no bound is implemented. So L is NOT a complete lower bound
 on its own, and `L = UNREACHED` must be read as "this mode gives no bound",
 never as infinity. The 83.3% figure is the rate at which the pair certifies
 exactly, not a claim that L alone certifies.
+
+## Bug in my own harness: O(|space|^2) check run per combination
+
+The n=5 conjecture sweep stalled for minutes on a single dense CPDAG, twice, at
+the same index. Diagnosis: `check_conjecture1` is O(|space|^2) and I was calling
+it once per (G0, X, Y, Z) combination. For a 120-element space with ~19k
+combinations that is ~276M pair comparisons on one CPDAG.
+
+Two fixes, in order of what actually mattered:
+1. (minor) The space-size guard ran after `build_space`, so the cubic
+   covering-relation computation happened before the graph could be rejected.
+   Now elements are enumerated first and covers built only if the size passes.
+2. (the real one) Conjecture 1 is a THEOREM, so checking it guards the
+   implementation rather than testing mathematics. It is now sampled at a
+   recorded rate instead of run exhaustively.
+
+n=4 re-verified after both changes: 13,344 comparisons, 0 violations, unchanged,
+and runtime fell from ~10s to 3.9s.
+
+## B1.2 — Conjecture 2 exhaustive result (n=5 complete)
+
+| n | CPDAGs | spaces | radius comparisons | C2 counterexamples |
+|---|---|---|---|---|
+| 3 | 11 | 7 | 150 | 0 |
+| 4 | 185 | 126 | 13,344 | 0 |
+| 5 | 8,782 | 6,030 | **1,971,820** | **0** |
+
+Total ~1.985M comparisons, zero counterexamples. Conjecture 1 sampled alongside:
+9,859 checks at n=5, zero violations.
+
+Scope, stated rather than implied: at n=5, 2,616 CPDAGs have no undirected edge
+(nothing for knowledge to orient), 131 have more than 6 undirected edges, and 5
+had a space above 200 elements. So 136 of the 6,166 CPDAGs that *could* carry
+knowledge were skipped (2.2%), all of them the densest. The claim is therefore
+"no counterexample over all CPDAGs on at most 5 nodes with at most 6 undirected
+edges and a space of at most 200 elements", not "over all CPDAGs on 5 nodes".

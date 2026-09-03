@@ -86,6 +86,8 @@ class StudyTotals:
     skipped_cpdag_too_many_undirected: int = 0
     skipped_cpdag_space_too_big: int = 0
     skipped_cpdag_no_undirected: int = 0
+    c1_checks_run: int = 0
+    c1_checks_skipped: int = 0
 
 
 def run_study(
@@ -94,6 +96,7 @@ def run_study(
     *,
     max_space: int = 400,
     max_undirected: int = 6,
+    c1_every: int = 50,
     all_z: bool = True,
     max_z_per_g0: int = 8,
     verbose: bool = True,
@@ -104,6 +107,10 @@ def run_study(
         n: Number of nodes.
         out_dir: Directory for incremental output.
         max_space: Skip CPDAGs whose space exceeds this, recording the skip.
+        c1_every: Run the O(|space|^2) Conjecture-1 check on one combination in
+            this many. Conjecture 1 is a theorem; the check guards the
+            implementation, so a sample suffices and running it on every
+            combination dominated the sweep.
         max_undirected: Skip CPDAGs with more undirected edges than this BEFORE
             building their space, since construction is ``3^k`` in that count.
             Skips are counted and reported, so the scope of a "no
@@ -194,6 +201,16 @@ def run_study(
                                 "space_size": c2.n_space,
                             }
                         )
+                    # Conjecture 1 is a THEOREM, so checking it is guarding the
+                    # implementation, not testing mathematics. It is O(|space|^2)
+                    # per call, which dominated the whole sweep when run on every
+                    # combination -- one dense CPDAG burned minutes. Sampled
+                    # instead, at a rate recorded in the totals.
+                    totals.c1_checks_skipped += 1
+                    if totals.n_combos % c1_every != 0:
+                        continue
+                    totals.c1_checks_skipped -= 1
+                    totals.c1_checks_run += 1
                     c1 = check_conjecture1(space, fails)
                     if not c1.holds:
                         totals.c1_violations += 1
