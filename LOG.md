@@ -199,3 +199,44 @@ yet a claim -- the run must be redone once the gates are fixed.
 
 Preliminary H5 (middle regime, r_eps > r_val) is strongly epsilon-dependent:
 0.0% at eps=0.02 and 0.05, 0.8% at 0.1, 16.3% at 0.2.
+
+## Correction: my transcription of the failing graph was faulty
+
+When sending the `g0_not_in_space` diagnosis to the generator subagent I pasted a
+`g0` edge string containing BOTH `V1->V6` and `V6->V1`. The MPDAG constructor
+provably rejects mutually directed pairs (verified), so no such graph can exist —
+the paste was garbled by me, not produced by the code. The subagent spotted the
+contradiction, declined to trust it, and independently reconstructed the mechanism
+as a minimal 4-node example. That is the better artifact and the right response.
+
+The underlying phenomenon was real and is unaffected: I had independently measured
+`Meek(cpdag,K)` falling outside `enumerate_space` at 2/2235 (0.09%) before sending,
+and the subagent's `g0_not_in_space` gate now covers it.
+
+## Axis A main results (clean run, fixed gates)
+
+Grid: 12,960 points over erdos_renyi / scale_free / block, n=6..9, four
+corruptions, three rates. **1,064 accepted (8.2%)**, zero run errors, zero rows
+with `r_val == 0`.
+
+Rejections by reason (the rate is itself a result):
+  empty_set_trivially_valid                6,889
+  treatment_not_in_or_adjacent_to_component 3,107
+  no_atomic_perturbation_changes_validity    696
+  z_not_identified                           620
+  k_assumed_inconsistent                     341
+  cpdag_too_large_for_bfs                    160
+  z_invalid_at_g0                             83
+
+## H1 and H2 headline numbers
+
+Exhaustive census, all CPDAGs on 5 nodes (134,140 instances, 88,700 with a
+finite radius):
+    r=1  71,840 (81.0%)   r=2  14,100 (15.9%)   r=3  2,760 (3.1%)
+    UNREACHED 45,440
+Ensembles, n=6..9 (1,050 finite): r=1 78.6%, r=2 17.9%, r=3 2.8%, r=4 0.5%.
+Stable across generators (76.9-80.4%) and across n (77.4-81.2%).
+
+**H2: 0 / 134,140 instances at n=5, and 0 / 1,044 at n=4, have a valid
+adjustment set strictly more robust than the optimal one.** The
+efficiency-robustness frontier is flat in every instance examined.

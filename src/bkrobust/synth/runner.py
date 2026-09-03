@@ -9,14 +9,16 @@ Three pieces, in the order a single instance passes through them:
    every randomly generated instance.
 2. :func:`run_instance` -- builds one instance end to end: draws ``K_true``,
    corrupts it to ``K_assumed``, forms ``G0``, fixes ``Z``, enumerates the
-   space, and computes the radii. Raises :class:`GateRejectedError` (also used for
-   the two knowledge-stage failure modes: an inconsistent ``K_assumed``, and
-   a ``G0`` at which the optimal set is not identified) rather than returning
-   a sentinel, so its return type is honestly "an :class:`Instance`, always".
+   space, and computes the radii. Raises :class:`GateRejectedError` for every
+   rejection reason (see its docstring for the full list) rather than
+   returning a sentinel, so its return type is honestly "an
+   :class:`Instance`, always".
 3. :func:`run_grid` -- sweeps a list of parameter points, catches
-   :class:`GateRejectedError`, tallies rejections by reason, and writes accepted
-   instances incrementally via :class:`~bkrobust.core.resultsio.ResultWriter`
-   so a crash loses at most the row in flight.
+   :class:`GateRejectedError` (and any other exception, recorded as
+   ``"run_error"`` rather than left to kill the sweep), tallies rejections by
+   reason, and writes accepted instances incrementally via
+   :class:`~bkrobust.core.resultsio.ResultWriter` so a crash loses at most the
+   row in flight.
 
 Determinism: the only randomness anywhere in this module is
 ``numpy.random.default_rng(seed)`` at the top of :func:`run_instance`, one
@@ -78,16 +80,23 @@ class GateRejectedError(Exception):
     """Raised by :func:`run_instance` when an instance is rejected, at any stage.
 
     Attributes:
-        reason: A short machine-readable rejection code. The four structural
-            codes come from :func:`gate`; three more are raised by
+        reason: A short machine-readable rejection code. The five structural
+            codes come from :func:`gate`; four more are raised by
             :func:`run_instance` itself: ``"cpdag_too_large_for_bfs"`` (before
             knowledge is even drawn -- see :data:`MAX_UNDIRECTED_EDGES`),
             ``"k_assumed_inconsistent"`` and ``"z_not_identified"`` (once
-            background knowledge has been drawn), and
-            ``"g0_not_in_space"`` -- a rare (~0.1%, measured) mismatch where
-            ``apply_orientations`` returns a ``G0`` that
-            :func:`~bkrobust.demo.space.enumerate_space` nonetheless omits
-            from the space; see the note at its raise site.
+            background knowledge has been drawn), ``"z_invalid_at_g0"`` -- the
+            unconditional guard on the radius convention's ``r_val >= 1``
+            (see its raise site: the optimal-set formula can silently return
+            an invalid empty set when there is no causal path, which
+            ``gate``'s ``"no_causal_path"`` check ordinarily prevents but this
+            catches regardless), and ``"g0_not_in_space"`` -- a rare (~0.1%,
+            measured) mismatch where ``apply_orientations`` returns a ``G0``
+            that :func:`~bkrobust.demo.space.enumerate_space` nonetheless
+            omits from the space; see the note at its raise site.
+            :func:`run_grid` additionally uses ``"run_error"`` for any other,
+            unexpected exception from :func:`run_instance` on one grid point,
+            so a single bad instance cannot kill the whole sweep.
     """
 
     def __init__(self, reason: str) -> None:
@@ -99,28 +108,39 @@ class GateRejectedError(Exception):
 
 
 def gate(dag: MPDAG, cpdag: MPDAG, treatment: str, outcome: str) -> tuple[bool, str]:
-    """Screen ``(dag, cpdag, treatment, outcome)`` for the four ways an instance can be vacuous.
+    """Screen ``(dag, cpdag, treatment, outcome)`` for the ways an instance can be vacuous.
 
     Checked in order, each short-circuiting the rest:
 
     1. ``treatment`` is not in, or adjacent to, any undirected (chordal)
        component of ``cpdag`` -- no perturbation of background knowledge can
        ever reach it, so the whole exercise is moot for this pair.
-    2. No valid adjustment set exists at all for ``(treatment, outcome)`` in
-       the **true DAG** -- most often because ``treatment`` is not an
-       ancestor of ``outcome``. Checked against ``dag``, not ``cpdag``:
-       ``cpdag`` is typically still ambiguous about the treatment/outcome
-       relationship itself (background knowledge has not been imposed yet),
-       so requiring a set to be valid in *every* CPDAG extension at this
-       stage would reject almost everything for the wrong reason -- lack of
-       identification, not lack of genuine confounding, which is what this
-       check is actually asking about. Mirrors gate G3 of
-       :mod:`bkrobust.demo.example`, which is likewise phrased "in the
-       truth".
-    3. The empty set is itself a valid adjustment set in the true DAG --
+    2. ``outcome`` is not a descendant of ``treatment`` in the true DAG -- no
+       causal path exists, so the true total effect is exactly zero and the
+       pair is uninformative about bias scale. This is primarily prevented at
+       selection time (:func:`_pick_treatment_outcome` only proposes pairs
+       with a causal path), but is checked again here as a backstop: it is
+       also what makes check 3 below sound, since
+       ``optimal_adjustment_set_mpdag`` computes the optimal set from
+       ``cn(x, y) = descendants(x) & (ancestors(y) | {y})`` and silently
+       returns the *empty* set whenever ``cn`` is empty -- which is only
+       trivially valid (see check 4) when there is also no confounding; with
+       a causal path ruled out here, the run_instance-level
+       ``z_invalid_at_g0`` check catches the remaining, rarer case where that
+       still happens to be wrong.
+    3. No valid adjustment set exists at all for ``(treatment, outcome)`` in
+       the **true DAG**. Checked against ``dag``, not ``cpdag``: ``cpdag`` is
+       typically still ambiguous about the treatment/outcome relationship
+       itself (background knowledge has not been imposed yet), so requiring a
+       set to be valid in *every* CPDAG extension at this stage would reject
+       almost everything for the wrong reason -- lack of identification, not
+       lack of genuine confounding, which is what this check is actually
+       asking about. Mirrors gate G3 of :mod:`bkrobust.demo.example`, which is
+       likewise phrased "in the truth".
+    4. The empty set is itself a valid adjustment set in the true DAG --
        there is no confounding to speak of, so validity can never fail
        regardless of how knowledge is perturbed.
-    4. Sanity: no *single* atomic perturbation of the true knowledge
+    5. Sanity: no *single* atomic perturbation of the true knowledge
        (``knowledge_to_recover(dag, cpdag)`` with one claim dropped) changes
        the validity of any candidate valid adjustment set. This mirrors gate
        G5 of :mod:`bkrobust.demo.example`, generalised to run automatically.
@@ -134,7 +154,8 @@ def gate(dag: MPDAG, cpdag: MPDAG, treatment: str, outcome: str) -> tuple[bool, 
     Returns:
         ``(True, "ok")`` if every check passes, else ``(False, reason)`` with
         one of ``"treatment_not_in_or_adjacent_to_component"``,
-        ``"no_valid_adjustment_set"``, ``"empty_set_trivially_valid"``, or
+        ``"no_causal_path"``, ``"no_valid_adjustment_set"``,
+        ``"empty_set_trivially_valid"``, or
         ``"no_atomic_perturbation_changes_validity"``.
     """
     comps = undirected_components(cpdag)
@@ -144,6 +165,9 @@ def gate(dag: MPDAG, cpdag: MPDAG, treatment: str, outcome: str) -> tuple[bool, 
     )
     if not touches_component:
         return False, "treatment_not_in_or_adjacent_to_component"
+
+    if outcome not in dag.descendants(treatment):
+        return False, "no_causal_path"
 
     valid_sets = all_valid_adjustment_sets_mpdag(dag, treatment, outcome)
     if not valid_sets:
@@ -325,6 +349,18 @@ def run_instance(
     if z is None:
         raise GateRejectedError("z_not_identified")
     zf = frozenset(z)
+
+    # Unconditional guard on the radius convention (bkrobust.core.conventions):
+    # Z is read off G0, so it must be valid there and r_val must be >= 1.
+    # optimal_adjustment_set_mpdag computes Z structurally, from
+    # cn(x, y) = descendants(x) & (ancestors(y) | {y}); when cn is empty (no
+    # causal path -- gated above as "no_causal_path" using the true dag, which
+    # ordinarily prevents this) it returns the empty set regardless of whether
+    # that is actually backdoor-valid, which it is not whenever a backdoor
+    # path is still open. Checked directly here, unconditionally (not just for
+    # empty Z), rather than trusted from the formula.
+    if not is_valid(zf, g0, treatment, outcome):
+        raise GateRejectedError("z_invalid_at_g0")
 
     t = time.perf_counter()
     space = build_space(cpdag)
@@ -514,7 +550,7 @@ def run_grid(
             except GateRejectedError as exc:
                 rejection_counts[exc.reason] = rejection_counts.get(exc.reason, 0) + 1
                 continue
-            except Exception as exc:  # noqa: BLE001 -- deliberate: see docstring
+            except Exception as exc:
                 # A single bad grid point must never kill the whole sweep --
                 # that would defeat the entire point of writing rows
                 # incrementally. Record it as a rejection (so the rate stays
