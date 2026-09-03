@@ -79,3 +79,22 @@ the claim about where the file landed was wrong.
 
 Exceptions added for both directories. Nothing was lost; the files were on disk
 throughout.
+
+## B2.3/B2.4 — bounds, and the L == U certificate rate
+
+Exhaustive over all n=4 CPDAGs, 792 instances with a finite exact radius:
+
+- `descendant_lower_bound` (L) covers ONE failure mode: some `z in Z` becoming a
+  possible descendant of X. **Admissible in every case where it is defined —
+  732/792, zero violations** — and **tight (L == r) in 660**.
+- `guided_upper_bound` (U) was a valid upper bound in all 792 cases.
+- **L == U == r in 660/792 = 83.3%**: the exact radius is certified with no
+  enumeration at all in five out of six instances.
+
+Important limitation, stated rather than buried: L is undefined in 60/792
+instances (7.6%), where no `z` can be made a descendant of X yet the radius is
+still finite. In those the binding failure mode is a back-door path becoming
+unblocked, for which no bound is implemented. So L is NOT a complete lower bound
+on its own, and `L = UNREACHED` must be read as "this mode gives no bound",
+never as infinity. The 83.3% figure is the rate at which the pair certifies
+exactly, not a claim that L alone certifies.

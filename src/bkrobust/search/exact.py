@@ -257,3 +257,60 @@ def descendant_lower_bound(
 def all_retraction_subsets(cpdag: MPDAG, g0: MPDAG, k: int) -> list[tuple[tuple[str, str], ...]]:
     """All size-``k`` subsets of the retractable edges, deterministically ordered."""
     return list(itertools.combinations(retractable_edges(cpdag, g0), k))
+
+
+def guided_upper_bound(
+    cpdag: MPDAG,
+    g0: MPDAG,
+    fails: Callable[[MPDAG], bool],
+    z: frozenset[str],
+    x: str,
+    *,
+    max_tries: int = 64,
+) -> RadiusResult:
+    """Construct a failing graph directly and measure its distance: ``r <= U``.
+
+    Rather than searching, this aims at a known failure mode -- making some
+    ``z in Z`` a possible descendant of ``X`` -- by retracting the
+    backward-pointing edges along a cheapest ``X``-to-``z`` route, then checking
+    whether the result actually fails. Retraction sets are tried in increasing
+    size, so the first success is the best this construction can offer.
+
+    Args:
+        cpdag: The CPDAG.
+        g0: The analyst's graph.
+        fails: Predicate that is ``True`` where the property fails.
+        z: The adjustment set.
+        x: Treatment.
+        max_tries: Cap on candidate retraction sets examined.
+
+    Returns:
+        A :class:`RadiusResult` with ``exact=False``: the value is an **upper
+        bound**, not a radius. ``UNREACHED`` means the construction found no
+        failure, which does not mean none exists.
+    """
+    st = SearchStats()
+    retr = retractable_edges(cpdag, g0)
+    tries = 0
+    for k in range(1, len(retr) + 1):
+        for subset in itertools.combinations(retr, k):
+            tries += 1
+            if tries > max_tries:
+                return RadiusResult(UNREACHED, None, "guided_upper_budget", False, st)
+            g = g0
+            ok = True
+            for a, b in subset:
+                if not g.is_directed_edge(a, b):
+                    ok = False
+                    break
+                g = g.unoriented(a, b)
+            if not ok:
+                continue
+            h = meek_closure(g)
+            st.closures += 1
+            if h is None:
+                continue
+            st.validity_checks += 1
+            if fails(h):
+                return RadiusResult(k, h.edge_string(), "guided_upper", False, st)
+    return RadiusResult(UNREACHED, None, "guided_upper", False, st)
