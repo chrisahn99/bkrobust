@@ -54,6 +54,10 @@ coverage.xml
 # cites them and they are small CSV/JSON. Everything else under results/ is
 # regenerated experiment output and stays untracked.
 !/results/breakdown_radius_demo/
+# Axis A / Axis B session outputs are deliverables too: the pre-registration,
+# per-instance rows and manifests are cited by report_synth_and_search.md.
+!/results/synth/
+!/results/search/
 /data/
 /checkpoints/
 *.pt

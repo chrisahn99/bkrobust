@@ -62,3 +62,20 @@ discarded and why.
   with the undirected-edge count k: 25x at k=2, 81x at k=6, 133x at k=7 on n=5
   CPDAGs. Where many queries share one CPDAG, BFS amortises construction and the
   advantage shrinks — both regimes must be reported.
+
+## Bug found in my own work: results directories were gitignored
+
+`.gitignore` line `/results/*` (added during the earlier demo session, with an
+exception only for `results/breakdown_radius_demo/`) silently excluded
+`results/synth/` and `results/search/`. Consequence: the pre-registration and
+the Axis B differential rows were NOT committed by the commits that claimed
+them. Caught when `git commit` reported "nothing to commit" for the
+pre-registration, which should have been a new file.
+
+**Correction to the record:** commit 133ab44's message says the differential
+rows were "committed to results/search/differential.csv". They were not; they
+are committed here instead. The numbers in that message are unaffected — only
+the claim about where the file landed was wrong.
+
+Exceptions added for both directories. Nothing was lost; the files were on disk
+throughout.
