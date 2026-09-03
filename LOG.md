@@ -27,3 +27,19 @@ discarded and why.
   `import pandas as pd` under TYPE_CHECKING (scaffold commit c201cfb, never
   used). Removed so the repo stays lint-clean. No behavioural change; that
   module is stubbed.
+
+## B1 — the two structural conjectures
+
+- **Conjecture 1 is a theorem, not a conjecture.** Validity is a for-all over
+  represented DAGs, so a failing `D in [G]` is still in `[G']` whenever
+  `[G] <= [G']`. One-line proof, recorded in the module docstring. One caveat:
+  this implementation defines `is_valid` as False for an EMPTY extension set, so
+  an empty-extension graph would break the implication — it does not bite
+  because `enumerate_space` admits no such element. Checked, not assumed.
+- **Conjecture 2 exhaustively tested, no counterexample so far.**
+  - n=3: 150 radius comparisons, 0 violations (exhaustive).
+  - n=4: 13,344 radius comparisons over 126 spaces, 0 violations (exhaustive).
+  - n=5: running, scope = all CPDAGs with <=6 undirected edges (99% of the 8782).
+- **Free validation:** the enumerator reproduces the published counts of
+  labelled DAGs (25, 543, 29281) AND of Markov equivalence classes
+  (11, 185, 8782) on 3/4/5 nodes. Both pinned in a test.
