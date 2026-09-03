@@ -134,3 +134,35 @@ had a space above 200 elements. So 136 of the 6,166 CPDAGs that *could* carry
 knowledge were skipped (2.2%), all of them the densest. The claim is therefore
 "no counterexample over all CPDAGs on at most 5 nodes with at most 6 undirected
 edges and a space of at most 200 elements", not "over all CPDAGs on 5 nodes".
+
+## Finding: Meek(cpdag, K) can fall outside `enumerate_space` (0.09% of cases)
+
+The main Axis A run crashed with `source is not an element of the space`. Root
+cause is a genuine inconsistency in the inherited validity definition, not a
+coding slip.
+
+Minimal captured case:
+
+    cpdag : V1->V4 V2->V0 V2->V4 V3->V0 V4->V0 V5->V0 V5->V4 V6->V0
+            V1-V2 V1-V3 V1-V6 V2-V3 V2-V5 V2-V6 V3-V5
+    g0    : V1->V4 V1->V6 V2->V0 V2->V4 V2->V6 V3->V0 V3->V2 V4->V0
+            V5->V0 V5->V4 V6->V0 V6->V1  V1-V2 V1-V3 V2-V5 V3-V5
+
+`g0` is Meek-closed, keeps every compelled edge, satisfies `[g0] subset [cpdag]`,
+and represents **5** consistent DAGs -- yet `is_valid_mpdag(g0)` is False, so
+`enumerate_space` omits it and BFS from it raises.
+
+Why: `is_chordal_components` inspects the UNDIRECTED subgraph only. There the
+component {V1,V2,V3,V5} is the 4-cycle V1-V2-V5-V3-V1 with no undirected chord.
+But V2 and V3 *are* adjacent, via the DIRECTED edge V3->V2. So the cycle is
+chordless only if directed edges are ignored, and a legitimate knowledge state
+is excluded from the space.
+
+Frequency: **2 of 2235 (0.09%)** Meek closures across four generators.
+
+Decision: gate it, do not silently drop it, and do not change the validity
+definition in this session. Relaxing `is_valid_mpdag` would invalidate the
+space enumeration that every result so far rests on (including S2's
+chain-space-is-6 result and the 1.985M-comparison conjecture sweep) and would
+require re-running all of it. The instances are recorded as a rejection reason
+so the rate stays visible, and the question is carried to NEXT.md.
