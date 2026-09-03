@@ -133,10 +133,16 @@ def run_study(
         if len(cpdag.undirected_edges) > max_undirected:
             totals.skipped_cpdag_too_many_undirected += 1
             continue
-        space = build_space(cpdag)
-        if len(space) > max_space:
+        # Two-stage build. Enumerating the elements is cheap; computing the
+        # covering relation is cubic in the element count, so the size guard has
+        # to fire BEFORE that, not after. Checking it afterwards is what made a
+        # single dense CPDAG take four minutes.
+        from bkrobust.demo.space import enumerate_space
+
+        if len(enumerate_space(cpdag)) > max_space:
             totals.skipped_cpdag_space_too_big += 1
             continue
+        space = build_space(cpdag)
         totals.n_spaces += 1
         if not check_no_empty_extensions(space):
             totals.empty_extension_spaces += 1

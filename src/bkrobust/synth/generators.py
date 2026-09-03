@@ -33,7 +33,10 @@ def _node_names(n: int) -> list[str]:
 
 
 def _random_topological_order(n: int, rng: np.random.Generator) -> np.ndarray:
-    """A random permutation of ``0..n-1``; ``order[k]`` is the node-index placed at position ``k``."""
+    """A random permutation of ``0..n-1``.
+
+    ``order[k]`` is the node-index placed at topological position ``k``.
+    """
     return rng.permutation(n)
 
 
@@ -197,28 +200,37 @@ def decoupled_backdoor_dag(n: int, rng: np.random.Generator, coupling: float) ->
        -- frozen for the whole space. The two chains, having no edges to one
        another, end up as genuinely separate undirected (chordal) components
        of the CPDAG; ``C1_last``'s blocking role and ``C2_last``'s sit in
-       different components. Raising ``coupling`` toward ``1.0`` adds cross
-       edges ``C1_i -> C2_j`` between the chains -- the pair
-       ``(C1_last, C2_last)`` is always the *first* cross edge added, so any
-       ``coupling > 0`` immediately makes ``C1_last`` and ``C2_last``
-       adjacent, removes that v-structure, and merges every chain, ``X`` and
-       ``Y`` into one connected undirected component (the regime the prior
-       worked example lives in). Further cross edges (added as ``coupling``
-       grows past the point where the critical one is included) only
-       thicken that merged component; they do not undo the merge.
+       different components (three components total: chain 1, chain 2, and
+       the ``{X, Y}`` pair -- see point 1). Raising ``coupling`` adds cross
+       edges, **all sourced from C1_last**, into a suffix of chain 2 taken
+       tail-first: ``C1_last -> C2_last``, then ``C1_last -> C2_{g2-2}``,
+       and so on. ``n_cross = round(coupling * g2)`` of these are added.
+       Fanning every cross edge out of the *same single node* (rather than a
+       complete bipartite join between the two chains) is deliberate and
+       empirically load-bearing: a complete join creates fresh unshielded
+       colliders deep in chain 2 whenever a chain has length >= 3 (two
+       non-adjacent chain interior nodes both feeding the same chain-2 node)
+       and those get compelled and cascade, silently undoing the very merge
+       coupling is supposed to produce. The single-source fan-out never has
+       that problem, because by the time a chain-2 node has C1_last as a
+       parent, so does its own chain predecessor (added one step earlier in
+       the tail-first order) -- so the two are always adjacent and no new
+       v-structure fires. Empirically (see the generator test) this makes
+       the merge monotonic in ``n_cross`` for every chain-length combination
+       tried: 0 cross edges give three components, ``1..g2-1`` give two
+       (``{X, Y}`` joins chain 1 through the critical edge; chain 2 stays
+       separate), and ``g2`` (all of chain 2, i.e. ``coupling = 1.0``) give
+       one -- the regime the prior worked example lives in.
 
     Args:
         n: Number of nodes; must be >= 6 (two confounder chains of length
             >= 2, plus X and Y).
-        rng: Sole source of randomness (unused when ``coupling`` is exactly
-            0.0 or 1.0, since the cross-edge count is then deterministic;
-            reserved for future stochastic variants and kept in the
-            signature for interface uniformity with the other generators).
-        coupling: In ``[0, 1]``. Fraction of the ``g1 * g2`` candidate
-            ``C1_i -> C2_j`` cross edges to add, taken from a fixed
-            deterministic ordering (the critical ``C1_last -> C2_last`` edge
-            first, then the remaining pairs in row-major ``(i, j)`` order),
-            rounded to the nearest integer count.
+        rng: Sole source of randomness (unused: the construction is
+            deterministic given ``(n, coupling)``; kept in the signature for
+            interface uniformity with the other generators and the
+            :data:`GENERATORS` registry).
+        coupling: In ``[0, 1]``. Fraction of chain 2, counting from its tail,
+            that gets a direct edge from ``C1_last``; see above.
 
     Returns:
         A fully oriented, acyclic :class:`MPDAG` on ``n`` nodes.
@@ -237,7 +249,7 @@ def decoupled_backdoor_dag(n: int, rng: np.random.Generator, coupling: float) ->
 
     c1 = [f"C1_{i}" for i in range(g1)]
     c2 = [f"C2_{j}" for j in range(g2)]
-    nodes = ["X", "Y"] + c1 + c2
+    nodes = ["X", "Y", *c1, *c2]
 
     directed: list[Edge] = []
     for i in range(g1 - 1):
@@ -250,14 +262,10 @@ def decoupled_backdoor_dag(n: int, rng: np.random.Generator, coupling: float) ->
     directed.append((c2[-1], "Y"))
     directed.append(("X", "Y"))
 
-    candidates: list[tuple[int, int]] = [(g1 - 1, g2 - 1)]
-    for i in range(g1):
-        for j in range(g2):
-            if (i, j) != (g1 - 1, g2 - 1):
-                candidates.append((i, j))
-    n_cross = int(round(coupling * len(candidates)))
-    for i, j in candidates[:n_cross]:
-        directed.append((c1[i], c2[j]))
+    n_cross = round(coupling * g2)
+    for k in range(n_cross):
+        j = g2 - 1 - k
+        directed.append((c1[-1], c2[j]))
 
     return MPDAG(nodes, directed=directed)
 

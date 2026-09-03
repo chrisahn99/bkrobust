@@ -1,4 +1,6 @@
 {
+  "n": 4,
+  "scope": "all CPDAGs on 4 nodes, <=6 undirected, space<=400",
   "totals": {
     "n_dags": 543,
     "n_cpdags": 185,
@@ -9,7 +11,10 @@
     "c2_violations": 0,
     "empty_extension_spaces": 0,
     "skipped_no_valid_z": 11100,
-    "skipped_z_fails_at_g0": 0
+    "skipped_z_fails_at_g0": 0,
+    "skipped_cpdag_too_many_undirected": 0,
+    "skipped_cpdag_space_too_big": 0,
+    "skipped_cpdag_no_undirected": 59
   },
   "counterexamples": []
 }
