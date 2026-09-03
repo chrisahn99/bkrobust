@@ -276,3 +276,16 @@ either "the frontier is flat" or "a tradeoff exists".
 
 This also reframes H3: designed adversarial families are not needed to exhibit a
 non-flat frontier, since ~31% of ordinary small instances already have one.
+
+## H6 calibration and session close
+
+H6 over 89 instances across the three generators:
+  coverage = 1.0000 in EVERY instance (the correctness gate, not a finding)
+  conservativeness mean 0.181, range 0.000-0.625
+    block 0.236 | erdos_renyi 0.189 | scale_free 0.149
+  Spearman(undirected-component size, conservativeness) = 0.564 -- the
+  knowledge-intersected component predicts conservativeness, as H6 predicted.
+Conservativeness is much lower than the prior report's single-example 0.43-0.47.
+
+Deliverables written: report_synth_and_search.md, NEXT.md, PLAN.md revisions.
+277 tests passing, ruff clean.
