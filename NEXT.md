@@ -13,8 +13,8 @@
    n = 6…9, and in an exhaustive census over every CPDAG on ≤ 5 nodes. This
    retires the project's principal risk.
 3. **There is no efficiency–robustness tradeoff.** The frontier is genuinely
-   non-flat (30.8% of instances), yet the optimal adjustment set is *never*
-   strictly beaten (0 of 2,652). An analyst choosing `O*` gives up nothing in
+   non-flat (21.9% of instances), yet the optimal adjustment set is *never*
+   strictly beaten (0 of 249,732, exhaustive at n=4 and n=5). An analyst choosing `O*` gives up nothing in
    robustness. This is the most useful single claim the session produced, and it
    corrects the prior report's flat-frontier reading in both directions.
 4. **An exact radius can be certified without enumerating the space in 83.3% of

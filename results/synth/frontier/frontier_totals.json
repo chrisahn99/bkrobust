@@ -1,0 +1,22 @@
+{
+  "n4": {
+    "max_undirected": 6,
+    "n_instances": 2652,
+    "n_nonflat": 816,
+    "frac_nonflat": 0.3077,
+    "n_optimal_strictly_beaten": 0,
+    "frac_optimal_beaten": 0.0,
+    "n_optimal_unreached": 1584,
+    "examples": []
+  },
+  "n5": {
+    "max_undirected": 4,
+    "n_instances": 247080,
+    "n_nonflat": 53880,
+    "frac_nonflat": 0.2181,
+    "n_optimal_strictly_beaten": 0,
+    "frac_optimal_beaten": 0.0,
+    "n_optimal_unreached": 147740,
+    "examples": []
+  }
+}

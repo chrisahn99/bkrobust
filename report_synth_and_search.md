@@ -19,7 +19,7 @@ Branch: `experiments/synth_graphs_and_heuristics`. Nothing was committed to `mai
 | **Exact accelerated search** | Space-free method reproduces BFS on **5,304/5,304** differential cases. Speedup 25× to **133×**, growing with component size. |
 | **`L = U = r` certificate** | Exact radius certified with **no enumeration in 83.3%** of instances. |
 | **H1 saturation** | `r_val = 1` in ~**80%** of instances — dominant but well short of the >90% that would make the radius vacuous. |
-| **H2/H3 frontier** | **The frontier is non-flat in 30.8% of instances — but `O*` is never strictly beaten (0/2652).** No efficiency–robustness tradeoff. |
+| **H2/H3 frontier** | **The frontier is non-flat in 21.9% of instances — but `O*` is never strictly beaten (0 of 249,732).** No efficiency–robustness tradeoff. |
 | **H5 middle regime** | Strongly ε-dependent: 0.0% at small ε, 14.1% at ε=0.2. Pre-registered prediction of 20–50% **not supported**. |
 | **H6 calibration** | Coverage **1.0000** everywhere (the correctness gate). Conservativeness mean **0.181**, predicted by knowledge-component size (Spearman 0.564). |
 
@@ -213,19 +213,21 @@ fails anywhere is *strictly more robust* than one failing at distance 1, the
 largest gap there is. Excluding those comparisons excluded exactly the non-flat
 cases.
 
-**The corrected version** (n=4, all CPDAGs with ≤6 undirected edges, no cap,
-`UNREACHED` ordered above every finite radius):
+**The corrected version**, exhaustive at n=4 and n=5, no cap, `UNREACHED` ordered
+above every finite radius:
 
-| | count | rate |
-|---|---|---|
-| instances with ≥2 valid sets and `O*` defined | 2,652 | |
-| frontier **non-flat** | **816** | **30.8%** |
-| `O*` **strictly beaten** | **0** | **0.0%** |
-| `O*` never fails anywhere | 1,584 | 59.7% |
+| | n=4 | n=5 | total |
+|---|---|---|---|
+| instances with ≥2 valid sets and `O*` defined | 2,652 | 247,080 | **249,732** |
+| frontier **non-flat** | 816 (30.8%) | 53,880 (21.8%) | **54,696 (21.9%)** |
+| `O*` **strictly beaten** | **0** | **0** | **0 (0.00%)** |
+| `O*` never fails anywhere | 1,584 (59.7%) | 147,740 (59.8%) | 149,324 (59.8%) |
+
+(n=4 covers CPDAGs with ≤6 undirected edges, n=5 with ≤4, for cost.)
 
 Excluding the empty adjustment set — trivially robust, and gated out of the
-ensembles anyway — the non-flat rate is 10.96% of 2,628 instances, and `O*` is
-still never beaten.
+ensembles anyway — the n=4 non-flat rate is 10.96% of 2,628 instances, and `O*`
+is still never beaten.
 
 **The conclusion changes, and improves.** Valid adjustment sets genuinely *do*
 differ in robustness, so the prior report's flat frontier is **not** a general
@@ -351,8 +353,9 @@ gated, its rate is recorded, and the question is carried to `NEXT.md`.
   across all three generators *and* the exhaustive census, so they are not
   artefacts of one family. H5's ε-dependence and H6's conservativeness levels are
   ensemble-specific and should not be quoted as general.
-- **`O*` is never beaten** is an n=4 exhaustive result plus n=5 in progress at
-  time of writing. It is not proved, and a single counterexample would matter.
+- **`O*` is never beaten** rests on 249,732 exhaustive instances at n=4 and n=5.
+  It is an empirical regularity, not a proof, and a single counterexample would
+  matter. It has not been tested above n=5 or on dense CPDAGs.
 
 ---
 

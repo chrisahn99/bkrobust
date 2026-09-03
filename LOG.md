@@ -289,3 +289,15 @@ Conservativeness is much lower than the prior report's single-example 0.43-0.47.
 
 Deliverables written: report_synth_and_search.md, NEXT.md, PLAN.md revisions.
 277 tests passing, ruff clean.
+
+## Frontier sweep complete (n=4 and n=5)
+
+| n | instances | non-flat | O* strictly beaten | O* never fails |
+|---|---|---|---|---|
+| 4 |   2,652 |    816 (30.8%) | 0 | 1,584 (59.7%) |
+| 5 | 247,080 | 53,880 (21.8%) | 0 | 147,740 (59.8%) |
+| total | **249,732** | 54,696 (21.9%) | **0 (0.00%)** | 149,324 (59.8%) |
+
+Across a quarter of a million exhaustively enumerated instances the optimal
+adjustment set is never strictly less robust than any alternative valid set,
+while the frontier itself is non-flat in over a fifth of them.
