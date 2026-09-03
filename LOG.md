@@ -43,3 +43,22 @@ discarded and why.
 - **Free validation:** the enumerator reproduces the published counts of
   labelled DAGs (25, 543, 29281) AND of Markov equivalence classes
   (11, 185, 8782) on 3/4/5 nodes. Both pinned in a test.
+
+## B2/B3 — accelerated exact search and differential validation
+
+- Implemented `search/exact.py`: `radius_local_up` does upward BFS with covers
+  generated LOCALLY, so the space is never enumerated. Exploits upward-closure
+  by never expanding above a known failure. Carries an anytime mode that returns
+  a labelled bound rather than a wrong exact answer.
+- **Differential validation: 5,304 cases (n=3 and n=4 exhaustive), 0
+  disagreements** with full-space BFS. Committed to `results/search/differential.csv`.
+- Critical correctness check: locally generated upper covers were compared
+  against the space-derived covers element by element and match exactly
+  (`test_local_covers_match_space_derived_covers`). Had local generation missed
+  a cover, distances would silently come out too large.
+- **Honest speedup accounting.** Comparing per-query times with a pre-built
+  space flatters BFS, because `local_up` never builds one. On the single-query
+  comparison (BFS pays space construction; local_up does not) the speedup grows
+  with the undirected-edge count k: 25x at k=2, 81x at k=6, 133x at k=7 on n=5
+  CPDAGs. Where many queries share one CPDAG, BFS amortises construction and the
+  advantage shrinks — both regimes must be reported.
