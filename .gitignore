@@ -50,6 +50,10 @@ coverage.xml
 # Root-anchored: a bare `data/` would also match src/bkrobust/data/.
 /results/*
 !/results/.gitkeep
+# The breakdown-radius demonstration's outputs ARE deliverables: report.md
+# cites them and they are small CSV/JSON. Everything else under results/ is
+# regenerated experiment output and stays untracked.
+!/results/breakdown_radius_demo/
 /data/
 /checkpoints/
 *.pt

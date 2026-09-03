@@ -141,6 +141,25 @@ versions. Protocols, control arms, and reporting rules:
 
 ---
 
+## Worked example: the breakdown radius
+
+A fully enumerated, exactly computed demonstration of the breakdown radius on a
+small clinical example lives in [`report.md`](report.md). It walks through what
+one unit of perturbation is, builds the whole perturbation space layer by layer,
+and reports where an adjustment set first fails and what that means for a
+practitioner. Unlike the rest of this repository, that subpackage is implemented
+rather than stubbed.
+
+```bash
+PYTHONPATH=src python3 -m bkrobust.demo.run_all
+```
+
+Writes `results/breakdown_radius_demo/` and 20 figures to `figures/`; runtime
+about 7 seconds. Code in `src/bkrobust/demo/`, tests in `tests/demo/`.
+
+Note that the demonstration runs on Python 3.9 as well as the 3.11+ this package
+targets, because it was written against the interpreter available at the time.
+
 ## Development
 
 ```bash
