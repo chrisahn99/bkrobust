@@ -459,3 +459,17 @@ with <=6 undirected edges" rather than "all CPDAGs on <=5 nodes" -- is retired.
 
 Total corrected-space evidence: 2,290,834 exhaustive radius comparisons across
 n=3,4,5, zero counterexamples.
+
+## Bug (MINE): two silent no-op string replaces
+
+While integrating the density-gap closure I updated `report_axisb_deep.md` but the
+PDF builder kept its own hard-coded text, so I committed and pushed a PDF that
+contradicted the markdown ("the density gap is still open"). Two of my
+`str.replace` calls had also silently no-opped earlier because the pattern used a
+hyphen where the source had an em dash, and I had not asserted on them.
+
+Caught by verifying the built PDF's extracted text against what I had just
+claimed, rather than trusting that the rebuild picked the change up. Fixed by
+replacing every block with an explicit `assert` on the anchor before writing, and
+by adding a post-build check that greps the rendered PDF for the claims it is
+supposed to make. Lesson recorded: a rebuild is not a verification.

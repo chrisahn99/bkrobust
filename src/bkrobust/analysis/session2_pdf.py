@@ -303,12 +303,25 @@ def build(out_path: str | Path = "REPORT_AXISB_DEEP.pdf") -> Path:
         ),
         Spacer(1, 3 * mm),
         para(
-            f"The n = 5 sweep is <b>incomplete</b> — it checkpointed incrementally and "
-            "stopped when its parent agent ended. What it covered is stated rather than "
-            "rounded up. The re-run was not vacuous: the correction added "
+            "The re-run was not vacuous: the correction added "
             f"<b>{n5.get('states_added_by_correction', 0)} space elements</b> and "
             f"<b>{n5.get('combos_involving_added_states', 0):,} comparisons involved a "
             "state the old space did not contain</b>.",
+            st["body"],
+        ),
+        para(
+            "<b>The density gap is now CLOSED.</b> The 136 CPDAGs the original sweep "
+            "skipped - the densest, and where a counterexample would most likely live - "
+            "were run to completion: <b>135</b> by direct sweep (299,520 further radius "
+            "comparisons, <b>0 counterexamples</b>), and <b>1</b> recorded as infeasible "
+            "rather than dropped: the complete K5 skeleton, 4,231 space elements, whose "
+            "covering relation costs about 7.6e10 operations. That one was then closed by "
+            "the THEORY instead - Anti-Exchange needs only closure computations, so it is "
+            "cheap exactly where enumeration is not: 30,840 applicable triples, 0 "
+            "violations, 10 seconds, and the proved chain gives Conjecture 2 there. This "
+            "is a CONDITIONAL closure and is labelled as such. The previous report's most "
+            "pointed caveat - all CPDAGs on at most 5 nodes with at most 6 undirected "
+            "edges, rather than all CPDAGs on at most 5 nodes - is retired.",
             st["body"],
         ),
     ]
@@ -481,14 +494,13 @@ def build(out_path: str | Path = "REPORT_AXISB_DEEP.pdf") -> Path:
         *bullets(
             [
                 "<b>Anti-Exchange Case B is not proved.</b> Everything rests on it. Case A "
-                "is proved and Case B is verified on 5,254 triples, but the chain is "
+                "is proved and Case B is verified on 36,094 triples, but the chain is "
                 "conditional and labelled so throughout.",
-                "<b>The n = 5 corrected sweep is complete for k <= 6</b>, but the 136 "
-                "densest CPDAGs (k > 6, or space > 200) are still unexamined - precisely "
-                "where a counterexample would live.",
-                "<b>The n = 5 density gap is still open.</b> The brief asked for the 136 "
-                "densest CPDAGs; the corrected sweep still skipped 78 for k > 6 and 2 for "
-                "space size. Not achieved this session.",
+                "<b>One of the 136 dense CPDAGs was closed CONDITIONALLY.</b> The "
+                "complete K5 skeleton was too large for the covering relation, so "
+                "Conjecture 2 was settled there by verifying Anti-Exchange and invoking "
+                "the proved chain - it inherits that dependency rather than being tested "
+                "directly.",
                 "<b>Scaling reaches k = 10, n = 7.</b> Nothing speaks to realistic sizes.",
                 "<b>Certification rates are n = 4 numbers</b>, not established beyond.",
                 "<b>The bounds study used one Z per instance</b> (the optimal adjustment "
