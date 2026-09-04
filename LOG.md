@@ -435,3 +435,27 @@ The density gap remains open on the same terms: 131 CPDAGs exceed k=6 and 5 have
 a corrected space above 200 elements. A closure run over those 136 was under way
 at session end; partial results (9 CPDAGs at k=7..10, 18,177 comparisons, 0
 counterexamples) are checkpointed in n5_dense.jsonl.
+
+## n=5 density gap CLOSED (135 by sweep, 1 by the proof chain)
+
+The conjecture2 subagent completed the density closure: 136 CPDAGs attempted,
+135 run to completion (299,520 further radius comparisons, 0 counterexamples),
+1 recorded as infeasible rather than dropped — the complete K5 skeleton, whose
+corrected space has 4,231 elements and whose covering relation costs
+O(N^3) ~ 7.6e10 operations.
+
+I closed that last one a different way. Anti-Exchange needs only closure
+computations, not the covering relation, so it is cheap exactly where enumeration
+is not; and the chain AE => Lemma R => Property S => Lemma L => Conjecture 2 is
+proved. On the complete K5 CPDAG: 4,231 closed sets, 60,140 closures, 30,840
+applicable triples, 0 violations, 10 seconds.
+
+This is a CONDITIONAL closure and is labelled as such: it settles Conjecture 2
+there by inheriting the Anti-Exchange dependency, rather than testing Conjecture 2
+directly. The distinction matters and is stated in the report.
+
+Net effect: the previous report's most pointed caveat -- "all CPDAGs on <=5 nodes
+with <=6 undirected edges" rather than "all CPDAGs on <=5 nodes" -- is retired.
+
+Total corrected-space evidence: 2,290,834 exhaustive radius comparisons across
+n=3,4,5, zero counterexamples.

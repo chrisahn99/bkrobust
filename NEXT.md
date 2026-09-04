@@ -33,10 +33,11 @@ Supersedes the session-1 version. Session-1 items that are now done are marked.
 
 - **Anti-Exchange Case B as proved.** It is not.
 - **Conjecture 2 unconditionally.** It rests on the above.
-- **Full n = 5 completeness.** The corrected sweep is complete for k ≤ 6
-  (all 8,782 CPDAGs, 1,977,820 comparisons, 0 counterexamples), but the 136
-  densest CPDAGs — k > 6, or a corrected space above 200 elements — are still
-  unexamined, and that is precisely where a counterexample would live.
+- **n = 5 is now complete**, with one qualification worth keeping: 135 of the
+  136 densest CPDAGs were closed by direct sweep, and the last (the complete K₅
+  skeleton, 4,231 space elements) was closed *via the proof chain* by verifying
+  Anti-Exchange there, not by enumerating Conjecture 2. So that one inherits the
+  Anti-Exchange dependency.
 - **Certification rates beyond n = 4.**
 - **Anything at realistic graph sizes.** The ladder reaches k = 10, n = 7.
 - **The naive `K`-count baseline (H4).** Still not run, two sessions on.
@@ -53,10 +54,9 @@ and characterise the same-component case separately; (b) attack it through the
 convex-geometry structure, which is now established empirically (anti-exchange
 holds, covers add exactly one element, the poset is graded).
 
-**2. Close the n = 5 density gap.** The k ≤ 6 sweep is now complete (1,977,820
-comparisons, 0 counterexamples); the 136 densest CPDAGs remain. A closure run was
-under way at session end and had cleared 9 of them at k = 7…10 with 0
-counterexamples. Finishing it is now much cheaper than it looks, because the
+**2. Push the scale ladder to n = 6.** The n = 5 density gap is closed, so the
+next frontier is n = 6, where exhaustive MEC enumeration is out of reach and a
+stratified design is needed. This is now much cheaper than it looks, because the
 space-free method is
 32,667× faster than BFS-with-construction at k = 10 and could do the sweep
 without building spaces at all.

@@ -160,10 +160,31 @@ the only evidence available when its parent agent paused. The sweep afterwards
 ran to completion. The figures above are the completed ones; the earlier partial
 number was accurate when written and is superseded.
 
-**The density gap is still open**, on the same terms as before: 131 CPDAGs
-exceed k = 6 and 5 have a corrected space above 200 elements. A
-closure run over those 136 was under way at the end of the session; its partial
-results are in `results/axisb2/conjecture2/n5_dense.jsonl`.
+**The density gap is now CLOSED.** The brief asked for the 136 CPDAGs the
+original sweep skipped — the densest ones, and precisely where a counterexample
+would live. They were run to completion:
+
+| | |
+|---|---|
+| dense CPDAGs attempted | 136 |
+| closed by direct sweep | **135** (299,520 further radius comparisons, **0 counterexamples**) |
+| infeasible by enumeration | **1** — the complete K₅ skeleton |
+
+The single hold-out is the fully undirected K₅ skeleton: its corrected space has
+**4,231 elements**, and the covering relation is built by brute-force
+represented-DAG comparisons at O(N³) ≈ 7.6 × 10¹⁰ operations. It was recorded as
+`infeasible` with that exact reason rather than dropped.
+
+**It was then closed by the theory instead of by enumeration.** Anti-Exchange
+needs only *closure* computations — no covering relation — so it is cheap exactly
+where enumeration is not. On that CPDAG: 4,231 closed sets, 60,140 closures,
+**30,840 applicable triples, 0 violations**, in 10 seconds. By the proved chain
+(§2.1) Anti-Exchange gives Conjecture 2 there. This is a conditional closure, not
+a direct one: it inherits the dependence on Anti-Exchange rather than testing
+Conjecture 2 by brute force, and that distinction is deliberate and stated.
+
+So the previous report's most pointed caveat — *"all CPDAGs on ≤ 5 nodes with
+≤ 6 undirected edges"* rather than *"all CPDAGs on ≤ 5 nodes"* — is retired.
 
 ![Lemma L slack](figures/s2_f2_lemmaL_slack.png)
 

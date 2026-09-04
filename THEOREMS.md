@@ -340,6 +340,6 @@ exactness is claimed.
 | S | Upper semimodularity | **Proved from Lemma R**; verified on 1,386,626 triples |
 | R | Every cover adds exactly one orientation | **Proved from Anti-Exchange** (Edelman–Jamison); verified on 5,348 covers |
 | AE-A | Anti-exchange, same edge | **Proved** |
-| AE-B | Anti-exchange, distinct edges | **OPEN**, 0 violations in 5,254 triples |
+| AE-B | Anti-exchange, distinct edges | **OPEN**, 0 violations in 36,094 triples incl. the complete K₅ |
 | L | `d(G₀, G∨G₀) ≤ d(G₀,G)` | **Proved from S**; independently verified on 521,432 pairs |
 | C2 | Retraction-optimal witnesses | **Proved from Anti-Exchange**; reduces to AE-B |

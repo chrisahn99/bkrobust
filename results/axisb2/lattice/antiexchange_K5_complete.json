@@ -1,0 +1,10 @@
+{
+  "cpdag": "V0-V1 V0-V2 V0-V3 V0-V4 V1-V2 V1-V3 V1-V4 V2-V3 V2-V4 V3-V4",
+  "space_elements": 4231,
+  "closures_computed": 60140,
+  "applicable_triples": 30840,
+  "violations": 0,
+  "violation_examples": [],
+  "why": "The covering relation is O(N^3) on 4,231 elements and was infeasible. Anti-Exchange needs only closure computations, and the proved chain AE => Lemma R => Property S => Lemma L => Conjecture 2 settles Conjecture 2 here from it.",
+  "conclusion": "Conjecture 2 holds on this CPDAG by the proof chain, since Anti-Exchange is verified with 0 violations"
+}
