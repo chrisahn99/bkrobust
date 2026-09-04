@@ -10,7 +10,8 @@ Supersedes the session-1 version. Session-1 items that are now done are marked.
    pairs. This is new and quotable on its own.
 3. **Conjecture 2 (retraction-optimal witnesses) is proved**, modulo a single
    local property — Anti-Exchange Case B — whose Case A is proved and whose Case
-   B has zero violations in 5,254 applicable triples. State it as: *proved
+   B has zero violations in 36,094 applicable triples, including the complete K₅
+   skeleton. State it as: *proved
    conditional on Anti-Exchange*, not as an empirical regularity. This is a large
    upgrade on session 1's "~2M comparisons, no counterexample".
 4. **`radius_local_up`'s exactness is exactly Anti-Exchange Case B**, and any

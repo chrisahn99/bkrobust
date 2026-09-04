@@ -115,8 +115,9 @@ then `x ∉ cl(S∪{y})`. Semantically:
 > DAGs.**
 
 **Case A** (same edge) is **proved** outright from maximal orientation.
-**Case B** (distinct edges) is open, with **0 violations in 5,254** applicable
-triples. The identified obstruction: the natural proof route uses the chordality
+**Case B** (distinct edges) is open, with **0 violations in 36,094** applicable
+triples — 5,254 across the exhaustive n ≤ 4 and sampled n = 5 scopes, plus 30,840
+on the complete K₅ skeleton, the densest CPDAG on 5 nodes. The identified obstruction: the natural proof route uses the chordality
 of chain components to reorient freely within a component, and under background
 knowledge a component need *not* be chordal — precisely what Task 0 uncovered —
 so the classical argument does not transfer.
@@ -289,13 +290,14 @@ manufactured.
 ## 6. What this does not show
 
 - **Anti-Exchange Case B is not proved.** Everything above rests on it. It is
-  verified on 5,254 applicable triples with zero violations, and Case A is
+  verified on 36,094 applicable triples with zero violations, and Case A is
   proved, but the chain is conditional and is labelled so everywhere.
-- **The n = 5 corrected sweep is 62.4% complete.** The remaining 37.6% is not
-  claimed.
-- **The n = 5 density gap is still open.** The brief asked for the 136 densest
-  CPDAGs; the corrected sweep still skipped 78 for `k > 6` and 2 for space size.
-  Closing it was not achieved this session.
+- **One of the 136 dense CPDAGs was closed conditionally, not by enumeration.**
+  The complete K₅ skeleton (4,231 space elements) was beyond the covering
+  relation, so Conjecture 2 was settled there by verifying Anti-Exchange and
+  invoking the proved chain. That case inherits the Anti-Exchange dependency
+  rather than being an independent test of Conjecture 2, and the two kinds of
+  evidence should not be pooled.
 - **Scaling reaches k = 10, n = 7.** Nothing here speaks to realistic sizes.
 - **Certification rates are n = 4 numbers.** Not established at n = 5 or beyond.
 - **The bounds study used one Z per instance** (the optimal adjustment set), not

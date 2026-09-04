@@ -238,8 +238,10 @@ both of its orientations occur among the represented DAGs. Pick `D₁ ⊨ x`. Si
 and the hypothesis fails vacuously. ∎
 
 **Case B (`x` and `y` orient different edges): OPEN.** Verified with **0
-violations** across **5,254** applicable triples (2,178 exhaustive at n ≤ 4,
-3,076 sampled at n = 5). A proof would need to rule out two distinct undirected
+violations** across **36,094** applicable triples (2,178 exhaustive at n ≤ 4,
+3,076 sampled at n = 5, and 30,840 on the complete K₅ skeleton — the densest
+CPDAG on 5 nodes, where the covering relation is too large to enumerate but
+Anti-Exchange is not). A proof would need to rule out two distinct undirected
 edges being perfectly correlated over an equivalence class with knowledge
 imposed. The natural route is the chordal structure of chain components, which
 permits reorienting within a component; the obstruction is that under background
