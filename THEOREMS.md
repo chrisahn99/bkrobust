@@ -159,64 +159,87 @@ than a lattice, unless a formal bottom is adjoined.
 
 ---
 
-## 4. Property S — upper semimodularity  *(open; verified exhaustively)*
+## 4. Property S — upper semimodularity  *(PROVED from Lemma R)*
 
-**Statement.** For all `X, Y, Z ∈ 𝔊_Ĉ` with `X ⋖ Y` (i.e. `Y` covers `X`):
+**Statement.** For all `X, Y, Z ∈ 𝔊_Ĉ` with `X ⋖ Y`:
 
 ```
 X ∨ Z = Y ∨ Z      or      X ∨ Z ⋖ Y ∨ Z .
 ```
 
-This is the standard upper-semimodularity condition for the join-semilattice of
-Theorem 3.
+**Proof.** Work on the orientation side, where an element `W` is identified with
+its closed knowledge set `K_W` and, by Theorem 2, `W ∨ Z` is identified with
+`K_W ∩ K_Z`. Two standard facts are used: the intersection of closed sets is
+closed (`cl(A∩B) ⊆ cl(A) ∩ cl(B) = A ∩ B` for closed `A`, `B`), and by
+**Lemma R** below `X ⋖ Y` gives `K_X = K_Y ⊔ {e}` for a single orientation `e`.
 
-**Status: OPEN. Verified with zero violations at the scope below.**
+*Case 1: `e ∉ K_Z`.* Then `K_X ∩ K_Z = K_Y ∩ K_Z`, so `X ∨ Z = Y ∨ Z`.
 
-| scope | triples tested | violations |
-|---|---|---|
-| all CPDAGs on 3 and 4 nodes, all cover pairs × all elements (exhaustive) | 191,484 | **0** |
-| n = 5, 8 CPDAGs per density k = 1…7 | 1,195,142 | **0** |
-| — of which the densest stratum k = 7 alone | 891,092 | **0** |
-| **total** | **1,386,626** | **0** |
+*Case 2: `e ∈ K_Z`.* Then `K_X ∩ K_Z = (K_Y ∩ K_Z) ⊔ {e}`. Both are closed, so
+they are elements, and they differ by the single element `e`. No closed set lies
+strictly between two sets differing by one element, so `X ∨ Z ⋖ Y ∨ Z`. ∎
 
-Breakdown at n ≤ 4: 129,048 collapses (`X∨Z = Y∨Z`) and 62,436 genuine covers;
-**no gaps of height ≥ 2**. The n = 5 sweep was run densest-first precisely
-because that is where a violation is most likely; the largest stratum tested,
-k = 7, produced none.
+**Verified**, and the case split matches the proof exactly — which is itself a
+check that the case analysis is exhaustive:
 
-### 4.1 A correction to the received view
+| scope | triples | Case 1 (collapse) | Case 2 (cover) | gaps of height ≥ 2 |
+|---|---|---|---|---|
+| all CPDAGs n = 3, 4 (exhaustive) | 191,484 | 129,048 | 62,436 | **0** |
+| n = 5, sampled to k = 7 | 1,195,142 | — | — | **0** |
+| **total** | **1,386,626** | | | **0** |
 
-The brief for this session stated that upper semimodularity is *already refuted*
-in this subposet, on the grounds that on `a — b — c`, orienting `a→b` propagates
-to a DAG in one step while `b→a` needs two, giving maximal chains of unequal
-length. **That argument is wrong**, and the error is worth recording because it
-would otherwise close off the most promising proof route.
+The Case-2 key step `cl(S ∪ {e}) = S ∪ {e}` was additionally verified directly on
+all 62,436 Case-2 instances, with zero violations.
 
-It conflates *one knowledge assertion* with *one covering step*. Orienting `a→b`
-does reach a DAG with a single assertion — but that DAG is **not covered** by the
-CPDAG, because `Meek(Ĉ, {b→c})` lies strictly between them in model inclusion.
-The covering relation is defined by model inclusion, not by assertion count.
+---
 
-Computationally, the chain space has **6** elements and every maximal chain from
-the top has length **2**. More broadly:
+## 4b. Lemma R — every cover adds exactly one orientation  *(reduced to anti-exchange)*
 
-| scope | spaces | non-graded |
-|---|---|---|
-| all CPDAGs on 3 and 4 nodes | 133 | **0** |
-| n = 5, sampled across densities k = 1…7 | 70 | **0** |
+**Statement.** If `X ⋖ Y` in `𝔊_Ĉ` then `|K_X \ K_Y| = 1`.
 
-The poset is **graded** everywhere tested, so the Jordan–Dedekind chain condition
-holds and the stated refutation does not apply. (Gradedness is also a formal
-*consequence* of Property S, so the two verifications are consistent.)
+**Status: follows from Anti-Exchange (§4c) by a classical theorem.**
 
-### 4.2 What a proof would need
+By Edelman–Jamison, a closure operator satisfies the anti-exchange property iff
+its closed sets form a **convex geometry**, and in a convex geometry every cover
+in the lattice of closed sets adds exactly one element. So Anti-Exchange ⟹
+Lemma R.
 
-`𝔊_Ĉ` is isomorphic to the lattice of Galois-closed sets of the relation "DAG `D`
-orients edge `e` in direction `→`", with meet = intersection on the orientation
-side. Every finite lattice arises as such a concept lattice, so **no general
-theorem delivers Property S**; it must come from the specific structure of Meek
-closure. That is the identified obstruction, and it is why this is reported as
-open rather than as a proof sketch.
+**Verified directly** as well: **5,348 covering pairs** (2,658 exhaustive at
+n ≤ 4, 2,690 sampled at n = 5), every one of them adding exactly one orientation,
+**0 violations**. Equivalently `rank(G) = |dir(G)| − |dir(Ĉ)|` is a rank function,
+so the poset is graded — which independently confirms §4.1.
+
+---
+
+## 4c. Anti-Exchange — the single remaining open property
+
+**Statement.** For closed `S` and distinct orientations `x, y ∉ S`:
+
+```
+y ∈ cl(S ∪ {x})   ⟹   x ∉ cl(S ∪ {y}) .
+```
+
+**Semantic restatement.** Suppose both held. Then
+`cl(S∪{x}) = cl(S∪{y}) = cl(S∪{x,y})`, so over the DAGs represented by `S` the
+constraints `x` and `y` are *equivalent*. Anti-exchange therefore says exactly:
+
+> **no two distinct orientations are perfectly correlated across the represented
+> DAGs.**
+
+**Case A (`x` and `y` orient the same edge): PROVED.** If `x, y ∉ S` and `S` is
+closed, that edge is undirected in the graph of `S`, so by maximal orientation
+both of its orientations occur among the represented DAGs. Pick `D₁ ⊨ x`. Since
+`x` and `y` are opposite orientations of one edge, `D₁ ⊭ y`, so `y ∉ cl(S∪{x})`
+and the hypothesis fails vacuously. ∎
+
+**Case B (`x` and `y` orient different edges): OPEN.** Verified with **0
+violations** across **5,254** applicable triples (2,178 exhaustive at n ≤ 4,
+3,076 sampled at n = 5). A proof would need to rule out two distinct undirected
+edges being perfectly correlated over an equivalence class with knowledge
+imposed. The natural route is the chordal structure of chain components, which
+permits reorienting within a component; the obstruction is that under background
+knowledge a component need **not** be chordal — precisely the phenomenon Task 0
+uncovered — so the classical argument does not transfer unmodified.
 
 ---
 
@@ -257,7 +280,7 @@ made explicit. The margin does not shrink with graph size over the range tested.
 path, so `r_val` equals the minimum number of retractions from `G₀` that induces
 failure.
 
-**Theorem.** Property S ⟹ Conjecture 2.
+**Theorem.** Anti-Exchange ⟹ Lemma R ⟹ Property S ⟹ Lemma L ⟹ Conjecture 2.
 
 **Proof.** Let `G` be a nearest failure, `d(G₀,G) = r`. Put `J = G ∨ G₀`.
 
@@ -274,9 +297,11 @@ failure.
 Hence the retraction-only radius equals `r`. ∎
 
 **Consequently the session's central open question is no longer Conjecture 2 but
-Property S** — a purely order-theoretic local statement, with no reference to
-failure, adjustment sets, treatments or outcomes. That is a strictly sharper
-target, and reducing to it is the main theoretical result of this session.
+Anti-Exchange Case B** — a single local property of Meek closure, with no
+reference to failure, adjustment sets, treatments or outcomes, and with a clean
+semantic reading: *no two distinct orientations are perfectly correlated across
+the represented DAGs*. Case A is proved. Reducing a conjecture about causal
+robustness to that is the main theoretical result of this session.
 
 ---
 
@@ -287,8 +312,8 @@ Conjecture 2, hence — by §6 — exactly Property S.
 
 | | status |
 |---|---|
-| `radius_local_up` returns the BFS radius | **Exact if Property S holds**; otherwise it can only ever return radii that are **too large**, never too small |
-| Property S | verified, not proved (§4) |
+| `radius_local_up` returns the BFS radius | **Exact if Anti-Exchange Case B holds**; otherwise it can only ever return radii that are **too large**, never too small |
+| Property S | **proved**; rests on Anti-Exchange Case B (§4c), which is verified not proved |
 | Direction of any error | one-sided: an over-estimate of the radius, i.e. a claim of *more* robustness than is warranted |
 
 The one-sidedness matters for how the method should be reported: a failure of
@@ -307,6 +332,9 @@ exactness is claimed.
 | — | Space membership = reachability (fixpoint predicate) | **Settled**, verified on 1,588 states |
 | — | The chain-space semimodularity refutation | **Refuted** — it conflates an assertion with a covering step |
 | — | `𝔊_Ĉ` is graded | Verified on 203 spaces, 0 non-graded; also implied by S |
-| S | Upper semimodularity | **OPEN**, 0 violations in **1,386,626** triples (n ≤ 4 exhaustive + n = 5 to k = 7) |
+| S | Upper semimodularity | **Proved from Lemma R**; verified on 1,386,626 triples |
+| R | Every cover adds exactly one orientation | **Proved from Anti-Exchange** (Edelman–Jamison); verified on 5,348 covers |
+| AE-A | Anti-exchange, same edge | **Proved** |
+| AE-B | Anti-exchange, distinct edges | **OPEN**, 0 violations in 5,254 triples |
 | L | `d(G₀, G∨G₀) ≤ d(G₀,G)` | **Proved from S**; independently verified on 521,432 pairs |
-| C2 | Retraction-optimal witnesses | **Proved from S**; reduces to S |
+| C2 | Retraction-optimal witnesses | **Proved from Anti-Exchange**; reduces to AE-B |
