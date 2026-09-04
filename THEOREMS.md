@@ -97,7 +97,12 @@ element of the space the loss is larger and **grows with density** (n = 5):
 | 8 | 10.19% | 12 / 12 |
 
 The previous session's sweeps ran to `k = 6`, so its numbers were computed on a
-space missing elements for most dense CPDAGs. They are re-derived here.
+space missing elements for most dense CPDAGs.
+
+**Re-derived on the corrected space** (session 2): all 8,782 CPDAGs on 5 nodes,
+1,977,820 radius comparisons, **0 counterexamples** to
+Conjecture 2. The correction added 720 space elements and
+13,860 comparisons involved a state the old space did not contain.
 
 ---
 

@@ -416,3 +416,22 @@ Subagents: two launched, both reviewed rather than trusted.
     It also caught my gitignore recurrence.
 
 Tests 310 passing, ruff clean across the repo.
+
+## Correction: the n=5 corrected sweep completed after I reported it as partial
+
+I reported the n=5 corrected sweep as 62.4% complete (5,480 of 8,782 CPDAGs,
+814,736 radius comparisons), because its incremental checkpoint file was the only
+evidence available at the time its parent agent paused. The sweep subsequently
+ran to completion:
+
+    all 8,782 CPDAGs, 6,030 spaces, 1,977,820 radius comparisons, 0 counterexamples
+    720 space elements added by the Task 0 correction
+    13,860 comparisons involved a state the OLD space did not contain
+
+The earlier number was accurate when written and is superseded, not wrong. The
+report, THEOREMS.md and the PDF are updated to the completed figures.
+
+The density gap remains open on the same terms: 131 CPDAGs exceed k=6 and 5 have
+a corrected space above 200 elements. A closure run over those 136 was under way
+at session end; partial results (9 CPDAGs at k=7..10, 18,177 comparisons, 0
+counterexamples) are checkpointed in n5_dense.jsonl.

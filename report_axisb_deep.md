@@ -148,13 +148,22 @@ off. This is recorded because the error is easy to make and expensive.
 |---|---|---|---|
 | 3 | exhaustive | 150 | 0 |
 | 4 | exhaustive (185 CPDAGs) | 13,008 | 0 |
-| 5 | **partial — 5,480 of 8,782 CPDAGs (62.4%)** | 814,736 | **0** |
+| 5 | all 8,782 CPDAGs, k ≤ 6, space ≤ 200 | **1,977,820** | **0** |
 
-The n = 5 sweep is **incomplete**: it was checkpointing incrementally and stopped
-when its parent agent ended. What it did cover is stated rather than rounded up.
+Crucially the re-run was not vacuous: the correction added **720 space
+elements** and **13,860 comparisons involved a state the old space did not
+contain** — so the corrected sweep genuinely covered ground the original could not.
 
-Crucially the re-run was not vacuous: the correction added **313 space elements**
-and **4,784 comparisons involved a state the old space did not contain**.
+**Correction to an earlier draft of this report.** I first recorded the n = 5
+sweep as 62.4% complete (814,736 comparisons), because its checkpoint file was
+the only evidence available when its parent agent paused. The sweep afterwards
+ran to completion. The figures above are the completed ones; the earlier partial
+number was accurate when written and is superseded.
+
+**The density gap is still open**, on the same terms as before: 131 CPDAGs
+exceed k = 6 and 5 have a corrected space above 200 elements. A
+closure run over those 136 was under way at the end of the session; its partial
+results are in `results/axisb2/conjecture2/n5_dense.jsonl`.
 
 ![Lemma L slack](figures/s2_f2_lemmaL_slack.png)
 

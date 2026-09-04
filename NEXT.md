@@ -33,8 +33,10 @@ Supersedes the session-1 version. Session-1 items that are now done are marked.
 
 - **Anti-Exchange Case B as proved.** It is not.
 - **Conjecture 2 unconditionally.** It rests on the above.
-- **Any n = 5 completeness claim.** The corrected sweep reached 62.4% of CPDAGs,
-  and the density gap the brief asked to close is still open.
+- **Full n = 5 completeness.** The corrected sweep is complete for k ≤ 6
+  (all 8,782 CPDAGs, 1,977,820 comparisons, 0 counterexamples), but the 136
+  densest CPDAGs — k > 6, or a corrected space above 200 elements — are still
+  unexamined, and that is precisely where a counterexample would live.
 - **Certification rates beyond n = 4.**
 - **Anything at realistic graph sizes.** The ladder reaches k = 10, n = 7.
 - **The naive `K`-count baseline (H4).** Still not run, two sessions on.
@@ -51,9 +53,11 @@ and characterise the same-component case separately; (b) attack it through the
 convex-geometry structure, which is now established empirically (anti-exchange
 holds, covers add exactly one element, the poset is graded).
 
-**2. Finish the n = 5 corrected sweep and close the density gap.** 62.4% done,
-and the 80 densest CPDAGs are still unexamined — precisely where a counterexample
-would live. Now much cheaper than it looks, because the space-free method is
+**2. Close the n = 5 density gap.** The k ≤ 6 sweep is now complete (1,977,820
+comparisons, 0 counterexamples); the 136 densest CPDAGs remain. A closure run was
+under way at session end and had cleared 9 of them at k = 7…10 with 0
+counterexamples. Finishing it is now much cheaper than it looks, because the
+space-free method is
 32,667× faster than BFS-with-construction at k = 10 and could do the sweep
 without building spaces at all.
 

@@ -56,7 +56,22 @@ def build(out_path: str | Path = "REPORT_AXISB_DEEP.pdf") -> Path:
     ae = _j("lattice/antiexchange_lemmaR.json")
     sc = _j("scaling/scaling_summary.json")
     bd = _j("bounds/totals.json")
-    n5 = _j("conjecture2/n5_corrected_partial_summary.json")
+    # Prefer the COMPLETED sweep; fall back to the incremental partial summary
+    # only if the run did not finish.
+    _n5full = _j("conjecture2/n5_corrected.json")
+    if _n5full.get("totals"):
+        _t = _n5full["totals"]
+        n5 = {
+            "cpdags_processed": _t.get("n_cpdags", 0),
+            "radius_comparisons": _t.get("n_radius_comparisons", 0),
+            "c2_counterexamples": _t.get("c2_violations", 0),
+            "states_added_by_correction": _t.get("n_states_added_vs_old", 0),
+            "combos_involving_added_states": _t.get("n_combos_new", 0),
+            "complete": True,
+        }
+    else:
+        n5 = _j("conjecture2/n5_corrected_partial_summary.json")
+        n5["complete"] = False
     n4 = _j("conjecture2/n4_corrected.json")
 
     story: list[Any] = []
@@ -468,9 +483,9 @@ def build(out_path: str | Path = "REPORT_AXISB_DEEP.pdf") -> Path:
                 "<b>Anti-Exchange Case B is not proved.</b> Everything rests on it. Case A "
                 "is proved and Case B is verified on 5,254 triples, but the chain is "
                 "conditional and labelled so throughout.",
-                f"<b>The n = 5 corrected sweep is "
-                f"{100 * n5.get('cpdags_processed', 0) / 8782:.1f}% complete.</b> The rest "
-                "is not claimed.",
+                "<b>The n = 5 corrected sweep is complete for k <= 6</b>, but the 136 "
+                "densest CPDAGs (k > 6, or space > 200) are still unexamined - precisely "
+                "where a counterexample would live.",
                 "<b>The n = 5 density gap is still open.</b> The brief asked for the 136 "
                 "densest CPDAGs; the corrected sweep still skipped 78 for k > 6 and 2 for "
                 "space size. Not achieved this session.",
