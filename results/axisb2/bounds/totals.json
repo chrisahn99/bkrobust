@@ -1,0 +1,18 @@
+{
+  "n_cpdags": 185,
+  "n_cases": 5664,
+  "n_finite_radius": 3204,
+  "n_l_defined": 3204,
+  "n_l_admissible": 3204,
+  "n_l_violations": 0,
+  "n_l_tight": 2736,
+  "n_l_desc_defined": 732,
+  "n_l_back_defined": 3036,
+  "n_l_back_only_closed_gap": 2472,
+  "n_u_valid": 3204,
+  "n_lu_equal_and_exact": 2736,
+  "certification_rate": 0.8539325842696629,
+  "baseline_certification_rate_uncorrected_space": 0.8333333333333334,
+  "n_violations_recorded": 0,
+  "violations": []
+}

@@ -382,3 +382,20 @@ uses `search/space_fixed.py`. Everything dependent is re-run side by side.
 
 Good news for the inherited headline: the worked example's CPDAG has no excluded
 states (48 elements either way), so the prior report's radii 3/3/2 are unaffected.
+
+## Bug (MINE, RECURRING): results/axisb2/ was gitignored
+
+Exactly last session's bug 1, repeated. `.gitignore` line `/results/*` whitelists
+only `results/breakdown_radius_demo/`, `results/synth/` and `results/search/`, so
+everything written to `results/axisb2/` this session was untracked — including
+`task0_space_membership.json`, which the Task 0 commit message claimed to add.
+
+**Caught by the back-door-bound subagent**, which noticed its own output was
+untracked and said so in its report rather than assuming the orchestrator had it
+in hand. I had not checked, despite having written the identical mistake up in
+last session's report as bug 1. Recording it again, with the aggravating factor
+that it was a known failure mode.
+
+Correction to the record: commit 748f2e1 ("Task 0 ...") did NOT commit
+`results/axisb2/task0_space_membership.json`. The file existed on disk
+throughout; it is committed here. No numbers are affected.

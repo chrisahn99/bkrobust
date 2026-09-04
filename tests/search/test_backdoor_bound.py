@@ -142,7 +142,10 @@ def test_both_modes_unreached_combined_is_unreached_not_zero():
 
 
 def test_combined_never_smaller_than_the_smaller_defined_mode():
-    """When exactly one mode is defined, combined must equal it exactly -- never 0, never negative."""
+    """When exactly one mode is defined, combined must equal it exactly.
+
+    Never fall back to 0, never go negative.
+    """
     cpdag, g0 = _mbias_case()
     z = frozenset({"W"})
     a = descendant_lower_bound(cpdag, g0, z, "X")
@@ -156,32 +159,37 @@ def test_combined_never_smaller_than_the_smaller_defined_mode():
 def test_combined_is_the_min_when_both_defined():
     """When both modes are defined, combined must be their min, not either alone.
 
-    X - V - Y, X - V undirected (so the descendant route can pick V -> ...
-    forward for free) and V - Y currently ``Y -> V`` and retractable. Z = {V}.
-    Mode A: reach V from X -- already adjacent via an undirected edge, cost 0.
-    Mode B: the only path is X-V-Y; V is the first internal vertex, so (as
-    established above) it can never be a collider -- and V is in Z, so this
-    path can never unblock: mode B is UNREACHED here. To get BOTH modes
-    defined with different finite values, extend one hop further so the
-    back-door path's collider vertex is not the one adjacent to X.
+    X - V - W - Y. X - V is left undirected (free in either direction, for
+    both modes). V - W is currently ``W -> V``, retractable; W - Y is
+    currently ``W -> Y``, retractable. Z = {W}.
+
+    Mode A (descendant): X reaches V for free (undirected edge), then needs
+    ``V -> W`` (currently backwards): 1 retraction total.
+
+    Mode B (back-door): needs X - V to point into X (free, undirected), V
+    non-collider (automatic -- it is adjacent to X), and W a collider since
+    W in Z, i.e. both ``V -> W`` (currently backwards, 1) and ``Y -> W``
+    (currently backwards, 1): 2 retractions total.
+
+    So mode A = 1, mode B = 2, and the combined bound must be 1 = min(1, 2),
+    not 2 and not either mode picked without comparing.
     """
     cpdag = MPDAG(
         ["X", "V", "W", "Y"],
-        directed=[("V", "X")],
-        undirected=[("V", "W"), ("W", "Y")],
+        directed=[],
+        undirected=[("X", "V"), ("V", "W"), ("W", "Y")],
     )
     g0 = MPDAG(
         ["X", "V", "W", "Y"],
-        directed=[("V", "X"), ("V", "W"), ("W", "Y")],
-        undirected=[],
+        directed=[("W", "V"), ("W", "Y")],
+        undirected=[("X", "V")],
     )
     z = frozenset({"W"})
     a = descendant_lower_bound(cpdag, g0, z, "X")
     b = backdoor_lower_bound(cpdag, g0, z, "X", "Y")
     c = combined_lower_bound(cpdag, g0, z, "X", "Y")
-    assert a != UNREACHED and b != UNREACHED
-    assert c == min(a, b)
-    assert a != b, "both modes finite but equal would not discriminate min() from either alone"
+    assert (a, b) == (1, 2)
+    assert c == min(a, b) == 1
 
 
 # --------------------------------------------------------------------------------

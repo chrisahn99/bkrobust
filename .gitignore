@@ -58,6 +58,9 @@ coverage.xml
 # per-instance rows and manifests are cited by report_synth_and_search.md.
 !/results/synth/
 !/results/search/
+# Session 2 (Axis B deep) outputs are deliverables cited by
+# report_axisb_deep.md and THEOREMS.md.
+!/results/axisb2/
 /data/
 /checkpoints/
 *.pt
