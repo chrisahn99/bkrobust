@@ -399,3 +399,20 @@ that it was a known failure mode.
 Correction to the record: commit 748f2e1 ("Task 0 ...") did NOT commit
 `results/axisb2/task0_space_membership.json`. The file existed on disk
 throughout; it is committed here. No numbers are affected.
+
+## Session 2 close
+
+Delivered: THEOREMS.md (Conjecture 2 proved modulo Anti-Exchange Case B),
+report_axisb_deep.md + REPORT_AXISB_DEEP.pdf (9 pages, 5 figures), updated
+NEXT.md, results under results/axisb2/ with manifests, and 5 new figures.
+
+Subagents: two launched, both reviewed rather than trusted.
+  - conjecture2 re-run on the corrected space: n=3 and n=4 exhaustive (0
+    counterexamples), n=5 partial at 62.4% when its parent stopped. Its
+    incremental checkpointing preserved 814,736 comparisons.
+  - back-door lower bound: L now defined in 100% of finite-radius instances, 0
+    admissibility violations. I re-verified admissibility independently on the
+    old-space scope (792 instances, 0 violations, tight 90.9%) before accepting.
+    It also caught my gitignore recurrence.
+
+Tests 310 passing, ruff clean across the repo.

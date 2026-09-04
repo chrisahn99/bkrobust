@@ -1,92 +1,77 @@
-# NEXT — what this session advances, what is safe to claim, what comes next
+# NEXT — status after session 2 (Axis B deep)
+
+Supersedes the session-1 version. Session-1 items that are now done are marked.
 
 ## What is now safe to put in a paper
 
-**Safe, with the stated scope.**
-
-1. **Failure is upward-closed — as a theorem, with a one-line proof.** Validity is
-   a for-all over represented DAGs, so the DAG witnessing failure survives upward.
-   State the empty-extension convention caveat alongside it. This licenses the
-   pruning and memoisation the search relies on.
-2. **The breakdown radius does not saturate at 1.** `r_val = 1` in ~80% of
-   instances, but ~20% have radius ≥ 2, stable across three generators, across
-   n = 6…9, and in an exhaustive census over every CPDAG on ≤ 5 nodes. This
-   retires the project's principal risk.
-3. **There is no efficiency–robustness tradeoff.** The frontier is genuinely
-   non-flat (21.9% of instances), yet the optimal adjustment set is *never*
-   strictly beaten (0 of 249,732, exhaustive at n=4 and n=5). An analyst choosing `O*` gives up nothing in
-   robustness. This is the most useful single claim the session produced, and it
-   corrects the prior report's flat-frontier reading in both directions.
-4. **An exact radius can be certified without enumerating the space in 83.3% of
-   instances**, via matching lower and upper bounds — with the caveat that `L`
-   covers only one of the two failure modes.
-5. **The degeneracy rate is high and must be reported with any ensemble number.**
-   91.8% of randomly generated instances are degenerate for this study, mostly
-   because there is no confounding. Any rate quoted without this denominator is
-   misleading.
+1. **Failure is upward-closed** — a theorem, one-line proof. *(unchanged)*
+2. **The space of knowledge states is a join-semilattice**, with the explicit join
+   `G ∨ H = Meek(Ĉ, K_G ∩ K_H)`. **Proved** this session; verified on 260,716
+   pairs. This is new and quotable on its own.
+3. **Conjecture 2 (retraction-optimal witnesses) is proved**, modulo a single
+   local property — Anti-Exchange Case B — whose Case A is proved and whose Case
+   B has zero violations in 5,254 applicable triples. State it as: *proved
+   conditional on Anti-Exchange*, not as an empirical regularity. This is a large
+   upgrade on session 1's "~2M comparisons, no counterexample".
+4. **`radius_local_up`'s exactness is exactly Anti-Exchange Case B**, and any
+   failure is **one-sided**: radii come out too large, i.e. optimistic about
+   robustness. Say this wherever exactness is claimed.
+5. **The space-free method's cost tracks the up-set, not the space** — measured
+   1.59^k against the up-set's 1.57^k, versus 1.96^k for the space and 3.97^k for
+   BFS construction. Confirms the predicted `2^(#knowledge-oriented edges)`
+   behaviour.
+6. **The crossover rule**: building the space pays off only above roughly 175
+   queries per CPDAG at k = 7, and ~50,000 at k = 10. For one-off certification,
+   never build the space.
+7. **The combined lower bound is defined in 100%** of finite-radius instances at
+   n = 4 (was 22.8%), with zero admissibility violations. The certification rate
+   is 85.4%, but quote it with the denominator caveat in §4 of the report.
+8. **The breakdown radius does not saturate at 1** *(session 1, unchanged)*.
+9. **No efficiency–robustness tradeoff** *(session 1, unchanged)*.
 
 **Not yet safe.**
 
-- **Conjecture 2 as a theorem.** ~2M comparisons without a counterexample is
-  strong evidence, not a proof, and the densest 2.2% of n=5 CPDAGs were skipped.
-  Quote it as an empirically-supported conjecture with the enumeration scope.
-- **Any claim at realistic graph sizes.** Everything here is n ≤ 9.
-- **`r_ε` as an independent quantity.** It is nearly redundant with `r_val` unless
-  ε is a substantial fraction of the effect (0.0% middle regime at ε = 0.02–0.05;
-  14.1% at ε = 0.2).
-- **Anything about the naive `K`-count baseline.** H4 was not run.
+- **Anti-Exchange Case B as proved.** It is not.
+- **Conjecture 2 unconditionally.** It rests on the above.
+- **Any n = 5 completeness claim.** The corrected sweep reached 62.4% of CPDAGs,
+  and the density gap the brief asked to close is still open.
+- **Certification rates beyond n = 4.**
+- **Anything at realistic graph sizes.** The ladder reaches k = 10, n = 7.
+- **The naive `K`-count baseline (H4).** Still not run, two sessions on.
 
-## The two or three experiments that should come next
+## The experiments that should come next
 
-**1. Prove or refute Conjecture 2.** Highest value by a distance. If the nearest
-failure always lies in the up-set, the search space drops from ~`3^m` to ~`2^k`
-*with a guarantee*, and the accelerated method stops being conditional. The proof
-sketch to attack: for a failing `G`, does the join of `G0` and `G` (which fails,
-by upward-closure) always lie at distance ≤ `d(G0, G)`? A counterexample would
-need a failure incomparable to `G0` strictly nearer than any failure above it —
-search there specifically, rather than uniformly. Failing a proof, close the 2.2%
-scope gap at n=5 and push to n=6 with the space-free method.
+**1. Prove Anti-Exchange Case B.** Everything now hangs on one statement with a
+clean reading: *no two distinct orientations are perfectly correlated across the
+represented DAGs*. The obstruction is identified — the natural argument uses
+chordality of chain components to reorient freely, and under background knowledge
+a component need not be chordal (Task 0). Two routes worth trying: (a) prove it
+for the cross-component case first, where orientations are nearly independent,
+and characterise the same-component case separately; (b) attack it through the
+convex-geometry structure, which is now established empirically (anti-exchange
+holds, covers add exactly one element, the poset is graded).
 
-**2. Complete the lower bound to cover the back-door failure mode.** `L` is
-undefined in 7.6% of instances because the binding failure is a back-door path
-becoming unblocked, not a descendant appearing. A bound for that mode would make
-`L` a genuine certificate rather than half of one, and would likely push the
-83.3% exact-certification rate substantially higher. This is the single change
-that most improves the practical method.
+**2. Finish the n = 5 corrected sweep and close the density gap.** 62.4% done,
+and the 80 densest CPDAGs are still unexamined — precisely where a counterexample
+would live. Now much cheaper than it looks, because the space-free method is
+32,667× faster than BFS-with-construction at k = 10 and could do the sweep
+without building spaces at all.
 
-**3. Resolve the MPDAG validity question (bug 6).** A Meek-closed graph
-representing 5 DAGs, keeping every compelled edge and satisfying `[G] ⊆ [Ĉ]`, is
-nonetheless excluded from the space, because chordality is checked on the
-undirected subgraph alone and a component whose only chord is *directed* reads as
-chordless. It affects 0.09% of Meek closures and is currently gated. Decide
-whether the validity definition or the chordality test is wrong, then re-run
-whatever depends on it. Do this before scaling up, not after: every result rests
-on the current enumeration.
+**3. Push the scale ladder using the space-free method.** The scaling data says
+BFS construction is the binding cost (3.97^k) and `local_up` is not (1.59^k). Any
+result that only needs radii — not the whole space — can now go materially
+further than n = 7. The obstacle is that verification currently requires BFS as
+ground truth; with Conjecture 2 proved conditional on Anti-Exchange, that
+dependency is weaker than it was.
 
-**Cheap and worth doing:** run H4. The runner needs one extra column and the
-naive-radius machinery already exists in `bkrobust.demo.baseline`. It would
-settle whether the prior report's off-by-one was systematic or a one-example
-artefact.
+**Cheap and still unrun:** H4, the naive `K`-count baseline. Two sessions of
+being the last unrun pre-registered hypothesis.
 
-## Work packages advanced
+## Threads not pursued
 
-- *Structural theory*: Conjecture 1 promoted to theorem; Conjecture 2 supported at
-  ~2M comparisons; the flat-frontier claim corrected to "non-flat, but `O*` never
-  beaten"; the identification-vs-perturbability tension identified as a
-  structural obstruction to a designed decoupled family.
-- *Method*: an exact space-free search, differentially validated on 5,304 cases,
-  with measured speedup and an honest statement of where it does not help; plus
-  bounds certifying 83.3% of instances without enumeration.
-- *Infrastructure*: a frozen core with a settled radius convention, an
-  append-only results contract with self-describing manifests, and determinism
-  guarantees enforced across `PYTHONHASHSEED`.
-
-## Open threads not pursued
-
-- Symmetry reduction via automorphisms, incremental Meek closure, and the
-  SAT/ILP/ASP encoding (B2.6–B2.8) were specified but not implemented; the L/U
-  certificate looked more promising per unit of effort and was done instead.
-- Component decomposition (B2.2) was not implemented; the space-free search made
-  it less urgent, but it is the natural route to larger graphs.
-- The scale ladder above n = 9 was not attempted, because resolving item 3 above
-  should come first.
+- §3.6 fallback items (component decomposition, SAT/ILP/ASP encoding, incremental
+  Meek closure, symmetry reduction) were not reached — §§3–5 did not stall.
+  The SAT encoding remains the largest unexplored direction.
+- `improved_upper_bound` exists but had nothing to close at n = 4, because the
+  guided construction is already exact there. Its value, if any, is at larger k.
+- Axis A remains paused.

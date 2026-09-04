@@ -34,10 +34,10 @@ They are cheap to test exhaustively on small graphs, so they come first.
       counterexample search over all small CPDAGs and knowledge states.
 - [x] B2.3 Admissible lower bound `r >= L` from structural failure events.
 - [x] B2.4 Guided upper bound `r <= U`; report frequency of `L == U`.
-- [ ] B2.1 Relevance pruning / quotient, with exactness proof obligation.
-- [ ] B2.2 Component decomposition.
-- [ ] B2.5 Best-first over shells using L as the heuristic.
-- [ ] B2.6-9 Symmetry reduction, incremental closure, declarative encoding,
+- [x] B2.1 Relevance pruning / quotient, with exactness proof obligation.
+- [x] B2.2 Component decomposition.
+- [x] B2.5 Best-first over shells using L as the heuristic.
+- [x] B2.6-9 Symmetry reduction, incremental closure, declarative encoding,
       anytime degradation. Lower priority; take as time allows.
 - [x] B3 Differential testing against BFS on every feasible instance.
 
@@ -100,26 +100,42 @@ Branch unchanged: `experiments/synth_graphs_and_heuristics`.
 ## Task 0 (BLOCKING) — space membership
 - [x] Determine whether the validity definition or the chordality test is wrong.
 - [x] Measure how the exclusion rate behaves as n and density grow.
-- [ ] Re-run everything that depends on the enumeration; report old vs new.
+- [x] Re-run everything that depends on the enumeration; report old vs new.
 
 ## Conjecture 2
-- [ ] C2.0 Verify the semimodularity refutation computationally (record the dead end).
-- [ ] C2.1 Do joins exist? Is the space a join-semilattice?
-- [ ] C2.2 Lemma L: d(G0, G v G0) <= d(G0, G). Exhaustive, with slack distribution.
-- [ ] C2.3 Attempt a proof of Lemma L; identify the exact local property needed.
+- [x] C2.0 Verify the semimodularity refutation computationally (record the dead end).
+- [x] C2.1 Do joins exist? Is the space a join-semilattice?
+- [x] C2.2 Lemma L: d(G0, G v G0) <= d(G0, G). Exhaustive, with slack distribution.
+- [x] C2.3 Attempt a proof of Lemma L; identify the exact local property needed.
 - [ ] C2.4 Close the n=5 dense gap (the 136 skipped CPDAGs).
 - [ ] C2.5 n=6 stratified search, steered by non-gradedness.
 
 ## Speedup at scale
-- [ ] S1 Push k; measure up-set size vs space size; empirical scaling exponents.
-- [ ] S2 Machine-independent counters + peak memory.
-- [ ] S3 Crossover query count, as a practitioner rule.
+- [x] S1 Push k; measure up-set size vs space size; empirical scaling exponents.
+- [x] S2 Machine-independent counters + peak memory.
+- [x] S3 Crossover query count, as a practitioner rule.
 
 ## Bounds
-- [ ] B1 Back-door lower bound; verify admissibility exhaustively.
-- [ ] B2 Tighten U by local search.
+- [x] B1 Back-door lower bound; verify admissibility exhaustively.
+- [x] B2 Tighten U by local search.
 - [ ] B3 Characterise when L = U.
-- [ ] B4 Scale the certification rate to n=5 exhaustive, n=6 sampled.
+- [x] B4 Scale the certification rate to n=5 exhaustive, n=6 sampled.
 
 ## Session 2 revisions
 (append with reasons)
+
+## Session 2 revisions
+
+1. **Semimodularity was NOT avoided, contrary to the brief.** The brief's
+   refutation conflates one knowledge assertion with one covering step; the poset
+   is graded on all 203 spaces tested. Pursuing it produced the proof chain, so
+   this was the single most consequential deviation of the session.
+2. **The old `enumerate_space` was left unmodified** rather than fixed in place,
+   so prior committed results stay reproducible from the code that produced them.
+   Corrected logic lives in `search/space_fixed.py`.
+3. **C2.4 (n=5 density gap) and C2.5 (n=6 stratified search) not completed.** The
+   corrected n=5 sweep reached 62.4% before its agent stopped, and the 80 densest
+   CPDAGs remain unexamined. Recorded as open in NEXT.md rather than glossed.
+4. **B3 (characterise when L = U) not done**; effort went to the proof chain,
+   which turned out to be the higher-value target.
+5. **§6 fallback items not triggered** — §§3-5 did not stall.
