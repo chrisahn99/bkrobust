@@ -90,3 +90,36 @@ against a small A pipeline built purely to supply instances.
    and was done instead. Recorded in NEXT.md.
 6. **H4 not run.** Effort went to correcting the H2 statistic instead. Recorded
    as the cheapest remaining item.
+
+---
+
+# SESSION 2 — Axis B: proof, scale, and bounds
+
+Branch unchanged: `experiments/synth_graphs_and_heuristics`.
+
+## Task 0 (BLOCKING) — space membership
+- [x] Determine whether the validity definition or the chordality test is wrong.
+- [x] Measure how the exclusion rate behaves as n and density grow.
+- [ ] Re-run everything that depends on the enumeration; report old vs new.
+
+## Conjecture 2
+- [ ] C2.0 Verify the semimodularity refutation computationally (record the dead end).
+- [ ] C2.1 Do joins exist? Is the space a join-semilattice?
+- [ ] C2.2 Lemma L: d(G0, G v G0) <= d(G0, G). Exhaustive, with slack distribution.
+- [ ] C2.3 Attempt a proof of Lemma L; identify the exact local property needed.
+- [ ] C2.4 Close the n=5 dense gap (the 136 skipped CPDAGs).
+- [ ] C2.5 n=6 stratified search, steered by non-gradedness.
+
+## Speedup at scale
+- [ ] S1 Push k; measure up-set size vs space size; empirical scaling exponents.
+- [ ] S2 Machine-independent counters + peak memory.
+- [ ] S3 Crossover query count, as a practitioner rule.
+
+## Bounds
+- [ ] B1 Back-door lower bound; verify admissibility exhaustively.
+- [ ] B2 Tighten U by local search.
+- [ ] B3 Characterise when L = U.
+- [ ] B4 Scale the certification rate to n=5 exhaustive, n=6 sampled.
+
+## Session 2 revisions
+(append with reasons)
