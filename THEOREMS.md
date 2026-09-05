@@ -345,3 +345,106 @@ exactness is claimed.
 | AE-B | Anti-exchange, distinct edges | **OPEN**, 0 violations in 36,094 triples incl. the complete K₅ |
 | L | `d(G₀, G∨G₀) ≤ d(G₀,G)` | **Proved from S**; independently verified on 521,432 pairs |
 | C2 | Retraction-optimal witnesses | **Proved from Anti-Exchange**; reduces to AE-B |
+
+---
+
+# Session 3 addendum — correctness of the declarative encodings
+
+Everything below concerns the CP-SAT encodings in `src/bkrobust/sat/`. The
+question these sections answer is not "is the radius right" but "does the
+encoding define the object we think it defines", which is prior to it. A wrong
+encoding does not crash; it returns plausible numbers.
+
+## 8. The closure encoding defines the corrected space
+
+**Statement.** For a CPDAG `Ĉ`, the satisfying assignments of the constraint
+system built by `sat.closure.add_meek_closure` are exactly the orientation sets
+`{K_G : G ∈ 𝔊_Ĉ}` of the corrected space of §1.
+
+**Method.** Each Meek rule is encoded as a **forbidden firing configuration**
+rather than as an implication: for every tuple of vertices matching a rule's
+premises, the conjunction of (premises ∧ ¬consequent) is ruled out by one clause.
+Added to this are the no-new-v-structure clauses and acyclicity via position
+integer variables.
+
+**Why firing configurations and not implications.** This was wrong once. R1 and R2
+survive a weaker encoding that omits the undirectedness premise, because the
+alternatives to the consequent are either a new v-structure or a cycle, both
+independently forbidden. R3 and R4 do not: dropping their undirectedness premises
+makes the system strictly too strong and it loses legitimate elements. The first
+version of the encoding did exactly that and reproduced only **66 of 133** CPDAG
+spaces.
+
+**Verified.** With the premises restored, the solution set equals
+`enumerate_space_correct` on **133 CPDAGs / 1,588 elements**, 0 mismatches
+(`tests/sat/test_encodings.py::test_closure_encoding_is_the_corrected_space`).
+
+## 9. The failure predicate agrees with the validity oracle
+
+**Statement.** `sat.failure.add_failure` is satisfiable for a witness DAG `D`
+extending `G` exactly when `Z` is an invalid adjustment set in `D`.
+
+**Method.** The two back-door failure modes are encoded directly: (A) some
+`z ∈ Z` is a descendant of `X` in `D`, and (B) a d-connecting path from `X` to
+`Y` in `D_X̄` given `Z`. Path (B) uses an **explicit bounded simple path** with
+position variables, not a Bayes-ball fixpoint; the fixpoint formulation is unsafe
+in both directions here. Two fixpoints do remain (`rx`, `ancz`), and they are
+safe because they range over an acyclic graph.
+
+**The collider clause was wrong once**, and the error made radii **too small** —
+the dangerous direction. A non-collider clause requiring `into_l ∨ into_r` let a
+*chain* through a member of `Z` be accepted as a collider, so paths that are
+blocked were reported open, so failures were reported that were not failures. A
+collider needs **both** arrows pointing in, which is two clauses, not one.
+
+**Verified.** Against the reference oracle on **26,304 cases**, 0 disagreements
+after the fix.
+
+## 10. E1, E2 and E3 — what each one assumes
+
+Let `r` be the true BFS radius. All three encodings are **upper bounds** on `r`;
+none can return a radius that is too small. That one-sidedness is inherited from
+§7 and is the dangerous direction for reporting, so it is stated on every result
+object via an `assumes` field.
+
+| | searches | assumes | relation |
+|---|---|---|---|
+| **E1** | retractions of `K_{G₀}` | Conjecture 2 | `r ≤ r_E1` |
+| **E2** | every closed state, distance via the join | Theorem 2 + Lemma R + up-then-down normalisation | `r ≤ r_E2 ≤ r_E1` |
+| **E3** | walks of one-orientation covering steps | **nothing** | `r ≤ r_E3` |
+
+**E2's join needs no closure.** Theorem 2 identifies `G₀ ∨ G` with `K_{G₀} ∩ K_G`,
+and the intersection of closed sets is closed, so `K_J = K_{G₀} ∩ K_G` outright.
+With `K_{G₀}` constant the objective collapses to the symmetric difference
+`|K_{G₀} Δ K_G|` — one linear constraint over a single copy of the variables,
+rather than the extra copy the plan budgeted. The assumptions are unchanged.
+
+## 11. E3's soundness, and the direction it runs in
+
+**Statement.** If E3 returns a walk of length `k` ending at a failing state, then
+`r ≤ k`, unconditionally.
+
+**Proof.** Consecutive states in an E3 walk are closed and differ by exactly one
+orientation. Two sets differing by a single element admit nothing strictly
+between them, so the pair is a covering pair by the definition of covering — with
+no appeal to Lemma R, to anti-exchange, or to gradedness. Hence the walk is a
+walk in the covering graph, and BFS distance is at most its length. ∎
+
+**The converse fails, and the asymmetry is the point.** That *every* cover is a
+one-orientation step is Lemma R, which rests on anti-exchange Case B and is
+verified rather than proved. E3 therefore searches a **subset** of the covering
+walks. Consequences, which must not be blurred:
+
+* `r_E3 < r_E1` **refutes Conjecture 2**, with a witness walk and no assumptions.
+* `r_E3 = r_E1` is **consistent with** Conjecture 2 and proves nothing, because a
+  shorter path through a hypothetical multi-orientation cover is invisible to
+  both encodings.
+
+Agreement between E1 and E3 is evidence. Only disagreement would be a theorem,
+and it would be a theorem in the negative direction.
+
+**Certificates, not solver claims.** Every E3 walk reported in this session was
+replayed through the ordinary graph code by `sat.verify.verify_walk`, which
+re-checks, without consulting the encoding, that each state is a knowledge state
+of the CPDAG, that each step changes exactly one orientation, and that the final
+state genuinely fails.
