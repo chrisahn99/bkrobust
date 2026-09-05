@@ -80,3 +80,65 @@ being the last unrun pre-registered hypothesis.
 - `improved_upper_bound` exists but had nothing to close at n = 4, because the
   guided construction is already exact there. Its value, if any, is at larger k.
 - Axis A remains paused.
+
+---
+
+# Addendum — status after session 3 (Axis B tractability)
+
+Session-2 items are unchanged unless noted. Nothing in this session touched
+Anti-Exchange Case B, the L/U bounds, or Axis A.
+
+## What is now safe to put in a paper, added this session
+
+1. **The breakdown radius is computable without constructing the space.** Three
+   CP-SAT encodings, agreeing with brute-force BFS and `local_up` on every
+   instance where either could run (1,044 exhaustive at n = 4; 346 of 360
+   generated), zero disagreements.
+2. **An UNSAT rung is a certificate that shells 0…k are clean**, produced without
+   enumerating those shells. This is the form a robustness claim actually wants.
+3. **The tractability picture is a split, not a speedup.** `local_up` wins
+   decisively when a failure is near; the encoding wins — unboundedly — when it
+   must be proved that no failure exists. The governing parameter is the
+   **radius**, not `k`.
+4. **Conjecture 2 survived an assumption-free test that could have refuted it**,
+   over 1,007 certified witness walks including a deliberate hunt on dense,
+   large-component, high-`|K_{G₀}|` instances.
+
+## Carried forward, sharpened
+
+- **Anti-Exchange Case B** is still the single open property, and E1's exactness
+  still rests on it. This session gives it *no* new support: E3's soundness uses
+  only the easy direction of Lemma R, so agreement between E1 and E3 bears on
+  Conjecture 2 without touching Lemma R at all.
+- **H4**, the naive `K`-count baseline, is still the last unrun pre-registered
+  hypothesis — now for a third session.
+- **Axis A** remains paused.
+
+## New, and ordered by value
+
+1. **Build the hybrid.** Run `local_up` under a small depth budget; if it finds a
+   failure it answers in microseconds. If it exhausts the budget, hand the
+   instance to E1. The two are strong in disjoint regimes and the discriminator —
+   has a failure been found yet — is free at runtime. This is the practical
+   deliverable and the data specifies it completely.
+2. **Restrict the encoding to the knowledge-intersected component before emitting
+   clauses.** Build cost dominates and is `O(n⁴)` in the vertex count, while the
+   answer depends only on that component. Highest-value change to the encoding.
+3. **Extend E3 past small radii** by incremental unrolling that reuses solver
+   state across rungs. Right now E3 is capped at `r ≤ 3–4`, so the hunt's
+   radius-5, -6 and -8 instances are untested for Conjecture 2.
+4. **Explain the zero margins.** Every `r_E3 − r_E1` is exactly 0 across 1,007
+   instances — never violated, but never with slack either. That is consistent
+   with Conjecture 2 holding, and equally with the two encodings searching the
+   same object for a structural reason not yet identified. Worth understanding
+   *before* the tie is presented as evidence.
+5. **Find E1's actual breaking point.** No E1 run hit its time limit here, so the
+   reported ceiling is where I stopped, not where the method fails.
+
+## Environment debt
+
+23 tests fail and 3 files fail to collect on this machine, all `ImportError` on
+`TypeAlias` / `StrEnum` in the `REPO_INIT` scaffold stubs, which need Python
+3.11; the machine runs 3.9.6. Not caused by any session's work, but it means
+`pytest tests` is not currently a clean signal and someone will eventually
+mistake it for one.

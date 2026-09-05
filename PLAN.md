@@ -139,3 +139,55 @@ Branch unchanged: `experiments/synth_graphs_and_heuristics`.
 4. **B3 (characterise when L = U) not done**; effort went to the proof chain,
    which turned out to be the higher-value target.
 5. **§6 fallback items not triggered** — §§3-5 did not stall.
+
+---
+
+# Session 3 — tractability (declarative encoding)
+
+**Scope taken from the brief.** In: the SAT/CP encoding (item B2.8), scaling, and
+stress-testing Conjecture 2 beyond brute force. Explicitly parked and not
+touched: the Anti-Exchange Case B proof, the L/U bounds work, and Axis A.
+
+## What was executed
+
+1. **Three encodings, not one** (`src/bkrobust/sat/`). E1 retraction-only, E2
+   join-distance, E3 assumption-free path unrolling. Kept separate because they
+   assume different things and the differences *are* the experiment.
+2. **Layered validation before any measurement.** Closure encoding vs the
+   corrected space; failure predicate vs the validity oracle; radii vs BFS and
+   `local_up`; then cross-encoding. Each layer found a bug before the next ran.
+3. **Certificates over solver claims** (`sat/verify.py`). Every E3 witness walk
+   is replayed through the ordinary graph code and re-checked without consulting
+   the encoding.
+4. **Scaling study** to n = 20 across six generators, and a **targeted high-`k`
+   hunt** on dense CPDAGs reaching `|K_{G₀}| = 51`.
+5. **Report numbers are derived, not transcribed.** The PDF computes every figure
+   it quotes at build time, and `analysis/session3_verify.py` independently
+   asserts the markdown agrees with the same files.
+
+## Deviations from the plan, and why
+
+1. **E2 needed no extra copy of the orientation variables.** The brief budgeted
+   one for the join. Theorem 2 plus closure-under-intersection makes the join
+   determined rather than searched for, collapsing the objective to a symmetric
+   difference over one copy. Assumptions unchanged; only the cost changed.
+2. **`local_up` had to be run under a hard wall-clock cap, in a subprocess.**
+   The first high-`k` sweep hung, because `local_up` on a degenerate instance at
+   k = 15 must exhaust an up-set of up to 2¹⁵ states. Rather than lower the
+   ambition, the timeout was made a *recorded datum*. That change is what
+   produced the session's central result (§3.3 of the report); the hang was the
+   measurement.
+3. **E3 was budgeted by radius, not by instance size.** It unrolls `r+1` copies
+   of the closure encoding, so it ran only where `r ≤ 4` (general) or `r ≤ 3`
+   (hunt). Instances at radius 5, 6 and 8 in the hunt are therefore **not
+   covered** by the Conjecture 2 test. Recorded as a scope limit in the report,
+   not glossed.
+4. **The §3.6 fallback was not triggered as a fallback, but one of its items is
+   now the top recommendation.** The encoding was not a dead end, so no switch
+   was recorded. Component decomposition nonetheless became the highest-value
+   next change, because the measured profile points at it: build cost dominates
+   and is `O(n⁴)` in the vertex count while the answer depends only on the
+   knowledge-intersected component.
+5. **No crossover against `local_up` was found on the SAT side, and none is
+   expected.** The brief asked for the crossover; the honest answer is that it
+   exists only on the UNSAT side. Reported as the headline rather than buried.

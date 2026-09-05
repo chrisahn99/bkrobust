@@ -473,3 +473,73 @@ claimed, rather than trusting that the rebuild picked the change up. Fixed by
 replacing every block with an explicit `assert` on the anchor before writing, and
 by adding a post-build check that greps the rendered PDF for the claims it is
 supposed to make. Lesson recorded: a rebuild is not a verification.
+
+---
+
+## Session 3 — the declarative encoding
+
+### Bug (MINE): the closure encoding was too strong, and lost half the spaces
+
+Stage 1 reproduced only **66 of 133** CPDAG spaces. I had encoded each Meek rule
+as an implication and dropped R3's and R4's *undirectedness* premises, reasoning
+from R1 and R2 — which do tolerate the omission, because the alternatives to
+their consequent are a new v-structure or a cycle, both independently forbidden.
+R3 and R4 have no such backstop.
+
+Caught by comparing the solution set against the enumerated corrected space
+rather than by reading the encoding. Fixed by encoding every rule as a
+**forbidden firing configuration**: one clause per premise-matching tuple ruling
+out (premises ∧ ¬consequent). Lesson: a "simplification" that is sound for two
+members of a rule family is not thereby sound for the family.
+
+### Bug (MINE): the collider clause erred toward under-reporting robustness
+
+Stage 2 disagreed with the oracle on 144 of 26,304 cases. My non-collider clause
+required `into_l ∨ into_r`; a collider needs **both** arrows pointing in. So a
+chain through a member of `Z` was accepted as a collider, blocked paths read as
+open, and non-failures read as failures.
+
+The direction is what matters. This makes radii **too small** — and a spuriously
+small E3 radius is exactly the shape of a Conjecture 2 counterexample. Had it
+survived into the stress test it would have manufactured a false headline result:
+"Conjecture 2 refuted", with a witness that does not exist.
+
+It was caught only because Stage 2 was run as its own layer against a reference
+oracle *before any radius was computed*. Had I gone straight from "the encoding
+compiles" to "here are the radii", the numbers would have looked plausible.
+
+### Bug (MINE): `UNREACHED` conflated with "budget exhausted"
+
+E1's ladder has a natural top; exhausting it proves no failure exists in the
+up-set. E3's `max_k` is a pure budget, so exhausting it proves only
+`radius > max_k`. My first version returned `UNREACHED` there, which reads as
+"no failure exists". Now records `exhausted_to` and sets `exact=False`. Found
+while writing the comparison logic for the n = 4 sweep, not by a failing test —
+which is to say it would have shipped if I had only run the tests.
+
+### Not a bug: the hang that turned out to be the result
+
+The first high-`k` sweep stalled with no output. Cause: `local_up` on a
+degenerate instance at k = 15 must exhaust an up-set of up to 2¹⁵ states, each
+requiring a Meek closure and a DAG-extension enumeration. I killed it and re-ran
+with `local_up` in a subprocess under a hard 60 s cap.
+
+The instinct to treat this as an obstacle would have been wrong. Recording the
+timeout as a datum — 26 of 49 degenerate instances unfinished at 60 s, against
+E1 answering all 49, the worst in 8.745 s — is the session's central measurement.
+
+### Mechanical, but worth recording
+
+A `sed` invocation used `|` as its delimiter while the replacement text contained
+`|` in a type annotation, corrupting a dataclass field into `None = None| None =
+None`. Separately, a blanket `str.replace` of an import line also rewrote that
+line *inside an embedded source string* used by a subprocess test, producing an
+unterminated literal. Both were caught immediately by the linter and the test
+run, and both were edits made without first reading the line being changed.
+
+### Determinism
+
+Radii, witnesses, walks **and solver conflict/branch counters** hash identically
+across `PYTHONHASHSEED` 0, 1 and 12345 with a single worker and a fixed seed.
+The counters are in the hash on purpose: matching radii alone would not detect a
+search that explored a different tree and landed on the same answer.
