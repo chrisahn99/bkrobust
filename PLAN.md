@@ -205,7 +205,7 @@ Anti-Exchange Case B, the L/U bounds, Axis A.
 
 1. **The front-loaded measurement changed the weighting, as it was designed to.**
    The brief predicted `local_up` would be oracle-bound. It is
-   **enumeration**-bound (96.1%) but the oracle is only **25.6%** of it; **70.5%**
+   **enumeration**-bound (96.1%) but the oracle is only **25.6%** of it; **70.4%**
    is cover-minimality enumeration. By Amdahl the criterion alone could not
    exceed **1.3×**. Recorded before building anything.
 
@@ -214,7 +214,7 @@ Anti-Exchange Case B, the L/U bounds, Axis A.
    model inclusion on space elements is a set comparison on directed edges. This
    was not in the brief. It delivered **3.77×** aggregate with zero radius
    changes, and it is what makes the criterion worth having, since removing the
-   70.5% promotes the oracle to the dominant remaining cost.
+   70.4% promotes the oracle to the dominant remaining cost.
 
 3. **The criterion does not compute the predicate the brief said it computes.**
    The brief states it decides "exactly the one `is_valid` already computes";

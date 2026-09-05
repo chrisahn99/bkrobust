@@ -24,7 +24,7 @@ the E1 ladder, whose UNSAT rungs certify the clean shells directly.
 **Two accelerations, both applied by default and both differentially tested.**
 
 * :mod:`bkrobust.search.exact_fast` decides cover minimality by set comparison
-  (Lemma O) rather than by enumerating DAG extensions -- 70.5% of the frozen
+  (Lemma O) rather than by enumerating DAG extensions -- 70.4% of the frozen
   search's measured time, and 3.77x in aggregate.
 * :mod:`bkrobust.mpdag_criterion` decides validity on the MPDAG directly rather
   than by enumerating ``[G]`` and checking every extension.

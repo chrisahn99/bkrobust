@@ -244,10 +244,68 @@ def fig_cost_by_component() -> list[Path]:
     return _save(fig, "s4_f4_cost_by_component")
 
 
+def fig_hybrid_envelope() -> list[Path]:
+    """The operating envelope, on the axis Axis A will need.
+
+    Component size, not n. Censored frozen runs are drawn at the cap and marked;
+    the hybrid has none to draw.
+    """
+    _style()
+    rows = _rows("hybrid_envelope.jsonl")
+    cap = 120.0
+
+    def ok(e: dict) -> bool:
+        return "total_s" in e and "timed_out_at_s" not in e
+
+    fig, ax = plt.subplots(figsize=(6.8, 4.0))
+    hx = [r["hybrid"]["largest_component"] for r in rows if ok(r["hybrid"])]
+    hy = [r["hybrid"]["total_s"] for r in rows if ok(r["hybrid"])]
+    fx = [r["frozen"]["largest_component"] for r in rows if ok(r["frozen"])]
+    fy = [r["frozen"]["total_s"] for r in rows if ok(r["frozen"])]
+    ax.scatter(
+        fx, fy, s=18, alpha=0.55, color=C_VERM, marker="s", label=f"frozen local_up (n = {len(fx)})"
+    )
+    ax.scatter(hx, hy, s=18, alpha=0.7, color=C_BLUE, marker="o", label=f"hybrid (n = {len(hx)})")
+    resc = [r for r in rows if "timed_out_at_s" in r["frozen"] and ok(r["hybrid"])]
+    if resc:
+        ax.scatter(
+            [r["hybrid"]["largest_component"] for r in resc],
+            [cap] * len(resc),
+            s=80,
+            marker="x",
+            color=C_VERM,
+            linewidths=2,
+            label=f"frozen hit the {cap:.0f}s cap (n = {len(resc)})",
+        )
+        for r in resc:
+            ax.annotate(
+                "",
+                xy=(r["hybrid"]["largest_component"], r["hybrid"]["total_s"]),
+                xytext=(r["hybrid"]["largest_component"], cap),
+                arrowprops={"arrowstyle": "->", "color": C_GREY, "lw": 0.8},
+            )
+    ax.axhline(cap, color=C_GREY, ls=":", lw=1)
+    ax.set_yscale("log")
+    ax.set_xlabel("largest undirected component of the CPDAG (vertices)")
+    ax.set_ylabel("seconds to an exact radius (log scale)")
+    ax.set_title(
+        "Operating envelope: the hybrid finished every instance;\n"
+        "arrows mark the ones the frozen search could not"
+    )
+    ax.legend(fontsize=8, loc="lower right")
+    return _save(fig, "s4_f5_hybrid_envelope")
+
+
 def build_all() -> list[Path]:
     """Build every session 4 figure that has data. Returns the paths written."""
     out: list[Path] = []
-    for fn in (fig_profile_split, fig_amdahl, fig_fast_vs_frozen, fig_cost_by_component):
+    for fn in (
+        fig_profile_split,
+        fig_amdahl,
+        fig_fast_vs_frozen,
+        fig_cost_by_component,
+        fig_hybrid_envelope,
+    ):
         try:
             out.extend(fn())
         except (FileNotFoundError, ValueError, IndexError) as exc:

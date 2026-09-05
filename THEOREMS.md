@@ -486,7 +486,7 @@ with at least one undirected edge: **80,480 pairs, 0 disagreements**
 
 **Consequence, which is the reason it was looked for.** `local_up`'s cover
 generation decided minimality by comparing *extension sets*, enumerating `[H]`
-once per candidate. Profiling put **70.5%** of `local_up`'s total time in that
+once per candidate. Profiling put **70.4%** of `local_up`'s total time in that
 one test. Lemma O makes it a set comparison on directed edges, with no
 enumeration at all. `search/exact_fast.py` implements this; it returns identical
 cover sets (1,588 compared, identical including order) and identical radii

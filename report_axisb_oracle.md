@@ -47,7 +47,7 @@ probabilities 0.35–0.9. `results/axisb4/profile_local_up.jsonl`.
 | | all | SAT side | UNSAT side |
 |---|---|---|---|
 | validity oracle | 25.6% | 39.0% | 25.2% |
-| **cover minimality** (`enumerate_dag_extensions`) | **70.5%** | 43.0% | **71.3%** |
+| **cover minimality** (`enumerate_dag_extensions`) | **70.4%** | 43.0% | **71.3%** |
 | `meek_closure` | 2.6% | 13.2% | 2.3% |
 | search overhead | 1.3% | 4.8% | 1.2% |
 | **enumeration-bound share** | **96.1%** | 82.0% | **96.5%** |
@@ -84,7 +84,7 @@ what the front-loaded measurement bought.
 
 ## 2. Lemma O — deleting the dominant cost outright
 
-The 70.5% is spent deciding whether one cover candidate sits strictly below
+The 70.4% is spent deciding whether one cover candidate sits strictly below
 another in **model inclusion**, by enumerating both extension sets and comparing
 them. That comparison does not need the extension sets.
 
@@ -124,7 +124,7 @@ the change and is worth asserting rather than assuming.
 | SAT side | 67 | 1.39× | 1.72× | — | — |
 | UNSAT side | 69 | 1.72× | **3.79×** | — | — |
 
-**0 radius disagreements.** Two instances the frozen search could not finish
+**0 radius disagreements.** 2 instances the frozen search could not finish
 inside 120 s were finished by the new one — n = 10 with a 7-vertex component at
 k = 15 in 61.6 s, and n = 16 with a 7-vertex component at k = 13 in 32.3 s.
 
@@ -254,3 +254,237 @@ acceptance criterion and no performance one, and correctness was met in full and
 with unusual rigour. A component can be exhaustively verified and still be
 useless for its purpose, and only one of those two things was checked.
 
+### 3.6 Rewritten as state reachability — and then it is polynomial
+
+Condition (c) is a *reachability* question, not an enumeration question, exactly
+as d-separation is. Rewritten as an **edge-state search**: a state is the
+traversed edge `(u,v)` plus one bit for whether a backward step has occurred.
+`u`'s identity has to be in the state, not merely the edge kind, because both
+the unshielded-triple test and the definite-non-collider test are statements
+about `u`, `v` and the next node together. `O(E)` states, `O(V·E)` transitions.
+
+**Timings I measured myself, cold cache, worst case per configuration:**
+
+| n | p | largest component | \|E\| | worst | mean |
+|---|---|---|---|---|---|
+| 12 | 0.85 | 4 | 56 | **0.143 ms** | 0.100 ms |
+| 16 | 0.85 | 7 | 107 | 0.298 ms | 0.201 ms |
+| 20 | 0.85 | 2 | 163 | **0.699 ms** | 0.421 ms |
+| 24 | 0.85 | 7 | 242 | 1.204 ms | 0.707 ms |
+| 30 | 0.85 | 3 | 362 | 2.330 ms | 1.060 ms |
+| 40 | 0.85 | 5 | 657 | 6.610 ms | 4.042 ms |
+
+Against 48,285 ms at n = 12, p = 0.85 before the rewrite — and n ≥ 16 was
+previously unreachable at all, since n = 14 blew a 60 s cap.
+
+**Correctness is unchanged, which is the point.** My independent sweep returns
+the same 72,360 cases with 0 disagreements and a **byte-identical reason
+distribution** — not merely the same verdicts but the same grounds for them.
+
+**The one caveat, stated because it is real.** The state searches range over
+*walks*, not paths: dropping the path sequence loses the visited-set, so the
+search is formally a relaxation. The argument that it is tight on a Meek-closed
+MPDAG (a repeat would force a cycle that is either all-directed, hence a
+directed cycle, or all-undirected, hence a chordless cycle in a chain component)
+is an argument, not a machine-checked proof. I therefore stressed it against the
+**enumeration oracle**, which shares no code with the criterion, on random dense
+graphs at n = 8…14 and — importantly — on elements of the perturbation *ball*
+rather than only `G0`, since that is where the search actually walks:
+
+> **1,131,460 cases, 0 disagreements**, across component sizes 2 through 8
+> (`results/axisb4/criterion_stress_walks.json`).
+
+Two functions remain exponential on purpose: `causal_nodes` and `forbidden_set`
+are exported reporting aids, off the decision path. A monkeypatch guard test
+asserts the decision never reaches a path-enumerating function, and the guard was
+checked non-vacuous by firing it against the old code path. **Do not quote those
+two at scale.**
+
+---
+
+## 4. The hybrid, and the operating envelope
+
+`breakdown_radius(cpdag, K, x, y, Z)` dispatches automatically: run the upward
+search under a small depth budget, fall through to the E1 ladder when it
+exhausts that budget without finding a failure. It returns the radius together
+with the method, the oracle and the assumption, so the caller never has to
+choose and cannot silently drop the Conjecture 2 dependency. `describe()`
+renders a sentence a practitioner can act on.
+
+**Differentially tested** on 1,044 instances at n = 4 against brute-force BFS
+under *both* oracles, 0 disagreements. A test asserts the dispatch budget is a
+performance choice and never a semantic one: budget 0 forces every instance
+through the ladder and must give identical radii.
+
+**The envelope run.** 256 instances, n = 8…24, edge probability 0.3–0.85, one
+subprocess per (instance, method) under a 120 s cap
+(`results/axisb4/hybrid_envelope.jsonl`):
+
+| | completed | timeouts |
+|---|---|---|
+| **hybrid** (criterion oracle) | **256 / 256** | **0** |
+| hybrid (enumeration oracle) | 256 / 256 | 0 |
+| frozen `local_up` | 247 / 256 | **9** |
+
+**0 radius disagreements** across all three. Against frozen `local_up` where
+both finished: median **2.03×**, aggregate **3.29×**.
+
+The nine instances frozen `local_up` could not finish are the point, and every
+one of them fits the dispatch's design exactly — all nine are **UNSAT**
+(no failure anywhere) and all nine were answered by the **ladder**:
+
+| n | component | \|K_{G₀}\| | hybrid |
+|---|---|---|---|
+| 12 | 7 | 19 | 1.41 s |
+| 14 | 11 | 14 | 0.39 s |
+| 16 | 8 | 24 | 4.47 s |
+| 20 | 7 | 20 | 9.86 s |
+| 24 | 6 | 12 | 11.20 s |
+
+Dispatch over the whole run: 148 instances answered by the search, 108 by the
+ladder. Neither leg is redundant.
+
+![envelope](figures/s4_f5_hybrid_envelope.png)
+
+---
+
+## 5. The plain answer
+
+**What is the largest component and knowledge set on which an exact radius is
+now computable, and how long does it take?**
+
+Over the 256-instance envelope run, every instance was solved exactly, with:
+
+- **largest undirected component solved: 11 vertices**
+- **largest \|K_{G₀}\| solved: 33 orientations**
+- **largest n solved: 24**
+- **slowest single instance: 21.62 s**; median well under 0.1 s
+
+| largest component | instances | \|K_{G₀}\| med / max | hybrid median | hybrid worst |
+|---|---|---|---|---|
+| 2 | 49 | 1 / 3 | 0.0005 s | 0.33 s |
+| 3 | 58 | 3 / 5 | 0.0011 s | 6.29 s |
+| 4 | 52 | 5 / 10 | 0.0559 s | 9.55 s |
+| 5 | 50 | 6 / 13 | 0.0618 s | 12.32 s |
+| 6 | 33 | 11 / 14 | 0.0289 s | 21.62 s |
+| 7 | 7 | 17 / 21 | 0.0713 s | 9.86 s |
+| 8 | 4 | 20 / 24 | 1.1023 s | 4.47 s |
+| 9 | 2 | 32 / 33 | 0.0046 s | 0.0055 s |
+| 11 | 1 | 14 / 14 | 0.3885 s | 0.3885 s |
+
+**The honest caveat, which session 3 established and this session keeps.**
+The hybrid hit **zero** timeouts, so **these are the sizes I stopped at, not the
+sizes at which the method breaks.** I did not find the hybrid's breaking point.
+The frozen search's ceiling, by contrast, *was* measured: it is the nine
+instances above. The large-component rows are also thin — 7, 4, 2 and 1
+instances at components 7, 8, 9 and 11 — because dense Erdős–Rényi CPDAGs rarely
+produce large chain components. That thinness is a limitation of the generator,
+not evidence of a limit in the method, and closing it needs a generator that
+targets large components directly.
+
+**A practitioner sentence:** *for a CPDAG whose largest undirected component is
+around a dozen vertices and whose analyst asserts up to about thirty
+orientations, the exact breakdown radius is now a sub-second-to-seconds
+computation, and it is exact under Conjecture 2 — an assumption that can only
+make the answer too optimistic about robustness, never too pessimistic.*
+
+### 5.1 Captured but not analysed
+
+Per the plan's instruction to record and not pursue: the distribution of `r_val`
+against component size is in `results/axisb4/hybrid_envelope.jsonl` and printed
+in the envelope analysis. It is raw material for the next session's Axis A
+question. `UNREACHED` appears there as the sentinel `-1` and is **not** a radius;
+it must not be averaged or plotted numerically. No conclusion is drawn here.
+
+---
+
+## 6. What is now safe to claim about tractability
+
+**Safe:**
+
+- The exact breakdown radius is computable **without enumerating DAG extensions
+  anywhere on the path**: neither for cover minimality (Lemma O) nor for validity
+  (the criterion). Both substitutions are differentially tested against the
+  implementations they replace and against brute force.
+- The validity predicate is decidable on the MPDAG in **polynomial time**,
+  measured at sub-millisecond to n = 20 and 6.6 ms at n = 40.
+- A single entry point returns exact radii on components up to 11 vertices and
+  `|K_{G₀}|` up to 33 within ~22 s worst case, and it did not fail on any
+  instance attempted.
+- E1's failure predicate is **complete on the non-amenable stratum**, which is
+  38% of the ball — checked directly rather than assumed.
+- The E1/`local_up` circularity the plan identified is **broken**: there is now a
+  reference oracle that is independent of Conjecture 2 *and* scales. Session 3's
+  large-`n` numbers were checked only against `local_up`, which shares E1's
+  assumption; they can now be checked against something that does not.
+
+**Not safe, and not claimed:**
+
+- Any statement about where the hybrid breaks. It never failed here.
+- That large components are well covered. They are not: components ≥ 7 are 14 of
+  256 instances, and the generator is the reason.
+- That the criterion's walk-relaxation is *proved* tight. It is argued and
+  stress-tested at 1.1M cases, not proved.
+- That any of this removes the Conjecture 2 dependency from the *radius*. It does
+  not. Both search legs remain upward searches; only the *oracle* circularity is
+  broken, not the exactness assumption.
+
+---
+
+## 7. What went wrong
+
+Recorded at the same weight as the results.
+
+**1. The plan's premise was wrong, and front-loading the measurement is what
+caught it.** `local_up` is enumeration-bound but only 25.6% oracle. My own
+prediction was wrong in the same direction, guessing a roughly even split. Had
+the measurement come after the criterion was built, the criterion would have
+been built to do a job it cannot do, and the 70.4% would plausibly have gone
+unnoticed because nothing would have been looking at it.
+
+**2. I gated the criterion on correctness and not on performance.** It came back
+verified on 74,568 exhaustive cases and ~2.4M sampled, 0 disagreements — and
+exponential in the vertex count, slower than the oracle it was built to replace.
+A component can be exhaustively verified and still be useless for its purpose,
+and only one of those two properties was in the acceptance criteria. That is my
+error in the delegation, not a failure of the implementation. Caught by the
+envelope sweep, and only because it timed *both* oracles instead of assuming the
+new one was faster.
+
+**3. My harness let timeouts masquerade as measurements.** Censored runs were
+written as `{"timed_out_at_s": CAP, "seconds": <wall clock>}`, reusing the key a
+real measurement uses, so any analysis filtering on `seconds` would silently
+count a timeout as a datum — and my first analysis pass did exactly that,
+reporting "80 completed, 11 timed out" for the same 80 rows. Renamed to
+`wall_until_timeout_s`. This is the same class of error as session 3's
+`UNREACHED`-versus-budget-exhausted bug: a censored outcome given the same
+representation as a real one.
+
+**4. Two textbook definitions are wrong on knowledge-carrying MPDAGs** (§3.2).
+This repository has now been bitten three times by lemmas that are safe on
+CPDAGs and unsafe once background knowledge is present — the chordality filter
+in session 2, and both of these. It should now be the default assumption that a
+CPDAG-era lemma needs re-checking here rather than importing.
+
+---
+
+## 8. Reproducing this
+
+```bash
+python -m pytest tests/criterion tests/hybrid tests/search/test_exact_fast.py -q
+python -m bkrobust.analysis.session4_figures
+python -m bkrobust.analysis.session4_verify
+```
+
+Solver: OR-Tools CP-SAT 9.15.6755, single worker, `random_seed=0`. Timing runs
+were serialised, never overlapped — two wall-clock harnesses running
+concurrently would contaminate each other. Machine timings are from one laptop
+and are reported alongside machine-independent counters where a claim rests on
+them. Every table above is derived from `results/axisb4/` by
+`src/bkrobust/analysis/session4_verify.py`, which asserts the markdown against
+the same files.
+
+**Pre-existing and untouched:** 23 tests fail and 3 files fail to collect, all
+`ImportError` on `TypeAlias` / `StrEnum` in the `REPO_INIT` scaffold stubs, which
+need Python 3.11 while this machine runs 3.9.6. Confirmed identical with this
+session's changes stashed. Everything else passes.

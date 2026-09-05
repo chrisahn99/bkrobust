@@ -1,6 +1,6 @@
 """Regression tests for enumeration-free cover generation (Lemma O).
 
-These pin the substitution that removes 70.5% of ``local_up``'s measured cost.
+These pin the substitution that removes 70.4% of ``local_up``'s measured cost.
 A wrong minimality test does not crash: it silently returns the wrong covers,
 which shifts radii. So the tests compare against the frozen implementation
 directly, including ordering, and against brute-force BFS.

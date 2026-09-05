@@ -142,3 +142,74 @@ Anti-Exchange Case B, the L/U bounds, or Axis A.
 3.11; the machine runs 3.9.6. Not caused by any session's work, but it means
 `pytest tests` is not currently a clean signal and someone will eventually
 mistake it for one.
+
+---
+
+# Addendum — status after session 4 (Axis B: the oracle)
+
+Session-3 items are unchanged unless noted. Nothing this session touched
+Anti-Exchange Case B, the L/U bounds, or Axis A.
+
+## What is now safe to put in a paper, added this session
+
+1. **Lemma O** — model inclusion on space elements is reverse containment of
+   directed edges. Proved from maximal orientation, verified on 80,480 pairs.
+   It makes cover generation enumeration-free, and it carries **no** assumption:
+   it changes cost, never the answer.
+2. **The validity predicate is decidable on the MPDAG in polynomial time**, at
+   sub-millisecond to n = 20. Agreement with the enumeration oracle: 74,568
+   exhaustive cases, ~2.4M sampled, and a further 1,131,460 in a targeted stress
+   of the walk-relaxation, all at 0 disagreements.
+3. **E1 is complete on the non-amenable stratum** — 38% of the ball — which had
+   never been isolated before. Its failure predicate witnesses every
+   non-amenable invalidity.
+4. **A single entry point** returning exact radii with the method, oracle and
+   assumption attached, on components to 11 vertices and `|K_{G₀}|` to 33.
+
+## Carried forward, sharpened
+
+- **Anti-Exchange Case B** is still the one open property, and both hybrid legs
+  still rest on it. This session did **not** weaken that dependency: it broke the
+  *oracle* circularity (the checker no longer shares E1's assumption), which is a
+  different thing from removing the assumption on the radius.
+- **H4**, the naive `K`-count baseline, is still the last unrun pre-registered
+  hypothesis — now for a fourth session.
+- **Axis A** remains paused, but is now the intended next direction, and §5.1's
+  captured `r_val`-versus-component-size rows are the raw material for it.
+
+## New, ordered by value
+
+1. **A generator that targets large undirected components directly.** This is now
+   the binding constraint on everything, not the solver. Dense Erdős–Rényi CPDAGs
+   almost never produce large chain components: the envelope has 14 instances at
+   component ≥ 7 out of 256, and the single component-11 instance is one draw.
+   Without this, "how large a component can we handle" cannot be answered
+   properly however fast the method gets — and Axis A's saturation question is
+   *about* that regime.
+2. **Find the hybrid's actual breaking point.** It hit zero timeouts on 256
+   instances, so the reported envelope is where measurement stopped. Push until
+   it fails, then report where.
+3. **Component restriction of the E1 encoding build** (the brief's §5(a), never
+   triggered because §§2–4 did not stall). Session 3 measured build cost as E1's
+   dominant term at `O(n⁴)` in the vertex count while the answer depends only on
+   the knowledge-intersected component. The scoping rule needs an argument, not
+   just an implementation, because Meek propagation is not confined to one chain
+   component once knowledge is present.
+4. **Let the ladder start above the shells the search already certified.** When
+   the search exhausts a budget of `b` it has proved shells `0…b` clean, and the
+   E1 ladder then re-derives them from rung 0. Skipping to rung `b+1` needs a
+   start-rung parameter on `radius_e1`, which was left alone this session to keep
+   E1 frozen.
+5. **Prove the walk-relaxation tight**, or find the graph where it is not. The
+   argument in `unshielded_reachable`'s docstring is plausible and heavily
+   stress-tested, and is still an argument.
+6. **`causal_nodes` / `forbidden_set` remain exponential** and off the decision
+   path. They need a joint-realisability test to be made exact and polynomial.
+   Do not quote them at scale until then.
+
+## Environment debt (unchanged, and now longer-standing)
+
+23 tests fail and 3 files fail to collect on this machine, all `ImportError` on
+`TypeAlias` / `StrEnum` in the `REPO_INIT` scaffold stubs, which need Python 3.11
+while the machine runs 3.9.6. Confirmed identical with this session's changes
+stashed. It means `pytest tests` is still not a clean signal.

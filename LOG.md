@@ -552,12 +552,12 @@ search that explored a different tree and landed on the same answer.
 
 The brief predicted `local_up` would be oracle-bound, so that replacing the
 oracle would move its ceiling substantially. Profiling said 96.1%
-enumeration-bound but only **25.6%** oracle — **70.5%** was cover-minimality
+enumeration-bound but only **25.6%** oracle — **70.4%** was cover-minimality
 enumeration. By Amdahl that caps the criterion at 1.3× on its own.
 
 The reason this mattered is that the measurement was *front-loaded*, exactly as
 the brief instructed. Had it been run after building the criterion, the criterion
-would have been built to do a job it cannot do, and the 70.5% would plausibly
+would have been built to do a job it cannot do, and the 70.4% would plausibly
 have gone unnoticed because nothing would have been looking at it.
 
 My own recorded prediction was also wrong, in the same direction but less so: I
