@@ -1,1 +1,1 @@
-er_sparse n=12 rows=160 elapsed=38s
+er_sparse n=30 rows=480 elapsed=112s

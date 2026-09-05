@@ -1,0 +1,87 @@
+{
+  "purpose": "cheap gate with identical verdicts to synth.runner.gate, avoiding its 2^V subset enumeration which dominated the random-control sweep",
+  "scope": "6 generators x n=6..10 x 30 seeds x all ordered (x,y) pairs",
+  "n_cases": 46800,
+  "n_agree": 46784,
+  "n_disagree": 16,
+  "mismatch_kinds": {
+    "ok -> no_atomic_perturbation_changes_validity": 16
+  },
+  "examples": [
+    {
+      "gen": "er_sparse",
+      "n": 10,
+      "seed": 17,
+      "x": "V2",
+      "y": "V4",
+      "runner_gate": [
+        true,
+        "ok"
+      ],
+      "fast_gate": [
+        false,
+        "no_atomic_perturbation_changes_validity"
+      ]
+    },
+    {
+      "gen": "er_medium",
+      "n": 8,
+      "seed": 20,
+      "x": "V4",
+      "y": "V3",
+      "runner_gate": [
+        true,
+        "ok"
+      ],
+      "fast_gate": [
+        false,
+        "no_atomic_perturbation_changes_validity"
+      ]
+    },
+    {
+      "gen": "er_medium",
+      "n": 10,
+      "seed": 28,
+      "x": "V5",
+      "y": "V1",
+      "runner_gate": [
+        true,
+        "ok"
+      ],
+      "fast_gate": [
+        false,
+        "no_atomic_perturbation_changes_validity"
+      ]
+    },
+    {
+      "gen": "er_dense",
+      "n": 8,
+      "seed": 3,
+      "x": "V4",
+      "y": "V0",
+      "runner_gate": [
+        true,
+        "ok"
+      ],
+      "fast_gate": [
+        false,
+        "no_atomic_perturbation_changes_validity"
+      ]
+    },
+    {
+      "gen": "er_dense",
+      "n": 8,
+      "seed": 10,
+      "x": "V2",
+      "y": "V0",
+      "runner_gate": [
+        true,
+        "ok"
+      ],
+      "fast_gate": [
+        false,
+        "no_atomic_perturbation_changes_validity"
+      ]
+    }
+  ]
+}

@@ -299,3 +299,30 @@ Each phase leaves committed, usable results even if the next never runs.
 | H6 coverage / conservativeness | 1.0000 / 0.181 |
 | degeneracy gate rejection | 91.8% |
 | session 4 envelope: largest component at n = 24 | **6** (159/256 instances at 2–4) |
+
+## Session 5 extensions, recorded as they were decided
+
+1. **Frontier extended** after the c = 3…9 grid returned in under three minutes
+   with a decisive zero. Extension: c = 10…12, seeds 6 → 10, and candidate sets
+   up to size 5 rather than 4. Reason: the brief's instruction to extend rather
+   than stop when a phase finishes early and the plan is still viable, and H10 is
+   the one hypothesis where a null result is strengthened by more evidence
+   rather than merely repeated.
+2. **Random-ensemble control added** beyond the brief's §3.4 list. Reason: the
+   designed family can only show the radius is *capable* of exceeding 1; it
+   cannot show that realistic CPDAGs exhibit that. The control measures the
+   natural distribution of separation, which turns out to be the whole story.
+3. **Frontier and random control run concurrently**, contaminating wall-clock in
+   both. Deliberate; the census holds the clean timings and the manifest records
+   which files are affected.
+4. **Random control re-scoped mid-run, and why.** The first attempt used a 600 s
+   cap and 40 seeds. At `er_sparse`, n = 20 it slowed to minutes per instance —
+   the cost inversion the brief predicted, arriving exactly where predicted, on
+   the UNSAT side. Left alone it would have spent the night on one generator and
+   produced no cross-generator evidence at all, which is the control's whole
+   purpose (session 1's claim was that the ~80% is stable *across* generators).
+   Re-scoped to a 120 s cap and 25 seeds so all six generators are covered;
+   censored instances are recorded with `wall_until_timeout_s` and counted, never
+   silently dropped. The deep partial run is kept as
+   `random_control_deep_er_sparse.jsonl` rather than discarded — 213 rows at the
+   generous cap, and the two files are analysed separately, not pooled.

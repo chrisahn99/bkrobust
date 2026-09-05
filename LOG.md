@@ -669,3 +669,51 @@ What it buys is a grid that is not confounded: 66 `(c, s)` cells covering
 `s = 1…c−1` for `c = 2…12`, so separation varies within a fixed component size
 and component size varies within a fixed separation. That is exactly what the
 pre-registered joint-table analysis of H7 versus H8 needs.
+
+### Timing hygiene note, recorded when the decision was made
+
+The random-ensemble control and the frontier sweep were run **concurrently**,
+which contaminates wall-clock fields in both. That was a deliberate trade: the
+headline of each is a distribution of radii and candidate counts, not a cost,
+and the night is finite. **The clean runtime-versus-radius numbers are the
+census's**, which ran alone. Any cost claim in the report cites the census, and
+`results/axisa2/manifest.json` records which files' `seconds` fields are
+load-contaminated so nobody later mistakes them for measurements.
+
+### Bug (MINE, twice over) — the sweep was bottlenecked on the gate, not the radius
+
+The random-ensemble control crawled: minutes per instance at n = 15–20. I first
+blamed the radius search and re-scoped the sweep twice around it (600 s cap →
+120 s cap; then a GAC spot-check instead of a second full radius computation).
+Both were reasonable but both were treating a symptom.
+
+Timing a single instance end-to-end showed the truth: **187 seconds, and the
+instance was then REJECTED by the gate** — the radius was never computed at all.
+`synth.runner.gate` calls `all_valid_adjustment_sets_mpdag`, which enumerates
+every subset of V. At n = 20 that is 2²⁰ per candidate pair.
+
+Two separate errors of mine, and the mechanism that caught each:
+
+1. **I set `search_budget=64` on the hybrid**, which means the bounded search
+   explores to depth 64 and the E1 ladder — built in session 4 precisely to
+   answer the UNSAT side fast — never fires. Caught by reading my own worker
+   while looking for the real bottleneck.
+2. **I diagnosed by inference rather than measurement**, twice, and re-scoped a
+   sweep on each wrong diagnosis. Caught by finally timing one instance instead
+   of reasoning about which part was slow. The same lesson session 4 recorded
+   about front-loading a measurement, and I did not apply it here until the third
+   attempt.
+
+Fix: a `fast_gate` with the same verdict vocabulary, replacing the three
+enumeration-dependent checks with equivalents that cost one back-door test each.
+**187 s → 0.2 s**, roughly 900×.
+
+**A third error, caught by the differential test rather than by me.** I
+documented the replacement's "no atomic perturbation" check as strictly WEAKER
+than the original. It is strictly STRICTER: the original sets `sanity = True` if
+*any* valid set is perturbable, so restricting to `O` can only reject more.
+Measured: 16 disagreements in 46,800 cases (0.034%), every one in that direction.
+The excluded instances are ones where `O` is robust to every atomic perturbation
+— i.e. `r_val(O) = UNREACHED` — so dropping them removes maximally-robust
+instances and biases **against** this session's hypothesis. Conservative, and
+recorded rather than buried.
