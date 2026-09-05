@@ -102,7 +102,7 @@ space under each definition:
 
 | | instances | radii identical | of those with back-door `r = 1`, GAC strictly larger |
 |---|---|---|---|
-| `Z = O(G₀)` | 5,304 | **100.00%** | **0 (0.00%)** |
+| `Z = O(G₀)` | 5,304 | **100.00%** | **0** of **2,790** (0.00%) |
 | `Z` arbitrary | 16,926 | 70.86% | 1,308 of 6,588 (**19.85%**) |
 
 **The headline of the phase, which the brief asked for explicitly:** of the
@@ -163,7 +163,8 @@ different claims and §5 is what separates them.
 
 1,584 instances over the full `(c, s)` grid, `c = 2…12`, `s = 1…c−1`, two
 coverage levels, both definitions on every instance. 1,572 measured, **0
-censored, 0 errors**.
+censored, 0 errors**. Back-door and GAC agree everywhere: **0 of 1,572 instances
+differ**, and the pre-registered invariant holds with 0 violations.
 
 ### 4.1 H7 — separation. Confirmed about as strongly as it could be.
 
@@ -180,7 +181,7 @@ median radius is **diagonal in `s` and flat in `c`**:
 | 8 | | | | | | | | 8 | 8 | 8 | 8 |
 | 11 | | | | | | | | | | | 11 |
 
-**`r_val` equals `s` in 792 of 792 instances (100.0%).** The fraction at
+**`r_val` equals `s` in 792 of 792 instances** (100.0%). The fraction at
 `r_val = 1` is 100% at `s = 1` and **0.0% at every `s ≥ 2`**. My pre-registered
 threshold was "fewer than 50% at `r = 1` for `s ≥ 3`"; the measured value is
 zero.
@@ -231,12 +232,15 @@ realistic CPDAGs are. So the same measurement was run on the random ensembles
 session 1 used — six generators, n = 6…20 — recording the **natural** separation
 alongside the radius.
 
-**2,880 instances attempted, 2,334 usable**, 546 rejected (19.0%) and 60 errored
-(the decoupled-backdoor generator requires n ≥ 7 and n = 6 was in the grid —
-recorded as errors, not silently dropped). Rejection reasons:
-`empty_set_trivially_valid` 212, `no_undirected_edges` 150,
-`treatment_not_in_or_adjacent_to_component` 98,
+**2,880 instances attempted, 2,334 usable**, **486 rejected (16.9%)** and 60
+errored — 2,334 + 486 + 60 = 2,880. (The errors are all the decoupled-backdoor
+generator, which requires n ≥ 7 while n = 6 was in the grid; recorded as errors,
+not silently dropped.) Rejection reasons: `empty_set_trivially_valid` 212,
+`no_undirected_edges` 150, `treatment_not_in_or_adjacent_to_component` 98,
 `no_atomic_perturbation_changes_validity` 26.
+
+*My first draft of this paragraph said "546 rejected (19.0%) and 60 errored",
+double-counting the errors inside the rejection total. The verifier caught it.*
 
 ### 5.1 One generator had to be separated out, and the pre-registration said why
 
@@ -274,7 +278,7 @@ set lies in the treatment's undirected component at all*, so separation is
 undefined — recorded with its own status key and a `null`, never as a number.
 
 Component sizes tell the same story. Sizes 2–6 account for
-`593 + 443 + 358 + 248 + 134 = 1,776` of the 1,914 instances — **92.8%** — with a
+593 + 443 + 358 + 248 + 134 = **1,776 of the 1,914** instances — **92.8%** — with a
 long thin tail out to 15.
 
 The cross-check against the designed family holds, more noisily as expected
@@ -379,14 +383,15 @@ sweep on each wrong diagnosis, before finally timing one instance end to end:
 computed at all. The cost was entirely in `synth.runner.gate`, which calls
 `all_valid_adjustment_sets_mpdag` and enumerates every subset of `V`. A
 `fast_gate` with the same verdict vocabulary took it from **187 s to 0.2 s**,
-about 900×. *Caught by measuring instead of reasoning — the same lesson session 4
+about 900×, differentially tested against `runner.gate` on 46,800 cases with
+**16 disagreements** (0.034%). *Caught by measuring instead of reasoning — the same lesson session 4
 recorded about front-loading a measurement, which I failed to apply until the
 third attempt.*
 
 **3. I documented `fast_gate`'s perturbation check as strictly weaker than the
 original. It is strictly stricter** — the original sets `sanity = True` if *any*
-valid set is perturbable, so restricting to `O` can only reject more. 16
-disagreements in 46,800 cases (0.034%), all in that one direction. The excluded
+valid set is perturbable, so restricting to `O` can only reject more. All 16
+disagreements are in that one direction. The excluded
 instances are those where `O` is robust to every atomic perturbation, i.e.
 `r_val(O) = UNREACHED`, so the exclusion drops maximally-robust instances and
 biases **against** this session's own hypothesis. *Caught by the differential
