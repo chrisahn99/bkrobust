@@ -59,7 +59,8 @@ class LadderResult:
         exact: Whether the ladder ran to a definite answer.
         encoding: Always ``"E1"``; carried so result rows are self-describing.
         assumes: The assumption the number depends on.
-        witness_orientations: The failing MPDAG's orientations, if found.
+        witness_orientations: The failing MPDAG's orientations; empty if no
+            rung was satisfiable.
         rung_seconds: Wall-clock per rung, keyed by ``k``.
         rung_status: ``"SAT"`` / ``"UNSAT"`` / ``"UNKNOWN"`` per rung.
         build_seconds: Model construction time, which is often the dominant cost
@@ -74,7 +75,7 @@ class LadderResult:
     exact: bool
     encoding: str = "E1"
     assumes: str = "Conjecture 2"
-    witness_orientations: tuple[Edge, ...] | None = None
+    witness_orientations: tuple[Edge, ...] = ()
     rung_seconds: dict[int, float] = field(default_factory=dict)
     rung_status: dict[int, str] = field(default_factory=dict)
     build_seconds: float = 0.0
