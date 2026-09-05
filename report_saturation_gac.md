@@ -231,8 +231,81 @@ realistic CPDAGs are. So the same measurement was run on the random ensembles
 session 1 used — six generators, n = 6…20 — recording the **natural** separation
 alongside the radius.
 
-*(§5's numbers are folded in from `results/axisa2/random_control.jsonl` once the
-sweep completes; the analysis script is `session5_analysis`.)*
+**2,880 instances attempted, 2,334 usable**, 546 rejected (19.0%) and 60 errored
+(the decoupled-backdoor generator requires n ≥ 7 and n = 6 was in the grid —
+recorded as errors, not silently dropped). Rejection reasons:
+`empty_set_trivially_valid` 212, `no_undirected_edges` 150,
+`treatment_not_in_or_adjacent_to_component` 98,
+`no_atomic_perturbation_changes_validity` 26.
+
+### 5.1 One generator had to be separated out, and the pre-registration said why
+
+`decoupled_backdoor_dag` is a **designed** family, not a random one — its name
+says so. All 60 seeds at a given `n` return the *identical* radius, and it
+contributes 420 instances **none** of which is at `r = 1`. Pooled with the rest
+it drags the overall figure from ~80% to 65.3%, which would have been exactly the
+"mean over a non-representative sample" error the pre-registration committed to
+avoiding. Reported separately.
+
+### 5.2 The five random generators replicate session 1 almost exactly
+
+| | n | `r = 1` |
+|---|---|---|
+| **five random generators pooled** | **1,914** | **79.6%** |
+| er_dense | 432 | 85.0% |
+| er_medium | 389 | 79.2% |
+| scale_free | 403 | 77.9% |
+| block | 377 | 78.0% |
+| er_sparse | 313 | 77.0% |
+
+Session 1 reported 81.0% (census) and 78.6% (ensembles), stable at 76.9–80.4%
+across generators. **This replicates it, under GAC-verified definitions, on a
+fresh sweep.** Radius distribution: `{1: 1524, 2: 311, 3: 70, 4: 8, 5: 1}`.
+
+### 5.3 And here is why — the natural separation distribution
+
+| separation | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| instances | **1,362** | 192 | 29 | 4 |
+
+**Maximum natural separation is 4**, and 85.8% of measurable separations are
+**1**. In a further **17.1%** of instances (327), *no member of the adjustment
+set lies in the treatment's undirected component at all*, so separation is
+undefined — recorded with its own status key and a `null`, never as a number.
+
+Component sizes tell the same story. Sizes 2–6 account for
+`593 + 443 + 358 + 248 + 134 = 1,776` of the 1,914 instances — **92.8%** — with a
+long thin tail out to 15.
+
+The cross-check against the designed family holds, more noisily as expected
+because random instances have other routes to failure:
+
+| separation | n | `r = 1` | median `r` |
+|---|---|---|---|
+| 1 | 1,362 | 83.5% | 1 |
+| 2 | 192 | 51.6% | 1 |
+| 3 | 29 | 27.6% | 2 |
+| 4 | 4 | 50.0% | 2 |
+
+### 5.4 Corroboration from a generator I did not write
+
+The repository's own `decoupled_backdoor_dag` — written in session 1, untouched
+here — produces components of 3…14 and radii that scale cleanly with `n`:
+
+| n | 8 | 10 | 12 | 15 | 20 | 25 | 30 |
+|---|---|---|---|---|---|---|---|
+| `r_val` | 2 | 3 | 4 | 5 | 8 | 10 | 13 |
+
+**0% at `r = 1`.** That the mechanism shows up in a pre-existing generator, and
+not only in the one built this session to exhibit it, is the strongest
+independent evidence here that the effect is not an artefact of my construction.
+
+### 5.5 The GAC spot-check on random ensembles
+
+The GAC leg was computed on 469 of the 2,334 usable instances (Theorem 14 makes
+it redundant for `Z = O(G₀)`, so it was verified rather than recomputed
+everywhere). Of the 457 with an exact GAC radius: **0 differences from
+back-door, 0 invariant violations.** Theorem 14 holds on random ensembles too.
 
 ---
 
@@ -292,3 +365,85 @@ would *strengthen* session 1's negative rather than overturn it. It does.
 
 ## 8. Bugs, and what caught them
 
+Three of mine, and the mechanism that caught each. All are in `LOG.md` in full.
+
+**1. I set `search_budget=64` on the hybrid**, which makes the bounded search
+explore to depth 64 so the E1 ladder — built in session 4 precisely to answer the
+UNSAT side fast — never fires. It changes no answer (a test asserts the budget is
+a performance choice only), but it made the control sweep intolerably slow.
+*Caught by reading my own worker while hunting the real bottleneck.*
+
+**2. I diagnosed by inference rather than measurement, twice**, and re-scoped a
+sweep on each wrong diagnosis, before finally timing one instance end to end:
+**187 seconds, and the instance was then rejected** — the radius had never been
+computed at all. The cost was entirely in `synth.runner.gate`, which calls
+`all_valid_adjustment_sets_mpdag` and enumerates every subset of `V`. A
+`fast_gate` with the same verdict vocabulary took it from **187 s to 0.2 s**,
+about 900×. *Caught by measuring instead of reasoning — the same lesson session 4
+recorded about front-loading a measurement, which I failed to apply until the
+third attempt.*
+
+**3. I documented `fast_gate`'s perturbation check as strictly weaker than the
+original. It is strictly stricter** — the original sets `sanity = True` if *any*
+valid set is perturbable, so restricting to `O` can only reject more. 16
+disagreements in 46,800 cases (0.034%), all in that one direction. The excluded
+instances are those where `O` is robust to every atomic perturbation, i.e.
+`r_val(O) = UNREACHED`, so the exclusion drops maximally-robust instances and
+biases **against** this session's own hypothesis. *Caught by the differential
+test, not by me.*
+
+**Not a bug, but the trap the pre-registration was written to catch:** pooling
+the designed `decoupled_backdoor` family with the five random generators gives
+65.3% at `r = 1` instead of 79.6%. The pre-registration's commitment to
+stratified reporting is what prevented that number from becoming the headline.
+
+---
+
+## 9. What this means for the project's direction
+
+The original framing document offered three branches. The evidence now points
+clearly at one of them, and away from another.
+
+**Not the efficiency–robustness paper.** `O*` is never strictly beaten — 0 of
+420 instances here over a candidate pool 32.4% larger than session 1's, on top of
+session 1's own 0 of 249,732. Two independent sweeps, two definitions, and the
+tradeoff does not exist in anything measured so far. This branch should be
+closed unless someone produces a structural reason to expect otherwise.
+
+**The diagnostic framing, and it is now well-founded rather than a fallback.**
+The reason is the session's actual discovery: **the breakdown radius is not a
+noisy or vacuous quantity — it is exactly measuring the separation between the
+treatment and the adjustment set inside the ambiguous region.** `r_val = s` in
+792 of 792 designed instances, and the radius is flat in component size at fixed
+separation. That makes it interpretable in a way a robustness score usually is
+not: a radius of 1 is not "this is fragile, somehow", it is "a member of your
+adjustment set sits one undirected edge from your treatment, and one wrong
+orientation reaches it."
+
+That also explains the saturation without explaining it away. Radii are 1 in
+~80% of random instances **because the graphs put the adjustment set one edge
+from the treatment** — 85.8% of measurable separations are 1, and in another 17%
+the adjustment set is not in the component at all. The metric is faithful; the
+distribution is concentrated because the underlying structural quantity is
+concentrated in the families we had been drawing.
+
+**The consequence for the paper is a change of claim, not a change of method.**
+"The radius is usually 1" is a statement about Erdős–Rényi CPDAGs, not about
+causal inference. The defensible claim is: *the breakdown radius equals a
+structural quantity that a practitioner can read off their own graph, and on
+graphs where that quantity is large the radius is large.* The evidence for the
+second half is the designed census plus the repository's own
+`decoupled_backdoor` family reaching radius 13 at n = 30.
+
+**What the next session needs to close this.** Real graphs, not generators. The
+whole argument now turns on the natural distribution of separation, and every
+number here comes from synthetic families. A handful of published CPDAGs from
+applied causal-discovery papers — or benchmark networks with a plausible
+treatment/outcome pair — would settle whether separation ≥ 2 is rare in practice
+or merely rare in Erdős–Rényi. That is the highest-value experiment remaining
+and it needs no new machinery.
+
+**`r_ε` remains untested at large radii** and is the natural secondary question:
+session 1 found 0.0% in the middle regime at small ε, but that was measured where
+radii were 1, and a middle regime has no room to exist between `r = 1` and
+failure.

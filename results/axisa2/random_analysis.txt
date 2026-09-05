@@ -1,0 +1,42 @@
+rows=2880  usable=2334  censored=0  errors=60
+rejected=546 (19.0%)  reasons={'empty_set_trivially_valid': 212, 'treatment_not_in_or_adjacent_to_component': 98, 'no_undirected_edges': 150, 'no_atomic_perturbation_changes_validity': 26, None: 60}
+GAC spot-checked on 469 of 2334; INVARIANT violations: 0
+  of 457 with an exact GAC radius, back-door vs GAC differs: 0
+
+RADIUS DISTRIBUTION (finite only, n=2334):
+  r=1:  1524   65.3%
+  r=2:   371   15.9%
+  r=3:   130    5.6%
+  r=4:    68    2.9%
+  r=5:    61    2.6%
+  r=8:    60    2.6%
+  r=10:    60    2.6%
+  r=13:    60    2.6%
+  UNREACHED (excluded above): 0
+
+SEPARATION STATUS -- the structural question:
+  measured: 1587 (68.0%)
+  no_z_member_in_component: 747 (32.0%)
+  separation distribution (n=1587): {1: 1362, 2: 192, 3: 29, 4: 4}
+  max natural separation: 4
+
+COMPONENT SIZE (X's own component):
+  {2: 593, 3: 503, 4: 418, 5: 308, 6: 194, 7: 76, 8: 28, 9: 77, 10: 7, 11: 64, 12: 2, 13: 2, 14: 61, 15: 1}
+  largest component in CPDAG: {2: 452, 3: 554, 4: 466, 5: 340, 6: 202, 7: 77, 8: 29, 9: 77, 10: 7, 11: 64, 12: 2, 13: 2, 14: 61, 15: 1}
+
+r=1 RATE by separation (the cross-check against the designed family):
+  s=1: n=1362  r=1  83.5%  median r=1
+  s=2: n= 192  r=1  51.6%  median r=1
+  s=3: n=  29  r=1  27.6%  median r=2
+  s=4: n=   4  r=1  50.0%  median r=2
+
+r=1 rate where Z is NOT in X's component:
+  n=747  r=1 37.2%
+
+BY GENERATOR (finite radii):
+     backdoor: n= 420  r=1   0.0%
+        block: n= 377  r=1  78.0%
+     er_dense: n= 432  r=1  85.0%
+    er_medium: n= 389  r=1  79.2%
+    er_sparse: n= 313  r=1  77.0%
+   scale_free: n= 403  r=1  77.9%

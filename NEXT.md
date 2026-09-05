@@ -213,3 +213,77 @@ Anti-Exchange Case B, the L/U bounds, or Axis A.
 `TypeAlias` / `StrEnum` in the `REPO_INIT` scaffold stubs, which need Python 3.11
 while the machine runs 3.9.6. Confirmed identical with this session's changes
 stashed. It means `pytest tests` is still not a clean signal.
+
+---
+
+# Addendum — status after session 5 (Axis A revisited)
+
+## The question session 5 was called to settle
+
+**Does the breakdown radius saturate at 1?** No. It equals the **separation** —
+the distance inside the undirected component from the treatment to the nearest
+member of the adjustment set — exactly, in 792 of 792 designed instances. And
+the ~80% saturation session 1 measured is real, structural, and now explained:
+in random ensembles 85.8% of measurable separations are 1, and in a further 17%
+no member of the adjustment set is in the component at all.
+
+## Settled, and not worth re-opening
+
+1. **The saturation is not definitional.** Theorem 14 proves the optimal
+   adjustment set is disjoint from `de(X)`, and on such sets back-door and the
+   GAC coincide. 0 of 5,304 radii move; 0 of 1,572 in the census; 0 of 420 in the
+   frontier; 0 of 457 in the random spot-check. Every prior result using
+   `Z = O(G₀)` stands unchanged.
+2. **`O*` is never strictly beaten.** 0 of 420 instances over a GAC pool 32.4%
+   larger than session 1's, on top of session 1's 0 of 249,732. The
+   efficiency–robustness branch of the original framing should be closed unless
+   someone brings a structural reason to expect otherwise.
+3. **Component size does not drive the radius; separation does.** At fixed
+   separation the median radius is identical across `c = 2…12`. The
+   pre-registered counter-mechanism (more extensions per release) has no visible
+   effect.
+
+## The highest-value experiment remaining, and it needs no new machinery
+
+**Real graphs.** The whole argument now turns on the natural distribution of
+separation, and every number in this session comes from synthetic families.
+A handful of published CPDAGs from applied causal-discovery papers — or benchmark
+networks with a plausible treatment/outcome pair — would settle whether
+separation ≥ 2 is rare *in practice* or merely rare *in Erdős–Rényi*. That single
+measurement decides whether the diagnostic framing has an audience.
+
+Note that the repository's own `decoupled_backdoor_dag`, written in session 1 and
+untouched since, already produces separation-like structure and radii of 2, 3, 4,
+5, 8, 10, 13 at n = 8…30 with 0% at `r = 1`. So at least one non-Erdős–Rényi
+structure in the tree already exhibits the regime.
+
+## New, ordered by value
+
+1. **Real-graph separation census** (above).
+2. **`r_ε` at large radii.** Session 1 found 0.0% in the middle regime at small
+   ε, but measured it where radii were 1 — and a middle regime has no room to
+   exist between `r = 1` and failure. The designed generator now makes this
+   testable for the first time.
+3. **Push the frontier to larger candidate sets.** H10 used sets up to size 4
+   (5 in the extension). `O*` could in principle be beaten only by a larger set,
+   and that has not been ruled out.
+4. **Fold `fast_gate` into the package properly.** It lives in the session's
+   scratch and is copied to `results/axisa2/fast_gate_reference.py` for
+   reproducibility, with a 46,800-case differential against `runner.gate`. It is
+   a ~900× speedup on the gate and belongs in `synth/`, with its one-directional
+   0.034% difference documented at the call site.
+5. **Prove the MPDAG-level GAC forbidden set exact**, or find the graph where the
+   formula over-approximates. It is verified on ~2.5M cases and argued, not
+   proved.
+
+## Carried forward, unchanged
+
+- **Anti-Exchange Case B** is still the one open property, and every radius in
+  this session rests on it through Conjecture 2. Its error direction inflates
+  radii, which is favourable to this session's conclusion — stated in the report
+  wherever the conclusion is claimed.
+- **H4**, the naive `K`-count baseline, is still unrun. Five sessions.
+- **Environment debt:** 23 tests fail and 3 files fail to collect on this machine,
+  all `ImportError` on `TypeAlias`/`StrEnum` in the `REPO_INIT` scaffold stubs,
+  which need Python 3.11 while the machine runs 3.9.6. `pytest tests` is still
+  not a clean signal.
