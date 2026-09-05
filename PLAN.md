@@ -191,3 +191,53 @@ touched: the Anti-Exchange Case B proof, the L/U bounds work, and Axis A.
 5. **No crossover against `local_up` was found on the SAT side, and none is
    expected.** The brief asked for the crossover; the honest answer is that it
    exists only on the UNSAT side. Reported as the headline rather than buried.
+
+---
+
+# Session 4 — removing the enumeration overhead (2026-09-05)
+
+**Scope from the brief.** In: the MPDAG-level validity criterion, the hybrid
+entry point, and — if those stalled — component restriction, incremental Meek
+closure, symmetry reduction. Out: E2 and E3 (left in the tree, not developed),
+Anti-Exchange Case B, the L/U bounds, Axis A.
+
+## Revisions to the plan, and the reasons
+
+1. **The front-loaded measurement changed the weighting, as it was designed to.**
+   The brief predicted `local_up` would be oracle-bound. It is
+   **enumeration**-bound (96.1%) but the oracle is only **25.6%** of it; **70.5%**
+   is cover-minimality enumeration. By Amdahl the criterion alone could not
+   exceed **1.3×**. Recorded before building anything.
+
+2. **A new workstream was inserted ahead of the criterion: Lemma O.** The
+   dominant cost was removable outright rather than merely replaceable, because
+   model inclusion on space elements is a set comparison on directed edges. This
+   was not in the brief. It delivered **3.77×** aggregate with zero radius
+   changes, and it is what makes the criterion worth having, since removing the
+   70.5% promotes the oracle to the dominant remaining cost.
+
+3. **The criterion does not compute the predicate the brief said it computes.**
+   The brief states it decides "exactly the one `is_valid` already computes";
+   this repository's oracle is Pearl's **back-door** criterion, which is
+   sufficient but not necessary for adjustment, so a literal GAC disagrees by
+   construction. Implemented as the back-door predicate at MPDAG level and
+   described that way, rather than silently shipping a different predicate under
+   the same name.
+
+4. **The criterion was rewritten for performance after correctness had passed.**
+   The first implementation was exhaustively verified (74,568 exhaustive cases,
+   ~2.4M sampled, 0 disagreements) and **exponential in the vertex count**,
+   because condition (c) enumerated every simple path. It timed out at n = 12–14
+   where the enumeration oracle it replaces did not. The delegation carried a
+   correctness acceptance criterion and no performance one — my omission, not the
+   implementation's fault — and the fix was a second, separately gated pass.
+
+5. **§5 fallback items (component restriction, incremental Meek closure,
+   symmetry reduction) were not triggered.** §§2–4 did not stall; Lemma O
+   absorbed the win that (a) was expected to deliver, by a different route.
+   Component restriction of the *encoding build* remains unattempted and is
+   carried forward in `NEXT.md`.
+
+6. **Timing runs were serialised, never overlapped.** Two wall-clock harnesses
+   running concurrently would contaminate each other; where a subagent was
+   working, only correctness work was run alongside it.
