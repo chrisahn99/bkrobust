@@ -621,3 +621,51 @@ the two failure modes it encodes; failure would have made radii too *large*,
 overstating robustness. 74,568 cases, 0 disagreements against both oracles, with
 the non-amenable stratum isolated at 28,464 cases (38.2%) and every one of them
 witnessed. Session 3 tested that layer but never isolated the stratum.
+
+---
+
+## Session 5 — correct definitions, real components, saturation
+
+### Notes taken at the start, so no prior report needs re-reading
+
+Session 1 baselines this session is measured against: `r_val = 1` in **81.0%**
+of the exhaustive n = 5 census (88,700 finite; r=2 15.9%, r=3 3.1%) and 78.6%
+across n = 6…9 ensembles, remarkably stable across generators (76.9–80.4%).
+Frontier: `O*` never strictly beaten, **0 of 249,732** instances with ≥2 valid
+sets. H5: 0.0% at small ε, 14.1% at ε = 0.2. H6: coverage 1.0000,
+conservativeness 0.181. Degeneracy gate rejected **91.8%**, mostly "empty set
+trivially valid". H4 never run — now four sessions unrun.
+
+Session 4 envelope: largest undirected component **6** at n = 24; 159 of 256
+instances at components 2–4. This is the structural reason the saturation
+question could not be answered before.
+
+### Phase structure
+
+Phase 1 (definitions) and Phase 2 (generator) are disjoint and were launched in
+parallel. Phase 3 (census) depends on both. Phase 4 is analysis and report.
+
+### Decision: reversing session 4's reconciliation, and why it was right then
+
+Session 4 found the repo's oracle is Pearl's back-door criterion, not the GAC,
+and reconciled the MPDAG criterion *toward* back-door by enlarging the forbidden
+set to `possde(X,G) ∪ {X,Y}`. That kept four sessions of results mutually
+comparable, which was the right call at the time. This session makes the GAC the
+definition at both layers and reports old versus new side by side. The back-door
+implementations stay in the tree unmodified as second oracles, so nothing prior
+becomes unreproducible.
+
+### Caveat recorded on sight, before the generator's own report
+
+The component generator reports **acceptance rate 1.0** (1,584 of 1,584), where
+session 1's random Erdős–Rényi draws were rejected 91.8% of the time. That is
+not a bug — the generator calls `synth.runner.gate` and the instances pass —
+but it is a change in kind that the report must state plainly: **this is a
+designed family, not a random sample of realistic CPDAGs.** Session 1 made the
+same caveat about generator-specificity for its own families, and it applies
+with more force here because the construction is aimed at the hypothesis.
+
+What it buys is a grid that is not confounded: 66 `(c, s)` cells covering
+`s = 1…c−1` for `c = 2…12`, so separation varies within a fixed component size
+and component size varies within a fixed separation. That is exactly what the
+pre-registered joint-table analysis of H7 versus H8 needs.

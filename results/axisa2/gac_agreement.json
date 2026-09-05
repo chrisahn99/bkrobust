@@ -1,0 +1,315 @@
+{
+  "check1_dag_gac_vs_backdoor": {
+    "backdoor_valid_implies_gac_valid": true,
+    "disagreement_classes": {
+      "z_has_descendant_of_x_off_the_causal_route": 227224
+    },
+    "examples": [
+      {
+        "backdoor": false,
+        "class": "z_has_descendant_of_x_off_the_causal_route",
+        "gac": true,
+        "graph": "V2->V3",
+        "n_nodes": 4,
+        "x": "V2",
+        "y": "V0",
+        "z": [
+          "V3"
+        ]
+      },
+      {
+        "backdoor": false,
+        "class": "z_has_descendant_of_x_off_the_causal_route",
+        "gac": true,
+        "graph": "V2->V3",
+        "n_nodes": 4,
+        "x": "V2",
+        "y": "V0",
+        "z": [
+          "V1",
+          "V3"
+        ]
+      },
+      {
+        "backdoor": false,
+        "class": "z_has_descendant_of_x_off_the_causal_route",
+        "gac": true,
+        "graph": "V2->V3",
+        "n_nodes": 4,
+        "x": "V2",
+        "y": "V1",
+        "z": [
+          "V3"
+        ]
+      },
+      {
+        "backdoor": false,
+        "class": "z_has_descendant_of_x_off_the_causal_route",
+        "gac": true,
+        "graph": "V2->V3",
+        "n_nodes": 4,
+        "x": "V2",
+        "y": "V1",
+        "z": [
+          "V0",
+          "V3"
+        ]
+      },
+      {
+        "backdoor": false,
+        "class": "z_has_descendant_of_x_off_the_causal_route",
+        "gac": true,
+        "graph": "V3->V2",
+        "n_nodes": 4,
+        "x": "V3",
+        "y": "V0",
+        "z": [
+          "V2"
+        ]
+      }
+    ],
+    "implication_failures": 0,
+    "n_agree": 4483800,
+    "n_cases": 4711024,
+    "n_disagree": 227224,
+    "n_graphs": 29824,
+    "n_unexplainable_disagreements": 0,
+    "scope": "Graphs: every labelled DAG on 4 nodes (all_dags(4)) and every one of the labelled DAGs on 5 nodes (all_dags(5)[::1]); when the step is 1 that is exhaustive, and any larger step is a deterministic list slice, never an RNG sample. Queries: every ordered (x, y) with x != y, and every subset z of the remaining nodes of size <= 3 (at n <= 5 with x and y removed that is every subset). Compares bkrobust.gac.dag_level.is_gac_valid_dag with bkrobust.demo.evaluate.is_valid_adjustment_set_dag (Pearl back-door).",
+    "seconds": 82.79
+  },
+  "check2_mpdag_vs_enumeration": {
+    "disagreements": [],
+    "empty_extension_cases": 0,
+    "empty_extension_graphs": 0,
+    "max_z": 3,
+    "n_agree": 74568,
+    "n_cases": 74568,
+    "n_disagree": 0,
+    "n_graphs": 1588,
+    "non_amenable_agree": 28464,
+    "non_amenable_cases": 28464,
+    "reason_counts": {
+      "not_amenable": 28464,
+      "open_noncausal_path": 23580,
+      "valid": 16926,
+      "z_hits_forbidden": 5598
+    },
+    "scope": "Exhaustive. Graphs: every CPDAG on 3 and 4 labelled nodes with at least one undirected edge, plus every element of each such CPDAG's corrected space (bkrobust.search.space_fixed.build_space_correct), deduplicated across CPDAGs -- the same graph scope as bkrobust.mpdag_criterion.sweep. Queries: every ordered (x, y) with x != y, and every subset z of the remaining nodes of size <= 3 (at n <= 4 that is every subset). Compares bkrobust.gac.mpdag_level.is_gac_valid_mpdag with the enumerated semantics all(is_gac_valid_dag(d, x, y, z) for d in extensions(g)), False when [g] is empty.",
+    "seconds": 2.14,
+    "sizes": [
+      3,
+      4
+    ]
+  },
+  "check2_n5_stress_sample": {
+    "n_agree": 2419520,
+    "n_cases": 2419520,
+    "n_disagree": 0,
+    "n_graphs": 15122,
+    "non_amenable_cases": 750904,
+    "scope": "Out-of-scope stress pass on the same comparison as check 2, not part of the headline numbers. Every 5th CPDAG on 5 labelled nodes with between 1 and 6 undirected edges, plus every element of each one's corrected space; every ordered (x, y) with x != y; every z of size <= 3. Sampled deterministically by list slicing, never by an RNG. It exists because the one part of the MPDAG criterion that is measured rather than proved -- that gac_forbidden_set equals the union of the extensions' forbidden sets -- can only fail on graphs dense enough for two possible-descendant witnesses to need incompatible extensions, and n <= 4 is thin on those.",
+    "seconds": 72.64,
+    "step": 5
+  },
+  "check3_optimal_set": {
+    "examples": [],
+    "n_agree": 8154,
+    "n_both_invalid": 4794,
+    "n_both_valid": 3360,
+    "n_cases": 8154,
+    "n_disagree": 0,
+    "n_optimal_not_identified": 342,
+    "n_queries": 1554,
+    "note": "O = pa(cn) \\ (cn u {x}) is always disjoint from de(x) -- a descendant of x that parents a causal node would itself be a causal node -- and on sets disjoint from de(x) the GAC and the back-door criterion provably coincide. The count below tests that argument rather than discovering something new; n_both_valid / n_both_invalid are reported so the reader can see the comparison is not vacuous.",
+    "scope": "Same graph scope as check 2, but Z is not swept: for each CPDAG G0 and each ordered (x, y), Z = optimal_adjustment_set_mpdag(G0, x, y) is fixed once (skipped when it is None, i.e. when the extensions of G0 disagree on the optimal set) and then evaluated at G0 itself and at every element of G0's corrected space -- mirroring how the repository actually uses O(G0). At each graph, is_gac_valid_mpdag is compared with bkrobust.mpdag_criterion.is_valid_mpdag (the back-door criterion).",
+    "seconds": 0.47,
+    "sizes": [
+      3,
+      4
+    ]
+  },
+  "check4_performance": {
+    "bar_met": true,
+    "bar_ms_per_call_at_n20": 5.0,
+    "platform": {
+      "machine": "arm64",
+      "python": "3.9.6",
+      "system": "Darwin"
+    },
+    "rows": [
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.0431,
+          "median_ms": 0.0359,
+          "p95_ms": 0.0778,
+          "worst_ms": 0.1241
+        },
+        "edge_prob": 0.7,
+        "knowledge": "full",
+        "mean_edges": 47.0,
+        "mean_undirected_edges": 0.0,
+        "n": 12
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.1351,
+          "median_ms": 0.1083,
+          "p95_ms": 0.5235,
+          "worst_ms": 0.5947
+        },
+        "edge_prob": 0.7,
+        "knowledge": "half",
+        "mean_edges": 47.0,
+        "mean_undirected_edges": 6.3,
+        "n": 12
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.0459,
+          "median_ms": 0.0408,
+          "p95_ms": 0.0769,
+          "worst_ms": 0.1457
+        },
+        "edge_prob": 0.85,
+        "knowledge": "full",
+        "mean_edges": 56.0,
+        "mean_undirected_edges": 0.0,
+        "n": 12
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.1943,
+          "median_ms": 0.171,
+          "p95_ms": 0.6149,
+          "worst_ms": 0.6269
+        },
+        "edge_prob": 0.85,
+        "knowledge": "half",
+        "mean_edges": 56.0,
+        "mean_undirected_edges": 7.7,
+        "n": 12
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.1237,
+          "median_ms": 0.0853,
+          "p95_ms": 0.285,
+          "worst_ms": 0.602
+        },
+        "edge_prob": 0.7,
+        "knowledge": "full",
+        "mean_edges": 130.0,
+        "mean_undirected_edges": 0.0,
+        "n": 20
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.2778,
+          "median_ms": 0.2386,
+          "p95_ms": 1.0195,
+          "worst_ms": 1.0653
+        },
+        "edge_prob": 0.7,
+        "knowledge": "half",
+        "mean_edges": 130.0,
+        "mean_undirected_edges": 4.7,
+        "n": 20
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.142,
+          "median_ms": 0.1049,
+          "p95_ms": 0.2753,
+          "worst_ms": 0.6951
+        },
+        "edge_prob": 0.85,
+        "knowledge": "full",
+        "mean_edges": 158.3,
+        "mean_undirected_edges": 0.0,
+        "n": 20
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.2728,
+          "median_ms": 0.2345,
+          "p95_ms": 0.4531,
+          "worst_ms": 0.715
+        },
+        "edge_prob": 0.85,
+        "knowledge": "half",
+        "mean_edges": 158.3,
+        "mean_undirected_edges": 4.0,
+        "n": 20
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.3422,
+          "median_ms": 0.193,
+          "p95_ms": 1.1631,
+          "worst_ms": 2.3456
+        },
+        "edge_prob": 0.7,
+        "knowledge": "full",
+        "mean_edges": 301.7,
+        "mean_undirected_edges": 0.0,
+        "n": 30
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.4457,
+          "median_ms": 0.3785,
+          "p95_ms": 1.0732,
+          "worst_ms": 1.1583
+        },
+        "edge_prob": 0.7,
+        "knowledge": "half",
+        "mean_edges": 301.7,
+        "mean_undirected_edges": 2.3,
+        "n": 30
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.3536,
+          "median_ms": 0.2223,
+          "p95_ms": 0.9489,
+          "worst_ms": 2.5495
+        },
+        "edge_prob": 0.85,
+        "knowledge": "full",
+        "mean_edges": 370.0,
+        "mean_undirected_edges": 0.0,
+        "n": 30
+      },
+      {
+        "cold_cache_is_gac_valid_mpdag": {
+          "calls": 54,
+          "mean_ms": 0.7682,
+          "median_ms": 0.5341,
+          "p95_ms": 2.7453,
+          "worst_ms": 2.7624
+        },
+        "edge_prob": 0.85,
+        "knowledge": "half",
+        "mean_edges": 370.0,
+        "mean_undirected_edges": 4.0,
+        "n": 30
+      }
+    ],
+    "scope": "G = apply_orientations(dag_to_cpdag(erdos_renyi_dag(n, rng, p)), sorted(knowledge_to_recover(dag, cpdag))), exactly as bkrobust.hybrid builds its instances; seeds 0-2 per (n, p); n in {12, 20, 30}, p in {0.70, 0.85}. The 'half_knowledge' rows keep only the first half of that sorted knowledge list, so the graph stays partially oriented and amenability has real work to do. Every call is preceded by clear_cache(), so each one pays for its own Meek closure, adjacency tables and possible-descendant sets -- the pessimistic figure, and the relevant one when a search walks distinct graphs.",
+    "seconds": 1.08,
+    "worst_ms_at_n20": 1.0653
+  },
+  "generated_by": "PYTHONPATH=src python3 -m bkrobust.gac.sweep",
+  "python": "3.9.6"
+}
