@@ -62,6 +62,7 @@ coverage.xml
 # report_axisb_deep.md and THEOREMS.md.
 !/results/axisb2/
 !/results/axisb3/
+!/results/axisb4/
 /data/
 /checkpoints/
 *.pt
