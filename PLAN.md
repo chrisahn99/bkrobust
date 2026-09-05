@@ -241,3 +241,61 @@ Anti-Exchange Case B, the L/U bounds, Axis A.
 6. **Timing runs were serialised, never overlapped.** Two wall-clock harnesses
    running concurrently would contaminate each other; where a subagent was
    working, only correctness work was run alongside it.
+
+---
+
+# Session 5 — correct definitions, real components, the saturation question (2026-09-06)
+
+**What is at stake.** Session 1 found `r_val = 1` in ~80% of instances. This
+session tests whether that is definitional (back-door is stricter than standard)
+or structural (components were tiny), and decides whether the project continues
+in its present form. A clean negative is a valid outcome and goes in the first
+paragraph if it is the answer.
+
+## Phase plan, written before starting
+
+Each phase leaves committed, usable results even if the next never runs.
+
+- **Phase 1 — definitions.** Implement the GAC at both layers (`src/bkrobust/gac/`),
+  keeping the back-door implementations unmodified as second oracles. Gate on
+  differential testing against enumeration, and on the invariant
+  `r_val(GAC) ≥ r_val(back-door)` which must hold on every instance everywhere.
+  Headline of the phase: of the instances with `r_val = 1` under back-door, what
+  fraction get a strictly larger radius under GAC.
+- **Phase 2 — generator.** A chordal-component generator with explicit control of
+  component size `c` (6–12, with 2–5 as control), of the X-to-nearest-`Z`
+  separation inside the component, and of `|K_{G₀}|`. Realised parameters
+  measured on the constructed CPDAG and reported alongside the intended ones,
+  because session 1's H3 family failed twice by trusting intent. Pilot each
+  `(c, separation)` cell and report acceptance rates before any full sweep.
+- **Phase 3 — census.** Pre-register in `results/axisa2/preregistration.md`
+  before the first large run. Sweep components 2–12 across the separation range,
+  both definitions on every instance, generous per-instance caps.
+- **Phase 4 — analysis and report.**
+
+## Standing decisions
+
+1. **Reversing session 4's reconciliation.** Session 4 matched the MPDAG
+   criterion *toward* back-door so four sessions of results stayed comparable.
+   That was right then; this session makes the GAC the definition at both layers
+   and reports old versus new side by side.
+2. **Both definitions on every row.** Not two sweeps — one sweep computing both,
+   so the §3.2 invariant is checked on every instance rather than in aggregate.
+3. **Context discipline.** Analyses write to files; only aggregates are read
+   back. Verbose work is delegated. Notes go to `LOG.md` as they are made so no
+   prior report needs re-reading.
+4. **Censored outcomes keep their own key** (`wall_until_timeout_s`), never the
+   key a measurement uses. Session 4 shipped that bug; session 3 shipped its
+   sibling with `UNREACHED`.
+
+## Inherited numbers this session is measured against
+
+| | session 1 |
+|---|---|
+| `r_val = 1`, census n = 5 (88,700 finite) | **81.0%** (r=2 15.9%, r=3 3.1%) |
+| `r_val = 1`, ensembles n = 6…9 (1,050 finite) | 78.6% |
+| frontier: `O*` strictly beaten | **0 of 249,732** |
+| H5 middle regime | 0.0% at small ε, 14.1% at ε = 0.2 |
+| H6 coverage / conservativeness | 1.0000 / 0.181 |
+| degeneracy gate rejection | 91.8% |
+| session 4 envelope: largest component at n = 24 | **6** (159/256 instances at 2–4) |
