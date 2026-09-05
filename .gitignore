@@ -61,6 +61,7 @@ coverage.xml
 # Session 2 (Axis B deep) outputs are deliverables cited by
 # report_axisb_deep.md and THEOREMS.md.
 !/results/axisb2/
+!/results/axisb3/
 /data/
 /checkpoints/
 *.pt
