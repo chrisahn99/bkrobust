@@ -74,7 +74,6 @@ from bkrobust.search.space_fixed import build_space_correct
 from bkrobust.synth.generators import erdos_renyi_dag
 
 Node = str
-Edge = tuple[str, str]
 
 #: Where the sweep's numbers are written, relative to the repository root.
 DEFAULT_OUT = Path("results/axisa2/gac_agreement.json")

@@ -496,3 +496,66 @@ cover sets (1,588 compared, identical including order) and identical radii
 changes cost, never the answer, and it inherits no assumption: in particular it
 is independent of Conjecture 2, so `radius_local_up_fast` carries exactly the
 same exactness caveat as `radius_local_up` and no other.
+
+---
+
+# Session 5 addendum — the two adjustment criteria, and where they coincide
+
+## 13. The GAC accepts a superset, so radii can only grow
+
+**Statement.** For any DAG `D` and any `Z`: back-door-valid ⟹ GAC-valid. Hence
+for any MPDAG `G` the GAC failure set is a subset of the back-door failure set,
+and for every instance
+
+```
+r_val(GAC)  ≥  r_val(back-door) .
+```
+
+**Proof.** Back-door requires `Z ∩ de(X) = ∅` and that `Z` block every back-door
+path. GAC requires `Z ∩ forb(X,Y) = ∅` and that `Z` block every proper
+non-causal path. Since `forb(X,Y) ⊆ de(X) ∪ {X,Y}`, the first condition is
+weaker; and given `Z ∩ de(X) = ∅`, blocking every back-door path and blocking
+every proper non-causal path coincide. So a back-door-valid set is GAC-valid.
+Failure is a for-all over extensions in both cases, so the implication lifts to
+MPDAGs. Fewer failures means the nearest one is no nearer. ∎
+
+**Verified.** 4,711,024 DAG-level cases over all 29,824 labelled DAGs on 4 and 5
+nodes: **0 implication failures**, and all 227,224 disagreements classified as
+"`Z` contains a descendant of `X` off the causal route to `Y`" — 0 unexplainable.
+The radius-level invariant was checked on 22,230 instances at n = 3, 4 with
+**0 violations**, and is asserted per instance throughout the session-5 census.
+
+## 14. The two criteria coincide on the optimal adjustment set
+
+**Statement.** For the Henckel–Perković–Maathuis optimal set
+`O = pa(cn(X,Y)) \ (cn(X,Y) ∪ {X})`, back-door validity and GAC validity are the
+same predicate, in every graph.
+
+**Proof.** `O` is disjoint from `de(X)`: every element is a parent of a node in
+`cn(X,Y)` and is itself excluded from `cn(X,Y) ∪ {X}`, so no element lies on or
+below a causal route from `X`. For any `Z` with `Z ∩ de(X) = ∅`, the two
+criteria's first conditions are both satisfied, and their second conditions
+coincide (§13). Hence they agree on `O`. ∎
+
+**Verified twice, by different routes.** The criterion sweep found 0
+disagreements in 8,154 evaluations (3,360 both-valid, 4,794 both-invalid, so not
+vacuous). Independently, radii were recomputed by full BFS over the corrected
+space under each definition: **5,304 instances, radii identical in 100.00%**,
+and of the 2,790 with back-door radius 1, **0** have a strictly larger GAC
+radius.
+
+**Consequence, which is the point of stating it.** Every prior result in this
+repository that used `Z = O(G₀)` — including session 1's saturation census — is
+**unchanged** by adopting the GAC. The saturation at `r_val = 1` is therefore
+**not a definitional artefact**. Where the definition does matter is arbitrary
+`Z`: over 16,926 such instances the radii differ in 29.14%, and of those with
+back-door radius 1, 19.85% have a strictly larger GAC radius. That is why the
+frontier question must be re-run rather than carried over — session 1's "`O*` is
+never strictly beaten" ranged over back-door-valid candidates only.
+
+**One caveat carried from the implementation.** The MPDAG-level GAC forbidden
+set is verified against enumeration (74,568 exhaustive cases plus 2,419,520 at
+n = 5, 0 disagreements) but its formula is not proved to be exact; it could in
+principle over-approximate. Over-approximation rejects valid sets, which makes
+radii **too small** — the conservative direction for a session testing whether
+radii are larger than previously believed.
