@@ -242,6 +242,29 @@ assert sum(r["gac_beats_opt"] for r in ext) == 0
 assert sum(r["backdoor_beats_opt"] for r in ext) == 0
 check("combined pool", f"{tg + etg:,}", "**235,534 GAC-admissible candidate sets**")
 
+re_rows = _jsonl("r_eps.jsonl")
+re_acc = [r for r in re_rows if r.get("accepted") and "r_val" in r]
+check("reps rows", len(re_acc), "**0.0%** | 560 instances" if False else "560 instances")
+assert not [r for r in re_rows if r.get("censored") or r.get("error")]
+for e in ("0.01", "0.02", "0.05", "0.1", "0.2", "0.5"):
+    if any(r["middle_regime"][e] for r in re_acc):
+        fails.append(f"r_eps: middle regime present at eps={e}, report says 0%")
+check("reps zero", None, "| middle regime (`r_ε < r_val`) | **0.0%**")
+if max(r["bias_at_g0"] for r in re_acc) > 1e-9:
+    fails.append("r_eps: nonzero bias at G0, report says exactly 0")
+check("reps bias0", None, "exactly 0 in all 560 instances**")
+_lt = sum(
+    1
+    for r in re_acc
+    if r["r_eps"]["0.05"] != -1 and r["r_val"] != -1 and r["r_eps"]["0.05"] < r["r_val"]
+)
+_eq = sum(1 for r in re_acc if r["r_eps"]["0.05"] == r["r_val"])
+_un = sum(1 for r in re_acc if r["r_eps"]["0.05"] == -1)
+assert _lt == 0
+check("reps eq", _eq, "`r_ε = r_val` in 505 cases")
+check("reps un", _un, "UNREACHED in 26")
+check("reps max rval", max(r["r_val"] for r in re_acc), "radii out to 8")
+
 for fig in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", TXT):
     if not pathlib.Path(fig).exists():
         fails.append(f"figure missing on disk: {fig}")

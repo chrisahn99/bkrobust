@@ -447,7 +447,51 @@ stratified reporting is what prevented that number from becoming the headline.
 
 ---
 
-## 9. What this means for the project's direction
+## 9. Extension — `r_ε` at large radii, and a second failed prediction
+
+The pre-registration listed the middle regime as a secondary question and
+predicted it **would** appear once radii were large: session 1 found 0.0% at
+small ε, but measured it where radii were 1, and a middle regime has no room to
+exist between `r = 1` and failure. The designed generator made this testable for
+the first time.
+
+**It does not appear.** 560 instances, `c = 3…9`, both coverage levels, six ε
+thresholds, 0 censored and 0 errors:
+
+| ε | 0.01 | 0.02 | 0.05 | 0.1 | 0.2 | 0.5 |
+|---|---|---|---|---|---|---|
+| middle regime (`r_ε < r_val`) | **0.0%** | **0.0%** | **0.0%** | **0.0%** | **0.0%** | **0.0%** |
+
+And it is not for want of room. Stratified by `r_val`, with radii out to 8:
+
+| `r_val` | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| n | 120 | 145 | 96 | 115 | 36 | 24 | 16 | 8 |
+| middle regime, any ε | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+
+The mechanism is visible directly in the data. **Mean absolute bias at `G₀` is
+exactly 0 in all 560 instances**, and at ε = 0.05 the relationship is
+`r_ε = r_val` in 505 cases, `r_ε > r_val` in 29, and `r_ε` UNREACHED in 26 —
+**never below**. Bias appears only when validity fails; there is no gradual
+degradation to detect.
+
+**This strengthens the case for `r_val` rather than weakening it.** A middle
+regime would have meant the validity radius was the wrong cut-point — that
+practitioners should worry before the set becomes invalid. There is nothing to
+worry about in between: in this family the adjustment set is either exactly
+unbiased or invalid.
+
+**What it does not show.** This is the same designed family, where `Z = O(G₀)` is
+exactly valid at `G₀` by construction, so zero bias there is expected rather than
+discovered. Session 1 reported 14.1% at ε = 0.2 on its own families; I did **not**
+re-derive session 1's definition of the middle regime, so the two numbers are not
+directly comparable and I do not claim to have overturned it. What is established
+here is narrower and still useful: **on instances with radii up to 8, no middle
+regime opens up as the radius grows**, which was the specific worry.
+
+---
+
+## 10. What this means for the project's direction
 
 The original framing document offered three branches. The evidence now points
 clearly at one of them, and away from another.
@@ -491,7 +535,4 @@ treatment/outcome pair — would settle whether separation ≥ 2 is rare in prac
 or merely rare in Erdős–Rényi. That is the highest-value experiment remaining
 and it needs no new machinery.
 
-**`r_ε` remains untested at large radii** and is the natural secondary question:
-session 1 found 0.0% in the middle regime at small ε, but that was measured where
-radii were 1, and a middle regime has no room to exist between `r = 1` and
-failure.
+**`r_ε` was tested, and my prediction was wrong** — see §10.

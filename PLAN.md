@@ -326,3 +326,8 @@ Each phase leaves committed, usable results even if the next never runs.
    silently dropped. The deep partial run is kept as
    `random_control_deep_er_sparse.jsonl` rather than discarded — 213 rows at the
    generous cap, and the two files are analysed separately, not pooled.
+5. **`r_ε` extension run after all four phases completed**, per the brief's
+   instruction not to stop while the night remains. It was the pre-registration's
+   named secondary question and the designed generator made it testable for the
+   first time. Result: negative, and it refuted my own prediction — reported at
+   equal prominence in §9 of the report.

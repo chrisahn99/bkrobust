@@ -734,3 +734,18 @@ with no exceptions across 1,572 instances.
 Worth recording as a process note: the instruction to review deliverables rather
 than trust them is usually about catching errors. This time the review found
 something better than what was asked for.
+
+### Two pre-registered predictions of mine failed, and both are reported
+
+1. **H10.** I predicted `O*` would be strictly beaten on a non-zero but small
+   fraction, under 5%. It is beaten **zero** times, across 235,534 GAC-admissible
+   candidate sets this session.
+2. **H5-revisited (`r_ε`).** I predicted the middle regime would appear once
+   radii were large. It does not — 0.0% at every ε and every radius stratum out
+   to 8, with mean absolute bias at `G₀` exactly 0 in all 560 instances.
+
+Both are recorded because the pre-registration named them in advance and a
+prediction that fails is only useful if it is reported as having failed. The
+second is the more interesting: it means there is no intermediate
+"slightly biased" regime for the radius to be measuring past, which strengthens
+`r_val` as the right cut-point rather than undermining it.

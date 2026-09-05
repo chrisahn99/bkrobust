@@ -260,10 +260,14 @@ structure in the tree already exhibits the regime.
 ## New, ordered by value
 
 1. **Real-graph separation census** (above).
-2. **`r_ε` at large radii.** Session 1 found 0.0% in the middle regime at small
-   ε, but measured it where radii were 1 — and a middle regime has no room to
-   exist between `r = 1` and failure. The designed generator now makes this
-   testable for the first time.
+2. ~~**`r_ε` at large radii.**~~ **Done, and negative.** 560 instances,
+   `c = 3…9`, radii out to 8, six ε thresholds: the middle regime is **0.0%
+   everywhere**. Mean absolute bias at `G₀` is exactly 0 in all 560, and `r_ε`
+   is never below `r_val`. Bias appears only when validity fails. This
+   strengthens `r_val` as the right cut-point rather than weakening it. The
+   remaining open piece is that session 1's 14.1% at ε = 0.2 was **not**
+   re-derived, so the two are not directly comparable — doing so would close the
+   question properly.
 3. **Push the frontier to larger candidate sets.** H10 used sets up to size 4
    (5 in the extension). `O*` could in principle be beaten only by a larger set,
    and that has not been ruled out.
