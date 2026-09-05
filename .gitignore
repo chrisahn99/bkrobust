@@ -63,6 +63,7 @@ coverage.xml
 !/results/axisb2/
 !/results/axisb3/
 !/results/axisb4/
+!/results/axisa2/
 /data/
 /checkpoints/
 *.pt
