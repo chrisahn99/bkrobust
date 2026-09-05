@@ -448,3 +448,51 @@ replayed through the ordinary graph code by `sat.verify.verify_walk`, which
 re-checks, without consulting the encoding, that each state is a knowledge state
 of the CPDAG, that each step changes exactly one orientation, and that the final
 state genuinely fails.
+
+---
+
+# Session 4 addendum — the order identification, and the MPDAG criterion
+
+## 12. Lemma O — model inclusion is reverse containment of orientations
+
+**Statement.** For elements `G`, `H` of the corrected space `𝔊_Ĉ`:
+
+```
+[G] ⊆ [H]      ⟺      dir(H) ⊆ dir(G) ,
+```
+
+and the two are strict together.
+
+**Proof.**
+
+*(⇐)* Suppose `dir(H) ⊆ dir(G)`. Every `D ∈ [G]` is a DAG consistent with the
+orientations `dir(G)`, hence with the smaller set `dir(H)`, and it shares the
+skeleton and v-structures of `Ĉ`. So `D ∈ [H]`, giving `[G] ⊆ [H]`.
+
+*(⇒)* Suppose `[G] ⊆ [H]` and let `a→b ∈ dir(H)`. Every `D ∈ [H]` orients that
+edge `a→b`, and every `D ∈ [G]` lies in `[H]`, so every `D ∈ [G]` orients it
+`a→b`. Elements of the space are **maximally oriented** — an edge oriented
+identically across the whole of `[G]` is directed in `G`, which is the defining
+property of §1 and is what `space_fixed.is_maximally_oriented` checks. Hence
+`a→b ∈ dir(G)`. ∎
+
+*Strictness.* An element is determined by its extension set and by its
+orientation set alike, so equality on one side forces equality on the other, and
+the strict versions correspond.
+
+**Verified.** All ordered pairs of elements, over every CPDAG on 3 and 4 nodes
+with at least one undirected edge: **80,480 pairs, 0 disagreements**
+(`results/axisb4/order_identification.json`).
+
+**Consequence, which is the reason it was looked for.** `local_up`'s cover
+generation decided minimality by comparing *extension sets*, enumerating `[H]`
+once per candidate. Profiling put **70.5%** of `local_up`'s total time in that
+one test. Lemma O makes it a set comparison on directed edges, with no
+enumeration at all. `search/exact_fast.py` implements this; it returns identical
+cover sets (1,588 compared, identical including order) and identical radii
+(1,044 compared, agreeing with both frozen `local_up` and brute-force BFS).
+
+**What it does not do.** Lemma O is about the *order*, not about validity. It
+changes cost, never the answer, and it inherits no assumption: in particular it
+is independent of Conjecture 2, so `radius_local_up_fast` carries exactly the
+same exactness caveat as `radius_local_up` and no other.
