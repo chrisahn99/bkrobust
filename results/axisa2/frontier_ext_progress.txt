@@ -1,1 +1,1 @@
-cov=1.0 c=12 s=4 rows=230 elapsed=2271s
+cov=1.0 c=12 s=5 rows=240 elapsed=2793s

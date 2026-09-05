@@ -133,6 +133,22 @@ for s in sorted({r["realised"]["realised_separation"] for r in full}):
     if len(set(meds.values())) > 1:
         fails.append(f"census s={s}: median radius NOT flat in c: {meds}")
 check("flat in c", None, "median radius is identical across every")
+mn = sum(
+    1
+    for r in acc
+    if r["backdoor"]["radius"]
+    == min(r["realised"]["realised_separation"], r["realised"]["realised_k_g0"])
+)
+check("min law", f"{mn} of {len(acc)}", "in 1,572 of 1,572 instances, 100.00%")
+assert mn == len(acc)
+cov05 = [r for r in acc if r["coverage"] == 0.5]
+eq05 = sum(1 for r in cov05 if r["backdoor"]["radius"] == r["realised"]["realised_separation"])
+check("cov05 r=s", f"{100 * eq05 / len(cov05):.1f}", "55.5%")
+check(
+    "cov05 binding",
+    sum(1 for r in cov05 if r["realised"]["realised_k_g0"] < r["realised"]["realised_separation"]),
+    "binding term in 347 of 780",
+)
 
 # --- The control ------------------------------------------------------------
 rc = _jsonl("random_control.jsonl")
@@ -214,6 +230,17 @@ fg = _json("fast_gate_differential.json")
 check("gate cases", f"{fg['n_cases']:,}", "46,800 cases")
 check("gate disagree", fg["n_disagree"], "**16 disagreements**")
 check("gate pct", f"{100 * fg['n_disagree'] / fg['n_cases']:.3f}", "(0.034%)")
+
+ext = [r for r in _jsonl("frontier_ext.jsonl") if r.get("accepted") and "r_opt_backdoor" in r]
+etb = sum(r["n_backdoor_candidates"] for r in ext)
+etg = sum(r["n_gac_candidates"] for r in ext)
+check("ext instances", len(ext), "Committed state: **242 instances**")
+check("ext bd", f"{etb:,}", "**115,299** back-door")
+check("ext gac", f"{etg:,}", "**194,794** GAC candidates")
+check("ext gaconly", f"{etg - etb:,}", "(**79,495** of them GAC-only)")
+assert sum(r["gac_beats_opt"] for r in ext) == 0
+assert sum(r["backdoor_beats_opt"] for r in ext) == 0
+check("combined pool", f"{tg + etg:,}", "**235,534 GAC-admissible candidate sets**")
 
 for fig in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", TXT):
     if not pathlib.Path(fig).exists():

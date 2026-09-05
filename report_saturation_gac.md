@@ -186,12 +186,16 @@ median radius is **diagonal in `s` and flat in `c`**:
 threshold was "fewer than 50% at `r = 1` for `s ≥ 3`"; the measured value is
 zero.
 
+![radius vs separation](figures/s5_f1_radius_vs_separation.png)
+
 ### 4.2 H8 — component size. Refuted as an independent effect.
 
 The pre-registration committed in advance to judging this on the joint table
 rather than on marginals, because `c` and `s` are correlated by construction.
 The table settles it: **at fixed `s`, the median radius is identical across every
 `c` from 2 to 12.** Component size matters only by permitting larger separation.
+
+![two-way table](figures/s5_f2_two_way_table.png)
 
 The counter-mechanism I pre-registered — a larger component admits more
 extensions per release, giving any single release more chances to produce a
@@ -203,6 +207,27 @@ partially-ignorant analyst has fewer orientations available to retract, so the
 radius is bounded below `s`. At `s = 5`, median radius runs 2, 3, 4, 4, 5, 5, 5
 for `c = 6…12`. **The binding constraint there is `|K_{G₀}|`, not the extension
 count.**
+
+### 4.2.1 One formula covers both coverage levels
+
+The two regimes are a single law:
+
+> **`r_val = min(s, |K_{G₀}|)` — in 1,572 of 1,572 instances, 100.00%,
+> across both coverage levels.**
+
+At coverage 1.0 the analyst has asserted every component edge, so
+`|K_{G₀}| ≥ s` and the law reduces to `r = s` (792/792). At coverage 0.5 the
+knowledge set is the binding term in 347 of 780 instances, which is exactly why
+`r = s` drops to 55.5% there while the combined law stays at 100%.
+
+This was found by the figures subagent while rendering the two-way table, and
+re-derived independently before being reported. It is a **law of this designed
+family**, not a theorem — the generator builds a spine of length `s` and the
+radius counts the retractions needed to break it, so `min` with the number of
+available retractions is the expected shape. What makes it worth stating is that
+it holds at 100% with no exceptions across 1,572 instances and two regimes, and
+that it names both binding constraints: **how far the adjustment set sits from
+the treatment, and how much the analyst claimed to know.**
 
 ### 4.3 Cost against radius, as a result rather than bookkeeping
 
@@ -291,6 +316,10 @@ because random instances have other routes to failure:
 | 3 | 29 | 27.6% | 2 |
 | 4 | 4 | 50.0% | 2 |
 
+![natural separation](figures/s5_f3_natural_separation.png)
+
+![designed vs random](figures/s5_f4_designed_vs_random.png)
+
 ### 5.4 Corroboration from a generator I did not write
 
 The repository's own `decoupled_backdoor_dag` — written in session 1, untouched
@@ -326,10 +355,24 @@ It does not stay open.
 | back-door pool | 27,552 | **0** | 0 / 420 |
 | GAC pool | 40,740 | **0** | 0 / 420 |
 
+![frontier](figures/s5_f5_frontier.png)
+
 **32.4% of the GAC pool — 13,188 candidate sets — never existed under
 back-door**, and the pool is strictly larger on 256 of the 420 instances. `O*`
 is still never beaten. Its radius is also identical under both definitions on
 420 of 420 instances, as Theorem 14 requires.
+
+### 6.1 Extended, because a zero result is strengthened by more evidence
+
+The `c = 3…9` grid returned in under three minutes, so it was extended to
+`c = 10…12` with candidate sets up to size 5, and stopped when the answer was
+unambiguous. Committed state: **242 instances**, **115,299** back-door
+candidates and **194,794** GAC candidates (**79,495** of them GAC-only), with
+`O*` strictly beaten **0** times.
+
+Across both grids that is **235,534 GAC-admissible candidate sets** examined
+this session — on top of session 1's 249,732 instances — with `O*` never once
+strictly beaten.
 
 **My pre-registered prediction was that `O*` would be beaten on a non-zero but
 small fraction, under 5%. That is wrong: the answer is zero.** The

@@ -717,3 +717,20 @@ The excluded instances are ones where `O` is robust to every atomic perturbation
 — i.e. `r_val(O) = UNREACHED` — so dropping them removes maximally-robust
 instances and biases **against** this session's hypothesis. Conservative, and
 recorded rather than buried.
+
+### The sharpest result of the session was found by a subagent rendering a figure
+
+While building the two-way table, the figures subagent noticed and verified that
+`r = min(s, |K_{G₀}|)` holds in **780/780** rows at coverage 0.5. I re-derived it
+independently across both coverage levels: **1,572 of 1,572, 100.00%**.
+
+That is a better statement than the `r = s` I had. It unifies the two coverage
+regimes in one formula and names both binding constraints — how far the
+adjustment set sits from the treatment, and how much the analyst claimed to know
+— where I had described the coverage-0.5 case only qualitatively. It is a law of
+the designed family rather than a theorem, and the report says so, but it holds
+with no exceptions across 1,572 instances.
+
+Worth recording as a process note: the instruction to review deliverables rather
+than trust them is usually about catching errors. This time the review found
+something better than what was asked for.
