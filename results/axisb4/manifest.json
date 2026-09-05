@@ -1,0 +1,51 @@
+{
+  "session": 4,
+  "branch": "experiments/synth_graphs_and_heuristics",
+  "git_sha": "d37af349894d7f1dbc58401584aff20135b64859",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "ortools": "9.15.6755",
+    "numpy": "2.0.2",
+    "matplotlib": "3.9.4"
+  },
+  "solver_parameters": {
+    "num_workers": 1,
+    "random_seed": 0
+  },
+  "determinism": {
+    "no_global_rng": true,
+    "sorted_iteration_everywhere": true,
+    "note": "Instances are regenerated in worker subprocesses from (n, edge_prob, seed) so a worker and its driver build bit-identical graphs without serialising them."
+  },
+  "timing_discipline": {
+    "runs_serialised": true,
+    "note": "Wall-clock harnesses were never run concurrently; two at once would contaminate each other. While a subagent was working, only correctness work was run alongside it.",
+    "per_instance_caps_s": {
+      "profile_local_up": 120,
+      "fast_vs_frozen": 120,
+      "oracle_envelope_pathenum": 60,
+      "hybrid_envelope": 120
+    },
+    "censored_runs": "recorded as wall_until_timeout_s, never as a measurement; an earlier version of the harness reused the seconds key and let a timeout read as a datum (see LOG.md)"
+  },
+  "files": {
+    "profile_local_up.jsonl": "where local_up spends its time, per instance",
+    "order_identification.json": "Lemma O verification, 80,480 ordered pairs",
+    "fast_covers_differential.json": "enumeration-free covers vs the frozen implementation",
+    "fast_vs_frozen.jsonl": "head-to-head timings, one subprocess per (instance, method)",
+    "criterion_agreement.json": "criterion vs the enumeration oracle, exhaustive + n=5 stress",
+    "criterion_stress_walks.json": "targeted stress of the walk-relaxation, 1,131,460 cases",
+    "criterion_timings.json": "per-call timings before and after the polynomial rewrite",
+    "oracle_envelope_pathenum.jsonl": "EVIDENCE OF THE DEFECT: the path-enumerating criterion",
+    "stage2_rerun.json": "E1 failure predicate vs both oracles, stratified by amenability",
+    "hybrid_differential.json": "hybrid vs brute force at n=4 under both oracles",
+    "hybrid_envelope.jsonl": "the operating envelope, per instance, tagged with method and oracle"
+  },
+  "assumption_status": {
+    "lemma_O": "proved; carries no assumption, changes cost not answers",
+    "mpdag_criterion": "differentially verified against the enumeration oracle; the walk-relaxation in the state search is argued and stress-tested, not proved",
+    "radius_from_either_search_leg": "exact iff Conjecture 2, hence Anti-Exchange Case B, which is verified not proved; the error is one-sided and can only overstate robustness"
+  }
+}
