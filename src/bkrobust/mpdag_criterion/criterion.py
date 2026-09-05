@@ -11,13 +11,34 @@ generalised adjustment criterion of Perkovic, Textor, Kalisch and Maathuis, read
 on ``G`` itself. This module implements that answer and is validated against the
 enumerating oracle rather than trusted.
 
-On cost, precisely: this trades enumeration of ``[G]`` for enumeration of
-*paths*. Amenability and the forbidden set are cheap (a Meek closure per
-undirected neighbour of ``x``, and a pruned search), but condition (c) walks
-every simple path from ``x`` to ``y``, which is worst-case exponential in ``n``
-on a dense graph. The win is real at the sizes this repository works at, where
-``2**k`` over undirected edges is the binding constraint -- it is not a
-complexity result, and no claim of one is made here.
+On cost, precisely
+------------------
+The decision is **polynomial in the size of the graph**. Every step of
+:func:`why_invalid` is:
+
+* the Meek closure of ``g``, memoised, and one further closure per undirected
+  neighbour of ``x`` for amenability -- at most ``deg(x) + 1`` closures;
+* :func:`backdoor_forbidden_set`, which is one ``O(V*E)`` edge-state search
+  (:func:`~bkrobust.mpdag_criterion.paths.unshielded_reachable`);
+* condition (c), one ``O(V*E)`` edge-state search
+  (:func:`~bkrobust.mpdag_criterion.paths.open_definite_status_non_causal_path`),
+  plus at most one memoised ``O(V*E)`` possible-descendant search per collider
+  it meets, so ``O(V^2 * E)`` in the worst case.
+
+That was not true of the first version of this module, and the difference is the
+whole point of the module existing. Condition (c) used to be decided by walking
+every simple path from ``x`` to ``y`` -- ``Theta((n-2)!)`` of them on a dense
+graph. Measured on this repository's own dense Erdos-Renyi instances, that cost
+up to 48 seconds for a *single* query at ``n = 12`` and blew a 60-second cap at
+``n = 14``, on instances the enumerating oracle it replaces finished comfortably.
+Condition (c) is a reachability question, not an enumeration question, for
+exactly the reason d-separation is; see
+:func:`~bkrobust.mpdag_criterion.paths.open_definite_status_non_causal_path` for
+the state space and the argument.
+
+Two exported functions remain exponential and are documented as such:
+:func:`causal_nodes` and :func:`forbidden_set`. Neither is on the decision path
+-- they are reporting aids naming the textbook objects, and they carry warnings.
 
 Which predicate, exactly
 ------------------------
@@ -131,9 +152,11 @@ from bkrobust.demo.meek import apply_orientations, meek_closure
 from bkrobust.mpdag_criterion.paths import (
     Node,
     Path,
+    clear_index_cache,
     is_blocked,
     is_definite_status_path,
     is_non_causal,
+    open_definite_status_non_causal_path,
     possible_descendants,
     possibly_causal_paths,
     simple_paths,
@@ -156,8 +179,15 @@ _CLOSURE_CACHE: dict[MPDAG, MPDAG | None] = {}
 
 
 def clear_cache() -> None:
-    """Drop the memoised Meek closures. Only for tests and memory management."""
+    """Drop every memo this package keeps. Only for tests and memory management.
+
+    That is the Meek closures held here and the adjacency tables and
+    possible-descendant sets held by
+    :mod:`bkrobust.mpdag_criterion.paths`. All of them are pure functions of the
+    graph, so clearing them changes cost and nothing else.
+    """
     _CLOSURE_CACHE.clear()
+    clear_index_cache()
 
 
 def _closed(g: MPDAG) -> MPDAG | None:
@@ -256,6 +286,15 @@ def is_amenable(g: MPDAG, x: Node, y: Node) -> bool:
 def causal_nodes(g: MPDAG, x: Node, y: Node) -> set[Node]:
     """``cn(x, y, g)``: nodes on proper possibly causal paths from ``x`` to ``y``, minus ``x``.
 
+    .. warning::
+       **Exponential in the number of vertices, and deliberately left that way.**
+       It enumerates possibly causal paths, of which a dense graph has
+       factorially many. Nothing in :func:`is_valid_mpdag` or
+       :func:`why_invalid` calls it -- it is a reporting aid, exported because
+       it names an object the literature names. The reachability shortcut that
+       would make it polynomial is *not* exact on an MPDAG (see below), so
+       there is no drop-in replacement to switch to; do not call it at scale.
+
     Computed by enumerating the possibly causal paths rather than as
     ``possde(x) & (possan(y) u {y})``: in an MPDAG the concatenation of a
     possibly causal path into ``v`` with one out of ``v`` need not be a *simple*
@@ -296,6 +335,12 @@ def causal_nodes(g: MPDAG, x: Node, y: Node) -> set[Node]:
 
 def forbidden_set(g: MPDAG, x: Node, y: Node) -> set[Node]:
     r"""``forb(x, y, g)``: possible descendants of the causal nodes, plus ``x``.
+
+    .. warning::
+       **Exponential in the number of vertices, and deliberately left that way.**
+       It is built on :func:`causal_nodes` and inherits that function's cost as
+       well as its caveat. Not on the decision path: :func:`is_valid_mpdag`
+       uses the polynomial :func:`backdoor_forbidden_set`.
 
     This is the textbook forbidden set of the generalised adjustment criterion,
     implemented exactly as stated. It is **not** the set used by
@@ -370,6 +415,14 @@ def backdoor_forbidden_set(g: MPDAG, x: Node, y: Node) -> set[Node]:
 def definite_status_non_causal_paths(g: MPDAG, x: Node, y: Node) -> list[Path]:
     """Every proper definite-status non-causal path from ``x`` to ``y``.
 
+    .. warning::
+       **Exponential in the number of vertices, and not used by the decision.**
+       Condition (c) is decided by
+       :func:`~bkrobust.mpdag_criterion.paths.open_definite_status_non_causal_path`,
+       which searches edge states instead of paths. This function is kept as
+       that search's slow reference and for reports that need the paths
+       themselves; do not call it at scale.
+
     These are the paths condition (c) of the criterion quantifies over. Paths
     through a node of indefinite status are excluded on purpose: such a node is
     a collider in some extensions and a non-collider in others, and the
@@ -393,6 +446,18 @@ def definite_status_non_causal_paths(g: MPDAG, x: Node, y: Node) -> list[Path]:
 
 def open_non_causal_path(g: MPDAG, x: Node, y: Node, z: Iterable[Node]) -> Path | None:
     """The first proper definite-status non-causal path from ``x`` to ``y`` left open by ``z``.
+
+    .. warning::
+       **Exponential in the number of vertices, and not used by the decision.**
+       :func:`why_invalid` calls
+       :func:`~bkrobust.mpdag_criterion.paths.open_definite_status_non_causal_path`
+       instead, which answers the same question by state search and returns a
+       shortest witness rather than the enumeration-order-first one. This
+       function is that search's reference: the two are asserted to agree
+       (as predicates) on the whole exhaustive ``n <= 4`` scope in
+       ``tests/criterion/test_criterion.py``. The *witness* the two return may
+       differ, since "first in a depth-first enumeration" and "shortest" are
+       different choices; only the ``None`` / not-``None`` verdict is shared.
 
     Args:
         g: The MPDAG.
@@ -460,7 +525,7 @@ def why_invalid(g: MPDAG, x: Node, y: Node, z: frozenset[Node]) -> str:
         return "not_amenable"
     if set(z) & backdoor_forbidden_set(graph, x, y):
         return "z_hits_forbidden"
-    if open_non_causal_path(graph, x, y, z) is not None:
+    if open_definite_status_non_causal_path(graph, x, y, z) is not None:
         return "open_noncausal_path"
     return ""
 

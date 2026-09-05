@@ -543,3 +543,81 @@ Radii, witnesses, walks **and solver conflict/branch counters** hash identically
 across `PYTHONHASHSEED` 0, 1 and 12345 with a single worker and a fixed seed.
 The counters are in the hash on purpose: matching radii alone would not detect a
 search that explored a different tree and landed on the same answer.
+
+---
+
+## Session 4 — the oracle, and the cost of enumeration
+
+### Not a bug, but the session's pivot: the brief's premise was wrong
+
+The brief predicted `local_up` would be oracle-bound, so that replacing the
+oracle would move its ceiling substantially. Profiling said 96.1%
+enumeration-bound but only **25.6%** oracle — **70.5%** was cover-minimality
+enumeration. By Amdahl that caps the criterion at 1.3× on its own.
+
+The reason this mattered is that the measurement was *front-loaded*, exactly as
+the brief instructed. Had it been run after building the criterion, the criterion
+would have been built to do a job it cannot do, and the 70.5% would plausibly
+have gone unnoticed because nothing would have been looking at it.
+
+My own recorded prediction was also wrong, in the same direction but less so: I
+predicted a roughly even split and a ~2× cap. The correct move was to measure,
+not to reason from the call graph.
+
+### Bug (MINE, in delegation): correctness gated, performance not
+
+I delegated the criterion with an exhaustive correctness acceptance criterion and
+**no performance acceptance criterion**. It came back verified on 74,568
+exhaustive cases and ~2.4M sampled, 0 disagreements — and **exponential in the
+vertex count**, because condition (c) enumerated every simple path between `X`
+and `Y`. Up to 2.35 s per call; over a 60 s cap on 12 of 81 instances at n = 12
+and 14, on instances where the enumeration oracle it is meant to *replace* never
+timed out once.
+
+The component was thoroughly verified and useless for its purpose, and only one
+of those two properties was checked. Caught by running the envelope sweep, which
+recorded criterion timeouts where there should have been none — and only because
+the sweep timed *both* oracles rather than assuming the new one was faster.
+
+Lesson: an acceptance criterion that does not mention the property the component
+exists for is not an acceptance criterion for that component.
+
+### Bug (MINE, in the harness): timeouts masquerading as measurements
+
+My subprocess drivers wrote `{"timed_out_at_s": CAP, "seconds": <wall clock>}`
+for a censored run, reusing the same `seconds` key that a real measurement uses.
+Any analysis filtering on the presence of `seconds` would silently treat a
+timeout as a measurement, and my first analysis pass did exactly that — it
+reported "criterion completed = 80, criterion timeouts = 11" for the same 80
+rows, which is what exposed it. Renamed to `wall_until_timeout_s`.
+
+The same class of error as session 3's `UNREACHED`-versus-budget-exhausted bug:
+a censored outcome given the same representation as a real one.
+
+### Two textbook definitions that fail on knowledge-carrying MPDAGs
+
+Both surfaced through differential testing during the criterion's construction,
+and both are worth recording because they are the same trap twice.
+
+`possde(X,G) = ⋃_D de(X,D)` is **false** under naive possibly-causal paths: in
+`V0→V1, V0−V2, V1−V2` the path `⟨V1,V2,V0⟩` is possibly causal, yet every
+extension keeps `V0→V1` because orienting it forward closes a cycle. Restricting
+to unshielded paths repairs it (570 → 0 mismatches at n ≤ 4).
+
+Amenability must **not** use that same reduction, because short-circuiting
+`x→v→w→y` deletes the undirected first edge that is the whole question. Decided
+instead by imposing `x→v` and Meek-closing (702 / 1,380 / 0 mismatches for the
+three formulations).
+
+A lemma that holds on CPDAGs need not survive the addition of background
+knowledge. This repository has now been bitten by that three times: the
+chordality filter in session 2, and both of these.
+
+### The good news, recorded at equal weight
+
+The sharp test the brief designed for E1 **passes**. E1 must witness every
+invalidity including the non-amenable kind, which is structurally different from
+the two failure modes it encodes; failure would have made radii too *large*,
+overstating robustness. 74,568 cases, 0 disagreements against both oracles, with
+the non-amenable stratum isolated at 28,464 cases (38.2%) and every one of them
+witnessed. Session 3 tested that layer but never isolated the stratum.

@@ -12,7 +12,7 @@
     "non_amenable_agree": 750904,
     "non_amenable_cases": 750904,
     "scope": "Out-of-scope stress pass, not part of the headline numbers. Every 5th CPDAG on 5 labelled nodes that has between 1 and 6 undirected edges, plus every element of each one's corrected space; every ordered (x, y) with x != y; every z of size <= 3. Sampled deterministically by list slicing, not by any RNG.",
-    "seconds": 79.46,
+    "seconds": 54.73,
     "step": 5
   },
   "n_agree": 74568,
@@ -28,7 +28,7 @@
     "z_hits_forbidden": 15498
   },
   "scope": "Exhaustive. Graphs: every CPDAG on 3 and 4 labelled nodes with at least one undirected edge, plus every element of each such CPDAG's corrected space (build_space_correct), deduplicated across CPDAGs. Queries: every ordered (x, y) with x != y, and every subset z of the remaining nodes of size <= 3 (at n <= 4 that is every subset). Compared against bkrobust.core.oracle.is_valid, which enumerates [G].",
-  "seconds": 2.26,
+  "seconds": 1.75,
   "sizes": [
     3,
     4

@@ -40,6 +40,8 @@ from bkrobust.mpdag_criterion.criterion import (
 )
 from bkrobust.mpdag_criterion.paths import (
     Path,
+    clear_index_cache,
+    has_open_definite_status_non_causal_path,
     is_blocked,
     is_collider,
     is_definite_non_collider,
@@ -48,10 +50,12 @@ from bkrobust.mpdag_criterion.paths import (
     is_non_causal,
     is_possibly_causal,
     is_unshielded,
+    open_definite_status_non_causal_path,
     possible_descendants,
     possibly_causal_paths,
     simple_paths,
     unshielded_possibly_causal_paths,
+    unshielded_reachable,
 )
 
 __all__ = [
@@ -60,8 +64,10 @@ __all__ = [
     "backdoor_forbidden_set",
     "causal_nodes",
     "clear_cache",
+    "clear_index_cache",
     "definite_status_non_causal_paths",
     "forbidden_set",
+    "has_open_definite_status_non_causal_path",
     "is_amenable",
     "is_blocked",
     "is_collider",
@@ -72,10 +78,12 @@ __all__ = [
     "is_possibly_causal",
     "is_unshielded",
     "is_valid_mpdag",
+    "open_definite_status_non_causal_path",
     "open_non_causal_path",
     "possible_descendants",
     "possibly_causal_paths",
     "simple_paths",
     "unshielded_possibly_causal_paths",
+    "unshielded_reachable",
     "why_invalid",
 ]
