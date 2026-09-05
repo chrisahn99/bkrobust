@@ -1,0 +1,11 @@
+{
+  "scope": "all CPDAGs on 4 nodes with >=1 undirected edge, corrected space, Z = optimal adjustment set",
+  "n_instances": 1044,
+  "hybrid_criterion_agrees_with_bfs": 1044,
+  "hybrid_enumeration_agrees_with_bfs": 1044,
+  "dispatch": {
+    "local_up_fast": 1044
+  },
+  "disagreements": [],
+  "verdict": "PASS"
+}
