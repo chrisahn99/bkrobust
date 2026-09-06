@@ -87,7 +87,7 @@ so everything traces to one checksummed artefact:
 | family | count | examples |
 |---|---|---|
 | BIF benchmark networks | 24 | asia, cancer, earthquake, sachs, survey, alarm, child, insurance, water, mildew, barley, hailfinder, hepar2, win95pts, andes, diabetes, link, munin×5, pathfinder, pigs |
-| dagitty DAGs from applied papers | 11 | Acid 1996, Didelez 2010, Kampen 2014, Polzer 2012, Schipf 2010, Sebastiani 2005, Shrier 2008, Thoemmes 2013, confounding, mediator, paths |
+| dagitty DAGs from applied papers | 12 (11 usable) | Acid 1996, Didelez 2010, Kampen 2014, Polzer 2012, Schipf 2010, Sebastiani 2005, Shrier 2008, Thoemmes 2013, confounding, mediator, paths, and M-bias — which is excluded below |
 | bnjson gene/plant networks | 4 | arth150, ecoli70, magic-irri, magic-niab |
 
 `pgmpy` itself is **not installed** — recent versions pull heavy dependencies —
@@ -454,7 +454,7 @@ python -m bkrobust.analysis.session6_verify
 
 Everything traces to the pgmpy 1.0.0 sdist, sha256
 `aef361e0858bbb1de839c54b940b203170609e1822aff37fc6853e715478255a`, with a
-per-file digest for all 40 extracted networks in
+per-file digest for all 40 extracted files in
 `results/axisa3/networks/acquisition_manifest.json`. Per-instance rows are in
 `results/axisa3/instances.jsonl`, the per-network table in `per_network.csv`, and
 the aggregate in `analysis_summary.json`. Censored runs carry

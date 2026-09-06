@@ -836,3 +836,30 @@ So pathfinder and the largest components are recorded as **censored with a
 measured reason**, which is a better result than session 4's ceiling: this time
 the ceiling is where the method actually breaks, and the break is in the
 degeneracy gate rather than in the radius computation.
+
+### The verifier caught a miscount before publication
+
+The acquisition table said the sdist ships **11** dagitty applied-paper DAGs. It
+ships **12**; I had silently folded the M-bias exclusion into the count of what
+was shipped, which conflates "what the archive contains" with "what was usable".
+Corrected to "12 (11 usable)" with M-bias named in the same row. Caught by
+`session6_verify`, not by rereading.
+
+Small, but exactly the class of error the verifier exists for: a number that is
+defensible in isolation and wrong in its column.
+
+### Three of five pre-recorded predictions were wrong
+
+| | predicted | actual |
+|---|---|---|
+| median undirected fraction | 15–45% | **10.7%** |
+| networks with max component > 6 | more than half | **11 of 39** |
+| separation ≥ 2 | 15–40% | **45.4%** |
+| law agreement | 70–100% | 72.8% ✓ |
+| hybrid fails at component 15–40 | — | **never failed; the gate did** |
+
+The descriptive pair were wrong in the same direction and the headline one in the
+other, so the session's answer is stronger than I expected while the framework's
+applicability is narrower. The H14 miss is the most useful: I predicted the wrong
+component entirely. The radius handled an 85-vertex component in 0.16 s; the
+degeneracy gate — a screening convenience — is what does not scale.
