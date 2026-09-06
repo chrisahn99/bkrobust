@@ -1,1 +1,1 @@
-TAIL link cov=0.5 (2/15) elapsed=508s
+TAIL munin3 cov=0.25 (15/15) elapsed=953s
