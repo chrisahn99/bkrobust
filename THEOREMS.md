@@ -559,3 +559,47 @@ n = 5, 0 disagreements) but its formula is not proved to be exact; it could in
 principle over-approximate. Over-approximation rejects valid sets, which makes
 radii **too small** — the conservative direction for a session testing whether
 radii are larger than previously believed.
+
+---
+
+# Session 6 addendum — the law off its designed family
+
+## 15. `r_val = min(s, |K_{G₀}|)` is an approximation on real structure, and it errs low
+
+**Session 5's statement.** On the designed component family the law held in
+1,572 of 1,572 instances. Session 5 was explicit that this was a law *of that
+family*, close to true by construction: the generator builds a single spine of
+length `s` from `X` to the adjustment set, so `s` retractions break it and fewer
+do not.
+
+**On real networks it holds in 337 of 463 instances (72.8%)** — the first test on
+structure the law was not derived from.
+
+**The 126 exceptions are asymmetric, and the asymmetry identifies the
+mechanism.** 110 have `r_val` **greater** than `min(s, |K_{G₀}|)`; only 16 have it
+smaller. The commonest shapes are `r = 2` where the law predicts 1 (52 cases) and
+`r = 3` where it predicts 2 (40 cases).
+
+**Why.** The single-spine construction made the shortest route between `X` and
+the nearest member of `Z` the *only* route. Real graphs carry **redundant
+blocking structure**: severing that route often leaves another intact, so more
+than `s` retractions are required before validity actually fails. The law
+therefore **understates** the radius on real structure, which is the conservative
+direction for a project claiming robustness.
+
+**Status.** This is an empirical statement about a corpus, not a theorem. What is
+established is narrower and worth stating precisely: the equality is a property
+of single-path component structure, and the inequality
+
+```
+r_val  ≥  min(s, |K_{G₀}|)
+```
+
+held in 447 of 463 real instances. The 16 counterexamples to even the inequality
+are concentrated in a few networks and are **not** characterised here; they are
+recorded in `results/axisa3/instances.jsonl` and flagged in `NEXT.md` as the
+piece that would turn this from an approximation with a story into a statement
+with a mechanism.
+
+**What does not depend on any of this.** The session's headline — the separation
+distribution — is BFS on the CPDAG. It uses neither the law nor Conjecture 2.
