@@ -138,6 +138,10 @@ discovery generally, not just of this method.
 | largest chain component | **85** (pathfinder) |
 | networks with max component > 6 | **11 of 39** |
 
+![undirected fraction](figures/s6_f1_undirected_fraction.png)
+
+![component sizes](figures/s6_f2_component_sizes.png)
+
 The shape is a low median with a heavy tail. Most real networks are largely
 compelled by their own v-structures — **pigs has 441 nodes, 592 edges and not one
 undirected edge** — while a minority carry components far larger than anything
@@ -228,6 +232,8 @@ so it can never be read as a structural rejection.
 - separation undefined (no `O(G₀)` member in `X`'s component):
   **368 of 831** (44.3%) — a status, never a number
 
+![separation](figures/s6_f3_separation.png)
+
 Both weightings are given because they differ, and the difference is the point:
 pair-weighting lets a few large networks dominate, network-weighting lets a
 2-instance network count as much as a 95-instance one. **The finding survives
@@ -287,6 +293,8 @@ and does:
 | 1.00 | 543 | 69.8% |
 | 0.50 | 182 | 51.1% |
 | 0.25 | 106 | 34.0% |
+
+![radius and coverage](figures/s6_f4_radius_and_coverage.png)
 
 This is a genuine out-of-sample confirmation of session 5's mechanism: the
 prediction was made on a designed family and holds on real structure.

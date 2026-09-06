@@ -863,3 +863,18 @@ other, so the session's answer is stronger than I expected while the framework's
 applicability is narrower. The H14 miss is the most useful: I predicted the wrong
 component entirely. The radius handled an 85-vertex component in 0.16 s; the
 degeneracy gate — a screening convenience — is what does not scale.
+
+### A figure review that caught a substantive error, not a cosmetic one
+
+The first render of the separation figure labelled its x-axis *"separation
+between the optimal set and the nearest admissible rival"*. That is not what
+separation is — it is the graph distance **inside `X`'s undirected component,
+from the treatment `X` to the nearest member of `O(G₀)`**, and nothing to do with
+rival sets. The figure would have carried a wrong definition of the session's
+central quantity into the report.
+
+Fixed, along with a legend sitting on top of two annotations and per-bar labels
+colliding on the small bars. Recorded because the reviewing instruction is
+usually framed as catching bugs in code, and this was a bug in *exposition* —
+the numbers were right and the caption was wrong, which is the harder kind to
+notice.
