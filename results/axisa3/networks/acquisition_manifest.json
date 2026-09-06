@@ -1,0 +1,211 @@
+{
+  "downloaded_this_run": false,
+  "files": [
+    {
+      "name": "Acid_1996.txt",
+      "sha256": "26b8f81b1b01e8e4a93e1c070d390acc9c0cd91fe66aeafb503c4ea9e379ca14",
+      "size_bytes": 684
+    },
+    {
+      "name": "Didelez_2010.txt",
+      "sha256": "eefa012eaa59b3570c71acda397ea8bd1b348414575d8740c61287c058bc0227",
+      "size_bytes": 393
+    },
+    {
+      "name": "Kampen_2014.txt",
+      "sha256": "0d4670c6e58458765ec6fe30c370e93d3fbb36b075df6c45d075aeb762c50467",
+      "size_bytes": 577
+    },
+    {
+      "name": "M-bias.txt",
+      "sha256": "54e23d916898f7334b1fca3fe43e3da44304378ad0faabce9e70fe198a6297f6",
+      "size_bytes": 178
+    },
+    {
+      "name": "Polzer_2012.txt",
+      "sha256": "828a8617782766d76dc7f58ae2a828ff02ba592579f09d5617eb7aa61708287b",
+      "size_bytes": 1832
+    },
+    {
+      "name": "Schipf_2010.txt",
+      "sha256": "b5329a25f9940b9e4a218d0bdd34d1a521a4ab3d10093f9a88a190bef338e439",
+      "size_bytes": 315
+    },
+    {
+      "name": "Sebastiani_2005.txt",
+      "sha256": "a9d73e89b87e6d85a1d31dffafe8c6e56d1c4637fee93168769405e89041cce4",
+      "size_bytes": 2182
+    },
+    {
+      "name": "Shrier_2008.txt",
+      "sha256": "6145e8dbc79e6ae9b173dba30f324d4bc530b7cc50b551d764c6cc321185771e",
+      "size_bytes": 1169
+    },
+    {
+      "name": "Thoemmes_2013.txt",
+      "sha256": "fbb1cc96946c48de9e5227a64bad088768911be1a60307f6516b8d7c472b88be",
+      "size_bytes": 515
+    },
+    {
+      "name": "alarm.bif.gz",
+      "sha256": "f5860caa7137b5817e0c4f169cce0f1451ce6c246b96f5ce4fb4a8167993be29",
+      "size_bytes": 1832
+    },
+    {
+      "name": "andes.bif.gz",
+      "sha256": "dc9cd41e8658c4fd2b96305cc60392224032f02934d27e43123a61c2eab9dab7",
+      "size_bytes": 3971
+    },
+    {
+      "name": "arth150.json",
+      "sha256": "96e141aa767bb2556aea2eabb835603a286d951e95646f8ae0197d679acd551a",
+      "size_bytes": 22536
+    },
+    {
+      "name": "asia.bif.gz",
+      "sha256": "7d5e7b8549834824c1b05f367eb7860fa3fca3adaf3649f0c7be6035af197197",
+      "size_bytes": 310
+    },
+    {
+      "name": "barley.bif.gz",
+      "sha256": "b8a18fdb91701da379f260eea0808bdaa690612f7de9a34397df8d8f5d43afd9",
+      "size_bytes": 378305
+    },
+    {
+      "name": "cancer.bif.gz",
+      "sha256": "dcfafbaadabcd1b8c9ec531e16721a19fc06829e980a3967d6345496ea081818",
+      "size_bytes": 288
+    },
+    {
+      "name": "child.bif.gz",
+      "sha256": "2bc3236dcbdbf9c9f1bbdeb060aa93c0bdee389d23a549b7248b9d89ed8a980c",
+      "size_bytes": 1443
+    },
+    {
+      "name": "confounding.txt",
+      "sha256": "8da9fd8abc0bbb38f4ec85e01ab7f21fd446485659076340b193a0f24a0dce0a",
+      "size_bytes": 190
+    },
+    {
+      "name": "diabetes.bif.gz",
+      "sha256": "2100374d7be11024e708a50cac537102ef9f9b693aba4cc0e6918a60e4599d59",
+      "size_bytes": 259215
+    },
+    {
+      "name": "earthquake.bif.gz",
+      "sha256": "77a41f1d509cea15eb7caf9dba932907837149e7145a2cc9d6c95c80849e62b0",
+      "size_bytes": 271
+    },
+    {
+      "name": "ecoli70.json",
+      "sha256": "e3cfe98302c885deb4f13f012e9209b03ef803e718ba7ca666fb09324b2ad921",
+      "size_bytes": 10453
+    },
+    {
+      "name": "hailfinder.bif.gz",
+      "sha256": "efa122a88c4b550569ec821c7879bed9007f2b1e012e1ea52ea26069c7f26099",
+      "size_bytes": 9075
+    },
+    {
+      "name": "hepar2.bif.gz",
+      "sha256": "f98d4a65c496b79d76b15797e6a6cbeafaff32a17d66a844d8e5b9506d379fcd",
+      "size_bytes": 12148
+    },
+    {
+      "name": "insurance.bif.gz",
+      "sha256": "92bcecd1b85387726af564bf1b50cd400ddbbea1b017303cc54d4654e50a8971",
+      "size_bytes": 3802
+    },
+    {
+      "name": "link.bif.gz",
+      "sha256": "5d09fd46f685fed1ba795f7cd944e1860938175c541826a2a342ffa5ec6ed1c5",
+      "size_bytes": 9307
+    },
+    {
+      "name": "magic-irri.json",
+      "sha256": "d592e1ed92ae08d8f7152cc8cfc607089b1f19680b4df79377166bf7dd561338",
+      "size_bytes": 15081
+    },
+    {
+      "name": "magic-niab.json",
+      "sha256": "1694a2ccae07a5cee0a1fa9e3131f3f2d552a79c825fddecfaa996624e629d6d",
+      "size_bytes": 10104
+    },
+    {
+      "name": "mediator.txt",
+      "sha256": "85a16ce8c3a839eeeb24cfb18809771c39dd3bd884a72b73c325a1b92245436e",
+      "size_bytes": 151
+    },
+    {
+      "name": "mildew.bif.gz",
+      "sha256": "06f4342f1bef2eef67988b41382b327ca7bf4b308841534c9a3b3c48ff61189a",
+      "size_bytes": 195693
+    },
+    {
+      "name": "munin.bif.gz",
+      "sha256": "97e26c9dbf0635008434438084e94ca20250984b1c769f4666fed6bf912c3eae",
+      "size_bytes": 138708
+    },
+    {
+      "name": "munin1.bif.gz",
+      "sha256": "d1917abbba1064e6b75f90bf9eb07d76779237b4a0698aecaac6d5b8bdfe1b2c",
+      "size_bytes": 28215
+    },
+    {
+      "name": "munin2.bif.gz",
+      "sha256": "4679fae4e67ee892eb2fd94437777d8d8adc8fea97205065ec7f20aec0396f1a",
+      "size_bytes": 139156
+    },
+    {
+      "name": "munin3.bif.gz",
+      "sha256": "4eb186935c12d47869d36403ab813af97d34b88dde66b79c0047386445058bf5",
+      "size_bytes": 143557
+    },
+    {
+      "name": "munin4.bif.gz",
+      "sha256": "d01410d1f04631462927b160a518a030cf5f24ca57cdbbc259f29d84836d955b",
+      "size_bytes": 149454
+    },
+    {
+      "name": "pathfinder.bif.gz",
+      "sha256": "1b23ccf9d398471c1c8e6353e8d11d8e3579537adc6bbbf535806d781f6e8e7f",
+      "size_bytes": 121899
+    },
+    {
+      "name": "paths.txt",
+      "sha256": "6f7cd96cb402ddae8315cc966e1d3926d847c11bbf486b611cbff96eee4026b9",
+      "size_bytes": 568
+    },
+    {
+      "name": "pigs.bif.gz",
+      "sha256": "618c72433d8814e5197f78938e9ef75cf91dfb9a7463952682b3703c8eef68f1",
+      "size_bytes": 6043
+    },
+    {
+      "name": "sachs.bif.gz",
+      "sha256": "ed1830fbde101ed50cce3c7a3c8cbf1d2f5225531cf35ff09fb3cec0af101bce",
+      "size_bytes": 1916
+    },
+    {
+      "name": "survey.bif.gz",
+      "sha256": "676e1fe97efec18b31d1a0a3bcd9b7d52985129c60a78b69172c99e82902ef96",
+      "size_bytes": 368
+    },
+    {
+      "name": "water.bif.gz",
+      "sha256": "5d506713902c9ea625fae7cd84d0a6f9fad980d5cca926281adeecdd0c039db3",
+      "size_bytes": 25613
+    },
+    {
+      "name": "win95pts.bif.gz",
+      "sha256": "a4987cf8c09d3aa034504b03ea3e5dc01c57ca20228e2bd79ec9a861c3aef684",
+      "size_bytes": 4261
+    }
+  ],
+  "member_prefix": "pgmpy-1.0.0/pgmpy/utils/example_models/",
+  "n_files": 40,
+  "pgmpy_version": "1.0.0",
+  "sdist_path": "/private/tmp/claude-502/-Users-ahn-Documents-Research-iclr27-bkrobust/84077e7a-8847-4a5d-8107-47b4b8ed113d/scratchpad/pkgs/pgmpy-1.0.0.tar.gz",
+  "sdist_sha256": "aef361e0858bbb1de839c54b940b203170609e1822aff37fc6853e715478255a",
+  "sdist_url": "https://files.pythonhosted.org/packages/44/96/3d168cf7759d634614e3f7f4b27c8718a9a0715e4f5abf60617c8312f117/pgmpy-1.0.0.tar.gz"
+}

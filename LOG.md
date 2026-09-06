@@ -749,3 +749,33 @@ prediction that fails is only useful if it is reported as having failed. The
 second is the more interesting: it means there is no intermediate
 "slightly biased" regime for the radius to be measuring past, which strengthens
 `r_val` as the right cut-point rather than undermining it.
+
+---
+
+## Session 6 — real graphs
+
+### Acquisition, resolved before anything was planned
+
+Egress is partial and the obvious route is dead: **`bnlearn.com` is unreachable**
+(`TLSV1_ALERT_PROTOCOL_VERSION`), so `pgmpy.utils.get_example_model`, which
+downloads from there, cannot be used. Guessed GitHub raw URLs for `.bif` files
+all returned 404 — a reminder that guessing URLs is not acquisition.
+
+What worked: downloading the **pgmpy sdist from PyPI** and reading its package
+data directly. It ships 24 `.bif.gz` benchmark networks and 9 applied-paper
+`.txt` DAGs. `pgmpy` itself is **not installed** — recent versions pull heavy
+dependencies — so the archive is read and parsed here, which also means the
+parser is ours and can be validated against an independent count rather than
+trusted.
+
+Everything therefore traces to one downloaded artefact with a checksum, which is
+what the hard rule requires.
+
+### Ordering as a control
+
+The descriptive table is committed **before** the first radius, so it cannot be
+shaped by what the radii turn out to be. And because the full pre-registration
+has to wait for Phase 2 (it must fix the network list), the **directional
+predictions were committed separately, before Phase 2 finished** — see
+`results/axisa3/prediction_before_looking.md`. A pre-registration written after
+the descriptive table could not have protected those.
