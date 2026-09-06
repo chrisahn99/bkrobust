@@ -34,7 +34,12 @@ Two findings sit alongside it and temper it, and both matter as much:
    nothing to orient and the framework does not apply to them whatsoever. Where
    the framework applies it applies well; it applies to less of the world than
    one might hope.
-2. **The tractability ceiling is real, it was measured, and it is not where
+2. **The result survives wrong background knowledge, and the main sweep's
+   choice was the conservative one.** The coverage sweep centres every ball on
+   *correct* knowledge — at coverage 1.0, `G₀` is the ground-truth DAG exactly.
+   Reversing up to half the analyst's claims *lowers* the `r = 1` share from
+   57.8% to 42.1% and raises the median radius from 1 to 2 (§6).
+3. **The tractability ceiling is real, it was measured, and it is not where
    anyone expected.** The *radius* is not the problem: it computed an exact
    answer on pathfinder's **85-vertex** component — seven times anything
    synthetic — in **0.16 s**. What does not scale is the **degeneracy gate**, a
@@ -352,6 +357,59 @@ rather than a research problem.
 
 ---
 
+## 6. The knowledge in the main sweep is never wrong — and what happens when it is
+
+**A limitation the main sweep does not flag, found on review.** `select_knowledge`
+draws the analyst's claims from `knowledge_to_recover(dag, cpdag)`, which reads
+the *true* orientation off the ground-truth DAG. The coverage sweep therefore
+varies **how much** the analyst knows and never **whether they are right**:
+
+- at coverage **1.0**, `G₀` **is the ground-truth DAG exactly** — zero undirected
+  edges left, zero orientations contradicting the truth;
+- at 0.5 and 0.25, `G₀` is under-determined but still has **zero** orientations
+  contradicting the truth.
+
+543 of the 831 admissible instances (65%) are at coverage 1.0. So the ball is
+centred on the truth, and a practitioner's is not.
+
+**What is and is not affected.** The radius computation never consults the true
+DAG — `breakdown_radius` takes only `(Ĉ, K, X, Y, Z)` — so a wrong `G₀` is still
+a legitimate element of the same space `𝔊_Ĉ`. **Only the centre of the ball
+moves.** The descriptive results of §3 involve no knowledge at all and are
+untouched. What could be biased is the *sample* of centres.
+
+**So it was measured rather than conceded.** The same admissible pairs on twelve
+networks, with a fraction of the analyst's claims **reversed** using session 1's
+`flip`, three draws per rate (`results/axisa3/wrong_knowledge.jsonl`):
+
+| flip rate | instances | claims actually wrong | `r = 1` | median `r` | max `r` | `s ≥ 2` | max `s` |
+|---|---|---|---|---|---|---|---|
+| 0.00 | 365 | 0.0% | 57.8% | 1.0 | 14 | 40.6% | 7 |
+| 0.10 | 1,042 | 6.8% | 56.8% | 1.0 | 14 | 41.1% | 7 |
+| 0.25 | 817 | 25.6% | 50.2% | 1.0 | 14 | 51.0% | 7 |
+| 0.50 | 513 | 51.6% | **42.1%** | **2.0** | 14 | 49.5% | 7 |
+
+**Wrong knowledge makes radii larger, not smaller.** The `r = 1` share falls from
+57.8% to 42.1% as half the claims are reversed, the median radius rises from 1 to
+2, and the maxima for both radius (14) and separation (7) are unchanged. The
+`s ≥ 2` share rises rather than falls.
+
+**The conclusion is therefore conservative, not fragile.** Centring on true
+knowledge was the choice least favourable to the session's finding, and the
+finding survives the realistic case with room to spare. 9 of the corrupted
+draws produced knowledge **inconsistent with the CPDAG** — reversing a claim can
+conflict with a compelled edge — and are recorded with their own status rather
+than dropped.
+
+**What this still does not cover.** The corruption is uniform random reversal.
+A real analyst's errors are likely *correlated* — systematically mistaking the
+direction of one mechanism, or importing a whole wrong causal story — and
+correlated error is not sampled here. Session 1's `tiered` generator, which
+builds knowledge from a temporal ordering, is the natural vehicle for that and
+was not used.
+
+---
+
 ## 7. What this does not show
 
 - **The CPDAG here is computed from the true DAG.** This is the oracle-CI
@@ -367,6 +425,10 @@ rather than a research problem.
   which is favourable to the hypothesis being tested. The mitigating fact is that
   the headline here is a *separation* distribution, which is computed by BFS on
   the CPDAG and does not depend on Conjecture 2 at all; only the radii do.
+- **The main sweep's background knowledge is never wrong**, only incomplete —
+  see §6, which measures the effect and finds it conservative. The corruption
+  tested there is uniform random reversal; **correlated** analyst error is not
+  sampled.
 - **Benchmark networks are not a random sample of applied practice.** They are
   the networks people chose to publish and curate, and several are decades old.
   The nine dagitty files are genuine applied-paper DAGs but are small.

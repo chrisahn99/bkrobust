@@ -134,6 +134,35 @@ for p in per:
     if row not in TXT:
         fails.append(f"per-network row missing or altered: {p['network']}")
 
+# --- the wrong-knowledge check (report section 6) ------------------------
+wk = [
+    json.loads(line)
+    for line in (RES / "wrong_knowledge.jsonl").read_text().splitlines()
+    if line.strip()
+]
+wkr = [r for r in wk if "radius" in r]
+check("wk inconsistent", len(wk) - len(wkr), "9 of the corrupted")
+for rate, n_want, r1_want, med_want in (
+    (0.0, 365, "57.8", "1.0"),
+    (0.10, 1042, "56.8", "1.0"),
+    (0.25, 817, "50.2", "1.0"),
+    (0.50, 513, "42.1", "2.0"),
+):
+    g = [r for r in wkr if r["flip_rate"] == rate]
+    if len(g) != n_want:
+        fails.append(f"wrong-knowledge rate {rate}: {len(g)} rows, report says {n_want}")
+        continue
+    r1 = 100 * sum(1 for r in g if r["radius"] == 1) / len(g)
+    med = st.median([r["radius"] for r in g])
+    if f"{r1:.1f}" != r1_want or f"{med:.1f}" != med_want:
+        fails.append(
+            f"wrong-knowledge rate {rate}: r1={r1:.1f} med={med:.1f}, "
+            f"report says {r1_want} / {med_want}"
+        )
+if max(r["radius"] for r in wkr) != 14:
+    fails.append("wrong-knowledge max radius is not 14")
+check("wk direction", None, "**Wrong knowledge makes radii larger, not smaller.**")
+
 for fig in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", TXT):
     if not pathlib.Path(fig).exists():
         fails.append(f"figure missing on disk: {fig}")

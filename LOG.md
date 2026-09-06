@@ -905,3 +905,33 @@ the review instruction is usually framed as catching bugs in delegated code, and
 this is the second time this session it caught a bug in *my* exposition instead —
 the first being a figure axis carrying a wrong definition of separation. Both
 were cases where every individual number was right.
+
+### A limitation found on review: the ball is centred on the truth
+
+`select_knowledge` draws the analyst's claims from `knowledge_to_recover`, which
+reads the *true* orientation off the ground-truth DAG. So the coverage sweep
+varies **how much** the analyst knows and never **whether they are right**. At
+coverage 1.0 — 543 of 831 admissible instances — `G₀` **is the ground-truth DAG
+exactly**: zero undirected edges left, zero orientations contradicting the truth.
+At 0.5 and 0.25 it is under-determined but still never contradicts the truth.
+
+Session 1 had exactly this machinery and used it: the worked example's scenario B
+is a *flipped* assertion. Session 6 imports none of `flip`, `omit`, `compound` or
+`tiered`. The gap was mine and the main report did not flag it.
+
+**Measured rather than conceded.** Same admissible pairs on twelve networks with
+a fraction of claims reversed, three draws per rate: as the wrong fraction rises
+from 0% to 51.6%, the `r = 1` share **falls** 57.8% → 42.1% and the median radius
+**rises** 1 → 2, with the maxima for radius (14) and separation (7) unchanged.
+**Wrong knowledge makes radii larger.** Centring on true knowledge was therefore
+the choice least favourable to the finding, and the finding survives the
+realistic case with room to spare.
+
+Worth stating precisely why the framework itself is unaffected: `breakdown_radius`
+takes only `(Ĉ, K, X, Y, Z)` and never consults the true DAG, so a wrong `G₀` is
+just another element of the same space. Only the *centre* of the ball moves, and
+only the sampling of centres was restricted.
+
+Still uncovered: the corruption is uniform random reversal, whereas a real
+analyst's errors are likely correlated. `tiered` is the vehicle for that and was
+not used.
