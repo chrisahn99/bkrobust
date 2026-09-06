@@ -35,7 +35,6 @@ from typing import Any
 from bkrobust.core.conventions import UNREACHED
 from bkrobust.demo.evaluate import (
     is_valid_adjustment_set_dag,
-    is_valid_adjustment_set_mpdag,
     optimal_adjustment_set_dag,
     optimal_adjustment_set_mpdag,
 )
@@ -46,6 +45,18 @@ from bkrobust.gac import is_gac_valid_mpdag
 from bkrobust.hybrid import breakdown_radius
 
 Edge = tuple[str, str]
+
+#: ``optimal_adjustment_set_mpdag`` enumerates the DAG extensions of ``G0``, which
+#: is exponential in the number of undirected edges ``G0`` still carries. At low
+#: knowledge coverage on a large real component that does not terminate. Matches
+#: :data:`bkrobust.synth.component_generator.MAX_G0_UNDIRECTED_FOR_EXTENSIONS`.
+#:
+#: Exceeding it is a **measurement limit, not a structural rejection**, and gets
+#: its own status so the two can never be confused in the analysis: a pair that
+#: is genuinely degenerate and a pair we could not afford to evaluate are
+#: different facts.
+MAX_G0_UNDIRECTED_FOR_EXTENSIONS: int = 12
+O_INTRACTABLE: str = "o_g0_extensions_intractable"
 
 
 def fast_gate(dag: MPDAG, cpdag: MPDAG, x: str, y: str) -> tuple[bool, str]:
@@ -77,7 +88,14 @@ def fast_gate(dag: MPDAG, cpdag: MPDAG, x: str, y: str) -> tuple[bool, str]:
         g0 = apply_orientations(cpdag, [e for e in k_true if e != drop])
         if g0 is None:
             continue
-        if not is_valid_adjustment_set_mpdag(g0, x, y, o):
+        # The polynomial GAC predicate, not the extension-enumerating one. By
+        # Theorem 14 these coincide exactly on ``Z = O(...)``, which is what ``o``
+        # is, so this is a cost substitution and not a change of predicate.
+        # Verified rather than assumed: 2,240 pairs across child, insurance, asia,
+        # sachs and water, identical verdicts, 8.2x faster
+        # (results/axisa3/gate_predicate_swap.json). The enumerating version is
+        # what makes the gate the bottleneck at these sizes.
+        if not is_gac_valid_mpdag(g0, x, y, o):
             return True, "ok"
     return False, "no_atomic_perturbation_changes_validity"
 
@@ -162,6 +180,7 @@ class InstanceResult:
     oracle: str = ""
     exact: bool = True
     seconds: float = 0.0
+    g0_undirected_edges: int = 0
     stats: dict[str, int] = field(default_factory=dict)
 
     def as_row(self) -> dict[str, Any]:
@@ -212,6 +231,13 @@ def evaluate(
     g0 = apply_orientations(cpdag, k)
     if g0 is None:
         res.reject_reason = "knowledge_inconsistent"
+        return res
+    if len(g0.undirected_edges) > MAX_G0_UNDIRECTED_FOR_EXTENSIONS:
+        res.reject_reason = O_INTRACTABLE
+        res.k_g0 = sum(
+            1 for (a, b) in g0.directed_edges if tuple(sorted((a, b))) in cpdag.undirected_edges
+        )
+        res.g0_undirected_edges = len(g0.undirected_edges)
         return res
     o = optimal_adjustment_set_mpdag(g0, x, y)
     if not o:

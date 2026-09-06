@@ -799,3 +799,40 @@ sorts smallest-first so results arrive early):
   path between `X` and the adjustment set does not always invalidate it when real
   graphs carry redundant blocking routes. Five cases run the other way and need
   separate characterisation.
+
+### The tractability ceiling is in the GATE, not the radius — measured, not inferred
+
+The measurement sweep stalled twice, and both times I timed one instance end to
+end rather than reasoning about it (session 5's lesson, applied first this time
+rather than third).
+
+**Stall 1 — the gate's validity predicate.** `fast_gate`'s perturbation loop
+called `is_valid_adjustment_set_mpdag`, which enumerates DAG extensions. By
+Theorem 14 the polynomial GAC predicate coincides with it exactly on
+`Z = O(...)`, which is what the gate passes. Verified rather than assumed: 2,240
+pairs across child, insurance, asia, sachs and water, **identical verdicts,
+8.2× faster** (`results/axisa3/gate_predicate_swap.json`).
+
+**Stall 2 — `optimal_adjustment_set_mpdag` at low coverage.** It enumerates the
+extensions of `G0`, and at coverage 0.25 on a large real component `G0` still
+carries many undirected edges. Bounded by the same constant session 5 used
+(`MAX_G0_UNDIRECTED_FOR_EXTENSIONS = 12`) and given **its own status**,
+`o_g0_extensions_intractable` — a measurement limit is not a structural
+rejection, and conflating them would misstate how often the framework applies.
+
+**Stall 3 — pathfinder, and an optimisation I did not make.** The gate's
+perturbation loop calls `apply_orientations` once per knowledge edge: on
+pathfinder that is 122 from-scratch Meek closures on a 109-node graph, measured
+at **29 s per pair**, so its 11,772 pairs would take ~95 hours.
+
+The obvious fix is to test the one-level upper covers of `G0` instead, which is
+**746× faster** on pathfinder. **I tested it and it is wrong.** Retracting one
+knowledge edge and re-closing can land strictly above a cover, so the loop tests
+a superset of what the covers test; the two disagreed on child and pathfinder.
+Recorded because the speedup was tempting and only the differential test stopped
+it — the same discipline that caught session 5's `fast_gate` direction error.
+
+So pathfinder and the largest components are recorded as **censored with a
+measured reason**, which is a better result than session 4's ceiling: this time
+the ceiling is where the method actually breaks, and the break is in the
+degeneracy gate rather than in the radius computation.
