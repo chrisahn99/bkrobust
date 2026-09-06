@@ -91,9 +91,17 @@ check("r max", rad["max"], "maximum **14**")
 if rad["unreached"] != 0:
     fails.append("report says no UNREACHED instances but the data has some")
 check("no unreached", None, "**no UNREACHED instances at all**")
+D = S["by_coverage_detail"]
 for cov, key in (("1.00", "1.0"), ("0.50", "0.5"), ("0.25", "0.25")):
-    c = S["by_coverage"][key]
-    check(f"cov {cov}", f"{c['r1_pct']}", f"| {cov} | {c['admissible']} | {c['r1_pct']}% |")
+    c = D[key]
+    row = (
+        f"| {cov} | {c['admissible']} | {c['median_k_g0']:g} | "
+        f"**{c['max_radius']}** | {c['median_separation']:.1f} | {c['r1_pct']}% |"
+    )
+    if row not in TXT:
+        fails.append(f"coverage row {cov} missing or altered: expected {row!r}")
+check("ceiling falls", None, "**max `r` falls\n14 \u2192 4 \u2192 4**")
+check("correction stated", None, "That was wrong, and the figure review caught it.")
 
 # --- the law ----------------------------------------------------------------
 check("law agree", f"{law['agree']} of {law['tested']}", f"**{law['agree']} of {law['tested']}")

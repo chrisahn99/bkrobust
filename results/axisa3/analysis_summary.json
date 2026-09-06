@@ -125,5 +125,31 @@
       "admissible": 543,
       "r1_pct": 69.8
     }
+  },
+  "by_coverage_detail": {
+    "1.0": {
+      "admissible": 543,
+      "r1_pct": 69.8,
+      "max_radius": 14,
+      "median_k_g0": 12,
+      "median_separation": 1.0,
+      "median_radius": 1
+    },
+    "0.5": {
+      "admissible": 182,
+      "r1_pct": 51.1,
+      "max_radius": 4,
+      "median_k_g0": 6.0,
+      "median_separation": 2,
+      "median_radius": 1.0
+    },
+    "0.25": {
+      "admissible": 106,
+      "r1_pct": 34.0,
+      "max_radius": 4,
+      "median_k_g0": 4.0,
+      "median_separation": 2.0,
+      "median_radius": 2.0
+    }
   }
 }

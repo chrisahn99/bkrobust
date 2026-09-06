@@ -878,3 +878,30 @@ colliding on the small bars. Recorded because the reviewing instruction is
 usually framed as catching bugs in code, and this was a bug in *exposition* —
 the numbers were right and the caption was wrong, which is the harder kind to
 notice.
+
+### Bug (MINE, in the report's reasoning) — a "confirmation" that pointed the wrong way
+
+I wrote that the coverage sweep was a "genuine out-of-sample confirmation" of
+session 5's law, on the grounds that a less-informed analyst should have a
+smaller radius, and cited `r = 1` falling 69.8% → 51.1% → 34.0%.
+
+**That is backwards.** A falling share at `r = 1` means radii moving *up*, which
+is the opposite of what a shrinking `|K_{G₀}|` predicts. I had taken a number
+that moved and assumed it moved my way.
+
+The resolution, once measured properly: the three coverage levels are **not the
+same population**. Admissible instances collapse 543 → 182 → 106, because a
+less-informed analyst more often cannot identify `O(G₀)` at all, and the
+survivors have systematically larger separation (median 1 → 2). The `r = 1` share
+is a composition effect and is evidence for nothing.
+
+What *does* support the law is the ceiling, which I had not looked at: **max `r`
+falls 14 → 4 → 4** as median `|K_{G₀}|` falls 12 → 6 → 4, and the inequality
+`r_val ≤ min(s, |K_{G₀}|)` holds within every coverage stratum.
+
+**Caught by the figures subagent**, which refused to render the monotone story
+the brief and my text implied and said so explicitly. Worth recording twice over:
+the review instruction is usually framed as catching bugs in delegated code, and
+this is the second time this session it caught a bug in *my* exposition instead —
+the first being a figure axis carrying a wrong definition of separation. Both
+were cases where every individual number was right.

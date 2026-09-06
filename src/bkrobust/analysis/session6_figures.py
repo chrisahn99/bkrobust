@@ -213,8 +213,8 @@ class Screening(NamedTuple):
         covs = ", ".join(f"{c['coverage']:g}" for c in self.censored)
         cap = {c["wall_until_timeout_s"] for c in self.censored}
         cens = (
-            f"{len(self.censored)} censored per-network runs — {'/'.join(nets)} at coverage "
-            f"{covs}, each stopped at the {max(cap):.0f} s wall cap; the pairs those runs "
+            f"{len(self.censored)} censored per-network runs ({'/'.join(nets)} at coverage "
+            f"{covs}, each stopped at the {max(cap):.0f} s wall cap):\nthe pairs those runs "
             "had not reached were never screened and are in no total above."
             if self.censored
             else "No run was censored."
@@ -370,9 +370,10 @@ def fig_undirected_fraction() -> list[Path]:
     )
     fig.text(
         0.5,
-        0.055,
+        -0.015,
         f"Fully compelled: {', '.join(n.name for n in compelled)}.\n{desc.footer()}",
         ha="center",
+        va="top",
         fontsize=7,
         color=C_GREY,
     )
@@ -438,7 +439,7 @@ def fig_component_sizes() -> list[Path]:
         f"{biggest.name}: {biggest.max_component} nodes,\n"
         f"{biggest.max_component / S5_MAX_COMPONENT:.0f}x the largest synthetic component",
         xy=(biggest.max_component, len(nets) - 1.35),
-        xytext=(6.5, len(nets) - 19),
+        xytext=(14.0, len(nets) - 20.5),
         fontsize=7.5,
         color=C_VERM,
         arrowprops={"arrowstyle": "->", "color": C_VERM, "lw": 1.0},
@@ -470,7 +471,7 @@ def fig_component_sizes() -> list[Path]:
         bbox_to_anchor=(1.0, 0.02),
         framealpha=0.96,
     )
-    fig.text(0.5, 0.055, desc.footer(), ha="center", fontsize=7, color=C_GREY)
+    fig.text(0.5, -0.015, desc.footer(), ha="center", va="top", fontsize=7, color=C_GREY)
     return _save(fig, "s6_f2_component_sizes")
 
 
@@ -520,7 +521,7 @@ def fig_separation() -> list[Path]:
         f"Erdős-Rényi control (session 5)\nwould put {100 * ER_S1_SHARE:.1f}% here "
         f"(≈{er_s1:.0f} instances)",
         xy=(0.36, er_s1),
-        xytext=(1.05, er_s1 * 0.99),
+        xytext=(0.95, er_s1 * 0.80),
         fontsize=8,
         color=C_VERM,
         va="center",

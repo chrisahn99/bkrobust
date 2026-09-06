@@ -284,20 +284,29 @@ is exactly why a single pooled headline would have been the wrong deliverable.
 **71.3%** network-weighted, maximum **14**,
 with **no UNREACHED instances at all**.
 
-**Knowledge coverage moves it exactly as the law predicts.** `|K_{G₀}|` is the
-other binding term, so a less-informed analyst should have a *smaller* radius,
-and does:
+**Knowledge coverage: the ceiling follows the law, and the headline rate does
+not — a correction.** `|K_{G₀}|` is the other binding term, so withdrawing
+knowledge should lower the *ceiling* on the radius. It does, sharply:
 
-| coverage | admissible | r = 1 |
-|---|---|---|
-| 1.00 | 543 | 69.8% |
-| 0.50 | 182 | 51.1% |
-| 0.25 | 106 | 34.0% |
+| coverage | admissible | median \|K_{G₀}\| | **max r** | median s | r = 1 |
+|---|---|---|---|---|---|
+| 1.00 | 543 | 12 | **14** | 1.0 | 69.8% |
+| 0.50 | 182 | 6 | **4** | 2.0 | 51.1% |
+| 0.25 | 106 | 4 | **4** | 2.0 | 34.0% |
 
-![radius and coverage](figures/s6_f4_radius_and_coverage.png)
+**My first draft of this section claimed the falling `r = 1` share confirmed the
+law. That was wrong, and the figure review caught it.** A *falling* share at
+`r = 1` means radii moving **up**, which is the opposite of what a shrinking
+`|K_{G₀}|` predicts. The resolution is that the three rows are **not the same
+population**: admissible instances collapse from 543 to 106 as coverage falls,
+because a less-informed analyst more often fails to identify `O(G₀)` at all, and
+the survivors have systematically **larger separation** (median 1 → 2). The
+`r = 1` share is therefore a composition effect and is not evidence either way.
 
-This is a genuine out-of-sample confirmation of session 5's mechanism: the
-prediction was made on a designed family and holds on real structure.
+What *is* out-of-sample support for the law is the ceiling: **max `r` falls
+14 → 4 → 4** as median `|K_{G₀}|` falls 12 → 6 → 4, and within each coverage
+level the inequality `r_val ≤ min(s, |K_{G₀}|)` holds in 216/308, 88/97 and 49/58
+instances. The law's *bound* transfers; its *equality* does not (§5.4).
 
 ### 5.4 H12 — the law off its designed family
 
