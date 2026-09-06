@@ -779,3 +779,23 @@ has to wait for Phase 2 (it must fix the network list), the **directional
 predictions were committed separately, before Phase 2 finished** — see
 `results/axisa3/prediction_before_looking.md`. A pre-registration written after
 the descriptive table could not have protected those.
+
+### Phase 3 first look — the factual question resolves positive
+
+Early rows (small networks only; the large ones run last because the driver
+sorts smallest-first so results arrive early):
+
+- **Separation ≥ 2 in 46.4% of measurable pairs**, against Erdős–Rényi's 14.2%,
+  with a maximum of 7. That is **above** my pre-recorded 15–40% prediction, so the
+  answer to the session's factual question is positive and my prediction was too
+  pessimistic.
+- **`r_val = 1` in 50.2%** of admissible instances, against ~80% in random
+  ensembles, with a maximum radius of 14.
+- **The law holds in 73.1%**, inside my predicted 70–100% band. The exceptions
+  are the informative part and they run **mostly one way**: 48 cases of radius 2
+  where `min(s, |K_{G₀}|) = 1`, 40 of radius 3 where the law says 2. So on real
+  structure the true radius is often **larger** than the designed family's law
+  predicts — the spine construction was conservative, because breaking the single
+  path between `X` and the adjustment set does not always invalidate it when real
+  graphs carry redundant blocking routes. Five cases run the other way and need
+  separate characterisation.
