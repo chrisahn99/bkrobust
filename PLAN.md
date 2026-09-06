@@ -331,3 +331,56 @@ Each phase leaves committed, usable results even if the next never runs.
    named secondary question and the designed generator made it testable for the
    first time. Result: negative, and it refuted my own prediction — reported at
    equal prominence in §9 of the report.
+
+---
+
+# Session 6 — real graphs, and whether separation ≥ 2 exists outside a generator (2026-09-06)
+
+**What this session decides.** Session 5 explained the saturation — `r_val = min(s, |K_{G₀}|)`
+— but entirely on synthetic families. The open question is factual: **is separation ≥ 2 rare
+in practice, or merely rare in Erdős–Rényi?** A negative is equally publishable and must not
+be steered.
+
+## Acquisition, resolved before planning the rest
+
+Network egress is partial: **PyPI and GitHub reachable, `bnlearn.com` unreachable**
+(`TLSV1_ALERT_PROTOCOL_VERSION`), so `pgmpy.utils.get_example_model`, which downloads from
+there, is unusable. Guessed GitHub raw URLs for `.bif` files all 404.
+
+**Resolved route:** the `pgmpy` **sdist from PyPI** ships the benchmark suite as
+`pgmpy/utils/example_models/*.bif.gz` — 24 networks spanning ASIA/CANCER/EARTHQUAKE/SACHS/
+SURVEY through ALARM/CHILD/INSURANCE/WATER/MILDEW/BARLEY to HAILFINDER/HEPAR2/WIN95PTS and
+ANDES/DIABETES/LINK/MUNIN/PATHFINDER/PIGS. It **also** ships nine applied-paper DAGs as
+`.txt` (Acid 1996, Didelez 2010, Schipf 2010, Sebastiani 2005, Shrier 2008, Thoemmes 2013,
+Polzer 2012, Kampen 2014, M-bias), which is the "CPDAGs from applied papers" the brief asked
+for and which no synthetic family can stand in for.
+
+Everything therefore traces to **one downloaded artefact with a checksum**, satisfying the
+hard rule. `pgmpy` is NOT installed — newer versions pull heavy dependencies — so the sdist is
+read directly and the BIF parser is written here and validated, rather than importing one.
+
+## Phase plan
+
+- **Phase 1 — acquisition and parsing.** Extract from the sdist, record sha256 of the sdist
+  and of every network file, parse to `MPDAG`, validate acyclicity and node/edge counts.
+- **Phase 2 — descriptive structure, committed before any radius** so it cannot be shaped by
+  what the radii turn out to be: per network, the undirected fraction, the full chain-component
+  size distribution, and how many components have ≥ 3 vertices (the ones capable of
+  separation ≥ 2).
+- **Phase 3 — pre-registration, then the measurement.** All admissible (X, Y) pairs under a
+  mechanical rule; domain-documented pairs, if any, as a separate labelled stratum, never the
+  headline.
+- **Phase 4 — analysis.** Per network first, never pooled into one headline; weight by network
+  as well as by pair.
+
+## Standing decisions
+
+1. **The descriptive table is committed before the first radius.** Ordering is the control
+   against shaping it.
+2. **Per-network reporting, weighted both ways.** Session 5's clearest procedural lesson: a
+   pooled mean moved a headline from 79.6% to 65.3%. A 1,000-node network contributing tens of
+   thousands of pairs would otherwise silently become the entire result.
+3. **The scope limit is stated up front, not in the caveats.** The CPDAG here is computed from
+   the true DAG — the oracle-CI idealisation. Real discovery on finite data returns a sparser
+   skeleton, and missing weak edges is precisely what breaks back-door blocking.
+4. **Performance acceptance criteria on every delegated component**, per session 4's lesson.
