@@ -315,7 +315,10 @@ families this project had been drawing.
 3. **Session 5's law is an approximation off its designed family**, and its
    exceptions run one way: the true radius is usually **larger** than
    `min(s, |K_{G₀}|)`, because real graphs carry redundant blocking structure the
-   spine construction excluded. The designed family was conservative.
+   spine construction excluded. The designed family was conservative. What *does*
+   transfer out of sample is the **bound**: `r_val ≤ min(s, |K_{G₀}|)` holds
+   within every coverage stratum, and the ceiling falls 14 → 4 → 4 as median
+   `|K_{G₀}|` falls 12 → 6 → 4. The **equality** does not transfer.
 4. **The tractability ceiling is measured, not guessed**, and it lives in the
    degeneracy gate rather than the radius search.
 
@@ -344,7 +347,13 @@ Until that is done, every claim is about idealised structure.
 4. **More corpora.** Everything traces to one pgmpy sdist because `bnlearn.com`
    is unreachable from this machine. A second, independent source would test
    whether the separation finding is a property of curated benchmarks.
-5. **Characterise the law's exceptions structurally.** They are concentrated in a
+5. **Coverage sweeps need matched populations.** Comparing `r = 1` rates across
+   knowledge-coverage levels is confounded: admissible instances collapse
+   543 → 106 as coverage falls, and the survivors have larger separation, so the
+   marginal rate is a composition effect. Any future coverage comparison should
+   condition on a fixed instance set — the same `(network, X, Y)` evaluated at
+   every coverage — rather than comparing whatever survives at each.
+6. **Characterise the law's exceptions structurally.** They are concentrated in a
    few networks and run mostly one way; identifying what redundancy produces them
    would turn an empirical approximation into a statement with a mechanism.
 
