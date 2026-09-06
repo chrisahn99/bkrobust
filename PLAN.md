@@ -384,3 +384,23 @@ read directly and the BIF parser is written here and validated, rather than impo
    the true DAG — the oracle-CI idealisation. Real discovery on finite data returns a sparser
    skeleton, and missing weak edges is precisely what breaks back-door blocking.
 4. **Performance acceptance criteria on every delegated component**, per session 4's lesson.
+
+## Session 6 revisions, recorded as they were decided
+
+1. **The gate's validity predicate was swapped** for the polynomial GAC one after
+   the sweep stalled. Theorem 14 makes them exactly equivalent on `Z = O(...)`;
+   verified on 2,240 pairs with identical verdicts before adopting, not assumed.
+2. **`o_g0_extensions_intractable` was added as a distinct status** when `G₀`
+   retains more undirected edges than `optimal_adjustment_set_mpdag` can
+   enumerate. A measurement limit is not a structural rejection, and merging them
+   would have misstated how often the framework applies.
+3. **An optimisation was tried and rejected.** Replacing the gate's perturbation
+   loop with `G₀`'s one-level upper covers is 746× faster on pathfinder and
+   **wrong** — retracting a knowledge edge can land strictly above a cover, so the
+   loop tests a superset. Caught by differential testing before adoption.
+4. **The five largest networks were re-run at a reduced pair budget** (400 rather
+   than 2,500 sampled pairs) after the full budget was projected to spend about
+   five hours producing mostly censored records. The rate is recorded per network
+   and the stride remains deterministic and non-adaptive, as the pre-registration
+   requires. The reason for the change is that real data at a smaller sample is
+   worth more than censored records at a larger one.

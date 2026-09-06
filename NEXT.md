@@ -291,3 +291,69 @@ structure in the tree already exhibits the regime.
   all `ImportError` on `TypeAlias`/`StrEnum` in the `REPO_INIT` scaffold stubs,
   which need Python 3.11 while the machine runs 3.9.6. `pytest tests` is still
   not a clean signal.
+
+---
+
+# Addendum — status after session 6 (real graphs)
+
+## The question session 6 was called to settle
+
+**Is separation ≥ 2 rare in practice, or merely rare in Erdős–Rényi?**
+**Merely rare in Erdős–Rényi.** It occurs in 46.4% of measurable pairs across the
+real corpus against 14.2% in random ensembles, with a maximum of 7 against 4, and
+`r_val = 1` falls from ~80% to 56.1%. The saturation was an artefact of the graph
+families this project had been drawing.
+
+## Settled
+
+1. **The radius is not vacuous on real structure**, and the diagnostic framing
+   session 5 recommended now has evidence behind it that is not synthetic.
+2. **Real CPDAGs are mostly compelled** — median 10.7% undirected, six of 39
+   networks fully compelled. The framework applies well where it applies, and it
+   applies to a minority of a typical network. This is a descriptive result about
+   knowledge-informed causal discovery generally, not only about this method.
+3. **Session 5's law is an approximation off its designed family**, and its
+   exceptions run one way: the true radius is usually **larger** than
+   `min(s, |K_{G₀}|)`, because real graphs carry redundant blocking structure the
+   spine construction excluded. The designed family was conservative.
+4. **The tractability ceiling is measured, not guessed**, and it lives in the
+   degeneracy gate rather than the radius search.
+
+## The highest-value experiment remaining
+
+**Finite-sample discovery.** Everything in session 6 is the oracle-CI
+idealisation: the CPDAG is computed from the true DAG. Real discovery returns a
+sparser skeleton, and missing weak edges is precisely what breaks back-door
+blocking. The experiment is cheap and fully specified: sample from these same
+networks at several sample sizes, run PC or a comparable algorithm, and compare
+the recovered CPDAG's component structure and separation distribution against the
+oracle CPDAG already committed in `results/axisa3/descriptive_structure.csv`.
+Until that is done, every claim is about idealised structure.
+
+## New, ordered by value
+
+1. **The finite-sample comparison** (above).
+2. **Make the degeneracy gate scale.** It is now the binding constraint: 29 s per
+   pair on a 109-node network, because its perturbation loop performs one
+   from-scratch Meek closure per knowledge edge. Note that the obvious fix —
+   testing `G₀`'s one-level upper covers — was tried this session and is **wrong**
+   (it tests a strict subset); any replacement needs the same differential test.
+3. **`r_ε` on real structures.** Session 5 found no middle regime on its designed
+   family and explicitly did not claim to have overturned session 1's 14.1%. Real
+   structure with larger radii is where that question can finally be answered.
+4. **More corpora.** Everything traces to one pgmpy sdist because `bnlearn.com`
+   is unreachable from this machine. A second, independent source would test
+   whether the separation finding is a property of curated benchmarks.
+5. **Characterise the law's exceptions structurally.** They are concentrated in a
+   few networks and run mostly one way; identifying what redundancy produces them
+   would turn an empirical approximation into a statement with a mechanism.
+
+## Carried forward, unchanged
+
+- **Anti-Exchange Case B** is still the one open property. Note that this
+  session's *headline* — the separation distribution — is BFS on the CPDAG and
+  does not depend on it; only the radii do.
+- **H4**, the naive `K`-count baseline, is still unrun. Six sessions.
+- **Environment debt:** 23 tests fail and 3 files fail to collect on this machine,
+  all `ImportError` on `TypeAlias`/`StrEnum` in the `REPO_INIT` scaffold stubs,
+  which need Python 3.11 while the machine runs 3.9.6.
