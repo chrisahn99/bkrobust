@@ -1,0 +1,164 @@
+{
+  "scope": "n=5 all CPDAGs by k (<=6 per k); n=6,7 sampled Erdos-Renyi CPDAGs; corrected space",
+  "n_measurements": 247,
+  "agreement_with_bfs": {
+    "agree": 247,
+    "total": 247,
+    "all_agree": true
+  },
+  "by_k": [
+    {
+      "k_undirected": 1,
+      "n_measurements": 18,
+      "mean_space": 3.0,
+      "mean_upset": 1.0,
+      "mean_build_s": 9.58403e-05,
+      "mean_fast_s": 7.39561e-05,
+      "speedup_single": 1.7897626396,
+      "speedup_amortised": 0.4937967833,
+      "mean_elements_visited": 1.0,
+      "mean_peak_kib": 3.7708333333,
+      "median_crossover_queries": 2.5441605263
+    },
+    {
+      "k_undirected": 2,
+      "n_measurements": 18,
+      "mean_space": 6.0,
+      "mean_upset": 1.0,
+      "mean_build_s": 0.0003494722,
+      "mean_fast_s": 0.000101801,
+      "speedup_single": 4.3367481212,
+      "speedup_amortised": 0.8925714061,
+      "mean_elements_visited": 1.0,
+      "mean_peak_kib": 4.0523546007,
+      "median_crossover_queries": 33.0858282178
+    },
+    {
+      "k_undirected": 3,
+      "n_measurements": 44,
+      "mean_space": 18.0,
+      "mean_upset": 1.3863636364,
+      "mean_build_s": 0.0015199527,
+      "mean_fast_s": 0.0003271326,
+      "speedup_single": 7.2573383213,
+      "speedup_amortised": 1.2233334374,
+      "mean_elements_visited": 1.0454545455,
+      "mean_peak_kib": 6.0904651989,
+      "median_crossover_queries": null
+    },
+    {
+      "k_undirected": 4,
+      "n_measurements": 52,
+      "mean_space": 32.0769230769,
+      "mean_upset": 2.1538461538,
+      "mean_build_s": 0.0057430089,
+      "mean_fast_s": 0.0006490113,
+      "speedup_single": 12.3668298425,
+      "speedup_amortised": 1.1765139239,
+      "mean_elements_visited": 1.0961538462,
+      "mean_peak_kib": 7.7687237079,
+      "median_crossover_queries": 8.8777450723
+    },
+    {
+      "k_undirected": 5,
+      "n_measurements": 32,
+      "mean_space": 54.1875,
+      "mean_upset": 5.21875,
+      "mean_build_s": 0.0214116354,
+      "mean_fast_s": 0.0010743189,
+      "speedup_single": 24.3135203069,
+      "speedup_amortised": 0.3808879265,
+      "mean_elements_visited": 1.09375,
+      "mean_peak_kib": 14.0341186523,
+      "median_crossover_queries": 19.9025059212
+    },
+    {
+      "k_undirected": 6,
+      "n_measurements": 20,
+      "mean_space": 105.25,
+      "mean_upset": 8.75,
+      "mean_build_s": 0.0792552873,
+      "mean_fast_s": 0.0011766021,
+      "speedup_single": 67.4844888318,
+      "speedup_amortised": 0.0920255128,
+      "mean_elements_visited": 1.0,
+      "mean_peak_kib": 15.9452148437,
+      "median_crossover_queries": 72.2986082358
+    },
+    {
+      "k_undirected": 7,
+      "n_measurements": 22,
+      "mean_space": 180.0454545455,
+      "mean_upset": 13.5454545455,
+      "mean_build_s": 0.316997752,
+      "mean_fast_s": 0.001659,
+      "speedup_single": 208.403944603,
+      "speedup_amortised": 0.096429777,
+      "mean_elements_visited": 1.0,
+      "mean_peak_kib": 17.3295454545,
+      "median_crossover_queries": 175.5718713204
+    },
+    {
+      "k_undirected": 8,
+      "n_measurements": 20,
+      "mean_space": 405.7,
+      "mean_upset": 9.45,
+      "mean_build_s": 1.3397433539,
+      "mean_fast_s": 0.0032346813,
+      "speedup_single": 418.2961913847,
+      "speedup_amortised": 0.0745914655,
+      "mean_elements_visited": 1.0,
+      "mean_peak_kib": 38.5208007813,
+      "median_crossover_queries": 431.5234437418
+    },
+    {
+      "k_undirected": 9,
+      "n_measurements": 18,
+      "mean_space": 768.0,
+      "mean_upset": 25.0,
+      "mean_build_s": 5.5520025072,
+      "mean_fast_s": 0.0029779466,
+      "speedup_single": 1865.0378476871,
+      "speedup_amortised": 0.0715422378,
+      "mean_elements_visited": 1.0,
+      "mean_peak_kib": 36.1005859375,
+      "median_crossover_queries": 2004.2452034556
+    },
+    {
+      "k_undirected": 10,
+      "n_measurements": 3,
+      "mean_space": 4231.0,
+      "mean_upset": 91.0,
+      "mean_build_s": 89.961601167,
+      "mean_fast_s": 0.0027545973,
+      "speedup_single": 32666.6590606146,
+      "speedup_amortised": 0.3469422884,
+      "mean_elements_visited": 1.0,
+      "mean_peak_kib": 39.1149088542,
+      "median_crossover_queries": 49974.0308339232
+    }
+  ],
+  "empirical_scaling_vs_k": {
+    "space_size": {
+      "log_slope": 0.6717,
+      "base": 1.958
+    },
+    "upset_size": {
+      "log_slope": 0.4504,
+      "base": 1.569
+    },
+    "build_seconds": {
+      "log_slope": 1.38,
+      "base": 3.975
+    },
+    "fast_seconds": {
+      "log_slope": 0.4659,
+      "base": 1.593
+    }
+  },
+  "interpretation": {
+    "local_up_tracks_upset_not_space": "local_up runtime base 1.59^k matches the up-set base 1.57^k, not the space base 1.96^k",
+    "bfs_build_base": "3.97^k",
+    "amortised_regime": "local_up is SLOWER than amortised BFS for k>=5 (0.07-0.10x)"
+  }
+}

@@ -1,0 +1,92 @@
+rows=1584 accepted+measured=1572 censored=0 errors=0
+INVARIANT violations: 0
+backdoor vs gac radius differs: 0/1572
+
+=== coverage 0.5: 780 instances ===
+  r=1: 16.9%   r>=2: 83.1%   UNREACHED: 0.0%
+  radius distribution: {1: 132, 2: 169, 3: 108, 4: 182, 5: 83, 6: 103, 7: 3}
+  --- r_val by realised separation (rows) x realised component size (cols) ---
+  s\c       3      4      5      6      7      8      9     10     11     12
+    1       1      1      1      1      1      1      1      1      1      1
+    2       1      2      2      2      2      2      2      2      2      2
+    3       .      2      2      2      3      3      3      3      3      3
+    4       .      .      2      2      4      4      4      4      4      4
+    5       .      .      .      2      3      4      4      5      5      5
+    6       .      .      .      .      3      4      4      5      6      6
+    7       .      .      .      .      .      4      4      4      6      6
+    8       .      .      .      .      .      .      4      4      6      6
+    9       .      .      .      .      .      .      .      4      5      6
+   10       .      .      .      .      .      .      .      .      5      6
+   11       .      .      .      .      .      .      .      .      .      6
+  --- fraction at r=1, by separation (marginal) ---
+    s= 1: n= 120  r=1 100.0%  median r=1
+    s= 2: n= 120  r=1  10.0%  median r=2
+    s= 3: n= 108  r=1   0.0%  median r=3
+    s= 4: n=  96  r=1   0.0%  median r=4
+    s= 5: n=  84  r=1   0.0%  median r=4
+    s= 6: n=  72  r=1   0.0%  median r=4
+    s= 7: n=  60  r=1   0.0%  median r=4
+    s= 8: n=  48  r=1   0.0%  median r=5
+    s= 9: n=  36  r=1   0.0%  median r=5
+    s=10: n=  24  r=1   0.0%  median r=6
+    s=11: n=  12  r=1   0.0%  median r=6
+  --- r == s exactly? ---
+    radius equals separation in 433/780 (55.5%)
+  --- WITHIN fixed separation, does component size matter? ---
+    s=1: c=3:med1(n12) c=4:med1(n12) c=5:med1(n12) c=6:med1(n12) c=7:med1(n12) c=8:med1(n12) c=9:med1(n12) c=10:med1(n12) c=11:med1(n12) c=12:med1(n12)
+    s=2: c=3:med1(n12) c=4:med2(n12) c=5:med2(n12) c=6:med2(n12) c=7:med2(n12) c=8:med2(n12) c=9:med2(n12) c=10:med2(n12) c=11:med2(n12) c=12:med2(n12)
+    s=3: c=4:med2(n12) c=5:med2(n12) c=6:med2(n12) c=7:med3(n12) c=8:med3(n12) c=9:med3(n12) c=10:med3(n12) c=11:med3(n12) c=12:med3(n12)
+    s=4: c=5:med2(n12) c=6:med2(n12) c=7:med4(n12) c=8:med4(n12) c=9:med4(n12) c=10:med4(n12) c=11:med4(n12) c=12:med4(n12)
+    s=5: c=6:med2(n12) c=7:med3(n12) c=8:med4(n12) c=9:med4(n12) c=10:med5(n12) c=11:med5(n12) c=12:med5(n12)
+    s=6: c=7:med3(n12) c=8:med4(n12) c=9:med4(n12) c=10:med5(n12) c=11:med6(n12) c=12:med6(n12)
+
+=== coverage 1.0: 792 instances ===
+  r=1: 16.7%   r>=2: 83.3%   UNREACHED: 0.0%
+  radius distribution: {1: 132, 2: 120, 3: 108, 4: 96, 5: 84, 6: 72, 7: 60, 8: 48, 9: 36, 10: 24, 11: 12}
+  --- r_val by realised separation (rows) x realised component size (cols) ---
+  s\c       2      3      4      5      6      7      8      9     10     11     12
+    1       1      1      1      1      1      1      1      1      1      1      1
+    2       .      2      2      2      2      2      2      2      2      2      2
+    3       .      .      3      3      3      3      3      3      3      3      3
+    4       .      .      .      4      4      4      4      4      4      4      4
+    5       .      .      .      .      5      5      5      5      5      5      5
+    6       .      .      .      .      .      6      6      6      6      6      6
+    7       .      .      .      .      .      .      7      7      7      7      7
+    8       .      .      .      .      .      .      .      8      8      8      8
+    9       .      .      .      .      .      .      .      .      9      9      9
+   10       .      .      .      .      .      .      .      .      .     10     10
+   11       .      .      .      .      .      .      .      .      .      .     11
+  --- fraction at r=1, by separation (marginal) ---
+    s= 1: n= 132  r=1 100.0%  median r=1
+    s= 2: n= 120  r=1   0.0%  median r=2
+    s= 3: n= 108  r=1   0.0%  median r=3
+    s= 4: n=  96  r=1   0.0%  median r=4
+    s= 5: n=  84  r=1   0.0%  median r=5
+    s= 6: n=  72  r=1   0.0%  median r=6
+    s= 7: n=  60  r=1   0.0%  median r=7
+    s= 8: n=  48  r=1   0.0%  median r=8
+    s= 9: n=  36  r=1   0.0%  median r=9
+    s=10: n=  24  r=1   0.0%  median r=10
+    s=11: n=  12  r=1   0.0%  median r=11
+  --- r == s exactly? ---
+    radius equals separation in 792/792 (100.0%)
+  --- WITHIN fixed separation, does component size matter? ---
+    s=1: c=2:med1(n12) c=3:med1(n12) c=4:med1(n12) c=5:med1(n12) c=6:med1(n12) c=7:med1(n12) c=8:med1(n12) c=9:med1(n12) c=10:med1(n12) c=11:med1(n12) c=12:med1(n12)
+    s=2: c=3:med2(n12) c=4:med2(n12) c=5:med2(n12) c=6:med2(n12) c=7:med2(n12) c=8:med2(n12) c=9:med2(n12) c=10:med2(n12) c=11:med2(n12) c=12:med2(n12)
+    s=3: c=4:med3(n12) c=5:med3(n12) c=6:med3(n12) c=7:med3(n12) c=8:med3(n12) c=9:med3(n12) c=10:med3(n12) c=11:med3(n12) c=12:med3(n12)
+    s=4: c=5:med4(n12) c=6:med4(n12) c=7:med4(n12) c=8:med4(n12) c=9:med4(n12) c=10:med4(n12) c=11:med4(n12) c=12:med4(n12)
+    s=5: c=6:med5(n12) c=7:med5(n12) c=8:med5(n12) c=9:med5(n12) c=10:med5(n12) c=11:med5(n12) c=12:med5(n12)
+    s=6: c=7:med6(n12) c=8:med6(n12) c=9:med6(n12) c=10:med6(n12) c=11:med6(n12) c=12:med6(n12)
+
+=== runtime vs radius (a result in its own right) ===
+  r=  1: n= 264  median 0.0003s  max 0.001s
+  r=  2: n= 289  median 0.0005s  max 0.005s
+  r=  3: n= 216  median 0.0015s  max 0.017s
+  r=  4: n= 278  median 0.0015s  max 0.040s
+  r=  5: n= 167  median 0.0031s  max 0.071s
+  r=  6: n= 175  median 0.0039s  max 0.062s
+  r=  7: n=  63  median 0.0048s  max 0.040s
+  r=  8: n=  48  median 0.0046s  max 0.045s
+  r=  9: n=  36  median 0.0046s  max 0.030s
+  r= 10: n=  24  median 0.0041s  max 0.013s
+  r= 11: n=  12  median 0.0047s  max 0.005s

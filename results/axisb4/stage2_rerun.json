@@ -1,0 +1,14 @@
+{
+  "scope": "all CPDAGs on 3 and 4 nodes with >=1 undirected edge; every space element; every ordered (x,y); every Z of size <= 2; E1's failure predicate with the MPDAG pinned",
+  "n_cases": 74568,
+  "e1_vs_enumeration_agree": 74568,
+  "e1_vs_criterion_agree": 74568,
+  "strata": {
+    "NON-amenable/total": 28464,
+    "NON-amenable/agree": 28464,
+    "amenable/total": 46104,
+    "amenable/agree": 46104
+  },
+  "disagreements": [],
+  "verdict": "PASS"
+}

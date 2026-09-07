@@ -1,0 +1,24 @@
+{
+  "scope": "all CPDAGs on 4 nodes with >=1 undirected edge, corrected space, Z = optimal adjustment set",
+  "e3_max_k": 8,
+  "n_instances": 1044,
+  "agreements": {
+    "e1_bfs": 1044,
+    "e1_up": 1044,
+    "e2_bfs": 1044,
+    "e1_e2": 1044,
+    "e3_bfs": 1044
+  },
+  "e3_walks": 792,
+  "walks_certified": 792,
+  "walks_monotone": 792,
+  "e2_optima_with_down_leg": 0,
+  "radius_distribution": {
+    "-1": 252,
+    "1": 720,
+    "2": 72
+  },
+  "c2_counterexamples": [],
+  "problems": [],
+  "verdict": "PASS"
+}

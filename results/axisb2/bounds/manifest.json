@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-09-04T21:56:45.725756+00:00",
+  "git_sha": "7be840cf974bc4c04f53f7ec45d187a194fd3fb6",
+  "git_dirty": true,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 0,
+  "grid": {
+    "n": 4
+  },
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "networkx": "3.2.1",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "purpose": "Axis B, session 2: back-door lower bound admissibility study",
+  "space": "build_space_correct (see space_fixed.py)",
+  "baseline": {
+    "source": "results/search/bounds_n4.json (commit b315704)",
+    "space": "uncorrected build_space -- predates space_fixed.py",
+    "n_cases": 792,
+    "LU_equal_and_exact": 660,
+    "certification_rate": 0.8333333333333334
+  },
+  "totals": {
+    "n_cpdags": 185,
+    "n_cases": 5664,
+    "n_finite_radius": 3204,
+    "n_l_defined": 3204,
+    "n_l_admissible": 3204,
+    "n_l_violations": 0,
+    "n_l_tight": 2736,
+    "n_l_desc_defined": 732,
+    "n_l_back_defined": 3036,
+    "n_l_back_only_closed_gap": 2472,
+    "n_u_valid": 3204,
+    "n_lu_equal_and_exact": 2736,
+    "certification_rate": 0.8539325842696629,
+    "baseline_certification_rate_uncorrected_space": 0.8333333333333334,
+    "n_violations_recorded": 0
+  }
+}

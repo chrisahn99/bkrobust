@@ -1,0 +1,63 @@
+{
+  "session": 5,
+  "branch": "experiments/synth_graphs_and_heuristics",
+  "git_sha": "b715317a180288bbcaa69e40d1408d6038cedc54",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "ortools": "9.15.6755",
+    "numpy": "2.0.2",
+    "matplotlib": "3.9.4"
+  },
+  "solver_parameters": {
+    "num_workers": 1,
+    "random_seed": 0
+  },
+  "determinism": {
+    "no_global_rng": true,
+    "sorted_iteration_everywhere": true,
+    "generator_pilot_digest": "70ea22dd23b2d903437ae3c668ba99ab1d16a2a55bf204a1172a423deec05298",
+    "note": "Instances are regenerated in worker subprocesses from their parameters and seed, so a worker and its driver build bit-identical graphs without serialising them."
+  },
+  "censored_representation": {
+    "key": "wall_until_timeout_s",
+    "never_reuses": "seconds",
+    "separation": "realised_separation is null with realised_separation_status carrying the reason; never encoded as a number such as 0 or -1",
+    "radius": "UNREACHED is -1 and is a sentinel, never averaged or plotted numerically"
+  },
+  "timing_hygiene": {
+    "clean": "census.jsonl -- ran alone; these are the runtime-vs-radius numbers the report cites",
+    "load_contaminated": [
+      "random_control.jsonl",
+      "frontier.jsonl",
+      "frontier_ext.jsonl"
+    ],
+    "why": "the frontier and the random control were run concurrently, and a figures subagent ran alongside the frontier extension; their seconds fields must not be used for cost claims"
+  },
+  "files": {
+    "preregistration.md": "H7-H10, written before the first run, unedited",
+    "gac_agreement.json": "GAC layers 1 and 2 against back-door and against enumeration",
+    "h9_definitional.json": "H9 re-derived by the orchestrator as radii, independently",
+    "generator_pilot.json": "per-cell acceptance, realisation fidelity, separation range",
+    "census.jsonl": "the designed (c, s) grid, both definitions on every instance",
+    "census_analysis.txt": "the two-way tables as computed",
+    "random_control.jsonl": "random-ensemble control, six generators, n = 6..30",
+    "random_analysis.txt": "pooled analysis (see random_split_analysis.txt for the split)",
+    "random_split_analysis.txt": "THE ONE TO READ: designed backdoor family separated out",
+    "random_control_deep_er_sparse.jsonl": "partial first attempt at a 600s cap, kept not pooled",
+    "random_control_slowgate_partial.jsonl": "partial second attempt, kept not pooled",
+    "random_control_partial2.jsonl": "partial third attempt, kept not pooled",
+    "frontier.jsonl": "H10 at c = 3..9, candidate sets up to size 4",
+    "frontier_c3to9.jsonl": "identical snapshot of the above, taken before the extension",
+    "frontier_ext.jsonl": "H10 extension at c = 10..12, candidate sets up to size 5",
+    "fast_gate_differential.json": "fast_gate vs runner.gate, 46,800 cases",
+    "fast_gate_reference.py": "the fast gate used by the control sweep, kept for reproducibility"
+  },
+  "assumption_status": {
+    "radius": "exact under Conjecture 2, hence Anti-Exchange Case B (verified, not proved). Its error direction makes radii TOO LARGE, which is FAVOURABLE to this session's hypothesis -- stated wherever the refutation is claimed",
+    "gac_forbidden_set_mpdag": "verified against enumeration (74,568 exhaustive + 2,419,520 sampled, 0 disagreements) but not proved exact; over-approximation would make radii too small, the conservative direction here",
+    "theorem_14": "proved: O is disjoint from de(X), and on such sets the two criteria coincide",
+    "fast_gate": "strictly stricter than runner.gate on one check; 16/46,800 (0.034%), and the exclusions are maximally-robust instances, biasing against the hypothesis"
+  }
+}

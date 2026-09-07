@@ -1,0 +1,155 @@
+{
+  "networks_parsed": 39,
+  "networks_with_admissible": 25,
+  "pairs_screened": 115974,
+  "admissible_instances": 831,
+  "censored_network_runs": 3,
+  "censored_detail": [
+    {
+      "network": "pathfinder",
+      "coverage": 1.0,
+      "wall_until_timeout_s": 1200.0
+    },
+    {
+      "network": "pathfinder",
+      "coverage": 0.5,
+      "wall_until_timeout_s": 1200.0
+    },
+    {
+      "network": "pathfinder",
+      "coverage": 0.25,
+      "wall_until_timeout_s": 1200.0
+    }
+  ],
+  "rejections": {
+    "treatment_not_in_or_adjacent_to_component": 66330,
+    "no_causal_path": 42618,
+    "empty_set_trivially_valid": 3738,
+    "no_atomic_perturbation_changes_validity": 1659,
+    "o_g0_not_identified": 518,
+    "o_g0_extensions_intractable": 280
+  },
+  "separation": {
+    "measurable": 463,
+    "undefined": 368,
+    "undefined_pct": 44.3,
+    "distribution": {
+      "1": 253,
+      "2": 197,
+      "3": 3,
+      "4": 3,
+      "5": 3,
+      "6": 3,
+      "7": 1
+    },
+    "ge2_pair_weighted_pct": 45.4,
+    "ge2_network_weighted_pct": 35.6,
+    "max": 7,
+    "erdos_renyi_baseline_ge2_pct": 14.2
+  },
+  "radius": {
+    "finite": 831,
+    "unreached": 0,
+    "distribution": {
+      "1": 508,
+      "2": 260,
+      "3": 43,
+      "4": 4,
+      "5": 1,
+      "6": 1,
+      "7": 1,
+      "8": 1,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 2,
+      "13": 2,
+      "14": 2
+    },
+    "r1_pair_weighted_pct": 61.1,
+    "r1_network_weighted_pct": 71.3,
+    "max": 14
+  },
+  "law": {
+    "tested": 463,
+    "agree": 337,
+    "agree_pct": 72.8,
+    "exceptions": 126,
+    "exception_direction": {
+      "radius_greater_than_law": 110,
+      "radius_less_than_law": 16
+    },
+    "exception_shapes": {
+      "r=2,min=1": 52,
+      "r=3,min=2": 40,
+      "r=1,min=2": 16,
+      "r=4,min=1": 3,
+      "r=14,min=6": 2,
+      "r=13,min=5": 2,
+      "r=12,min=4": 2,
+      "r=11,min=3": 2,
+      "r=10,min=2": 2,
+      "r=9,min=1": 2
+    },
+    "exceptions_by_network": {
+      "insurance": 55,
+      "Polzer_2012": 22,
+      "paths": 13,
+      "Kampen_2014": 7,
+      "barley": 7,
+      "Schipf_2010": 6,
+      "magic-niab": 5,
+      "win95pts": 4,
+      "magic-irri": 3,
+      "sachs": 2,
+      "asia": 1,
+      "pathfinder": 1
+    }
+  },
+  "tractability": {
+    "max_component_with_completed_radius": 85,
+    "inexact_instances": 0,
+    "slowest_seconds": 0.16,
+    "o_g0_extensions_intractable": 280
+  },
+  "by_coverage": {
+    "0.25": {
+      "admissible": 106,
+      "r1_pct": 34.0
+    },
+    "0.5": {
+      "admissible": 182,
+      "r1_pct": 51.1
+    },
+    "1.0": {
+      "admissible": 543,
+      "r1_pct": 69.8
+    }
+  },
+  "by_coverage_detail": {
+    "1.0": {
+      "admissible": 543,
+      "r1_pct": 69.8,
+      "max_radius": 14,
+      "median_k_g0": 12,
+      "median_separation": 1.0,
+      "median_radius": 1
+    },
+    "0.5": {
+      "admissible": 182,
+      "r1_pct": 51.1,
+      "max_radius": 4,
+      "median_k_g0": 6.0,
+      "median_separation": 2,
+      "median_radius": 1.0
+    },
+    "0.25": {
+      "admissible": 106,
+      "r1_pct": 34.0,
+      "max_radius": 4,
+      "median_k_g0": 4.0,
+      "median_separation": 2.0,
+      "median_radius": 2.0
+    }
+  }
+}

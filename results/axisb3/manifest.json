@@ -1,0 +1,21 @@
+{
+  "ortools": "9.15.6755",
+  "python": "3.9.6",
+  "commit": "8153913619d050b14657ee2b7636f05f438bb6fd",
+  "solver_parameters": {
+    "num_workers": 1,
+    "random_seed": 0
+  },
+  "determinism": {
+    "method": "SHA-256 over radii, witnesses, walks and solver conflict/branch counters",
+    "PYTHONHASHSEED values": [
+      0,
+      1,
+      12345
+    ],
+    "n_instances": 108,
+    "digest": "4edd011f64bc14a7d8d0da23cfc7a1c38c42e60193cbf9b61c816461c9bc65dc",
+    "identical": true,
+    "note": "Counters are included on purpose: matching radii alone would not detect a search that explored a different tree and landed on the same answer."
+  }
+}

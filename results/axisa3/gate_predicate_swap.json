@@ -1,0 +1,11 @@
+{
+  "purpose": "Theorem 14 says back-door and GAC coincide on Z = O(...), so the gate's perturbation check can use the polynomial GAC predicate instead of the extension-enumerating one. Verified rather than assumed.",
+  "scope": "all ordered (x,y) pairs in child, insurance, asia, sachs, water",
+  "n_pairs": 2240,
+  "identical_verdicts": 2240,
+  "disagreements": 0,
+  "enumeration_seconds": 20.22,
+  "gac_seconds": 2.47,
+  "speedup": 8.2,
+  "examples": []
+}

@@ -1,0 +1,8 @@
+{
+  "claim": "[G] subseteq [H]  <=>  dir(H) subseteq dir(G), for elements of the corrected space",
+  "scope": "all CPDAGs on 3 and 4 nodes with >=1 undirected edge, all ordered pairs",
+  "pairs": 80480,
+  "agree": 80480,
+  "disagree": 0,
+  "counterexamples": []
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "all CPDAGs n=3,4 corrected space; all (cover pair, element) triples",
+  "n_tested": 191484,
+  "n_holds": 191484,
+  "n_violations": 0,
+  "breakdown": {
+    "equal": 129048,
+    "cover": 62436,
+    "gap": 0
+  },
+  "violations": []
+}

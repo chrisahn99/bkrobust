@@ -1,0 +1,24 @@
+{
+  "purpose": "stress the walks-vs-paths relaxation in the state search against the enumeration oracle, which shares no code with the criterion",
+  "scope": "random dense Erdos-Renyi CPDAGs n=8..14, p=0.4..0.9, G0 plus elements of the perturbation ball reached by up to 2 cover steps, every ordered (x,y), |Z| <= 2, instances capped at 3000 DAG extensions so the oracle stays affordable",
+  "n_cases": 1131460,
+  "n_agree": 1131460,
+  "n_disagree": 0,
+  "component_sizes": {
+    "2": 63888,
+    "3": 250272,
+    "4": 274560,
+    "5": 372020,
+    "6": 100320,
+    "7": 60544,
+    "8": 9856
+  },
+  "reasons": {
+    "open_noncausal_path": 475407,
+    "VALID": 37770,
+    "z_hits_forbidden": 444417,
+    "not_amenable": 173866
+  },
+  "disagreements": [],
+  "verdict": "PASS"
+}

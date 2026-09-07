@@ -1,0 +1,41 @@
+{
+  "n3": {
+    "n_nodes": 3,
+    "n_cpdags_total": 11,
+    "n_cpdags_used": 7,
+    "n_instances": 6,
+    "r_val_hist": {
+      "1": 6
+    },
+    "r_val_unreached": 0,
+    "n_frontier_checked": 6,
+    "n_frontier_strict": 0,
+    "frontier_gap_hist": {
+      "0": 6
+    },
+    "skipped_no_optimal": 36,
+    "skipped_z_invalid_at_g0": 0,
+    "skipped_empty_z": 234,
+    "runtime_seconds": 0.01
+  },
+  "n4": {
+    "n_nodes": 4,
+    "n_cpdags_total": 185,
+    "n_cpdags_used": 126,
+    "n_instances": 1044,
+    "r_val_hist": {
+      "1": 720,
+      "2": 72
+    },
+    "r_val_unreached": 252,
+    "n_frontier_checked": 1044,
+    "n_frontier_strict": 0,
+    "frontier_gap_hist": {
+      "0": 1044
+    },
+    "skipped_no_optimal": 4032,
+    "skipped_z_invalid_at_g0": 0,
+    "skipped_empty_z": 13140,
+    "runtime_seconds": 1.28
+  }
+}

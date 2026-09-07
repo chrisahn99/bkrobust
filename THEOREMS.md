@@ -1,0 +1,605 @@
+# THEOREMS — formal statements and status
+
+Session 2, Axis B. Each item states its hypotheses, and is either **proved** (a
+proof a referee can check) or **verified** (with the verification scope stated
+explicitly). Nothing is labelled proved on the strength of evidence alone.
+
+---
+
+## 0. Setting and notation
+
+Let `Ĉ` be a CPDAG and `[Ĉ]` its Markov equivalence class — a set of DAGs.
+
+For a set `K` of orientations of edges adjacent in `Ĉ`, write `Meek(Ĉ, K)` for
+the result of imposing `K` and closing under Meek's rules R1–R4, or FAIL if `K`
+is inconsistent with `Ĉ`.
+
+**Meek's Theorem** (Meek 1995, used throughout as an established input). If `K`
+is consistent with `Ĉ` then `Meek(Ĉ, K)` is the *maximally oriented* PDAG
+representing exactly
+
+```
+[Meek(Ĉ,K)] = { D ∈ [Ĉ] : D ⊨ K } .
+```
+
+*Maximally oriented* means: for every edge left undirected, both orientations
+occur among the represented DAGs. (Verified computationally for every element of
+every space examined this session — see §1.)
+
+**The space.**
+
+```
+𝔊_Ĉ  =  { Meek(Ĉ, K) : K consistent with Ĉ }
+```
+
+— the set of **knowledge states**. For `G ∈ 𝔊_Ĉ` write `K_G = dir(G) \ dir(Ĉ)`
+for the orientations `G` adds to the CPDAG, so `[G] = { D ∈ [Ĉ] : D ⊨ K_G }`.
+
+**Order.** `G ⪯ H` iff `[G] ⊆ [H]`. More knowledge means fewer models means
+*lower*; `Ĉ` is the maximum; DAGs are minimal. Moving **up** is **retraction**.
+
+**Distance.** `d(·,·)` is hop count on the undirected covering graph, whose edges
+are exactly the covering pairs of `⪯`. Covering is computed from model inclusion
+by enumerating represented DAGs — never from a conjectured characterisation.
+
+**Radius convention** (unchanged): `r = min{ d(G₀,G) : the property fails at G }`,
+so shells `0 … r−1` are certified clean and the practitioner's safe-move count is
+`r − 1`.
+
+---
+
+## 1. Task 0 — the space definition (settled this session)
+
+**Statement.** `𝔊_Ĉ` as defined above is *strictly larger* than the set produced
+by the inherited `enumerate_space`, which filters candidates through a chordality
+test on the **undirected subgraph**.
+
+**Status: settled, with a minimal witness.**
+
+That chordality condition characterises *CPDAGs* — essential graphs are chain
+graphs with chordal chain components. It is **not** a property of an MPDAG built
+by adding background knowledge: knowledge can place a directed edge *inside* an
+otherwise-undirected component, and the chord that would make the component
+chordal is then present but **directed**, so the undirected subgraph reads as
+chordless.
+
+*Minimal witness* (`results/axisb2/task0_space_membership.json`):
+
+```
+Ĉ     : V0-V1 V0-V2 V0-V3 V1-V2 V1-V3        (K₄ minus V2–V3)
+K     : { V0→V1 }                             — a single assertion
+state : V0->V1 V0-V2 V0-V3 V1-V2 V1-V3
+        Meek-closed ✓   5 DAG extensions ✓   maximally oriented ✓
+        old is_valid_mpdag = False  →  excluded
+```
+
+Every excluded graph found is reachable, Meek-closed, non-empty, and maximally
+oriented — so it is a legitimate MPDAG and the *test* was wrong, not the notion.
+
+**Corrected membership predicate** (fixpoint form):
+
+```
+G ∈ 𝔊_Ĉ   ⟺   Meek(Ĉ, dir(G) \ dir(Ĉ)) = G
+```
+
+Verified equivalent to reachability on **1,588 states** over all CPDAGs on 3 and
+4 nodes, with zero failures.
+
+**Scale.** The previous session reported 0.09%, measured per Meek closure. Per
+element of the space the loss is larger and **grows with density** (n = 5):
+
+| undirected edges `k` | elements missing | CPDAGs affected |
+|---|---|---|
+| ≤ 4 | 0.00% | 0 / 12 |
+| 5 | 3.85% | **12 / 12** |
+| 6 | 2.14% | 9 / 12 |
+| 7 | 8.25% | 12 / 12 |
+| 8 | 10.19% | 12 / 12 |
+
+The previous session's sweeps ran to `k = 6`, so its numbers were computed on a
+space missing elements for most dense CPDAGs.
+
+**Re-derived on the corrected space** (session 2): all 8,782 CPDAGs on 5 nodes,
+1,977,820 radius comparisons, **0 counterexamples** to
+Conjecture 2. The correction added 720 space elements and
+13,860 comparisons involved a state the old space did not contain.
+
+---
+
+## 2. Theorem 1 — failure is upward-closed  *(inherited, proved)*
+
+**Statement.** Fix `Z`, `X`, `Y`. If `Z` fails in `G` and `[G] ⊆ [G']`, then `Z`
+fails in `G'`.
+
+**Proof.** Validity is a for-all over represented DAGs, so `Z` failing in `G`
+means some `D ∈ [G]` has `Z` invalid. Since `[G] ⊆ [G']`, that same `D` lies in
+`[G']` and witnesses failure there. ∎
+
+**Caveat** (convention, not mathematics). This implementation defines validity to
+be *false* when `[G]` is empty. An empty-extension graph would then "fail"
+vacuously while `[] ⊆ [G']` for every `G'`, breaking the implication. It does not
+bite because no element of `𝔊_Ĉ` has an empty extension set — checked, not
+assumed.
+
+---
+
+## 3. Theorem 2 — `𝔊_Ĉ` is a join-semilattice, and the join is explicit  *(proved, new)*
+
+**Statement.** For `G, H ∈ 𝔊_Ĉ`,
+
+```
+G ∨ H  =  Meek(Ĉ, K_G ∩ K_H)
+```
+
+is the least upper bound of `G` and `H` in `⪯`. Hence `𝔊_Ĉ` is a join-semilattice
+with maximum `Ĉ`.
+
+**Proof.** Write `J = Meek(Ĉ, K_G ∩ K_H)`.
+
+*Upper bound.* Let `D ∈ [G]`. Then `D ⊨ K_G`, hence `D ⊨ K_G ∩ K_H`, hence
+`D ∈ [J]` by Meek's Theorem. Symmetrically `[H] ⊆ [J]`. So `[G] ∪ [H] ⊆ [J]`.
+
+*Least.* Let `W ∈ 𝔊_Ĉ` with `[G] ∪ [H] ⊆ [W]`. Take any `e = (a→b) ∈ K_W`. Since
+`[G] ⊆ [W]`, every `D ∈ [G]` satisfies `e`; that is, the edge `a—b` is oriented
+identically across all of `[G]`. Because `G` is maximally oriented (Meek's
+Theorem), `G` therefore contains `a→b` as a directed edge. Since `e ∉ dir(Ĉ)` by
+definition of `K_W`, we get `e ∈ K_G`, and symmetrically `e ∈ K_H`. Hence
+`K_W ⊆ K_G ∩ K_H`, so every `D ⊨ K_G ∩ K_H` satisfies `K_W`, i.e. `[J] ⊆ [W]`. ∎
+
+**Verified independently.** A least upper bound exists, and the construction
+above *is* that least upper bound, in **100%** of pairs at both scopes:
+
+| scope | pairs | join exists | construction is the join |
+|---|---|---|---|
+| all CPDAGs n = 3, 4 (exhaustive) | 40,240 | 100% | 100% |
+| n = 5, sampled across k = 1…7 | 220,476 | 100% | 100% |
+| **total** | **260,716** | **100%** | **100%** |
+
+(`results/axisb2/lattice/joins_lemmaL_n34.json`, `.../lattice_n5.json`.)
+
+*Remark.* Meets exist for any pair with a common lower bound
+(`[G] ∩ [H] = {D : D ⊨ K_G ∪ K_H}`), but `K_G ∪ K_H` may be inconsistent and the
+empty model set is not an element, so `𝔊_Ĉ` is a join-semilattice with top rather
+than a lattice, unless a formal bottom is adjoined.
+
+---
+
+## 4. Property S — upper semimodularity  *(PROVED from Lemma R)*
+
+**Statement.** For all `X, Y, Z ∈ 𝔊_Ĉ` with `X ⋖ Y`:
+
+```
+X ∨ Z = Y ∨ Z      or      X ∨ Z ⋖ Y ∨ Z .
+```
+
+**Proof.** Work on the orientation side, where an element `W` is identified with
+its closed knowledge set `K_W` and, by Theorem 2, `W ∨ Z` is identified with
+`K_W ∩ K_Z`. Two standard facts are used: the intersection of closed sets is
+closed (`cl(A∩B) ⊆ cl(A) ∩ cl(B) = A ∩ B` for closed `A`, `B`), and by
+**Lemma R** below `X ⋖ Y` gives `K_X = K_Y ⊔ {e}` for a single orientation `e`.
+
+*Case 1: `e ∉ K_Z`.* Then `K_X ∩ K_Z = K_Y ∩ K_Z`, so `X ∨ Z = Y ∨ Z`.
+
+*Case 2: `e ∈ K_Z`.* Then `K_X ∩ K_Z = (K_Y ∩ K_Z) ⊔ {e}`. Both are closed, so
+they are elements, and they differ by the single element `e`. No closed set lies
+strictly between two sets differing by one element, so `X ∨ Z ⋖ Y ∨ Z`. ∎
+
+**Verified**, and the case split matches the proof exactly — which is itself a
+check that the case analysis is exhaustive:
+
+| scope | triples | Case 1 (collapse) | Case 2 (cover) | gaps of height ≥ 2 |
+|---|---|---|---|---|
+| all CPDAGs n = 3, 4 (exhaustive) | 191,484 | 129,048 | 62,436 | **0** |
+| n = 5, sampled to k = 7 | 1,195,142 | — | — | **0** |
+| **total** | **1,386,626** | | | **0** |
+
+The Case-2 key step `cl(S ∪ {e}) = S ∪ {e}` was additionally verified directly on
+all 62,436 Case-2 instances, with zero violations.
+
+---
+
+## 4b. Lemma R — every cover adds exactly one orientation  *(reduced to anti-exchange)*
+
+**Statement.** If `X ⋖ Y` in `𝔊_Ĉ` then `|K_X \ K_Y| = 1`.
+
+**Status: follows from Anti-Exchange (§4c) by a classical theorem.**
+
+By Edelman–Jamison, a closure operator satisfies the anti-exchange property iff
+its closed sets form a **convex geometry**, and in a convex geometry every cover
+in the lattice of closed sets adds exactly one element. So Anti-Exchange ⟹
+Lemma R.
+
+**Verified directly** as well: **5,348 covering pairs** (2,658 exhaustive at
+n ≤ 4, 2,690 sampled at n = 5), every one of them adding exactly one orientation,
+**0 violations**. Equivalently `rank(G) = |dir(G)| − |dir(Ĉ)|` is a rank function,
+so the poset is graded — which independently confirms §4.1.
+
+---
+
+## 4c. Anti-Exchange — the single remaining open property
+
+**Statement.** For closed `S` and distinct orientations `x, y ∉ S`:
+
+```
+y ∈ cl(S ∪ {x})   ⟹   x ∉ cl(S ∪ {y}) .
+```
+
+**Semantic restatement.** Suppose both held. Then
+`cl(S∪{x}) = cl(S∪{y}) = cl(S∪{x,y})`, so over the DAGs represented by `S` the
+constraints `x` and `y` are *equivalent*. Anti-exchange therefore says exactly:
+
+> **no two distinct orientations are perfectly correlated across the represented
+> DAGs.**
+
+**Case A (`x` and `y` orient the same edge): PROVED.** If `x, y ∉ S` and `S` is
+closed, that edge is undirected in the graph of `S`, so by maximal orientation
+both of its orientations occur among the represented DAGs. Pick `D₁ ⊨ x`. Since
+`x` and `y` are opposite orientations of one edge, `D₁ ⊭ y`, so `y ∉ cl(S∪{x})`
+and the hypothesis fails vacuously. ∎
+
+**Case B (`x` and `y` orient different edges): OPEN.** Verified with **0
+violations** across **36,094** applicable triples (2,178 exhaustive at n ≤ 4,
+3,076 sampled at n = 5, and 30,840 on the complete K₅ skeleton — the densest
+CPDAG on 5 nodes, where the covering relation is too large to enumerate but
+Anti-Exchange is not). A proof would need to rule out two distinct undirected
+edges being perfectly correlated over an equivalence class with knowledge
+imposed. The natural route is the chordal structure of chain components, which
+permits reorienting within a component; the obstruction is that under background
+knowledge a component need **not** be chordal — precisely the phenomenon Task 0
+uncovered — so the classical argument does not transfer unmodified.
+
+---
+
+## 5. Lemma L  *(proved from Property S)*
+
+**Statement.** For all `G₀, G ∈ 𝔊_Ĉ`: `d(G₀, G ∨ G₀) ≤ d(G₀, G)`.
+
+**Proof from Property S.** Let `G₀ = P₀, P₁, …, P_d = G` be a shortest path in the
+covering graph, so each consecutive pair is a covering pair in one direction or
+the other. Put `Q_i = P_i ∨ G₀`. Then `Q₀ = G₀ ∨ G₀ = G₀` and `Q_d = G ∨ G₀`.
+
+For each `i`, `{P_i, P_{i+1}}` is a covering pair, so Property S applied with
+`Z = G₀` gives `Q_i = Q_{i+1}` or `Q_i ⋖ Q_{i+1}` or `Q_{i+1} ⋖ Q_i`. In every
+case `Q_i` and `Q_{i+1}` are equal or adjacent in the covering graph. Deleting
+repetitions leaves a walk from `G₀` to `G ∨ G₀` of length at most `d`. Hence
+`d(G₀, G ∨ G₀) ≤ d = d(G₀, G)`. ∎
+
+**Verified independently**, without assuming Property S: **521,432** `(G₀, G)`
+pairs, **0 violations** — 80,480 over all CPDAGs on 3 and 4 nodes (exhaustive)
+and 440,952 at n = 5 across densities.
+
+Slack `d(G₀,G) − d(G₀, G∨G₀)` at n = 5 (440,952 pairs):
+
+| slack | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| count | 39,637 | 94,498 | 108,655 | 92,864 | 61,076 | 31,048 | 11,058 | 2,116 |
+
+Only **9.0%** of pairs are tight at zero slack (10.5% at n ≤ 4), so the lemma
+holds with real margin rather than balancing on the boundary — the more
+reassuring of the two possible states, and the distinction the brief asked to be
+made explicit. The margin does not shrink with graph size over the range tested.
+
+---
+
+## 6. Conjecture 2 — reduction  *(proved conditional on Property S)*
+
+**Statement.** The nearest failure is reachable from `G₀` by a monotone upward
+path, so `r_val` equals the minimum number of retractions from `G₀` that induces
+failure.
+
+**Theorem.** Anti-Exchange ⟹ Lemma R ⟹ Property S ⟹ Lemma L ⟹ Conjecture 2.
+
+**Proof.** Let `G` be a nearest failure, `d(G₀,G) = r`. Put `J = G ∨ G₀`.
+
+1. `G ⪯ J`, so by **Theorem 1** `Z` fails at `J`.
+2. By **Lemma L** (which follows from Property S), `d(G₀, J) ≤ r`.
+3. Property S implies upper semimodularity, hence the Jordan–Dedekind chain
+   condition, hence `𝔊_Ĉ` is graded. For comparable `G₀ ⪯ J` every path in the
+   covering graph changes rank by `±1` at each step, so has length at least
+   `ρ(J) − ρ(G₀)`; and a saturated chain of exactly that length exists. Therefore
+   `d(G₀, J) = ρ(J) − ρ(G₀)` and it is realised by a **monotone upward** path.
+4. So retraction-only search reaches the failing `J` in `d(G₀,J) ≤ r` steps, and
+   it cannot do better than `r` because `r` is the minimum over *all* elements.
+
+Hence the retraction-only radius equals `r`. ∎
+
+**Consequently the session's central open question is no longer Conjecture 2 but
+Anti-Exchange Case B** — a single local property of Meek closure, with no
+reference to failure, adjustment sets, treatments or outcomes, and with a clean
+semantic reading: *no two distinct orientations are perfectly correlated across
+the represented DAGs*. Case A is proved. Reducing a conjecture about causal
+robustness to that is the main theoretical result of this session.
+
+---
+
+## 7. What this means for `radius_local_up`
+
+`radius_local_up` performs **upward** BFS. Its exactness is therefore *exactly*
+Conjecture 2, hence — by §6 — exactly Property S.
+
+| | status |
+|---|---|
+| `radius_local_up` returns the BFS radius | **Exact if Anti-Exchange Case B holds**; otherwise it can only ever return radii that are **too large**, never too small |
+| Property S | **proved**; rests on Anti-Exchange Case B (§4c), which is verified not proved |
+| Direction of any error | one-sided: an over-estimate of the radius, i.e. a claim of *more* robustness than is warranted |
+
+The one-sidedness matters for how the method should be reported: a failure of
+Property S would make the method **optimistic about robustness**, which is the
+dangerous direction, so the conditional must be stated wherever the method's
+exactness is claimed.
+
+---
+
+## 8. Summary table
+
+| # | Statement | Status |
+|---|---|---|
+| T1 | Failure is upward-closed | **Proved** (one line) |
+| T2 | `G ∨ H = Meek(Ĉ, K_G ∩ K_H)`; `𝔊_Ĉ` is a join-semilattice | **Proved** (this session), verified on 260,716 pairs |
+| — | Space membership = reachability (fixpoint predicate) | **Settled**, verified on 1,588 states |
+| — | The chain-space semimodularity refutation | **Refuted** — it conflates an assertion with a covering step |
+| — | `𝔊_Ĉ` is graded | Verified on 203 spaces, 0 non-graded; also implied by S |
+| S | Upper semimodularity | **Proved from Lemma R**; verified on 1,386,626 triples |
+| R | Every cover adds exactly one orientation | **Proved from Anti-Exchange** (Edelman–Jamison); verified on 5,348 covers |
+| AE-A | Anti-exchange, same edge | **Proved** |
+| AE-B | Anti-exchange, distinct edges | **OPEN**, 0 violations in 36,094 triples incl. the complete K₅ |
+| L | `d(G₀, G∨G₀) ≤ d(G₀,G)` | **Proved from S**; independently verified on 521,432 pairs |
+| C2 | Retraction-optimal witnesses | **Proved from Anti-Exchange**; reduces to AE-B |
+
+---
+
+# Session 3 addendum — correctness of the declarative encodings
+
+Everything below concerns the CP-SAT encodings in `src/bkrobust/sat/`. The
+question these sections answer is not "is the radius right" but "does the
+encoding define the object we think it defines", which is prior to it. A wrong
+encoding does not crash; it returns plausible numbers.
+
+## 8. The closure encoding defines the corrected space
+
+**Statement.** For a CPDAG `Ĉ`, the satisfying assignments of the constraint
+system built by `sat.closure.add_meek_closure` are exactly the orientation sets
+`{K_G : G ∈ 𝔊_Ĉ}` of the corrected space of §1.
+
+**Method.** Each Meek rule is encoded as a **forbidden firing configuration**
+rather than as an implication: for every tuple of vertices matching a rule's
+premises, the conjunction of (premises ∧ ¬consequent) is ruled out by one clause.
+Added to this are the no-new-v-structure clauses and acyclicity via position
+integer variables.
+
+**Why firing configurations and not implications.** This was wrong once. R1 and R2
+survive a weaker encoding that omits the undirectedness premise, because the
+alternatives to the consequent are either a new v-structure or a cycle, both
+independently forbidden. R3 and R4 do not: dropping their undirectedness premises
+makes the system strictly too strong and it loses legitimate elements. The first
+version of the encoding did exactly that and reproduced only **66 of 133** CPDAG
+spaces.
+
+**Verified.** With the premises restored, the solution set equals
+`enumerate_space_correct` on **133 CPDAGs / 1,588 elements**, 0 mismatches
+(`tests/sat/test_encodings.py::test_closure_encoding_is_the_corrected_space`).
+
+## 9. The failure predicate agrees with the validity oracle
+
+**Statement.** `sat.failure.add_failure` is satisfiable for a witness DAG `D`
+extending `G` exactly when `Z` is an invalid adjustment set in `D`.
+
+**Method.** The two back-door failure modes are encoded directly: (A) some
+`z ∈ Z` is a descendant of `X` in `D`, and (B) a d-connecting path from `X` to
+`Y` in `D_X̄` given `Z`. Path (B) uses an **explicit bounded simple path** with
+position variables, not a Bayes-ball fixpoint; the fixpoint formulation is unsafe
+in both directions here. Two fixpoints do remain (`rx`, `ancz`), and they are
+safe because they range over an acyclic graph.
+
+**The collider clause was wrong once**, and the error made radii **too small** —
+the dangerous direction. A non-collider clause requiring `into_l ∨ into_r` let a
+*chain* through a member of `Z` be accepted as a collider, so paths that are
+blocked were reported open, so failures were reported that were not failures. A
+collider needs **both** arrows pointing in, which is two clauses, not one.
+
+**Verified.** Against the reference oracle on **26,304 cases**, 0 disagreements
+after the fix.
+
+## 10. E1, E2 and E3 — what each one assumes
+
+Let `r` be the true BFS radius. All three encodings are **upper bounds** on `r`;
+none can return a radius that is too small. That one-sidedness is inherited from
+§7 and is the dangerous direction for reporting, so it is stated on every result
+object via an `assumes` field.
+
+| | searches | assumes | relation |
+|---|---|---|---|
+| **E1** | retractions of `K_{G₀}` | Conjecture 2 | `r ≤ r_E1` |
+| **E2** | every closed state, distance via the join | Theorem 2 + Lemma R + up-then-down normalisation | `r ≤ r_E2 ≤ r_E1` |
+| **E3** | walks of one-orientation covering steps | **nothing** | `r ≤ r_E3` |
+
+**E2's join needs no closure.** Theorem 2 identifies `G₀ ∨ G` with `K_{G₀} ∩ K_G`,
+and the intersection of closed sets is closed, so `K_J = K_{G₀} ∩ K_G` outright.
+With `K_{G₀}` constant the objective collapses to the symmetric difference
+`|K_{G₀} Δ K_G|` — one linear constraint over a single copy of the variables,
+rather than the extra copy the plan budgeted. The assumptions are unchanged.
+
+## 11. E3's soundness, and the direction it runs in
+
+**Statement.** If E3 returns a walk of length `k` ending at a failing state, then
+`r ≤ k`, unconditionally.
+
+**Proof.** Consecutive states in an E3 walk are closed and differ by exactly one
+orientation. Two sets differing by a single element admit nothing strictly
+between them, so the pair is a covering pair by the definition of covering — with
+no appeal to Lemma R, to anti-exchange, or to gradedness. Hence the walk is a
+walk in the covering graph, and BFS distance is at most its length. ∎
+
+**The converse fails, and the asymmetry is the point.** That *every* cover is a
+one-orientation step is Lemma R, which rests on anti-exchange Case B and is
+verified rather than proved. E3 therefore searches a **subset** of the covering
+walks. Consequences, which must not be blurred:
+
+* `r_E3 < r_E1` **refutes Conjecture 2**, with a witness walk and no assumptions.
+* `r_E3 = r_E1` is **consistent with** Conjecture 2 and proves nothing, because a
+  shorter path through a hypothetical multi-orientation cover is invisible to
+  both encodings.
+
+Agreement between E1 and E3 is evidence. Only disagreement would be a theorem,
+and it would be a theorem in the negative direction.
+
+**Certificates, not solver claims.** Every E3 walk reported in this session was
+replayed through the ordinary graph code by `sat.verify.verify_walk`, which
+re-checks, without consulting the encoding, that each state is a knowledge state
+of the CPDAG, that each step changes exactly one orientation, and that the final
+state genuinely fails.
+
+---
+
+# Session 4 addendum — the order identification, and the MPDAG criterion
+
+## 12. Lemma O — model inclusion is reverse containment of orientations
+
+**Statement.** For elements `G`, `H` of the corrected space `𝔊_Ĉ`:
+
+```
+[G] ⊆ [H]      ⟺      dir(H) ⊆ dir(G) ,
+```
+
+and the two are strict together.
+
+**Proof.**
+
+*(⇐)* Suppose `dir(H) ⊆ dir(G)`. Every `D ∈ [G]` is a DAG consistent with the
+orientations `dir(G)`, hence with the smaller set `dir(H)`, and it shares the
+skeleton and v-structures of `Ĉ`. So `D ∈ [H]`, giving `[G] ⊆ [H]`.
+
+*(⇒)* Suppose `[G] ⊆ [H]` and let `a→b ∈ dir(H)`. Every `D ∈ [H]` orients that
+edge `a→b`, and every `D ∈ [G]` lies in `[H]`, so every `D ∈ [G]` orients it
+`a→b`. Elements of the space are **maximally oriented** — an edge oriented
+identically across the whole of `[G]` is directed in `G`, which is the defining
+property of §1 and is what `space_fixed.is_maximally_oriented` checks. Hence
+`a→b ∈ dir(G)`. ∎
+
+*Strictness.* An element is determined by its extension set and by its
+orientation set alike, so equality on one side forces equality on the other, and
+the strict versions correspond.
+
+**Verified.** All ordered pairs of elements, over every CPDAG on 3 and 4 nodes
+with at least one undirected edge: **80,480 pairs, 0 disagreements**
+(`results/axisb4/order_identification.json`).
+
+**Consequence, which is the reason it was looked for.** `local_up`'s cover
+generation decided minimality by comparing *extension sets*, enumerating `[H]`
+once per candidate. Profiling put **70.4%** of `local_up`'s total time in that
+one test. Lemma O makes it a set comparison on directed edges, with no
+enumeration at all. `search/exact_fast.py` implements this; it returns identical
+cover sets (1,588 compared, identical including order) and identical radii
+(1,044 compared, agreeing with both frozen `local_up` and brute-force BFS).
+
+**What it does not do.** Lemma O is about the *order*, not about validity. It
+changes cost, never the answer, and it inherits no assumption: in particular it
+is independent of Conjecture 2, so `radius_local_up_fast` carries exactly the
+same exactness caveat as `radius_local_up` and no other.
+
+---
+
+# Session 5 addendum — the two adjustment criteria, and where they coincide
+
+## 13. The GAC accepts a superset, so radii can only grow
+
+**Statement.** For any DAG `D` and any `Z`: back-door-valid ⟹ GAC-valid. Hence
+for any MPDAG `G` the GAC failure set is a subset of the back-door failure set,
+and for every instance
+
+```
+r_val(GAC)  ≥  r_val(back-door) .
+```
+
+**Proof.** Back-door requires `Z ∩ de(X) = ∅` and that `Z` block every back-door
+path. GAC requires `Z ∩ forb(X,Y) = ∅` and that `Z` block every proper
+non-causal path. Since `forb(X,Y) ⊆ de(X) ∪ {X,Y}`, the first condition is
+weaker; and given `Z ∩ de(X) = ∅`, blocking every back-door path and blocking
+every proper non-causal path coincide. So a back-door-valid set is GAC-valid.
+Failure is a for-all over extensions in both cases, so the implication lifts to
+MPDAGs. Fewer failures means the nearest one is no nearer. ∎
+
+**Verified.** 4,711,024 DAG-level cases over all 29,824 labelled DAGs on 4 and 5
+nodes: **0 implication failures**, and all 227,224 disagreements classified as
+"`Z` contains a descendant of `X` off the causal route to `Y`" — 0 unexplainable.
+The radius-level invariant was checked on 22,230 instances at n = 3, 4 with
+**0 violations**, and is asserted per instance throughout the session-5 census.
+
+## 14. The two criteria coincide on the optimal adjustment set
+
+**Statement.** For the Henckel–Perković–Maathuis optimal set
+`O = pa(cn(X,Y)) \ (cn(X,Y) ∪ {X})`, back-door validity and GAC validity are the
+same predicate, in every graph.
+
+**Proof.** `O` is disjoint from `de(X)`: every element is a parent of a node in
+`cn(X,Y)` and is itself excluded from `cn(X,Y) ∪ {X}`, so no element lies on or
+below a causal route from `X`. For any `Z` with `Z ∩ de(X) = ∅`, the two
+criteria's first conditions are both satisfied, and their second conditions
+coincide (§13). Hence they agree on `O`. ∎
+
+**Verified twice, by different routes.** The criterion sweep found 0
+disagreements in 8,154 evaluations (3,360 both-valid, 4,794 both-invalid, so not
+vacuous). Independently, radii were recomputed by full BFS over the corrected
+space under each definition: **5,304 instances, radii identical in 100.00%**,
+and of the 2,790 with back-door radius 1, **0** have a strictly larger GAC
+radius.
+
+**Consequence, which is the point of stating it.** Every prior result in this
+repository that used `Z = O(G₀)` — including session 1's saturation census — is
+**unchanged** by adopting the GAC. The saturation at `r_val = 1` is therefore
+**not a definitional artefact**. Where the definition does matter is arbitrary
+`Z`: over 16,926 such instances the radii differ in 29.14%, and of those with
+back-door radius 1, 19.85% have a strictly larger GAC radius. That is why the
+frontier question must be re-run rather than carried over — session 1's "`O*` is
+never strictly beaten" ranged over back-door-valid candidates only.
+
+**One caveat carried from the implementation.** The MPDAG-level GAC forbidden
+set is verified against enumeration (74,568 exhaustive cases plus 2,419,520 at
+n = 5, 0 disagreements) but its formula is not proved to be exact; it could in
+principle over-approximate. Over-approximation rejects valid sets, which makes
+radii **too small** — the conservative direction for a session testing whether
+radii are larger than previously believed.
+
+---
+
+# Session 6 addendum — the law off its designed family
+
+## 15. `r_val = min(s, |K_{G₀}|)` is an approximation on real structure, and it errs low
+
+**Session 5's statement.** On the designed component family the law held in
+1,572 of 1,572 instances. Session 5 was explicit that this was a law *of that
+family*, close to true by construction: the generator builds a single spine of
+length `s` from `X` to the adjustment set, so `s` retractions break it and fewer
+do not.
+
+**On real networks it holds in 337 of 463 instances (72.8%)** — the first test on
+structure the law was not derived from.
+
+**The 126 exceptions are asymmetric, and the asymmetry identifies the
+mechanism.** 110 have `r_val` **greater** than `min(s, |K_{G₀}|)`; only 16 have it
+smaller. The commonest shapes are `r = 2` where the law predicts 1 (52 cases) and
+`r = 3` where it predicts 2 (40 cases).
+
+**Why.** The single-spine construction made the shortest route between `X` and
+the nearest member of `Z` the *only* route. Real graphs carry **redundant
+blocking structure**: severing that route often leaves another intact, so more
+than `s` retractions are required before validity actually fails. The law
+therefore **understates** the radius on real structure, which is the conservative
+direction for a project claiming robustness.
+
+**Status.** This is an empirical statement about a corpus, not a theorem. What is
+established is narrower and worth stating precisely: the equality is a property
+of single-path component structure, and the inequality
+
+```
+r_val  ≥  min(s, |K_{G₀}|)
+```
+
+held in 447 of 463 real instances. The 16 counterexamples to even the inequality
+are concentrated in a few networks and are **not** characterised here; they are
+recorded in `results/axisa3/instances.jsonl` and flagged in `NEXT.md` as the
+piece that would turn this from an approximation with a story into a statement
+with a mechanism.
+
+**What does not depend on any of this.** The session's headline — the separation
+distribution — is BFS on the CPDAG. It uses neither the law nor Conjecture 2.

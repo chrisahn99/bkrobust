@@ -1,0 +1,26 @@
+{
+  "n3": {
+    "n_cases": 96,
+    "n_agree": 96,
+    "n_disagree": 0,
+    "bfs_seconds": 0.002274786000000008,
+    "fast_seconds": 0.0053326289999999915,
+    "bfs_space_elements": 46,
+    "fast_elements_visited": 126,
+    "fast_closures": 156,
+    "fast_validity_checks": 195,
+    "runtime_seconds": 0.02
+  },
+  "n4": {
+    "n_cases": 5208,
+    "n_agree": 5208,
+    "n_disagree": 0,
+    "bfs_seconds": 0.3580890500000006,
+    "fast_seconds": 0.7212072320000146,
+    "bfs_space_elements": 1518,
+    "fast_elements_visited": 8936,
+    "fast_closures": 15640,
+    "fast_validity_checks": 13228,
+    "runtime_seconds": 2.47
+  }
+}
