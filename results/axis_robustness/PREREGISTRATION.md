@@ -682,3 +682,53 @@ works as placed and must not be moved without editing those paths. It differs fr
 repo's convention of putting drivers inside the package (`benchmarks/measure.py`,
 `synth/runner.py`); noted rather than "fixed", since relocating a working driver to satisfy
 a convention is how this repo has broken things before.
+
+---
+
+# Appendix G — 2026-09-10, a mislabeled table, and what caught it
+
+## G.1 The error
+
+`report_fragility_and_pareto.md` §2.7 presented contradiction-rate-by-depth figures
+(0.491 / 0.773 / 0.896 / 0.930 / 0.986 / 1.000) under a **"flip arm"** label. They are the
+**both-arms pooled** figures. Worse, the pool is taken over the tiered arm's `d` column,
+which Appendix E establishes as defective — so the table was the precise cross-arm merge
+this session forbids everywhere else, published under a label asserting it was not.
+
+Correct flip-only figures:
+
+| depth | 1 | 2 | 3 | 5 | 8 | 12 |
+|---|---|---|---|---|---|---|
+| flip only | **0.627** | 0.777 | 0.876 | 0.892 | 0.983 | 1.000 |
+| pooled (contaminated, do not use) | 0.491 | 0.773 | 0.896 | 0.930 | 0.986 | 1.000 |
+
+The qualitative claim is unaffected and slightly better supported: at `d = 1` the flip-only
+rate is 0.627, so "reversing a single truthful claim makes the knowledge set inconsistent
+about six times in ten" is accurate as written. The base-wrongness breakdown
+(0.653 / 0.647 / 0.563) was always flip-only and is unchanged.
+
+**Also superseded:** the pooled tables in C.1 and D.1. They are correctly *labelled* pooled,
+but the pool includes the defective tiered `d` axis, so they should not be quoted. Use the
+flip-only row above, or the tiered arm's own rate-binned series from E.2.
+
+## G.2 What caught it
+
+The figure worker, told to trace every plotted number back to a committed CSV, recomputed
+the series from source rather than copying it from the report, found flip-only gave
+0.627 / 0.777 / 0.876, checked the both-arms pool, and reproduced the report's table exactly.
+
+That is the mechanism working as intended: **the figures were built from the data, not from
+the prose.** Had they been drawn to match the report, the error would have shipped and been
+corroborated by its own illustration. It is worth recording as a method note, not just a
+correction — a figure pipeline that re-derives its inputs is a check on the text, and a
+figure pipeline that copies them is not.
+
+## G.3 A second, smaller honesty adjustment
+
+The figure brief predicted the stratification panel would show `r_val` buckets separating
+"cleanly". They do not, quite: per-depth bucket means cross among middle buckets once
+sample size thins past `d ≈ 3–4` (r=4 briefly dips below r=1 at `d = 4`). The figure was
+retitled to state what it shows rather than the expected result, and points to the forest
+plot as the primary evidence, since the pre-registered claim was always a whole-curve rank
+correlation and never per-depth monotonicity. No report text asserted per-depth
+monotonicity, so nothing else changes.

@@ -136,13 +136,20 @@ component-size effect (main spans 6–12, subsample 3–7) — reported, not res
 
 ### 2.7 The finding that was not predicted
 
-Contradiction rates by corruption depth, flip arm:
+Contradiction rates by corruption depth, **flip arm only**:
 
 | depth | 1 | 2 | 3 | 5 | 8 | 12 |
 |---|---|---|---|---|---|---|
-| rate | 0.491 | 0.773 | 0.896 | 0.930 | 0.986 | 1.000 |
+| rate | 0.627 | 0.777 | 0.876 | 0.892 | 0.983 | 1.000 |
 
 At `d = 1` and base wrongness 0.00/0.10/0.25 the rates are 0.653/0.647/0.563.
+
+*(Corrected 2026-09-10. This table originally printed 0.491/0.773/0.896/0.930/0.986/1.000
+under a "flip arm" label. Those are the **both-arms pooled** figures, and the pool is
+computed over the tiered arm's defective `d` column — the exact cross-arm merge forbidden
+everywhere else in this report. Caught while building the session figures, which recompute
+every plotted number from source. Flip-only figures are shown above; the base-wrongness
+breakdown was already flip-only and is unchanged. See Appendix G.)*
 
 > **Most orientation errors are self-revealing.** Reversing a single truthful claim renders the
 > knowledge set inconsistent with the CPDAG about 6 times in 10. Meek closure fails and the
