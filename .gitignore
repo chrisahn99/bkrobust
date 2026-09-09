@@ -65,6 +65,9 @@ coverage.xml
 !/results/axisb4/
 !/results/axisa2/
 !/results/axisa3/
+# Axis Robustness (survival curves + Pareto frontier) outputs are deliverables
+# cited by report_fragility_and_pareto.md; the pre-registration lives here too.
+!/results/axis_robustness/
 /data/
 /checkpoints/
 *.pt
