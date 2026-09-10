@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-09-10T14:31:02.476938+00:00",
+  "git_sha": "01bba978af104a9a77c77df7d8a089b00cdac9c7",
+  "git_dirty": true,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 0,
+  "grid": {
+    "component_sizes_seen": [
+      6,
+      8,
+      10
+    ],
+    "n_tiers_seen": [
+      2,
+      3,
+      4
+    ],
+    "tiered_rate_grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "flip_grid": "d/len(K_ref) for d in 1..len(K_ref), per instance",
+    "reps_per_grid_point": 200,
+    "bin_width": 0.05,
+    "min_usable_n": 30
+  },
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "networkx": "3.2.1",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "gate": "fast_gate",
+  "design": "matched-instance cross-arm"
+}

@@ -732,3 +732,276 @@ retitled to state what it shows rather than the expected result, and points to t
 plot as the primary evidence, since the pre-registered claim was always a whole-curve rank
 correlation and never per-depth monotonicity. No report text asserted per-depth
 monotonicity, so nothing else changes.
+
+---
+
+# Appendix H — 2026-09-10, the null stratum is real
+
+## H.1 Question
+
+Session 7's stratum **flip, coverage 0.5, base wrongness 0.25** returned
+τ_b(AUC_frac, r_val) = +0.031, CI [−0.114, +0.169], n = 220, against +0.346 to +0.714 in
+the other five flip strata. Two candidate explanations: (a) `r_val` genuinely stops
+discriminating in this regime, or (b) attenuation — `AUC_frac` is estimated from 200 draws
+per depth, most of which are contradictory here (0.563 at `d=1`, 0.858 at `d=3`), and
+random error in an endpoint attenuates τ toward zero.
+
+## H.2 Design and result
+
+The **same 220 instances** were rebuilt (verified exact: all `instance_id`, `n_k` and
+`r_val` matched one-for-one, and `AUC_frac` from the first 200 of the new draws reproduced
+session 7's values to the exact float, max abs diff 0.0) and resampled at **N = 1000**
+draws per depth. Only the draw count changed; instance count was deliberately held fixed,
+since CI width is driven by instances while attenuation is driven by draws.
+
+| | N | n | τ_b | 95% CI | CI width |
+|---|---|---|---|---|---|
+| reproduction (first 200 of 1000) | 200 | 220 | +0.0314 | [−0.1144, +0.1686] | 0.2831 |
+| full | 1000 | 220 | **+0.0324** | [−0.1117, +0.1685] | 0.2803 |
+| `AUC_frac_usable` (`n_eval ≥ 30`) | 1000 | 220 | +0.0322 | [−0.1118, +0.1681] | 0.2799 |
+
+**The noise reduction worked and found nothing.** Mean per-instance standard error of
+`AUC_frac` fell by **2.2405×** against a theoretical √5 = 2.2361 — exactly as predicted —
+while mean `AUC_frac` moved by +0.00084 (median 0.0) and τ by +0.001. CI width narrowed 1%.
+
+**Explanation (b) is rejected. The null is genuine.**
+
+## H.3 A third explanation, tested and also rejected
+
+τ_b could be suppressed by ties if `r_val` barely varies in this cell. It does not:
+
+| | distinct `r_val` values | tied instance pairs | sd(`AUC_frac`) |
+|---|---|---|---|
+| null cell (τ = +0.03) | 5 | 27.9% | 0.189 |
+| flip cov=0.5 bw=0.00 (τ = +0.71) | 6 | 23.0% | 0.238 |
+
+Comparable contrast in both. Tie structure cannot explain a 0.03-versus-0.71 gap.
+
+## H.4 What this means — a boundary condition, stated as one
+
+> `r_val`'s ability to rank average-case survival degrades when the analyst's starting
+> knowledge is **both sparse and substantially wrong**.
+
+The effect is specific to the *combination*. At the same base wrongness with full coverage
+(flip cov=1.0 bw=0.25) τ is +0.346 with a CI excluding zero; at the same coverage with
+truthful knowledge (cov=0.5 bw=0.00) it is +0.714. Only the low-coverage, high-wrongness
+corner is null.
+
+A plausible mechanism, **not tested here and not claimed**: `r_val` is the distance to the
+*nearest* failure, while AUC is the *average* over shells. When `G₀` is simultaneously
+under-determined and already substantially wrong, failures may be dense in every direction,
+so a minimum distance stops carrying information about what fraction of the neighbourhood
+fails. Testing that needs the shell-density measurement, which this design does not make.
+
+This is reported as a limit on the claim, not worked around. `r_val` dominates the
+baselines in 8 of 9 strata; in the ninth it ranks nothing, and so do they —
+`n_k` is −0.205 and `shd_truth` −0.171 there, both also failing.
+
+## H.5 Incident — a shared helper overwrote a committed file
+
+`core/resultsio.py:write_manifest()` hardcodes its output to `<dir>/manifest.json`. Called
+against `results/axis_robustness/`, it briefly overwrote session 7's committed
+`manifest.json`. The worker caught it, restored via `git checkout --`, and rerouted through
+a temporary directory. **Verified by the orchestrator: the restored file is byte-identical
+to `HEAD` (sha256 `f6d68199…`), and nothing else in the tree is modified or deleted.**
+
+The helper's signature is the trap — it takes a directory, not a filename, so any second
+result set in a shared directory silently clobbers the first. Worth a `filename` parameter
+before the next session uses it.
+
+---
+
+# Appendix I — 2026-09-10, correlated vs uniform corruption, matched at last
+
+## I.1 Design
+
+Session 7 could not compare the two corruption processes: different units (claims reversed
+vs nodes relocated) **and** different populations (`tiered` is generative, so it built its
+own `K`, `G₀` and `Z*`). Appendix E.3 retracted the cross-arm claim rather than patch it.
+
+Both blockers are now fixed. **Matched instances:** `K_ref = tiered(dag, cpdag, rng,
+n_tiers, 0.0)` defines the instance, and that *same* `(Ĉ, K_ref, G₀, Z*)` is corrupted both
+ways — tiered relocation and uniform `flip` on `K_ref`. **Unified intensity:**
+
+```
+intensity = |dir(G₀) Δ dir(G)| / |dir(G₀)|
+```
+
+the normalized symmetric difference over *directed* edges. (The brief proposed "fraction of
+the `G₀` skeleton altered"; that is identically zero, since corruption never changes
+adjacency — only orientations move.)
+
+1,251 instances, 3,453,600 samples, N=200 per grid point, 944 s, `gate="fast_gate"`.
+`S = 1.0` at intensity 0 for all 1,251. 763 of 9,799 bin rows have **undefined intensity**
+(every sample contradictory) and carry a status string, not a number — correct sentinel
+handling.
+
+The arms cover the axis unevenly, as expected: tiered concentrates ≤0.10, flip has a floor
+at ≈0.10 because reversing one claim always changes two orientations. Comparison is
+confined to the populated overlap.
+
+## I.2 Three endpoints, three different answers — the distinction is the finding
+
+**(a) Contradiction rate — tiered is far MORE self-revealing.** Matched within instance at
+identical intensity, tiered's contradiction rate exceeds flip's in *every* populated bin,
+several unanimously:
+
+| intensity | 0.15 | 0.25 | 0.35 | 0.45 | 0.55 | 0.65 |
+|---|---|---|---|---|---|---|
+| tiered | 0.809 | 0.820 | 0.733 | 0.972 | 0.616 | 0.839 |
+| flip | 0.540 | 0.472 | 0.525 | 0.700 | 0.054 | 0.064 |
+| tiered higher | 22/23 | **59/59** | 60/80 | 23/24 | **19/19** | **14/14** |
+
+p from 5.7e-06 down to 3.5e-18.
+
+**(b) Unconditional `S_contra_as_fail` — tiered lower everywhere** (0.142 vs 0.448 at
+intensity 0.25; 59/59 pairs; p = 3.5e-18). But this endpoint **scores detection as
+failure**, so (a) largely drives it.
+
+**(c) Conditional `S` — tiered lower, but confounded.** The n-weighted mean difference over
+well-populated bins is −0.051, and three bins survive Bonferroni (0.20, 0.30, 0.35;
+n = 47, 44, 68; p to 3.3e-06). *However*, `S` conditions on non-contradiction, and by (a)
+the two arms condition on very different selections. This comparison is **suggestive, not
+clean**, and is not the basis of any claim here.
+
+## I.3 The endpoint that answers the practitioner's question
+
+Contradiction means the analyst *finds out* — Meek closure fails and the error announces
+itself. The outcome that actually harms is **silent failure**: knowledge that stays
+consistent while the committed adjustment set becomes invalid.
+
+```
+silent failure rate = (1 − contradiction_rate) · (1 − S)
+```
+
+Matched pairs, both arms with ≥30 samples (n = 410):
+
+| | tiered (correlated) | flip (uniform) |
+|---|---|---|
+| pooled silent-failure rate | **0.0617** | **0.1072** |
+
+tiered lower in 189 pairs, higher in 131, 90 tied — sign test **p = 1.4e-03**, Wilcoxon
+signed-rank **p = 1.0e-15**.
+
+> **Uniform, independent errors are ≈1.74× more likely to fail silently than correlated
+> ones at the same corruption intensity.**
+
+## I.4 What this reverses, and what it settles
+
+The mission asked whether correlated errors "degrade GAC validity faster". On the
+unconditional endpoint they do — but only because they are so much more often *detected*.
+On the endpoint that matters, the ordering **reverses**: correlated errors are more
+destructive *and* more detectable, and detectability dominates. The insidious failure mode
+is the uniform one.
+
+This also disposes of session 7's retracted impression that correlated errors were "less
+self-revealing" (0.354 vs 0.653 at `d=1`). That number came from a contaminated bin and
+mismatched populations. Matched properly, the truth is the **opposite**: correlated
+corruption is *more* self-revealing, at every intensity measured.
+
+**Correction to the worker's stated verdict.** The run reported "tiered degrades GAC
+validity faster" as its headline. That holds for endpoints (b) and (c) but not for the
+silent-failure decomposition, which was not part of its brief. The headline is corrected
+here; the underlying data is sound and unchanged.
+
+**Scope.** Synthetic component instances, oracle CI, `fast_gate`. The comparison holds over
+intensity ≈0.15–0.65, where both arms are populated; outside that range one arm has too
+little data and no claim is made. 903 instances were excluded as `optimal_set_undefined`,
+mostly at `n_tiers = 2` — a structural property of the tiered generator, counted aloud.
+
+---
+
+# Appendix J — 2026-09-10, `AUC_frac_usable` is not a conservative control
+
+## J.1 The problem
+
+Appendix F.3 adopted `AUC_frac_usable` (grid points with `n_eval ≥ 30`) as the conservative
+endpoint and made it govern summary claims. The session-8 anchor table forced a direct
+comparison of the two endpoints across all six flip strata, and the premise does not hold:
+
+| stratum | `AUC_frac` | `AUC_frac_usable` | Δ |
+|---|---|---|---|
+| flip cov=0.5 bw=0.00 | +0.714 (excl 0) | +0.634 (excl 0) | −0.079 |
+| flip cov=0.5 bw=0.10 | +0.380 (excl 0) | +0.334 (excl 0) | −0.046 |
+| **flip cov=0.5 bw=0.25** | +0.031 (incl 0) | **+0.279 (excl 0)** | **+0.248** |
+| **flip cov=1.0 bw=0.00** | +0.519 (excl 0) | **−0.091 (incl 0)** | **−0.610** |
+| flip cov=1.0 bw=0.10 | +0.388 (excl 0) | +0.474 (excl 0) | +0.086 |
+| flip cov=1.0 bw=0.25 | +0.346 (excl 0) | +0.355 (excl 0) | +0.009 |
+
+**In two of six strata the filter changes the verdict, and in opposite directions** — once
+turning a null into a significant positive, once flipping a significant positive to a
+negative null. It is not conservative; it is unstable.
+
+## J.2 Mechanism
+
+The filter conditions on `n_eval`, and `n_eval` is not independent of the predictor.
+Appendix F.2 already measured τ(`r_val`, usable depths) ranging from **+0.318 to −0.438**
+across strata. Filtering therefore drops *different* grid points for high- and low-`r_val`
+instances, and computes their AUCs over different supports. That induces association whose
+sign and size follow the stratum's own `r_val`/`n_eval` coupling. It is a selection effect,
+not a noise reduction.
+
+## J.3 The diagnostic, and it is clean
+
+Appendix H's N = 1000 re-run of flip cov=0.5 bw=0.25 measured the *same 220 instances* on
+both endpoints:
+
+| N | `AUC_frac` | `AUC_frac_usable` | gap |
+|---|---|---|---|
+| 200 | +0.031 | +0.279 | **0.248** |
+| 1000 | +0.0324 | +0.0322 | **0.0002** |
+
+**At adequate draw counts the filter becomes inert.** Divergence between the two endpoints
+is a symptom of too few draws, not evidence that one is safer. Where they agree, the
+estimate is trustworthy; where they disagree, neither is, and more draws — not a choice
+between them — is the fix.
+
+## J.4 Consequences, stated rather than worked around
+
+1. **Appendix F.3's reporting rule is withdrawn.** `AUC_frac_usable` is not the conservative
+   figure and must not govern summary claims on its own. Report both endpoints; where they
+   disagree materially, report the stratum as **unresolved at N = 200**.
+2. **The session-8 mission directive** to use `AUC_frac_usable` for all final rank
+   correlations is followed in the anchor table as specified, but the two unstable strata
+   are flagged in place. Following it silently would have published +0.279 for a cell that
+   is a confirmed null at five times the draws.
+3. **P1's support is endpoint-dependent in exactly one stratum.** On `AUC_frac`, flip
+   cov=1.0 bw=0.00 is +0.519 (CI excludes 0); on `AUC_frac_usable` it is −0.091 (CI includes
+   0). Only N = 1000 for that cell can settle it, and it has not been run. Session 7's
+   headline "positive in 9/9, CI excludes zero in 8/9" stands **on `AUC_frac`**, and the
+   endpoint must be named whenever it is quoted.
+4. **flip cov=0.5 bw=0.25 is a confirmed null** (Appendix H), and the anchor table's +0.279
+   for that row is a filter artifact, superseded by the N = 1000 supplementary row.
+
+## J.5 Concrete next step
+
+Re-run all nine strata at **N = 1000** draws per grid point. The null cell shows this
+collapses the endpoint question entirely — filtered and unfiltered converge — at roughly
+five times the compute of the original sweep (the null cell alone took ~15 min for 220
+instances). That removes the single largest methodological uncertainty in the Phase 1
+result and is the highest-value remaining run.
+
+## J.6 "Strict dominance" is not supported as stated
+
+The session-8 objective was to "finalize the claim that `r_val` strictly dominates SHD and
+`|K|`". On the endpoint the same mission mandates, it does not:
+
+| stratum | `r_val` | beaten by |
+|---|---|---|
+| flip cov=1.0 bw=0.25 | +0.355 | **`shd_truth` +0.582 and `n_k` +0.557 — both** |
+| flip cov=1.0 bw=0.00 | −0.091 | `n_k` +0.021 (both near zero; the ⚠ unstable cell) |
+
+**`r_val` strictly dominates in 7 of 9 strata, not 9 of 9.** The exception that matters is
+flip coverage=1.0 base-wrongness=0.25, where both baselines beat it by a clear margin with
+CIs excluding zero. The other is the unstable cell of J.1, where all three predictors are
+indistinguishable from zero and "dominance" is not a meaningful question.
+
+This is endpoint-dependent, which is the point of J.1–J.4: on the unfiltered `AUC_frac`,
+session 7 found `r_val` ahead of `n_k` in 9/9. The honest statement is therefore:
+
+> `r_val` outranks both baselines in 9/9 strata on `AUC_frac` and in 7/9 on
+> `AUC_frac_usable`. The two strata where it does not are the two the endpoint question is
+> unresolved in, and settling them requires the N = 1000 re-run of J.5 — not a choice of
+> endpoint.
+
+A claim of *strict dominance* is not currently supportable and is not made.
