@@ -1,0 +1,100 @@
+{
+ "skipped_networks": [
+  "pathfinder"
+ ],
+ "asserted_claims_per_network": {
+  "Acid_1996": 1,
+  "Didelez_2010": 1,
+  "Kampen_2014": 3,
+  "Polzer_2012": 5,
+  "Schipf_2010": 3,
+  "Sebastiani_2005": 7,
+  "Shrier_2008": 2,
+  "arth150": 29,
+  "asia": 3,
+  "barley": 7,
+  "child": 2,
+  "diabetes": 26,
+  "ecoli70": 10,
+  "hailfinder": 1,
+  "hepar2": 9,
+  "insurance": 3,
+  "magic-irri": 10,
+  "magic-niab": 8,
+  "mediator": 3,
+  "munin1": 6,
+  "paths": 1,
+  "sachs": 8,
+  "water": 2,
+  "win95pts": 9
+ },
+ "coverage_1_rows": 540,
+ "claim_radius_is_one": 540,
+ "no_single_retraction_breaks_validity": 0,
+ "hop_radius_where_claim_radius_is_one": {
+  "1": 377,
+  "2": 102,
+  "3": 43,
+  "4": 2,
+  "5": 1,
+  "6": 1,
+  "7": 1,
+  "8": 1,
+  "9": 2,
+  "10": 2,
+  "11": 2,
+  "12": 2,
+  "13": 2,
+  "14": 2
+ },
+ "phi_1": {
+  "min": 0.034482758620689655,
+  "median": 0.3,
+  "max": 1.0
+ },
+ "median_asserted": 5,
+ "median_k_g0": 12,
+ "coverage_sweep_nesting": {
+  "networks": 24,
+  "k05_in_k1": 24,
+  "k025_in_k05": 20,
+  "violations": [
+   {
+    "network": "diabetes",
+    "sizes": [
+     26,
+     13,
+     6
+    ]
+   },
+   {
+    "network": "ecoli70",
+    "sizes": [
+     10,
+     5,
+     2
+    ]
+   },
+   {
+    "network": "magic-irri",
+    "sizes": [
+     10,
+     5,
+     2
+    ]
+   },
+   {
+    "network": "munin1",
+    "sizes": [
+     6,
+     3,
+     2
+    ]
+   }
+  ]
+ },
+ "o_g0_not_identified": {
+  "rows": 518,
+  "not_amenable": 518
+ }
+}

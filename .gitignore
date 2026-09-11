@@ -65,6 +65,9 @@ coverage.xml
 !/results/axisb4/
 !/results/axisa2/
 !/results/axisa3/
+# Stage 0 of the evaluation plan: the free rule and the claim-unit radius on the
+# committed axisa3 rows, cited by docs/EVALUATION_PLAN.md.
+!/results/stage0/
 /data/
 /checkpoints/
 *.pt
