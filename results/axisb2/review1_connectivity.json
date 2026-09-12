@@ -1,0 +1,8 @@
+{
+  "scope": "all CPDAGs on 3 and 4 labelled nodes, exhaustive",
+  "spaces": 196,
+  "elements": 1651,
+  "disconnected_spaces": 0,
+  "undefined_pairs": 0,
+  "examples": []
+}

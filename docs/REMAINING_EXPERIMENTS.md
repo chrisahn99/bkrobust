@@ -296,3 +296,42 @@ not invent it.
   deliberately; `results/axis_robustness/PREREGISTRATION.md` explains why, and
   `build_tau_comparisons.py` writes to the root path. Do not tidy them without
   updating both.
+
+---
+
+## Round-1 review responses (branch `experiments/review-round-1`)
+
+Four items below were run in response to an external review of the draft. Each has a
+guard that reproduces published numbers before reporting new ones; where a guard would
+fail, the script aborts rather than report.
+
+- **[RE-12] closed for the second unstable cell.** `flip, coverage=1.0,
+  base_wrongness=0.00` re-run at N = 1000 (`experiments/review1_unstable_stratum_n1000.py`,
+  `results/axis_robustness/review1_unstable_cell/`). The published restricted-endpoint
+  value of **-0.091** was a low-draw-count filter artefact: at N = 1000 the same endpoint
+  gives **+0.537** [+0.484, +0.585]. The stratum is resolved positive; the reproduction
+  check returns the published N = 200 value exactly. The remaining marked cell
+  (coverage 0.5, base wrongness 0.25) stays a confirmed null.
+- **Structural baselines added** (`experiments/review1_structural_baselines.py`,
+  `review1_anchor_with_separation.py`). `analyse.PREDICTORS` and
+  `build_tau_comparisons.PREDICTORS` never contained `separation`, so the published
+  comparison never tested the radius against a truth-free structural statistic. On the
+  anchor endpoints the radius beats separation in all six flip strata and **loses in all
+  three tiered strata**; the two are equal on 875 of 1,978 instances and on all 240 of
+  the `cov 1.0, bw 0.00` stratum. This is now reported in the paper.
+- **The efficiency claim re-measured under the standard definition**
+  (`src/bkrobust/demo/optimal_mpdag.py`, `experiments/review1_efficiency_definition.py`).
+  `optimal_adjustment_set_mpdag` returns a set only when all DAG extensions agree, which
+  makes the Phase-2 invariance result near-definitional. Implementing
+  `O(x,y,G) = pa(cn) \ forb` (agreeing with the DAG-level optimal set on 3,428 cases,
+  0 mismatches) and re-running the same bases and proposals: variance still does not move
+  among proposals whose optimal set is GAC-valid (0 of 192 strata), and the two
+  definitions agree on the set in 100.00% of proposals where both apply. The apparent
+  variation in 24 of 192 strata comes entirely from 16 proposals where the graphical
+  formula returns a GAC-invalid set.
+- **Covering-graph connectivity** (`results/axisb2/review1_connectivity.json`). "Hop
+  distance is a metric" is trivial unless the covering graph is connected. Exhaustive
+  over all CPDAGs on 3 and 4 nodes: 196 spaces, 1,651 elements, 0 disconnected, 0
+  undefined pairwise distances.
+
+Still open and unchanged: [RE-1], [RE-3], [RE-7] to [RE-11], [RE-13], [RE-14].

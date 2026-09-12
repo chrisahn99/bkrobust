@@ -1,0 +1,404 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{codebg}{gray}{0.95}
+\definecolor{accent}{RGB}{20,60,110}
+\definecolor{warn}{RGB}{150,60,20}
+
+\newcommand{\code}[1]{\texttt{\small\hspace{0pt}#1}}
+\newcommand{\ul}{\discretionary{\_}{}{\_}}
+\emergencystretch=3.5em
+\hfuzz=3pt
+\hbadness=10000
+\vbadness=10000
+\tolerance=2000
+\newcommand{\verified}{\textcolor{accent}{\textbf{[verified]}}}
+\newcommand{\flag}{\textcolor{warn}{\textbf{[flag]}}}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Review: \code{iclr2027-eval-plan}}
+\rhead{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+
+\title{\vspace{-1.5em}\textbf{Pre-merge review of the \code{iclr2027-eval-plan} branch}\\
+\large bkrobust --- ICLR 2027 submission}
+\author{Prepared for Chris (\code{chrisahn99@gmail.com})}
+\date{11 September 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\section{Summary}
+
+The branch is \textbf{purely additive}: nine new files, \textbf{2{,}169 insertions, zero
+deletions}, and \textbf{no change to any file under \code{src/}}. It contributes one planning
+document, two read-only analysis scripts, the four result files those scripts emit, a drafted
+Methods paragraph, and a three-line \code{.gitignore} amendment that un-ignores the new results
+directory.
+
+The contribution is best understood not as new machinery but as a \textbf{forensic audit of the
+corpus the project already had committed}. Its central result is negative and consequential: the
+existing oracle corpus cannot, even in principle, exhibit variation in the quantity the paper
+intends to headline. The plan then re-scopes the evaluation around that finding.
+
+I reproduced the committed artifacts and re-derived the principal claims independently. Everything
+I could check held. The issues listed in Section~\ref{sec:issues} are documentation and
+consistency defects, not computational errors.
+
+\medskip
+\textbf{Recommendation: merge}, with the four documentation corrections in
+Section~\ref{sec:issues} applied before the 18 September abstract deadline.
+
+\section{What changed}
+
+\begin{center}
+\begin{tabular}{@{}llr l@{}}
+\toprule
+\textbf{File} & \textbf{Kind} & \textbf{Lines} & \textbf{Role} \\
+\midrule
+\code{docs/EVALUATION\_PLAN.md}                & doc     & 158 & The plan and its evidence \\
+\code{experiments/stage0\_ladder.py}           & script  & 194 & Free-rule scoring \\
+\code{experiments/stage0\_claim\_radius.py}    & script  & 202 & Claim-unit radius, 3 checks \\
+\code{paper/sections/evaluation-protocol.tex}  & paper   &  27 & Methods paragraph (draft) \\
+\code{results/stage0/ladder\_rows.csv}         & result  & 832 & 831 scored rows \\
+\code{results/stage0/ladder\_summary.json}     & result  & 112 & Aggregates \\
+\code{results/stage0/claim\_radius\_rows.csv}  & result  & 541 & 540 retraction rows \\
+\code{results/stage0/claim\_radius\_summary.json} & result & 100 & Aggregates \\
+\code{.gitignore}                              & config  &   3 & Un-ignore \code{results/stage0/} \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Total}} & \textbf{2{,}169} & (0 deletions) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Both scripts read \code{results/\discretionary{}{}{}axisa3/\discretionary{}{}{}instances.jsonl} and write only into
+\code{results/stage0/}. Neither mutates the pipeline. \code{stage0\_ladder.py} imports nothing
+from \code{bkrobust}; \code{stage0\ul claim\ul radius.py} imports seven functions and calls no writer.
+
+\section{Methodology}
+
+\subsection{The input corpus}
+
+\code{results/\discretionary{}{}{}axisa3/\discretionary{}{}{}instances.jsonl} holds \textbf{116{,}094 records}. Of these, 120 are
+\code{\_meta} header records and 115{,}143 are rejections, leaving \textbf{831 admissible rows}
+--- an admissibility rate of \textbf{0.72\%}. The rejection funnel, which is the substance of the
+plan's proposed Table~1:
+
+\begin{center}
+\begin{tabular}{@{}lrl@{}}
+\toprule
+\textbf{Disposition} & \textbf{Rows} & \textbf{Meaning} \\
+\midrule
+\code{treatment\ul not\ul in\ul or\ul adjacent\ul to\ul component} & 66{,}330 & No undirected structure at $X$ \\
+\code{no\_causal\_path}                        & 42{,}618 & $Y \notin \mathrm{de}(X)$ \\
+\code{empty\_set\_trivially\_valid}            &  3{,}738 & Nothing to adjust for \\
+\code{no\ul atomic\ul perturbation\ul changes\ul validity} & 1{,}659 & \emph{Claim radius $\geq 2$} \\
+\code{o\ul g0\ul not\ul identified}                  &    518 & Optimal set undefined at $G_0$ \\
+\code{o\ul g0\ul extensions\ul intractable}          &    280 & Measurement limit, not structure \\
+\code{\_meta} records                          &    120 & 39 networks $\times$ 3 coverages, $+3$ \\
+\midrule
+\textbf{admissible}                            & \textbf{831} & 543 distinct $(network, X, Y)$ pairs \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The 831 rows split by coverage as 543 / 182 / 106 at coverage $1.0$ / $0.5$ / $0.25$, and by
+dispatch as 811 rows via \code{local\_up\_fast} and 20 via \code{e1\_ladder}.
+
+\subsection{\code{stage0\_ladder.py} --- scoring a free heuristic}
+
+The script defines the \emph{free rule}: predict the graph separation $s$ (the distance inside
+$X$'s chain component to the nearest member of the adjustment set) where it is measured, and
+predict $1$ where it is undefined. It then scores that prediction against the committed radius on
+all 831 rows, and --- importantly --- \textbf{signs every miss}. A prediction above the committed
+radius \emph{over-certifies} (it claims more safety than exists, and is the only dangerous
+direction); a prediction below it is merely conservative.
+
+It additionally computes: the direction of the prior ``session-5 law'' on the 463 rows where
+separation is measured; the pairing of instances across the three coverage levels; and a one-way
+ANOVA intraclass correlation of the $r=1$ indicator, grouped by network, to establish the
+effective sample size.
+
+\subsection{\code{stage0\ul claim\ul radius.py} --- the radius in the analyst's own units}
+
+This is the substantive script. It performs three checks.
+
+\textbf{Check 1, single-claim retraction.} For each of the 540 coverage-$1.0$ rows (excluding
+\code{pathfinder}), it takes the recovering knowledge set $K$, retracts each asserted claim in
+turn, re-closes the CPDAG under Meek's rules, and tests whether the committed optimal adjustment
+set is still GAC-valid in the resulting MPDAG. A row broken by \emph{some} single retraction has a
+claim radius of $1$, whatever its hop-count radius says. It also records $\phi_1$, the
+\emph{fraction} of single retractions that break validity.
+
+\textbf{Check 2, nesting.} Whether $K(0.25) \subseteq K(0.5) \subseteq K(1.0)$ under the stride
+that \code{benchmarks.measure.\discretionary{}{}{}select\ul knowledge} uses.
+
+\textbf{Check 3, amenability.} Whether the 518 \code{o\ul g0\ul not\ul identified} rejections are
+amenable at $G_0$. A non-amenable query has no valid adjustment set at all, so the rejection is
+structural rather than an artefact of how the optimal set was defined.
+
+\section{Findings}
+
+\subsection{F1. The claim radius is 1 on every row --- and this is forced, not measured}
+
+All \textbf{540 of 540} coverage-$1.0$ rows are broken by a single claim retraction. The committed
+\emph{hop} radius on those same rows is 1 in 377, 2 in 102, 3 in 43, and 4--14 in 18. Median
+asserted set size is 5 claims; median closure size $k_{G_0}$ is 12.
+
+The colleague correctly identifies that this is definitional rather than empirical, and I confirmed
+the mechanism at its source. \code{fast\_gate} (\code{src/bkrobust/benchmarks/measure.py:62})
+admits a pair precisely when some single retraction from $k_{true}$ breaks GAC-validity of the
+optimal set. At coverage $1.0$ the asserted set \emph{is} the recovering set and $G_0$ \emph{is}
+the true DAG, so the gate's admission test and Check~1 are the same test. The result is a
+tautology, and the plan says so.
+
+\flag{} \textbf{An implication worth stating explicitly, which the plan leaves implicit.} The
+complement is visible in the funnel: the \textbf{1{,}659} rows rejected as
+\code{no\ul atomic\ul perturbation\ul changes\ul validity} are \emph{exactly} the population with claim
+radius $\geq 2$. The gate does not merely fail to vary the headline quantity --- it discards, before
+measurement, the only rows that could have varied it. Any attempt to calibrate the claim radius on
+the committed corpus is therefore not just underpowered but structurally impossible. This
+strengthens the plan's conclusion that the elicited arm must carry the paper's numbers; it also
+suggests a cheap second option the plan does not mention, namely re-running the sweep with the
+gate's atomic-perturbation clause recorded as a status column instead of applied as a filter,
+which would recover those 1{,}659 rows as the natural radius-$\geq 2$ stratum.
+
+$\phi_1$, by contrast, does vary: from $0.034$ to $1.0$ with median $0.30$. It discriminates where
+the claim radius is constant, which is the plan's argument for reporting it.
+
+\subsection{F2. The free rule is a sound lower bound with 16 exceptions}
+
+Against the committed radius on all 831 rows: \textbf{exact on 636}, within one on \textbf{813},
+\textbf{over-certifying on 16}, under-certifying on 179. All 16 over-certifications have radius 1
+and separation 2, and fall in five networks (\code{barley} 7, \code{win95pts} 4,
+\code{Schipf\_2010} 2, \code{magic-niab} 2, \code{asia} 1).
+
+Of the 179 under-certifications, 69 sit in the undefined stratum, where the rule predicts 1 because
+it has nothing to say; that stratum has 368 rows, of which 299 have radius 1 and 69 have radius 2.
+So the rule is exactly wrong on every undefined row whose radius exceeds 1, by construction.
+
+\flag{} The 16 exceptions are \textbf{not 16 independent counterexamples}. They arise from only
+\textbf{six distinct $(network, X)$ pairs}: \code{barley/sorttkv} alone contributes 7 and
+\code{win95pts/AppDtGnTm} contributes 4. Given that the plan elsewhere argues carefully for
+network-level clustering (F7), the exception count should be reported at treatment level too, or
+the paper invites exactly the objection it is trying to pre-empt.
+
+\subsection{F3. The prior law transfers, but with counterexamples}
+
+The plan states the session-5 law as $r \geq \min(s, k_{G_0})$. On the 463 measurable rows:
+equality on 337, radius greater on 110, radius \textbf{smaller on 16}. The radius never exceeds
+$k_{G_0}$ anywhere in the corpus, and equals it on 15 rows.
+
+\flag{} Sixteen rows violate a relation written as an inequality. I verified that the violating set
+is \textbf{identical} to the 16 over-certifying rows of F2 --- the same six treatments. This is
+coherent, but the plan's phrasing (``transfers as $r \geq \min(s, k_{G_0})$'') reads as a theorem
+when the data say it is an empirical regularity with a known, clustered exception set. Worth a
+word, since a reviewer will check.
+
+\subsection{F4. The coverage sweep is not nested}
+
+The stride in \code{select\_knowledge} selects indices $\lfloor i \cdot |K|/\text{keep} \rfloor$,
+which yields different index sets at different coverages. $K(0.5) \subseteq K(1.0)$ holds trivially
+on all 24 networks, but $K(0.25) \subseteq K(0.5)$ \textbf{fails on four}: \code{diabetes}
+$(26,13,6)$, \code{ecoli70} $(10,5,2)$, \code{magic-irri} $(10,5,2)$, \code{munin1} $(6,3,2)$.
+
+The consequence is that the coverage sweep is not a monotone ablation. On the 105 pairs admissible
+at all three coverages, radius is unchanged on 73, lower at lower coverage on 32, and higher on
+none. And one pair --- \code{munin1}, \code{R\_MED\_RD\_EW} $\to$ \code{R\_MED\_CV\_EW} --- is
+admissible at coverage $1.0$ and $0.25$ but \emph{not} at $0.5$, which is only possible because the
+knowledge sets are not nested. The plan's remedy (take prefixes of one seeded permutation) is the
+right fix and is scheduled.
+
+\subsection{F5. The 518 unidentified rejections are structurally unrecoverable}
+
+All \textbf{518} \code{o\ul g0\ul not\ul identified} rejections are \textbf{non-amenable} at $G_0$. No
+adjustment set can be certified on them under \emph{any} definition of the optimal set, so they are
+a genuine structural exclusion rather than a limitation of the current definition. This closes off
+a line of objection cheaply and is a good result to have in hand.
+
+\subsection{F6. Clustering and the real sample size}
+
+The intraclass correlation of the $r=1$ indicator across 25 networks is $\mathbf{0.398}$ with mean
+group size $m_0 = 30.51$. The design effect is $1 + (m_0-1)\rho = 12.74$, giving an effective
+sample of $831/12.74 \approx 65$. The plan's ``about 60'' is right, and its consequent decision ---
+bootstrap over networks, print no per-row interval --- follows.
+
+\section{Verification I performed}
+
+All checks were run read-only, from copies in a scratch directory; the working tree was clean
+before and after (\code{git status --porcelain} empty).
+
+\begin{longtable}{@{}p{7.2cm}p{7.6cm}@{}}
+\toprule
+\textbf{Check} & \textbf{Result} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Check} & \textbf{Result} \\
+\midrule
+\endhead
+Re-ran \code{stage0\_ladder.py} with \code{ROOT}/\code{OUT} redirected to scratch &
+\verified{} \code{ladder\_summary.json} and \code{ladder\_rows.csv} reproduce
+\textbf{byte-for-byte} \\
+\addlinespace
+Recomputed Check~1 from scratch (own script, same seven library calls) on \code{mediator},
+\code{asia}, \code{sachs}, \code{insurance}, \code{Shrier\_2008}, \code{barley} &
+\verified{} \textbf{204 of 540 rows}, zero mismatches in both
+\code{single\ul retractions\ul breaking\ul validity} and \code{n\_asserted} \\
+\addlinespace
+Recomputed Check~3 amenability on six networks &
+\verified{} \textbf{255 of 518} rejections, \textbf{zero} amenable \\
+\addlinespace
+Recomputed the free rule and all funnel counts directly from \code{instances.jsonl} &
+\verified{} 636 / 16 / 179 and every per-network breakdown match \\
+\addlinespace
+Diffed the script's local \code{select\_knowledge} against
+\code{benchmarks/measure.py:103} &
+\verified{} Faithful copy: same \code{round}, \code{step}, and clamp \\
+\addlinespace
+Traced the tautology claim to \code{fast\_gate} at \code{measure.py:62} &
+\verified{} Gate admission test $\equiv$ Check~1 at coverage $1.0$ \\
+\addlinespace
+Checked internal arithmetic of both summaries (partitions, per-network sums) &
+\verified{} All partitions sum correctly \\
+\bottomrule
+\end{longtable}
+
+I did not re-run \code{stage0\ul claim\ul radius.py} in full, since the six-network spot check
+(38\% of rows, zero mismatches) establishes the computation, and a full run is slow.
+
+\section{Issues to raise before merge}
+\label{sec:issues}
+
+None of these are computational errors. They are documentation and consistency defects; the first
+two are worth fixing before the abstract deadline.
+
+\subsection{I1. The Methods paragraph contradicts the plan (highest priority)}
+
+\code{paper/sections/evaluation-protocol.tex} is dated the same day as the plan but describes a
+different experiment.
+
+\begin{enumerate}[leftmargin=1.4em,itemsep=0.2em]
+\item It states that ``for each network we estimate a CPDAG from one designated discovery run and
+draw treatment-outcome pairs from that estimate.'' The plan's design restricts estimated CPDAGs to
+a second panel on the \textbf{four Gaussian networks}, with the oracle CPDAG on the 25 yielding
+networks as the first panel. The file's own header \code{TODO} flags exactly this, and the plan's
+closing line acknowledges the sentence needs the two-panel clause. It is a known gap, but it is
+still an unresolved contradiction between two committed documents.
+
+\item More seriously, the paragraph lists as one of four knowledge sources ``knowledge read from
+each network's own source publication, with a verbatim quotation required for every assertion.''
+The plan \textbf{explicitly defers this past the deadline} (``Deferred past the deadline: knowledge
+harvested from source publications''). As drafted, the Methods paragraph promises an arm that will
+not exist in the submission.
+\end{enumerate}
+
+\subsection{I2. A denominator mismatch resting on an inaccurate rationale}
+
+The two stage-0 artifacts use different populations: the ladder covers 831 rows including
+\code{pathfinder}, while the claim-radius run covers 540 and skips it. The stated justification
+--- an 85-node component yielding ``three censored rows'' --- is not what the data show.
+
+The three records carrying \code{censored: true} are \code{\_meta} \textbf{run-level} markers, one
+per coverage level, each recording a 1{,}200-second wall-clock timeout on the \code{pathfinder}
+sweep. \code{pathfinder}'s three \emph{admissible} rows are \code{"ok"}, are \textbf{not} censored,
+and do appear in the ladder, where they contribute one under-certification.
+
+The skip is defensible on cost grounds. But the real caveat is more important than the stated one
+and is currently recorded nowhere: \code{pathfinder}'s sweep was \textbf{truncated by a wall cap},
+so its three admissible rows are a truncated sample of that network, not its full yield. The
+docstring should say that instead.
+
+\subsection{I3. Two small robustness gaps in \code{stage0\_ladder.py}}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=0.2em]
+\item \code{paired\ul radius\ul across\ul coverage} classifies triples by comparing \emph{only} $0.25$
+against $1.0$; the $0.5$ value never enters the comparison. Its three keys
+($73 + 32 + 0 = 105$) happen to partition the triples today, but a pair whose radius dips only at
+$0.5$ would fall through all three buckets silently. Given F4 --- the sweep is known to be
+non-monotone --- this is a live possibility once the prefix fix lands.
+
+\item \code{icc\_one\_way} divides by $k-1$ and $n-k$ with no guard. A single-row network, or a
+run restricted to one network, raises \code{ZeroDivisionError} rather than reporting that the ICC
+is undefined.
+\end{itemize}
+
+\subsection{I4. A duplicated definition}
+
+\code{stage0\ul claim\ul radius.py} re-implements \code{select\_knowledge} rather than importing it.
+I verified the copy is currently faithful, but the plan schedules a change to exactly this function
+(nested coverage by prefix of one seeded permutation) for 12 September. The moment that lands, the
+copy becomes silently stale and the nesting finding becomes unreproducible. Import it, or assert
+equality against the library version at run time.
+
+\section{Project-level observations}
+
+\textbf{Schedule.} The plan is dated 11 September against a 25 September deadline with the
+abstract closing on the 18th. Stage 0 is the only completed item. The 13--16 September block
+carries the frame, the questionnaire, elicitation, the matched control, the radius sweep, the
+ladder on elicited knowledge, survival, cross-arm corruption, the audit, and the sampling band ---
+ten workstreams in four days, all of them prerequisites for Tables 1--4. The five pipeline patches
+scheduled for the 12th are each a precondition for the rest, and three of them (nested coverage,
+the \code{not\_amenable} split, the dispatch leg on every row) exist \emph{because} of what
+stage~0 found.
+
+\textbf{Cross-branch dependency.} The plan builds on three results it attributes to
+\code{survival-and-pareto} --- efficiency invariance under truthful knowledge, correlated errors
+being more self-revealing than uniform ones ($1.7\times$ more silent failures for uniform), and
+strict dominance over SHD and $|K|$ holding on 7 of 9 strata and therefore \emph{not} being
+claimed. It then asks that branch for three deliverables, including merging it into \code{main} so
+the paper reads from one branch. Merging this branch does not resolve that dependency, and the
+paper cannot be assembled until it is.
+
+\textbf{Intellectual quality.} The strongest thing about this branch is that its author went
+looking for the weakness in his own instrument and found it. The decision to demote the hop radius
+to ``geometry,'' to price the certificate in the analyst's own asserted claims, and to report the
+free rule as a lower bound with its exceptions rather than as a baseline to beat, all follow from
+evidence rather than from convenience --- and all make the paper's claims smaller and more
+defensible. The invariant stated in the design section (the true DAG draws the samples and audits
+the certificate afterwards, and is never on the computation path, with hashes on every row to
+enforce it) is the right discipline for this kind of work.
+
+\section{Recommendation}
+
+\textbf{Merge.} The branch adds no risk: it touches no source, its outputs reproduce exactly, and
+its findings survived independent re-derivation. Its central claim is negative and correct, and it
+is honest about being definitional.
+
+Before the 18 September abstract deadline:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0.15em]
+\item Reconcile \code{evaluation-protocol.tex} with the plan --- the two-panel clause, and remove
+or explicitly defer the source-publication arm (I1).
+\item Correct the \code{pathfinder} rationale to name the wall-cap truncation (I2).
+\item Consider recording the atomic-perturbation clause as a status rather than a filter, to
+recover the 1{,}659 radius-$\geq 2$ rows the gate currently discards (F1).
+\item Report the free rule's 16 exceptions at treatment level as well as row level (F2).
+\end{enumerate}
+
+The items in I3 and I4 can follow the 12 September patches, but I4 should not be left until after
+\code{select\_knowledge} changes.
+
+\vfill
+{\small\textit{All figures in this review were re-derived from \code{results/\discretionary{}{}{}axisa3/\discretionary{}{}{}instances.jsonl}
+and the committed \code{results/stage0/} artifacts. No file in the repository was modified;
+verification ran from copies in a scratch directory.}}
+
+\end{document}
