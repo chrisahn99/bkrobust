@@ -1,0 +1,57 @@
+{
+  "created_utc": "2026-09-09T19:08:46.718109+00:00",
+  "git_sha": "d3cd71f0fe36852cf37944942f47669ae8cecfea",
+  "git_dirty": true,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 0,
+  "grid": {
+    "component_sizes": [
+      6,
+      8,
+      10,
+      12
+    ],
+    "coverages": [
+      0.5,
+      1.0
+    ],
+    "base_wrongness": [
+      0.0,
+      0.1,
+      0.25
+    ],
+    "n_tiers": [
+      2,
+      3,
+      4
+    ],
+    "corruption_rates": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "reps": 200,
+    "instances_per_cell": 20,
+    "seed_budget": 150,
+    "time_limit_s": 60.0,
+    "mode": "full"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "networkx": "3.2.1",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "gate": "fast_gate"
+}
