@@ -108,10 +108,22 @@ def gate_without_atomic_clause(
     ``fast_gate`` admits a pair only if retracting one claim from the recovering
     set breaks validity. At coverage 1.0 the asserted set *is* the recovering set
     and ``G0`` is the true DAG, so that test is the definition of
-    ``r_claim == 1``: the pairs it rejects are exactly the ``r_claim >= 2``
-    population, and they are the only ones on which the claim radius could vary.
-    Discarding them before measurement makes the reported claim radius a constant
-    by construction.
+    ``r_claim == 1``, and discarding the pairs it rejects makes the reported claim
+    radius a constant by construction.
+
+    What those pairs actually contain is measured in
+    ``experiments/review5_gate_inside_component.py``, and it is not what one would
+    guess. On this corpus the clause is near-collinear with a structural predicate:
+    1,602 of the 1,659 rejected rows have the treatment outside every undirected
+    chain component, while all 831 admitted rows have it inside one. Only the
+    remaining 57 can carry the question, and among the 23 of those we completed,
+    20 are UNREACHED while ``sachs Erk->Akt`` at coverage 1.0 has ``r_hop = 5`` and
+    ``r_claim = 3``. So the ``r_claim >= 2`` stratum is real but rare here, and a
+    stride sample over all 1,659 rows will miss it entirely.
+
+    The clause is also evaluated on the recovering set -- coverage 1.0 -- and then
+    applied at every coverage: the same ``sachs`` pair has ``r_claim = 1`` at 0.5
+    and 0.25, where it is not degenerate at all.
 
     This function applies the four structural conditions unchanged and reports the
     fifth as a boolean, so the same pair set can be measured with the clause as a

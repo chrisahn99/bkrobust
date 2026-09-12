@@ -366,3 +366,27 @@ Still open and unchanged: [RE-1], [RE-3], [RE-7] to [RE-11], [RE-13], [RE-14].
 Still open: [RE-1], [RE-3] on the remaining 19 networks, [RE-7] to [RE-11], [RE-13],
 [RE-14], and the effect-spread baseline (`experiments/review4_effect_spread_baseline.py`
 is written but unrun).
+
+---
+
+## Round-5 correction (branch `experiments/review-round-1`)
+
+**The round-4 [RE-3] finding was wrong, and is retracted here.** It reported that every
+row the admission gate discards is `UNREACHED`. That came from a stride sample over all
+1,659 rejected rows, and the stride lands almost surely in a degenerate slice: **1,602 of
+the 1,659 have the treatment outside every undirected chain component**, while all 831
+admitted rows have it inside one. Where `X` has no component nothing near it can be
+perturbed, so no adjustment set can break and the separation baseline is undefined too.
+
+Measuring the 57 rows where the question is well posed
+(`experiments/review5_gate_inside_component.py`,
+`results/axisa3/instances_gate_inside_component.{jsonl,meta.json}`) gives a different
+answer. Of the 23 completed, 20 are `UNREACHED` and three are not: `sachs Erk->Akt` has
+`r_hop = 2`, `r_claim = 1` at coverages 0.25 and 0.5, and at coverage 1.0 --- an 8-node
+component with `k_g0 = 17` --- `r_hop = 5` and `r_claim = 3`, exact, in 0.23 s. So the
+`r_claim >= 2` stratum the gate discards is real. `diabetes` (18 rows) and `pathfinder`
+(9) are censored.
+
+A third observation, not previously recorded: the clause is evaluated on the recovering
+set, i.e. coverage 1.0, and then applied at every coverage. The same `sachs` pair has
+`r_claim = 1` at 0.5 and 0.25 and is discarded there too, where it is not degenerate.

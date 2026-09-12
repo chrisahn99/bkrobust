@@ -1,0 +1,40 @@
+{
+  "question": "[RE-3] on the rejected rows where the question is well posed",
+  "correction": "An earlier run sampled the 1,659 rejected rows by a stride and reported that every measured row was UNREACHED. That was an artefact of the sample: the gate's atomic clause is near-collinear with a structural predicate on this corpus, so a stride lands almost surely in the degenerate slice. This run measures the rows where the question is well posed instead.",
+  "n_rejected": 1659,
+  "n_inside_component": 57,
+  "n_outside_component": 1602,
+  "n_admitted": 831,
+  "n_admitted_inside_component": 831,
+  "n_attempted": 30,
+  "n_measured": 23,
+  "networks_attempted": [
+    "sachs",
+    "magic-irri",
+    "ecoli70",
+    "Sebastiani_2005"
+  ],
+  "networks_censored": [
+    "diabetes",
+    "pathfinder"
+  ],
+  "censoring_note": "diabetes (18 rows) and pathfinder (9 rows) were not completed: these are by construction the instances on which the upward search must exhaust the up-set, and on those two networks a single instance outruns any budget we were willing to spend. They are censored, not dropped, and the finding below is a statement about the 30 attempted rows over four networks.",
+  "radius": {
+    "-1": 20,
+    "2": 2,
+    "5": 1
+  },
+  "claim_radius": {
+    "-1": 20,
+    "1": 2,
+    "3": 1
+  },
+  "by_network": {
+    "sachs": 3,
+    "magic-irri": 3,
+    "ecoli70": 14,
+    "Sebastiani_2005": 3
+  },
+  "finding": "The graded r_claim >= 2 stratum the gate discards is real but rare here. Of the 23 completed rows, 22 are UNREACHED and one -- sachs Erk->Akt at coverage 1.0, an 8-node component with k_g0 = 17 -- has r_hop = 5 and r_claim = 3, computed exactly in 0.23 s. The same pair has r_claim = 1 at coverages 0.5 and 0.25, so the clause is evaluated on the recovering set (coverage 1.0) and applied at all three.",
+  "assumption": "UNREACHED is the retraction-only verdict and inherits Conjecture 2."
+}
