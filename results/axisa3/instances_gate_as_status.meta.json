@@ -1,0 +1,43 @@
+{
+  "source": "rows of instances.jsonl rejected as no_atomic_perturbation_changes_validity",
+  "question": "[RE-3]: what does the population the admission gate discards look like?",
+  "n_rejected_rows_in_corpus": 1659,
+  "n_measured": 102,
+  "networks_measured": [
+    "Acid_1996",
+    "Didelez_2010",
+    "Kampen_2014",
+    "Polzer_2012",
+    "Sebastiani_2005",
+    "Shrier_2008",
+    "Thoemmes_2013",
+    "alarm"
+  ],
+  "n_networks_measured": 8,
+  "n_networks_in_rejected_population": 27,
+  "sampling": {
+    "per_network_cap": 15,
+    "rule": "deterministic stride over rows sorted by (coverage, x, y)",
+    "per_network_wall_s": 60.0,
+    "per_instance_s": 15,
+    "note": "These are by construction the instances on which the upward search must exhaust the whole up-set, and on the larger networks a single instance exceeds the per-instance budget inside extension enumeration. Networks beyond the eight listed are CENSORED, not measured and not dropped: the finding below is a statement about the eight, and the run notes say so."
+  },
+  "outcomes": {
+    "radius": {
+      "-1": 102
+    },
+    "claim_radius": {
+      "-1": 102
+    },
+    "exact": {
+      "true": 102
+    },
+    "by_coverage": {
+      "0.25": 34,
+      "0.5": 34,
+      "1.0": 34
+    }
+  },
+  "finding": "Every one of the 102 measured rows has radius = UNREACHED (-1): no element of the knowledge-state space makes the optimal adjustment set invalid. The claim radius is UNREACHED for the same reason -- every claim retraction lands in the space, so if nothing in the space fails no retraction can. The gate does not merely discard the r_claim >= 2 stratum, as we expected: it discards the stratum where the radius is not a number at all.",
+  "assumption": "UNREACHED here is the retraction-only verdict and so inherits Conjecture 2, like every other radius in this project."
+}

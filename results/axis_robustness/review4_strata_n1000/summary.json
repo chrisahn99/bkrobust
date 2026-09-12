@@ -1,0 +1,30 @@
+[
+  {
+    "cell": "cov0.5_bw0.0",
+    "coverage": 0.5,
+    "base_wrongness": 0.0,
+    "returncode": 0,
+    "seconds": 382.7
+  },
+  {
+    "cell": "cov0.5_bw0.1",
+    "coverage": 0.5,
+    "base_wrongness": 0.1,
+    "returncode": 0,
+    "seconds": 401.7
+  },
+  {
+    "cell": "cov1.0_bw0.1",
+    "coverage": 1.0,
+    "base_wrongness": 0.1,
+    "returncode": 0,
+    "seconds": 865.7
+  },
+  {
+    "cell": "cov1.0_bw0.25",
+    "coverage": 1.0,
+    "base_wrongness": 0.25,
+    "returncode": 0,
+    "seconds": 446.4
+  }
+]

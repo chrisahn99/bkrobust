@@ -335,3 +335,34 @@ fail, the script aborts rather than report.
   undefined pairwise distances.
 
 Still open and unchanged: [RE-1], [RE-3], [RE-7] to [RE-11], [RE-13], [RE-14].
+
+---
+
+## Round-4 review responses (branch `experiments/review-round-1`)
+
+- **[RE-12] closed for the whole flip arm.** All six flip strata are now measured at
+  N = 1000 (`experiments/review4_all_strata_n1000.py`,
+  `results/axis_robustness/review4_strata_n1000/`). Every cell carries a reproduction
+  check against the published N = 200 value and all six passed. Four of the six moved,
+  one changed sign. The tiered arm remains at N = 200 (the `nullcell` design is
+  flip-only).
+- **The separation comparison re-scored at N = 1000**
+  (`experiments/review4_paired_n1000.py`). Scored as a *paired* difference rather than
+  two point estimates, the verdict is **radius 2 wins, separation 2, five
+  indistinguishable** — weaker than the N = 200 table suggested, which credited the
+  radius with four wins. Reported as found.
+- **[RE-3] partially closed, with an unexpected answer**
+  (`experiments/review4_gate_as_status.py`,
+  `results/axisa3/instances_gate_as_status.jsonl`). `fast_gate`'s atomic-perturbation
+  clause is now available as a status via `measure.gate_without_atomic_clause`, guarded
+  by a differential test against `fast_gate` on admitted pairs. Completing the rejected
+  rows gives **102 rows over 8 networks, every one `UNREACHED`** — the gate does not
+  discard a graded `r_claim >= 2` stratum, it discards the stratum where the radius is
+  not a number. The remaining 19 networks are **censored**: these are by construction
+  the instances where the upward search must exhaust the whole up-set, and on the larger
+  networks one instance outruns any reasonable budget inside extension enumeration.
+  Finishing them needs a cheaper `UNREACHED` certificate than the current ladder.
+
+Still open: [RE-1], [RE-3] on the remaining 19 networks, [RE-7] to [RE-11], [RE-13],
+[RE-14], and the effect-spread baseline (`experiments/review4_effect_spread_baseline.py`
+is written but unrun).

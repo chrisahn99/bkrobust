@@ -100,6 +100,55 @@ def fast_gate(dag: MPDAG, cpdag: MPDAG, x: str, y: str) -> tuple[bool, str]:
     return False, "no_atomic_perturbation_changes_validity"
 
 
+def gate_without_atomic_clause(
+    dag: MPDAG, cpdag: MPDAG, x: str, y: str
+) -> tuple[bool, str, bool]:
+    """:func:`fast_gate`, with its last clause returned as a status not a filter.
+
+    ``fast_gate`` admits a pair only if retracting one claim from the recovering
+    set breaks validity. At coverage 1.0 the asserted set *is* the recovering set
+    and ``G0`` is the true DAG, so that test is the definition of
+    ``r_claim == 1``: the pairs it rejects are exactly the ``r_claim >= 2``
+    population, and they are the only ones on which the claim radius could vary.
+    Discarding them before measurement makes the reported claim radius a constant
+    by construction.
+
+    This function applies the four structural conditions unchanged and reports the
+    fifth as a boolean, so the same pair set can be measured with the clause as a
+    status column. The four conditions are byte-identical to ``fast_gate``'s; the
+    differential test in ``experiments/review4_gate_as_status.py`` asserts that
+    the two agree on every pair where ``fast_gate`` admits.
+
+    Args:
+        dag: The ground-truth DAG.
+        cpdag: Its CPDAG.
+        x: Treatment.
+        y: Outcome.
+
+    Returns:
+        ``(structurally_ok, reason, atomic_perturbation_changes_validity)``. The
+        third element is meaningful only when the first is ``True``.
+    """
+    comps = undirected_components(cpdag)
+    if not any(x in c or any(cpdag.has_edge(x, v) for v in sorted(c)) for c in comps):
+        return False, "treatment_not_in_or_adjacent_to_component", False
+    if y not in dag.descendants(x):
+        return False, "no_causal_path", False
+    o = frozenset(optimal_adjustment_set_dag(dag, x, y))
+    if not is_valid_adjustment_set_dag(dag, x, y, o):
+        return False, "no_valid_adjustment_set", False
+    if is_valid_adjustment_set_dag(dag, x, y, frozenset()):
+        return False, "empty_set_trivially_valid", False
+    k_true = sorted(knowledge_to_recover(dag, cpdag))
+    for drop in k_true:
+        g0 = apply_orientations(cpdag, [e for e in k_true if e != drop])
+        if g0 is None:
+            continue
+        if not is_gac_valid_mpdag(g0, x, y, o):
+            return True, "ok", True
+    return True, "ok", False
+
+
 def select_knowledge(dag: MPDAG, cpdag: MPDAG, coverage: float) -> list[Edge]:
     """The analyst's asserted orientations, at a given coverage.
 
@@ -181,6 +230,15 @@ class InstanceResult:
     exact: bool = True
     seconds: float = 0.0
     g0_undirected_edges: int = 0
+    #: Whether some single retraction of the recovering set breaks validity.
+    #:
+    #: ``fast_gate`` uses this as an admission *filter*, which is the same
+    #: condition as ``r_claim == 1``: the rows it rejects are exactly the
+    #: ``r_claim >= 2`` population, thrown out before measurement. Recording it
+    #: as a status instead is what :func:`measure_pair_statused` does; this field
+    #: is ``None`` on rows measured through the filtering path, so the two
+    #: populations can never be silently pooled.
+    atomic_perturbation_changes_validity: bool | None = None
     stats: dict[str, int] = field(default_factory=dict)
 
     def as_row(self) -> dict[str, Any]:

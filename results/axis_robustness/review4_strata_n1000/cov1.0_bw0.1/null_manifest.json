@@ -1,0 +1,77 @@
+{
+  "created_utc": "2026-09-12T17:09:27.385399+00:00",
+  "git_sha": "b5de914bf5ecab3e27452a3b70419453a640a572",
+  "git_dirty": true,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 0,
+  "grid": {
+    "component_sizes": [
+      6,
+      8,
+      10,
+      12
+    ],
+    "coverage": 1.0,
+    "base_wrongness": 0.1,
+    "instances_per_cell": 20,
+    "seed_budget": 150,
+    "n_draws_check": 200,
+    "n_draws_full": 1000,
+    "usable_min_n_eval": 30,
+    "n_boot": 10000,
+    "boot_seed": 0,
+    "mode": "full"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "networkx": "3.2.1",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "gate": "fast_gate",
+  "output_prefix": "null_",
+  "n_instances": 236,
+  "build_exclusions": {
+    "k_contradictory": 664
+  },
+  "s0_failures": [],
+  "contradiction_rate_by_depth": {
+    "n200": {
+      "1": 0.7114830508474577,
+      "2": 0.8973093220338983,
+      "3": 0.9472669491525424,
+      "4": 0.9539194915254238,
+      "5": 0.8943220338983051,
+      "6": 0.9743654822335025,
+      "7": 0.9912362637362637,
+      "8": 0.9833333333333333,
+      "9": 0.996037037037037,
+      "10": 0.9828921568627451,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "14": 1.0
+    },
+    "n1000": {
+      "1": 0.7087584745762712,
+      "2": 0.896228813559322,
+      "3": 0.946207627118644,
+      "4": 0.9544237288135593,
+      "5": 0.8950381355932203,
+      "6": 0.9747157360406091,
+      "7": 0.9912472527472528,
+      "8": 0.9833660130718954,
+      "9": 0.9961851851851852,
+      "10": 0.9822254901960784,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "14": 1.0
+    }
+  },
+  "elapsed_seconds": 865.706948875,
+  "samples_file": "null_samples.csv.gz"
+}
