@@ -55,6 +55,32 @@ Full definitions and the three theorem targets: [docs/THEORY.md](docs/THEORY.md)
 proved and verified statements, with their assumption chains, in
 [THEOREMS.md](THEOREMS.md).
 
+### Two senses of "two radii" -- do not conflate them
+
+The pair above (`r_val` / `r_opt`) is indexed by **which property breaks**:
+validity or optimality. A second, independent pair is indexed by **what a step
+costs**:
+
+| Pair | Axis | Members |
+|---|---|---|
+| property | what breaks | `r_val`, `r_opt`, `r_eps` |
+| unit | what one move is | `r_hop` (a covering step in MPDAG space), `r_claim` (one revision of one asserted sentence) |
+
+`r_val` in the code and in every committed result is a **`r_hop`-unit** radius:
+its move set is the orientations of `G0`, i.e. the Meek closure of `K`, not the
+sentences the analyst uttered. The two units coincide exactly when the analyst's
+knowledge is already Meek-closed (`|K| == k_g0`). They can differ by more than an
+order of magnitude when it is not. See
+[docs/PAPER_NARRATIVE.md](docs/PAPER_NARRATIVE.md) section 4.
+
+### Writing the paper
+
+Start with [docs/PAPER_NARRATIVE.md](docs/PAPER_NARRATIVE.md) -- the argument,
+the results that serve it, and the results to set aside. What is still unmeasured
+is in [docs/REMAINING_EXPERIMENTS.md](docs/REMAINING_EXPERIMENTS.md). The
+session reports at the root are sources for numbers, not drafts: several of their
+headlines are superseded.
+
 ---
 
 ## Install
