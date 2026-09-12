@@ -35,6 +35,15 @@
     "ecoli70": 14,
     "Sebastiani_2005": 3
   },
-  "finding": "The graded r_claim >= 2 stratum the gate discards is real but rare here. Of the 23 completed rows, 22 are UNREACHED and one -- sachs Erk->Akt at coverage 1.0, an 8-node component with k_g0 = 17 -- has r_hop = 5 and r_claim = 3, computed exactly in 0.23 s. The same pair has r_claim = 1 at coverages 0.5 and 0.25, so the clause is evaluated on the recovering set (coverage 1.0) and applied at all three.",
-  "assumption": "UNREACHED is the retraction-only verdict and inherits Conjecture 2."
+  "finding": "The graded r_claim >= 2 stratum the gate discards is real but rare here. Of the 23 completed rows, 20 are UNREACHED and one -- sachs Erk->Akt at coverage 1.0, an 8-node component with k_g0 = 17 -- has r_hop = 5 and r_claim = 3, computed exactly in 0.23 s. The same pair has r_claim = 1 at coverages 0.5 and 0.25, so the clause is evaluated on the recovering set (coverage 1.0) and applied at all three.",
+  "assumption": "UNREACHED is the retraction-only verdict and inherits Conjecture 2.",
+  "accounting": {
+    "n_inside_component": 57,
+    "n_attempted": 30,
+    "n_recorded": 23,
+    "n_attempted_but_not_recorded": 7,
+    "note": "Seven ecoli70 rows were attempted and produced no record: they fail a downstream check in measure_one (o_g0_not_identified or z_invalid_at_g0) and are counted there, not as measurements. 57 = 23 recorded + 7 attempted-and-filtered + 27 censored on diabetes and pathfinder.",
+    "n_censored": 27
+  },
+  "provenance": "Written by the driver in experiments/review5_gate_inside_component.py after the run; the run itself streams rows to the .jsonl incrementally."
 }
