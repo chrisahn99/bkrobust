@@ -68,6 +68,9 @@ coverage.xml
 # Axis Robustness (survival curves + Pareto frontier) outputs are deliverables
 # cited by report_fragility_and_pareto.md; the pre-registration lives here too.
 !/results/axis_robustness/
+# Stage 0 of the evaluation plan: the claim-unit radius audit of the committed
+# axisa3 rows, cited by docs/EVALUATION_PLAN.md and docs/PAPER_NARRATIVE.md.
+!/results/stage0/
 /data/
 /checkpoints/
 *.pt

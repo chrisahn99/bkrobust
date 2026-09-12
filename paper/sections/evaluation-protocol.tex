@@ -1,0 +1,27 @@
+% Evaluation protocol, Methods paragraph. Draft of 11 September; the protocol has not been run.
+% TODO: the frame is drawn from an estimated CPDAG only where data can be simulated
+% (the four Gaussian networks). State the two panels.
+
+\section{Evaluation protocol}
+\label{sec:protocol}
+
+We evaluate on three families of causal structures: benchmark Bayesian networks, directed acyclic
+graphs published in applied papers together with the constraints their authors stated, and networks
+whose parameters are fit to measured data. For each network we estimate a CPDAG from one designated
+discovery run and draw treatment-outcome pairs from that estimate, fixing the candidate set before
+any knowledge is collected so that every knowledge source is evaluated on the same queries and the
+same denominator. Background knowledge is elicited through a questionnaire derived from the
+estimated graph, which asks for a causal order over each chain component rather than for individual
+edge directions, since pairwise queries yield cyclic answers at scale. Four sources answer it
+independently: a language model queried at temperature zero with the response cached against a hash
+of the rendered prompt; a replicate that varies either the presentation order or the model family,
+so that instrument variance and source variance are separated; knowledge read from each network's
+own source publication, with a verbatim quotation required for every assertion; and orientations
+drawn uniformly among the choices Meek closure accepts, matched to the elicited sets in size,
+granularity and distance from the treatment, which distinguishes a wide radius earned by correct
+knowledge from one earned by volume and placement. The radius is computed from
+$(\widehat{C}, K, \widehat{\Sigma}, n)$ alone, and is reported against the simpler statistics an
+analyst already has, including the hop distance from the treatment to the nearest member of the
+adjustment set. Networks rather than pairs are the unit of analysis. The generating graph is used to
+draw samples and, once every reported quantity is fixed, to check whether the certificate held; it
+never enters the computation.
