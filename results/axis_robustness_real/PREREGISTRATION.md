@@ -513,3 +513,77 @@ and the report leads with it.
   interval. The word "perfectly" appears nowhere in this analysis plan, and "dominates"
   will not be claimed unless it is measured — Appendix J.6 records what happened last
   time that word was used ahead of the data.
+
+---
+
+# Appendix A — 2026-09-16, the rate-based base wrongness is inert on most of this corpus
+
+Written after the frozen frame landed and **before any survival curve, AUC or τ
+existed**. It amends §2 by *adding* a level, and changes nothing that was already
+fixed. Recorded as a dated appendix rather than an edit to §2, per the rule at the
+head of this file.
+
+## A.1 The measurement
+
+`select_knowledge` returns a **greedy-minimal** generator set
+(`demo/example.py::knowledge_to_recover`), so `|K|` is small on most of this
+corpus: 1 or 2 on 24 of the 50 `(network, coverage)` cells, and 3 or less on 32 of
+them. `synth.knowledge.flip` reverses exactly `round(rate · |K|)` claims. Counting
+the claims actually reversed, per cell, across all three analyst replicates:
+
+| level | cells where **nothing at all** is reversed |
+|---|---|
+| base wrongness 0.10 | **38 of 50** |
+| base wrongness 0.25 | **24 of 50** |
+
+Worked examples: `|K| = 1` (Acid_1996, Didelez_2010, hailfinder, paths, and six
+partial-coverage cells) gives `round(0.25 · 1) = 0`; `|K| = 2` gives
+`round(0.5) = 0` under Python's banker's rounding. Only `arth150` (29),
+`diabetes` (26), `pathfinder` (79), and the cells with `|K| ≥ 6` are reached by
+`b = 0.10` at all.
+
+**Consequence if left alone.** On those cells `G₀` is bit-identical to the
+`b = 0.00` graph, so `SHD(G₀, truth)` stays identically zero and the baseline
+comparison is rigged by construction on exactly the cells §2 set out to protect.
+The `b = 0.10` and `b = 0.25` strata would also contain large numbers of rows that
+are exact duplicates of the `b = 0.00` rows.
+
+## A.2 The amendment
+
+**A fourth base-wrongness level is added: `bw_abs = 1`, "exactly one claim
+reversed", with 3 analyst replicates.** It is expressed as
+`flip(K, rng, 1/|K|)`, so **no new corruption operator enters the design** — it is
+the same operator at a rate chosen to reverse one claim on every cell, including
+the `|K| = 1` and `|K| = 2` cells the rate-based levels cannot touch.
+
+- It is a **supplementary stratum**, not one of the nine. The nine strata of §3
+  are unchanged, so the real and synthetic anchor tables still line up row for row.
+- It exists for one stated purpose: to give `SHD(G₀, truth)` a non-degenerate
+  comparison on every network, so §2's verification gate can be met corpus-wide.
+- **Prediction, recorded now.** On the `bw_abs = 1` stratum `shd_truth` will vary
+  across networks and across analyst replicates, and τ_b(`shd_truth`, AUC) will be
+  **defined** (non-constant predictor) where the rate-based strata leave it
+  undefined. No directional prediction is made for its **sign** — the synthetic
+  result gave `shd_truth` no consistent direction across strata, and I have no
+  reason to expect one here.
+
+## A.3 The inert cells are run anyway, not skipped
+
+Where `round(b · |K|) = 0` the cell is a bit-identical duplicate of the `b = 0.00`
+cell. It would be cheaper to detect that and reuse the `b = 0.00` result. **It is
+run in full instead.** The duplicated cells are precisely the small-`|K|` ones,
+which are also the cheapest — every expensive network (`pathfinder`, `diabetes`,
+`arth150`) has a non-zero realised wrongness at both rates — so the saving would be
+negligible, while a reuse-by-join would introduce exactly the kind of silent
+encoding bug this project has been caught by before. Every row carries
+`n_claims_actually_wrong` and a boolean `bw_is_inert`, and the report states which
+strata are near-duplicates of `b = 0.00` and why.
+
+## A.4 Scope of the determinism claim
+
+Bit-identical output across `PYTHONHASHSEED` 0 and 12345 is verified on every shard
+kind **excluding the three wall-clock fields** `r_search_seconds`,
+`r_total_seconds` and `wall_until_timeout_s`, which are timings and cannot be
+reproducible. The `*.cells.jsonl` files carry no timing at all and are verified
+**byte-identical**. Verified on five shards spanning all three arms before the full
+sweep started; the check is repeated over the whole campaign at the end.
