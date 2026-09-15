@@ -1,0 +1,30 @@
+{
+  "shard_id": "xarm__asia__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "asia",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 2,
+  "n_scored": 2,
+  "n_cells": 20,
+  "g0_status": "ok",
+  "n_k": 3,
+  "cache": {
+    "graph_hits": 9973,
+    "graph_misses": 27,
+    "verdict_hits": 17116,
+    "verdict_misses": 48
+  },
+  "elapsed_s": 0.302,
+  "instances_path": "results/axis_robustness_real/shards/xarm__asia__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__asia__nt4__tiered.cells.jsonl",
+  "instances_sha256": "43535215797a6ac353dffa45200905c4ba09a5d81f199707df9c79003190af03",
+  "cells_sha256": "18e1a591f59cc547341be63078cf27cc7972569ad52eb6a2e0ed29bb137134a3",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:22Z"
+}

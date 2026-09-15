@@ -1,0 +1,30 @@
+{
+  "shard_id": "xarm__Shrier_2008__nt3__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Shrier_2008",
+    "n_tiers": 3,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 7,
+  "n_scored": 4,
+  "n_cells": 40,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 9973,
+    "graph_misses": 27,
+    "verdict_hits": 37848,
+    "verdict_misses": 96
+  },
+  "elapsed_s": 0.464,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Shrier_2008__nt3__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Shrier_2008__nt3__tiered.cells.jsonl",
+  "instances_sha256": "10cce22d804cdb527104356b9c6d3f18770e6bb4182aea9f6142a3d095e55584",
+  "cells_sha256": "bef31f34d5e4727a7eec70063b965a79339d55b84565970fd0e0eb9289b21dc0",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:21Z"
+}
