@@ -1,0 +1,30 @@
+{
+  "shard_id": "xarm__pathfinder__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "pathfinder",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 0,
+  "n_cells": 0,
+  "g0_status": "dir_g0_empty",
+  "n_k": 88,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.0,
+  "instances_path": "results/axis_robustness_real/shards/xarm__pathfinder__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__pathfinder__nt4__tiered.cells.jsonl",
+  "instances_sha256": "6a8c385dafc72df31d6d2df400a0317ce9315486347c6a5799e09f747ce5aa61",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "5729709e85c78b18aaf42358a25ed78e64b89eef",
+  "git_dirty": true,
+  "completed_utc": "2026-09-15T23:33:09Z"
+}

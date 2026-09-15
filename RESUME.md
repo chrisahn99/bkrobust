@@ -74,18 +74,38 @@ large, never too small (`THEOREMS.md` §4c, §6, §8).
 
 | | |
 |---|---|
-| **Active phase** | Phase 1 — pre-registration (in progress) |
-| **Shards complete** | none — no sweep has been started |
-| **Shards in flight** | none |
-| **Failed shards** | none |
-| **Committed so far** | this file only |
-| **Results subtree** | `results/axis_robustness_real/` (not yet created) |
+| **Active phase** | Phase 4-6 — the sweep is running |
+| **Shards total** | 725 |
+| **Shards complete** | see `run_real_survival status` (90 at the time of writing) |
+| **Shards in flight** | up to 8, driven by the `pool` command |
+| **Failed shards** | none so far; the pool prints `FAIL <id>` and leaves no marker, so a failed shard is simply redone |
+| **Committed so far** | `RESUME.md`; the pre-registration, environment and determinism checks; the frozen frame and the sweep machinery; the Phase-3 smoke run |
+| **Results subtree** | `results/axis_robustness_real/` |
 
 ### Exact next command
 
-Nothing to run yet. The next action is to finish and commit
-`results/axis_robustness_real/PREREGISTRATION.md` (Phase 1). No sweep code may
-run before that file is committed.
+To start, resume or top up the sweep — safe to run repeatedly, it skips every
+shard that already has a completion marker:
+
+```
+cd /Users/ahn/Documents/Research/iclr27/bkrobust
+PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.run_real_survival pool --workers 8 --n-draws 1000
+```
+
+To see how far it has got:
+
+```
+PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.run_real_survival status
+```
+
+If the machine is interrupted, **nothing needs cleaning up**: a shard with no
+marker in `results/axis_robustness_real/_done/` is redone from scratch, and the
+pool re-enumerates the pending list every time it starts.
+
+Phases 0-3 are complete and committed. Phase 3's smoke run passed every
+pre-registered check (see `results/axis_robustness_real/SMOKE_CHECKS.txt`),
+including T4, T6 and T7, and the polynomial GAC predicate agreeing with the
+enumeration oracle on 254 of 254 comparisons.
 
 ---
 

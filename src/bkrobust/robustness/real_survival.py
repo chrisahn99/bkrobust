@@ -514,24 +514,41 @@ def auc_over_grid(cells: dict[Any, dict[str, Any]], targets: Sequence[Any]) -> f
 
 
 def auc_usable(
-    cells: dict[Any, dict[str, Any]], *, min_n: int = MIN_USABLE_N
+    cells: dict[Any, dict[str, Any]],
+    targets: Sequence[Any] | None = None,
+    *,
+    min_n: int = MIN_USABLE_N,
 ) -> float | None:
-    """Mean ``S`` over grid points retaining at least ``min_n`` evaluable draws.
+    """The conservative ``_usable`` endpoint: the raw endpoint, recomputed after
+    dropping grid points backed by fewer than ``min_n`` evaluable draws.
 
-    This is the conservative ``_usable`` variant. It is reported beside the raw
-    endpoint, never instead of it: Appendix J of the synthetic pre-registration
-    established that it conditions on ``n_eval``, which is correlated with the
-    radius, and is therefore not a conservative control at low draw counts.
+    With ``targets`` this is :func:`auc_over_grid` on the filtered cells, which
+    is exactly how the synthetic analysis defines ``AUC_frac_usable``
+    (``robustness/analyse.py`` recomputes ``auc_frac`` on the restricted curve,
+    it does not take a plain mean). Without ``targets`` -- the tiered arm, whose
+    grid is fixed and identical across instances, so no nearest-point mapping is
+    needed -- it is the plain mean over the surviving grid points, which is how
+    ``AUC_rate_usable`` is defined.
+
+    It is reported **beside** the raw endpoint, never instead of it: Appendix J
+    of the synthetic pre-registration established that it conditions on
+    ``n_eval``, which is correlated with the radius, so it is not a conservative
+    control at low draw counts. The gap between the two is the diagnostic.
 
     Args:
         cells: ``{grid_point: cell_statistics(...)}``.
+        targets: The grid points the endpoint averages over, for the flip arm.
         min_n: The evaluable-draw threshold.
 
     Returns:
-        The mean, or ``None`` if no grid point qualifies.
+        The endpoint, or ``None`` if no grid point qualifies.
     """
-    vals = [c["S"] for c in cells.values() if c["n_eval"] >= min_n and c["S"] is not None]
-    return (sum(vals) / len(vals)) if vals else None
+    kept = {g: c for g, c in cells.items() if c["n_eval"] >= min_n and c["S"] is not None}
+    if not kept:
+        return None
+    if targets is not None:
+        return auc_over_grid(kept, targets)
+    return sum(c["S"] for c in kept.values()) / len(kept)
 
 
 def intensity_bin(intensity: float) -> float:
