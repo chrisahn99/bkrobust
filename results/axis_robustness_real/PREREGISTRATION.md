@@ -587,3 +587,68 @@ kind **excluding the three wall-clock fields** `r_search_seconds`,
 reproducible. The `*.cells.jsonl` files carry no timing at all and are verified
 **byte-identical**. Verified on five shards spanning all three arms before the full
 sweep started; the check is repeated over the whole campaign at the end.
+
+---
+
+# Appendix B — 2026-09-16, two defects during the sweep, and what caught them
+
+Recorded in order, while the sweep was running, rather than tidied up afterwards.
+
+## B.1 A measurement limit was being reported as a structural property
+
+`run_real_survival.run_xarm_shard` computed the shard's status as
+
+```python
+n_dir_g0 = len(g0.directed_edges) if g0 is not None else 0
+g0_status = g0_reason if n_dir_g0 else "dir_g0_empty"
+```
+
+When `build_g0` returned `None` — because `G₀` still carried more than
+`MAX_G0_UNDIRECTED_FOR_EXTENSIONS = 12` undirected edges, i.e. the
+**`o_g0_extensions_intractable` measurement limit** — `n_dir_g0` fell to 0 and the
+shard was stamped `dir_g0_empty` instead. Those are different facts:
+`dir_g0_empty` says a graph exists and has no directed edge, so the shared
+intensity axis has no denominator; `o_g0_extensions_intractable` says we could not
+afford to evaluate the pair. Keeping the two apart is the whole point of §1.3, and
+`benchmarks/measure.py` says so in its own module docstring.
+
+**No measurement was wrong** — the shard was correctly blocked from sampling either
+way, and no survival number came from a mislabelled row. Only the *label* was
+wrong, which is precisely the failure mode this project keeps catching: a wrong
+answer that looks entirely plausible in the output file.
+
+**What caught it.** Reading the completion markers of the six `pathfinder`
+cross-arm shards by hand because they finished in under a second when the budget
+said hours, and noticing that `dir_g0_empty` was an odd thing to say about a
+network whose `G₀` has 195 directed edges.
+
+**Fix.** The two conditions are now tested separately, with the comment that says
+why. Every shard carrying the wrong label — 6 of them, all blocked, all
+zero-cell — had its marker removed and was re-run.
+
+## B.2 Incident: an operator error, and the property that made it free
+
+While re-running those six shards the orchestrator invoked
+`run_real_survival list --kind xarm`, which returns **every** pending cross-arm
+shard, not the six intended, and piped all of them into a serial loop. That loop
+ran alongside the eight-worker pool, so the same shard could in principle have been
+written by two processes at once.
+
+It was noticed within four minutes, the stray process was killed, and **every
+cross-arm shard touched in that window — 64 of them — had its marker and both its
+files deleted and was returned to the pending list.** Nothing was inspected to
+decide whether a given file was salvageable, because the incrementality contract of
+§9 says a shard is either complete-with-a-marker or discardable, and that removes
+the judgement call entirely.
+
+This is the first time the discardable-by-construction property has been exercised
+for real on this campaign, and it cost four minutes of one network's compute. It is
+recorded because session 8 lost an entire survival sweep to the same class of event
+under a design that allowed resumption mid-file.
+
+**Consequence to carry forward.** A pool worker that dequeued one of those 64
+shards *before* the markers were deleted will have found it complete, skipped it,
+and exited cleanly, so the pool's own queue may not revisit it. **The pool must
+therefore be re-invoked after it finishes**, which is safe and idempotent by
+construction, and the final shard count must be checked against 725 before any
+analysis is quoted.

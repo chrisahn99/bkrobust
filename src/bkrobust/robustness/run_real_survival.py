@@ -579,10 +579,22 @@ def run_xarm_shard(
     k_ref = tuple(sorted(k_ref))
     g0, g0_reason = rs.build_g0(cpdag, k_ref)
     n_dir_g0 = len(g0.directed_edges) if g0 is not None else 0
+    # `dir_g0_empty` is a structural fact about a graph that EXISTS and has no
+    # directed edge, so the shared-intensity denominator would be zero. It must
+    # never stand in for `g0 is None`, which is a different fact -- and, when
+    # the reason is `o_g0_extensions_intractable`, a *measurement limit* rather
+    # than a structural one. Conflating the two is the bug fixed on 2026-09-16
+    # and recorded in PREREGISTRATION.md Appendix B.
+    if g0 is None:
+        g0_status = g0_reason
+    elif n_dir_g0 == 0:
+        g0_status = "dir_g0_empty"
+    else:
+        g0_status = g0_reason
     shared = {
         "n_k": len(k_ref),
         "k_b_sha256": rs.sha_of(sorted(k_ref)),
-        "g0_status": g0_reason if n_dir_g0 else "dir_g0_empty",
+        "g0_status": g0_status,
         "g0_sha256": rs.sha_of(sorted(g0.directed_edges)) if g0 is not None else None,
         "g0_undirected_edges": len(g0.undirected_edges) if g0 is not None else None,
         "k_g0": rs.commitment_size(g0, cpdag) if g0 is not None else None,
