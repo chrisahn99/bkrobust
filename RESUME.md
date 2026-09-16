@@ -1,7 +1,7 @@
 # RESUME — [RE-11]: survival and the paired cross-arm on real graph structure
 
 **Branch:** `experiments/todo_1` · **Campaign owner:** an Opus 5 orchestrator session
-**Started:** 2026-09-16 · **Status: PHASE 0 COMPLETE — orientation written, no data generated yet**
+**Started:** 2026-09-16 · **Status: COMPLETE — all ten phases run, all deliverables committed**
 
 Read this file first. It is written for someone who has never seen this campaign.
 It is updated **before** anything else whenever state changes.
@@ -72,48 +72,43 @@ large, never too small (`THEOREMS.md` §4c, §6, §8).
 
 ## 2. Current state
 
+**THE CAMPAIGN IS COMPLETE.** 725 of 725 shards, every derived table rebuilt from
+them, the report and the anchor table written, and the verifier passing.
+
 | | |
 |---|---|
-| **Active phase** | Phase 7 — analysis (sweep essentially complete) |
-| **Shards total** | 725 |
-| **Shards complete** | 715+; the last four `pathfinder` flip shards were still running at about 1 h 50 m each |
-| **Shards in flight** | the tail of the pool |
-| **Failed shards** | none. 6 were re-run after a labelling fix and 64 were discarded and requeued after an operator error — both recorded in `PREREGISTRATION.md` Appendix B |
-| **Committed** | `RESUME.md`; pre-registration + Appendices A-C; environment and determinism checks; the frozen frame; the sweep machinery; the Phase-3 smoke run; the sweep output |
-| **Results subtree** | `results/axis_robustness_real/` |
+| **Shards** | **725 / 725**, none failed, none censored, no shard over the 18,000 s cap (max 3.01 h, `pathfinder`) |
+| **Draws** | N = 1000 per grid point everywhere; 409 of 450 scored flip shards are *exhaustive* |
+| **Deliverables** | `table_tau_real.md`, `report_real_survival.md`, `docs/PAPER_NOTE_RE11.md`, six figures in `figures/s9_*`, `src/bkrobust/analysis/session9_verify.py` |
+| **Pre-registration** | `results/axis_robustness_real/PREREGISTRATION.md`, §§1–10 plus **Appendices A–J** |
+| **Docs** | `docs/REMAINING_EXPERIMENTS.md`: [RE-11] marked done; [RE-12] explicitly **not** discharged; [RE-1] and [RE-16] raised |
 
-### Exact next command
-
-**1. Finish the sweep.** The pool must be re-invoked once after it exits, because
-a worker that dequeued a shard while that shard briefly carried a stale
-completion marker will have skipped it (Appendix B.2). Re-invoking is safe and
-idempotent — it skips every shard that has a marker:
+### To reproduce or re-check anything
 
 ```
-cd /Users/ahn/Documents/Research/iclr27/bkrobust
-PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.run_real_survival pool --workers 8 --n-draws 1000
+make re11-verify     # re-assert every number in the report
+make re11-all        # analysis + figures + verify, from the committed shards
+make re11-sweep      # resume the sweep itself; idempotent, skips completed shards
 ```
 
-**2. Check the count reaches 725 before quoting any analysis:**
+The sweep is idempotent: a shard with a completion marker is skipped, one without
+is redone from scratch. Nothing ever needs cleaning up after an interruption.
 
-```
-PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.run_real_survival status
-```
+### The result, in one line each
 
-**3. Then the analysis:**
-
-```
-PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.real_analyse
-```
-
-If the machine is interrupted at any point, **nothing needs cleaning up**: a
-shard with no marker in `results/axis_robustness_real/_done/` is redone from
-scratch, and the pool re-enumerates the pending list every time it starts.
-
-Phases 0-3 are complete and committed. Phase 3's smoke run passed every
-pre-registered check (`results/axis_robustness_real/SMOKE_CHECKS.txt`), including
-T4, T6 and T7, and the polynomial GAC predicate agreeing with the enumeration
-oracle on 254 of 254 comparisons.
+- **Pre-registered:** τ_b(`r_hop`, survival) positive in **9 of 9** strata, interval
+  excludes zero in **3 of 9** — against 8 of 9 synthetically.
+- **After a stronger leave-one-network-out check (Appendix H):** **1 of 9**
+  survives dropping any single network.
+- **Post-hoc (Appendix J):** **within** a fixed network and knowledge state the
+  radius ranks survival with an interval excluding zero in **6 of 9**, mean τ
+  **+0.30 to +0.84**. The pooled figure mixes that with a confounded
+  between-network comparison.
+- **Result D does not transfer**, and the cause is the knowledge model, not the
+  graphs: **5 of 298** single reversals contradict under a minimal generator
+  against **177 of 410** under a full assertion set, on the same networks.
+- **`paths`**: `|K| = 1`, `k_g0 = 14`, `SHD = 0`, radii 1–14, survival **exactly
+  0.000** — the two-radii over-promise, by exhaustive enumeration.
 
 ---
 

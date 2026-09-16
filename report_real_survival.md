@@ -321,13 +321,15 @@ The closure cache records, for free, how many **distinct** corrupted claim sets
 each shard actually saw. Against the combinatorial size of the flip arm's
 corruption space, `Σ_d C(|K|, d)` over the swept depths:
 
-> **409 of 446 scored flip shards are *exhaustive*** — they enumerated the entire
+> **409 of 450 scored flip shards are *exhaustive*** — they enumerated the entire
 > corruption space, so their survival numbers carry **no Monte-Carlo error at
-> all**. Only 37 shards, on six networks, are genuinely sampling.
+> all**. Only 41 shards, on seven networks, are genuinely sampling.
 
 `insurance` at `|K| = 3` sees all 7 possible corruptions; `barley` at `|K| = 7`
-sees all 127. Only `diabetes`, `arth150`, `ecoli70`, `hepar2`, `magic-irri` and
-`win95pts` sample, the thinnest covering 4.3e-5 of its space.
+sees all 127. Every shard with `|K| ≤ 9` is exhaustive and every sampled shard has
+`|K| ≥ 9`. Only `arth150`, `diabetes`, `ecoli70`, `hepar2`, `magic-irri`,
+`pathfinder` and `win95pts` sample, the thinnest — `pathfinder`, at `|K| = 79` —
+covering 1.1e-19 of its space.
 
 **Both endpoints agree, which discharges the concern behind `[RE-12]` on this
 corpus.** Across 45 (stratum, predictor) cells the raw and `n_eval ≥ 30`
