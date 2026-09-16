@@ -1017,3 +1017,71 @@ is visible.
 and the P5 falsification of Appendix D is unaffected: it was computed by the
 orchestrator's deduplicating script and independently confirmed by an exhaustive
 enumeration that involves no sampling at all.
+
+---
+
+# Appendix H — 2026-09-16, the pre-registered leave-one-network-out flag is too weak, and what a stronger one finds
+
+## H.1 The defect in my own criterion
+
+§6.2 specified a leave-one-network-out sensitivity computed on the **point
+estimate only, with no nested bootstrap**, and defined `loo_verdict_flips` as
+firing when a leave-one-out τ changes sign, or when the full-sample interval
+excludes zero while the leave-one-out **point** range spans zero.
+
+That criterion cannot detect the case that actually matters here: a stratum whose
+interval **excludes** zero with all networks and **includes** zero without one,
+while every leave-one-out point estimate stays comfortably positive. The flag
+stays silent, and the stratum looks robust when it is not.
+
+All three tiered strata report `loo_verdict_flips = False`, with leave-one-out
+point ranges of `[+0.318, +0.721]`, `[+0.221, +0.499]` and `[+0.393, +0.537]` —
+uniformly positive, nothing to flag. The network at the minimum is **`paths` in
+all three**.
+
+## H.2 What the stronger check finds
+
+Re-running the cluster bootstrap with `paths` removed — the same 10,000
+resamples, same seed, over the remaining networks:
+
+| stratum | all networks | `paths` dropped |
+|---|---|---|
+| tiered n_tiers=2 | **+0.580 [+0.120, +0.854]** | +0.318 [**+0.000**, +0.659] |
+| tiered n_tiers=3 | **+0.378 [+0.061, +0.687]** | +0.221 [**−0.001**, +0.515] |
+| tiered n_tiers=4 | **+0.483 [+0.278, +0.703]** | **+0.393 [+0.224, +0.588]** |
+
+**Two of the three strata lose their interval's exclusion of zero when one
+network is removed.** Only `tiered n_tiers=4` survives.
+
+The reason is visible in the effect-size table: `paths` carries essentially the
+whole upper tail of the tiered radius distribution — **all 26 units in bucket
+`5+`, all 5 in bucket 4, and 4 of the 5 in bucket 3**, pooled over the three
+tiered strata. Buckets 3 and above have no other network behind them.
+
+## H.3 Consequence for what may be claimed
+
+The three tiered strata are the **only three of nine** in which τ_b(`r_hop`,
+survival) has an interval excluding zero. After this check:
+
+> **On the committed real corpus, exactly one of the nine pre-registered strata
+> — `tiered, n_tiers = 4` — shows the radius ranking survival with an interval
+> that excludes zero and survives the removal of any single network.**
+
+That is the honest strength of the real-structure ranking result, and it is what
+the report leads with. It is weaker than "3 of 9", which is itself far weaker
+than the synthetic "8 of 9".
+
+## H.4 How this is reported
+
+- The **pre-registered** `loo_verdict_flips` column is reported exactly as
+  specified, unchanged, because it was pre-registered.
+- A **stronger, post-hoc** leave-one-network-out check **with the bootstrap
+  re-run** is reported beside it, labelled post-hoc, in
+  `analysis_loo_bootstrap.csv`, and any stratum that loses zero-exclusion under
+  it is marked in `table_tau_real.md`.
+- Both `paths` figures are stated together wherever the tiered result is quoted,
+  because the same network behaves in opposite directions in the two arms —
+  survival exactly **0.000** at radii up to 14 in the flip arm, and **1.000** at
+  high radii in the tiered arm. That is not a contradiction: the two arms give
+  `paths` completely different knowledge (`|K| = 1` against a generated tiering),
+  which is the campaign's central finding restated on a single network.
