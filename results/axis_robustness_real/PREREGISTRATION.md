@@ -1129,3 +1129,85 @@ is rejected earlier still, with `k_contradictory` — reversing 8 or 20 of its 7
 truthful claims produces knowledge inconsistent with its own CPDAG before any
 sweep begins. Its tiered and cross-arm shards are `o_g0_extensions_intractable`.
 `pathfinder` is in the frame, and the frame reports it, and it yields nothing.
+
+---
+
+# Appendix J — 2026-09-16, the pooled τ mixes two comparisons, and only one of them is the radius's
+
+**POST-HOC. Not pre-registered.** The pre-registered primary result is the pooled
+τ of `analysis_tau.csv` and this appendix does not replace it. It is recorded
+because the decomposition is standard, because the pre-registration itself
+already fixed the network as the unit of analysis, and because without it the
+primary table is easy to misread.
+
+## J.1 The mismatch in my own design
+
+§1.5 fixed the **network** as the unit of analysis and bootstrapped over networks
+accordingly. But the τ itself was computed **pooled over rows drawn from
+different networks**. That statistic answers "does a higher radius predict higher
+survival across all queries on all networks" — and it mixes two comparisons:
+
+* **within-network** — same graph, same `K`, same `G₀`, different `(X, Y)`. This
+  is what a practitioner faces, and it is what the radius is defined for: it
+  prices *this* conclusion on *this* knowledge state.
+* **between-network** — different graphs, different `|K|`, different component
+  structure, plus the small-`|K|` endpoint pinning of Appendix F. The radius is
+  confounded with all of it.
+
+Having chosen the network as the unit, the pooled τ was arguably the wrong
+statistic to bootstrap. That is a design error, not a discovery, and it is
+recorded as one.
+
+## J.2 The decomposition
+
+Mean per-network τ_b(`r_hop`, endpoint), bootstrapped by resampling networks:
+
+| stratum | pooled τ | within-network mean τ [95% CI] | networks (with variation / positive) | between-network τ |
+|---|---|---|---|---|
+| flip cov=1.0 bw=0.00 | +0.064 | **+0.296 [+0.016, +0.561]** | 11 / 7 | −0.253 |
+| flip cov=1.0 bw=0.10 | +0.126 | **+0.303 [+0.185, +0.412]** | 15 / 14 | −0.144 |
+| flip cov=1.0 bw=0.25 | +0.292 | **+0.403 [+0.295, +0.511]** | 18 / 17 | −0.071 |
+| flip cov=0.5 bw=0.00 | +0.191 | +0.303 [−0.361, +0.865] | 5 / 4 | −0.036 |
+| flip cov=0.5 bw=0.10 | +0.140 | +0.095 [−0.355, +0.468] | 5 / 4 | — |
+| flip cov=0.5 bw=0.25 | +0.112 | +0.158 [−0.242, +0.473] | 6 / 4 | — |
+| tiered n_tiers=2 | +0.580 | **+0.836 [+0.615, +1.000]** | 3 / 3 | +0.526 |
+| tiered n_tiers=3 | +0.378 | **+0.654 [+0.375, +0.863]** | 8 / 7 | +0.324 |
+| tiered n_tiers=4 | +0.483 | **+0.631 [+0.534, +0.717]** | 9 / 9 | +0.452 |
+| *supp.* flip cov=1.0, one claim | +0.300 | **+0.401 [+0.253, +0.550]** | 16 / 13 | +0.136 |
+| *supp.* flip cov=0.5, one claim | +0.444 | **+0.385 [+0.183, +0.739]** | 3 / 3 | +0.316 |
+
+**Six of the nine pre-registered strata** have a within-network interval
+excluding zero, against **three** pooled. The within-network τ is positive in
+14 of 15, 17 of 18 and 9 of 9 networks in the three largest strata. The three
+that fail are the coverage-0.5 strata, where only 5 or 6 networks carry variation
+in both quantities at all.
+
+## J.3 The coverage-0.25 reversal is entirely between-network
+
+The supplementary coverage-0.25 strata show a **significant negative** pooled τ
+(−0.527, −0.513, −0.521, all three intervals excluding zero). Decomposed, that is
+**−0.775 between networks and +0.158 within them**, on 8 networks of which only 2
+carry within-network variation.
+
+The mechanism is Appendix F's pinning, exactly: at coverage 0.25 the three
+networks with `|K| = 1` (`Kampen_2014`, `Polzer_2012`, `insurance`) have their
+endpoint pinned at 0.000 *and* happen to have radius 2, while the five with
+`|K| = 2` have radius 1 and an endpoint near 0.35. That produces a near-perfect
+negative rank correlation across networks out of an artifact of the depth grid.
+**It is not evidence that the radius ranks survival backwards**, and it must not
+be reported as though it were.
+
+## J.4 What may now be said, and what may not
+
+- **Pre-registered, primary, unchanged:** pooled τ_b(`r_hop`, survival) is
+  positive in 9 of 9 strata, its interval excludes zero in 3 of 9, and only one of
+  those three survives dropping any single network (Appendix H).
+- **Post-hoc:** within a fixed network and knowledge state, the radius ranks
+  survival positively in 6 of the 9 pre-registered strata with intervals
+  excluding zero, at mean τ +0.30 to +0.84.
+- **Not claimed:** that the within-network figure is the pre-registered result, or
+  that it should replace the pooled one in the anchor table. Both are reported,
+  in that order, with this appendix as the explanation.
+- **Not claimed:** any causal account of why the between-network component is
+  negative in the flip arm beyond the pinning artifact that Appendix F documents
+  and J.3 shows at work.
