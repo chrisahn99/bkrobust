@@ -28,6 +28,14 @@ Two notes that apply to everything here:
 
 ### [RE-1] Is elicited background knowledge Meek-closed?
 
+> **Raised in priority by `[RE-11]` (2026-09-16).** That campaign showed the
+> single-claim contradiction rate on real graphs is 0.021 under the corpus's
+> greedy-minimal generator and 0.432 under a full assertion set — **on the same
+> networks**. So whether elicited knowledge is closed is not a tidying-up
+> question: it decides which of two numbers, differing by a factor of twenty, the
+> paper is entitled to print for Result D.
+
+
 **Question.** For knowledge as a real analyst actually supplies it, how large is
 `|K|` (sentences asserted) against `k_g0` (orientations committed to)?
 
@@ -202,19 +210,65 @@ graph space and in prompt position. Report invariance under scrambled names.
 
 ## Tier 3 — completing the robustness axis
 
-### [RE-11] Survival and cross-arm on the 831 real rows
-Phase 1 of the robustness axis is **synthetic structure only**; real networks
-appear only in the P7′ census. Running survival and the matched cross-arm design
-on the real corpus is what makes the survival claim a claim about practice.
-Code: `src/bkrobust/robustness/run_survival.py`, `run_crossarm.py`.
+### [RE-11] Survival and cross-arm on the 831 real rows — **DONE (2026-09-16)**
 
-### [RE-12] N = 1000 re-run of the nine strata
+Run on branch `experiments/todo_1`. Results: `results/axis_robustness_real/`.
+Report: [`report_real_survival.md`](../report_real_survival.md). Anchor table:
+[`table_tau_real.md`](../table_tau_real.md). Pre-registration, with directional
+predictions recorded before any curve existed and every correction in a dated
+appendix: `results/axis_robustness_real/PREREGISTRATION.md`.
+
+**What was run.** The nine pre-registered strata mirroring the synthetic ones
+(flip × coverage {1.0, 0.5} × base wrongness {0.00, 0.10, 0.25}; tiered ×
+n_tiers {2, 3, 4}), plus supplementary strata at coverage 0.25 and at an
+absolute one-claim base wrongness, on the frozen 831-row frame. **N = 1000 draws
+per grid point everywhere**, 725 shards, the paired cross-arm design of the
+synthetic Appendix I, and a cluster bootstrap over the 25 networks.
+
+**What it found, in one line each.**
+- `r_hop` ranks survival positively in **9 of 9** strata, but the interval
+  excludes zero in only **3 of 9** (all tiered) against 8 of 9 synthetically, and
+  it outranks `|K|` in only 5 of 9. **The real-structure result is materially
+  weaker than the synthetic one.**
+- The paper's **Result D does not transfer**: the single-claim contradiction rate
+  is ~0.02 on this corpus, not 0.627 — and the cause is the **knowledge model**,
+  not the graphs (0.021 for a minimal generator against 0.432 for a full
+  assertion set, on the same networks, exhaustively).
+- A clean **discordance spotlight** on `paths`: `|K| = 1`, `k_g0 = 14`,
+  `SHD = 0`, radii spanning 1–14, survival exactly 0.000 on all 20 pairs.
+- The cross-arm pairing **works but only just** — three intensity bins carry it,
+  in a band far narrower than the synthetic one.
+
+**What it does not do.** It does not touch the oracle-CI idealisation, it does
+not discharge `[RE-12]`, and it does not establish dominance over the baselines.
+
+Code (all new, alongside the synthetic modules rather than modifying them):
+`src/bkrobust/robustness/real_frame.py`, `real_survival.py`,
+`run_real_survival.py`, `real_analyse.py`, `build_table_tau_real.py`,
+`real_knowledge_model.py`, `real_matched_coverage.py`, `real_spotlight.py`,
+`real_precision.py`; `src/bkrobust/analysis/session9_figures.py`,
+`session9_verify.py`. The synthetic `run_survival.py` and `run_crossarm.py` are
+**unmodified**, so every prior number stays reproducible from the code that
+produced it.
+
+### [RE-12] N = 1000 re-run of the nine strata — **STILL OPEN**, but with new evidence
+
 Only the null cell (`flip, coverage=0.5, base_wrongness=0.25`) has been re-run at
 N = 1000. Two strata carry the `⚠ unstable` marker in
 `table_tau_comparisons.md` and must not be quoted alone until the full re-run
 exists. The `n_eval ≥ 30` filter is not a conservative control — it conditions on
 a quantity correlated with `r_val` and flips the verdict in opposite directions in
 those two cells.
+
+**Not discharged by `[RE-11]`**, which is a different corpus. But `[RE-11]` ran at
+N = 1000 throughout and supplies independent support for the diagnostic that
+motivates this item: across 45 (stratum, predictor) cells on real structure, the
+raw and `n_eval ≥ 30` endpoints disagree on a verdict **zero** times, with deltas
+at or below 0.02 in the flip arm. At N = 1000 the filter is inert, exactly as the
+synthetic Appendix J predicted and could not test. It also found that on the real
+corpus N = 1000 is **exhaustive** for 409 of 446 scored flip shards — they
+enumerate the whole corruption space, so those cells carry no Monte-Carlo error
+at all. The synthetic re-run is still the thing that closes this item.
 
 ### [RE-13] The step hypothesis
 Phase 2 established that statistical efficiency is *invariant* under truthful
@@ -263,6 +317,13 @@ Two conflicts, both live:
    arm is deferred past the deadline.
 
 ### [RE-16] Correct the practitioner sentence
+
+> **Now has a measured consequence, from `[RE-11]`.** On `paths` an analyst who
+> made **one** statement gets `k_g0 = 14` and a hop radius up to 14, and reversing
+> that one statement invalidates the committed adjustment set every time, on an
+> exhaustive enumeration. The certificate sentence denominated in stated claims is
+> wrong by the leverage factor, which reaches 17 on this corpus.
+
 [`hybrid.py:225`](../src/bkrobust/hybrid.py) `describe()` renders a radius as
 *"survives any `{radius-1}` of the analyst's orientation claims being wrong."*
 The search counts orientations in `G₀`, not asserted claims. On `paths` this
