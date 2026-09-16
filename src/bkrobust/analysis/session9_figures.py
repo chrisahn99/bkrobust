@@ -509,9 +509,14 @@ def fig_per_network() -> list[Path]:
     legible against a single average.
     """
     _style()
-    rows = [r for r in _read_csv("analysis_per_network.csv") if r["stratum"] == _F3_STRATUM]
-    if not rows:
+    all_rows = [r for r in _read_csv("analysis_per_network.csv") if r["stratum"] == _F3_STRATUM]
+    if not all_rows:
         raise ValueError(f"no analysis_per_network.csv rows for stratum {_F3_STRATUM!r}")
+    # A network can contribute units to the stratum yet have no usable endpoint at all
+    # (every one of its units censored) — excluded from the dot plot, not crashed on,
+    # and the exclusion is counted below rather than silently dropped.
+    rows = [r for r in all_rows if r["median_endpoint_usable"] != ""]
+    n_excluded_empty = len(all_rows) - len(rows)
     rows.sort(key=lambda r: float(r["median_endpoint_usable"]))
 
     tau_rows = [
@@ -529,6 +534,8 @@ def fig_per_network() -> list[Path]:
     sizes = _marker_sizes(ns, lo=24, hi=220)
 
     for y, r in zip(ys, rows):
+        if r["q1_endpoint_usable"] == "" or r["q3_endpoint_usable"] == "":
+            continue
         q1, q3 = float(r["q1_endpoint_usable"]), float(r["q3_endpoint_usable"])
         ax.plot([q1, q3], [y, y], color=C_GREY, lw=1.0, alpha=0.5, zorder=1)
 
@@ -556,10 +563,15 @@ def fig_per_network() -> list[Path]:
     ax.legend(fontsize=8, loc="lower right", framealpha=0.95)
     ax.set_title(f"Per-network spread, stratum {_F3_STRATUM}", fontsize=11.5)
 
+    excl_note = (
+        f" {n_excluded_empty} network(s) contributed units to this stratum but had no usable endpoint "
+        "at all (every unit censored) and are excluded from the dot plot." if n_excluded_empty else ""
+    )
     footnote = "\n".join(
         textwrap.wrap(
             "analysis_per_network.csv; marker area ∝ √(n_units); grey bars are each network's own "
-            "q1-q3 of AUC_frac_usable; verticals from analysis_tau.csv for the same stratum/endpoint.",
+            "q1-q3 of AUC_frac_usable; verticals from analysis_tau.csv for the same stratum/endpoint."
+            + excl_note,
             width=150,
         )
     )

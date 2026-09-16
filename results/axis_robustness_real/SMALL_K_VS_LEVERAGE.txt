@@ -1,0 +1,43 @@
+TWO DISTINCT FACTS, kept apart deliberately (stratum flip_cov100_bw000)
+
+(a) A median survival AUC of exactly 0 tracks SMALL |K|, not leverage.
+    The flip arm's depth grid is fractional, so at |K| = 1 the only available
+    corruption is 'reverse everything'. That is a property of the design
+    applied to a greedy-minimal generator set, not a property of the radius.
+
+(b) Discordance WITH THE RADIUS additionally needs the radius to vary.
+    Among the pinned networks only `paths` has that, spanning r_hop 1..14.
+
+network             |K|  k_g0   lev  medAUC   r range  note
+hailfinder            1    17  17.0   0.000 2-2       AUC pinned at 0; high leverage
+paths                 1    14  14.0   0.000 1-14      AUC pinned at 0; high leverage; radius varies (14 values)
+Didelez_2010          1     3   3.0   0.000 1-2       AUC pinned at 0; high leverage; radius varies (2 values)
+Acid_1996             1     1   1.0   0.000 1-1       AUC pinned at 0
+child                 2    12   6.0   0.358 1-2       high leverage; radius varies (2 values)
+water                 2     6   3.0   0.328 1-2       high leverage; radius varies (2 values)
+Shrier_2008           2     3   1.5   0.342 1-2       radius varies (2 values)
+insurance             3    18   6.0   0.569 1-3       high leverage; radius varies (3 values)
+Kampen_2014           3    11   3.7   0.171 1-4       high leverage; radius varies (3 values)
+Schipf_2010           3     6   2.0   0.158 1-2       radius varies (2 values)
+mediator              3     5   1.7   0.000 1-1       AUC pinned at 0
+asia                  3     3   1.0   0.582 1-1       
+Polzer_2012           5     9   1.8   0.271 1-2       radius varies (2 values)
+munin1                6     8   1.3   0.754 1-1       
+barley                7     9   1.3   0.583 1-2       radius varies (2 values)
+Sebastiani_2005       7     7   1.0   0.352 1-1       
+sachs                 8    17   2.1   0.160 1-2       radius varies (2 values)
+magic-niab            8    10   1.2   0.406 1-2       radius varies (2 values)
+win95pts              9    12   1.3   0.632 1-1       
+hepar2                9     9   1.0   0.247 1-1       
+ecoli70              10    25   2.5   0.410 1-1       
+magic-irri           10    12   1.2   0.444 1-2       radius varies (2 values)
+diabetes             26    26   1.0   0.445 1-1       
+arth150              29    45   1.6   0.461 1-1       
+
+networks with median AUC exactly 0: ['Acid_1996', 'Didelez_2010', 'hailfinder', 'mediator', 'paths']
+  |K| : {'Acid_1996': 1, 'Didelez_2010': 1, 'hailfinder': 1, 'mediator': 3, 'paths': 1}
+  lev : {'Acid_1996': 1.0, 'Didelez_2010': 3.0, 'hailfinder': 17.0, 'mediator': 1.7, 'paths': 14.0}
+
+All five have |K| <= 3, and their leverage spans 1.0 to 17.0 -- so leverage
+does NOT explain the pinning. Conversely `child` has leverage 6.0 and is not
+pinned. The two effects are separate and are reported separately.
