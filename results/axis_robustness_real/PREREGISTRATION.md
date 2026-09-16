@@ -786,3 +786,102 @@ Meek would derive from its neighbours.
   Result D does not transfer for structural reasons.
 - If `K_full` is *lower* than `K_min`: the mechanism above is wrong and nothing is
   claimed until it is understood.
+
+---
+
+# Appendix E — 2026-09-16, the Appendix D diagnostic, and the mechanism it exposes
+
+## E.1 The D.3 prediction is confirmed, and by a factor of twenty
+
+Appendix D.3 predicted, before running it, that the all-undirected-edges knowledge
+model would show a **much higher** single-reversal contradiction rate than the
+greedy-minimal generator — *"≥ 0.30 pooled for `K_full` against ≈ 0.01 for
+`K_min`"*. **Exhaustive** measurement on the same 25 networks, every claim
+reversed in turn, no sampling:
+
+| knowledge model | single reversals | contradictory | rate | networks at exactly 0 |
+|---|---|---|---|---|
+| `minimal_generator` (coverage 1.0) | 238 | **5** | **0.021** | 21 of 25 |
+| `all_undirected_edges` (coverage 1.0) | 410 | **177** | **0.432** | 5 of 25 |
+
+The prediction is confirmed. The internal control is clean: on the five networks
+where the minimal generator *is* the full assertion set (`Acid_1996`,
+`Sebastiani_2005`, `asia`, `diabetes`, `hepar2`, all with `|K_min| = |K_full|`),
+both models give **exactly 0.000** — as they must, since they are the same set.
+
+**So the real-versus-synthetic contradiction gap is driven by the knowledge
+model, not by real structure.** Holding the graphs fixed and changing only how
+the knowledge is written down moves the rate from 0.021 to 0.432, a factor of
+twenty. Real structure with the synthetic knowledge model (0.432) is much closer
+to the synthetic figure (0.627) than to the real corpus's own (0.021).
+
+The paper's Result D must therefore be restated as a property of **how the
+analyst's knowledge is phrased**, not of the graphs. This bears directly on
+`[RE-1]`, which asks exactly how real elicited knowledge compares with a minimal
+generator: the answer here is that the difference is not cosmetic, it is the
+whole effect.
+
+## E.2 A post-hoc leverage analysis, labelled post-hoc
+
+**This was not pre-registered.** It was opened after seeing that τ_b(`r_hop`,
+AUC) is weak in the flip arm, and it is reported as a post-hoc explanation. The
+nine pre-registered strata of §3 remain the primary result and are not restated
+in its light.
+
+The mechanism. The flip arm corrupts in **claim** units; `r_hop` is a distance in
+**hop** units. `docs/PAPER_NARRATIVE.md` §4 already names the exchange rate — the
+**leverage** `k_g0 / |K|`, how many data-compelled orientations hang on one
+statement — and states that the two radii coincide exactly when `|K| == k_g0`. On
+this corpus the leverage runs from **1.0 to 17.0**:
+
+| network | `\|K\|` | `k_g0` | leverage | `r_hop` range | median AUC |
+|---|---|---|---|---|---|
+| hailfinder | 1 | 17 | 17.0 | 2 | 0.000 |
+| paths | 1 | 14 | 14.0 | 1–14 | 0.000 |
+| child | 2 | 12 | 6.0 | 1–2 | 0.358 |
+| insurance | 3 | 18 | 6.0 | 1–3 | 0.569 |
+| … | | | | | |
+| diabetes | 26 | 26 | 1.0 | 1 | 0.445 |
+| hepar2 | 9 | 9 | 1.0 | 1 | 0.247 |
+
+`paths` is the clearest case and it is worth stating on its own: **an analyst who
+made one statement has a hop radius of up to 14 and a survival AUC of exactly
+0.000.** The hop radius certifies thirteen clean shells; reversing the single
+statement they actually made destroys the adjustment set every time. That is
+precisely the over-promise §4 of the narrative warns about, measured on real
+structure against an average-case endpoint.
+
+Splitting the flip strata by leverage, with the same cluster bootstrap over
+networks:
+
+| stratum | leverage = 1 (`\|K\| == k_g0`) | leverage ≤ 2 | leverage > 2 | all |
+|---|---|---|---|---|
+| flip cov=1.0 bw=0.00 | undefined (predictor constant) | +0.069 [−0.116, +0.285] | +0.167 [−0.535, +0.579] | +0.064 [−0.351, +0.379] |
+| flip cov=1.0 bw=0.10 | **+0.230 [+0.184, +0.316]** | **+0.239 [+0.084, +0.351]** | +0.146 [−0.590, +0.536] | +0.126 [−0.299, +0.412] |
+| flip cov=1.0 bw=0.25 | **+0.309 [+0.205, +0.478]** | **+0.402 [+0.267, +0.515]** | +0.296 [−0.533, +0.694] | +0.292 [−0.240, +0.603] |
+
+**Where the analyst's knowledge is Meek-closed — the exact condition under which
+the paper says the certificate is sound — the radius ranks survival with an
+interval that excludes zero. Where leverage is large it does not, and the
+interval is enormous.** The pooled figure sits between the two because it mixes
+them.
+
+This also explains why the **tiered** arm is the one where the radius performs
+well (+0.378 to +0.580, all three intervals excluding zero): tiered knowledge
+asserts every cross-tier edge, so it is far closer to Meek-closed than a greedy
+minimal generator is.
+
+## E.3 What is and is not claimed from E.2
+
+- **Claimed:** on the committed real corpus, τ_b(`r_hop`, survival) is materially
+  larger and its interval materially tighter in the sub-population where
+  `|K| == k_g0` than where `|K| ≪ k_g0`, in the two flip strata where the
+  predictor is not constant.
+- **Not claimed:** any pre-registered status for that comparison. It is post-hoc.
+- **Not claimed:** that leverage *causes* the difference. The leverage-1 networks
+  differ from the others in other ways too, and with 5–9 networks per band the
+  comparison is not powered to isolate a cause.
+- **Not claimed:** that the primary table should be read through this lens. The
+  nine strata are the pre-registered result and they are weaker than the
+  synthetic ones; that is the headline, and this appendix is the explanation
+  offered for it, not a replacement.

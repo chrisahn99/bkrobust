@@ -1108,7 +1108,9 @@ def _paired_stats(
 
 _PAIRED_METRICS = ("S", "contradiction_rate", "silent_failure_rate")
 
-XARM_PAIRED_COLUMNS: list[str] = ["intensity_bin", "n_instances_matched"] + [
+XARM_PAIRED_COLUMNS: list[str] = [
+    "intensity_bin", "n_instances_matched", "n_networks_matched",
+] + [
     f"{metric}_{field}"
     for metric in _PAIRED_METRICS
     for field in (
@@ -1165,7 +1167,16 @@ def paired_cross_arm(
     for ibin in sorted(by_bin):
         matched = by_bin[ibin]
         networks = [k[0] for k, _, _ in matched]
-        row: dict[str, Any] = {"intensity_bin": ibin, "n_instances_matched": len(matched)}
+        # The number of distinct NETWORKS behind a bin is the number that
+        # matters, not the number of instances: the paired bootstrap resamples
+        # networks, so a bin backed by 30 instances drawn from 2 networks has an
+        # effective sample size of 2. Reported beside n_instances_matched so the
+        # two can never be confused.
+        row: dict[str, Any] = {
+            "intensity_bin": ibin,
+            "n_instances_matched": len(matched),
+            "n_networks_matched": len(set(networks)),
+        }
         for metric in _PAIRED_METRICS:
             diffs = [t[metric] - f[metric] for _, f, t in matched]
             stats = _paired_stats(diffs, networks, n_boot=n_boot, seed=seed)

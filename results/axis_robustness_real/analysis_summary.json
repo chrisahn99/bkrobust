@@ -1,6 +1,6 @@
 {
   "out_dir": "results/axis_robustness_real",
-  "n_boot": 200,
+  "n_boot": 10000,
   "seed": 0,
   "frame": {
     "n_rows": 831,
