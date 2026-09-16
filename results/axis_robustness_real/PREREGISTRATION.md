@@ -697,3 +697,92 @@ shard with `--wall-cap-s 0.5`: 16 of 22 cells came back `censored_wall_cap` with
 `n_draws == 0`, `S == None` and `wall_until_timeout_s` set, the censored grid
 points were exactly the tail of the ascending grid, and no censored row carried
 a key named `seconds`.
+
+---
+
+# Appendix D — 2026-09-16, P5 is falsified, and a post-hoc diagnostic registered before it is run
+
+## D.1 P5 is falsified, decisively and in the direction the pre-registration named as
+## the more interesting one
+
+§8 P5 predicted the flip-arm contradiction rate at depth 1 on real structure at
+**0.65–0.90**, "directionally **higher** than synthetic", against the synthetic
+figure of 0.627 — on the reasoning that real CPDAGs are far more compelled
+(median undirected fraction 10.7%), so a reversed claim should more often collide
+with a compelled edge.
+
+**Measured, at truthful base knowledge: 0.0127 pooled, 0.0135 network-weighted.**
+Forty-three of the 47 `(network, coverage)` draw-sets show a contradiction rate of
+**exactly 0.000**; only `mediator` (0.343), `sachs` (0.137) and `ecoli70` (0.115)
+are non-zero at all. The prediction is wrong by roughly a factor of fifty, and it
+is wrong in the direction §8 pre-committed to treating as the headline: *"If it
+comes out lower, that is the more interesting result and it is reported as the
+headline of that section."*
+
+The rate does rise with base wrongness — 0.013 / 0.040 / 0.082 / 0.096 at
+`b = 0.00 / 0.10 / 0.25 / abs 1` — which is the **opposite** of the synthetic
+direction (0.653 / 0.647 / 0.563, falling). It also rises steeply with depth
+(0.013 → 0.163 → 0.406 → 0.544 → 0.690 → 0.800 at `d = 1…6`), so the arm is not
+degenerate; it simply starts from a floor near zero.
+
+**Why this matters beyond the prediction.** The paper's Result D says most
+orientation errors are self-revealing: Meek closure fails and the analyst finds
+out about six times in ten. On this corpus it is essentially never. That does not
+weaken the paper's motivation — it strengthens it, since the dangerous case is
+precisely *consistent and invalidating* — but Result D's **number** does not
+transfer to real structure and the paper must not imply that it does.
+
+## D.2 The confound, named before it is resolved
+
+The comparison real-versus-synthetic at depth 1 confounds two things:
+
+1. **structure** — real CPDAGs versus `component_generator`'s small dense
+   components; and
+2. **the knowledge model** — the real corpus's `K` comes from
+   `demo/example.py::knowledge_to_recover`, a **greedy-minimal generator set**,
+   while the synthetic arm's comes from `synth/knowledge.py::draw_k_true`, a
+   random subset of the CPDAG's undirected edges. Those are different objects. A
+   minimal generator asserts one claim per "independent" decision, so reversing
+   one of them need conflict with nothing; a full assertion set states many
+   orientations that Meek would otherwise derive from each other, so reversing one
+   of them contradicts its neighbours immediately.
+
+A difference in contradiction rate could be caused by either. As it stands the
+comparison cannot separate them, and **no causal reading of the real-versus-
+synthetic gap may be published until it can**.
+
+## D.3 The diagnostic, and its directional prediction, recorded before running it
+
+**Design.** On the *same* real networks, at coverage 1.0, compare two knowledge
+models by **exhaustive** single-claim reversal — every claim reversed in turn, no
+sampling:
+
+- `K_min = select_knowledge(dag, cpdag, 1.0)` — the corpus's greedy-minimal
+  generator, exactly what the main sweep uses;
+- `K_full = draw_k_true(dag, cpdag, rng, 1.0)` — every undirected CPDAG edge
+  asserted truthfully, which is the synthetic arm's knowledge model at full
+  coverage.
+
+Structure is held fixed; only the knowledge model moves. This is a **post-hoc
+diagnostic**, opened in response to a falsified prediction, and it is labelled as
+one everywhere it is reported. It is **not** one of the nine strata and it
+produces no τ.
+
+**Prediction, recorded now, before the diagnostic is run.** `K_full` will show a
+**much higher** single-reversal contradiction rate than `K_min` — I predict
+**≥ 0.30 pooled for `K_full` against ≈ 0.01 for `K_min`** — because with every
+orientation asserted, reversing one puts it in direct conflict with the claims
+Meek would derive from its neighbours.
+
+**What each outcome licenses.**
+
+- If `K_full` is high and `K_min` near zero: the real-versus-synthetic gap is
+  driven by the **knowledge model**, not by real structure, and the paper must
+  say that Result D's figure is a property of *how the knowledge was written
+  down*, not of the graphs. This would be the most useful outcome, and it would
+  also bear directly on `[RE-1]`, which asks exactly how real elicited knowledge
+  compares with a minimal generator.
+- If **both** are near zero: real structure genuinely is not self-revealing, and
+  Result D does not transfer for structural reasons.
+- If `K_full` is *lower* than `K_min`: the mechanism above is wrong and nothing is
+  claimed until it is understood.
