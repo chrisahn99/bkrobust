@@ -1,6 +1,6 @@
 {
   "note": "POST-HOC. The pre-registered point-estimate LOO is reported unchanged in analysis_tau.csv.",
-  "n_rows": 676,
+  "n_rows": 681,
   "radius_strata_that_lose_zero_exclusion_when_one_network_is_dropped": {
     "flip_cov025_bw000": [
       "Kampen_2014",
