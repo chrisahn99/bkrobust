@@ -214,5 +214,38 @@ oracle on 254 of 254 comparisons.
 
 - **2026-09-16** — Phase 0 complete. Repository read; environment settled on
   `/usr/bin/python3` 3.9.6; committed `asia` rows reproduced exactly; corpus
-  profiled; cost budget probed; the `g0_undirected_edges` defect (item 7 above)
-  found. Nothing generated. This file committed.
+  profiled; cost budget probed; the `g0_undirected_edges` defect found.
+- **2026-09-16** — Phase 1. Pre-registration committed with nine strata, seven
+  falsification triggers and directional predictions for all seven hypotheses.
+- **2026-09-16** — Phase 2. Frame frozen and hashed. **T7 passed**: all 831 radii
+  reproduce `results/axisa3/instances.jsonl` exactly. Appendix A added: the
+  rate-based base wrongness is inert on most of the corpus, so an absolute
+  one-claim level was added as a supplementary stratum.
+- **2026-09-16** — Phase 3. Smoke run at N = 1000 on three cheap networks; every
+  pre-registered check passed, including the polynomial GAC predicate agreeing
+  with the enumeration oracle on 254 of 254 comparisons.
+- **2026-09-16** — Phases 4-6. Sweep launched, 8 workers. Appendix B records two
+  defects: a measurement limit mislabelled as a structural property, and an
+  orchestrator error that ran shards outside the pool (64 discarded and
+  requeued). Appendix C records that the per-shard wall cap was implemented an
+  hour into the run.
+- **2026-09-16** — **P5 falsified.** The flip-arm contradiction rate at depth 1
+  on real structure is **0.0127**, not the predicted 0.65-0.90. Confirmed
+  exhaustively: **5 of 298** single-claim reversals across the whole corpus are
+  rejected by Meek closure, and 46 of 50 cells are exactly zero. The paper's
+  Result D number does not transfer to real structure. Appendix D records the
+  falsification and registers a post-hoc knowledge-model diagnostic, with its
+  directional prediction, before running it.
+- **2026-09-16** — **T5 preview, computed independently of the analysis harness**
+  (`ORCHESTRATOR_T5_CHECK.txt`). The cross-arm pairing is workable but only just:
+  exactly **3** intensity bins carry >= 15 matched instances in both arms, and
+  they are 0.00, 0.05 and 0.10 — a far narrower band than the synthetic
+  0.15-0.65, because real `|dir(G0)|` is large and compresses the normalised
+  intensity. Those bins rest on 8, 8 and 3 networks. The instance-identity hash
+  agrees across the two arms on all 501 instances, so the pairing itself is
+  sound.
+- **2026-09-16** — Scored-unit denominators measured. Flip strata are healthy
+  (540/540, 1579/1629, 1386/1629 at coverage 1.0). **Tiered strata are thin**:
+  60, 176 and 265 scored units on 11, 18 and 19 networks at `n_tiers` 2, 3, 4,
+  the rest lost to `n_k_zero` and `optimal_set_undefined` — the same structural
+  property of the tiered generator that the synthetic Appendix I counted aloud.
