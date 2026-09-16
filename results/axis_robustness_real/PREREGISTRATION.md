@@ -954,3 +954,55 @@ with two of the three intervals excluding zero.
   controlled.
 - **Unchanged:** the nine pre-registered strata. None of this restates them, and
   the primary result remains the weaker one.
+
+---
+
+# Appendix G — 2026-09-16, the contradiction table was counting the same draw once per pair
+
+## G.1 The defect
+
+`real_analyse.build_contradiction_table` pooled the contradiction rate over
+**cells**: it summed `n_contradictory` and `n_draws` across every
+`(instance, grid point)` row in a stratum.
+
+On this corpus that double-counts, heavily. The analyst's knowledge is a property
+of the `(network, coverage)` cell, so the sweep draws **one** corrupted claim set
+per `(shard, grid point)` and scores it against **every** admissible pair of that
+network. Whether a corruption contradicts the CPDAG is a property of that claim
+set alone — it has nothing to do with which `(X, Y)` query is being asked — so a
+network with 95 admissible pairs contributed the same draw 95 times.
+
+The consequence, at flip coverage 1.0, base wrongness 0.00, depth 1:
+
+| | cells pooled | reported `n_draws` | contradiction rate |
+|---|---|---|---|
+| as computed (pair-weighted) | 445 | **445,000** | **0.0117** |
+| correct (draw-set weighted) | 445 | **22,000** | **0.0270** |
+
+The draw total was inflated by a factor of twenty, and the rate itself moved by
+more than a factor of two, because networks were weighted by their pair count.
+
+**No τ, no endpoint and no survival number is affected** — those are per-pair
+quantities and are correctly per-pair. Only the contradiction series was wrong.
+
+## G.2 What caught it
+
+The orchestrator's own independent recomputation, which had deduplicated by
+`(shard_id, grid_point)` from the start precisely because the draw-set is shared,
+and which therefore disagreed with the harness. The disagreement was noticed only
+because the two were compared; each number was individually plausible, and a
+contradiction rate of 0.0117 would have been reported without anything looking
+wrong.
+
+## G.3 The fix
+
+The primary `contradiction_rate` is now computed over **distinct draw-sets**, and
+the pair-weighted figure is reported beside it as
+`contradiction_rate_pair_weighted` rather than discarded, so the two can never be
+silently confused again. `n_draw_sets` is printed so the real amount of evidence
+is visible.
+
+**Every contradiction-rate number in the report is the draw-set-weighted one**,
+and the P5 falsification of Appendix D is unaffected: it was computed by the
+orchestrator's deduplicating script and independently confirmed by an exhaustive
+enumeration that involves no sampling at all.

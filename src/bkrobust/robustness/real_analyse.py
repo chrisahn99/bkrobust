@@ -892,16 +892,29 @@ def build_separation_table(
 # ---------------------------------------------------------------------------
 
 CONTRADICTION_COLUMNS: list[str] = [
-    "arm", "stratum", "grid_point", "n_cells", "n_draws", "n_contradictory", "contradiction_rate",
+    "arm", "stratum", "grid_point", "n_cells", "n_draw_sets", "n_draws",
+    "n_contradictory", "contradiction_rate", "n_draws_pair_weighted",
+    "contradiction_rate_pair_weighted",
 ]
 
 
 def build_contradiction_table(loaded_shards: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Builds ``analysis_contradiction.csv``.
 
-    Pooled per (arm, stratum, grid_point): the contradiction rate is the sum
-    of contradictory draws over the sum of all draws across every cell in
-    that group -- never the mean of the per-cell rates.
+    **The unit here is the draw-set, not the cell.** On this corpus the
+    analyst's knowledge is a property of the ``(network, coverage)`` pair, so a
+    single corrupted claim set is drawn once per ``(shard, grid point)`` and
+    scored against **every** admissible pair of that network. Whether a
+    corruption contradicts the CPDAG is a property of that claim set alone and
+    has nothing to do with which ``(X, Y)`` query is being asked, so pooling
+    over cells would count the same draw once per pair -- weighting each network
+    by its pair count and inflating the apparent draw total by more than an
+    order of magnitude (445,000 against a true 22,000 at depth 1).
+
+    The primary ``contradiction_rate`` is therefore computed over **distinct
+    draw-sets**, keyed by ``(shard_id, grid_point)``. The pair-weighted figure
+    is reported beside it as ``contradiction_rate_pair_weighted`` rather than
+    discarded, so the two can never be silently confused again.
 
     Args:
         loaded_shards: Loaded ``flip`` and ``tiered`` shards (``xarm`` shards
@@ -910,8 +923,9 @@ def build_contradiction_table(loaded_shards: list[dict[str, Any]]) -> list[dict[
     Returns:
         Rows in (arm, stratum, grid_point) order.
     """
-    groups: dict[tuple[str, str, Any], dict[str, int]] = defaultdict(
-        lambda: {"n_contra": 0, "n_draws": 0, "n_cells": 0}
+    groups: dict[tuple[str, str, Any], dict[str, Any]] = defaultdict(
+        lambda: {"n_contra": 0, "n_draws": 0, "n_cells": 0,
+                 "n_contra_pw": 0, "n_draws_pw": 0, "seen": set()}
     )
     for shard in loaded_shards:
         if shard["kind"] not in ("flip", "tiered"):
@@ -924,19 +938,28 @@ def build_contradiction_table(loaded_shards: list[dict[str, Any]]) -> list[dict[
                 stratum = flip_stratum_tag(c["coverage"], c.get("base_wrongness"), c.get("bw_abs"))
             else:
                 stratum = tiered_stratum_tag(c["n_tiers"])
-            key = (arm, stratum, c["grid_point"])
-            g = groups[key]
+            g = groups[(arm, stratum, c["grid_point"])]
+            g["n_cells"] += 1
+            g["n_contra_pw"] += c.get("n_contradictory") or 0
+            g["n_draws_pw"] += c.get("n_draws") or 0
+            draw_set = (c["shard_id"], c["grid_point"])
+            if draw_set in g["seen"]:
+                continue
+            g["seen"].add(draw_set)
             g["n_contra"] += c.get("n_contradictory") or 0
             g["n_draws"] += c.get("n_draws") or 0
-            g["n_cells"] += 1
 
     rows = []
     for (arm, stratum, gp), g in groups.items():
-        rate = (g["n_contra"] / g["n_draws"]) if g["n_draws"] else None
         rows.append({
             "arm": arm, "stratum": stratum, "grid_point": gp,
-            "n_cells": g["n_cells"], "n_draws": g["n_draws"],
-            "n_contradictory": g["n_contra"], "contradiction_rate": rate,
+            "n_cells": g["n_cells"], "n_draw_sets": len(g["seen"]),
+            "n_draws": g["n_draws"], "n_contradictory": g["n_contra"],
+            "contradiction_rate": (g["n_contra"] / g["n_draws"]) if g["n_draws"] else None,
+            "n_draws_pair_weighted": g["n_draws_pw"],
+            "contradiction_rate_pair_weighted": (
+                (g["n_contra_pw"] / g["n_draws_pw"]) if g["n_draws_pw"] else None
+            ),
         })
     return sorted(rows, key=lambda r: (r["arm"], r["stratum"], r["grid_point"]))
 
