@@ -673,16 +673,19 @@ an hour into the run.
   `status == "censored_wall_cap"`, `n_draws == 0` and `wall_until_timeout_s`
   set, it is excluded from every endpoint, and any unit containing one carries
   `endpoint_censored = True`.
-- The eight shards already in flight when the cap landed ran, and will finish,
+- The eight shards already in flight when the cap landed ran, and finished,
   **uncapped**: a running worker holds the code it was launched with, so the cap
-  cannot apply to them retroactively. Four of them — the `pathfinder` flip
-  shards — were still running when this appendix was written, at about 1 h 50 m
-  each and roughly half way through their grids, which projects to between
-  3 and 6 hours. **One or more of them may therefore exceed the 5-hour cap that
-  §5.4 pre-registered**, and if so it will have run to completion rather than
-  being censored. The realised elapsed time of **every** shard is recorded in its
-  completion marker; the final report states the maximum observed against the
-  18,000 s cap and names any shard that exceeded it.
+  could not apply to them retroactively. When this appendix was first written the
+  four `pathfinder` flip shards were about half way through their grids and the
+  projection was "between 3 and 6 hours", with the warning that one or more might
+  exceed the pre-registered 5 hours.
+
+  **They did not.** *(Resolved 2026-09-16, after completion.)* All four finished
+  at **3.00–3.01 hours** — 10,836 s for `bw000__r0` and 10,798 s for `bwa1__r0`,
+  against the 18,000 s cap. **No shard in this campaign exceeded the
+  pre-registered wall cap, and none was censored by it**: `n_censored_cells` is
+  0 across all 725 shards. The realised elapsed time of every shard is in its
+  completion marker and can be checked against 18,000 s.
 - Every other shard in the campaign ran under the cap as implemented.
 - Uncapped is the scientifically cleaner outcome here, since a fired cap would
   have removed data rather than added it: an over-running shard yields a

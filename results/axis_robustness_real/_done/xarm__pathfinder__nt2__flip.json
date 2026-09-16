@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__pathfinder__nt2__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "pathfinder",
+    "n_tiers": 2,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 0,
+  "n_cells": 0,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "o_g0_extensions_intractable",
+  "n_k": 52,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.0,
+  "instances_path": "results/axis_robustness_real/shards/xarm__pathfinder__nt2__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__pathfinder__nt2__flip.cells.jsonl",
+  "instances_sha256": "61de62c79534b36ca33209ebf9b67200ab67960471a3ac5dea7dc67c90856986",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "408feb79ab879457e558d68241e6e9b1fc828687",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T06:22:28Z"
+}

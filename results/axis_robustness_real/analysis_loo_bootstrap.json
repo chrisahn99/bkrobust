@@ -1,0 +1,40 @@
+{
+  "note": "POST-HOC. The pre-registered point-estimate LOO is reported unchanged in analysis_tau.csv.",
+  "n_rows": 676,
+  "radius_strata_that_lose_zero_exclusion_when_one_network_is_dropped": {
+    "flip_cov025_bw000": [
+      "Kampen_2014",
+      "Polzer_2012",
+      "insurance"
+    ],
+    "flip_cov100_bwa1": [
+      "Kampen_2014",
+      "Polzer_2012",
+      "barley",
+      "insurance"
+    ],
+    "tiered_nt2": [
+      "magic-irri",
+      "paths"
+    ],
+    "tiered_nt3": [
+      "paths"
+    ]
+  },
+  "radius_strata_whose_interval_excludes_zero_with_all_networks": [
+    "flip_cov025_bw000",
+    "flip_cov025_bw010",
+    "flip_cov025_bw025",
+    "flip_cov050_bwa1",
+    "flip_cov100_bwa1",
+    "tiered_nt2",
+    "tiered_nt3",
+    "tiered_nt4"
+  ],
+  "radius_strata_robust_to_dropping_any_single_network": [
+    "flip_cov025_bw010",
+    "flip_cov025_bw025",
+    "flip_cov050_bwa1",
+    "tiered_nt4"
+  ]
+}
