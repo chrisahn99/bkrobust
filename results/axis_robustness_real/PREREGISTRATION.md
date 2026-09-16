@@ -885,3 +885,72 @@ minimal generator is.
   nine strata are the pre-registered result and they are weaker than the
   synthetic ones; that is the headline, and this appendix is the explanation
   offered for it, not a replacement.
+
+---
+
+# Appendix F — 2026-09-16, CORRECTING Appendix E.2: the leverage explanation does not survive a control
+
+## F.1 What E.2 claimed, and why it is withdrawn
+
+Appendix E.2 offered **leverage** `k_g0 / |K|` as the explanation for the weak
+flip-arm result, on the strength of a split showing τ_b(`r_hop`, AUC) larger and
+tighter where `|K| == k_g0` than where leverage is large. **That explanation is
+withdrawn.** It is confounded with `|K|`, and when `|K|` is controlled the pattern
+does not merely weaken — it **reverses**.
+
+Restricting to `|K| ≥ 3` and then splitting by leverage, same cluster bootstrap
+over networks:
+
+| stratum | `\|K\| ≥ 3`, leverage ≤ 2 | `\|K\| ≥ 3`, leverage > 2 | `\|K\| ≥ 3`, all |
+|---|---|---|---|
+| flip cov=1.0 bw=0.00 | +0.058 [−0.147, +0.290] | +0.596 [+0.000, +0.673] | +0.286 [−0.021, +0.513] |
+| flip cov=1.0 bw=0.10 | +0.235 [+0.075, +0.353] | +0.582 [+0.241, +0.639] | +0.376 [+0.157, +0.528] |
+| flip cov=1.0 bw=0.25 | +0.407 [+0.287, +0.511] | +0.674 [−0.344, +0.877] | +0.583 [+0.327, +0.684] |
+
+High leverage now looks **better**, not worse, in all three strata. The
+high-leverage bands rest on **3 to 4 networks** apiece, so their intervals are
+close to meaningless either way — which is itself reason enough not to have built
+an explanation on them. Across the 24 networks, τ_b(`|K|`, leverage) = **−0.395**:
+the two are entangled, because a large chain component with a single minimal
+generator produces high leverage and small `|K|` at once.
+
+**This is a correction to the orchestrator's own post-hoc analysis, recorded in
+order rather than edited into E.2.** E.2's numbers are correct as computed; its
+*interpretation* was wrong, and it was wrong in the direction that made the
+campaign's story tidier, which is exactly when a claim needs the most scepticism.
+
+## F.2 The explanation that does survive
+
+What actually distinguishes the two bands in E.2 is not leverage but **`|K|`**,
+through a design–corpus interaction that has nothing to do with the radius:
+
+> The flip arm's depth grid is **fractional**. At `|K| = 1` the only corruption
+> the arm can draw is "reverse everything". So a network whose analyst asserted
+> one claim has its survival endpoint pinned at **exactly 0**, by construction,
+> whatever its radius.
+
+Five of the 24 networks at coverage 1.0 are pinned at a median AUC of exactly 0 —
+`Acid_1996`, `Didelez_2010`, `hailfinder`, `mediator`, `paths` — and **all five
+have `|K| ≤ 3`**, while their leverage spans 1.0 to 17.0. Conversely `child`, at
+leverage 6.0, is not pinned. Leverage does not sort them; `|K|` does.
+
+Removing them — a **post-hoc sensitivity, labelled as one** — raises τ_b(`r_hop`)
+in all three coverage-1.0 flip strata, to **+0.286**, **+0.376** and **+0.583**,
+with two of the three intervals excluding zero.
+
+## F.3 What is claimed after the correction
+
+- **Claimed:** on this corpus the flip arm's fractional depth grid interacts with
+  a greedy-minimal generator set to pin the endpoint at zero on the small-`|K|`
+  networks, and those networks sit at the bottom of the endpoint ranking
+  irrespective of their radius. Removing them substantially strengthens the
+  radius's rank correlation. This is a property of the **measurement design
+  applied to this corpus**, not of the radius and not of real structure.
+- **Claimed:** the `paths` spotlight stands unchanged. It does not depend on the
+  leverage explanation; it depends only on `|K| = 1`, `k_g0 = 14`, radii spanning
+  1–14 and survival exactly 0, all of which are exhaustively enumerated facts.
+- **Withdrawn:** E.2's claim that the radius ranks survival *because* the
+  analyst's knowledge is Meek-closed. The data do not support it once `|K|` is
+  controlled.
+- **Unchanged:** the nine pre-registered strata. None of this restates them, and
+  the primary result remains the weaker one.
