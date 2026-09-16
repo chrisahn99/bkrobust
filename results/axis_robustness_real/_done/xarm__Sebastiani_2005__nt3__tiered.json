@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Sebastiani_2005__nt3__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Sebastiani_2005",
+    "n_tiers": 3,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 5,
+  "n_scored": 1,
+  "n_cells": 10,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "cache": {
+    "graph_hits": 8673,
+    "graph_misses": 1327,
+    "verdict_hits": 6773,
+    "verdict_misses": 896
+  },
+  "elapsed_s": 2.914,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Sebastiani_2005__nt3__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Sebastiani_2005__nt3__tiered.cells.jsonl",
+  "instances_sha256": "e06cf4835b88d3136d1bce987fb622f9796c789ca8da04633e01233f8a89de7c",
+  "cells_sha256": "d2e687d220fb44e2e86de3537bde439977380e7be6787e12c2fdb60051135834",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:06Z"
+}

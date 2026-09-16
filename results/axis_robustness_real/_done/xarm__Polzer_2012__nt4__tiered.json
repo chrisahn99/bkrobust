@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Polzer_2012__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Polzer_2012",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 49,
+  "n_scored": 18,
+  "n_cells": 180,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 4,
+  "cache": {
+    "graph_hits": 9022,
+    "graph_misses": 978,
+    "verdict_hits": 112320,
+    "verdict_misses": 8874
+  },
+  "elapsed_s": 3.16,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Polzer_2012__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Polzer_2012__nt4__tiered.cells.jsonl",
+  "instances_sha256": "6eeaccad2a67fefc79b9d9045727179d09c3a6068a5b688ac92e635aa635d584",
+  "cells_sha256": "e264f2f7b420d460b85b0ba98e9c1ef0350db39b7f1f36d649a6269f8c365960",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:25:14Z"
+}

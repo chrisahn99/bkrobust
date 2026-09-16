@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__Sebastiani_2005__cov100__bw010__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "Sebastiani_2005",
+    "coverage": 1.0,
+    "base_wrongness": 0.1,
+    "bw_abs": null,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 5,
+  "n_scored": 5,
+  "n_cells": 35,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 7,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 6873,
+    "graph_misses": 127,
+    "verdict_hits": 14575,
+    "verdict_misses": 315
+  },
+  "elapsed_s": 0.233,
+  "instances_path": "results/axis_robustness_real/shards/flip__Sebastiani_2005__cov100__bw010__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__Sebastiani_2005__cov100__bw010__r1.cells.jsonl",
+  "instances_sha256": "5aa94b425fdafa6b35e425f32c647e429cb27f26c8e84edef6e490e5cf70ce89",
+  "cells_sha256": "828e8a13e2bcb9d6b1e8113ba6fa5a51e5386c08557def3d236c141502a05174",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:07Z"
+}

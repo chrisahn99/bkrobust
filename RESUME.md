@@ -74,38 +74,46 @@ large, never too small (`THEOREMS.md` §4c, §6, §8).
 
 | | |
 |---|---|
-| **Active phase** | Phase 4-6 — the sweep is running |
+| **Active phase** | Phase 7 — analysis (sweep essentially complete) |
 | **Shards total** | 725 |
-| **Shards complete** | see `run_real_survival status` (90 at the time of writing) |
-| **Shards in flight** | up to 8, driven by the `pool` command |
-| **Failed shards** | none so far; the pool prints `FAIL <id>` and leaves no marker, so a failed shard is simply redone |
-| **Committed so far** | `RESUME.md`; the pre-registration, environment and determinism checks; the frozen frame and the sweep machinery; the Phase-3 smoke run |
+| **Shards complete** | 715+; the last four `pathfinder` flip shards were still running at about 1 h 50 m each |
+| **Shards in flight** | the tail of the pool |
+| **Failed shards** | none. 6 were re-run after a labelling fix and 64 were discarded and requeued after an operator error — both recorded in `PREREGISTRATION.md` Appendix B |
+| **Committed** | `RESUME.md`; pre-registration + Appendices A-C; environment and determinism checks; the frozen frame; the sweep machinery; the Phase-3 smoke run; the sweep output |
 | **Results subtree** | `results/axis_robustness_real/` |
 
 ### Exact next command
 
-To start, resume or top up the sweep — safe to run repeatedly, it skips every
-shard that already has a completion marker:
+**1. Finish the sweep.** The pool must be re-invoked once after it exits, because
+a worker that dequeued a shard while that shard briefly carried a stale
+completion marker will have skipped it (Appendix B.2). Re-invoking is safe and
+idempotent — it skips every shard that has a marker:
 
 ```
 cd /Users/ahn/Documents/Research/iclr27/bkrobust
 PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.run_real_survival pool --workers 8 --n-draws 1000
 ```
 
-To see how far it has got:
+**2. Check the count reaches 725 before quoting any analysis:**
 
 ```
 PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.run_real_survival status
 ```
 
-If the machine is interrupted, **nothing needs cleaning up**: a shard with no
-marker in `results/axis_robustness_real/_done/` is redone from scratch, and the
-pool re-enumerates the pending list every time it starts.
+**3. Then the analysis:**
+
+```
+PYTHONPATH=src /usr/bin/python3 -m bkrobust.robustness.real_analyse
+```
+
+If the machine is interrupted at any point, **nothing needs cleaning up**: a
+shard with no marker in `results/axis_robustness_real/_done/` is redone from
+scratch, and the pool re-enumerates the pending list every time it starts.
 
 Phases 0-3 are complete and committed. Phase 3's smoke run passed every
-pre-registered check (see `results/axis_robustness_real/SMOKE_CHECKS.txt`),
-including T4, T6 and T7, and the polynomial GAC predicate agreeing with the
-enumeration oracle on 254 of 254 comparisons.
+pre-registered check (`results/axis_robustness_real/SMOKE_CHECKS.txt`), including
+T4, T6 and T7, and the polynomial GAC predicate agreeing with the enumeration
+oracle on 254 of 254 comparisons.
 
 ---
 

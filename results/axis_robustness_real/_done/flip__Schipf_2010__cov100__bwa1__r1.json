@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__Schipf_2010__cov100__bwa1__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "Schipf_2010",
+    "coverage": 1.0,
+    "base_wrongness": null,
+    "bw_abs": 1,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 4,
+  "n_cells": 12,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 3,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 2993,
+    "graph_misses": 7,
+    "verdict_hits": 9316,
+    "verdict_misses": 20
+  },
+  "elapsed_s": 0.068,
+  "instances_path": "results/axis_robustness_real/shards/flip__Schipf_2010__cov100__bwa1__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__Schipf_2010__cov100__bwa1__r1.cells.jsonl",
+  "instances_sha256": "80e74b8990982cf0772eaa3b53129597bb2e37e40fd65e6c4e27f4d2f6695599",
+  "cells_sha256": "c97122afc219f6854e75c502abf778f04607131c05957b3b9642d9843b93f508",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:11Z"
+}

@@ -73,6 +73,15 @@ REPLICATES_ABS: int = 3
 #: Tier counts, mirroring the synthetic design.
 N_TIERS: tuple[int, ...] = (2, 3, 4)
 
+#: Pre-registered per-shard wall cap (§5.4). It is a **safety net**, not a
+#: scientific parameter: grid points are swept in ascending order, so a cap that
+#: fires truncates the *high-intensity end* of a curve, which is a bias and must
+#: be flagged wherever it happens. A censored grid point is written as a cell
+#: with ``status == "censored_wall_cap"``, ``n_draws == 0`` and
+#: ``wall_until_timeout_s`` set -- never with a key a real measurement uses, and
+#: never silently dropped.
+SHARD_WALL_CAP_S: float = 18000.0
+
 
 # --- frame --------------------------------------------------------------------
 
@@ -236,6 +245,32 @@ def sha_file(path: Path) -> str:
 # --- the three shard kinds ----------------------------------------------------
 
 
+def _censored_cell(template: dict[str, Any], grid_point: Any, elapsed: float) -> dict[str, Any]:
+    """A cell row for a grid point the wall cap prevented us from measuring.
+
+    Args:
+        template: A completed cell row from the same shard, whose identity
+            columns are reused.
+        grid_point: The grid point that was not measured.
+        elapsed: Shard wall clock at the moment the cap fired.
+
+    Returns:
+        The censored cell row.
+    """
+    row = dict(template)
+    row.update({
+        "grid_point": grid_point,
+        "n_draws": 0, "n_eval": 0, "n_contradictory": 0, "n_survived": 0,
+        "contradiction_rate": None, "S": None, "S_contra_as_fail": None,
+        "status": "censored_wall_cap", "wall_until_timeout_s": round(elapsed, 3),
+    })
+    for k in ("symdiff_proxy_not_distance_median", "median_intensity",
+              "intensity_bin", "d_claims_defective_do_not_bin"):
+        if k in row:
+            row[k] = None
+    return row
+
+
 def _instance_base(spec: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
     """The columns every instance row carries, whatever its status.
 
@@ -268,7 +303,8 @@ def _instance_base(spec: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
 
 
 def run_flip_shard(
-    spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int
+    spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int,
+    wall_cap_s: float = SHARD_WALL_CAP_S,
 ) -> dict[str, Any]:
     """Run one flip-arm shard: one network, coverage, base wrongness and analyst.
 
@@ -354,10 +390,20 @@ def run_flip_shard(
             scored.append((irow, z_star))
 
     n_cells = 0
+    n_censored = 0
+    last_cells: list[dict[str, Any]] = []
     with JsonlWriter(cell_path) as cw:
         if g0 is not None and scored:
             cache = rs.ClosureCache(cpdag)
-            for d in rs.depth_grid(len(k_b)):
+            grid_all = rs.depth_grid(len(k_b))
+            for gi, d in enumerate(grid_all):
+                if time.perf_counter() - t0 > wall_cap_s:
+                    for gp in grid_all[gi:]:
+                        for tmpl in last_cells:
+                            cw.write(_censored_cell(tmpl, gp, time.perf_counter() - t0))
+                            n_cells += 1
+                            n_censored += 1
+                    break
                 n_contra = 0
                 survived = [0] * len(scored)
                 symdiffs: list[int] = []
@@ -388,6 +434,8 @@ def run_flip_shard(
                     }
                     cw.write(crow)
                     n_cells += 1
+                    last_cells = [c for c in last_cells if c["frame_row_id"] != crow["frame_row_id"]]
+                    last_cells.append(crow)
             hits = {"graph_hits": cache.graph_hits, "graph_misses": cache.graph_misses,
                     "verdict_hits": cache.verdict_hits, "verdict_misses": cache.verdict_misses}
         else:
@@ -396,6 +444,7 @@ def run_flip_shard(
     return {
         "shard_id": sid, "kind": "flip", "spec": spec, "n_draws": n_draws,
         "n_frame_rows": len(rows), "n_scored": len(scored), "n_cells": n_cells,
+        "n_cells_censored_wall_cap": n_censored, "wall_cap_s": wall_cap_s,
         "g0_status": g0_reason, "n_k": len(k_b),
         "n_claims_actually_wrong": shared["n_claims_actually_wrong"],
         "bw_is_inert": shared["bw_is_inert"], "cache": hits,
@@ -404,7 +453,8 @@ def run_flip_shard(
 
 
 def run_tiered_shard(
-    spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int
+    spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int,
+    wall_cap_s: float = SHARD_WALL_CAP_S,
 ) -> dict[str, Any]:
     """Run one tiered-arm shard: one network and tier count.
 
@@ -487,10 +537,19 @@ def run_tiered_shard(
             scored.append((irow, z_star))
 
     n_cells = 0
+    n_censored = 0
+    last_cells: list[dict[str, Any]] = []
     with JsonlWriter(cell_path) as cw:
         if g0 is not None and scored:
             cache = rs.ClosureCache(cpdag)
-            for rate in rs.RATE_GRID:
+            for gi, rate in enumerate(rs.RATE_GRID):
+                if time.perf_counter() - t0 > wall_cap_s:
+                    for gp in rs.RATE_GRID[gi:]:
+                        for tmpl in last_cells:
+                            cw.write(_censored_cell(tmpl, gp, time.perf_counter() - t0))
+                            n_cells += 1
+                            n_censored += 1
+                    break
                 n_contra = 0
                 survived = [0] * len(scored)
                 symdiffs: list[int] = []
@@ -524,6 +583,8 @@ def run_tiered_shard(
                     }
                     cw.write(crow)
                     n_cells += 1
+                    last_cells = [c for c in last_cells if c["frame_row_id"] != crow["frame_row_id"]]
+                    last_cells.append(crow)
             hits = {"graph_hits": cache.graph_hits, "graph_misses": cache.graph_misses,
                     "verdict_hits": cache.verdict_hits, "verdict_misses": cache.verdict_misses}
         else:
@@ -532,13 +593,15 @@ def run_tiered_shard(
     return {
         "shard_id": sid, "kind": "tiered", "spec": spec, "n_draws": n_draws,
         "n_frame_rows": len(rows), "n_scored": len(scored), "n_cells": n_cells,
+        "n_cells_censored_wall_cap": n_censored, "wall_cap_s": wall_cap_s,
         "g0_status": g0_reason, "n_k": len(k_ref), "cache": hits,
         "elapsed_s": round(time.perf_counter() - t0, 3),
     }
 
 
 def run_xarm_shard(
-    spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int
+    spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int,
+    wall_cap_s: float = SHARD_WALL_CAP_S,
 ) -> dict[str, Any]:
     """Run one cross-arm shard: one network, tier count and corruption process.
 
@@ -646,10 +709,19 @@ def run_xarm_shard(
     grid = rs.XARM_TIERED_RATE_GRID if arm == "tiered" else rs.depth_grid(len(k_ref)) if k_ref else ()
 
     n_cells = 0
+    n_censored = 0
+    last_cells: list[dict[str, Any]] = []
     with JsonlWriter(cell_path) as cw:
         if not blocked and scored and grid:
             cache = rs.ClosureCache(cpdag)
-            for gp in grid:
+            for gi, gp in enumerate(grid):
+                if time.perf_counter() - t0 > wall_cap_s:
+                    for gpx in grid[gi:]:
+                        for tmpl in last_cells:
+                            cw.write(_censored_cell(tmpl, gpx, time.perf_counter() - t0))
+                            n_cells += 1
+                            n_censored += 1
+                    break
                 n_contra = 0
                 survived = [0] * len(scored)
                 intens: list[float] = []
@@ -685,6 +757,8 @@ def run_xarm_shard(
                     }
                     cw.write(crow)
                     n_cells += 1
+                    last_cells = [c for c in last_cells if c["frame_row_id"] != crow["frame_row_id"]]
+                    last_cells.append(crow)
             hits = {"graph_hits": cache.graph_hits, "graph_misses": cache.graph_misses,
                     "verdict_hits": cache.verdict_hits, "verdict_misses": cache.verdict_misses}
         else:
@@ -693,6 +767,7 @@ def run_xarm_shard(
     return {
         "shard_id": sid, "kind": "xarm", "spec": spec, "n_draws": n_draws,
         "n_frame_rows": len(rows), "n_scored": len(scored), "n_cells": n_cells,
+        "n_cells_censored_wall_cap": n_censored, "wall_cap_s": wall_cap_s,
         "g0_status": shared["g0_status"], "n_k": len(k_ref), "cache": hits,
         "elapsed_s": round(time.perf_counter() - t0, 3),
     }
@@ -738,7 +813,8 @@ def estimated_cost_s(spec: dict[str, Any], frame: list[dict[str, Any]], n_draws:
     return n_grid * n_draws * (closure + 0.0004 * len(rows))
 
 
-def run_one(spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int) -> dict[str, Any]:
+def run_one(spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_draws: int,
+            wall_cap_s: float = SHARD_WALL_CAP_S) -> dict[str, Any]:
     """Run one shard and write its completion marker.
 
     The marker is written last, and only on success, so a killed shard leaves no
@@ -754,7 +830,7 @@ def run_one(spec: dict[str, Any], frame: list[dict[str, Any]], out_dir: Path, n_
         The marker payload.
     """
     sid = shard_id(spec)
-    payload = RUNNERS[spec["kind"]](spec, frame, out_dir, n_draws)
+    payload = RUNNERS[spec["kind"]](spec, frame, out_dir, n_draws, wall_cap_s)
     inst = out_dir / "shards" / f"{sid}.instances.jsonl"
     cell = out_dir / "shards" / f"{sid}.cells.jsonl"
     payload.update({
@@ -786,6 +862,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument("--n-draws", type=int, default=rs.N_DRAWS_DEFAULT)
     p.add_argument("--force", action="store_true", help="rerun a completed shard")
     p.add_argument("--workers", type=int, default=8, help="parallel shards, for `pool`")
+    p.add_argument("--wall-cap-s", type=float, default=SHARD_WALL_CAP_S)
     return p
 
 
@@ -828,7 +905,8 @@ def run_pool(specs: list[dict[str, Any]], frame: list[dict[str, Any]], out_dir: 
             log = (logdir / f"{sid}.log").open("w")
             proc = subprocess.Popen(
                 [sys.executable, "-m", "bkrobust.robustness.run_real_survival", "run",
-                 "--shard", sid, "--out-dir", str(out_dir), "--n-draws", str(n_draws)],
+                 "--shard", sid, "--out-dir", str(out_dir), "--n-draws", str(n_draws),
+                 "--wall-cap-s", str(SHARD_WALL_CAP_S)],
                 stdout=log, stderr=subprocess.STDOUT,
             )
             running[sid] = (proc, log)
@@ -891,7 +969,7 @@ def main(argv: list[str] | None = None) -> int:
     if is_complete(out_dir, args.shard) and not args.force:
         print(json.dumps({"shard_id": args.shard, "skipped": "already complete"}))
         return 0
-    payload = run_one(by_id[args.shard], frame, out_dir, args.n_draws)
+    payload = run_one(by_id[args.shard], frame, out_dir, args.n_draws, args.wall_cap_s)
     print(json.dumps({k: payload[k] for k in
                       ("shard_id", "n_frame_rows", "n_scored", "n_cells", "g0_status", "elapsed_s")}))
     return 0

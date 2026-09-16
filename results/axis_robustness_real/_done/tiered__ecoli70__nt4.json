@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__ecoli70__nt4",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "ecoli70",
+    "n_tiers": 4
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 22,
+  "n_scored": 3,
+  "n_cells": 33,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 14,
+  "cache": {
+    "graph_hits": 2848,
+    "graph_misses": 8152,
+    "verdict_hits": 6945,
+    "verdict_misses": 4494
+  },
+  "elapsed_s": 57.904,
+  "instances_path": "results/axis_robustness_real/shards/tiered__ecoli70__nt4.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__ecoli70__nt4.cells.jsonl",
+  "instances_sha256": "a1c0dbd7fe2d9bb1ff278b797bab5ef5a4270768da6f736b57885c1cc8e4fb3c",
+  "cells_sha256": "415cf9fd69a057b7c64ce27911d43f7fbc6ae43fa47d42d4d5d32c980dd269bd",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:26:13Z"
+}

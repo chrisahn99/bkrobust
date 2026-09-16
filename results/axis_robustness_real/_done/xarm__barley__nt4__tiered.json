@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__barley__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "barley",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 85,
+  "n_scored": 74,
+  "n_cells": 740,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "cache": {
+    "graph_hits": 7356,
+    "graph_misses": 2644,
+    "verdict_hits": 290302,
+    "verdict_misses": 70226
+  },
+  "elapsed_s": 14.994,
+  "instances_path": "results/axis_robustness_real/shards/xarm__barley__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__barley__nt4__tiered.cells.jsonl",
+  "instances_sha256": "90c7bf67488c6ee30400fb3f1b7189f13905e293e87b85c3d01cd7fe3eba8566",
+  "cells_sha256": "c11e208d40109551483b0669f518f8af0369aafef5f55ce871efefe7809e188b",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:24:55Z"
+}

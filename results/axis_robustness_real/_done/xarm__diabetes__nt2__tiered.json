@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__diabetes__nt2__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "diabetes",
+    "n_tiers": 2,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 89,
+  "n_scored": 0,
+  "n_cells": 0,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "n_k_zero",
+  "n_k": 0,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.002,
+  "instances_path": "results/axis_robustness_real/shards/xarm__diabetes__nt2__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__diabetes__nt2__tiered.cells.jsonl",
+  "instances_sha256": "02dc6b628d49c22366176be5c94e0b4cf05db510798e2fcfacd2e8dcd442884c",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:05:15Z"
+}

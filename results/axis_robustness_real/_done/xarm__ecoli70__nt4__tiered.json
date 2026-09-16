@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__ecoli70__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "ecoli70",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 22,
+  "n_scored": 3,
+  "n_cells": 30,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 14,
+  "cache": {
+    "graph_hits": 1824,
+    "graph_misses": 8176,
+    "verdict_hits": 3957,
+    "verdict_misses": 4386
+  },
+  "elapsed_s": 59.127,
+  "instances_path": "results/axis_robustness_real/shards/xarm__ecoli70__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__ecoli70__nt4__tiered.cells.jsonl",
+  "instances_sha256": "b3d7dc49288a213de102c07790a8d3c2df1fe8fcdec20d9b8264651095abb528",
+  "cells_sha256": "a2e1332b5675fb58a5f538b833c04fc35b8b9ad0b22bc2cfe1b8613e3aef9425",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:27:55Z"
+}

@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__hailfinder__cov100__bw000__r0",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "hailfinder",
+    "coverage": 1.0,
+    "base_wrongness": 0.0,
+    "bw_abs": null,
+    "replicate": 0
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 11,
+  "n_cells": 11,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 999,
+    "graph_misses": 1,
+    "verdict_hits": 10989,
+    "verdict_misses": 11
+  },
+  "elapsed_s": 0.176,
+  "instances_path": "results/axis_robustness_real/shards/flip__hailfinder__cov100__bw000__r0.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__hailfinder__cov100__bw000__r0.cells.jsonl",
+  "instances_sha256": "0bbd64fbaf31596dbe05a7d8c04167f8165dad531fe5cf0349406ec8c8339c5d",
+  "cells_sha256": "8e895627d335cc40d70a9ea6df002bf0c260c2a50e0eff44cc39a80eae0f17f2",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:31Z"
+}

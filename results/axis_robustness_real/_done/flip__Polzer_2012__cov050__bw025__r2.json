@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__Polzer_2012__cov050__bw025__r2",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "Polzer_2012",
+    "coverage": 0.5,
+    "base_wrongness": 0.25,
+    "bw_abs": null,
+    "replicate": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 10,
+  "n_scored": 10,
+  "n_cells": 20,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": true,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 19970,
+    "verdict_misses": 30
+  },
+  "elapsed_s": 0.114,
+  "instances_path": "results/axis_robustness_real/shards/flip__Polzer_2012__cov050__bw025__r2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__Polzer_2012__cov050__bw025__r2.cells.jsonl",
+  "instances_sha256": "c9f54194324201bc13de27454ee528fef7be4f8a061852a83c57e2585a1787e7",
+  "cells_sha256": "dbbac9bdd326ce29d42d1f3807bf544f6554e5b445173e20044722ee426d8cc4",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:35Z"
+}

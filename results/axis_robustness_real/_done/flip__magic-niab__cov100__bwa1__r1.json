@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__magic-niab__cov100__bwa1__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "magic-niab",
+    "coverage": 1.0,
+    "base_wrongness": null,
+    "bw_abs": 1,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 21,
+  "n_scored": 21,
+  "n_cells": 168,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 8,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 7745,
+    "graph_misses": 255,
+    "verdict_hits": 99771,
+    "verdict_misses": 4011
+  },
+  "elapsed_s": 0.83,
+  "instances_path": "results/axis_robustness_real/shards/flip__magic-niab__cov100__bwa1__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__magic-niab__cov100__bwa1__r1.cells.jsonl",
+  "instances_sha256": "c9ff10c534820065311b5d8b825364967db020406d1773790908efe0d0f91557",
+  "cells_sha256": "b4773c2be85e3a6e9a84558cbb8207d5139f23a536eb696246fe3781a215a21e",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:05Z"
+}

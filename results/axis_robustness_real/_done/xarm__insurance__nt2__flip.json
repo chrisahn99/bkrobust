@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__insurance__nt2__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "insurance",
+    "n_tiers": 2,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 95,
+  "n_scored": 0,
+  "n_cells": 0,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "o_g0_extensions_intractable",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.001,
+  "instances_path": "results/axis_robustness_real/shards/xarm__insurance__nt2__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__insurance__nt2__flip.cells.jsonl",
+  "instances_sha256": "31b33d3efbbb9327bd95313b48a21b7ca422fdad867be506d2cc2ee516553e61",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:23:30Z"
+}

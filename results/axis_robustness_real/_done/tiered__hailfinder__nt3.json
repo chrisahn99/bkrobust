@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__hailfinder__nt3",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "hailfinder",
+    "n_tiers": 3
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 11,
+  "n_cells": 121,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 4008,
+    "graph_misses": 6992,
+    "verdict_hits": 29337,
+    "verdict_misses": 17501
+  },
+  "elapsed_s": 68.441,
+  "instances_path": "results/axis_robustness_real/shards/tiered__hailfinder__nt3.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__hailfinder__nt3.cells.jsonl",
+  "instances_sha256": "b30597c9b894ececd665231a1751db9f338b48b6f174d28e33d1485d6dba2f16",
+  "cells_sha256": "937ae5b0756083184d1b4c71f4e6bdcba4248d6908e6a41022a8a1e664865dc0",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:30:17Z"
+}

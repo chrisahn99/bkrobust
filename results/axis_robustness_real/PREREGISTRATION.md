@@ -652,3 +652,48 @@ and exited cleanly, so the pool's own queue may not revisit it. **The pool must
 therefore be re-invoked after it finishes**, which is safe and idempotent by
 construction, and the final shard count must be checked against 725 before any
 analysis is quoted.
+
+---
+
+# Appendix C — 2026-09-16, the per-shard wall cap was implemented after the sweep started
+
+§5.4 pre-registered a **5-hour per-shard wall cap** with a `censored_wall_cap`
+status. When the sweep was launched, the per-*radius* cap (300 s, matching the
+committed corpus) was implemented but the per-*shard* cap was not: it existed in
+the pre-registration and not in the code. It was implemented and tested roughly
+an hour into the run.
+
+**What this means for the data, stated exactly.**
+
+- The cap is a **safety net on wall clock**, not a scientific parameter, and it
+  is not a function of any knowledge-dependent or radius-dependent quantity.
+- Grid points are swept in ascending order, so a cap that *fires* truncates the
+  **high-intensity end** of a curve. That is a bias and is flagged wherever it
+  occurs: a censored grid point is written as a cell with
+  `status == "censored_wall_cap"`, `n_draws == 0` and `wall_until_timeout_s`
+  set, it is excluded from every endpoint, and any unit containing one carries
+  `endpoint_censored = True`.
+- The eight shards already in flight when the cap landed ran, and will finish,
+  **uncapped**: a running worker holds the code it was launched with, so the cap
+  cannot apply to them retroactively. Four of them — the `pathfinder` flip
+  shards — were still running when this appendix was written, at about 1 h 50 m
+  each and roughly half way through their grids, which projects to between
+  3 and 6 hours. **One or more of them may therefore exceed the 5-hour cap that
+  §5.4 pre-registered**, and if so it will have run to completion rather than
+  being censored. The realised elapsed time of **every** shard is recorded in its
+  completion marker; the final report states the maximum observed against the
+  18,000 s cap and names any shard that exceeded it.
+- Every other shard in the campaign ran under the cap as implemented.
+- Uncapped is the scientifically cleaner outcome here, since a fired cap would
+  have removed data rather than added it: an over-running shard yields a
+  *complete* curve, a censored one yields a truncated curve at exactly the
+  high-intensity end. The gap is recorded because the pre-registration claimed
+  an enforcement that did not exist for the first hour of the run, and that
+  claim has to be made true or withdrawn — here it is narrowed to "enforced for
+  every shard launched after the first hour", which is what actually happened.
+
+The cap's behaviour was verified before it was relied on, by running a real
+shard with `--wall-cap-s 0.5`: 16 of 22 cells came back `censored_wall_cap` with
+`n_draws == 0`, `S == None` and `wall_until_timeout_s` set, the censored grid
+points were exactly the tail of the ascending grid, and no censored row carried
+a key named `seconds`.
