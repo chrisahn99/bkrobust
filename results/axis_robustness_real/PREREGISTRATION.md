@@ -985,14 +985,25 @@ more than a factor of two, because networks were weighted by their pair count.
 **No τ, no endpoint and no survival number is affected** — those are per-pair
 quantities and are correctly per-pair. Only the contradiction series was wrong.
 
-## G.2 What caught it
+## G.2 Where the defect came from, and what caught it
 
-The orchestrator's own independent recomputation, which had deduplicated by
-`(shard_id, grid_point)` from the start precisely because the draw-set is shared,
-and which therefore disagreed with the harness. The disagreement was noticed only
-because the two were compared; each number was individually plausible, and a
-contradiction rate of 0.0117 would have been reported without anything looking
-wrong.
+**The defect originated in the orchestrator's specification, not in the
+implementation.** The written brief for the analysis harness said, verbatim,
+*"pooled contradiction rate over units (sum of contradictory draws over sum of
+draws — NOT a mean of rates)"*. That instruction is correct about the arithmetic
+— a pooled rate, not a mean of rates — and wrong about the unit, because on this
+corpus the draw is shared across a network's pairs and "over units" therefore
+counts it many times. The harness implemented exactly what it was told. Recorded
+this way round because the alternative — letting it read as a subagent's error —
+would misplace the lesson: the specification is where this had to be caught, and
+it was not.
+
+**What caught it** was the orchestrator's own independent recomputation, which
+had deduplicated by `(shard_id, grid_point)` from the start precisely because the
+draw-set is shared, and which therefore disagreed with the harness. The
+disagreement was noticed only because the two were compared; each number was
+individually plausible, and a contradiction rate of 0.0117 would have been
+reported without anything looking wrong.
 
 ## G.3 The fix
 
