@@ -35,19 +35,52 @@ from typing import Any
 DEFAULT_DIR = Path("results/axis_robustness_real")
 DEFAULT_TABLE = Path("table_tau_real.md")
 
-#: The nine pre-registered strata, in the order their synthetic counterparts
-#: appear in ``table_tau_comparisons.md``.
+#: The nine pre-registered strata, keyed by the tag ``real_analyse`` writes, in
+#: the order their synthetic counterparts appear in
+#: ``table_tau_comparisons.md`` so the two tables line up row for row.
 PRIMARY_ORDER: tuple[str, ...] = (
-    "flip, coverage=0.5, base_wrongness=0.00",
-    "flip, coverage=0.5, base_wrongness=0.10",
-    "flip, coverage=0.5, base_wrongness=0.25",
-    "flip, coverage=1.0, base_wrongness=0.00",
-    "flip, coverage=1.0, base_wrongness=0.10",
-    "flip, coverage=1.0, base_wrongness=0.25",
-    "tiered, n_tiers=2",
-    "tiered, n_tiers=3",
-    "tiered, n_tiers=4",
+    "flip_cov050_bw000",
+    "flip_cov050_bw010",
+    "flip_cov050_bw025",
+    "flip_cov100_bw000",
+    "flip_cov100_bw010",
+    "flip_cov100_bw025",
+    "tiered_nt2",
+    "tiered_nt3",
+    "tiered_nt4",
 )
+
+#: Human-readable labels, so the table reads like the synthetic one rather than
+#: like a column of internal tags.
+STRATUM_LABELS: dict[str, str] = {
+    "flip_cov050_bw000": "flip, coverage=0.5, base_wrongness=0.00",
+    "flip_cov050_bw010": "flip, coverage=0.5, base_wrongness=0.10",
+    "flip_cov050_bw025": "flip, coverage=0.5, base_wrongness=0.25",
+    "flip_cov100_bw000": "flip, coverage=1.0, base_wrongness=0.00",
+    "flip_cov100_bw010": "flip, coverage=1.0, base_wrongness=0.10",
+    "flip_cov100_bw025": "flip, coverage=1.0, base_wrongness=0.25",
+    "tiered_nt2": "tiered, n_tiers=2",
+    "tiered_nt3": "tiered, n_tiers=3",
+    "tiered_nt4": "tiered, n_tiers=4",
+    "flip_cov025_bw000": "flip, coverage=0.25, base_wrongness=0.00",
+    "flip_cov025_bw010": "flip, coverage=0.25, base_wrongness=0.10",
+    "flip_cov025_bw025": "flip, coverage=0.25, base_wrongness=0.25",
+    "flip_cov025_bwa1": "flip, coverage=0.25, one claim reversed",
+    "flip_cov050_bwa1": "flip, coverage=0.5, one claim reversed",
+    "flip_cov100_bwa1": "flip, coverage=1.0, one claim reversed",
+}
+
+
+def label_for(stratum: str) -> str:
+    """The human-readable label for a stratum tag.
+
+    Args:
+        stratum: The tag ``real_analyse`` writes.
+
+    Returns:
+        The label, or the tag itself if it has none.
+    """
+    return STRATUM_LABELS.get(stratum, stratum)
 
 #: Column order for the predictors. ``r_hop`` is the legacy ``r_val``; the paper
 #: name is used in the table and the code name in the files.
@@ -196,7 +229,7 @@ def build_rows(
                 if str(row.get("status", "")).startswith("undefined"):
                     flags["const"] = True
             cells.append(format_cell(row, marks))
-        out.append([stratum, str(n if n is not None else "—"),
+        out.append([label_for(stratum), str(n if n is not None else "—"),
                     str(n_net if n_net is not None else "—"), f"`{endpoint}`", *cells])
     return out, flags
 
@@ -374,7 +407,7 @@ def markdown(
         "**Provenance:** `results/axis_robustness_real/analysis_tau.csv`, built by "
         "`bkrobust.robustness.real_analyse` from the sharded sweep, which was built on the "
         "frozen frame `results/axis_robustness_real/frame.jsonl` "
-        f"(sha256 `{str(summary.get('frame_sha256', ''))[:16]}…`). Regenerate with "
+        f"(sha256 `{str(summary.get('frame', {}).get('frame_sha256', ''))[:16]}…`). Regenerate with "
         "`PYTHONPATH=src python -m bkrobust.robustness.build_table_tau_real`."
     )
     lines.append("")
