@@ -1,0 +1,36 @@
+{
+ "G2": [
+  {
+   "ensemble": "original",
+   "shared_scms": 2000,
+   "members_compared": 30000,
+   "mismatches": 0,
+   "by_field": {},
+   "verdict": "PASS"
+  },
+  {
+   "ensemble": "licensed",
+   "shared_scms": 1879,
+   "members_compared": 28185,
+   "mismatches": 0,
+   "by_field": {},
+   "verdict": "PASS"
+  }
+ ],
+ "G11": [
+  {
+   "ensemble": "original",
+   "members_checked": 11010,
+   "disagreements": 0,
+   "verdict": "PASS",
+   "note": "|undirected_edges(G)| <= 12; oracle = consistent_dag_extensions(G, ref_vstructs=v_structures(G), limit=1)"
+  },
+  {
+   "ensemble": "large",
+   "members_checked": 4767,
+   "disagreements": 0,
+   "verdict": "PASS",
+   "note": "|undirected_edges(G)| <= 12; oracle = consistent_dag_extensions(G, ref_vstructs=v_structures(G), limit=1)"
+  }
+ ]
+}

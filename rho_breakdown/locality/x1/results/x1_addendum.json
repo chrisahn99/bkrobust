@@ -1,0 +1,446 @@
+{
+ "original": {
+  "M13_cluster_CIs_rho1_reachable": {
+   "Suni_S2": {
+    "rate": 0.039809327492914194,
+    "k": 309,
+    "n": 7762,
+    "ci_wilson": [
+     0.03568265645465238,
+     0.04439127527806236
+    ],
+    "ci_cluster": [
+     0.03522303637999743,
+     0.04469354724547248
+    ]
+   },
+   "Sloc_S2": {
+    "rate": 0.066875,
+    "k": 535,
+    "n": 8000,
+    "ci_wilson": [
+     0.06160624479952292,
+     0.07255951352359566
+    ],
+    "ci_cluster": [
+     0.059875,
+     0.07400312499999995
+    ]
+   },
+   "R_conditional": {
+    "rate": 0.1451170639105674,
+    "k": 688,
+    "n": 4741,
+    "ci_wilson": [
+     0.1353783681361073,
+     0.1554303913969555
+    ],
+    "ci_cluster": [
+     0.13524934386226062,
+     0.15539552238506144
+    ]
+   },
+   "R_unconditional": {
+    "rate": 0.09139213602550478,
+    "k": 688,
+    "n": 7528,
+    "ci_wilson": [
+     0.08508931255339096,
+     0.09811176335411285
+    ],
+    "ci_cluster": [
+     0.08509218813056109,
+     0.09786518803590019
+    ]
+   },
+   "Suni_S1_conditional": {
+    "rate": 0.011006018916595013,
+    "k": 64,
+    "n": 5815,
+    "ci_wilson": [
+     0.00862881249976158,
+     0.014028869403710398
+    ],
+    "ci_cluster": [
+     0.008443908323281062,
+     0.013761487617914292
+    ]
+   }
+  },
+  "M13_cluster_CIs_Sloc_rho_le4_member": {
+   "rate": 0.101,
+   "k": 3030,
+   "n": 30000,
+   "ci_wilson": [
+    0.09764112761965033,
+    0.10446104210228749
+   ],
+   "ci_cluster": [
+    0.09216666666666666,
+    0.11046666666666667
+   ]
+  },
+  "DROP_arm_rho1": {
+   "ostar_changed": {
+    "k": 0,
+    "n": 8000,
+    "rate": 0.0,
+    "ci": [
+     2.709204519014182e-20,
+     0.0004799518881599805
+    ]
+   },
+   "silent": {
+    "k": 0,
+    "n": 8000,
+    "rate": 0.0,
+    "ci": [
+     2.709204519014182e-20,
+     0.0004799518881599805
+    ]
+   },
+   "amenable": {
+    "k": 6090,
+    "n": 8000,
+    "rate": 0.76125,
+    "ci": [
+     0.7517840436488552,
+     0.7704651814895811
+    ]
+   },
+   "note": "the WITHDRAWAL confound, quantified: it moves O* (outcome b) but NEVER produces silent bias (outcome c). So the P2 contrast on `silent` is clean; a P2 contrast on `ostar_changed` would not be."
+  },
+  "edge_attributable_Ostar_move_rho1_all_hops": {
+   "k": 1767,
+   "n": 8000,
+   "rate": 0.220875,
+   "ci": [
+    0.21191982469641552,
+    0.23009810844514977
+   ]
+  },
+  "Suni_S1_PREREG_contaminated_predicate_rho1": {
+   "k": 4353,
+   "n": 8000,
+   "rate": 0.544125,
+   "ci": [
+    0.5331926376447502,
+    0.5550150066011196
+   ],
+   "note": "conflict OR cycle OR (v_structures(G) != v_structures(C)). AUDIT M4 replaced this with the intrinsic Dor-Tarsi predicate because it fires for a purely skeletal reason. Reported for the record only."
+  },
+  "Sloc_S1_PREREG_contaminated_predicate_rho1": {
+   "k": 4638,
+   "n": 8000,
+   "rate": 0.57975,
+   "ci": [
+    0.5688979865967713,
+    0.5905254610770673
+   ],
+   "note": "conflict OR cycle OR (v_structures(G) != v_structures(C)). AUDIT M4 replaced this with the intrinsic Dor-Tarsi predicate because it fires for a purely skeletal reason. Reported for the record only."
+  },
+  "est0_equals_tau_when_O0_valid": {
+   "n": 2000,
+   "violations": 0,
+   "max_abs_diff": 2.4424906541753444e-15,
+   "n_O0_invalid": 0,
+   "note": "ALL valid adjustment sets give the same POPULATION estimate (= tau). Hence |est_m - est0| > 0  <=>  O_m invalid  <=>  `silent`, which is why E1's changed_still_valid was 0 everywhere and why the DROP arm censors rho*_se at exactly 1.000."
+  }
+ },
+ "licensed": {
+  "M13_cluster_CIs_rho1_reachable": {
+   "Suni_S2": {
+    "rate": 0.054603992273019965,
+    "k": 424,
+    "n": 7765,
+    "ci_wilson": [
+     0.049767130399237906,
+     0.0598813240499797
+    ],
+    "ci_cluster": [
+     0.04895375871867735,
+     0.06039589308133691
+    ]
+   },
+   "Sloc_S2": {
+    "rate": 0.131125,
+    "k": 1049,
+    "n": 8000,
+    "ci_wilson": [
+     0.12390522841042509,
+     0.1386988560950649
+    ],
+    "ci_cluster": [
+     0.1205,
+     0.1415
+    ]
+   },
+   "R_conditional": {
+    "rate": 0.16217845659163987,
+    "k": 807,
+    "n": 4976,
+    "ci_wilson": [
+     0.15219779442130868,
+     0.1726803110764163
+    ],
+    "ci_cluster": [
+     0.15110886739919227,
+     0.17287968331844294
+    ]
+   },
+   "R_unconditional": {
+    "rate": 0.10650653292859971,
+    "k": 807,
+    "n": 7577,
+    "ci_wilson": [
+     0.09975885109059161,
+     0.11365300663111992
+    ],
+    "ci_cluster": [
+     0.09934984789620291,
+     0.11362448945216544
+    ]
+   },
+   "Suni_S1_conditional": {
+    "rate": 0.010111576011157601,
+    "k": 58,
+    "n": 5736,
+    "ci_wilson": [
+     0.007830539257983313,
+     0.013048340355760708
+    ],
+    "ci_cluster": [
+     0.007615889550601929,
+     0.012767480890394195
+    ]
+   }
+  },
+  "M13_cluster_CIs_Sloc_rho_le4_member": {
+   "rate": 0.18793333333333334,
+   "k": 5638,
+   "n": 30000,
+   "ci_wilson": [
+    0.18355274969797916,
+    0.19239382615304693
+   ],
+   "ci_cluster": [
+    0.17493333333333333,
+    0.20073333333333335
+   ]
+  },
+  "DROP_arm_rho1": {
+   "ostar_changed": {
+    "k": 0,
+    "n": 8000,
+    "rate": 0.0,
+    "ci": [
+     2.709204519014182e-20,
+     0.0004799518881599805
+    ]
+   },
+   "silent": {
+    "k": 0,
+    "n": 8000,
+    "rate": 0.0,
+    "ci": [
+     2.709204519014182e-20,
+     0.0004799518881599805
+    ]
+   },
+   "amenable": {
+    "k": 6241,
+    "n": 8000,
+    "rate": 0.780125,
+    "ci": [
+     0.7709161821082319,
+     0.7890649248464263
+    ]
+   },
+   "note": "the WITHDRAWAL confound, quantified: it moves O* (outcome b) but NEVER produces silent bias (outcome c). So the P2 contrast on `silent` is clean; a P2 contrast on `ostar_changed` would not be."
+  },
+  "edge_attributable_Ostar_move_rho1_all_hops": {
+   "k": 1751,
+   "n": 8000,
+   "rate": 0.218875,
+   "ci": [
+    0.20995040264418352,
+    0.2280694503049344
+   ]
+  },
+  "Suni_S1_PREREG_contaminated_predicate_rho1": {
+   "k": 5278,
+   "n": 8000,
+   "rate": 0.65975,
+   "ci": [
+    0.6492932771801648,
+    0.6700533781915678
+   ],
+   "note": "conflict OR cycle OR (v_structures(G) != v_structures(C)). AUDIT M4 replaced this with the intrinsic Dor-Tarsi predicate because it fires for a purely skeletal reason. Reported for the record only."
+  },
+  "Sloc_S1_PREREG_contaminated_predicate_rho1": {
+   "k": 5499,
+   "n": 8000,
+   "rate": 0.687375,
+   "ci": [
+    0.6771290244453683,
+    0.6974411135845436
+   ],
+   "note": "conflict OR cycle OR (v_structures(G) != v_structures(C)). AUDIT M4 replaced this with the intrinsic Dor-Tarsi predicate because it fires for a purely skeletal reason. Reported for the record only."
+  },
+  "est0_equals_tau_when_O0_valid": {
+   "n": 2000,
+   "violations": 0,
+   "max_abs_diff": 2.5646151868841116e-14,
+   "n_O0_invalid": 0,
+   "note": "ALL valid adjustment sets give the same POPULATION estimate (= tau). Hence |est_m - est0| > 0  <=>  O_m invalid  <=>  `silent`, which is why E1's changed_still_valid was 0 everywhere and why the DROP arm censors rho*_se at exactly 1.000."
+  }
+ },
+ "large": {
+  "M13_cluster_CIs_rho1_reachable": {
+   "Suni_S2": {
+    "rate": 0.007481879822305354,
+    "k": 32,
+    "n": 4277,
+    "ci_wilson": [
+     0.005304868143143648,
+     0.010542824296132857
+    ],
+    "ci_cluster": [
+     0.004948132970096216,
+     0.010101069434951013
+    ]
+   },
+   "Sloc_S2": {
+    "rate": 0.026041666666666668,
+    "k": 125,
+    "n": 4800,
+    "ci_wilson": [
+     0.021901169469247462,
+     0.030940178646976645
+    ],
+    "ci_cluster": [
+     0.02020833333333333,
+     0.03229166666666667
+    ]
+   },
+   "R_conditional": {
+    "rate": 0.03430160692212608,
+    "k": 111,
+    "n": 3236,
+    "ci_wilson": [
+     0.028562439079803815,
+     0.04114512584002429
+    ],
+    "ci_cluster": [
+     0.027899686520376176,
+     0.040948591139831986
+    ]
+   },
+   "R_unconditional": {
+    "rate": 0.02782652293807972,
+    "k": 111,
+    "n": 3989,
+    "ci_wilson": [
+     0.02315898578202203,
+     0.0334026035397332
+    ],
+    "ci_cluster": [
+     0.022641367070346606,
+     0.033257824656339495
+    ]
+   },
+   "Suni_S1_conditional": {
+    "rate": 0.001075268817204301,
+    "k": 4,
+    "n": 3720,
+    "ci_wilson": [
+     0.00041822801051492913,
+     0.002761676115812782
+    ],
+    "ci_cluster": [
+     0.0002654632333421821,
+     0.002178664074364877
+    ]
+   }
+  },
+  "M13_cluster_CIs_Sloc_rho_le4_member": {
+   "rate": 0.04644444444444444,
+   "k": 836,
+   "n": 18000,
+   "ci_wilson": [
+    0.043465685347898964,
+    0.049616752789193294
+   ],
+   "ci_cluster": [
+    0.03722222222222222,
+    0.05605555555555555
+   ]
+  },
+  "DROP_arm_rho1": {
+   "ostar_changed": {
+    "k": 0,
+    "n": 4800,
+    "rate": 0.0,
+    "ci": [
+     5.416675875485705e-20,
+     0.0007996639467858655
+    ]
+   },
+   "silent": {
+    "k": 0,
+    "n": 4800,
+    "rate": 0.0,
+    "ci": [
+     5.416675875485705e-20,
+     0.0007996639467858655
+    ]
+   },
+   "amenable": {
+    "k": 4342,
+    "n": 4800,
+    "rate": 0.9045833333333333,
+    "ci": [
+     0.8959456263194104,
+     0.912573978936982
+    ]
+   },
+   "note": "the WITHDRAWAL confound, quantified: it moves O* (outcome b) but NEVER produces silent bias (outcome c). So the P2 contrast on `silent` is clean; a P2 contrast on `ostar_changed` would not be."
+  },
+  "edge_attributable_Ostar_move_rho1_all_hops": {
+   "k": 472,
+   "n": 4800,
+   "rate": 0.09833333333333333,
+   "ci": [
+    0.09022811585722085,
+    0.1070809475133638
+   ]
+  },
+  "Suni_S1_PREREG_contaminated_predicate_rho1": {
+   "k": 2451,
+   "n": 4800,
+   "rate": 0.510625,
+   "ci": [
+    0.49648052874308934,
+    0.5247524783980415
+   ],
+   "note": "conflict OR cycle OR (v_structures(G) != v_structures(C)). AUDIT M4 replaced this with the intrinsic Dor-Tarsi predicate because it fires for a purely skeletal reason. Reported for the record only."
+  },
+  "Sloc_S1_PREREG_contaminated_predicate_rho1": {
+   "k": 2645,
+   "n": 4800,
+   "rate": 0.5510416666666667,
+   "ci": [
+    0.5369354913803814,
+    0.5650662095917175
+   ],
+   "note": "conflict OR cycle OR (v_structures(G) != v_structures(C)). AUDIT M4 replaced this with the intrinsic Dor-Tarsi predicate because it fires for a purely skeletal reason. Reported for the record only."
+  },
+  "est0_equals_tau_when_O0_valid": {
+   "n": 1200,
+   "violations": 0,
+   "max_abs_diff": 2.220446049250313e-15,
+   "n_O0_invalid": 0,
+   "note": "ALL valid adjustment sets give the same POPULATION estimate (= tau). Hence |est_m - est0| > 0  <=>  O_m invalid  <=>  `silent`, which is why E1's changed_still_valid was 0 everywhere and why the DROP arm censors rho*_se at exactly 1.000."
+  }
+ }
+}

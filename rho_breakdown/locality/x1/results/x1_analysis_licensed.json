@@ -1,0 +1,2854 @@
+{
+ "ensemble": "licensed",
+ "meta": {
+  "ensemble": "licensed",
+  "n_analysed": 2000,
+  "n_jobs": 16000,
+  "oversample": 8,
+  "drops": {
+   "prefilter": 4921,
+   "drop_nonamenable": {
+    "n": 2028,
+    "mean_p": 6.595660749506903,
+    "mean_deg": 4.872041420118343,
+    "mean_nN": 4.357495069033531,
+    "mean_locpool": 6.393491124260355,
+    "mean_nO0": null
+   },
+   "drop_ineligible": {
+    "n": 222,
+    "mean_p": 5.792792792792793,
+    "mean_deg": 3.774774774774775,
+    "mean_nN": 2.1126126126126126,
+    "mean_locpool": 5.04054054054054,
+    "mean_nO0": 1.0225225225225225
+   }
+  },
+  "wall_s": 75.6
+ },
+ "header": {
+  "n_analysed": 2000,
+  "verdict_readable": true,
+  "n_stmt_rho1_per_arm": 8000,
+  "n_hop_ge1_reachable_Suni_rho1": 4102,
+  "n_hop_unreachable_Suni_rho1": 235,
+  "P_O0_empty": {
+   "k": 951,
+   "n": 2000,
+   "rate": 0.4755,
+   "ci": [
+    0.4536811651658317,
+    0.49741277015094953
+   ]
+  },
+  "mean_O0": 1.115,
+  "drops": {
+   "prefilter": 4921,
+   "drop_nonamenable": {
+    "n": 2028,
+    "mean_p": 6.595660749506903,
+    "mean_deg": 4.872041420118343,
+    "mean_nN": 4.357495069033531,
+    "mean_locpool": 6.393491124260355,
+    "mean_nO0": null
+   },
+   "drop_ineligible": {
+    "n": 222,
+    "mean_p": 5.792792792792793,
+    "mean_deg": 3.774774774774775,
+    "mean_nN": 2.1126126126126126,
+    "mean_locpool": 5.04054054054054,
+    "mean_nO0": 1.0225225225225225
+   }
+  }
+ },
+ "gates": {
+  "G1_anchor_shared": {
+   "verdict": "STRUCTURAL",
+   "note": "one anchor computed per SCM, passed to all balls; not a measurement"
+  },
+  "G3_S2_catch_rate_Suni": {
+   "value": 0.0,
+   "n": 30000,
+   "verdict": "PASS",
+   "note": "definitional: bk_assert never raises"
+  },
+  "G3_skeleton_detect_Suni": {
+   "k": 8000,
+   "n": 8000,
+   "rate": 1.0,
+   "ci": [
+    0.9995200481118399,
+    1.0
+   ],
+   "verdict": "PASS"
+  },
+  "G3_skeleton_detect_Sloc_MEASURED": {
+   "k": 5555,
+   "n": 8000,
+   "rate": 0.694375,
+   "ci": [
+    0.6841889740718805,
+    0.7043744446315972
+   ],
+   "verdict": "MEASURED (M7: not a gate)"
+  },
+  "G4_Pfrozen": {
+   "max_abs_dev": 0.0,
+   "ostar_changed": 0,
+   "silent": 0,
+   "n": 60000,
+   "verdict": "PASS"
+  },
+  "G5a_Pnull_identity": {
+   "n": 8000,
+   "G_eq_G0": 8000,
+   "ostar_changed": 0,
+   "silent": 0,
+   "verdict": "PASS"
+  },
+  "G5b_Pnull_append": {
+   "n": 1640,
+   "n_scm_without_directed_edge": 360,
+   "G_eq_G0": 1640,
+   "ostar_changed": 0,
+   "verdict": "PASS"
+  },
+  "G6_monotone_d_rho": {
+   "n": 8000,
+   "violations": 0,
+   "verdict": "PASS"
+  },
+  "G7_restamp_noop": {
+   "n": 60000,
+   "changed_prefix": 0,
+   "changed_current": 0,
+   "verdict": "PASS"
+  },
+  "G8_closure_order_MEASUREMENT": {
+   "k": 14925,
+   "n": 60000,
+   "rate": 0.24875,
+   "ci": [
+    0.24530719272098755,
+    0.2522249774369635
+   ],
+   "note": "close-after-each vs stamp-all-then-close; no bar, this is a measurement"
+  },
+  "G10_sentinel": {
+   "verdict": "PASS",
+   "note": "hop strata keyed by hoplab(); 'unreachable' is its own row"
+  },
+  "G12_unreachable_structural_zero": {
+   "n": 351,
+   "edge_attributable_Ostar_moves": 0,
+   "raw_moves_vs_G0": 0,
+   "verdict": "PASS",
+   "note": "edge-attributable = O*(S) != O*(D) at matched (rho, flip). raw = O* != O0, which also contains the WITHDRAWN true statement."
+  }
+ },
+ "design_effects_rho1_silent": {
+  "R": 1.0691426821799528,
+  "Suni": 1.2909963578948327,
+  "Sloc": 2.104074433264468,
+  "Drop": NaN
+ },
+ "design_effect_note": "AUDIT M13: > 1.25 forces every CI to the cluster bootstrap. All primary contrasts use the paired SCM-level cluster bootstrap regardless.",
+ "P1_catchability": {
+  "R_meek_inconsistent_rho1": {
+   "k": 2650,
+   "n": 8000,
+   "rate": 0.33125,
+   "ci": [
+    0.32101948608494846,
+    0.3416424976773054
+   ]
+  },
+  "R_meek_inconsistent_rho_le4": {
+   "k": 15329,
+   "n": 30000,
+   "rate": 0.5109666666666667,
+   "ci": [
+    0.5053090569550016,
+    0.5166214682046878
+   ]
+  },
+  "Suni": {
+   "S2_catch": {
+    "rate": 0.0,
+    "n": 30000,
+    "note": "DEFINITIONAL (PREREG 5.1)"
+   },
+   "S1_caught_intrinsic_rho1": {
+    "k": 2050,
+    "n": 8000,
+    "rate": 0.25625,
+    "ci": [
+     0.246802169047274,
+     0.26593180749820383
+    ]
+   },
+   "S1_decomposition_rho1": {
+    "n": 8000,
+    "conflict": {
+     "k": 1185,
+     "n": 8000,
+     "rate": 0.148125,
+     "ci": [
+      0.14050987619450073,
+      0.15607788994679186
+     ]
+    },
+    "cycle": {
+     "k": 865,
+     "n": 8000,
+     "rate": 0.108125,
+     "ci": [
+      0.10150727131918538,
+      0.11511889097315998
+     ]
+    },
+    "non_extendable_acyclic": {
+     "k": 0,
+     "n": 8000,
+     "rate": 0.0,
+     "ci": [
+      2.709204519014182e-20,
+      0.0004799518881599805
+     ]
+    }
+   },
+   "vstruct_vs_C_DIAGNOSTIC_rho1": {
+    "n": 8000,
+    "fires": {
+     "k": 4639,
+     "n": 8000,
+     "rate": 0.579875,
+     "ci": [
+      0.5690233691944357,
+      0.5906499584914308
+     ]
+    },
+    "purely_collider_of_C_shielded_by_added_edge": {
+     "k": 1261,
+     "n": 8000,
+     "rate": 0.157625,
+     "ci": [
+      0.14980466909170076,
+      0.16577397796371676
+     ]
+    },
+    "any_new_unshielded_collider": {
+     "k": 3378,
+     "n": 8000,
+     "rate": 0.42225,
+     "ci": [
+      0.41146659422321624,
+      0.4331080382953926
+     ]
+    },
+    "lost_collider_not_explained_by_added_edge": {
+     "k": 0,
+     "n": 8000,
+     "rate": 0.0,
+     "ci": [
+      2.709204519014182e-20,
+      0.0004799518881599805
+     ]
+    },
+    "note": "AUDIT M4: this predicate is contaminated by a purely skeletal artefact and is NOT the S1 predicate. Diagnostic only."
+   },
+   "mpdag_valid_rho1": {
+    "k": 6732,
+    "n": 8000,
+    "rate": 0.8415,
+    "ci": [
+     0.8333334863977586,
+     0.8493387064626281
+    ]
+   },
+   "mpdag_valid_by_rho": {
+    "1": {
+     "k": 6732,
+     "n": 8000,
+     "rate": 0.8415,
+     "ci": [
+      0.8333334863977586,
+      0.8493387064626281
+     ]
+    },
+    "2": {
+     "k": 8122,
+     "n": 12000,
+     "rate": 0.6768333333333333,
+     "ci": [
+      0.6684100846689203,
+      0.6851434019011153
+     ]
+    },
+    "3": {
+     "k": 4091,
+     "n": 8000,
+     "rate": 0.511375,
+     "ci": [
+      0.5004184720801845,
+      0.5223206090143598
+     ]
+    },
+    "4": {
+     "k": 715,
+     "n": 2000,
+     "rate": 0.3575,
+     "ci": [
+      0.3367872695395422,
+      0.3787590889356148
+     ]
+    }
+   },
+   "path_blowup": {
+    "k": 0,
+    "n": 30000,
+    "rate": 0.0,
+    "ci": [
+     1.3550791995754155e-20,
+     0.00012803223300477719
+    ]
+   }
+  },
+  "Sloc": {
+   "S2_catch": {
+    "rate": 0.0,
+    "n": 30000,
+    "note": "DEFINITIONAL (PREREG 5.1)"
+   },
+   "S1_caught_intrinsic_rho1": {
+    "k": 3536,
+    "n": 8000,
+    "rate": 0.442,
+    "ci": [
+     0.43114784691547076,
+     0.45290782750355574
+    ]
+   },
+   "S1_decomposition_rho1": {
+    "n": 8000,
+    "conflict": {
+     "k": 2940,
+     "n": 8000,
+     "rate": 0.3675,
+     "ci": [
+      0.35700111944283874,
+      0.37812606780752356
+     ]
+    },
+    "cycle": {
+     "k": 596,
+     "n": 8000,
+     "rate": 0.0745,
+     "ci": [
+      0.06894798218823546,
+      0.08046045686858866
+     ]
+    },
+    "non_extendable_acyclic": {
+     "k": 0,
+     "n": 8000,
+     "rate": 0.0,
+     "ci": [
+      2.709204519014182e-20,
+      0.0004799518881599805
+     ]
+    }
+   },
+   "vstruct_vs_C_DIAGNOSTIC_rho1": {
+    "n": 8000,
+    "fires": {
+     "k": 4175,
+     "n": 8000,
+     "rate": 0.521875,
+     "ci": [
+      0.510921082126436,
+      0.5328079199784569
+     ]
+    },
+    "purely_collider_of_C_shielded_by_added_edge": {
+     "k": 813,
+     "n": 8000,
+     "rate": 0.101625,
+     "ci": [
+      0.09519389777674694,
+      0.10843850389014449
+     ]
+    },
+    "any_new_unshielded_collider": {
+     "k": 2646,
+     "n": 8000,
+     "rate": 0.33075,
+     "ci": [
+      0.32052365799872207,
+      0.34113880571542
+     ]
+    },
+    "lost_collider_not_explained_by_added_edge": {
+     "k": 1143,
+     "n": 8000,
+     "rate": 0.142875,
+     "ci": [
+      0.13537795319856852,
+      0.15071485243754976
+     ]
+    },
+    "note": "AUDIT M4: this predicate is contaminated by a purely skeletal artefact and is NOT the S1 predicate. Diagnostic only."
+   },
+   "mpdag_valid_rho1": {
+    "k": 6327,
+    "n": 8000,
+    "rate": 0.790875,
+    "ci": [
+     0.7818247506375062,
+     0.7996460373515566
+    ]
+   },
+   "mpdag_valid_by_rho": {
+    "1": {
+     "k": 6327,
+     "n": 8000,
+     "rate": 0.790875,
+     "ci": [
+      0.7818247506375062,
+      0.7996460373515566
+     ]
+    },
+    "2": {
+     "k": 8432,
+     "n": 12000,
+     "rate": 0.7026666666666667,
+     "ci": [
+      0.694424732171641,
+      0.7107788867436874
+     ]
+    },
+    "3": {
+     "k": 5348,
+     "n": 8000,
+     "rate": 0.6685,
+     "ci": [
+      0.6581056612645806,
+      0.6787325949491094
+     ]
+    },
+    "4": {
+     "k": 1304,
+     "n": 2000,
+     "rate": 0.652,
+     "ci": [
+      0.6308506302738301,
+      0.6725665873526689
+     ]
+    }
+   },
+   "path_blowup": {
+    "k": 0,
+    "n": 30000,
+    "rate": 0.0,
+    "ci": [
+     1.3550791995754155e-20,
+     0.00012803223300477719
+    ]
+   }
+  }
+ },
+ "P2_damage": {
+  "PRIMARY_Suni_vs_R_reachable": {
+   "label": "M11: reachable denominator (primary)",
+   "S_conditional": {
+    "k": 424,
+    "n": 7765,
+    "rate": 0.054603992273019965,
+    "ci": [
+     0.049767130399237906,
+     0.0598813240499797
+    ]
+   },
+   "R_conditional": {
+    "k": 807,
+    "n": 4976,
+    "rate": 0.16217845659163987,
+    "ci": [
+     0.15219779442130868,
+     0.1726803110764163
+    ]
+   },
+   "R_unconditional": {
+    "k": 807,
+    "n": 7577,
+    "rate": 0.10650653292859971,
+    "ci": [
+     0.09975885109059161,
+     0.11365300663111992
+    ]
+   },
+   "P_consistent_R": {
+    "k": 4976,
+    "n": 8000,
+    "rate": 0.622,
+    "ci": [
+     0.6113184615091739,
+     0.6325644302301151
+    ]
+   },
+   "RR_conditional": {
+    "point": 0.33669078754714665,
+    "ci": [
+     0.29877142907939575,
+     0.3779566855405565
+    ],
+    "B": 10000
+   },
+   "diff_unconditional": {
+    "point": -0.05190254065557975,
+    "ci": [
+     -0.06036541914832002,
+     -0.043141642198147576
+    ],
+    "B": 10000
+   },
+   "diff_decomposition": {
+    "free_component": 0.020640309079201547,
+    "class_component": -0.0725428497347813,
+    "note": "free = (1 - P(consistent|R)) x P(silent|S2); residual = the class effect (AUDIT M1.2)"
+   },
+   "verdict_M1_riskratio": "REFUTED"
+  },
+  "Suni_vs_R_all_incl_unreachable": {
+   "label": "diluted denominator (secondary, M11)",
+   "S_conditional": {
+    "k": 424,
+    "n": 8000,
+    "rate": 0.053,
+    "ci": [
+     0.048301770233235515,
+     0.05812730675477949
+    ]
+   },
+   "R_conditional": {
+    "k": 807,
+    "n": 5350,
+    "rate": 0.1508411214953271,
+    "ci": [
+     0.14150166290247718,
+     0.16068163319704176
+    ]
+   },
+   "R_unconditional": {
+    "k": 807,
+    "n": 8000,
+    "rate": 0.100875,
+    "ci": [
+     0.09446595746645098,
+     0.10766716412827272
+    ]
+   },
+   "P_consistent_R": {
+    "k": 5350,
+    "n": 8000,
+    "rate": 0.66875,
+    "ci": [
+     0.6583575023226944,
+     0.6789805139150514
+    ]
+   },
+   "RR_conditional": {
+    "point": 0.351363073110285,
+    "ci": [
+     0.3115327438841669,
+     0.3941590326992416
+    ],
+    "B": 10000
+   },
+   "diff_unconditional": {
+    "point": -0.04787500000000001,
+    "ci": [
+     -0.055999999999999994,
+     -0.0395
+    ],
+    "B": 10000
+   },
+   "diff_decomposition": {
+    "free_component": 0.017556250000000002,
+    "class_component": -0.06543125000000001,
+    "note": "free = (1 - P(consistent|R)) x P(silent|S2); residual = the class effect (AUDIT M1.2)"
+   },
+   "verdict_M1_riskratio": "REFUTED"
+  },
+  "Suni_vs_R_hop0_only": {
+   "label": "M9.3 hop-0 only",
+   "S_conditional": {
+    "k": 210,
+    "n": 3663,
+    "rate": 0.05733005733005733,
+    "ci": [
+     0.05025510973493184,
+     0.06533250526847421
+    ]
+   },
+   "R_conditional": {
+    "k": 807,
+    "n": 2679,
+    "rate": 0.3012318029115342,
+    "ci": [
+     0.2841533655936707,
+     0.31887945749825153
+    ]
+   },
+   "R_unconditional": {
+    "k": 807,
+    "n": 4037,
+    "rate": 0.19990091652216993,
+    "ci": [
+     0.1878521022931306,
+     0.21252031402355795
+    ]
+   },
+   "P_consistent_R": {
+    "k": 2679,
+    "n": 8000,
+    "rate": 0.334875,
+    "ci": [
+     0.324614631305306,
+     0.3452938728057587
+    ]
+   },
+   "RR_conditional": {
+    "point": 0.19031874050461411,
+    "ci": [
+     0.1642934806569733,
+     0.21862691794934275
+    ],
+    "B": 10000
+   },
+   "diff_unconditional": {
+    "point": -0.1425708591921126,
+    "ci": [
+     -0.15671311574210128,
+     -0.12795999141639075
+    ],
+    "B": 10000
+   },
+   "diff_decomposition": {
+    "free_component": 0.03813165438165438,
+    "class_component": -0.180702513573767,
+    "note": "free = (1 - P(consistent|R)) x P(silent|S2); residual = the class effect (AUDIT M1.2)"
+   },
+   "verdict_M1_riskratio": "REFUTED"
+  },
+  "Suni_vs_R_mpdag_valid_only": {
+   "label": "M5: restricted to mpdag_valid=True",
+   "S_conditional": {
+    "k": 96,
+    "n": 6500,
+    "rate": 0.014769230769230769,
+    "ci": [
+     0.01211021127753345,
+     0.018001448125708676
+    ]
+   },
+   "R_conditional": {
+    "k": 807,
+    "n": 4976,
+    "rate": 0.16217845659163987,
+    "ci": [
+     0.15219779442130868,
+     0.1726803110764163
+    ]
+   },
+   "R_unconditional": {
+    "k": 807,
+    "n": 7577,
+    "rate": 0.10650653292859971,
+    "ci": [
+     0.09975885109059161,
+     0.11365300663111992
+    ]
+   },
+   "P_consistent_R": {
+    "k": 4976,
+    "n": 8000,
+    "rate": 0.622,
+    "ci": [
+     0.6113184615091739,
+     0.6325644302301151
+    ]
+   },
+   "RR_conditional": {
+    "point": 0.09106777237632256,
+    "ci": [
+     0.07316358139137903,
+     0.109873975957762
+    ],
+    "B": 10000
+   },
+   "diff_unconditional": {
+    "point": -0.09173730215936894,
+    "ci": [
+     -0.09901417644847424,
+     -0.08432702483866537
+    ],
+    "B": 10000
+   },
+   "diff_decomposition": {
+    "free_component": 0.0055827692307692306,
+    "class_component": -0.09732007139013817,
+    "note": "free = (1 - P(consistent|R)) x P(silent|S2); residual = the class effect (AUDIT M1.2)"
+   },
+   "verdict_M1_riskratio": "REFUTED"
+  },
+  "Sloc_vs_R_reachable": {
+   "label": "S-loc, reachable",
+   "S_conditional": {
+    "k": 1049,
+    "n": 8000,
+    "rate": 0.131125,
+    "ci": [
+     0.12390522841042509,
+     0.1386988560950649
+    ]
+   },
+   "R_conditional": {
+    "k": 807,
+    "n": 4976,
+    "rate": 0.16217845659163987,
+    "ci": [
+     0.15219779442130868,
+     0.1726803110764163
+    ]
+   },
+   "R_unconditional": {
+    "k": 807,
+    "n": 7577,
+    "rate": 0.10650653292859971,
+    "ci": [
+     0.09975885109059161,
+     0.11365300663111992
+    ]
+   },
+   "P_consistent_R": {
+    "k": 4976,
+    "n": 8000,
+    "rate": 0.622,
+    "ci": [
+     0.6113184615091739,
+     0.6325644302301151
+    ]
+   },
+   "RR_conditional": {
+    "point": 0.8085229244114002,
+    "ci": [
+     0.7310161406765675,
+     0.8941184578248278
+    ],
+    "B": 10000
+   },
+   "diff_unconditional": {
+    "point": 0.02461846707140028,
+    "ci": [
+     0.012354189539790648,
+     0.036915999497297326
+    ],
+    "B": 10000
+   },
+   "diff_decomposition": {
+    "free_component": 0.04956525,
+    "class_component": -0.02494678292859972,
+    "note": "free = (1 - P(consistent|R)) x P(silent|S2); residual = the class effect (AUDIT M1.2)"
+   },
+   "verdict_M1_riskratio": "INDISTINGUISHABLE"
+  },
+  "ADDED_Suni_vs_DROP_reachable": {
+   "S": {
+    "k": 424,
+    "n": 7765,
+    "rate": 0.054603992273019965,
+    "ci": [
+     0.049767130399237906,
+     0.0598813240499797
+    ]
+   },
+   "DROP": {
+    "k": 0,
+    "n": 7577,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.0005067325100466773
+    ]
+   },
+   "RR": {
+    "point": NaN,
+    "ci": [
+     NaN,
+     NaN
+    ],
+    "B": 10000
+   },
+   "verdict": "INDISTINGUISHABLE",
+   "note": "NOT PRE-REGISTERED. Arm D withdraws the same true statement without asserting anything, so this contrast isolates the spurious EDGE from the WITHDRAWAL that the replacement law confounds into arm S."
+  },
+  "ADDED_DROP_vs_R_reachable": {
+   "DROP": {
+    "k": 0,
+    "n": 7577,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.0005067325100466773
+    ]
+   },
+   "R_conditional": {
+    "k": 807,
+    "n": 4976,
+    "rate": 0.16217845659163987,
+    "ci": [
+     0.15219779442130868,
+     0.1726803110764163
+    ]
+   },
+   "RR": {
+    "point": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "B": 10000
+   },
+   "note": "the withdrawal effect on its own, against the reversal baseline"
+  },
+  "M9_3_standardised_Suni_onto_R_hopdist": {
+   "value": 0.04975898081580178,
+   "weights": {
+    "0": 0.5008412787436904,
+    "1": 0.34380257992148067,
+    "unreachable": 0.06991961114226958,
+    "2": 0.06580669283978313,
+    "3": 0.01682557487380819,
+    "4": 0.0024303608151056274,
+    "5": 0.0003739016638624042
+   },
+   "n_covered": 8000
+  },
+  "hop_strata_Suni_rho1": {
+   "0": {
+    "k": 210,
+    "n": 3663,
+    "rate": 0.05733005733005733,
+    "ci": [
+     0.05025510973493184,
+     0.06533250526847421
+    ]
+   },
+   "1": {
+    "k": 212,
+    "n": 3508,
+    "rate": 0.06043329532497149,
+    "ci": [
+     0.05301844239208092,
+     0.06880979610828888
+    ]
+   },
+   "2": {
+    "k": 2,
+    "n": 490,
+    "rate": 0.004081632653061225,
+    "ci": [
+     0.0011200454554367548,
+     0.014758448908766134
+    ]
+   },
+   "3": {
+    "k": 0,
+    "n": 90,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.04093562556432678
+    ]
+   },
+   "4": {
+    "k": 0,
+    "n": 10,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.2775327998628892
+    ]
+   },
+   "5": {
+    "k": 0,
+    "n": 4,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.4898908364545973
+    ]
+   },
+   "unreachable": {
+    "k": 0,
+    "n": 235,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.016083718629344122
+    ]
+   }
+  },
+  "hop_strata_R_rho1_conditional": {
+   "0": {
+    "k": 807,
+    "n": 2679,
+    "rate": 0.3012318029115342,
+    "ci": [
+     0.2841533655936707,
+     0.31887945749825153
+    ]
+   },
+   "1": {
+    "k": 0,
+    "n": 1839,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.002084530279209381
+    ]
+   },
+   "2": {
+    "k": 0,
+    "n": 352,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.01079542230246366
+    ]
+   },
+   "3": {
+    "k": 0,
+    "n": 90,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.04093562556432678
+    ]
+   },
+   "4": {
+    "k": 0,
+    "n": 13,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.22809537235419838
+    ]
+   },
+   "5": {
+    "k": 0,
+    "n": 2,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.6576197724933469
+    ]
+   },
+   "6": {
+    "k": 0,
+    "n": 1,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.7934506856227626
+    ]
+   },
+   "unreachable": {
+    "k": 0,
+    "n": 374,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.010166853665778115
+    ]
+   }
+  },
+  "free_bar_disclosure": {
+   "break_even_SUPPORTED_conditional_ratio_original": 0.845,
+   "break_even_REFUTED_conditional_ratio_original": 0.54,
+   "note": "AUDIT A1/M1.3. Under the PREREG's unconditional 0.03 bar on `original`, an IDENTICALLY damaging spurious class prints SUPPORTED; the bar only stops saying SUPPORTED once the class is >15.5% relatively LESS damaging, and only says REFUTED at 46% less. The primary contrast is therefore the conditional risk ratio (M1)."
+  },
+  "PREREG_4_2_absolute_rule_DEMOTED": {
+   "diff": -0.05190254065557975,
+   "disjoint": true,
+   "verdict": "REFUTED",
+   "note": "M1.2/M3: kept only on `original`, demoted to secondary, printed with the free-bar disclosure above."
+  }
+ },
+ "P3_A26": {
+  "composition_Sloc_pool": {
+   "pure_spurious": {
+    "k": 5555,
+    "n": 8000,
+    "rate": 0.694375,
+    "ci": [
+     0.6841889740718805,
+     0.7043744446315972
+    ]
+   },
+   "reversal_of_true_edge": {
+    "k": 2445,
+    "n": 8000,
+    "rate": 0.305625,
+    "ci": [
+     0.2956255553684027,
+     0.3158110259281194
+    ]
+   },
+   "query_pair": {
+    "k": 1030,
+    "n": 8000,
+    "rate": 0.12875,
+    "ci": [
+     0.12158859073268619,
+     0.13626777354427264
+    ]
+   },
+   "scms_with_ge1_query_pair": {
+    "k": 965,
+    "n": 2000,
+    "rate": 0.4825,
+    "ci": [
+     0.4606548863465414,
+     0.5044122103083023
+    ]
+   },
+   "note": "AUDIT M8/M14ii: ORACLE labels. The analyst cannot perform this partition, so no stratified rate here is a triage rule."
+  },
+  "pure_spurious_NON_QUERY_PRIMARY": {
+   "member_rho1": {
+    "k": 291,
+    "n": 5183,
+    "rate": 0.05614508971638048,
+    "ci": [
+     0.05020042754150258,
+     0.06274720416688859
+    ]
+   },
+   "member_rho_le4": {
+    "k": 739,
+    "n": 13147,
+    "rate": 0.05621054232904845,
+    "ci": [
+     0.05240147454115498,
+     0.06027887853441001
+    ]
+   }
+  },
+  "pure_spurious_QUERY_PAIR": {
+   "member_rho1": {
+    "k": 11,
+    "n": 372,
+    "rate": 0.02956989247311828,
+    "ci": [
+     0.01659008570644178,
+     0.05216618961714494
+    ]
+   },
+   "member_rho_le4": {
+    "k": 28,
+    "n": 437,
+    "rate": 0.06407322654462243,
+    "ci": [
+     0.04469892536359725,
+     0.09104479298081049
+    ]
+   }
+  },
+  "reversal_of_true_edge": {
+   "member_rho1": {
+    "k": 747,
+    "n": 2445,
+    "rate": 0.30552147239263805,
+    "ci": [
+     0.28758008235813537,
+     0.32407301320078263
+    ]
+   },
+   "member_rho_le4": {
+    "k": 1720,
+    "n": 4142,
+    "rate": 0.4152583293095123,
+    "ci": [
+     0.4003369310157916,
+     0.43033676768379936
+    ]
+   }
+  },
+  "POOLED_all": {
+   "member_rho1": {
+    "k": 1049,
+    "n": 8000,
+    "rate": 0.131125,
+    "ci": [
+     0.12390522841042509,
+     0.1386988560950649
+    ]
+   },
+   "member_rho_le4": {
+    "k": 5638,
+    "n": 30000,
+    "rate": 0.18793333333333334,
+    "ci": [
+     0.18355274969797916,
+     0.19239382615304693
+    ]
+   }
+  },
+  "IN_RUN_reversal_baseline_member_rho_le4": {
+   "unconditional": {
+    "k": 3005,
+    "n": 30000,
+    "rate": 0.10016666666666667,
+    "ci": [
+     0.09682041963398721,
+     0.10361529680833893
+    ]
+   },
+   "conditional": {
+    "k": 3005,
+    "n": 14671,
+    "rate": 0.20482584690886785,
+    "ci": [
+     0.19837308338047402,
+     0.21143314694209744
+    ]
+   },
+   "note": "AUDIT M2.1: the ONLY like-for-like comparator -- arm R on X1's own SCMs, per member, rho<=4, same grid, same |K|, same draw."
+  },
+  "legacy_baseline_quoted_once": "754/8085 = 0.0933 [0.0871,0.0998] -- LEGACY: pilot grid, generic+tiered arms, rho<=3, |K| in {3,4}, member unit, DISJOINT SCM draw (default_rng(20260717)). Quoted once; never the comparator.",
+  "A26_revive_if_window": [
+   0.087,
+   0.1
+  ],
+  "A26_verdict": {
+   "primary_rate": {
+    "k": 739,
+    "n": 13147,
+    "rate": 0.05621054232904845,
+    "ci": [
+     0.05240147454115498,
+     0.06027887853441001
+    ]
+   },
+   "overlaps_window": false,
+   "note": "AUDIT M2.4: under a never-raising operator the revive_if as written cannot fire unless the class is >= 44% MILDER than reversals (matched level 0.0933/(1-0.475) = 0.1776). Reporting a retraction off this rule would register a FALSE retraction. Evaluated for the record only; the decision rule that carries information is the conditional RR of P2."
+  }
+ },
+ "P4_locality": {
+  "Suni_hopC_x_hopG_silent_rho1": {
+   "hopC=0|hopG=0": {
+    "k": 210,
+    "n": 3663,
+    "rate": 0.05733005733005733,
+    "ci": [
+     0.05025510973493184,
+     0.06533250526847421
+    ]
+   },
+   "hopC=1|hopG=1": {
+    "k": 212,
+    "n": 3508,
+    "rate": 0.06043329532497149,
+    "ci": [
+     0.05301844239208092,
+     0.06880979610828888
+    ]
+   },
+   "hopC=2|hopG=2": {
+    "k": 2,
+    "n": 490,
+    "rate": 0.004081632653061225,
+    "ci": [
+     0.0011200454554367548,
+     0.014758448908766134
+    ]
+   },
+   "hopC=3|hopG=3": {
+    "k": 0,
+    "n": 90,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.04093562556432678
+    ]
+   },
+   "hopC=4|hopG=4": {
+    "k": 0,
+    "n": 10,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.2775327998628892
+    ]
+   },
+   "hopC=5|hopG=5": {
+    "k": 0,
+    "n": 4,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.4898908364545973
+    ]
+   },
+   "hopC=unreachable|hopG=unreachable": {
+    "k": 0,
+    "n": 235,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.016083718629344122
+    ]
+   }
+  },
+  "Sloc_hopC_x_hopG_silent_rho1": {
+   "hopC=0|hopG=0": {
+    "k": 1049,
+    "n": 8000,
+    "rate": 0.131125,
+    "ci": [
+     0.12390522841042509,
+     0.1386988560950649
+    ]
+   }
+  },
+  "R_hopC_x_hopG_silent_rho1": {
+   "hopC=0|hopG=0": {
+    "k": 807,
+    "n": 4037,
+    "rate": 0.19990091652216993,
+    "ci": [
+     0.1878521022931306,
+     0.21252031402355795
+    ]
+   },
+   "hopC=1|hopG=1": {
+    "k": 0,
+    "n": 2894,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.0013256276698648125
+    ]
+   },
+   "hopC=2|hopG=2": {
+    "k": 0,
+    "n": 519,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.007347272783911986
+    ]
+   },
+   "hopC=3|hopG=3": {
+    "k": 0,
+    "n": 109,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.034042973751325124
+    ]
+   },
+   "hopC=4|hopG=4": {
+    "k": 0,
+    "n": 15,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.20388330103584862
+    ]
+   },
+   "hopC=5|hopG=5": {
+    "k": 0,
+    "n": 2,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.6576197724933469
+    ]
+   },
+   "hopC=6|hopG=6": {
+    "k": 0,
+    "n": 1,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.7934506856227626
+    ]
+   },
+   "hopC=unreachable|hopG=unreachable": {
+    "k": 0,
+    "n": 423,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.008999732198712756
+    ]
+   }
+  },
+  "Suni_hopC_x_hopG_EDGE_ATTRIBUTABLE_Ostar_move_rho1": {
+   "hopC=0|hopG=0": {
+    "k": 1077,
+    "n": 3663,
+    "rate": 0.294021294021294,
+    "ci": [
+     0.27948906181346517,
+     0.30898510131947954
+    ]
+   },
+   "hopC=1|hopG=1": {
+    "k": 660,
+    "n": 3508,
+    "rate": 0.18814139110604333,
+    "ci": [
+     0.1755520536168539,
+     0.20141298718691045
+    ]
+   },
+   "hopC=2|hopG=2": {
+    "k": 14,
+    "n": 490,
+    "rate": 0.02857142857142857,
+    "ci": [
+     0.017094331959877238,
+     0.0473827552752292
+    ]
+   },
+   "hopC=3|hopG=3": {
+    "k": 0,
+    "n": 90,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.04093562556432678
+    ]
+   },
+   "hopC=4|hopG=4": {
+    "k": 0,
+    "n": 10,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.2775327998628892
+    ]
+   },
+   "hopC=5|hopG=5": {
+    "k": 0,
+    "n": 4,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.4898908364545973
+    ]
+   },
+   "hopC=unreachable|hopG=unreachable": {
+    "k": 0,
+    "n": 235,
+    "rate": 0.0,
+    "ci": [
+     0.0,
+     0.016083718629344122
+    ]
+   }
+  },
+  "Suni_hop0": {
+   "k": 210,
+   "n": 3663,
+   "rate": 0.05733005733005733,
+   "ci": [
+    0.05025510973493184,
+    0.06533250526847421
+   ]
+  },
+  "Suni_hop_ge1_reachable": {
+   "k": 214,
+   "n": 4102,
+   "rate": 0.052169673330082884,
+   "ci": [
+    0.045774013184286186,
+    0.05940332090223998
+   ]
+  },
+  "Suni_hop_unreachable": {
+   "k": 0,
+   "n": 235,
+   "rate": 0.0,
+   "ci": [
+    0.0,
+    0.016083718629344122
+   ]
+  },
+  "materiality_ratio": 0.90998815908616,
+  "n_hop_ge1_denominator": 4102,
+  "verdict_M12": {
+   "readable": true,
+   "existence_check_ge5_events": true,
+   "n_events": 214,
+   "verdict": "SUPPORTED",
+   "note": "AUDIT M12: rate + Wilson + materiality ratio (>= 0.10 x the hop-0 rate with CI_lo > 0). The '>= 5 events' count is an EXISTENCE check only."
+  },
+  "ADDED_edge_attributable_hop_ge1": {
+   "k": 674,
+   "n": 4102,
+   "rate": 0.1643100926377377,
+   "ci": [
+    0.15328533360408844,
+    0.17596300011237676
+   ]
+  }
+ },
+ "P5_severity": {
+  "cliffs_delta_Suni_vs_R": {
+   "delta": -0.053824437118608404,
+   "ci": [
+    -0.1209557147366206,
+    0.01467999637604919
+   ],
+   "n_a": 424,
+   "n_b": 807,
+   "median_a": 0.589504425405162,
+   "median_b": 0.6277196094841925,
+   "iqr_a": [
+    0.27249227416257893,
+    1.3576910947185137
+   ],
+   "iqr_b": [
+    0.3192023200397644,
+    1.4897605291090839
+   ]
+  },
+  "dominance": "NOT SEPARATED",
+  "ecdf_quantiles_Suni": {
+   "0.1": 0.13631811338008562,
+   "0.25": 0.27249227416257893,
+   "0.5": 0.589504425405162,
+   "0.75": 1.3576910947185137,
+   "0.9": 3.092763659339112
+  },
+  "ecdf_quantiles_R": {
+   "0.1": 0.17026364057431986,
+   "0.25": 0.3192023200397644,
+   "0.5": 0.6277196094841925,
+   "0.75": 1.4897605291090839,
+   "0.9": 3.267820296719189
+  },
+  "note": "the ONLY inferential statistic in the run, and it is on a bias MAGNITUDE distribution. No p-value on rho*, ever."
+ },
+ "P6_movement": {
+  "channels": {
+   "R": {
+    "n=200|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1159,
+      "n": 2000,
+      "rate": 0.5795,
+      "ci": [
+       0.557733506058135,
+       0.6009616834241458
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 384,
+      "n": 2000,
+      "rate": 0.192,
+      "ci": [
+       0.17533496798776405,
+       0.2098459331374877
+      ]
+     }
+    },
+    "n=500|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1128,
+      "n": 2000,
+      "rate": 0.564,
+      "ci": [
+       0.5421649933964967,
+       0.5855896245515028
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 373,
+      "n": 2000,
+      "rate": 0.1865,
+      "ci": [
+       0.17003608019071192,
+       0.20416590845463362
+      ]
+     }
+    },
+    "n=1000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1113,
+      "n": 2000,
+      "rate": 0.5565,
+      "ci": [
+       0.5346395867490135,
+       0.578143786908205
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 362,
+      "n": 2000,
+      "rate": 0.181,
+      "ci": [
+       0.1647427755094818,
+       0.1984803006559575
+      ]
+     }
+    },
+    "n=2000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1108,
+      "n": 2000,
+      "rate": 0.554,
+      "ci": [
+       0.5321322329184799,
+       0.5756607259751448
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 357,
+      "n": 2000,
+      "rate": 0.1785,
+      "ci": [
+       0.16233862634366797,
+       0.1958940350581776
+      ]
+     }
+    },
+    "n=5000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1101,
+      "n": 2000,
+      "rate": 0.5505,
+      "ci": [
+       0.5286228713269154,
+       0.572183506897678
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 353,
+      "n": 2000,
+      "rate": 0.1765,
+      "ci": [
+       0.16041617984137058,
+       0.1938241497496
+      ]
+     }
+    },
+    "n=10000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1096,
+      "n": 2000,
+      "rate": 0.548,
+      "ci": [
+       0.5261168502605842,
+       0.5696991132004156
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 352,
+      "n": 2000,
+      "rate": 0.176,
+      "ci": [
+       0.1599356907777146,
+       0.19330655586053724
+      ]
+     }
+    },
+    "n=20000|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 1093,
+      "n": 2000,
+      "rate": 0.5465,
+      "ci": [
+       0.524613503534277,
+       0.5682082110685663
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 352,
+      "n": 2000,
+      "rate": 0.176,
+      "ci": [
+       0.1599356907777146,
+       0.19330655586053724
+      ]
+     }
+    },
+    "n=20000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1094,
+      "n": 2000,
+      "rate": 0.547,
+      "ci": [
+       0.525114596965253,
+       0.5687052005903093
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 352,
+      "n": 2000,
+      "rate": 0.176,
+      "ci": [
+       0.1599356907777146,
+       0.19330655586053724
+      ]
+     }
+    },
+    "n=20000|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 1096,
+      "n": 2000,
+      "rate": 0.548,
+      "ci": [
+       0.5261168502605842,
+       0.5696991132004156
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 352,
+      "n": 2000,
+      "rate": 0.176,
+      "ci": [
+       0.1599356907777146,
+       0.19330655586053724
+      ]
+     }
+    },
+    "n=inf|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 1090,
+      "n": 2000,
+      "rate": 0.545,
+      "ci": [
+       0.5231103560332848,
+       0.5667171097114025
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=inf|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1090,
+      "n": 2000,
+      "rate": 0.545,
+      "ci": [
+       0.5231103560332848,
+       0.5667171097114025
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=inf|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 1090,
+      "n": 2000,
+      "rate": 0.545,
+      "ci": [
+       0.5231103560332848,
+       0.5667171097114025
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 825,
+      "n": 2000,
+      "rate": 0.4125,
+      "ci": [
+       0.39111286830593545,
+       0.4342226149682836
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    }
+   },
+   "Suni": {
+    "n=200|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1414,
+      "n": 2000,
+      "rate": 0.707,
+      "ci": [
+       0.6866713942110881,
+       0.726534948214473
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 380,
+      "n": 2000,
+      "rate": 0.19,
+      "ci": [
+       0.17340746555537095,
+       0.2077811037590058
+      ]
+     }
+    },
+    "n=500|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1385,
+      "n": 2000,
+      "rate": 0.6925,
+      "ci": [
+       0.6719230634767616,
+       0.712338873319956
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 375,
+      "n": 2000,
+      "rate": 0.1875,
+      "ci": [
+       0.1709991046047915,
+       0.20519904994599153
+      ]
+     }
+    },
+    "n=1000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1371,
+      "n": 2000,
+      "rate": 0.6855,
+      "ci": [
+       0.6648116012948383,
+       0.7054771741638168
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 373,
+      "n": 2000,
+      "rate": 0.1865,
+      "ci": [
+       0.17003608019071192,
+       0.20416590845463362
+      ]
+     }
+    },
+    "n=2000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1363,
+      "n": 2000,
+      "rate": 0.6815,
+      "ci": [
+       0.6607503149487151,
+       0.7015537968881901
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 372,
+      "n": 2000,
+      "rate": 0.186,
+      "ci": [
+       0.16955463711039753,
+       0.20364926858222926
+      ]
+     }
+    },
+    "n=5000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1355,
+      "n": 2000,
+      "rate": 0.6775,
+      "ci": [
+       0.6566907564469645,
+       0.6976286917681906
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 369,
+      "n": 2000,
+      "rate": 0.1845,
+      "ci": [
+       0.16811058609550197,
+       0.20209907073896857
+      ]
+     }
+    },
+    "n=10000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1349,
+      "n": 2000,
+      "rate": 0.6745,
+      "ci": [
+       0.6536472112354749,
+       0.6946837392633678
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 368,
+      "n": 2000,
+      "rate": 0.184,
+      "ci": [
+       0.16762932898245075,
+       0.20158224489930102
+      ]
+     }
+    },
+    "n=20000|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 1343,
+      "n": 2000,
+      "rate": 0.6715,
+      "ci": [
+       0.6506046214575137,
+       0.6917378313250164
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 366,
+      "n": 2000,
+      "rate": 0.183,
+      "ci": [
+       0.16666695547445123,
+       0.20054845250186307
+      ]
+     }
+    },
+    "n=20000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1344,
+      "n": 2000,
+      "rate": 0.672,
+      "ci": [
+       0.6511116536919616,
+       0.6922288820432875
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 366,
+      "n": 2000,
+      "rate": 0.183,
+      "ci": [
+       0.16666695547445123,
+       0.20054845250186307
+      ]
+     }
+    },
+    "n=20000|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 1348,
+      "n": 2000,
+      "rate": 0.674,
+      "ci": [
+       0.6531400467735491,
+       0.6941928207725749
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 368,
+      "n": 2000,
+      "rate": 0.184,
+      "ci": [
+       0.16762932898245075,
+       0.20158224489930102
+      ]
+     }
+    },
+    "n=inf|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 1154,
+      "n": 2000,
+      "rate": 0.577,
+      "ci": [
+       0.5552209880408906,
+       0.5984837866777963
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 310,
+      "n": 2000,
+      "rate": 0.155,
+      "ci": [
+       0.13980191433164452,
+       0.17152084829241995
+      ]
+     }
+    },
+    "n=inf|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1154,
+      "n": 2000,
+      "rate": 0.577,
+      "ci": [
+       0.5552209880408906,
+       0.5984837866777963
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 310,
+      "n": 2000,
+      "rate": 0.155,
+      "ci": [
+       0.13980191433164452,
+       0.17152084829241995
+      ]
+     }
+    },
+    "n=inf|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 1154,
+      "n": 2000,
+      "rate": 0.577,
+      "ci": [
+       0.5552209880408906,
+       0.5984837866777963
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 532,
+      "n": 2000,
+      "rate": 0.266,
+      "ci": [
+       0.24709676197877747,
+       0.2858004161488488
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 310,
+      "n": 2000,
+      "rate": 0.155,
+      "ci": [
+       0.13980191433164452,
+       0.17152084829241995
+      ]
+     }
+    }
+   },
+   "Sloc": {
+    "n=200|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1332,
+      "n": 2000,
+      "rate": 0.666,
+      "ci": [
+       0.6450289994977744,
+       0.6863345408048497
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 199,
+      "n": 2000,
+      "rate": 0.0995,
+      "ci": [
+       0.0871393182984558,
+       0.1133962365738278
+      ]
+     }
+    },
+    "n=500|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1293,
+      "n": 2000,
+      "rate": 0.6465,
+      "ci": [
+       0.6252860078602283,
+       0.6671522972863645
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 187,
+      "n": 2000,
+      "rate": 0.0935,
+      "ci": [
+       0.08150853615947415,
+       0.10705002328018448
+      ]
+     }
+    },
+    "n=1000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1287,
+      "n": 2000,
+      "rate": 0.6435,
+      "ci": [
+       0.6222520359712718,
+       0.6641977714590085
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 187,
+      "n": 2000,
+      "rate": 0.0935,
+      "ci": [
+       0.08150853615947415,
+       0.10705002328018448
+      ]
+     }
+    },
+    "n=2000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1279,
+      "n": 2000,
+      "rate": 0.6395,
+      "ci": [
+       0.618208130918959,
+       0.6602570128895713
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 184,
+      "n": 2000,
+      "rate": 0.092,
+      "ci": [
+       0.08010326619960463,
+       0.10546104438189775
+      ]
+     }
+    },
+    "n=5000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1274,
+      "n": 2000,
+      "rate": 0.637,
+      "ci": [
+       0.6156814927218172,
+       0.6577932363231195
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 182,
+      "n": 2000,
+      "rate": 0.091,
+      "ci": [
+       0.07916698061730579,
+       0.1044011640587591
+      ]
+     }
+    },
+    "n=10000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1272,
+      "n": 2000,
+      "rate": 0.636,
+      "ci": [
+       0.6146710095025142,
+       0.656807553636985
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 181,
+      "n": 2000,
+      "rate": 0.0905,
+      "ci": [
+       0.07869900861825208,
+       0.10387105310509406
+      ]
+     }
+    },
+    "n=20000|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 1270,
+      "n": 2000,
+      "rate": 0.635,
+      "ci": [
+       0.6136606243419257,
+       0.655821772892136
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 181,
+      "n": 2000,
+      "rate": 0.0905,
+      "ci": [
+       0.07869900861825208,
+       0.10387105310509406
+      ]
+     }
+    },
+    "n=20000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1270,
+      "n": 2000,
+      "rate": 0.635,
+      "ci": [
+       0.6136606243419257,
+       0.655821772892136
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 181,
+      "n": 2000,
+      "rate": 0.0905,
+      "ci": [
+       0.07869900861825208,
+       0.10387105310509406
+      ]
+     }
+    },
+    "n=20000|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 1271,
+      "n": 2000,
+      "rate": 0.6355,
+      "ci": [
+       0.6141658046756455,
+       0.6563146755111349
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 181,
+      "n": 2000,
+      "rate": 0.0905,
+      "ci": [
+       0.07869900861825208,
+       0.10387105310509406
+      ]
+     }
+    },
+    "n=inf|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 1238,
+      "n": 2000,
+      "rate": 0.619,
+      "ci": [
+       0.597507663031022,
+       0.6400360797160397
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 176,
+      "n": 2000,
+      "rate": 0.088,
+      "ci": [
+       0.0763608907930523,
+       0.10121875616670009
+      ]
+     }
+    },
+    "n=inf|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 1238,
+      "n": 2000,
+      "rate": 0.619,
+      "ci": [
+       0.597507663031022,
+       0.6400360797160397
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 176,
+      "n": 2000,
+      "rate": 0.088,
+      "ci": [
+       0.0763608907930523,
+       0.10121875616670009
+      ]
+     }
+    },
+    "n=inf|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 1238,
+      "n": 2000,
+      "rate": 0.619,
+      "ci": [
+       0.597507663031022,
+       0.6400360797160397
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 383,
+      "n": 2000,
+      "rate": 0.1915,
+      "ci": [
+       0.1748530251159714,
+       0.20932979305656163
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 176,
+      "n": 2000,
+      "rate": 0.088,
+      "ci": [
+       0.0763608907930523,
+       0.10121875616670009
+      ]
+     }
+    }
+   },
+   "Drop": {
+    "n=200|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=500|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=1000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=2000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=5000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=10000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=20000|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=20000|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=20000|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=inf|z=1.000": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=inf|z=1.960": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    },
+    "n=inf|z=2.576": {
+     "censored_rho_star_se": {
+      "k": 2000,
+      "n": 2000,
+      "rate": 1.0,
+      "ci": [
+       0.9980829527187468,
+       0.9999999999999998
+      ]
+     },
+     "censored_rho_star_ident": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     },
+     "censored_rho_star_any": {
+      "k": 350,
+      "n": 2000,
+      "rate": 0.175,
+      "ci": [
+       0.15897486087046633,
+       0.192271219862348
+      ]
+     }
+    }
+   }
+  },
+  "note": "rho*_se, rho*_ident and rho*_any reported as THREE separate columns. Folding identification failure into the movement statistic is what manufactured E1's false contradiction with S5 (PREREG 11.3)."
+ }
+}

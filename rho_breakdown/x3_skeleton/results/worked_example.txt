@@ -1,0 +1,125 @@
+==============================================================================
+                       A CONCRETE USE OF THE FRAMEWORK                        
+==============================================================================
+
+SYNTHETIC.  The graph comes from the same generator as every other run in this
+line (random_dag, p=7, expected degree 2, iSCM linear-Gaussian, population Sigma
+so Monte-Carlo error is exactly zero).  The variable names are a reading aid, so
+that the witness at the end is a sentence a domain expert can argue with.  No
+empirical claim about any of these variables is made.  Seed 4906.
+
+------------------------------------------------------------------------------
+STEP 1.  What the discovery method returned
+------------------------------------------------------------------------------
+  CPDAG, oriented   : BMI -> CardiacEvent, Exercise -> CardiacEvent, Statin -> CardiacEvent
+  CPDAG, UNDETERMINED: BMI - Exercise, BMI - BloodPressure, Smoking - Exercise, Smoking - Age, BloodPressure - Statin
+
+  The undirected edges are what the observational distribution cannot resolve at
+  ANY sample size.  They are the whole arena: background knowledge can only ever
+  orient these.  Query: effect of Statin on CardiacEvent.
+
+------------------------------------------------------------------------------
+STEP 2.  What the expert asserted, and what it bought
+------------------------------------------------------------------------------
+  K: Exercise -> BMI
+  K: BMI -> BloodPressure
+
+  MPDAG G0 = Meek(Chat, K)
+    oriented    : BMI -> CardiacEvent, BMI -> BloodPressure, Exercise -> BMI, Exercise -> CardiacEvent, BloodPressure -> Statin, Statin -> CardiacEvent
+    still undet.: Smoking - Exercise, Smoking - Age
+
+  2 statements were asserted; Meek's rules PROPAGATED 1 further
+  orientations for free.  That propagation is why counting wrong assertions is
+  the wrong unit: one statement in a dense region can collapse a whole component,
+  the same statement elsewhere propagates nothing.
+
+------------------------------------------------------------------------------
+STEP 3.  The claim being made
+------------------------------------------------------------------------------
+  O*(G0) = {BMI, Exercise}
+  estimate, adjusting for O*      : -0.4191
+  true total effect (hidden)      : -0.4191
+
+  The analyst never sees the second line.  Everything from here answers the only
+  question available at analysis time: how wrong would K have to be?
+
+------------------------------------------------------------------------------
+STEP 4.  r_val, and the witness
+------------------------------------------------------------------------------
+  The ball is centred on the graph the ANALYST HOLDS, not on the truth --
+  that is what makes it computable in deployment.  Z is fixed once at O*(G0);
+  validity is then re-evaluated in every graph of every shell, where "valid in an
+  MPDAG" means valid in every DAG that MPDAG represents.
+
+    shell r=1:    6 realisable revisions
+    shell r=2:   13 realisable revisions
+    shell r=3:   16 realisable revisions
+    shell r=4:   21 realisable revisions
+    shell r=5:   28 realisable revisions
+
+  r_val = 2
+
+  WITNESS -- the specific sequence that breaks it:
+    1. un-orient  BMI -> BloodPressure
+    2. un-orient  Exercise -> BMI
+
+  In words, and this is the output that matters:
+
+     "The estimate holds unless BMI -> BloodPressure is retracted and Exercise -> BMI is retracted."
+
+  A domain expert answers that directly, with no metric literacy at all.  The
+  radius says how alarmed to be; the witness says what to go and check.
+
+  A FLIP costs TWO (retract, then assert), so r_val = 2 reads to a
+  practitioner as: one flip, or two omissions.
+
+------------------------------------------------------------------------------
+STEP 5.  r_eps -- what it would do to the NUMBER, against the standard error
+------------------------------------------------------------------------------
+  Here O* is RE-derived in each member, so the estimate moves.  The spread is
+  the ignorance interval: what the data plus this much knowledge-doubt allow.
+
+     radius            ignorance interval   width
+          0  [-0.4191, -0.4191]   0.0000
+          1  [-0.4191, -0.4191]   0.0000
+          2  [-0.4191, -0.4191]   0.0000
+          3  [-0.8711, -0.4191]   0.4520
+          4  [-0.8711, -0.4191]   0.4520
+          5  [-0.8711, -0.4191]   0.4520
+
+  Read this against the standard error, which is the comparison a practitioner
+  actually makes.  If the interval at r=1 sits inside the confidence interval,
+  structural doubt is not the binding constraint.  If it is wider, no amount of
+  data helps: SE shrinks like n^-1/2 and this width does not shrink at all.
+
+  AND THIS CASE IS THE REASON THE FRAMEWORK REPORTS TWO RADII.
+
+    r_val = 2          the adjustment set stops being provably valid here
+    r_eps > 2          the estimate does not move at all until r = 3
+
+  Between them the analysis is in the middle row of the framing's own table:
+  FRAGILE IDENTIFICATION, STABLE ESTIMATE.  A validity-only analysis raises the
+  alarm at r = 2; the number it is alarmed about has not moved by so much as
+  1e-9.  At r = 3 it finally moves, by 0.4520 against an effect of
+  -0.4191, i.e. 108% of the estimate.
+
+  Collapsing the two into one number would have reported this analysis as
+  fragile at r = 2.  It is not: it is fragile in IDENTIFICATION and stable in
+  ESTIMATION, and those are different things to tell a practitioner.
+
+------------------------------------------------------------------------------
+A STRUCTURAL REMARK THAT FELL OUT OF BUILDING THIS
+------------------------------------------------------------------------------
+  Across every case searched, the last move of the minimal breaking path was
+  ALWAYS a retraction, never an assertion.  That is not luck, it is forced:
+
+    if G' is a REFINEMENT of G, then [G'] is a SUBSET of [G], so a Z valid in
+    every DAG of [G] is valid in every DAG of [G'].
+
+  Orienting one more edge can therefore never invalidate a fixed valid Z.  For
+  r_val -- where Z is fixed at O*(G0) -- only the UPWARD moves bind.  The DOWNWARD
+  move earns its place in the framework through r_eps, where O* is re-derived and
+  the estimate does move.  Worth stating in the paper: it removes a whole
+  direction from the r_val search.
+
+==============================================================================
