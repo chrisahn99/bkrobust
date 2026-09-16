@@ -1085,3 +1085,47 @@ than the synthetic "8 of 9".
   high radii in the tiered arm. That is not a contradiction: the two arms give
   `paths` completely different knowledge (`|K| = 1` against a generated tiering),
   which is the campaign's central finding restated on a single network.
+
+---
+
+# Appendix I — 2026-09-16, `pathfinder` contributes no survival endpoint at all
+
+The four `pathfinder` flip shards were the campaign's long tail, at about three
+hours each. Inspecting their output while they ran settles what they can change:
+**nothing.**
+
+Every cell written is `unresolved_all_contradictory` — `n_eval = 0`,
+`n_contradictory = 1000`, `S` undefined — at **every** depth on its grid, for all
+three of its admissible pairs:
+
+| depth | 8 | 16 | 24 | 32 | 40 | 47 | 55 |
+|---|---|---|---|---|---|---|---|
+| `n_eval` | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+A direct probe confirms the same at the three remaining depths (63, 71, 79):
+8 of 8 draws contradictory at each.
+
+**The mechanism is the fractional depth grid meeting a large `|K|`.**
+`pathfinder` has `|K| = 79`, so the grid's *smallest* point is `d = 8` — the arm
+cannot ask what happens when one claim is reversed, only what happens when eight
+are. Eight simultaneous reversals on an 85-vertex chain component always conflict
+with a compelled edge, so Meek closure rejects every draw.
+
+**This is a measurement limit, recorded as a status, and it is a finding in its
+own right:** the densest real network in the corpus produces no survival
+measurement whatever, not because the radius cannot be computed on it — it
+computes in 0.16 s — but because the corruption model cannot reach it at the
+resolution the endpoint requires.
+
+**Consequence for the reported numbers: none.** `pathfinder`'s flip rows carry a
+defined radius and an undefined endpoint, so they are excluded from every τ as
+missing-endpoint rows and appear only in the denominator and the status counts.
+Every τ in `table_tau_real.md` is unchanged by their completion. They were
+nevertheless run to completion rather than abandoned, so the shard count reaches
+725 of 725 and the record is whole.
+
+**Related, and reported beside it:** at base wrongness 0.10 and 0.25 `pathfinder`
+is rejected earlier still, with `k_contradictory` — reversing 8 or 20 of its 79
+truthful claims produces knowledge inconsistent with its own CPDAG before any
+sweep begins. Its tiered and cross-arm shards are `o_g0_extensions_intractable`.
+`pathfinder` is in the frame, and the frame reports it, and it yields nothing.
