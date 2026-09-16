@@ -1,0 +1,62 @@
+{
+  "n_matched_triples": 105,
+  "n_networks": 8,
+  "networks": [
+    "Kampen_2014",
+    "Polzer_2012",
+    "Sebastiani_2005",
+    "barley",
+    "insurance",
+    "magic-niab",
+    "munin1",
+    "win95pts"
+  ],
+  "unmatched_note": "Admissible instances collapse 543 -> 182 -> 106 across coverage, so the unmatched marginal comparison is a composition effect and is not reported. The coverage sweep is also not nested ([RE-4]); conditioning on a fixed instance set removes the composition effect, not the nesting one.",
+  "rows": [
+    {
+      "coverage": 0.25,
+      "n_triples": 105,
+      "n_networks": 8,
+      "median_n_k": 2.0,
+      "median_k_g0": 4.0,
+      "median_leverage": 2.0,
+      "median_radius": 2.0,
+      "share_radius_1": 0.3333333333333333,
+      "max_radius": 4,
+      "median_AUC_frac_usable": 0.3472,
+      "median_AUC_frac_usable_network_weighted": 0.3486,
+      "share_separation_measured": 0.5523809523809524,
+      "median_separation": 2.0
+    },
+    {
+      "coverage": 0.5,
+      "n_triples": 105,
+      "n_networks": 8,
+      "median_n_k": 4.0,
+      "median_k_g0": 6.0,
+      "median_leverage": 1.5,
+      "median_radius": 2.0,
+      "share_radius_1": 0.3333333333333333,
+      "max_radius": 4,
+      "median_AUC_frac_usable": 0.4282,
+      "median_AUC_frac_usable_network_weighted": 0.42735,
+      "share_separation_measured": 0.5523809523809524,
+      "median_separation": 2.0
+    },
+    {
+      "coverage": 1.0,
+      "n_triples": 105,
+      "n_networks": 8,
+      "median_n_k": 7.0,
+      "median_k_g0": 10.0,
+      "median_leverage": 1.2857142857142858,
+      "median_radius": 2.0,
+      "share_radius_1": 0.3333333333333333,
+      "max_radius": 4,
+      "median_AUC_frac_usable": 0.569167434715822,
+      "median_AUC_frac_usable_network_weighted": 0.5762395950584304,
+      "share_separation_measured": 0.5523809523809524,
+      "median_separation": 2.0
+    }
+  ]
+}
