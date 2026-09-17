@@ -1,0 +1,326 @@
+\chapter{Where to evaluate, and three defects in the old corpus}
+\label{ch:where}
+
+On 10 September I stopped to ask where the radius should be evaluated at all, since every result so far rested on
+sampled graphs that do not look like a deployment. Answering it meant reading the committed pipeline end to end, and
+the reading found three defects in the corpus of \texttt{results/axisa3/}. Two of my own first diagnoses were wrong,
+and both corrections are below. The notes and scripts of these two days are in
+\texttt{rho\_breakdown/eval\_protocol\_2026-09-11/}; the protocol they produced is the one executed in
+Chapters~\ref{ch:frame} to~\ref{ch:pest}.
+
+\begin{antes}
+\antesq[invariante]{An evaluation instance has five coordinates. Which of them does a list of datasets fix?}
+\antesq[invariante]{In which two places may the true DAG appear without breaking a deployment claim?}
+\end{antes}
+
+\section{What a deployed instance is}
+
+\begin{ideia}[Not a list of datasets]
+An evaluation methodology is a sampling distribution over instances $I = (G_{\mathrm{true}}, \Chat, (X,Y), \Kset, D_n)$.
+Swapping Erdős--Rényi graphs for real networks fixes one coordinate; if $\Kset$ is still read from the true DAG, the ball
+stays centred on the truth, over better graphs.
+\end{ideia}
+
+What a deployed analyst holds fixes the rule for every coordinate.
+
+\begin{formulabox}[The invariant]
+$r = r(\Chat, \Kset, X, Y, \widehat\Sigma, n)$: a functional of analyst-observable quantities only. The true DAG enters
+twice, both times after the deployment rows are frozen: to generate the sample, as nature does, and to audit whether the
+promise held. A row is in the audit arm when the hash of its CPDAG source equals the hash of its generating DAG, decided
+by comparing bytes rather than reading a label.
+\end{formulabox}
+
+With the invariant written down, the comparison that motivated the question reads differently. Section~6.2 of your draft
+contrasts separation of at least 2 in 45.4\,\% of real instances with 14.2\,\% of synthetic ones. Both numbers are in your
+files, over different denominators.
+
+\begin{medido}[Separation $\ge 2$, \texttt{results/axisa3/instances.jsonl}]
+Real: 210 rows, 45.4\,\% of the 463 with defined separation, 25.3\,\% of all 831 admissible. Random arm (\texttt{results/axisa2/random\_control.jsonl}): 14.2\,\% of 1,587
+measurable draws pooled over five generators; Erdős--Rényi alone 12.5\,\%, and 3.6\,\%, 14.7\,\%, 24.1\,\% in its dense,
+medium and sparse cells. Undefined separation: 44.3\,\% of real rows, 17.1\,\% of random ones.
+\end{medido}
+
+The sparse cell, 24.1\,\%, sits next to the real corpus over its full denominator, 25.3\,\%; density drives most of the gap,
+and the real corpus (mean degree 1.60 to 9.86, median 2.92, \texttt{results/axisa3/descriptive\_structure.csv}) was never
+matched to a density cell. The reason to evaluate on real structure is the invariant, not a degeneracy of random graphs.
+
+\prompt[conceito=invariante,dificuldade=0.7]{Where may the true DAG appear without breaking a deployment claim, and what
+makes those two places harmless?}{It may generate the sample, which is what nature does and all the analyst receives, and it
+may audit the certificate after the deployment rows are frozen and hashed. What makes them harmless is the order: both come
+after the freeze, so no reported observable quantity can have been chosen by looking at the truth.}
+
+\begin{antes}
+\antesq[oraculo-k]{At coverage 1.0, what is $\Gz$ in the committed corpus?}
+\antesq[amenabilidade]{518 queries are rejected at partial coverage as \texttt{o\_g0\_not\_identified}. Did the optimal-set
+criterion kill them?}
+\end{antes}
+
+\section{Defect 1: the analyst's knowledge is read from the true DAG}
+
+In \texttt{src/bkrobust/benchmarks/measure.py}, \texttt{select\_knowledge(dag, cpdag, coverage)} takes the true DAG and calls
+\texttt{knowledge\_to\_recover} (\texttt{src/bkrobust/demo/example.py}), which repeatedly asserts the true orientation whose
+Meek closure orients the most edges; it sorts the result and keeps an evenly spaced fraction. Every claim is true, and at full
+coverage the closure is the true DAG.
+
+\begin{armadilha}[Correction 1: a default read as a measurement]
+I first wrote that $\Gz$ had no undirected edge in all 831 admissible rows, reading \texttt{g0\_undirected\_edges = 0}. The
+field is assigned only in the intractable-extensions branch (line 240 of \texttt{measure.py}) and keeps the dataclass default
+elsewhere. Rebuilt row by row: the 543 rows at coverage 1.0 are fully oriented, hence equal to the true DAG, and all 288
+partial-coverage rows keep an undirected edge. The same silent default sits in \texttt{k\_g0} on rejected rows.
+\end{armadilha}
+
+The rejection \texttt{o\_g0\_not\_identified} fires 286 times at coverage 0.25, 232 at 0.5, never at 1.0. The four-node
+\texttt{mediator} network shows the mechanism.
+
+\begin{exemplo}[\texttt{mediator}, query $X \to I$]
+The DAG $Z\to X$, $Z\to I$, $X\to I$, $X\to Y$, $I\to Y$ has no v-structure, so the CPDAG is fully undirected. The sorted
+recovering set is $(X\to I,\ Z\to I,\ Z\to X)$. At coverage 1.0, $\Gz$ is the DAG, $\Ostar = \{Z\}$, admitted. At 0.5,
+$\operatorname{round}(3 \times 0.5) = 2$ and the stride keeps the first two claims; $X - Z$ stays open, one extension makes $Z$ a
+confounder ($\Ostar = \{Z\}$) and the other a mediator ($\Ostar = \varnothing$), and the row is rejected.
+\end{exemplo}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=0.9cm]
+\foreach \dx/\lab/\zx/\zi/\xi in {0/{true DAG}/aresta/aresta/aresta, 4.3/{coverage 1.0: admitted}/afirmada/afirmada/afirmada,
+  8.6/{coverage 0.5: $X - Z$ open, rejected}/livre/afirmada/afirmada} {
+\begin{scope}[xshift=\dx cm]
+\node[nodo] (Z) at (0.9,1.0) {$Z$}; \node[nodo] (X) at (0,0) {$X$};
+\node[nodo] (I) at (1.8,0) {$I$}; \node[nodo] (Y) at (0.9,-1.0) {$Y$};
+\draw[style=\zx] (Z) -- (X); \draw[style=\zi] (Z) -- (I); \draw[style=\xi] (X) -- (I);
+\ifdim\dx pt=0pt \draw[aresta] (X) -- (Y); \draw[aresta] (I) -- (Y);
+\else \draw[propagada] (X) -- (Y); \draw[propagada] (I) -- (Y); \fi
+\node[font=\scriptsize\sffamily] at (0.9,-1.6) {\lab};
+\end{scope}}
+\end{tikzpicture}
+\end{center}
+
+\begin{armadilha}[Correction 2: Lever 0 recovers nothing]
+I first read this example as the optimal-set definition deleting the realistic case, since it enumerates extensions and gives
+up when they disagree, and proposed Lever 0: the closed form $\Ostar = \mathrm{pa}(\mathrm{cn}(X,Y)) \setminus
+\mathrm{forb}(X,Y)$ would bring the rows back. It does not. All 518 rejected rows are non-amenable; here $X - Z \to I$ is a
+possibly causal path starting with an undirected edge. The deletion is right and the label is wrong. Caught by running
+\texttt{is\_amenable} and the closed form on every rejected row before writing the fix.
+\end{armadilha}
+
+The numbers behind both halves of that correction:
+
+\begin{medido}[The diagnosis, \texttt{diagnostico\_amenabilidade.py}]
+518 of 518 rejections non-amenable, 0 recoverable. Over every same-size subset of the recovering set on the eight smallest
+networks (1,238 subsets), 29 of 40 non-degenerate rejected cases have another subset of that size that keeps the query
+amenable, 11 have none, and 61 more are degenerate ($\operatorname{round}(1 \times 0.5) = 0$ leaves no knowledge). The 12
+September differential agrees: the closed form returns a set where enumeration said ``not identified'' on 0 rows
+(\texttt{results/stage0/lever0\_differential.json}).
+\end{medido}
+
+So the defect is the \texttt{sorted()} in the thinning, not the optimal criterion: where it can be tested, the query usually
+dies because the analyst holds the wrong claims, chosen by alphabetical order. The stride is not even nested ($\Kset(0.25)
+\not\subseteq \Kset(0.5)$ on \texttt{diabetes}, \texttt{ecoli70}, \texttt{magic-irri}, \texttt{munin1}), so a coverage sweep is not
+a retraction sequence. The 518 are not missing data either: their radius is already zero, and Stage~0 added an identifiability radius (retractions until
+adjustment stops identifying the effect) that is defined exactly where the current radius dies.
+
+\begin{noprato}[What landed on 12 September, and what no patch fixes]
+Additive patches to \texttt{measure.py}, committed behaviour as default: a \texttt{nested} selection (prefix of one seeded
+permutation); \texttt{not\_amenable} split from \texttt{o\_g0\_not\_identified}; a three-valued verdict for $\Ostar$; both silent
+fields assigned on every branch; the dispatch leg as a column. On 213 recomputed committed rows no admissible row moved
+(\texttt{experiments/stage0\_differential.py}). A better stride fixes the size of $\Kset$, never its origin; that takes knowledge
+that does not come from the truth (Chapter~\ref{ch:frame}).
+\end{noprato}
+
+\prompt[conceito=lever0,dificuldade=0.75]{What did Lever 0 recover of the 518 rejected rows, and what is the actual defect?}{Nothing:
+all 518 are non-amenable, so no definition of the optimal set can certify them; the deletion is right and the label
+\texttt{o\_g0\_not\_identified} is wrong. The defect is the thinning in \texttt{select\_knowledge}, which sorts the recovering set
+alphabetically and keeps an even stride; on 29 of 40 testable cases another subset of the same size would have kept the query
+amenable.}
+
+\begin{antes}
+\antesq[unidade-afirmacao]{The gate admits a pair only if something happens under one retraction. What, and what does that fix?}
+\antesq[regra-livre]{How often does a hop count from $X$ to the adjustment set, computable from $\Chat$ and $\Kset$, reproduce the
+committed radius?}
+\end{antes}
+
+\section{Defects 2 and 3: what the committed radii count}
+
+\texttt{fast\_gate} in \texttt{measure.py} reads the true DAG five times: whether $Y$ descends from $X$, the optimal set on the DAG,
+the validity of that set and of the empty set, and a loop that admits a pair only if retracting a single claim of the recovering
+set, with Meek re-closure, makes the optimal set invalid. At coverage 1.0 the asserted set is the recovering set, so admission is
+the definition of $\rclaim = 1$.
+
+\begin{medido}[The claim unit at full coverage, \texttt{stage0/rclaim\_cov1.py}]
+540 rows (\texttt{pathfinder} excluded): $\rclaim = 1$ on all 540. Committed hop radius 1 on 377, 2 on 102, 3 on 43, 4 to 14 on
+18. Median asserted claims 5, median closure $|K_{\Gz}|$ 12. The share of single retractions that break the set, $\phi_1$, runs
+from 0.034 to 1, median 0.30.
+\end{medido}
+
+Section~6.3 of your draft names the sharpest case. In \texttt{paths} (17 nodes), hop radius 14, the analyst asserts one claim, $15\to 14$, at
+the top of the fifteen-node chain component, and R1 orients the thirteen other chain edges from it. Retract it and the chain un-orients at once:
+the hop count is the length of a Meek cascade and the tolerable number of wrong claims is zero. The paragraph commented out in your
+\texttt{06\_simulation.tex}, saying $\rclaim = 1$ on all 540 rows by construction, is correct and should go back in.
+
+\begin{center}
+\begin{tikzpicture}[x=1.05cm,y=1cm]
+\foreach \n/\x in {15/0,14/1,13/2,12/3} \node[nodo] (n\n) at (\x,0) {\n};
+\node at (4,0) {$\cdots$};
+\foreach \n/\x in {3/5,2/6,1/7} \node[nodo] (n\n) at (\x,0) {\n};
+\node[nodo] (E) at (8.2,0) {$E$};
+\draw[afirmada] (n15) -- (n14);
+\draw[propagada] (n14) -- (n13); \draw[propagada] (n13) -- (n12);
+\draw[propagada] (n12) -- (3.65,0); \draw[propagada] (4.35,0) -- (n3);
+\draw[propagada] (n3) -- (n2); \draw[propagada] (n2) -- (n1);
+\draw[aresta] (n1) -- (E);
+\node[font=\scriptsize\sffamily, align=center] at (4,-0.75)
+  {one asserted claim (thick), thirteen chain edges compelled by R1 (dashed): hop radius 14, claim radius 1};
+\end{tikzpicture}
+\end{center}
+
+The third defect is how little the hop radius adds over the free rule: predict the separation $s$, the hop distance from $X$ to
+the nearest member of $\Ostar$ in the undirected component of $X$, or 1 if no member lies there. It is a fifteen-line search on
+$(\Chat, \Kset)$.
+
+\begin{medido}[The free rule against the committed radius, \texttt{stage0/verify\_ladder.py}]
+Exact on 636 of 831 rows (76.5\,\%), within one on 813 (97.8\,\%), two or more apart on 18 (\texttt{paths} 13, \texttt{Kampen\_2014}
+3, \texttt{insurance} 2). Over-certifies on 16 rows, all $r = 1$, $s = 2$; under-certifies on 179, 69 of them in the 368-row
+undefined stratum. $|K_{\Gz}|$ alone matches on 15. The law transfers as $r \ge \min(s, |K_{\Gz}|)$ on 447 of 463 measurable rows.
+Also in \texttt{results/stage0/STAGE0.md}.
+\end{medido}
+
+A hop count reproduces the radius and a claim count does not: the radius follows where knowledge sits. Your session~5 law
+$r = \min(s, |K_{\Gz}|)$ held on 1,572 of 1,572 designed instances, so this confirms the theory; what it rules out is a headline the
+search reproduces (outside the teaching files, five rows on two networks differ by two or more). One more confound sits in the same rows: \texttt{local\_up\_fast} answered 811 rows, all at radii 1 to 3, and
+\texttt{e1\_ladder} 20, all at 4 to 14, because \texttt{DEFAULT\_SEARCH\_BUDGET} is 3 in \texttt{src/bkrobust/hybrid.py}. A cost
+curve against radius on these rows is a cost curve against algorithm.
+
+\prompt[conceito=unidade-afirmacao,dificuldade=0.7]{Why is $\rclaim = 1$ on all 540 full-coverage rows, and what does that make of
+``safe moves $= r_{\mathrm{hop}} - 1$'' on \texttt{paths}?}{Because \texttt{fast\_gate} admits a pair only if retracting one claim of
+the recovering set breaks the optimal set, and at coverage 1.0 the asserted set is the recovering set: admission is the definition of
+$\rclaim = 1$. On \texttt{paths} one claim compels the whole chain, so the hop radius is 14 while the analyst can afford zero wrong
+claims; ``13 safe moves'' would read a Meek-cascade length as an error budget.}
+
+\prompt[conceito=regra-livre,dificuldade=0.7]{State the free rule, its agreement with the committed radius, and the direction of its
+errors.}{Predict the separation $s$ (hops from $X$ to the nearest member of $\Ostar$ inside the undirected component of $X$), and 1
+where no member lies in the component. Exact on 636 of 831 rows, within one on 813. It over-certifies on 16 and under-certifies on 179:
+a conservative lower bound to beat on sharpness at equal validity, not a competitor on agreement.}
+
+\begin{antes}
+\antesq[pre-registro]{Which experiment should a protocol run first: the most informative, or the one that can retire the framework most
+cheaply?}
+\antesq[correcao-minima]{The smallest subset of asserted constraints whose removal breaks a property: does that object already have a
+name?}
+\end{antes}
+
+\section{\emph{Beat the BFS First}: the protocol of 11 September}
+
+The protocol is named after its thesis: measure whether a certificate counted in the analyst's own claims, with no true-DAG quantity
+on its path, beats the free statistics an analyst already has, and whether its promise survives the truth; until then every other axis
+re-derives a hop count at great expense. One decision per design axis (\texttt{02\_PROTOCOL.md}):
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.5cm}p{13.3cm}@{}}
+\toprule
+A1 & \textbf{Substrate.} Four labelled tiers never pooled into a headline; random graphs only as instrument calibration, matched on
+expected degree; the network as unit of evidence (intraclass correlation 0.398 on the $r = 1$ indicator over the 831 committed rows on 25 networks, about 60 effective rows). \\
+A2 & \textbf{Queries.} One frame drawn from the CPDAG alone, frozen before any knowledge; conditions on $\Kset$ become printed statuses,
+never filters; the five true-DAG reads leave the deployment path. \\
+A3 & \textbf{Knowledge.} \texttt{select\_knowledge} off the deployment path; a frozen, hashed questionnaire asking causal order per
+chain component, answered by independent suppliers. \\
+A4 & \textbf{Geometry.} Centre at $\mathrm{Meek}(\Chat, \Kset)$; $\rclaim$ by exhaustive subsets to depth 3, printed beside $\rhop$. \\
+A5 & \textbf{Statistics.} Sound one-sided validity tests with censoring as an explicit outcome; deployment claims only on an
+estimated-CPDAG panel; the 95\,\% band, never the point hull. \\
+A6 & \textbf{Audit.} Truth-free probes first, then the truth-revealed buckets (dangerous, held, safe, slack), opened after the freeze. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Deployment arms (a language-model supplier and its replicates, harvested and human knowledge, a matched random control, empty
+knowledge as a status line) sit above a rule, and audit arms (truthful but incomplete knowledge, synthetic corruption, the old
+recovering set) below it. Nine tables run from the applicability funnel (Table~0) through the certificate ledger (Table~4) to the
+decision table naming the first-failing retraction set (Table~8), and the build order puts everything free first.
+
+\begin{center}
+\begin{tikzpicture}[node distance=5mm and 7mm]
+\node[cmap] (c) {1 closed-form $\Ostar$, differential};
+\node[cmapc, above left=1mm and 7mm of c] (a) {0A ladder and unit, committed rows};
+\node[cmapc, below left=1mm and 7mm of c] (b) {0B prior-art gate};
+\node[cmap, right=of c] (d) {2 frame from $\Chat$};
+\node[cmap, right=of d] (e) {3 questionnaire, hashed};
+\node[cmap, below=9mm of e] (f) {4 elicitation, probes};
+\node[cmap, left=of f] (g) {5 radius sweep};
+\node[cmap, left=of g] (h) {6 finite-$n$ panel};
+\node[cmapr, left=of h] (i) {7 audit after the freeze};
+\draw[cedge] (a.east) -- (c.west); \draw[cedge] (b.east) -- (c.west); \draw[cedge] (c) -- (d); \draw[cedge] (d) -- (e);
+\draw[cedge] (e) -- (f); \draw[cedge] (f) -- (g); \draw[cedge] (g) -- (h); \draw[cedge] (h) -- (i);
+\end{tikzpicture}
+\end{center}
+
+\begin{armadilha}[The protocol as written still carries my two wrong claims]
+\texttt{02\_PROTOCOL.md} was assembled before the code reading of the same day. It still says $\Gz$ has no undirected edge in all 831
+rows, makes Lever 0 a blocking recovery step, and proposes safe moves $r - 1$ as a headline, which Defect~2 makes zero by selection.
+Read the protocol for its design and \texttt{06\_CODE\_FIXES.md} and \texttt{docs/EVALUATION\_PLAN.md} for the facts.
+\end{armadilha}
+
+The prior-art gate ran on 12 September and retired a claim. The object we report, the size of the smallest subset of asserted
+constraints whose removal makes a property fail when adding constraints can never break it, is a minimal correction set, named and
+studied in satisfiability diagnosis. Eight areas were searched, from stability radii to AGM contraction, and none applied the object to
+causal graphs, Meek closure or adjustment validity (\texttt{docs/PRIOR\_ART.md}). The contribution has to live in that instantiation
+and in the measurement of what it buys over the free statistics.
+
+\begin{fonte}[Minimal correction sets]
+Liffiton and Sakallah, \emph{Algorithms for computing minimal unsatisfiable subsets of constraints}, J.\ Automated Reasoning 40(1),
+2008; Bacchus and Katsirelos, \emph{Using minimal correction sets to more efficiently compute minimal unsatisfiable sets}, SAT 2015.
+For the hitting-set duality our depth-3 enumeration naively re-implements; both still to be checked against the papers.
+\end{fonte}
+
+\prompt[conceito=correcao-minima,dificuldade=0.7]{What is $\rclaim$ called in the satisfiability literature, and what is left for our
+paper to contribute?}{The size of a minimum minimal correction set: the smallest subset of asserted constraints whose removal makes the
+property fail, failure being upward-closed because adding constraints cannot invalidate a fixed valid set. What is left is the
+instantiation (knowledge closed under Meek, adjustment validity in an MPDAG, a certificate stated against the analyst's own claims) and
+the measurement of what it buys over the free statistics once the truth is revealed.}
+
+\naopasse[filtro]{Write the two lines of \texttt{select\_knowledge} that decide which claims a partial-coverage analyst keeps, and what
+the \texttt{nested} mode puts in their place. If you cannot, redo the \texttt{mediator} example.}
+
+\begin{exercicio}[metodo=classification,conceito=invariante]
+Classify each item as deployment-legal, audit-only, or a defect on the deployment path: (a) \texttt{select\_knowledge}; (b) the check
+\texttt{y not in dag.descendants(x)} in \texttt{fast\_gate}; (c) simulating $D_n$ from the true DAG; (d) the free rule; (e) a
+questionnaire restricted to the pairs that \texttt{fast\_gate} admitted; (f) the share of a supplier's claims that are false.
+\end{exercicio}
+\begin{solucao}
+(a) Defect: reads orientations from the truth; kept only as an audit yardstick. (b) Defect: a filter choosing who is measured by
+looking at the truth; it becomes a post-hoc audit label. (c) Deployment-legal: nature's role. (d) Deployment-legal: computed from $\Chat$
+and $\Kset$ alone, hence the baseline to beat. (e) Defect one level up: the questions would depend on the truth through the gate; the
+protocol scopes them from the CPDAG's chain components. (f) Audit-only, after every deployment row is frozen.
+\end{solucao}
+
+\begin{exercicio}[metodo=diagnosis,conceito=regra-livre]
+Diagnose and rewrite this passage of Section~6.2 of your draft: ``The topological separation [\dots] is 2 or greater in 45.4\,\% of
+real instances, compared to just 14.2\,\% synthetically. [\dots] while a radius of 1 still occurs in about 60\,\% of real instances,
+the scores stretch as high as 14.''
+\end{exercicio}
+\begin{solucao}
+Right: about 60\,\% at radius 1 matches the corpus (61.1\,\%). To fix: 45.4\,\% is over the 463 rows with defined separation (25.3\,\% over all
+831); 14.2\,\% pools five generators, Erdős--Rényi's sparse cell alone gives 24.1\,\%, and the undefined rate differs 2.6-fold, so
+the contrast is mostly denominator and density. ``As high as 14'' is \texttt{paths},
+one asserted claim, claim radius 1, and every radius above 3 came from the ladder, not the search. Rewrite: ``Over all 831 admissible real
+instances the hop radius is 1 on 61.1\,\%, separation is at least 2 on 25.3\,\%, and a tail reaches 14. The tail measures Meek cascades
+rather than tolerable errors: on every full-coverage row, one retracted claim breaks the adjustment set.''
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm]
+\node[cmapc, text width=3.0cm] (inv) at (0,0) {invariant:\\ observables only};
+\node[cmapr, text width=3.0cm] (d1) at (4.1,0) {D1: knowledge read from the truth};
+\node[cmap, text width=3.0cm] (st) at (8.2,0) {\texttt{sorted()} stride: 518 non-amenable};
+\node[cmap, text width=3.0cm] (mcs) at (12.3,0) {minimal correction set};
+\node[cmapg, text width=3.0cm] (arms) at (0,-1.4) {deployment and audit arms};
+\node[cmapr, text width=3.0cm] (d2) at (4.1,-1.4) {D2: the gate fixes $\rclaim = 1$};
+\node[cmapr, text width=3.0cm] (d3) at (8.2,-1.4) {D3: a free BFS is exact on 636 of 831};
+\node[cmapc, text width=3.0cm] (p) at (12.3,-1.4) {\emph{Beat the BFS First}};
+\draw[cedge] (inv) -- node[above, align=center]{violated\\ by} (d1);
+\draw[cedge] (d1) -- node[above, align=center]{thinned\\ by} (st);
+\draw[cedge] (inv) -- node[right]{splits into} (arms);
+\draw[cedge] (d1) -- node[right]{same gate} (d2);
+\draw[cedge] (d3) -- node[below]{Stage 0} (p);
+\draw[cedge] (d2.south) -- ++(0,-0.3) -| node[pos=0.25, below]{answered by} (p.south);
+\draw[cedge] (p) -- node[right]{prior art} (mcs);
+\end{tikzpicture}
+\end{center}

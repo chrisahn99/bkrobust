@@ -1,0 +1,410 @@
+\chapter{August I: the pilot and the \texttt{se} criterion}
+\label{ch:pilot}
+
+This chapter covers the pilot of 17 July and the E1$'$ run of 19 August. Three things from them still
+carry weight: a reversed claim is a retraction plus an assertion, so every August budget is worth
+twice its number in your moves; the radius is censored because most perturbation balls are inert,
+which no sample size changes; and one wrong claim that passes Meek's check costs a nominal 95\,\%
+interval about 23 points of coverage in this ensemble. The chapter ends with the corrections the
+August package made to itself, and four more found since.
+
+\begin{antes}
+\antesq[rhostar-raio-de-ruptura]{Against what yardstick did the pilot decide that a reversed claim
+had overturned the conclusion?}
+\antesq[unidade-afirmacao]{In the atomic moves of your Section~4, how much did the largest pilot
+perturbation cost?}
+\end{antes}
+
+\section{The July pilot: a radius priced against the answer key}
+
+\begin{ideia}[What the pilot asked]
+Knowledge that orients an edge the data leave open cannot be tested against the data, so the pilot
+tried to price it instead: reverse some of the analyst's claims, close again with Meek, and see
+whether the conclusion survives. The number it found was finite and mostly informative. It was
+also computed against the true effect.
+\end{ideia}
+
+The design is small and exact: 600 linear SCMs on Erd\H{o}s--R\'enyi graphs ($p$ from 5 to 8,
+expected degree 1.5 to 2.5), in the iSCM parameterisation of Ormaniec et al.\ with the
+standardisation frozen, so $\Sigma$, $\tau$ and every adjusted estimate are closed-form. $\Kset$
+holds up to four true orientations of undirected CPDAG edges; the perturbation reverses
+$\rho \in \{1,2,3\}$ of them, checks Meek consistency, closes, and reads $\Ostar$ off the MPDAG. A
+density sweep (11 cells, $p \le 10$, degree up to 6; 1,650 draws, 1,593 kept) and 60 nonlinear SCMs
+complete the run.
+
+\begin{medido}[The machinery, \texttt{rho\_breakdown/pilot/code/test\_machinery.py}]
+Meek consistency and the MPDAG match brute-force enumeration of the class on 7,688 knowledge sets
+(test T2, re-run while writing: 0 mismatches). Var-sortability is 0.937 under a naive SEM and
+0.508 under iSCM on the same graphs (\texttt{pilot/results/summary.json}).
+\end{medido}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\scriptsize\sffamily,
+  box/.style={rectangle, rounded corners=1.6pt, align=center, inner sep=1.2mm, text width=2.4cm}]
+\node[box, draw=cinzamedio, fill=cinzaclaro, text width=3.4cm] (all) at (0,0)
+  {2,058 single reversed claims (generic $\Kset$, 579 SCMs)};
+\node[box, draw=verdesc, fill=verdesc!8] (meek) at (-5.2,-1.25)
+  {Meek rejects it: 679 (33.0\,\%), \emph{caught free}};
+\node[box, draw=azulesc, fill=azulesc!7] (pass) at (1.6,-1.25)
+  {passes the check\\1,379 (67.0\,\%)};
+\node[box, draw=cinzamedio, fill=cinzaclaro] (unch) at (-2.1,-2.6)
+  {$\Ostar$ unchanged\\870 (42.3\,\%)};
+\node[box, draw=laranjaesc, fill=laranjaesc!8] (loud) at (0.8,-2.6)
+  {not amenable, \emph{loud}\\315 (15.3\,\%)};
+\node[box, draw=vermesc, fill=vermesc!7] (mov) at (3.7,-2.6)
+  {$\Ostar$ moves and is invalid: 194 (9.4\,\%), \emph{silent}};
+\node[box, draw=verdesc, fill=verdesc!8] (val) at (6.6,-2.6)
+  {$\Ostar$ moves, still valid: 0 (0 of 754, $\rho \le 3$, both arms)};
+\draw[flow] (all) -- (meek); \draw[flow] (all) -- (pass);
+\draw[flow] (pass) -- (unch); \draw[flow] (pass) -- (loud); \draw[flow] (pass) -- (mov);
+\draw[flow] (pass) -- (val);
+\end{tikzpicture}
+\caption{Percentages are of all 2,058 reversals. The check catches a third of the errors for free;
+of the rest, most are inert and nearly a quarter become visible refusals. The empty green box is an
+empirical zero for claim reversals only: Chapter~\ref{ch:locality} shows the efficiency-only band
+is not empty under skeleton errors. Counts from \texttt{pilot/results/summary.json}; the 754 is
+recounted from \texttt{linear\_raw.json}.}
+\label{fig:pilot-fates}
+\end{figure}
+
+\figref{fig:pilot-fates} follows a single reversed claim to the end. Two thirds pass Meek's check,
+most of those never reach the adjustment set, and every change of $\Ostar$ that did happen made it
+invalid. The breakdown radius of the pilot was defined per criterion.
+
+\begin{definicao}[The pilot's $\rhostar$]
+For a query $(X,Y)$, true claims $\Kset$ and a criterion $c$, $\rhostar_c$ is the smallest
+$\rho \le 3$ such that some Meek-consistent set obtained by reversing $\rho$ claims of $\Kset$
+overturns the conclusion under $c$, and $4$ (censored) if none does. With $c = $ \texttt{sign} the
+member's estimate has the opposite sign to $\tau$; with $c = $ \texttt{rel50},
+$|\hat\tau_m - \tau| > |\tau|/2$; with $c = $ \texttt{ident}, the member is not amenable.
+\end{definicao}
+
+Two of the three criteria read $\tau$ (\texttt{pilot/code/analyse.py}, function
+\texttt{breakdown\_radius}). No analyst has $\tau$, so the pilot's radius described the benchmark,
+not anything a user could compute. On the generic arm it was censored for 90.3\,\% of SCMs under
+\texttt{sign}, 75.5\,\% under \texttt{rel50} and 30.6\,\% under \texttt{ident}. The pilot also
+settled what form a theorem could take: when $\Ostar$ moves, the damage is large, so the only
+honest statement is a radius, never a continuity bound.
+
+\begin{armadilha}[A number I sent you that no file contains]
+\texttt{REPORT.md} of 31 August says the damage conditional on $\Ostar$ moving has median 0.59 and
+goes ``up to 128$\times$ on scale-free graphs''. The median is right; the pilot ran no scale-free
+graphs, and 128 is in no result file. Recounted from
+\texttt{pilot/results/linear\_raw.json} while writing: over the 274 single reversals that moved
+$\Ostar$ (both arms), $|\text{bias}|/|\tau|$ has median 0.591, mean 1.167 and maximum 13.1. The
+conclusion survives the correction, since the tail is heavy at every scale we have measured
+(Chapter~\ref{ch:locality} finds maxima above 1,000 under skeleton deletions), but a maximum
+quoted in the paper has to be 13.1 with its ensemble.
+\end{armadilha}
+
+Your Section~4 counts atomic moves, orient and un-orient, so a flip costs two. The pilot's
+operator is a flip (\texttt{pilot/code/run\_linear.py}, line 133, rewrites a claim $u \to v$ as
+$v \to u$). \texttt{REPORT.md} summarised this as ``the pilot ran at radius 8, not 4''; the code
+says something slightly different. \texttt{MAX\_K = 4} at line 34 caps the size of $\Kset$, and the
+pilot's ball stopped at three reversals, which is six of your moves. E1$'$ below enumerated the full
+ball, four reversals or eight moves, and $\rhostar = 1$ is two moves. Chapter~\ref{ch:table4} adds a
+third unit, the covering hop, which differs from both when Meek closure propagates.
+
+\prompt[conceito=rhostar-raio-de-ruptura,dificuldade=0.7]{Why could no analyst compute the pilot's
+$\rhostar$, and which of its three criteria escaped the problem?}{Its \texttt{sign} and
+\texttt{rel50} criteria compare each perturbed estimate with $\tau$, the true total effect
+(\texttt{pilot/code/analyse.py}, \texttt{breakdown\_radius}), which an analyst never has. Only
+\texttt{ident}, which asks whether some Meek-consistent member loses amenability, is read off the
+MPDAG alone; it says nothing about how far the estimate moves.}
+
+\begin{antes}
+\antesq[censura-degenerescencia]{If half the problems never break inside the full ball, is that a
+budget artefact or a property of the problems?}
+\antesq[bola-inerte]{For what share of problems is the displacement at one reversal exactly zero,
+and does it depend on $n$?}
+\end{antes}
+
+\section{\texorpdfstring{E1$'$: the analyst's own standard error replaces $\tau$}{E1': the analyst's own standard error replaces tau}}
+
+Between the two runs sat E1 (14 August), which tried to repair a radius censored nine times in ten
+by raising $|\Kset|$ to 8 and switching to \texttt{rel50}. Half of its gain came from conditioning
+on graphs with at least eight undirected edges (1.5\,\% of the pilot's ensemble), it inverted at
+$p \ge 15$, and both criteria still read $\tau$ (\texttt{rho\_breakdown/rerank\_2026-08-14/RESULTS.md}).
+E1$'$ went after $\tau$ directly, kept $|\Kset| \le 4$, and enumerated the whole ball so that
+censoring would be measured rather than imposed by a budget.
+
+\begin{ideia}[The \texttt{se} criterion]
+Measure how far the estimate can move against the error bar the analyst already publishes. If no
+set of reversed claims moves it by more than $z \cdot \mathrm{SE}$, the knowledge is not the
+binding uncertainty.
+\end{ideia}
+
+Written out, with the two companion statistics the run reported beside it:
+
+\begin{definicao}[$\rhostar_{\mathrm{se}}$ and its relatives]
+Let $\Gz = \mathrm{Meek}(C,\Kset)$, $\hat\tau_0$ the OLS coefficient of $X$ in
+$Y \sim X + \Ostar(\Gz)$ and $\mathrm{SE}_n$ its standard error at sample size $n$. Let
+$d(\rho) = \max_m |\hat\tau_m - \hat\tau_0|$ over Meek-consistent, amenable members within $\rho$
+reversals. Then
+\[
+\rhostar_{\mathrm{se}}(n) = \min\{\rho : d(\rho) > z\,\mathrm{SE}_n\},\qquad
+R(\rho,n) = \frac{d(\rho)}{z\,\mathrm{SE}_n},
+\]
+$\rhostar_{\mathrm{any}} = \min(\rhostar_{\mathrm{se}}, \rhostar_{\mathrm{ident}})$,
+where $z = 1.96$, $\rhostar_{\mathrm{se}} = |\Kset| + 1$ when censored, and $\rhostar_{\mathrm{ident}}$
+the smallest $\rho$ at which a consistent member is not amenable.
+\end{definicao}
+
+Every input is in the analyst's hands; $\tau$ enters only the evaluation
+(\texttt{rho\_breakdown/\allowbreak{}e1prime/\allowbreak{}code/\allowbreak{}se.py}). The CPDAG $C$ is still the oracle's, so the licensed
+phrase is ``computable from $(C, \Kset, \widehat\Sigma, n)$'', never ``robust under an estimated
+CPDAG'' (Chapter~\ref{ch:pest}).
+
+\begin{medido}[Gates on the licensed ensemble, \texttt{e1prime/results/arm1\_analysis\_licensed\_K4.json}]
+2,087 amenable SCMs, $p$ from 5 to 10, degree up to 6. With $\Ostar$ frozen at $\Ostar(\Gz)$ the
+instrument censors 1.000 at every $n$ and every $z$, so it is not a dead switch. Spearman
+correlation of $\rhostar_{\mathrm{se}}$ with the free $t$-statistic $|\hat\tau_0|/\mathrm{SE}$ at
+$n = 2{,}000$: 0.199, against a pre-declared collapse bar of 0.90. Against the free
+$\rhostar_{\mathrm{ident}}$: 0.571, and the \texttt{se} half strictly lowers the radius for 30.0\,\%
+of problems.
+\end{medido}
+
+\figref{fig:aug-degeneracy} is the result that set the direction for the rest of the month.
+Censoring of $\rhostar_{\mathrm{se}}$ falls from 0.614 at $n = 50$ and 0.554 at $n = 200$ to 0.515
+at $n = \infty$, and stops there. At $n = \infty$ the standard error is zero, so the floor is
+exactly the share of problems whose full-ball displacement is zero (gate G6).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.68\textwidth]{aug_degeneracy.pdf}
+\caption{Five orders of magnitude of sample size move the censoring of $\rhostar_{\mathrm{se}}$ by
+ten points and then nothing. The dashed line is the share of problems whose one-reversal ball is
+inert (64.6\,\%, identical at every $n$); the dotted floor, 0.515, is the share whose full ball
+moves no estimate. The composite $\rhostar_{\mathrm{any}}$ is rarely censored, but 69\,\% of its
+mass sits at one. Source: \texttt{e1prime/results/arm1\_analysis\_licensed\_K4.json}.}
+\label{fig:aug-degeneracy}
+\end{figure}
+
+\begin{medido}[The censored bin, decomposed, same file, key \texttt{sweep}]
+At $n = \infty$, of the 1,074 censored problems: none had every perturbation caught by Meek,
+5.4\,\% had every perturbation lose amenability (a loud failure), and 94.6\,\% had consistent,
+amenable members whose estimate did not move at all. At one reversal the displacement is exactly
+zero for 64.6\,\% of problems, at $n = 200$ and $n = 20{,}000$ alike. The composite
+$\rhostar_{\mathrm{any}}$ is censored for 0.166 of problems at $n = \infty$, with 69.1\,\% of the
+mass at $\rhostar = 1$.
+\end{medido}
+
+Both statistics failed the pre-registered non-degeneracy profile, in opposite directions:
+$\rhostar_{\mathrm{se}}$ is censored for half the problems and $\rhostar_{\mathrm{any}}$ puts two
+thirds of them at one. The budget was the whole ball, so this is not budget censoring, and an exact
+zero never exceeds a positive threshold, so it is not a sample-size effect. An inert ball is a
+property of the problem: the reversed claims do not reach the part of the graph that $\Ostar$ reads.
+Chapter~\ref{ch:locality} measures where those claims sit, and shows that much of the zero is a
+published class-invariance fact rather than a finding. One label in the package is wrong here:
+\texttt{REPORT.md} \S3 and \texttt{NUMBERS.md} call the series 0.554 to 0.515 the censoring of
+$\rhostar_{\mathrm{any}}$. It is $\rhostar_{\mathrm{se}}$ (\texttt{SECONDARY\_rho\_se} in the JSON);
+$\rhostar_{\mathrm{any}}$ goes from 0.183 to 0.166.
+
+\prompt[conceito=censura-degenerescencia,dificuldade=0.75]{On the licensed ensemble the censoring
+of $\rhostar_{\mathrm{se}}$ is 0.554 at $n = 200$ and 0.515 at $n = \infty$. What sets the floor,
+and what does a censored problem almost always mean?}{At $n = \infty$ the standard error is zero,
+so a problem is censored exactly when no consistent, amenable member of the full ball moves the
+estimate at all; that share is 0.515 (gate G6). Of the 1,074 censored problems at $n = \infty$,
+94.6\,\% are such exact zeros and 5.4\,\% lose amenability under every perturbation; none is
+censored because Meek caught everything. Censored means the ball is inert, not that the analysis
+is robust.}
+
+\prompt[conceito=bola-inerte,dificuldade=0.7]{Why can no sample size remove the inert-ball mass?}%
+{The instrument fires when $d(\rho) > z\,\mathrm{SE}_n$. $\mathrm{SE}_n$ shrinks like $n^{-1/2}$,
+but an inert ball has $d(\rho) = 0$ exactly, and zero exceeds no threshold, not even the zero
+threshold at $n = \infty$. The share of problems with $d(1) = 0$ is 64.6\,\% at every $n$ in the
+grid.}
+
+\begin{antes}
+\antesq[vies-silencioso]{How many points of nominal 95\,\% coverage does one reversed claim cost,
+among those Meek does not catch?}
+\antesq[pre-registro]{Which width statistic did I pre-register for the robust interval, and why did
+it flatter the method?}
+\end{antes}
+
+\section{ARM 2: what one wrong claim costs a confidence interval}
+
+ARM 1 kept the knowledge true and asked how far the estimate could move. ARM 2 made it wrong. For
+2,500 licensed SCMs, 20 datasets each and $n \in \{200, 1{,}000, 5{,}000, 20{,}000\}$, the analyst
+receives $(C, \Kset_{\mathrm{asserted}}, \widehat\Sigma, n)$, where $\Kset_{\mathrm{asserted}}$
+reverses $r \in \{0,1,2\}$ of the true claims. Reversals that Meek rejects are counted as caught
+free and leave the sample. The analyst reports a naive interval $\hat\tau_0 \pm z\,\mathrm{SE}_n$
+and a robust one, the hull of $\hat\tau_m \pm z\,\mathrm{SE}_m$ over consistent, amenable members
+within $\rho$ reversals. $\tau$ decides coverage and does nothing else, and every SCM was rebuilt
+from its seed with $\tau$ matching to $10^{-9}$ (0 failures in 2,500). This is the calibration
+experiment that Section~4.3 of your rewrite of 30 August proposed.
+
+\figref{fig:aug-coverage} carries the two numbers August could hand to a reviewer who does not work
+with MPDAGs.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\textwidth]{aug_coverage.pdf}
+\caption{Left: with the knowledge right the naive interval is calibrated; one accepted reversal
+costs it 23 points and two cost 38, and ranging over single reversals recovers most of the first
+loss. Right: that recovery gets more expensive as data grow, because the standard error shrinks
+and the knowledge-induced spread does not. Source: \texttt{e1prime/results/arm2\_analysis.json}.}
+\label{fig:aug-coverage}
+\end{figure}
+
+\begin{medido}[ARM 2, \texttt{rho\_breakdown/e1prime/results/arm2\_analysis.json}]
+At $n = 20{,}000$ the naive interval covers 0.9509 [0.9481, 0.9533] with no reversal, 0.720 with
+one and 0.568 with two; Meek rejects 23.6\,\% of single and 38.6\,\% of double reversals, and those
+are excluded. At $r = 1$ the robust interval at $\rho = 1$ covers 0.8835, with width ratio to the
+naive one of median 1.00, mean 6.84 and 90th percentile 23.3; its ball is inert for 69.3\,\% of
+problems. At $\rho = 2$ it covers 0.9245 (mean ratio 11.6), the full ball 0.9306. When two claims
+are wrong and the ball has radius one, coverage is 0.809 at $n = 200$ and 0.772 from $n = 5{,}000$
+on. The mean width ratio at $r = \rho = 1$ is 1.61, 2.32, 3.93 and 6.84 across the four sample
+sizes.
+\end{medido}
+
+The ignorance does not shrink with data: $\mathrm{SE}_n$ goes like $n^{-1/2}$ while $d(\rho)$ does
+not depend on $n$. Even the full ball stops short of 0.95 (0.931 with one wrong claim, 0.912 with
+two); the E1$'$ report attributes the residue to cells where the member that restores the truth is
+itself not amenable and carries no estimate. Chapter~\ref{ch:gamma} prices a wrong claim again on
+real structure.
+
+\begin{armadilha}[The width statistic I pre-registered flattered the method]
+The rule asked for coverage at least 0.90 at $r = \rho = 1$ and a \emph{median} width ratio below
+$3\times$. Coverage was 0.8835 and the median 1.00: INCONCLUSIVE. The median is 1.00 by arithmetic,
+since the ball is inert for 69\,\% of problems; the mean, $6.84\times$, would have failed the bar.
+Both belong in the paper.
+\end{armadilha}
+
+\prompt[conceito=vies-silencioso,dificuldade=0.65]{Give the coverage of the naive 95\,\% interval
+at $n = 20{,}000$ with 0, 1 and 2 reversed claims, and the exclusion that must travel with those
+numbers.}{0.951, 0.720 and 0.568. They are computed among reversals Meek accepts: the check
+catches 23.6\,\% of single and 38.6\,\% of double reversals, which leave the sample. The scope is
+linear Gaussian iSCM, Erd\H{o}s--R\'enyi graphs with $p$ from 5 to 10, and the oracle CPDAG.}
+
+\begin{antes}
+\antesq[pre-registro]{Which August number was retired because the code that would have produced it
+never existed?}
+\antesq[banda-de-eficiencia]{Was the efficiency-only band, where $\Ostar$ moves and stays valid,
+really empty?}
+\end{antes}
+
+\section{Corrections made before 31 August, and four since}
+
+\texttt{rho\_breakdown/NUMBERS.md} closes with the corrections the package applied to itself.
+Table~\ref{tab:pilot-corrections} gives them with the file that settles each, followed by the ones
+found after it was written. The G1 row compresses two things in \texttt{NUMBERS.md} (``0.141 to
+0.161''): the first cut divided by all single-reversal members and got 0.1085, and 0.141 is the
+pilot's own value on its own grid.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{4.0cm}@{}}
+\toprule
+what & first stated & as it stands & settled by \\
+\midrule
+silent bias at distance $\ge 1$ & 0 of 791 & retired: no distance function in the pilot code &
+\texttt{locality/VERDICT.md} \\
+gate G1, one reversal & 0.1085 & 0.161 on consistent members & \texttt{e1prime/RESULTS.md} \\
+robust width ratio & median 1.00 & mean $6.84\times$ printed beside it & \texttt{arm2\_analysis.json} \\
+gate G2 comparator & 0.336 & 0.271 (licensed grid); 0.284 measured, pass & \texttt{e1prime/RESULTS.md} \\
+\midrule
+series 0.554 to 0.515 & $\rhostar_{\mathrm{any}}$ & $\rhostar_{\mathrm{se}}$; $\rhostar_{\mathrm{any}}$
+is 0.183 to 0.166 & \nolinkurl{e1prime/results/arm1_analysis_licensed_K4.json} \\
+damage tail & up to $128\times$ & maximum $13.1\times$, median 0.591 ($n = 274$) &
+\nolinkurl{pilot/results/linear_raw.json} \\
+efficiency-only band & empty, 0 of 754 & empty for reversals only; 2.35--5.53\,\% under skeleton
+deletions & \texttt{x3\_skeleton/RESULTS.md} \\
+pilot budget & radius 8 & 6 moves in the pilot, 8 in E1$'$ & \texttt{pilot/code/run\_linear.py} \\
+\bottomrule
+\end{tabular}
+\caption{Above the rule, the corrections \texttt{NUMBERS.md} lists; below it, those found later.
+Paths are relative to \texttt{rho\_breakdown/}. Of the three things \texttt{NUMBERS.md} lists as never
+run, two have run since: an estimated CPDAG (Chapters~\ref{ch:locality} and~\ref{ch:pest}) and
+skeleton perturbation; nonlinear mechanisms beyond the pilot's 60 SCMs remain untested.}
+\label{tab:pilot-corrections}
+\end{table}
+
+\begin{sonorio}[What August I licenses]
+``In linear Gaussian SEMs on Erd\H{o}s--R\'enyi graphs with the true CPDAG, one reversed
+background-knowledge claim that passes Meek's consistency check lowers the coverage of a nominal
+95\,\% interval to 0.72 at $n = 20{,}000$. An interval that ranges over all single reversals
+restores 0.88, at a mean width 6.8 times the naive one that grows with $n$.'' Not licensed:
+``robust under an estimated CPDAG'', or $\rhostar$ as a well-behaved four-valued diagnostic.
+\end{sonorio}
+
+The two exercises rework the gate arithmetic and the censored bin from the files.
+
+\begin{exercicio}[metodo=calculation,conceito=censura-degenerescencia]
+(a)~The first cut of gate G1 divided silent-bias events by all single-reversal members and got
+0.1085; Meek rejects 32.4\,\% of those members. Recover the rate on consistent members.
+(b)~At $r = \rho = 1$ the mean width ratio is 3.93 at $n = 5{,}000$ and 6.84 at $n = 20{,}000$,
+and the inert share stays near 69\,\%. Using only the dependence on $n$, predict the ratio at
+$n = 2{,}000{,}000$.
+(c)~A problem has $\rhostar_{\mathrm{se}} = 2$ in E1$'$. How many atomic moves of your
+Section~4 is that?
+\end{exercicio}
+\begin{solucao}
+(a)~The consistent members are $1 - 0.324 = 0.676$ of all, so $0.1085 / 0.676 = 0.1605$, the 0.161
+recorded in the JSON (\texttt{G1\_silent\_bias\_rho1}); it sits inside the gate band 0.12--0.18.
+(b)~The inert cells keep ratio 1 at every $n$, so it is the excess over one that scales. For the
+other cells the knowledge spread is fixed and the naive width falls like $n^{-1/2}$, so the excess
+grows like $\sqrt{n}$. Check: from 5,000 to 20,000 the excess goes from 2.93 to 5.84, a factor
+1.99 against $\sqrt{4} = 2$. A further factor 100 in $n$ multiplies the excess by 10: about 58.4,
+so a mean ratio near 59. This is an extrapolation of the functional form; the largest $n$ measured
+is 20,000.
+(c)~Two reversals, each a retraction and an assertion: four moves.
+\end{solucao}
+
+\begin{exercicio}[metodo=table-reading,conceito=bola-inerte]
+The censored bin of $\rhostar_{\mathrm{se}}$ on the licensed ensemble (2,087 problems, $z = 1.96$),
+read from \texttt{arm1\_analysis\_licensed\_K4.json}, in the table below.
+
+\smallskip
+\begin{center}\small
+\begin{tabular}{@{}rcccc@{}}
+\toprule
+$n$ & censored problems & share loud & share robust & share with $d \equiv 0$ \\
+\midrule
+50 & 1,282 & 0.0452 & 0.9548 & 0.7925 \\
+200 & 1,156 & 0.0502 & 0.9498 & 0.8789 \\
+20,000 & 1,083 & 0.0536 & 0.9464 & 0.9381 \\
+$\infty$ & 1,074 & 0.0540 & 0.9460 & 0.9460 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Convert the shares into counts of three kinds of problem: loud, exactly inert, and robust with a
+displacement that is not zero. Which of the three does the sample size act on, and on how many of
+the 2,087 problems at most?
+\end{exercicio}
+\begin{solucao}
+Multiplying out: loud problems are 58 at every $n$ ($1{,}282 \times 0.0452$, $1{,}156 \times
+0.0502$, and so on). Exactly inert problems are 1,016 at every $n$. The remainder, robust with a
+nonzero displacement smaller than $z\,\mathrm{SE}_n$, is 208 at $n = 50$, 82 at $n = 200$, 9 at
+20,000 and 0 at $\infty$. Sample size acts only on that last group: at most 208 of
+2,087 problems, and 82 from $n = 200$ on. At $n = \infty$ the censored problems are the 1,016 inert
+ones and the 58 loud ones, 1,074 of 2,087 or 0.515: that is the floor. The shares in the last
+column rise only because the denominator shrinks.
+\end{solucao}
+
+\naopasse[bola-inerte]{Say why, at $n = \infty$, a problem is censored exactly when no member of its
+full ball moves the estimate, and why at $n = 200$ a censored problem can still have a moving
+estimate. If you cannot, the step to redo is the definition of $\rhostar_{\mathrm{se}}$ with
+$\mathrm{SE}_\infty = 0$.}
+
+\section*{Chapter map}
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.0cm and 1.2cm]
+\node[cmapc] (pilot) {pilot, 17 July: reverse claims, re-close};
+\node[cmapr, right=of pilot] (oracle) {$\rhostar$ compares with $\tau$: an oracle statistic};
+\node[cmap, right=of oracle] (se) {E1$'$: yardstick $z\,\mathrm{SE}_n$, no $\tau$};
+\node[cmap, below=of pilot] (unit) {one reversal = two atomic moves};
+\node[cmapg, below=of oracle] (cost) {ARM 2: one wrong claim costs 23 points};
+\node[cmapr, below=of se] (floor) {censoring floor 0.515: inert balls};
+\node[cmapw, below=0.9cm of floor] (loc) {which claims are inert: Chapter~\ref{ch:locality}};
+\draw[cedge] (pilot) -- node[above]{defines} (oracle);
+\draw[cedge] (oracle) -- node[above]{repaired by} (se);
+\draw[cedge] (pilot) -- node[left]{priced in} (unit);
+\draw[cedge] (se) -- node[right]{stops at} (floor);
+\draw[cedge] (se) -- node[above, sloped]{wrong claims} (cost);
+\draw[cedge] (cost) -- (floor);
+\draw[cedge] (floor) -- node[right]{explained in} (loc);
+\end{tikzpicture}
+\end{center}

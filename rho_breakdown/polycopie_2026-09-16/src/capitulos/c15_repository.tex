@@ -1,0 +1,238 @@
+\chapter{The repository, file by file}\label{ch:repo}
+
+Everything in the previous fourteen chapters is on one branch of \texttt{bkrobust},
+\texttt{ze/experiments}. This chapter is the map: how the branch is built, where each chapter's
+files are, what to run first, and the caveats I know about. The same map, in markdown, is
+\texttt{ZE\_EXPERIMENTS.md} at the root of the branch.
+
+\section{How the branch is built}
+
+\begin{antes}
+\antesq[pre-registro]{Why is the branch built on top of your history rather than as a fresh repository?}
+\antesq[quadro-observavel]{Which of the five commits would you read first if you only cared about Table~4?}
+\end{antes}
+
+\begin{ideia}
+The branch shares your history, so \texttt{git merge} works and \texttt{git diff} against your
+last common commit shows exactly what I added. Nothing on it rewrites a file of yours without a
+commit that says why.
+\end{ideia}
+
+The branch starts from \texttt{iclr2027-eval-plan} (commit \texttt{ba7ddc1}), the evaluation plan
+that is already on GitHub. On top of it come six steps, drawn in the diagram below: the merge of the
+August branch \texttt{rho-breakdown-evidence}, which I never pushed, then five commits.
+
+\begin{center}
+\begin{tikzpicture}[node distance=4mm and 6mm]
+\node[blkc, text width=3.3cm] (base) {\texttt{d3cd71f}\\ your \texttt{main} on 11 Sep};
+\node[blk, text width=3.3cm, right=of base] (plan) {\texttt{ba7ddc1}\\ evaluation plan (pushed)};
+\node[blko, text width=3.3cm, right=of plan] (aug) {merge: August package\\ \texttt{rho\_breakdown/}};
+\node[blk, text width=3.3cm, below=8mm of base] (c1) {1\quad \texttt{src/}, \texttt{tests/}};
+\node[blk, text width=3.3cm, right=of c1] (c2) {2\quad \texttt{experiments/}, \texttt{docs/}};
+\node[blk, text width=3.3cm, right=of c2] (c3) {3\quad \texttt{results/}};
+\node[blkg, text width=5.2cm, below=8mm of c1.south west, anchor=north west] (c4) {4\quad \texttt{rho\_breakdown/}: dated folders, 14 Aug to 16 Sep};
+\node[blkg, text width=5.2cm, right=6mm of c4] (c5) {5\quad \texttt{ZE\_EXPERIMENTS.md}, this polycopié};
+\draw[flow] (base) -- (plan); \draw[flow] (plan) -- (aug);
+\draw[flow] (aug.south) |- ++(0,-3mm) -| (c1.north);
+\draw[flow] (c1) -- (c2); \draw[flow] (c2) -- (c3);
+\draw[flow] (c3.south) |- ++(0,-3mm) -| (c4.north);
+\draw[flow] (c4) -- (c5);
+\end{tikzpicture}
+\end{center}
+
+Commits 1 to 3 are the protocol run of Chapters~\ref{ch:where} to~\ref{ch:tables}, as it sat
+uncommitted in my working copy of your repository: 158 files, split into library changes, scripts
+with docs, and results. Commit~4 brings in the experiment folders that lived outside the repository.
+Commit~5 is the index and this document.
+
+\begin{medido}[The new tests, \texttt{tests/\{benchmarks,criterion,estimation,knowledge\}}]
+\texttt{pytest -q} on the nine new test files of the protocol run: \textbf{39 passed} in 4.4\,s,
+16 September, with the library as committed on the branch. They cover the audit oracle (back-door
+against GAC), the discovery arm, measurement selection, the sortability probe, the closed-form
+$\Ostar$, the knowledge interval and the ancestral block.
+\end{medido}
+
+That measurement covers the new tests only. Your older tests were not part of it, so run the whole
+suite once after merging, before trusting that the library changes left your results untouched.
+
+\begin{noprato}[Getting it]
+\texttt{git fetch origin ze/\allowbreak{}experiments}, then \texttt{git diff d3cd71f origin/\allowbreak{}ze/\allowbreak{}experiments --stat}
+to see what changed in your package. Your \texttt{main} has moved since \texttt{d3cd71f}, so merge,
+do not rebase; the library changes touch \texttt{benchmarks/measure.py}, \texttt{hybrid.py} and
+\texttt{search/exact*.py}, which are the places a conflict would appear.
+\end{noprato}
+
+\prompt[conceito=pre-registro,dificuldade=0.8]{Which commit on the branch holds the
+pre-registrations of the protocol run, and why are they in the same commit as the tables?}{Commit~3,
+\texttt{results/}. Each results folder carries the \texttt{PREREGISTRATION*.md} written before its
+rows were read, next to the tables built from those rows, so that a reader can check the predictions
+against the outcomes in one place (for example \texttt{results/\allowbreak{}ledger/\allowbreak{}PREREGISTRATION.md} with
+\texttt{TABLE4.md}).}
+
+\section{Where each chapter lives}
+
+\begin{antes}
+\antesq[tabelas-pagas]{Which folder holds the script that reproduces the 27 cells of panel~A?}
+\antesq[gac-backdoor]{Where is the test that stops an audit from using the back-door criterion?}
+\end{antes}
+
+The table below is the index I would want if I were you. Paths are relative to the repository root.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{1.6cm}p{6.1cm}p{6.6cm}@{}}
+\toprule
+chapter & folder & start with \\
+\midrule
+\ref{ch:pilot} & \texttt{rho\_breakdown/pilot/}, \texttt{e1prime/} & \texttt{REPORT.md}, \texttt{NUMBERS.md}, \texttt{e1prime/RESULTS.md} \\
+\ref{ch:locality} & \texttt{rho\_breakdown/\allowbreak{}locality/}, \texttt{x3\_skeleton/}, \texttt{rerank\_2026-08-14/} & \texttt{locality/VERDICT.md}, \texttt{x2/\allowbreak{}cfirewall/\allowbreak{}STATUS.md}, \texttt{x3\_skeleton/\allowbreak{}RESULTS.md} \\
+\ref{ch:redefinition} & \texttt{rho\_breakdown/\allowbreak{}radius\_redef\_2026-09-07/}, \texttt{rnull\_real\_2026-09-09/} & \texttt{EXPERIMENTS.md}, \texttt{IMPROVEMENT.md} \\
+\ref{ch:where} & \texttt{rho\_breakdown/\allowbreak{}eval\_protocol\_2026-09-11/}, \texttt{docs/}, \texttt{results/stage0/} & \texttt{02\_PROTOCOL.md}, \texttt{06\_CODE\_FIXES.md}, \texttt{docs/PRIOR\_ART.md} \\
+\ref{ch:frame} & \texttt{results/frame/}, \texttt{results/ledger/} & \texttt{docs/PROTOCOL\_RUN.md}, \texttt{TABLE0\_FUNNEL.md} \\
+\ref{ch:suppliers} & \texttt{results/elicit/}, \texttt{experiments/remote/} & \texttt{PREREGISTRATION\_SCALE.md} \\
+\ref{ch:table4} & \texttt{results/ledger/}, \texttt{src/\allowbreak{}bkrobust/\allowbreak{}benchmarks/\allowbreak{}audit.py} & \texttt{TABLE4.md}, \texttt{CHECKS.md} \\
+\ref{ch:pest} & \texttt{results/pest/}, \texttt{results/substrate/} & \texttt{TABLE7.md} \\
+\ref{ch:gamma}, \ref{ch:m1b} & \texttt{results/interval/} & \texttt{TABLE1\_L95.md}, \texttt{PREREGISTRATION.md} \\
+\ref{ch:tables} & \texttt{rho\_breakdown/\allowbreak{}panelB\_T3\_2026-09-16/}, \texttt{table1\_dossier\_2026-09-16/} & \texttt{PANELB-T3.pdf}, \texttt{TABLE1-DOSSIER.pdf} \\
+\ref{ch:review} & \texttt{rho\_breakdown/\allowbreak{}theory\_checks\_2026-09-16/} & the enumeration script \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Five notes in the dated folders are in Portuguese, because I wrote them for myself on the day.
+\texttt{ZE\_EXPERIMENTS.md} summarises each in a paragraph; their content is also in
+Chapters~\ref{ch:locality}, \ref{ch:redefinition} and~\ref{ch:where}.
+
+\begin{armadilha}[Absolute paths in the dated folders]
+The scripts under \texttt{rho\_breakdown/} were run where they were written and still carry absolute
+paths of my machine (for example \texttt{/\allowbreak{}Users/\allowbreak{}josecosta/\allowbreak{}bkrobust/\allowbreak{}src} added to \texttt{sys.path}).
+They will not run from a fresh clone without editing that line. \texttt{ZE\_EXPERIMENTS.md} gives the
+mapping from each such path to its folder on the branch. The protocol-run scripts in
+\texttt{experiments/} do not have this problem: they resolve paths from the repository root.
+\end{armadilha}
+
+\prompt[conceito=tabelas-pagas,dificuldade=0.75]{You want to check that the panel-A cells of
+Table~1 are what the pipeline produces. Which script, and what does it do when a cell disagrees?}{%
+\texttt{rho\_breakdown/\allowbreak{}panelB\_T3\_2026-09-16/\allowbreak{}make\_figs.py}. It reimplements the pipeline from
+\texttt{results/\allowbreak{}interval/\allowbreak{}replicates.csv.gz} and \texttt{rows.csv} and asserts, on every run, that it
+reproduces the 27 panel-A cells of \texttt{results/\allowbreak{}interval/\allowbreak{}TABLE1\_L95.md}; a disagreement stops the
+script.}
+
+\prompt[conceito=gac-backdoor,dificuldade=0.7]{Which file must an audit of adjustment-set validity
+call, and which function in the package must it not call?}{It must call the generalised adjustment
+criterion in \texttt{src/\allowbreak{}bkrobust/\allowbreak{}benchmarks/\allowbreak{}audit.py}. It must not use
+\texttt{is\_valid\_adjustment\_set\_dag}, which implements Pearl's back-door criterion and rejects some
+sets that are valid under the generalised criterion. \texttt{tests/\allowbreak{}benchmarks/\allowbreak{}test\_audit\_oracle.py}
+guards this.}
+
+\section{Caveats I know about}
+
+\begin{antes}
+\antesq[quadro-observavel]{Which stage-0 file quotes a number its own data files no longer give?}
+\antesq[screen-leave-k-out]{Which printed table has a selection rule that favours its own headline?}
+\end{antes}
+
+Four things about the files deserve a warning before anyone quotes from them.
+
+\begin{medido}[Stage-0 calibration, \texttt{results/\allowbreak{}stage0/\allowbreak{}calibration\_summary.json}]
+The corrupted-knowledge calibration on the committed rows was rerun on 13 September after a seeding
+fix: \textbf{8,911 rows scored of 16,496 draws}. \texttt{results/\allowbreak{}stage0/\allowbreak{}STAGE0.md} and
+\texttt{PREREGISTRATION.md} still quote the first run, \textbf{8,553 rows}, which seeded with Python's
+salted \texttt{hash()} and cannot be reproduced across processes. The calibration files on the branch
+are the rerun. It changes one reading: on the corrupted rows the hop radius is dangerous on 3 rows
+(was 0), the free rule on 9 (was 8), the claim radius on 0 (unchanged).
+\end{medido}
+
+Salted \texttt{hash()} seeded six things: the chance arm of the ledger sweep, the Lever~0
+differential, the calibration, the first frame-status run, the questionnaire builder and the
+source-overlap probe. \texttt{docs/PROTOCOL\_RUN.md} heads its list «Four experiment scripts» and
+names five; Chapter~\ref{ch:frame} has the full account. All now seed with SHA-256 of a stable
+name. The frozen questionnaire does not regenerate byte for byte
+from its builder, so the committed file, with its hash, stays the authoritative input and the
+builder refuses to overwrite it.
+
+The second caveat is the selection rule of T3 in \texttt{experiments/\allowbreak{}interval\_tables.py}, analysed
+in Chapter~\ref{ch:tables}: it sorts a finite null radius first before taking five rows per network.
+The fix is one sort key, or printing all 37 eligible rows. The third is the validity oracle above,
+which is still called in two places I have not changed. \texttt{experiments/\allowbreak{}declared\_queries.py}
+scores validity at the truth with the back-door function; the committed set judged at the truth is
+not the truth's optimal set, so the two criteria can disagree there (they did on 4 of 1,169 ledger
+rows). Rerun it with the GAC audit before quoting its validity column. And the hop radius, through
+\texttt{hybrid.py}, tests validity with \texttt{mpdag\_criterion.is\_valid\_mpdag}, while the claim
+radius uses the generalised criterion; the stricter test can only make $\rhop$ smaller, so the hop
+unit's over-certification counts in Chapter~\ref{ch:table4} are, if anything, conservative.
+The fourth is what is deliberately absent: \texttt{figures/*} and
+\texttt{results/\allowbreak{}axisa3/\allowbreak{}networks/\allowbreak{}acquisition\_manifest.json} were regenerated on my machine by a
+reproduction run and are not on the branch, and neither is the pgmpy source tarball.
+
+\prompt[conceito=screen-leave-k-out,dificuldade=0.75]{State the one-line fix for the T3 selection
+rule and the alternative that avoids choosing at all.}{In the script that builds T3
+(\texttt{interval\_tables.py}, under \texttt{experiments}), remove the term that sorts a finite null
+radius first, so the five rows per network are not chosen by the outcome. The alternative: print all
+37 eligible rows on the four networks with fitted coefficients instead of choosing.}
+
+\prompt[conceito=pre-registro,dificuldade=0.7]{Why does the committed questionnaire stay
+authoritative even though its builder is now reproducible?}{Because the committed questionnaire was
+the input every supplier answered and it was hashed before any model saw it. The old builder seeded
+with salted \texttt{hash()}, so the file does not regenerate byte for byte; rebuilding it would
+produce a different questionnaire from the one the answers refer to. The builder therefore refuses
+to overwrite it.}
+
+\naopasse[pre-registro]{Pick one number from Table~4 in Chapter~\ref{ch:table4}. Write down the file
+you would open to check it and the script that wrote that file. If you cannot name both, reread the
+second table of this chapter.}
+
+\section{What is not here}
+
+The paper drafts are not on the branch: your draft of 16 September is yours, and my outline of
+13 September is a planning document I can send separately. Two third-party PDFs that one August
+experiment read (Guo and Perković, arXiv 2010.08611; Taeb, Guo and Henckel, arXiv 2511.10625) are
+left out; fetch them from arXiv. The response cache of the local suppliers is regenerable from the
+questionnaire and stays untracked, as your \texttt{.gitignore} already says.
+
+\begin{exercicio}[metodo=table-reading,conceito=tabelas-pagas]
+A reviewer asks where the claim «the certificate counted in claims is dangerous on no deployment
+row» comes from. Using the second table of this chapter, name the chapter, the folder, and the two
+files you would send, and say which of the two was written first.
+\end{exercicio}
+\begin{solucao}
+Chapter~\ref{ch:table4}; folder \texttt{results/ledger/}; the files \texttt{TABLE4.md} (the
+table with the dangerous-row counts) and \texttt{PREREGISTRATION.md} (the predictions and the bucket
+definitions). The pre-registration was written first, before the rows were read; the table was
+built after the sweep was frozen.
+\end{solucao}
+
+\begin{exercicio}[metodo=estimation,conceito=quadro-observavel]
+Before merging, you want a rough idea of the conflict surface. Commit~1 touches eight existing files
+of the package and adds five. Without running git, estimate which of your recent branches is most
+likely to conflict, and what you would check first.
+\end{exercicio}
+\begin{solucao}
+The conflicts can only appear in the eight modified files: \texttt{dagitty.py}, \texttt{measure.py}
+and \texttt{parsed.py} under \texttt{benchmarks}, \texttt{conventions.py} under \texttt{core},
+\texttt{hybrid.py}, the \texttt{\_\_init\_\_.py} of \texttt{knowledge}, and \texttt{exact.py} and
+\texttt{exact\_fast.py} under \texttt{search}. The five added files cannot conflict. A
+branch of yours that changed the knowledge-selection or the search dispatch (for example work on
+\texttt{measure.py} or \texttt{hybrid.py} after 11 September) is the most likely conflict. Check
+first with \texttt{git merge-tree} or a trial merge on a throwaway branch, then look at
+\texttt{measure.py}, where both the thinning rule and the rejection labels live.
+\end{solucao}
+
+\section*{Chapter map}
+
+\begin{center}
+\begin{tikzpicture}[node distance=7mm and 9mm]
+\node[cmapc] (br) {branch \texttt{ze/experiments}};
+\node[cmap, above left=of br] (aug) {August package\\ \texttt{rho\_breakdown/}};
+\node[cmap, above right=of br] (run) {protocol run\\ \texttt{src}, \texttt{experiments}, \texttt{results}};
+\node[cmap, below left=of br] (dated) {dated folders\\ 14 Aug to 16 Sep};
+\node[cmapg, below right=of br] (idx) {\texttt{ZE\_EXPERIMENTS.md}\\ and this document};
+\node[cmapr, below=14mm of br] (cav) {caveats: stage-0 rerun, T3 sort, back-door oracle, absolute paths};
+\draw[cedge] (aug) -- node[above, sloped] {merged} (br);
+\draw[cedge] (run) -- node[above, sloped] {commits 1--3} (br);
+\draw[cedge] (dated) -- node[above, sloped] {commit 4} (br);
+\draw[cedge] (idx) -- node[above, sloped] {commit 5} (br);
+\draw[cedge] (idx) -- node[right] {lists} (cav);
+\draw[cedge] (run) to[bend left=40] node[right, pos=0.7] {checked by 39 tests} (idx);
+\end{tikzpicture}
+\end{center}

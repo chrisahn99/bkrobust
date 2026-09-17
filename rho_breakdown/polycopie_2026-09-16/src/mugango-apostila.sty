@@ -1,0 +1,539 @@
+%% mugango-apostila.sty — the shared preamble for the Mugango apostilas.
+%%
+%% WHY THIS FILE EXISTS. On 2026-08-23 `scripts/apostila_index.py` measured eleven
+%% apostilas, 583 pages, and **21 distinct tcolorbox environment names for 8 semantic
+%% roles**, across eleven preambles of 3032–6172 bytes, none shared. Each apostila had
+%% been started by hand-copying the previous one, so the visual vocabulary drifted:
+%% `formula`/`formulabox`, `armadilha`/`alerta`, `medido`/`numeros`/`ganho`/`conta`,
+%% `noprato`/`nocodigo`/`noeixo`/`nomundo`/`noseu`/`naranha`. No style rule and no lint
+%% is enforceable while the preamble is copy-pasted, so this package comes first.
+%%
+%% Every legacy name still works — they are aliases onto the canonical role, keeping
+%% their own default titles so the eleven existing apostilas keep compiling and keep
+%% reading the way they were written.
+%%
+%% WHAT IS NEW, and the evidence for it (see wiki/reference/didactic-design-evidence.md
+%% for the audited sources; every number below survived an adversarial check):
+%%
+%%   \prompt{q}{a}   in-prose retrieval practice with the answer printed in the book.
+%%                   Retrieval practice WITH feedback g=0.73 [0.61,0.86]; without it
+%%                   g=0.39; and with no feedback plus <=50% initial success g=0.03,
+%%                   p=.79 — a measured zero (Rowland 2014). A prompt whose answer is
+%%                   not resolvable inside the same artifact is not a weak prompt.
+%%   antes           2–4 prequestions before a section. Text passages, 48 h: d=0.78,
+%%                   d=2.04 with feedback (Pan & Carpenter 2023).
+%%   naopasse        a comprehension-FAILURE prompt, never a confirmation checkbox.
+%%                   Poor learners detect their own failure 15% of the time vs 46%
+%%                   (Chi 2000) — detection is the bottleneck, not repair.
+%%   \ifrusty        two assistance variants from one source. Prior knowledge governs
+%%                   how much ASSISTANCE to give -- d=+0.505 [0.260,0.750] for low-PK
+%%                   learners given high assistance, d=-0.428 [-0.647,-0.209] for high-PK
+%%                   ones, k=88, j=60, no publication bias (Tetzlaff et al. 2025, full
+%%                   text verified) -- and NOT how to lay out the page (Noetel 2022 found
+%%                   prior knowledge does not moderate layout: R^2=0.14, p=0.14).
+%%                   Default is `rusty` because the asymmetry is explicit in the source:
+%%                   "the instructional implication is to rather provide assistance than
+%%                   to withhold it when in doubt."  
+%%
+%% All four write machine-readable records to \jobname.prompts so that
+%% `scripts/apostila_deck.py` and `scripts/apostila_probe.py` read the same source the
+%% book does and cannot drift from it.
+%%
+%% Usage:  \usepackage{mugango-apostila}
+%%         \apostilahorizonte{180}   % days this material must survive; sets the deck
+%%         \apostilatitulo{...}\apostilasubtitulo{...}\apostilaslug{kcm-v2-localidade}
+%%
+%% Options: rusty | fluent  (default rusty — the asymmetry favours keeping the scaffold)
+%%          noprompts       (suppress the record file; for a quick draft build)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mugango-apostila}[2026/08/23 v1.0 Mugango apostila shared preamble]
+
+\RequirePackage{xkeyval}
+\RequirePackage{etoolbox}
+
+\newif\ifmg@rusty  \mg@rustytrue
+\newif\ifmg@prompts \mg@promptstrue
+\newif\ifmg@english \mg@englishfalse
+\DeclareOption{rusty}{\mg@rustytrue}
+\DeclareOption{fluent}{\mg@rustyfalse}
+\DeclareOption{noprompts}{\mg@promptsfalse}
+% `english`: every fixed string the package prints (default box titles, theorem names, the
+% prompt and exercise furniture, the answer appendix, \figref) switches to English. Added
+% 2026-09-16 for a polycopié addressed to a co-author who does not read Portuguese. Only
+% the PRINTED strings change: environment names, the record stream and the lint are
+% identical, so the deck and the probe read an English apostila exactly like any other.
+\DeclareOption{english}{\mg@englishtrue}
+\ProcessOptions\relax
+
+% ------------------------------------------------------------- printed strings
+\ifmg@english
+  \def\mg@T@definicao{Definition}\def\mg@T@exemplo{Example}\def\mg@T@teorema{Theorem}
+  \def\mg@T@proposicao{Proposition}\def\mg@T@lema{Lemma}\def\mg@T@corolario{Corollary}
+  \def\mg@T@ideia{The idea in one sentence}\def\mg@T@analogia{The analogy}
+  \def\mg@T@medido{What was measured}\def\mg@T@numeros{The numbers}
+  \def\mg@T@ganho{The gain}\def\mg@T@conta{The arithmetic}
+  \def\mg@T@armadilha{Trap}\def\mg@T@alerta{Warning}
+  \def\mg@T@noprato{In practice}\def\mg@T@nocodigo{In the code}\def\mg@T@noeixo{On the axis}
+  \def\mg@T@nomundo{In the world}\def\mg@T@noseu{In your case}\def\mg@T@naranha{In the spider}
+  \def\mg@T@sonorio{For the paper}\def\mg@T@papel{For the paper}
+  \def\mg@T@concede{What we concede}\def\mg@T@fonte{Where to learn this}
+  \def\mg@T@digressao{Digression}\def\mg@T@antes{Before reading}
+  \def\mg@T@naopasse{Do not move on}\def\mg@T@exercicio{Exercise}\def\mg@T@solucao{Solution}
+  \def\mg@T@respostas{Answers}\def\mg@T@RESPOSTAS{ANSWERS}\def\mg@T@figura{Figure}
+  \def\mg@T@semolhar{Without looking}\def\mg@T@resposta{answer}\def\mg@T@noapendice{in the appendix}
+  \def\mg@T@sobrecaixas{About the grey boxes}
+  \long\def\mg@T@avisotexto{The grey boxes labelled \emph{Digression} are \textbf{thematically
+    independent} of the main argument: stories of what went wrong, historical context, dead ends.
+    You can skip all of them and the thread stays whole. They stay because the concrete error
+    teaches, and marking them this way is what cancels the cost of having them in the text.}
+\else
+  \def\mg@T@definicao{Definição}\def\mg@T@exemplo{Exemplo}\def\mg@T@teorema{Teorema}
+  \def\mg@T@proposicao{Proposição}\def\mg@T@lema{Lema}\def\mg@T@corolario{Corolário}
+  \def\mg@T@ideia{A ideia em uma frase}\def\mg@T@analogia{A analogia}
+  \def\mg@T@medido{O que foi medido}\def\mg@T@numeros{Os números}
+  \def\mg@T@ganho{O ganho}\def\mg@T@conta{A conta}
+  \def\mg@T@armadilha{Armadilha}\def\mg@T@alerta{Alerta}
+  \def\mg@T@noprato{Na prática}\def\mg@T@nocodigo{No código}\def\mg@T@noeixo{No eixo}
+  \def\mg@T@nomundo{No mundo}\def\mg@T@noseu{No seu caso}\def\mg@T@naranha{Na aranha}
+  \def\mg@T@sonorio{Para escrever no papel}\def\mg@T@papel{Para o papel}
+  \def\mg@T@concede{O que se concede}\def\mg@T@fonte{Onde aprender isto}
+  \def\mg@T@digressao{Digressão}\def\mg@T@antes{Antes de ler}
+  \def\mg@T@naopasse{Não passe adiante}\def\mg@T@exercicio{Exercício}\def\mg@T@solucao{Solução}
+  \def\mg@T@respostas{Respostas}\def\mg@T@RESPOSTAS{RESPOSTAS}\def\mg@T@figura{Figura}
+  \def\mg@T@semolhar{Sem olhar}\def\mg@T@resposta{resposta}\def\mg@T@noapendice{no apêndice}
+  \def\mg@T@sobrecaixas{Sobre as caixas cinza}
+  \long\def\mg@T@avisotexto{As caixas cinza rotuladas \emph{Digressão} são \textbf{tematicamente independentes} do
+  argumento principal: histórias do que deu errado, contexto histórico, becos sem saída.
+  Você pode pular todas e o fio continua inteiro. Elas ficam porque o erro concreto ensina,
+  e porque marcá-las assim é o que anula o custo de tê-las no texto.}
+\fi
+
+% ---------------------------------------------------------------- dependencies
+\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{bm}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{microtype}
+\RequirePackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing,
+                decorations.markings,patterns,fit,shapes.geometric,
+                shapes.misc,backgrounds,matrix,chains}
+\RequirePackage{listings}
+\RequirePackage{xurl}
+
+\captionsetup{font=small,labelfont=bf}
+
+% ---------------------------------------------------------------------- colours
+% Colour roles follow Okabe & Ito's Color Universal Design assignments; the HEXES BELOW
+% ARE NOT THEIRS. Two honest points, both from the 2026-08-23 figure audit:
+%   * The jfly primary page presents the palette only as an IMAGE and gives no RGB, hex
+%     or CMYK anywhere in its text. The canonical machine-readable values are R's
+%     grDevices: #000000 #E69F00 #56B4E9 #009E73 #F0E442 #0072B2 #D55E00 #CC79A7.
+%     Cite jfly for the rationale, grDevices for the numbers.
+%   * These are darkened variants, chosen for contrast on white paper. The reason the
+%     roles matter more than the exact hexes is that a red/green pair carrying
+%     `armadilha` vs `medido` has to survive deuteranopia, and CUD's role assignment is
+%     what buys that.
+% And the caveat that bounds all of it: colour discriminability depends on MARK TYPE —
+% a palette validated on large swatches does not transfer to thin lines and small
+% scatter points (Szafir 2018, IEEE TVCG 24(1):392-401). For plotted series, direct
+% labelling does the work; colour is the redundant channel, never the only one.
+\definecolor{azulesc}{HTML}{1F4E79}     % intuition      (CUD blue,   darkened)
+\definecolor{vermesc}{HTML}{A83232}     % trap           (CUD vermillion, darkened)
+\definecolor{verdesc}{HTML}{2E6B4F}     % measured       (CUD bluish green, darkened)
+\definecolor{laranjaesc}{HTML}{C2701C}  % source         (CUD orange, darkened)
+\definecolor{roxoesc}{HTML}{5B3E8E}     % for the paper
+\definecolor{aguaesc}{HTML}{2A7B9B}     % in practice    (CUD sky blue, darkened)
+\definecolor{rosaesc}{HTML}{9B3A6B}     % retrieval prompt
+\definecolor{cinzaclaro}{HTML}{F2F3F5}
+\definecolor{cinzamedio}{HTML}{9AA0A6}
+\definecolor{cinzaescuro}{HTML}{4A4E54}
+
+% --------------------------------------------------------------- theorem envs
+% Numbered within `chapter` in a book, within `section` otherwise. The package has to
+% load under `article` (the session briefings) and `standalone` (the concept maps), and
+% a bare `[chapter]` fails there with "No counter 'chapter' defined" — which is exactly
+% how the first concept-map build died.
+% (Branch rather than pass a macro: \newtheorem tests \@ifundefined{c@#3} on the literal
+% token, so `[\mg@within]` would look for a counter called `\mg@within`.)
+\theoremstyle{definition}
+\@ifundefined{c@chapter}{%
+  \newtheorem{definicao}{\mg@T@definicao}[section]
+  \newtheorem{exemplo}{\mg@T@exemplo}[section]
+  \theoremstyle{plain}
+  \newtheorem{teorema}{\mg@T@teorema}[section]
+}{%
+  \newtheorem{definicao}{\mg@T@definicao}[chapter]
+  \newtheorem{exemplo}{\mg@T@exemplo}[chapter]
+  \theoremstyle{plain}
+  \newtheorem{teorema}{\mg@T@teorema}[chapter]
+}
+\newtheorem{proposicao}[teorema]{\mg@T@proposicao}
+\newtheorem{lema}[teorema]{\mg@T@lema}
+\newtheorem{corolario}[teorema]{\mg@T@corolario}
+
+% ============================================================ the record stream
+% Every retrieval artefact in the book writes one record here, so the deck, the
+% probe and the lint read exactly what the reader reads. Records are deferred
+% (\write, not \immediate\write) so \thepage is the shipped page, not the page
+% TeX happened to be building.
+%
+% Format — one field per line, no delimiter can collide with LaTeX source:
+%   @@P <rec> <kind> <chapter> <page> <conceito> <dificuldade> <ref>
+%   @@Q <detokenized question>
+%   @@A <detokenized answer>
+% kind = card | pre | fail ; conceito is a slug with no spaces; ref is the number
+% printed next to the answer in the appendix (cards only, else 0).
+%
+% The write is deferred so \thepage is the SHIPPED page, but everything else must be
+% frozen at the call site — a plain \write expands the whole line at shipout, which
+% made every record in a page batch report the last counter and the last conceito.
+% \protected@write is exactly this: \edef the line now, with \thepage \relax-ed so it
+% alone survives to shipout.
+
+\newcounter{mg@rec}
+\newwrite\mg@out
+\ifmg@prompts
+  \immediate\openout\mg@out=\jobname.prompts\relax
+\fi
+
+% Under `article` there is no \thechapter, and the record stream must still say WHERE
+% the prompt was. Fall back to the section number.
+\@ifundefined{c@chapter}{\def\mg@where{\thesection}}{\def\mg@where{\thechapter}}
+
+\newcommand{\mg@emit}[6]{%
+  % #1 kind  #2 conceito  #3 dificuldade  #4 question  #5 answer  #6 ref
+  \ifmg@prompts
+    \stepcounter{mg@rec}%
+    \protected@write\mg@out{}{@@P \themg@rec\space #1 \mg@where\space \thepage\space #2 #3 #6}%
+    \protected@write\mg@out{}{@@Q \detokenize{#4}}%
+    \protected@write\mg@out{}{@@A \detokenize{#5}}%
+  \fi
+}
+
+% \clearpage FIRST, and it is not decoration. LaTeX's \enddocument runs the
+% \AtEndDocument hooks and only then ships the final page, so closing the stream here
+% without forcing that shipout drops every deferred record on the last page — silently,
+% with no warning and a valid PDF. Caught on the `article` smoke test, where the whole
+% document is one page and the record file came out holding nothing but the metadata.
+% The \clearpage LaTeX runs afterwards is then a no-op.
+\AtEndDocument{\ifmg@prompts\clearpage\immediate\closeout\mg@out\fi}
+
+% Book-level metadata the downstream tools need. `horizonte` is the number of days
+% this material must survive; the deck's first review gap is 10–20% of it (Cepeda
+% et al. 2008 licenses a FIRST-gap rule and nothing more — it is not a ladder).
+\newcommand{\mg@slug}{sem-slug}
+\newcommand{\mg@horizonte}{180}
+\newcommand{\apostilaslug}[1]{\renewcommand{\mg@slug}{#1}%
+  \ifmg@prompts\immediate\write\mg@out{@@META slug #1}\fi}
+\newcommand{\apostilahorizonte}[1]{\renewcommand{\mg@horizonte}{#1}%
+  \ifmg@prompts\immediate\write\mg@out{@@META horizonte #1}\fi}
+\newcommand{\apostilatitulo}[1]{%
+  \ifmg@prompts\immediate\write\mg@out{@@META titulo \detokenize{#1}}\fi}
+\newcommand{\apostilasubtitulo}[1]{%
+  \ifmg@prompts\immediate\write\mg@out{@@META subtitulo \detokenize{#1}}\fi}
+
+% ================================================================ callout boxes
+% Eight semantic roles. One visual style per role; several titles per style where
+% the author wants a narrower label. Adding a NEW role means adding it here and to
+% ROLES in scripts/apostila_index.py — never in a document preamble.
+
+\tcbset{mgbox/.style={breakable, enhanced, boxrule=0.6pt,
+    left=3mm, right=3mm, top=2mm, bottom=2mm, fonttitle=\bfseries\sffamily}}
+
+% -- role: intuicao ------------------------------------------------ (blue) ----
+\newtcolorbox{ideia}[1][\mg@T@ideia]{mgbox,
+  colback=cinzaclaro, colframe=azulesc, boxrule=0.4pt, title={#1}}
+\newtcolorbox{analogia}[1][\mg@T@analogia]{mgbox,
+  colback=cinzaclaro, colframe=azulesc, boxrule=0.4pt, title={#1}}
+
+% -- role: formal -------------------------------------------------- (grey) ----
+\newtcolorbox{formulabox}[1][]{mgbox,
+  colback=white, colframe=cinzamedio, boxrule=0.5pt, title={#1}}
+\providecommand{\mg@formula}{}
+\newtcolorbox{formula}[1][]{mgbox,
+  colback=white, colframe=cinzamedio, boxrule=0.5pt, title={#1}}
+
+% -- role: medido -------------------------------------------------- (green) ---
+% A green box is a number THIS MACHINE computed, with the script named. A number
+% from a paper goes in \fonte with the citation. The distinction was introduced on
+% 2026-08-14 and the three apostilas before it do not make it.
+\newtcolorbox{medido}[1][\mg@T@medido]{mgbox,
+  colback=verdesc!6, colframe=verdesc, title={#1}}
+\newtcolorbox{numeros}[1][\mg@T@numeros]{mgbox,
+  colback=verdesc!6, colframe=verdesc, title={#1}}
+\newtcolorbox{ganho}[1][\mg@T@ganho]{mgbox,
+  colback=verdesc!6, colframe=verdesc, title={#1}}
+\newtcolorbox{conta}[1][\mg@T@conta]{mgbox,
+  colback=verdesc!6, colframe=verdesc, title={#1}}
+
+% -- role: armadilha ------------------------------------------------- (red) ---
+\newtcolorbox{armadilha}[1][\mg@T@armadilha]{mgbox,
+  colback=vermesc!5, colframe=vermesc, title={#1}}
+\newtcolorbox{alerta}[1][\mg@T@alerta]{mgbox,
+  colback=vermesc!5, colframe=vermesc, title={#1}}
+
+% -- role: pratica -------------------------------------------------- (aqua) ---
+\newtcolorbox{noprato}[1][\mg@T@noprato]{mgbox,
+  colback=aguaesc!7, colframe=aguaesc, title={#1}}
+\newtcolorbox{nocodigo}[1][\mg@T@nocodigo]{mgbox,
+  colback=aguaesc!7, colframe=aguaesc, title={#1}}
+\newtcolorbox{noeixo}[1][\mg@T@noeixo]{mgbox,
+  colback=aguaesc!7, colframe=aguaesc, title={#1}}
+\newtcolorbox{nomundo}[1][\mg@T@nomundo]{mgbox,
+  colback=aguaesc!7, colframe=aguaesc, title={#1}}
+\newtcolorbox{noseu}[1][\mg@T@noseu]{mgbox,
+  colback=aguaesc!7, colframe=aguaesc, title={#1}}
+\newtcolorbox{naranha}[1][\mg@T@naranha]{mgbox,
+  colback=aguaesc!7, colframe=aguaesc, title={#1}}
+
+% -- role: redacao ------------------------------------------------ (purple) ---
+\newtcolorbox{sonorio}[1][\mg@T@sonorio]{mgbox,
+  colback=roxoesc!6, colframe=roxoesc, title={#1}}
+\newtcolorbox{papel}[1][\mg@T@papel]{mgbox,
+  colback=roxoesc!6, colframe=roxoesc, title={#1}}
+\newtcolorbox{concede}[1][\mg@T@concede]{mgbox,
+  colback=roxoesc!6, colframe=roxoesc, title={#1}}
+
+% -- role: fonte --------------------------------------------------- (orange) --
+\newtcolorbox{fonte}[1][\mg@T@fonte]{mgbox,
+  colback=laranjaesc!6, colframe=laranjaesc, title={#1}}
+
+% -- role: digressao ------------------------------------------------ (grey) ---
+% The war stories, the seven-errors chapter, the negative results. DO NOT purge
+% them: on static text of exactly this shape the whole seductive-details cost was
+% offset by a grey box plus one up-front thematic-independence sentence
+% (d=-.79, BF01=4.57, N=195). \digressaoaviso prints that sentence, once.
+\newtcolorbox{digressao}[1][\mg@T@digressao]{mgbox,
+  colback=cinzaclaro, colframe=cinzamedio, boxrule=0.4pt,
+  fontupper=\small, title={#1}}
+\newcommand{\digressaoaviso}{%
+  \begin{tcolorbox}[mgbox, colback=cinzaclaro, colframe=cinzamedio, boxrule=0.4pt,
+    fontupper=\small, title={\mg@T@sobrecaixas}]
+  \mg@T@avisotexto
+  \end{tcolorbox}}
+
+% ========================================================== retrieval artefacts
+
+% -- \prompt{pergunta}{resposta} ------------------------------------------------
+% In-prose retrieval practice. The question is typeset where the idea was just
+% explained; the answer is NOT on the same page — it is collected into the answer
+% appendix by \apostilarespostas. (Appendix placement is a design preference, not
+% a finding: Rowland's delayed-feedback figure is about temporal delay between
+% test and feedback, not spatial placement. Do not cite it for this.)
+%
+% \prompt[conceito=slug,dificuldade=0.75]{Q}{A}
+\newcounter{mg@prompt}
+\newcommand{\mg@pconc}{geral}
+\newcommand{\mg@pdif}{0.75}
+\define@key{mgprompt}{conceito}{\renewcommand{\mg@pconc}{#1}}
+\define@key{mgprompt}{dificuldade}{\renewcommand{\mg@pdif}{#1}}
+
+\newcommand{\prompt}[3][]{%
+  \renewcommand{\mg@pconc}{geral}\renewcommand{\mg@pdif}{0.75}%
+  \setkeys{mgprompt}{#1}%
+  \stepcounter{mg@prompt}%
+  \mg@emit{card}{\mg@pconc}{\mg@pdif}{#2}{#3}{\themg@prompt}%
+  \begin{tcolorbox}[mgbox, colback=rosaesc!5, colframe=rosaesc, boxrule=0.5pt,
+      fontupper=\small, title={\mg@T@semolhar \ \textnormal{\normalfont\sffamily\scriptsize
+        (\mg@T@resposta\ \themg@prompt, \mg@T@noapendice)}}]
+  #2
+  \end{tcolorbox}%
+  \expandafter\gdef\csname mg@ans@\themg@prompt\endcsname{#3}%
+  % \listgadd guarda o argumento SEM expandir; guardar \themg@prompt fazia toda a lista
+  % apontar para o valor FINAL do contador, e o apendice imprimia N vezes a ultima
+  % resposta. Corrigido 2026-08-25 (apostila hplr-neurocomputing); afeta toda apostila
+  % construida antes desta data -- recompilar para corrigir o apendice.
+  \edef\mg@thisnum{\arabic{mg@prompt}}%
+  \expandafter\listgadd\expandafter\mg@answers\expandafter{\mg@thisnum}%
+}
+\newcommand{\mg@answers}{}
+
+% The answer appendix. Call it once, near the end, after the last \prompt.
+\newcommand{\apostilarespostas}{%
+  \@ifundefined{chapter}
+    {\section*{\mg@T@respostas}\addcontentsline{toc}{section}{\mg@T@respostas}}
+    {\chapter*{\mg@T@respostas}\addcontentsline{toc}{chapter}{\mg@T@respostas}%
+     \markboth{\mg@T@RESPOSTAS}{\mg@T@RESPOSTAS}}%
+  \begingroup
+  \setlength{\parskip}{0.4em}%
+  \renewcommand*{\do}[1]{%
+    \par\noindent\textbf{\textcolor{rosaesc}{##1.}}\ \csname mg@ans@##1\endcsname\par}%
+  \dolistloop{\mg@answers}%
+  \endgroup}
+
+% -- antes: prequestions --------------------------------------------------------
+% 2–4 questions immediately BEFORE a section. Budget them against the propositions
+% you intend to still hold in six months, not against the page count: the spillover
+% to un-asked content is inconsistent (Pan & Rickard 2018: d=0.16, p=.20, and
+% PEESE-corrected to -0.32).
+\newenvironment{antes}[1][\mg@T@antes]
+  {\begin{tcolorbox}[mgbox, colback=azulesc!4, colframe=azulesc!70, boxrule=0.5pt,
+      fontupper=\small, title={#1}]%
+   \begin{itemize}[leftmargin=*, nosep, label=\textcolor{azulesc}{$\circ$}]}
+  {\end{itemize}\end{tcolorbox}}
+% one question inside `antes`, recorded so the lint can check the section answers it
+\newcommand{\antesq}[2][geral]{\item #2\mg@emit{pre}{#1}{0.50}{#2}{}{0}}
+
+% -- naopasse: the comprehension-FAILURE prompt ---------------------------------
+% At the end of a section. Never "você entendeu? (s/n)": Chi's protocols put poor
+% learners' failure-detection at 15% vs 46%, and "the poor learners thought they
+% understood most of the time when in fact they did not". The prompt must force
+% naming a SPECIFIC step.
+\newcommand{\naopasse}[2][geral]{%
+  \mg@emit{fail}{#1}{0.50}{#2}{}{0}%
+  \begin{tcolorbox}[mgbox, colback=cinzaescuro!5, colframe=cinzaescuro, boxrule=0.5pt,
+      fontupper=\small, title={\mg@T@naopasse}]
+  #2
+  \end{tcolorbox}}
+
+% -- exercicio, with an interleaving tag ----------------------------------------
+% `metodo=` names the strategy the exercise requires. `apostila_lint.py` fails the
+% build when two consecutive exercises share a metodo, because interleaving trains
+% strategy SELECTION and that is what a derivation needs months later (Rohrer et al.
+% 2020, preregistered cluster RCT, 54 classes, 787 students: 61% vs 38%, d=0.83).
+% NB interleave EXERCISES only — never the prose, the glossary or the notation
+% drills: for verbal material blocking wins (Brunmair & Richter, words g=-0.39).
+\@ifundefined{c@chapter}
+  {\newcounter{mg@exer}[section]\renewcommand{\themg@exer}{\thesection.\arabic{mg@exer}}}
+  {\newcounter{mg@exer}[chapter]\renewcommand{\themg@exer}{\thechapter.\arabic{mg@exer}}}
+\newcommand{\mg@emeth}{sem-metodo}
+\newcommand{\mg@econc}{geral}
+\newcommand{\mg@ename}{}
+\define@key{mgexer}{metodo}{\renewcommand{\mg@emeth}{#1}}
+\define@key{mgexer}{conceito}{\renewcommand{\mg@econc}{#1}}
+
+% The optional argument is DUAL-MODE, and it has to be: nine of the eleven existing
+% apostilas were written against the amsthm convention where `[...]` is the exercise's
+% NAME, and `\begin{exercicio}[A identidade]` must not become a key-value parse error.
+% So: an argument containing `=` is options, anything else is a name.
+\newcommand{\mg@exerarg}[1]{%
+  \def\mg@tmp{#1}%
+  \ifx\mg@tmp\@empty\else
+    \in@{=}{#1}%
+    \ifin@ \setkeys{mgexer}{#1}\else \renewcommand{\mg@ename}{#1}\fi
+  \fi}
+
+\newenvironment{exercicio}[1][]
+  {\renewcommand{\mg@emeth}{sem-metodo}\renewcommand{\mg@econc}{geral}%
+   \renewcommand{\mg@ename}{}%
+   \mg@exerarg{#1}%
+   \refstepcounter{mg@exer}%
+   \ifmg@prompts
+     \protected@write\mg@out{}{@@X \themg@exer\space \mg@where\space \thepage\space
+       \mg@emeth\space \mg@econc}%
+   \fi
+   \par\medskip\noindent\textbf{\textcolor{azulesc}{\mg@T@exercicio\ \themg@exer.}}%
+   % \mg@ename vem de \newcommand, que e \long; \@empty nao e, entao um \ifx entre os
+   % dois e SEMPRE falso e um exercicio so com opcoes key-value imprimia "()" vazio.
+   \ifdefempty{\mg@ename}{}{\ \textbf{\textcolor{azulesc}{(\mg@ename)}}}%
+   \ \itshape}
+  {\par\medskip}
+
+\newenvironment{solucao}
+  {\par\noindent\textbf{\mg@T@solucao.}\ }
+  {\par\medskip}
+
+% -- \figref: a reference that can be linted ------------------------------------
+% Spatial contiguity is the largest layout effect in the field (g=0.63, 58 independent
+% comparisons, n=2,426; Schroeder & Cenkci 2018) and a floating figure silently breaks
+% it. \figref records the page the REFERENCE was shipped on; the .aux records the page
+% the FIGURE was shipped on; `scripts/apostila_lint.py` compares the two. This is also
+% the check that catches an uncited figure — the KCM v2 clarity review found 11 of 14
+% computed figures were never referenced in the text.
+\newcommand{\figref}[1]{%
+  \ifmg@prompts\protected@write\mg@out{}{@@R #1 \thepage}\fi
+  \mg@T@figura~\ref{#1}}
+\newcommand{\figrefs}[1]{%
+  \ifmg@prompts\protected@write\mg@out{}{@@R #1 \thepage}\fi
+  \ref{#1}}
+
+% -- \ifrusty: the assistance switch --------------------------------------------
+% Two variants of the ASSISTANCE, from one source. Never two page layouts: prior
+% knowledge did not moderate multimedia design-principle effects (Noetel et al.
+% 2022, N=30 pooled effects, R^2=0.14, p=0.14). Default is `rusty` because the
+% measured asymmetry favours giving help when the measurement is ambiguous.
+\newcommand{\enferrujado}[1]{\ifmg@rusty#1\fi}
+\newcommand{\fluente}[1]{\ifmg@rusty\else#1\fi}
+% For a concept he demonstrably still owns, DELETE the annotation rather than
+% integrating it — redundant integrated text is worse than none (Kalyuga 2003).
+\newcommand{\andaime}[1]{\ifmg@rusty#1\fi}
+
+% ================================================================ page furniture
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancyhead[L]{\small\sffamily\nouppercase{\leftmark}}
+\fancyhead[R]{\small\sffamily\thepage}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\small\sffamily\thepage}}
+
+\@ifundefined{chapter}{}{%
+  \titleformat{\chapter}[display]
+    {\normalfont\sffamily\huge\bfseries\color{azulesc}}
+    {\chaptertitlename\ \thechapter}{10pt}{\Huge}%
+  \titlespacing*{\chapter}{0pt}{-20pt}{22pt}}
+\titleformat{\section}
+  {\normalfont\sffamily\Large\bfseries\color{azulesc}}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\sffamily\large\bfseries\color{azulesc!85!black}}{\thesubsection}{1em}{}
+
+\setlength{\parskip}{0.35em}
+
+% ------------------------------------------------------------------- shorthands
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\E}{\mathbb{E}}
+\providecommand{\Prob}{\mathbb{P}}
+\providecommand{\argmax}{\operatorname*{arg\,max}}
+\providecommand{\argmin}{\operatorname*{arg\,min}}
+\providecommand{\tr}{\operatorname{tr}}
+\newcommand{\dotred}{\textcolor{vermesc}{\rule[0.15ex]{0.9ex}{0.9ex}}}
+\newcommand{\dotgreen}{\textcolor{verdesc}{\rule[0.15ex]{0.9ex}{0.9ex}}}
+\newcommand{\dotorange}{\textcolor{laranjaesc}{\rule[0.15ex]{0.9ex}{0.9ex}}}
+
+% --------------------------------------------------------------- TikZ node styles
+\tikzset{
+  blk/.style={rectangle, rounded corners=1.6pt, draw=azulesc, fill=azulesc!7,
+              align=center, font=\small\sffamily, inner sep=2.6mm},
+  blkr/.style={rectangle, rounded corners=1.6pt, draw=vermesc, fill=vermesc!7,
+               align=center, font=\small\sffamily, inner sep=2.6mm},
+  blkg/.style={rectangle, rounded corners=1.6pt, draw=verdesc, fill=verdesc!7,
+               align=center, font=\small\sffamily, inner sep=2.6mm},
+  blko/.style={rectangle, rounded corners=1.6pt, draw=laranjaesc, fill=laranjaesc!8,
+               align=center, font=\small\sffamily, inner sep=2.6mm},
+  blkc/.style={rectangle, rounded corners=1.6pt, draw=cinzamedio, fill=cinzaclaro,
+               align=center, font=\small\sffamily, inner sep=2.6mm},
+  flow/.style={-{Stealth[length=2.4mm]}, cinzamedio, thick},
+  dir/.style={-{Stealth[length=2mm]}, azulesc, thick},
+  bad/.style={-{Stealth[length=2mm]}, vermesc, very thick},
+  good/.style={-{Stealth[length=2mm]}, verdesc, very thick},
+  % Direct labelling. Spatial contiguity is the largest layout effect in the field
+  % (g=0.63, 58 independent comparisons, n=2,426; Schroeder & Cenkci 2018) and it is
+  % entirely a LaTeX decision. Label the series AT the series; never a keyed legend.
+  rotulo/.style={font=\scriptsize\sffamily, inner sep=1pt, anchor=west, xshift=6pt},
+}
+
+\lstset{basicstyle=\ttfamily\scriptsize, breaklines=true, frame=single,
+        rulecolor=\color{cinzamedio}, backgroundcolor=\color{cinzaclaro},
+        keywordstyle=\color{azulesc}\bfseries, commentstyle=\color{verdesc},
+        stringstyle=\color{vermesc}, showstringspaces=false, language=Python,
+        xleftmargin=2mm, framexleftmargin=2mm,
+        literate={á}{{\'a}}1 {ã}{{\~a}}1 {ç}{{\c c}}1 {é}{{\'e}}1 {ê}{{\^e}}1
+                 {í}{{\'i}}1 {ó}{{\'o}}1 {õ}{{\~o}}1 {ú}{{\'u}}1 {â}{{\^a}}1
+                 {ô}{{\^o}}1 {à}{{\`a}}1}
+
+\endinput

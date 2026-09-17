@@ -1,0 +1,381 @@
+% =============================================================================
+\chapter{One paper by Friday: the merge}
+\label{ch:merge}
+
+The abstract and the author list lock on Friday 18 September, AoE; the paper is due on Friday 25
+September, AoE. Your draft has the object, the geometry, the theory and the algorithm. Our side has an
+evaluation that already ran, on real structure, with the audit opened after the rows were frozen. This
+chapter maps one onto the other: what your open items correspond to, what the measurements add, where the
+two drafts disagree, three ways to merge them, and the order of work for the next nine days.
+
+\begin{ideia}[The merge in one sentence]
+Keep your object, geometry and theory as they stand; replace the evaluation section with the protocol that
+already ran; move the title and abstract to the pricing frame of Rosenbaum's $\Gamma$; and cut to nine
+pages.
+\end{ideia}
+
+\begin{antes}
+\antesq[pre-registro]{Your draft owes two experiments in \texttt{\textbackslash todo} markers. Which of
+them has already run, and with which endpoint?}
+\antesq[unidade-afirmacao]{Your commented-out caveat says $\rclaim = 1$ on all full-coverage rows by
+construction. What removed that construction?}
+\end{antes}
+
+\section{Your open items are the runs of 11 to 13 September}
+
+Your draft carries three \texttt{\textbackslash todo} markers. The first asks for a single end-to-end
+speedup figure; nothing on our side answers it. The other two correspond to the two measurements of
+Chapters~\ref{ch:frame} to~\ref{ch:table4}, the second one almost word for word.
+
+\textbf{\S6.2.} «The ranking evaluation of Section~6.1 has not yet been run on these 831 real instances;
+survival and the paired cross-arm design exist only on synthetic structure.» What ran on the committed real
+rows is the corrupted-knowledge calibration of Chapter~\ref{ch:frame}, the nearest thing to what the
+marker asks. It flips claims of the recovering set at four rates and two coverages on the same real rows,
+and asks of every instrument whether its certificate held, scored in the four buckets of
+Chapter~\ref{ch:vocabulary} rather than by $\tau_b$ against the survival area. The $\tau_b$ design itself
+has not been run on the real rows.
+
+\textbf{\S6.3.} «The elicitation arm: knowledge collected by asking for a causal order over each chain
+component rather than for pairwise edge directions, from which $\rclaim$, $\rval$ and $\varphi_1$ are
+measured on the same frozen instance frame, with a matched random control and an audit opened only after
+the rows are frozen.» That is the ledger, exactly as specified.
+
+\begin{medido}[The two markers, closed: \texttt{results/\allowbreak stage0/\allowbreak } and \texttt{results/\allowbreak ledger/\allowbreak }]
+\textbf{Calibration} (\texttt{results/\allowbreak stage0/\allowbreak calibration\_summary.json}): 16,496 draws, 8,911 scored,
+24 networks, flip rates 0, 0.1, 0.25 and 0.5 at coverages 1.0 and 0.5, five repetitions per nonzero rate,
+seeds derived by SHA-256. \texttt{results/\allowbreak stage0/\allowbreak STAGE0.md} still quotes 8,553 scored rows from the run before the
+seeding fix; the JSON is the rerun.
+\textbf{Elicitation and ledger}: the questionnaire covers 120 chain components, 369 open pairs and 540
+rendered items, frozen and hashed before any supplier saw it (\texttt{docs/\allowbreak PROTOCOL\_RUN.md});
+\texttt{results/\allowbreak ledger/\allowbreak rows.csv} holds 8,308 rows over 14 knowledge conditions, with the chance control
+\texttt{D\_RAND} matched on the supplier's edges and $\rclaim$, $\rhop$, $\varphi_1$ on 528 frame rows per
+supplier condition (\texttt{results/\allowbreak ledger/\allowbreak TABLE4.md}).
+\end{medido}
+
+Your commented-out caveat in \S6.3 is also right, and the protocol removed its cause. \texttt{docs/\allowbreak EVALUATION\_PLAN.md}
+confirms that the admissibility gate makes $\rclaim = 1$ on 540 of 540 full-coverage rows. The frame of
+Chapter~\ref{ch:frame} is drawn from the CPDAG alone, 80,132 candidate pairs over 33 networks, and contains
+every one of the 543 committed pairs, so $\rclaim$ is now measured rather than fixed by construction.
+
+\prompt[conceito=pre-registro,dificuldade=0.7]{Map each of your two experimental \texttt{\textbackslash todo}
+markers to the artefact that closes it, and say how the first one differs from what you asked for.}%
+{The \S6.3 elicitation arm is the ledger: a causal-order questionnaire over 120 components (369 open
+pairs, 540 items) frozen and hashed first, 8,308 rows over 14 conditions in \texttt{results/ledger/}, a
+matched chance control and an audit opened after freezing. The \S6.2 real-structure evaluation is the
+corrupted-knowledge calibration on the committed rows (8,911 scored of 16,496 draws over 24 networks, in
+\texttt{calibration\_summary.json} under \texttt{results/stage0/}), which scores instruments in the four buckets rather than by
+$\tau_b$ against the survival area; the $\tau_b$ design itself has not run on real rows.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[dois-paineis]{Your survival table and our bucket audit measure the same object. May they share a
+table?}
+\antesq[screen-leave-k-out]{Which baseline would a referee add to your $\tau_b$ table first?}
+\end{antes}
+
+\section{What the measurements add, and where the drafts conflict}
+
+Eight things exist on our side and not in your draft. Each has its chapter and its file.
+
+\begin{enumerate}[nosep, leftmargin=*]
+\item \textbf{The knowledge interval and the null radius} (Chapter~\ref{ch:gamma}). With one wrong claim
+  the stated report covers 0.597 and the interval at one claim covers 0.980 at an $\Lnf$ of 0.851 (Panel~A,
+  $n = 1000$, \texttt{results/\allowbreak interval/\allowbreak TABLE1\_L95.md}).
+\item \textbf{The $\Gamma$ framing}: price what cannot be tested, with the interval as the headline
+  (Chapter~\ref{ch:gamma}).
+\item \textbf{The unit, measured}: over 3,014 certifiable rows (true CPDAG) the hop radius over-certifies on
+  39, the free rule on 15, the claim certificate on none (\texttt{results/\allowbreak ledger/\allowbreak TABLE4.md}).
+\item \textbf{The stop rule against the free screen} (Chapter~\ref{ch:m1b}): refusal 0.910 on 134
+  informative committed rows with correct knowledge (Panel A); different decisions from the one-claim
+  screen on 2 of 162 rows at one wrong claim (both panels); and a coverage difference of
+  $+0.000\ [+0.000, +0.000]$ against the pair screen at two wrong claims (Panel A, $n = 1000$) (\texttt{results/\allowbreak interval/\allowbreak TABLE1\_L95.md}).
+\item \textbf{The estimated class} (Chapter~\ref{ch:pest}): the truth extends the analyst's graph on 0 of
+  244 certifiable rows, and both certificates are dangerous on 14 of 38 (\texttt{results/\allowbreak pest/\allowbreak TABLE7.md}).
+\item \textbf{The audit oracle}: the back-door oracle rejected 4 of 1,169 committed sets that the GAC
+  accepts, so the audit now uses \texttt{src/\allowbreak bkrobust/\allowbreak benchmarks/\allowbreak audit.py}, guarded by
+  \texttt{tests/\allowbreak benchmarks/\allowbreak test\_audit\_oracle.py} (\texttt{results/\allowbreak ledger/\allowbreak PREREGISTRATION.md}, A.0b).
+\item \textbf{The suppliers as error processes} (Chapter~\ref{ch:suppliers}).
+\item \textbf{The monotonicity audit}: 5,000 sampled pairs over 469 rows, 0 violations, a one-sided 95\,\%
+  upper bound of 0.06\,\% (\texttt{results/\allowbreak ledger/\allowbreak monotonicity\_audit.json}): the implemented failure
+  predicate is upward-closed, which is your Theorem~1 as run.
+\end{enumerate}
+
+Four conflicts follow, and a merged paper has to settle each of them in its text.
+
+\textbf{Framing.} Your paper is a diagnostic radius; ours is a sensitivity analysis in the sense of
+Rosenbaum's $\Gamma$, with the interval leading. Your abstract already says the radius «prices the
+structural risk», which is the pricing move; what it prices is validity alone.
+
+\textbf{The unit.} Your headline counts covering hops and treats claims as a refinement. The ledger says
+the hop count over-certifies and the claim count does not, and on your own running example the two give
+3 and~2 (Chapter~\ref{ch:vocabulary}).
+
+\textbf{A missing baseline.} Your $\tau_b$ table has no leave-$k$-out screen, and M1b showed that at matched
+depth the stop rule built on the radius takes the screen's decisions, except where a retraction changes
+the set while leaving it valid.
+
+\textbf{Two designs on one object.} Survival ranking on synthetic structure and the bucket audit on real
+structure answer different questions on related populations. They go in the paper as two panels with
+their populations named, never pooled, which is your own \S5.4 rule.
+
+\prompt[conceito=screen-leave-k-out,dificuldade=0.7]{What must be added to your $\tau_b$ table, and what does
+M1b say it will show at matched depth and against the depth-one screen?}%
+{A leave-$k$-out screen: withdraw one (or two) claims, re-close, and flag if the committed result changes.
+At matched depth the stop rule and the screen take the same decisions except where a retraction changes
+the set while leaving it valid: they differ on 2 of 162 rows at one wrong claim (both panels) and on 5 of
+754 queries at depth two, and the coverage difference against the pair screen at two wrong claims is
+$+0.000\ [+0.000, +0.000]$ (Panel A, $n = 1000$).
+Against the one-claim screen at two wrong claims, the two-claim stop rule covers $+0.256\ [+0.149, +0.346]$
+more at $n = 1000$ ($+0.305$ in the population row). The licensed reading is that the radius tells the
+analyst which depth was needed, not that it beats the screen.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[decisoes-abertas]{Which sections of your draft survive a merge almost untouched?}
+\antesq[deriva-enquadramento]{Can the title still change after 18 September?}
+\end{antes}
+
+\section{Three ways to merge, and the one I recommend}
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\scriptsize\sffamily,
+  dr/.style={draw=cinzaescuro, fill=white, rounded corners=2pt, inner sep=2.5pt, text width=3.55cm,
+             align=left, minimum height=0.55cm},
+  mg/.style={draw=azulesc!70, fill=azulesc!5, rounded corners=2pt, inner sep=2.5pt, text width=5.3cm,
+             align=left, minimum height=0.55cm},
+  ours/.style={draw=verdesc, fill=verdesc!10, rounded corners=2pt, inner sep=3pt, text width=2.9cm,
+             align=left},
+  keep/.style={-{Stealth[length=1.5mm]}, cinzamedio, thick},
+  rew/.style={-{Stealth[length=1.5mm]}, laranjaesc, thick},
+  rep/.style={-{Stealth[length=1.5mm]}, vermesc, thick},
+  mov/.style={-{Stealth[length=1.5mm]}, cinzamedio, thick, densely dashed}]
+\node[font=\small\sffamily\bfseries] at (0,0.75) {your draft, 11 pp};
+\node[font=\small\sffamily\bfseries] at (6.75,0.75) {merged paper, option A, 9 pp};
+\node[dr] (d0) at (0,0) {title, abstract};
+\node[dr] (d1) at (0,-0.8) {\S1 introduction};
+\node[dr] (d2) at (0,-1.6) {\S2 preliminaries};
+\node[dr] (d3) at (0,-2.4) {\S3 related work};
+\node[dr] (d4) at (0,-3.2) {\S4 distance, radius};
+\node[dr] (d5) at (0,-4.0) {\S5 tractability, protocol};
+\node[dr] (d6) at (0,-4.8) {\S6 simulation study};
+\node[dr] (d7) at (0,-5.6) {\S7--8 discussion and conclusion};
+\node[dr] (d9) at (0,-6.4) {appendices A--E};
+\node[mg] (m0) at (6.75,0) {title and abstract: the pricing frame};
+\node[mg] (m1) at (6.75,-0.8) {\S1 + clinician sentence on page one};
+\node[mg] (m2) at (6.75,-1.6) {\S2, criterion named and attributed};
+\node[mg] (m3) at (6.75,-2.4) {\S3 + breakdown frontiers, correction sets, adjustment distances, tiered knowledge};
+\node[mg] (m4) at (6.75,-3.2) {\S4 + claim unit, Prop.~9 paragraph};
+\node[mg] (m5) at (6.75,-4.0) {\S5, conditions stated, shortened};
+\node[mg] (m6) at (6.75,-4.8) {\S6 executed protocol: frame, ledger, interval, screen, estimated class};
+\node[mg] (m7) at (6.75,-5.6) {\S7 limits paragraph uncommented};
+\node[mg] (m9) at (6.75,-6.4) {appendix: proofs, conjecture stated; survival $\tau_b$ panel with a screen column};
+\node[ours] (o) at (12.35,-4.0) {our measurements,\\ Chapters~\ref{ch:frame} to~\ref{ch:tables}};
+\draw[rew] (d0.east) -- (m0.west);
+\draw[rew] (d1.east) -- (m1.west);
+\draw[keep] (d2.east) -- (m2.west);
+\draw[rew] (d3.east) -- (m3.west);
+\draw[keep] (d4.east) -- (m4.west);
+\draw[keep] (d5.east) -- (m5.west);
+\draw[rep] (d6.east) -- node[above, font=\tiny\sffamily, text=vermesc]{replaced} (m6.west);
+\draw[mov] (d6.east) to[out=-10, in=175] (m9.west);
+\draw[rew] (d7.east) -- (m7.west);
+\draw[keep] (d9.east) -- (m9.west);
+\draw[-{Stealth[length=1.5mm]}, verdesc, thick] (o.west) -- (m6.east);
+\draw[-{Stealth[length=1.5mm]}, verdesc, thick] (o.north) |- (m0.east);
+\node[font=\tiny\sffamily, cinzamedio, anchor=west] at (-1.8,-7.25) {grey: kept \quad orange: rewritten \quad red: replaced \quad dashed: moved to the appendix};
+\end{tikzpicture}
+\caption{Under option A almost everything you wrote survives; the evaluation section is the one part that
+is replaced, and your synthetic survival table moves to the appendix as its own panel.}
+\label{fig:merge-map}
+\end{figure}
+
+There are three ways to merge, and \figref{fig:merge-map} shows where each part of your draft goes under
+the first.
+
+\textbf{A. One paper, your skeleton, our measurements.} Your \S\S2 to~5 stay almost as they are, with
+the fixes of Chapter~\ref{ch:review}; \S6 is replaced by the executed protocol (frame, suppliers, ledger,
+interval and null radius, the screen, the estimated class); title and abstract move to the pricing frame;
+the main text is cut from eleven pages to nine. Cost: one new section, an abstract, a two-page cut.
+
+\textbf{B. One paper, my outline, your theory as its object section.} The $\Gamma$ framing leads, your
+geometry and tractability become \S2 with proofs in the appendix. Cost: more rewriting of your prose, and
+the tractability results lose prominence.
+
+\textbf{C. Two papers.} Yours at ICLR, ours elsewhere. Cost: both use one corpus and one definition, each is
+weaker alone, and the elicitation arm is what puts yours on real structure.
+
+I recommend~A. It keeps what you wrote, closes both experimental markers with measured results, and is the
+only option that fits two days before the lock.
+
+Nine decisions for the text were listed in my outline of 12--13 September, and three of them change the
+abstract. \textbf{D1}, the title: name the analysis, not the radius. \textbf{D2}, the headline value: lead
+with the knowledge interval and report $\rnul$ beside it as the number of claims the conclusion rests on,
+named. \textbf{D9}, the framing after M1b: accept the measurement framing declared on 7 September for
+exactly this tie. These are recommendations for the two of us to decide, not decisions taken.
+
+\prompt[conceito=decisoes-abertas,dificuldade=0.7]{Under option A, which parts of your draft are kept, which
+are rewritten, and which one is replaced by what?}%
+{Kept: \S2 preliminaries, \S4 distance and radius, \S5 tractability, the appendices, each with the fixes of
+the review (criterion named, Proposition 9 paragraph and claim unit in \S4, conditions stated in \S5, the
+conjecture stated). Rewritten: title and abstract (pricing frame), \S1 (clinician sentence on page one),
+\S3 (missing citations), \S7 (limits paragraph uncommented). Replaced: \S6, by the executed protocol
+(frame, ledger, interval and null radius, screen, estimated class); the synthetic $\tau_b$ table moves to
+the appendix as its own panel with a screen column.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[frases-proibidas]{Name one sentence the paper must not contain, even though a result makes it
+tempting.}
+\antesq[pre-registro]{After 18 September, what about the author list can still change?}
+\end{antes}
+
+\section{Before Friday, and before the 25th}
+
+\begin{fonte}[ICLR 2027 Author Guidelines, read on 16 September]
+«Please note that no authors can be added or removed after the abstract submission deadline (author order
+can be changed after the abstract submission deadline up to the full paper deadline).» «Abstracts submitted
+by the abstract submission deadline must be genuine; placeholder or duplicate abstracts will be removed.»
+«Please coordinate among the authors and make sure that everyone has an OpenReview profile before the
+abstract submission deadline.» «all submissions must have at least one author who is registered to review
+at least 3 papers». Titles «can be edited up to the paper submission deadline». «At the time of submission,
+the main text should be 9 pages or fewer.» «Required: AI use statement.»
+\end{fonte}
+
+So the author list, and with it everyone's OpenReview profile, must be settled by 18 September; only its
+order can move afterwards. In order, before Friday 18 September, AoE:
+
+\begin{enumerate}[nosep, leftmargin=*]
+\item Settle the author list and check every author's OpenReview profile.
+\item Decide the framing (D9) and the headline value (D2), and choose the merge option.
+\item Narrow the novelty sentence to what was searched. The abstract's «nothing currently tells the analyst
+  how much of the conclusion rests on them» is too broad: Taeb, Guo and Henckel's \S6 already reports how
+  large a misspecification ball around the analyst's graph each adjustment set tolerates (one example, in
+  ADMGs, by adding edges to the specified graph). Chapter~\ref{ch:tables} lists the novelty search still owed
+  before the abstract.
+\item Write the abstract from the merged claims, one sentence each for the interval, the radius in claims,
+  the tie with the screen and the class assumption, and check it against the list below.
+\item Submit title, abstract, authors and subject areas, and register at least one author as a reviewer.
+\end{enumerate}
+
+\noindent Before Friday 25 September, AoE: replace \S6 by the protocol; make claims the reported unit, with
+39, 15 and 0 as the reason; apply the ten items of Chapter~\ref{ch:review}; replace the admission in \S7
+that nothing speaks to discovery error by the estimated-class result; move the clinician sentence to page one; cut
+to nine pages; write the AI use statement, which your \texttt{95\_statements.tex} does not have yet.
+
+\begin{sonorio}[Sentences the paper can print]
+\begin{itemize}[nosep, leftmargin=*]
+\item Counted in the analyst's claims, the certificate did not over-certify on any of 3,014 certifiable
+  rows of eleven knowledge conditions on the true CPDAG: whenever the committed set was invalid at the truth, it licensed fewer withdrawn claims than the
+  analyst had made false ones. This follows from the definition when the equivalence class and the
+  validity criterion are correct, and is not an estimate. Counted in covering hops, the same audit found
+  over-certification on 39 of those rows.
+\item With one wrong claim, the stated report covered 0.597, and the knowledge interval at one claim
+  restored 0.980 at 85\,\% of the calibrated width of discarding the knowledge (23 networks,
+  semi-synthetic parameters, $n = 1000$).
+\item At matched depth the report differs from a leave-$k$-out screen only where a retraction changes the
+  adjustment set while leaving it valid; what it adds is the
+  depth the analyst needed and the name of the claim the conclusion rests on.
+\item When the class is learned from data, the generating graph extended the analyst's graph on none of 244
+  certifiable rows, so the guarantee does not apply.
+\item The smallest retraction that breaks the set is a minimal correction set, a notion from the
+  satisfiability literature, instantiated here on Meek-closed background knowledge.
+\end{itemize}
+\end{sonorio}
+
+Each of those sentences has a tempting neighbour that the evidence does not license, and the checklist
+below is the list of those neighbours.
+
+\begin{noprato}[Checklist: sentences the paper must not contain]
+\begin{itemize}[nosep, leftmargin=*]
+\item that the radius, the certificate or the stop rule \emph{beats} a leave-$k$-out screen;
+\item that anything is certified robust under an \emph{estimated} CPDAG;
+\item a continuity bound («a small knowledge error gives a small bias»);
+\item a probability reading of $r$, or that $r$ estimates how wrong an expert is;
+\item that zero dangerous rows for the claim certificate is a statistic;
+\item that language models are the subject of the paper;
+\item the retracted numbers and phrases: «0/791», «$\Ostar$ is a local functional», «up to 128×»;
+\item that the MPDAG poset of Taeb, Guo and Henckel is graded.
+\end{itemize}
+\end{noprato}
+
+\prompt[conceito=frases-proibidas,dificuldade=0.65]{Give four sentences from the checklist that the merged
+paper must not contain, and for two of them the measurement that rules them out.}%
+{Any four of: the radius or stop rule beats a leave-$k$-out screen; robustness certified under an estimated
+CPDAG; a continuity bound; a probability reading of $r$; zero dangerous claim rows presented as a statistic;
+language models as the subject; the retracted «0/791», «$\Ostar$ is a local functional», «up to 128×»; the
+general MPDAG poset is graded. Measurements: the screen ties at matched depth ($+0.000\ [+0.000, +0.000]$,
+M1b); under a learned class the truth extends the analyst's graph on 0 of 244 rows; Proposition 9 of Taeb,
+Guo and Henckel proves non-gradedness for $|V| \ge 4$.}
+
+\prompt[conceito=pre-registro,dificuldade=0.6]{What does the ICLR 2027 guideline allow to change about the
+authors after the abstract deadline, and until when?}%
+{No author can be added or removed after the abstract submission deadline; only the order of authors can
+change, and only up to the full paper deadline. So the list, with every author's OpenReview profile, must
+be settled by Friday 18 September, AoE.}
+
+\naopasse[decisoes-abertas]{Without looking, write the five steps before Friday in order, and name the one
+whose result can no longer be changed after 18 September. If you put the abstract before the framing
+decision, reread the section on the three options.}
+
+\subsection*{Exercises}
+
+\begin{exercicio}[metodo=rewriting,conceito=deriva-enquadramento]
+Rewrite these two sentences of your abstract for option~A, respecting the checklist and with every number
+carrying its population: «On synthetic and on published causal graphs we ask whether the radius ranks
+instances by whether the committed set survives corrupted background knowledge, and how the quantity is
+distributed. The radius is a diagnostic and not an objective: it prices the structural risk carried by an
+adjustment set, in the units the analyst reasons in.»
+\end{exercicio}
+\begin{solucao}
+One possible rewrite. «On 27 networks with background knowledge from elicited and chance-level sources,
+audited only after every report was frozen, the report counted in the analyst's claims never
+over-certified, while a count of covering hops did so on 39 of 3,014 rows. On 23
+networks with semi-synthetic parameters, one wrong claim lowered the coverage of the stated report to 0.60,
+and the knowledge interval at one claim restored 0.98 at 85\,\% of the calibrated width of discarding the
+knowledge; at matched depth the report takes
+the decisions of a leave-$k$-out screen, and it names the claim the conclusion rests on. The guarantee
+assumes a correct equivalence class: with classes learned from data, the generating graph extended the
+analyst's graph on none of 244 rows.» What changed: «ranks» goes, since ranking is the synthetic panel's
+question; «in the units the analyst reasons in» becomes a measured contrast between claims and hops; the
+tie is stated rather than hidden; and the class assumption moves into the abstract.
+\end{solucao}
+
+\begin{exercicio}[metodo=classification,conceito=frases-proibidas]
+Classify each sentence as (L) licensed as written, (C) licensed only with its condition stated, or (F)
+forbidden. (a) «The claim certificate never over-certifies.» (b) «The breakdown radius outperforms a
+leave-one-out screen.» (c) «With an estimated CPDAG, the committed set remains certified robust.» (d) «One
+wrong claim lowered the stated report's coverage from 0.967 to 0.597 (Panel A, $n = 1000$).» (e) «A radius
+of 2 means the expert is probably wrong about two orientations.» (f) «The smallest breaking retraction is a
+minimal correction set.» (g) «The space of knowledge states is graded.» (h) «Small errors in background
+knowledge produce small bias.»
+\end{exercicio}
+\begin{solucao}
+(a) C: true given a correct class and a validity oracle that matches the instrument, and structural rather
+than statistical, so both conditions go in the sentence. (b) F: they tie at matched depth, and the
+radius-based rule separates only from the depth-one screen. (c) F: the truth extends the analyst's graph on
+0 of 244 certifiable rows. (d) L: measured, with its population. (e) F: a probability reading of $r$.
+(f) L, provided the citation is there: the name is conceded, not claimed (\texttt{docs/\allowbreak PRIOR\_ART.md}). (g) C: on a
+fixed skeleton and under the anti-exchange conjecture; the general MPDAG poset is not graded (Proposition 9).
+(h) F: the radius is a breakdown value, not a continuity bound.
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[node distance=0.7cm and 1.7cm]
+\node[cmapc] (todo) {your two open\\ experiments};
+\node[cmapg, right=of todo] (runs) {ledger and calibration,\\ already run};
+\node[cmapr, below=of runs] (conf) {four conflicts};
+\node[cmap, below=of todo] (a) {option A: your skeleton,\\ our \S6};
+\node[cmap, below=of a] (lock) {18 Sep: authors,\\ abstract, framing};
+\node[cmap, below=of conf] (paper) {25 Sep: nine pages,\\ review items};
+\node[cmapw, below=0.7cm of $(lock.south)!0.5!(paper.south)$] (sent) {licensed sentences and the checklist};
+\draw[cedge] (todo) -- node[above]{closed by} (runs);
+\draw[cedge] (runs) -- node[right]{expose} (conf);
+\draw[cedge] (conf) -- node[above]{settled in} (a);
+\draw[cedge] (a) -- node[left]{first} (lock);
+\draw[cedge] (lock) -- node[above]{then} (paper);
+\draw[cedge] (lock) -- node[left, pos=0.4]{written with} (sent);
+\draw[cedge] (paper) -- node[right, pos=0.4]{checked against} (sent);
+\end{tikzpicture}
+\end{center}

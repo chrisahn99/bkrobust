@@ -1,0 +1,309 @@
+\chapter{Early September: what should the radius measure?}
+\label{ch:redefinition}
+
+This chapter covers 3 to 9 September: the week in which I tried to repair the degeneracy of $\rval$, ended
+up changing the question the radius answers, and then found that one contrast I had drawn, between my random
+draws and your corpus, came from how the two pipelines admitted queries rather than from structure. The mass at
+one retraction itself is real: it returns on the frozen frame in Chapters~\ref{ch:where} to~\ref{ch:tables}.
+Unit: the validity radius of my harness and of your corpus is a breadth-first distance in covering hops, so I
+write it $\rhop$ here; the null radius counts retracted claims. The files of that week are in \texttt{rho\_breakdown/radius\_redef\_2026-09-07/}
+unless a path says otherwise.
+
+\begin{antes}
+\antesq[rval]{Your deck of 3 September closed the WP0 fork. Which branch did it support, and which did it
+reject?}
+\antesq[censura-degenerescencia]{If a statistic puts almost all of its mass on two values, can a quantile or a
+mean of it repair that?}
+\end{antes}
+
+\section{After 3 September: the defect I set out to repair}
+
+Your deck worked exactly on one eight-variable clinical graph, all 48 MPDAGs enumerated, and closed the WP0
+fork in its own words. The diagnostic-tool branch was supported ($\rval = 3,
+3, 2$, no saturation at 1). The trade-off paper was not, because all 14 valid adjustment sets share $\rval = 3$
+and the efficiency--robustness frontier is flat. A week later your Phase~2 on
+\texttt{experiments/survival-and-pareto} falsified the Pareto premise twice and abandoned it under its
+pre-registered trigger: truthful knowledge that identifies a set always identifies the same one, so precision
+never moves, and what knowledge buys is identifiability (385 of 1,431 proposals, 26.9\,\%, justified no valid
+set). Nothing in this document disputes either conclusion.
+
+In the same days I had the opposite picture on small random problems. On 7 September I re-measured the validity radius, in covering hops ($\rhop$),
+with an independent harness: random DAGs on six nodes, one to six undirected CPDAG edges, up to three true
+claims, every query with an identified optimal set kept, the whole space enumerated around $\Gz$.
+
+\begin{medido}[$\rhop$ on 400 random problems, \texttt{harness.py}]
+$\rhop = 1$ on 190 (47.5\,\%), 2 or 3 on 9 (2.3\,\%), unreached on 201 (50.2\,\%): 97.7\,\% of the mass on
+$\{1,\infty\}$ (\texttt{EXPERIMENTS.md}, \S1).
+\end{medido}
+
+I read this as worse than a bias toward 1. A biased statistic can be recentred; a nearly binary one answers a
+single question (does some single retraction break the set?), and any quantile or mean of it inherits the two
+values. That reading drove the week. Section~\ref{sec:redef-harness} shows which part of it described my harness.
+
+\begin{antes}
+\antesq[retracao]{Retracting a claim and reversing it look like two ways of doubting it. Are they two objects?}
+\antesq[casco]{If the hedge is restricted to the claims that matter, does the interval get narrower?}
+\end{antes}
+
+\section{Thirty-seven candidates, two lemmas, one object}
+\label{sec:redef-object}
+
+The target was a definition that is not degenerate, keeps a soundness statement, and gives a narrow interval
+where no damage is present. I wrote down 37 candidate redefinitions and audited each against measurements
+before refining any (\texttt{plan.json}). Nineteen were killed, most because on almost every problem they
+returned $\rval$, $\rval - 1$ or a contradiction-count radius that moves with them; all seven quantile or mass
+radii and all six weighted minima died that way. The arithmetic is short: first shells held at most 7 elements,
+so any quantile above $0.857$ returned the minimum (160 of 160 problems), and for a well-posed centre the broken
+share one hop out never exceeded one half (maximum $0.5000$ over 840 problems). The survivors had replaced the
+minimum by a range of effects. The object they share is easiest to see on a five-node example
+(\figref{fig:redef-hull}).
+
+\begin{exemplo}[Three claims, three behaviours]
+True DAG $C\to X$, $C\to Y$, $C\to W$, $X\to M$, $M\to Y$; query $(X,Y)$; true effect $1.2623 \times 0.7518 =
+0.949$. The CPDAG keeps $C\to Y\leftarrow M$ and leaves $C-W$, $C-X$, $M-X$ undirected; its four extensions give
+the effects $\{-0.203, 0.746, 0.949\}$, whose hull $[-0.203, 0.949]$ (width $1.152$) is the \emph{blanket}. The
+analyst asserts $\Kset = \{C\to W, C\to X, X\to M\}$ and reports the point $0.949$. Retracting $C\to X$ opens the
+hull to $[0.746, 0.949]$; retracting $C\to W$ changes the graph but not the effect; retracting $X\to M$ changes
+nothing, since R1 forces it back from $C\to X$. The union over single retractions is $[0.746, 0.949]$, $0.176$ of
+the blanket. Asserting $X\to C$ instead would give the point $0.746$, off the truth.
+\end{exemplo}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\linewidth]{redef_hull_example.pdf}
+\caption{With the claims right the report is a point on the truth and one retraction widens it to under a fifth
+of the blanket; with one claim reversed the report misses, and nothing at budget zero can show it.}
+\label{fig:redef-hull}
+\end{figure}
+
+\begin{definicao}[Retraction hull]
+With $\Theta(G)$ the set of effects of $X$ on $Y$ over the DAG extensions of $G$ (adjusting for the parents of $X$
+in each), $\mathrm{RH}_j = \operatorname{hull} \bigcup_{|S| \le j} \Theta(\mathrm{Meek}(\Chat, \Kset \setminus
+S))$. $\mathrm{RH}_0$ is the report and $\mathrm{RH}_{|\Kset|}$ the blanket. If $\Chat$ is the true class and at
+most $j$ claims are false, $\mathrm{RH}_j$ contains the true effect, with no continuity assumption. Later chapters
+call it the knowledge interval $\Ir{j}$.
+\end{definicao}
+
+Two lemmas turned most of the surviving candidates into this one object.
+
+\begin{lema}[L1 and L2]
+\textbf{L1, retraction equals reversal.} For every budget $b$, retracting at most $b$ claims reaches exactly the worlds
+reached by reversing at most $b$ claims: a world compatible with $\mathrm{Meek}(\Chat, \Kset\setminus S)$ contradicts
+$\Kset$ on exactly one $\sigma \subseteq S$. \textbf{L2, screens are width-neutral.} If $\Theta(\Gz)$ is a point and
+$Z_0 = \Ostar(\Gz)$ is valid, a claim whose retraction leaves $Z_0$ valid leaves $\Theta$ unchanged; the hull over the
+load-bearing claims equals the hull over all of $\Kset$.
+\end{lema}
+
+Both were checked numerically before anything was built on them.
+
+\begin{medido}[Lemmas and frontier, \texttt{EXPERIMENTS.md}]
+L1: 0 differences over 573 problems. L2: 250 of 250 and 300 of 300. Frontier (\texttt{confirm.py}: seven nodes, up to four
+claims, 300 problems per arm): the first budget reaching 95\,\% coverage costs $0.710$ of the blanket's width with one
+reversed claim and $0.903$ with two, and at one reversed claim the one-retraction hull \emph{is} the blanket on
+67.2\,\% of problems (\S\S2--3).
+\end{medido}
+
+L1 makes ``flip up to $b$ claims'' and ``retract up to $b$ claims'' one object: reversal models the error,
+retraction hedges it. L2 takes my fourth proposed direction, identifying which claims are false, out of any width
+table. Locality measured in coverage on 8 September is the same fact in another currency: at a matched budget of
+one retraction, retracting only claims that touch the query covers 0.998 at 0.621 of the blanket's width against 1.000
+at 0.630 for any claim, with 3.13 instead of 4.31 enumerations (\texttt{local\_hedge.py}). It pays in computation and in what to ask the expert, not in width.
+
+\begin{armadilha}[Coverage 1.000 in every cell]
+The first run of \texttt{confirm.py} covered at every budget, budget zero included: the claims were drawn
+truthfully, so there was nothing to be robust to. Asking what could have made the number differ from 1 caught it;
+the fix reverses some claims and keeps only draws that survive Meek closure, the errors the consistency check misses.
+\end{armadilha}
+
+An audit of the frontier also asked what the width is made of. On informative problems with one reversed claim the class disputes
+whether $X$ causes $Y$ at all in 86.9\,\%; among the worlds that agree on direction the width is $0.314$ of the
+blanket, and exactly zero in 60.7\,\% (\texttt{EXPERIMENTS.md}, \S4). About two thirds of the hedged width is a
+dispute about causal order. Only 20 to 24\,\% of drawn problems were informative at all.
+
+\prompt[conceito=retracao,dificuldade=0.7]{State L1 and give the one-line reason it holds. What does it
+merge?}{For every budget $b$, the union of retractions of at most $b$ claims equals the union of reversals of at most
+$b$ claims. A world compatible with the re-closed graph after retracting $S$ contradicts $\Kset$ on exactly one subset
+$\sigma \subseteq S$, so the retraction of $S$ is the disjoint union of the reversals of its subsets. It merges the
+``flip claims'' and ``retract claims'' families: reversal models the error, retraction builds the hedge.}
+
+\prompt[conceito=casco,dificuldade=0.75]{A colleague proposes to rank which claims are false and hedge only those, to
+get a narrower interval. What does L2 say, and in which currency can the idea still pay?}{L2: the hull over the
+load-bearing claims already equals the hull over all claims, so no screen narrows the interval. The idea pays in cost
+(the query-local screen needs 3.13 instead of 4.31 enumerations per problem, for a width of 0.621 against 0.630 of the blanket) and in
+elicitation (claims away from the query moved coverage by 0.2 points, so do not ask about them).}
+
+\prompt[conceito=casco,dificuldade=0.8]{With one reversed claim the mean width ratio of the one-retraction hull is 0.710,
+and the hull equals the blanket on 67.2\,\% of problems. What is the mean ratio on the rest?}{From $0.672 \times 1 +
+0.328\,\bar x = 0.710$, $\bar x \approx 0.116$. Where the selective hull does anything it costs about an eighth of the
+blanket; the average saving of 29\,\% is carried by a third of the problems, and a headline must say so.}
+
+\begin{antes}
+\antesq[nulidade]{Rosenbaum's $\Gamma$ does not ask whether the identifying assumption holds. What does it ask?}
+\antesq[estrato]{If four problems in five leave no doubt about the effect, what does a robustness statistic measure on
+them?}
+\end{antes}
+
+\section{The null radius: Rosenbaum's question, taken literally}
+\label{sec:redef-null}
+
+\begin{ideia}[What $\Gamma$ asks]
+Not whether there is unmeasured confounding, but how strong it would have to be before the conclusion falls. For
+background knowledge: how many of my claims would have to fall before I can no longer claim an effect?
+\end{ideia}
+
+On 8 September I wrote that down with the machinery above. Two things change with respect to the harness radius:
+the unit ($\rhop$ walks covering hops, the new radius counts retracted claims) and, more importantly, the predicate
+that stops the search ($\rhop$ stops where some graph invalidates $Z$, the new radius where the hull reaches zero). The audit of 7 September had rejected
+a hop-ball ancestor, unreached on 183 of 200 draws; this one is read off the claim-indexed hull.
+
+\begin{definicao}[Null radius]
+$\rnul = \min\{ j : 0 \in \mathrm{RH}_j \}$, and $\rnul = \infty$ if no budget puts zero in the hull. Every effect
+compatible with any retraction of at most $\rnul - 1$ claims has the same sign.
+\end{definicao}
+
+Its first measurement looked like a failure: over all drawn problems with a non-zero effect, $\rnul$ was ``never'' on
+84\,\% (\texttt{signradius.py}). The population was the problem. Most drawn problems have a blanket of width zero, where
+nothing can move; conditioning on the \emph{informative} stratum, the problems with positive blanket width, swaps the
+two statistics (\figref{fig:redef-stratum}).
+
+\begin{medido}[The informative stratum, \texttt{stratum.py}]
+\begin{tabular}{@{}lrr@{}}
+1,800 problems, one reversed claim & all & informative (381, 21.2\,\%) \\ \midrule
+$\rhop = 1$ & 43.9\,\% & 89.5\,\% \\
+effective values $2^H$ of $\rhop$ (hops) / of $\rnul$ (claims) & 2.28 / 2.66 & 1.51 / 3.46 \\
+\end{tabular}
+\end{medido}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\linewidth]{redef_stratum.pdf}
+\caption{Where the class leaves any doubt about the effect, the validity radius ($\rhop$) is almost a constant and the null radius spreads
+over four levels.}
+\label{fig:redef-stratum}
+\end{figure}
+
+The stratum is defined by the blanket, which reads neither $\Kset$ nor the planted errors, so this is not selection on
+the outcome. But $1.51$ against $3.46$ is conditional on a selection and does not show that the redefinition improved
+the statistic. Your
+\texttt{LOG.md} of session~6 retracts a coverage conclusion for the same reason (543, 182, 106 admissible rows: a
+composition effect).
+
+\begin{sonorio}[The null radius, as it can be printed]
+Under the stated equivalence class, every effect compatible with retracting any $\rnul - 1$ of the analyst's
+orientation claims has the same sign; some set of $\rnul$ claims, once retracted, admits a zero or opposite-sign effect.
+\end{sonorio}
+
+\prompt[conceito=nulidade,dificuldade=0.65]{The harness's validity radius and $\rnul$ differ in two ways. Name both,
+and say which one changes what the number means.}{The unit: the harness radius ($\rhop$) is a breadth-first distance in
+covering hops, $\rnul$ counts retracted claims. And the stopping predicate, which is the one that changes the meaning:
+$\rhop$ stops when some graph makes the committed set $Z$ invalid, a property of an intermediate step; $\rnul$ stops when
+the hull of possible effects contains zero, a property of the conclusion. A set can become invalid while every compatible
+effect stays far from zero, and then the validity radius raises an alarm about nothing the analyst asserted to the world.}
+
+\begin{antes}
+\antesq[dois-paineis]{On your real networks at full coverage, is $\rhop = 1$ more or less frequent than on my random
+problems?}
+\antesq[banda-plugin]{Computed from $\widehat\Sigma$, in which direction does a point-hull null radius err?}
+\end{antes}
+
+\section{9 September: the ``never'' contrast was an admission rule}
+\label{sec:redef-harness}
+
+On 9 September I recounted your \texttt{results/axisa3/instances.jsonl} instead of copying the session~6 report, matching
+knowledge coverage at 1.0.
+
+\begin{medido}[Two populations, \texttt{stratum.py} against \texttt{results/axisa3/instances.jsonl}]
+\begin{tabular}{@{}lrrrrr@{}}
+ & $\rhop = 1$ & on $\{1,\infty\}$ & never & largest & eff.\ values \\ \midrule
+my random draws (1,800) & 43.9\,\% & 96.8\,\% & 52.9\,\% & 4 & 2.28 \\
+39 real networks (543 rows) & 69.8\,\% & 69.8\,\% & 0.0\,\% & 14 & 2.61 \\
+\end{tabular}
+\end{medido}
+
+Neither 52.9\,\% nor 0\,\% ``never'' describes structure; each describes an admission rule. The mass at one retraction
+is a different matter and does not go away: on the frozen frame of 11--13 September $\rclaim = 1$ on all 540
+full-coverage rows (Chapter~\ref{ch:where}), $\rnul$ is nearly binary (Chapter~\ref{ch:gamma}), and one retraction
+returns the whole-class interval on all 26 informative queries of T3's 37 eligible (Chapter~\ref{ch:tables}). Your \texttt{THEOREMS.md} §14 already
+says the saturation at 1 is not a definitional artefact.
+
+\begin{armadilha}[Two comparisons of mine, both across populations]
+I had first noted that $\rhop = 1$ falls from about 80\,\% to 61.1\,\% on real structure; the 61.1\,\% pools three
+coverage levels, and at coverage 1.0 it is 69.8\,\%. The table repeats the error at a deeper level. My draws kept every
+query whose claims survive Meek closure, including queries with no causal path, and \texttt{stratum.py} counted a query
+with no identified set as ``never''. Your \texttt{fast\_gate} rejects such queries and, at full coverage, admits a pair
+only if one retraction breaks $\Ostar$, so ``never'' is impossible by construction, as your \texttt{LOG.md} notes. Your
+random arm, gated the same way, has 0 unreached radii in 2,334 draws (\texttt{results/axisa2/random\_analysis.txt}).
+\end{armadilha}
+
+Within your corpus, $\rhop = 1$ on 69.8\,\% of full-coverage rows, with a tail up to 14 that Chapter~\ref{ch:where} explains. Every width, coverage and direction number of Section~\ref{sec:redef-object} remains a measurement on my small random problems.
+
+The same day I computed $\rnul$ from $\widehat\Sigma$ on your four Gaussian networks, whose coefficients are fitted to real
+data. The routine reads no DAG, but its inputs were the oracle CPDAG and claims from \texttt{select\_knowledge}, read from the
+truth (Chapter~\ref{ch:where}): the run tests the estimator, not a deployment. \texttt{arth150} hit the 20-minute wall at coverage 0.5 and is left out.
+
+\begin{medido}[$\rnul$ from $\widehat\Sigma$, \texttt{rho\_breakdown/rnull\_real\_2026-09-09/direcao\_fast.py}]
+Coverage 1.0, 145 queries: oracle $\rnul = 1$ on 49 (34\,\%), $\infty$ on 96; the zero is structural (some extension has an
+effect of exactly zero) on 40 of the 49. Share of replicates whose estimate exceeds the oracle, claiming robustness that is
+not there:
+
+\smallskip
+\begin{tabular}{@{}lrrrr@{}}
+$n$ & 200 & 1,000 & 5,000 & 20,000 \\ \midrule
+point hull & 24.7\,\% & 22.3\,\% & 20.6\,\% & 18.1\,\% \\
+95\,\% band & 1.5\,\% & 0.1\,\% & 1.7\,\% & 1.0\,\% \\
+\end{tabular}
+\end{medido}
+
+\prompt[conceito=dois-paineis,dificuldade=0.8]{Why do the 52.9\,\% ``never'' of my draws and the 0\,\% of your corpus not show
+that random graphs make the radius degenerate?}{They come from different admission rules. My draws admitted every Meek-consistent
+query, including queries with no causal path, and counted unidentified queries as ``never''. Your gate rejects those and, at full
+coverage, admits a pair only if one retraction breaks $\Ostar$, which makes an unreached radius impossible; your gated random arm
+has 0 unreached in 2,334. The contrast is between pipelines, not structures.}
+
+\naopasse[dois-paineis]{Write down the single condition in \texttt{fast\_gate} that makes an unreached radius impossible at full
+coverage. If you cannot, reread the red box above: Chapter~\ref{ch:where} builds on it.}
+
+\begin{exercicio}[metodo=diagnosis,conceito=banda-plugin]
+A draft sentence reads: ``On \texttt{ecoli70}, from $n = 20{,}000$ samples, the null radius of the query is infinite, so the
+conclusion that $X$ affects $Y$ survives the retraction of every claim.'' The radius was computed with the point hull.
+Diagnose the sentence and rewrite it.
+\end{exercicio}
+\begin{solucao}
+The estimator: the point hull overstates the null radius on 18.1\,\% of replicates even at $n = 20{,}000$, because a
+structural zero becomes $\pm\varepsilon$ in $\widehat\Sigma$ and lands on either side; recompute with the 95\,\% band (at most
+1.7\,\%). The scope: the run used the oracle CPDAG and knowledge read from the truth, so nothing follows about errors in the class.
+The reading: $\rnul = \infty$ says no budget puts zero in the hull, not that the effect is large. Rewrite: ``Under the stated equivalence class, and with the 95\,\% band from
+$\widehat\Sigma$, no retraction of the analyst's orientation claims admits a zero or opposite-sign effect of $X$ on $Y$.''
+\end{solucao}
+
+\begin{exercicio}[metodo=calculation,conceito=nulidade]
+Five-node example. (a) $\mathrm{RH}_1$ and its share of the blanket. (b) $\rnul$, given $\mathrm{RH}_2$ is the blanket. (c)
+$\rnul$ with $X\to C$ asserted (report $0.746$, $\mathrm{RH}_1$ the blanket), and did the report cover the truth? (d) With the right
+claims $\rhop = 1$; compare with (b).
+\end{exercicio}
+\begin{solucao}
+(a) The retractions give $\{0.949\}$, $[0.746, 0.949]$, $\{0.949\}$, so $\mathrm{RH}_1 = [0.746, 0.949]$, width $0.203$, and
+$0.203/1.152 = 0.176$. (b) $\mathrm{RH}_0$ and $\mathrm{RH}_1$ exclude zero and $\mathrm{RH}_2 = [-0.203, 0.949]$ contains it:
+$\rnul = 2$. (c) $\{0.746\}$ misses $0.949$; $\mathrm{RH}_1$ contains zero, so $\rnul = 1$, and the same single retraction
+restores coverage. (d) Validity of $Z$ breaks one hop away while the sign of the effect survives any single retraction: $\rhop
+= 1$ raises an alarm that $\rnul = 2$ does not share.
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm]
+\node[cmapr, text width=3.1cm] (rv) at (0,0) {$\rhop$ nearly binary on my harness};
+\node[cmap, text width=3.1cm] (c37) at (4.3,0) {37 candidates, 19 killed};
+\node[cmapc, text width=3.1cm] (rh) at (8.6,0) {retraction hull $\mathrm{RH}_j$};
+\node[cmapr, text width=3.1cm] (adm) at (0,-1.45) {the ``never'' contrast: an admission rule};
+\node[cmap, text width=3.1cm] (st) at (4.3,-1.45) {informative stratum};
+\node[cmapc, text width=3.1cm] (r0) at (8.6,-1.45) {null radius $\rnul$};
+\node[cmapg, text width=3.1cm] (band) at (12.9,-1.45) {95\,\% band, not the point hull};
+\draw[cedge] (rv) -- node[above, align=center]{motivates} (c37);
+\draw[cedge] (c37) -- node[above, align=center]{L1, L2\\ merge} (rh);
+\draw[cedge] (rh) -- node[right]{stop at $0 \in \mathrm{RH}_j$} (r0);
+\draw[cedge] (st) -- node[above, align=center]{where it\\ varies} (r0);
+\draw[cedge] (r0) -- node[above, align=center]{from\\ $\widehat\Sigma$} (band);
+\draw[cedge] (rv) -- node[right]{traced 9 to 11 Sep} (adm);
+\end{tikzpicture}
+\end{center}

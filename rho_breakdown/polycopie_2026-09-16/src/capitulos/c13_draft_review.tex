@@ -1,0 +1,350 @@
+% =============================================================================
+\chapter[Your draft, read against the measurements]{Your draft, read against\\ the measurements}
+\label{ch:review}
+
+I read your draft of 16 September as a referee would and against everything in the previous chapters, and
+its theory was re-implemented from the definitions and searched for counterexamples. None was found: the
+mathematics looks right, and every finding below is about what the text says. The numbers printed in your
+draft were not audited in that pass. Each item gives where it sits, why it matters, and the fix.
+
+\begin{ideia}[The review in two sentences]
+Keep the object, the fixpoint definition and the reporting discipline as they are. Fix the positioning
+against the paper you build on, the conditions the text drops, and prose that claims more than its table.
+\end{ideia}
+
+\begin{antes}
+\antesq[espaco]{Which of your structural results does the foundation paper state to be false for
+MPDAGs in general?}
+\antesq[distancia-em-saltos]{Is there a formula for $d(G, H)$ on your space that needs no search?}
+\end{antes}
+
+\section{What the draft gets right}
+
+\textbf{The object, in the right geometry.} Definition~1 by the fixpoint test is a real contribution:
+Appendix~A.1 shows with minimal witnesses (the collider on a three-node chain, $K_4$ minus an edge with
+one claim) why the two obvious filters are unsound, and covers are computed from model inclusion rather
+than from a conjectured characterisation.
+
+\textbf{The clinician sentence} in \S4.4 is the best-written sentence of the draft, and it makes the
+object contestable by a domain expert. It belongs on page one.
+
+\textbf{The reporting discipline} of \S5.4 is already the one our protocol uses: statuses on a frozen
+instance list rather than filters, censoring rather than dropping, no numeric radius for an unreachable
+failure, the two corruption arms never merged. \S6 states the observables-only invariant of
+Chapter~\ref{ch:vocabulary} in one sentence. And Appendix~B's E3 is designed to refute rather than to
+confirm («agreement proves nothing; only disagreement would be a theorem»), which is the right
+epistemics for a verified-not-proved property.
+
+\begin{medido}[Your theory, re-implemented from Definitions 1 to 3]
+The space, the order, the covering relation and $d$ were rebuilt using only \texttt{MPDAG},
+\texttt{apply\_orientations} and \texttt{enumerate\_dag\_extensions} from \texttt{src/\allowbreak bkrobust/\allowbreak demo/\allowbreak },
+never the search or SAT code. Scale: 1,375 spaces, about 61,000 knowledge states, 9,648,249 ordered
+pairs, 46,698 covering pairs, 188,116 anti-exchange triples (39,402 of them on states whose undirected
+component is not chordal). Retraction-only radius equal to the brute-force radius on 8,161 of 8,161
+instances; 599 of 599 nearest failing states reachable by retractions; the SAT clause set has 1,858
+models for 1,858 space elements. \textbf{No counterexample to any checkable statement.} The check shares
+your Meek and extension primitives, so a bug there would be invisible to it. From my review notes of 16
+September; not in the branch.
+\end{medido}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[espaco]{Where in the draft is the anti-exchange property stated?}
+\antesq[gac-backdoor]{Which paragraph of the draft computes radii for sets other than the optimal one?}
+\end{antes}
+
+\section{The theory: what the text says}
+
+\figref{fig:review-chain} is the dependency chain as the appendix proves it. Three results are
+unconditional; four inherit the open case of the anti-exchange property; and the property itself is
+the one statement the reader is never shown.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\scriptsize\sffamily]
+\node[cmapr] (ae) at (4.4,0) {anti-exchange:\\ stated nowhere, 4 × ??};
+\node[cmap] (l2) at (4.4,-1.0) {Lemma 2: a cover\\ adds one orientation};
+\node[cmap] (ps) at (4.4,-2.0) {Property 1: upper\\ semimodularity};
+\node[cmap] (l3) at (4.4,-3.0) {Lemma 3: the join\\ is no farther};
+\node[cmap] (p1) at (4.4,-4.0) {Prop.~1: monotone\\ reachability};
+\node[cmapg] (l1) at (0,-1.0) {Lemma 1: order\\ identification};
+\node[cmapg] (t2) at (0,-2.0) {Theorem 2:\\ join-semilattice};
+\node[cmapg] (t1) at (0,-4.0) {Theorem 1: failure\\ upward-closed};
+\node[cmapw] (tgh) at (9.0,0) {Taeb--Guo--Henckel, Prop.~9:\\ all MPDAGs on $V$, not graded};
+\node[cmap] (gr) at (9.0,-1.0) {graded, rank $|\Kset_G|$};
+\node[cmap] (cf) at (9.0,-2.0) {closed form\\ $d = |\Kset_G \triangle \Kset_H|$};
+\node[cmap] (se) at (9.0,-4.0) {retraction-only search;\\ E1 counts equal hops};
+\node[cmapc] (drop) at (9.0,-3.0) {condition dropped in abstract,\\ contributions, conclusion, \S5.3};
+\draw[cedge] (ae) -- node[right]{via Edelman--Jamison} (l2);
+\draw[cedge, densely dashed] (l1) -- node[above]{not cited there} (l2);
+\draw[cedge] (l2) -- (ps);
+\draw[cedge] (t2) -- (ps);
+\draw[cedge] (ps) -- (l3);
+\draw[cedge] (l3) -- (p1);
+\draw[cedge] (t1) -- (p1);
+\draw[cedge] (l2) -- (gr);
+\draw[cedge] (l2) -- (cf);
+\draw[cedge] (p1) -- (se);
+\draw[cedge] (se) -- node[right]{stated as unconditional} (drop);
+\draw[cedge, densely dashed, vermesc] (tgh) -- node[right]{skeleton varies there} (gr);
+\end{tikzpicture}
+\caption{Green results hold unconditionally; every white box inherits the anti-exchange property,
+which the draft never states. The foundation paper's non-gradedness is about a larger poset, and the
+draft does not yet say so.}
+\label{fig:review-chain}
+\end{figure}
+
+\subsection*{1. The foundation paper states non-gradedness for a larger poset}
+
+\emph{Where.} Appendix~A calls $\rho(G) = |\mathrm{dir}(G)| - |\mathrm{dir}(\Chat)|$ a rank function «so
+the order is graded», Property~1 is upper semimodularity, and Theorem~2 makes the space a
+join-semilattice. \emph{Why.} Proposition~9 of Taeb, Guo and Henckel states that the model-oriented poset
+of MPDAGs on $|V| \ge 4$ vertices is not graded, and the paragraph after it says the poset is neither upper
+nor lower semimodular, has no semilattice structure, and has no explicit graphical characterisation of
+its covering relation; a referee who knows that paper reads Appendix~A as a contradiction. \emph{Fix.}
+Say why both hold, in one paragraph of \S5.1 and one sentence of Appendix~A.
+
+\begin{fonte}[Taeb, Guo and Henckel, arXiv:2511.10625v3, \S4.5 and Appendix D.3]
+Their poset contains every MPDAG on $V$, from the empty graph to the complete undirected one, and covers
+can change adjacencies: in their Example~2 two neighbours of the same graph differ from it by one edge
+and by $n-1$ edges, and the proof of Proposition~9 compares two maximal chains of lengths 3 and 5 in
+which a covering step removes an edge. On a common skeleton their Proposition~8 reduces the order to $[G] \subseteq [H]$,
+which is yours, and their pseudo-rank (Definition~7, directed edges plus twice the undirected ones) equals
+$2m - |\mathrm{dir}(G)|$ on a skeleton with $m$ edges: your rank, negated and shifted.
+\end{fonte}
+
+The paragraph needs five sentences, and it turns the largest liability of the draft into its clearest
+positioning statement.
+
+\begin{sonorio}[A paragraph for \S5.1]
+These results do not contradict Proposition 9 of Taeb, Guo and Henckel (2025), which shows that the
+model-oriented poset of all MPDAGs on four or more vertices is not graded, is not a semilattice and is
+not semimodular. Their poset lets a covering step change the skeleton. The space studied here fixes the
+skeleton and the v-structures of $\widehat{C}$, so only orientations vary. On it the join exists
+unconditionally (Theorem 2), and gradedness and upper semimodularity hold under Conjecture 1, with their
+pseudo-rank reducing to $2m - |\mathrm{dir}(G)|$.
+\end{sonorio}
+
+\subsection*{2. The anti-exchange property is never stated}
+
+\emph{Where.} Four \verb|\Cref{prop:antiexchange}| calls (\S7, the proof of Lemma~2, the heading of
+Appendix~A.3, the E3 paragraph of Appendix~B) point at a label that exists nowhere, so the compiled PDF
+prints «??» four times, including the heading «A.3 Status of ??». \emph{Why.} The reproducibility
+statement promises that the single unproved property is isolated in A.3, and the reader finds a section
+about a statement they have never seen. \emph{Fix.} One environment, which also repairs the four
+references.
+
+\begin{noprato}[The statement, as \texttt{THEOREMS.md} §4c gives it]
+Add to Appendix~A a \texttt{conjecture} environment (your macros define it) carrying
+\texttt{\textbackslash label\{prop:antiexchange\}}: \emph{for a closed set $S$ of orientations and
+distinct orientations $x, y \notin S$, if $y \in \mathrm{cl}(S \cup \{x\})$ then $x \notin \mathrm{cl}(S
+\cup \{y\})$}. Its reading in words: no two distinct orientations are perfectly correlated across the
+represented DAGs. Calling it a conjecture matches A.3, where Case~B is open.
+\end{noprato}
+
+\subsection*{3. Your theorems make the distance a closed form}
+
+\emph{Where.} Definition~2 defines $d$ as a shortest path, and Appendix~C's «Against a naive count»
+argues that counting the assertions that differ understates $d$. \emph{Why.} Lemma~2 and Theorem~2 give
+$d(G, H) = |\Kset_G \triangle \Kset_H|$: each covering step changes $\Kset$ by exactly one orientation,
+so $d \ge |\Kset_G \triangle \Kset_H|$; and $J = G \vee H$ has $\Kset_J = \Kset_G \cap \Kset_H$, so the
+two maximal chains up to $J$ have $|\Kset_G \setminus \Kset_H|$ and $|\Kset_H \setminus \Kset_G|$ steps
+and $d \le |\Kset_G \triangle \Kset_H|$. The re-implementation found the identity on all 3,047,289
+ordered pairs on which it computed $d$ (a subset of the 9,648,249 above), with no exception and no
+unreachable pair, so the naive-count paragraph argues against a count the theory makes equal. That
+paragraph reports a Spearman correlation of 0.73 to 0.77 between $d$ and its naive count
+(\texttt{90\_appendix.tex}); the other natural reading, a flip counted once, does not give 0.73 to
+0.77 either. \emph{Fix.} State the closed form as a
+corollary of Lemma~2 (your E2 paragraph already writes $|\Kset_{\Gz} \triangle \Kset_G|$), and either
+drop the naive-count paragraph or name exactly which count it compares.
+
+\prompt[conceito=distancia-em-saltos,dificuldade=0.75]{State the closed form of $d$ on the space of
+knowledge states, the two results it follows from, and which inequality each gives.}%
+{$d(G, H) = |\Kset_G \triangle \Kset_H|$. Lemma 2 (a cover changes $\Kset$ by exactly one orientation)
+gives $d \ge |\Kset_G \triangle \Kset_H|$, since each step moves the symmetric difference by at most
+one. Theorem 2 gives the join $J$ with $\Kset_J = \Kset_G \cap \Kset_H$, and with Lemma 2 again the
+maximal chains from $G$ and from $H$ up to $J$ have $|\Kset_G \setminus \Kset_H|$ and
+$|\Kset_H \setminus \Kset_G|$ steps, so $d \le |\Kset_G \triangle \Kset_H|$. It inherits the
+anti-exchange condition through Lemma 2.}
+
+\subsection*{4. Proposition 1 says more than its proof, and the condition disappears where it is read}
+
+\emph{Where.} Proposition~1 reads «The nearest failing state is reachable\dots», while its proof
+replaces the nearest failing state $G$ by $J = G \vee \Gz$. \S5.1 promises «We state this caveat
+wherever a radius is reported», and the abstract («enough order structure for the radius to be computed
+without enumerating it»), the contributions («so the search can be restricted to retractions»), the
+conclusion («which confines the search to retractions»; «exact radii») and \S5.3 («guaranteed to return
+identical radii») state it without the condition. \emph{Why.} The proof delivers some failing state at
+distance at most $\rval$ reachable by retractions only, which is what the algorithm needs; the two proved results
+named in the contributions do not confine the search, the conditional proposition does, and Appendix~B
+itself says all three encodings are upper bounds. \emph{Fix.} Write «some nearest failing state», and
+add «under Conjecture~1» in those four places. The strong reading survived on 599 of 599 nearest
+failing states, which is evidence, not proof.
+
+\subsection*{5. The Edelman--Jamison appeal lacks its hypotheses}
+
+\emph{Where.} The proof of Lemma~2. \emph{Why.} Their theorem is about a closure operator defined on
+every subset of a finite ground set, while here $\mathrm{cl}$ is undefined on inconsistent orientation
+sets (937 of 4,137 two-orientation subsets, 22.7\,\%, over 150 spaces), the full ground set was closed in
+none of those 150 spaces, and the identification of your order with reverse inclusion of $\Kset_G$ is
+Lemma~1, not cited at that point. \emph{Fix.} Prove Lemma~2 directly from the anti-exchange statement, or
+say how $\mathrm{cl}$ is extended to a total operator and cite Lemma~1 there.
+
+\subsection*{6. Two adjustment criteria, and where they part}
+
+\emph{Where.} \S2 cites the generalized adjustment criterion; the fast oracle in
+\texttt{src/\allowbreak bkrobust/\allowbreak mpdag\_\allowbreak criterion/\allowbreak criterion.py} decides the back-door strengthening, as its docstring
+says; Appendix~C's «Robust selection» computes $\rval$ for all fourteen valid sets. \emph{Why.}
+\texttt{THEOREMS.md} §14 proves the two criteria coincide on the optimal set of the graph being
+judged. Your radius judges one fixed set, $\Ostar(\Gz)$, in other knowledge states, where it is not
+their optimal set, so the proof does not cover it; your own BFS check in §14 found identical radii on
+5,304 instances, and the ledger audit found the back-door function rejecting 4 of 1,169 committed sets
+at the truth (Chapter~\ref{ch:table4}). The main text is therefore very likely unaffected, by
+measurement rather than by proof. On arbitrary sets the two disagree on 23,034 of 372,430 cases
+(6.2\,\%) in the re-implementation, none of them at the optimal set of the judged graph, and \texttt{THEOREMS.md} §14 records radii that differ on 29.14\,\% of 16,926
+arbitrary-set instances, so «Robust selection» is exactly the regime where the choice shows. The
+criterion for maximally oriented graphs is introduced in \texttt{perkovic2017cpdag}, already in your
+bibliography, while \S1 and \S2 cite \texttt{perkovic2018complete}, whose title restricts it to ancestral
+graphs. \emph{Fix.} Name the criterion the code decides, say which one the fourteen sets were scored
+with, and move the MPDAG attribution to \texttt{perkovic2017cpdag}.
+
+\prompt[conceito=gac-backdoor,dificuldade=0.7]{Why is the main text of the draft very likely
+unaffected by the difference between the GAC and the back-door criterion, why is that not a proof,
+and which paragraph is clearly affected?}%
+{\texttt{THEOREMS.md} §14 proves the two criteria coincide on the optimal set of the graph being
+judged. The main text judges the fixed set $Z = \Ostar(\Gz)$ in other states, where it is an arbitrary
+set, so the proof does not reach it; the evidence is measured instead (identical radii on 5,304
+instances in §14's BFS check), and the ledger shows the criteria can part there (4 of 1,169 committed
+sets rejected by back-door at the truth). Appendix C's «Robust selection» computes radii for every valid adjustment
+set, which is the regime where the two criteria part (6.2\,\% of 372,430 cases), so it must say which
+criterion it used.}
+
+\prompt[conceito=espaco,dificuldade=0.7]{What does Proposition 9 of Taeb, Guo and Henckel state, and why
+does it not contradict the rank function of your Appendix A?}%
+{The model-oriented poset of all MPDAGs on $|V| \ge 4$ vertices is not graded (and, by the paragraph
+after it, not semimodular and without a characterisation of its covers). Their poset lets covers change
+the skeleton; the space of knowledge states fixes the skeleton and the v-structures of $\Chat$, so only
+orientations vary. There their pseudo-rank equals $2m - |\mathrm{dir}(G)|$ and the draft's rank is its
+negation shifted, so gradedness can hold (under the anti-exchange condition) without contradicting
+Proposition 9.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[frases-proibidas]{Which cells of your Table~1 sit under the sentence «a strong and consistent
+predictor»?}
+\antesq[rhostar-raio-de-ruptura]{Where does the word «breakdown» come from in econometrics?}
+\end{antes}
+
+\section{The results section and the manuscript}
+
+\subsection*{7. The prose contradicts the table on the same page}
+
+\emph{Where.} \S6.1, «Ranking quality» and «Over-claiming does not pay», printed on page~9 with Table~1.
+\emph{Why.} The sentences say more than the table, as the box shows. \emph{Fix.} Uncomment the
+«Limits of the present evidence» paragraph of \texttt{07\_discussion.tex}, whose claim is the right one
+(«the radius shares significance with the baselines in most strata \dots\ not that it dominates them»),
+and restrict «more claims, less robustness» to the tiered arm.
+
+\begin{armadilha}[The sentence against the cells printed under it]
+«A strong and consistent predictor»: $\tau_b(\rval) = -0.091\ [-0.204, 0.030]$ in \emph{flip, cov 1.0, bw
+0.00} (a cell your caption marks unstable), and the confirmed null $0.032\ [-0.112, 0.168]$ in \emph{flip,
+cov 0.5, bw 0.25} at 1,000 draws. «Standard baseline metrics fail»: in
+\emph{flip, cov 1.0, bw 0.25}, SHD scores 0.582 and $|\Kset|$ scores 0.557 against the radius's 0.355.
+«More claims mean less robustness»: $\tau_b(|\Kset|)$ is positive in five of the six flip strata at 200
+draws, and negative in the three tiered strata and in the 1,000-draw row ($-0.200$). «Strictly increasing the risk»: a claim that Meek already
+derives leaves $\Gz$, $Z$ and your $\rval$ unchanged.
+\end{armadilha}
+
+\prompt[conceito=frases-proibidas,dificuldade=0.75]{Give the two Table 1 cells that contradict «a strong
+and consistent predictor», and the stratum where both baselines score above the radius.}%
+{$\tau_b(\rval) = -0.091$ in flip, cov 1.0, bw 0.00, and the confirmed null $0.032\ [-0.112, 0.168]$ in
+flip, cov 0.5, bw 0.25 at 1,000 draws. In flip, cov 1.0, bw 0.25, SHD scores 0.582 and $|\Kset|$ 0.557
+against 0.355 for the radius.}
+
+\subsection*{8. The bibliography is broken in the compiled PDF}
+
+\emph{Where.} \texttt{keel2024fuzzy} and \texttt{robust2026imperfect} have no author field, so they print
+from their titles and are cited as «(kee, 2024)» and «(rob, 2025)»; \texttt{ejaz2025lges} prints the wrong
+title and first name. \emph{Why.} These are visible on page~3 and page~12 of the PDF, and one of them puts a
+researcher's work under a name that is not theirs. \emph{Fix.} From the arXiv records: arXiv:2405.08699 is
+by Wenrui Li, Wei Zhang, Qinghao Zhang, Xuegong Zhang and Xiaowo Wang; arXiv:2511.06790 by Zidong Wang, Xi
+Lin, Chuchao He and Xiaoguang Gao; arXiv:2506.22331 is «Less Greedy Equivalence Search», by Adiba Ejaz
+and Elias Bareinboim. Your own bib comments already flag all three with «VERIFY».
+
+\subsection*{9. Citations a referee will ask for}
+
+\emph{Where.} Related work (\S3). \emph{Why.} The central word is «breakdown», the distance is evaluated on
+adjustment, and the evaluation runs a tiered arm, so four literatures are one question away. \emph{Fix.}
+Cite Masten and Poirier, «Inference on breakdown frontiers» (Quantitative Economics 11(1):41--111, 2020);
+the adjustment identification distance (Henckel, Würtzen and Weichwald, UAI 2024) and the structural
+intervention distance (Peters and Bühlmann, Neural Computation 27:771--799, 2015); Bang and Didelez on
+tiered knowledge, both entries already in your bibliography and never cited; and b-LOAD
+(\texttt{ahn2026bload}), also in the bibliography and never cited. Chapter~\ref{ch:where} adds the minimal
+correction set.
+
+\subsection*{10. The main text is eleven pages}
+
+\emph{Where.} The conclusion ends on page~11 of the compiled draft. \emph{Why.} The ICLR 2027 author
+guidelines say «At the time of submission, the main text should be 9 pages or fewer» and «Papers with main
+text beyond the page limit will be desk-rejected». \emph{Fix.} Chapter~\ref{ch:merge}, where the cut is part
+of the merge.
+
+\textbf{Smaller items.} «What is required is model inclusion» in \S4.3 is necessary and not sufficient
+(Exercise~\ref{ex:review-membership}). «All 133 CPDAGs at four nodes» in Appendix~B mixes two populations:
+\texttt{rho\_breakdown/\allowbreak theory\_checks\_2026-09-16/\allowbreak check\_four\_node\_classes.py} counts 185 labelled
+four-node classes, 126 of them with an undirected edge, and 133 is those 126 plus the 7 three-node classes
+with one, which is what A.1 says. An unreachable failure has three conventions ($\infty$ in Definition~3, a
+status in \S5.4, \mbox{\texttt{UNREACHED = -1}} in the code); pick one.
+
+\naopasse[distancia-em-saltos]{Write out the upper bound $d(G, H) \le |\Kset_G \triangle \Kset_H|$ and name
+the exact place where Lemma~2 is used in it. If you can only write the lower bound, reread item~3.}
+
+\subsection*{Exercises}
+
+\begin{exercicio}[metodo=counterexample,conceito=espaco]
+\label{ex:review-membership}
+Your \S4.3 says «What is required is model inclusion, $[G] \subseteq [\Chat]$, which the fixpoint test
+enforces». Give the smallest counterexample showing that model inclusion alone does not make $G$ a knowledge
+state, check it with the fixpoint test, and name the property it lacks.
+\end{exercicio}
+\begin{solucao}
+Take $\Chat = A - B - C$ (three DAGs) and $G$ with $A\to B$ and $B - C$. Then $[G] = \{A\to B\to C\}$ is a
+non-empty strict subset of $[\Chat]$, so model inclusion holds. But $\mathrm{Meek}(\Chat, \{A\to B\})$
+applies R1 ($A$ and $C$ are non-adjacent) and returns $A\to B\to C \ne G$, so the fixpoint test fails. $G$
+lacks maximal orientation: $B - C$ is undirected although every DAG of $[G]$ orients it $B\to C$. The test
+enforces inclusion \emph{and} maximal orientation, and the second conjunct does the work.
+\end{solucao}
+
+\begin{exercicio}[metodo=diagnosis,conceito=frases-proibidas]
+A referee writes: «The authors claim their radius ranks survival better than standard baselines, and that
+asserting more knowledge makes results more fragile. Table 1 supports neither.» Using only your Table~1,
+diagnose which part is right, which cells carry it, and the smallest true replacement for each sentence.
+\end{exercicio}
+\begin{solucao}
+The first part is right; the second holds for the flip strata and fails for the tiered ones. The radius is not consistent ($-0.091$ in flip, cov 1.0, bw 0.00; the null
+$0.032\ [-0.112, 0.168]$ at 1,000 draws) and does not dominate (0.582 and 0.557 against 0.355 in flip, cov
+1.0, bw 0.25). A true replacement is the commented-out paragraph of \S7: the radius shares significance with
+the baselines in most strata and does not dominate them. For fragility: $\tau_b(|\Kset|)$ is negative in the three tiered strata ($-0.423$, $-0.382$,
+$-0.377$) but positive in five of the six flip strata at 200 draws, so the true sentence is «under
+tiered, block-correlated errors, more asserted claims go with lower survival», without «strictly».
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[node distance=0.6cm and 1.2cm]
+\node[cmapg] (right) {what is right: object,\\ fixpoint, discipline};
+\node[cmapg, right=of right] (theory) {theory re-implemented:\\ no counterexample};
+\node[cmapr, right=of theory] (text) {what the text says};
+\node[cmap, right=of text] (pos) {Prop.~9 positioning;\\ unstated conjecture};
+\node[cmapr, below=of right] (res) {prose against table;\\ bibliography; length};
+\node[cmapc, below=of theory] (merge) {the merge,\\ Chapter~\ref{ch:merge}};
+\node[cmap, below=of text] (cond) {closed form; conditions\\ dropped; two criteria};
+\draw[cedge] (right) -- node[above]{kept} (theory);
+\draw[cedge] (theory) -- node[above]{fixes lie in} (text);
+\draw[cedge] (text) -- node[above]{positioning} (pos);
+\draw[cedge] (text) -- node[right]{statements} (cond);
+\draw[cedge] (res) -- node[above]{rewrite, cut} (merge);
+\draw[cedge] (cond) -- node[above]{clauses} (merge);
+\draw[cedge] (pos.south) to[out=-90, in=-25, looseness=0.55] node[below, pos=0.25]{one paragraph} (merge.south east);
+\end{tikzpicture}
+\end{center}

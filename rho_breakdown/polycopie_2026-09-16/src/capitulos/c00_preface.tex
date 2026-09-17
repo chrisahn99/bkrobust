@@ -1,0 +1,81 @@
+\chapter*{Before you start}
+\addcontentsline{toc}{chapter}{Before you start}
+\markboth{BEFORE YOU START}{BEFORE YOU START}
+
+Chris,
+
+this document exists because I kept the work to myself for too long. Between the August pilots and
+this morning I ran a long series of measurements on our breakdown-radius line. A few pieces reached
+you: the evaluation plan on the branch \texttt{iclr2027-eval-plan}, and what we said to each other on
+3 September. Most of it did not. The August package waited on a branch I never pushed, and
+everything from 7 to 16 September lives in folders on my machine. Your draft of 16 September lists,
+among the experiments it still owes, the ranking evaluation on the real instances and the elicitation
+arm. I ran the elicitation arm between 11 and 13 September, and a corrupted-knowledge calibration on
+the same real rows, though not your $\tau_b$ design itself (Chapter~\ref{ch:merge} is precise about
+the difference). That overlap is the clearest sign that the gap is mine to close, and this close to the
+author lock is late to close it.
+
+So here is all of it, in two forms. The code, the results and the pre-registrations are on one
+branch of \texttt{bkrobust}, \texttt{ze/experiments}, built on top of your history so that it merges.
+This polycopié is the explanation: what I ran, why, what came out, what I had to retract, and what it
+changes in the paper.
+
+\begin{ideia}[The whole document in four sentences]
+Knowledge buys identifiability, then robustness, never efficiency, and one wrong claim usually costs
+the whole of what it bought. On the true CPDAG, counted in claims, the certificate never
+over-certified on 3,014 certifiable rows of eleven knowledge conditions; counted in covering hops, it
+did on 39. On the one panel where the class itself was estimated, no retraction reached the truth on
+any certifiable row, so the guarantee is conditional on a correct equivalence class. The
+paper that survives is a sensitivity analysis for background knowledge in the sense of Rosenbaum's
+$\Gamma$, whose honest baseline is a leave-$k$-out screen that it ties.
+\end{ideia}
+
+\section*{How it is organised}
+
+\textbf{Part~I} is short. It states the object once in your geometry and gives the translation table
+to the words I use everywhere else: claim, retraction, hop, $\rclaim$, $\rhop$, $\rnul$, the
+knowledge interval. If you read only one chapter before our call, read that one and
+Chapter~\ref{ch:merge}.
+
+\textbf{Parts~II to~V} are the measurements, in the order they happened. August (the pilot, the
+\texttt{se} criterion, locality, the firewall census, the wrong-skeleton experiment). Early September
+(what the radius should measure, and three defects in the old corpus). The protocol executed on
+11--13 September (the observable frame, the knowledge suppliers, Table~4, the learned CPDAG). And
+the reframing as a Rosenbaum analogue, with the two measurements that decide it (M1, M1b) and the
+tables of 16 September.
+
+\textbf{Part~VI} is your draft. Chapter~\ref{ch:review} reads it against the measurements: what is
+right, what the text says that the mathematics does not, and a handful of mechanical defects visible
+in the PDF. Chapter~\ref{ch:merge} is the merge: the four conflicts, three options, the one I
+recommend, and what has to happen by Friday.
+
+\textbf{Part~VII} maps the repository, file by file, with how to reproduce each table.
+
+\section*{How to read the boxes}
+
+Green boxes (\emph{What was measured}) hold numbers computed on my machine, and each names the
+repository file or script that produced it. Orange boxes point to a paper worth reading. Red boxes
+are errors actually made, ours or the draft's, with what caught them. Purple boxes are sentences in
+the form I think the paper can print. Aqua boxes are commands and decisions.
+
+The pink boxes are questions to answer without looking; the answers are in the appendix. They are
+there because this is a lot of material to absorb before Friday, and answering a question fixes a
+number better than rereading it. Skip them if you prefer; nothing in the argument depends on them.
+
+\digressaoaviso
+
+\section*{What I am confident about, and what I am not}
+
+Every number in the green boxes was produced by a script and re-read from its output file while
+writing; the few whose script is not on the branch say so in the box. Several numbers I had quoted earlier turned out to be wrong, and the chapters
+say which, when and how they were caught; I would rather you see the corrections than meet them in
+review. The theory of your draft was checked by a re-implementation of the space, the order, the covering
+relation and the distance from your definitions, which reuses your Meek-closure and extension code,
+and no counterexample was found. The numbers printed in your draft were not audited.
+
+One file in the repository is older than its data: \texttt{results/stage0/STAGE0.md} quotes the
+calibration run from before a seeding fix, while the calibration files next to it are the rerun
+(Chapter~\ref{ch:frame} explains). Chapter~\ref{ch:repo} lists this and every other caveat about
+the files.
+
+Zé \hfill 16 September 2026

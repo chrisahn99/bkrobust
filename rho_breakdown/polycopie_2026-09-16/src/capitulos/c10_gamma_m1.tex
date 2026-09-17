@@ -1,0 +1,425 @@
+% =============================================================================
+\chapter{Rosenbaum's \texorpdfstring{$\Gamma$}{Gamma}, and Table 1 on real structure (M1)}\label{ch:gamma}
+
+Chapters~\ref{ch:frame} to~\ref{ch:pest} audited a certificate. This chapter is about what the
+paper is for, and about the first measurement that answers that question on real structures.
+
+\begin{ideia}[The paper in two sentences]
+Rosenbaum did not test what the data cannot test: he asked how strong hidden confounding would
+have to be to overturn the conclusion. We ask the same question of background knowledge, and the
+unit of violation is the number of the analyst's orientation claims that would have to be withdrawn.
+\end{ideia}
+
+\begin{antes}
+\antesq[deriva-enquadramento]{The first measurement-paper draft of 12 September had correct
+numbers. What was wrong with it?}
+\antesq[gamma-de-rosenbaum]{What does $\Gamma$ bound, in what design, and what does $\Gamma = 1$
+mean?}
+\end{antes}
+
+\section{12 September: the subject was wrong}
+
+On 12 September, with Table~4 of the ledger just out, I wrote a full draft of the measurement paper,
+\emph{Claim Radius: Certifying Covariate Adjustment Sets Against Misspecified Background Knowledge}.
+Its numbers came from the result files, and its centre was the supplier ledger: knowledge suppliers
+from 7B to 72B, scrambled names, a scale axis as a table of its own. That was the wrong paper. The
+evaluation protocol had been built first, and its most elaborate arm had become the subject. What we
+set out to write is an uncertainty measure for background knowledge, the analogue of Rosenbaum's
+$\Gamma$ for orientation claims. Elicited knowledge is one of four knowledge processes in the
+evaluation (with controlled reversals, chance orientations and truthful controls, the last asserting nothing false), never the title,
+the abstract's lead or Table~1. Your related-work paragraph (\texttt{sections/03\_related\_work.tex})
+already has the sentence: the radius asks the structural analogue of how strong a confounder must be.
+The change is that this sentence becomes the spine of the paper.
+
+\textbf{What Rosenbaum does.} In a matched study each pair joins a treated and a control unit with
+the same observed covariates; with perfect matching either member is equally likely to be the treated
+one. An unmeasured covariate breaks this. Rosenbaum does not estimate it: he lets the two members
+differ in their odds of treatment by at most a factor $\Gamma$, redoes the inference in the worst case
+the model allows, and reports the $\Gamma$ at which the conclusion is lost.
+
+\begin{exemplo}[Illustrative: the numbers are constructed for this page, not measured in any study]
+Take 40 discordant pairs with a binary outcome; in each, exactly one member had the event, and in
+30 of them it was the treated one. With no treatment effect and $\Gamma = 1$, the count $T$ of
+pairs where the treated member had the event is $\mathrm{Bin}(40, 1/2)$ and the one-sided p-value is
+$P(T \ge 30) \approx 0.001$. With $\Gamma > 1$ the chance that the event member is the treated one
+may be as large as $p^{+} = \Gamma/(1+\Gamma)$, and the worst-case p-value is the upper tail of
+$\mathrm{Bin}(40, p^{+})$. For $\Gamma = 1, 1.25, 1.5, 1.6, 1.75$ it is $0.001, 0.009, 0.035, 0.053,
+0.089$ (exact binomial tails, computed for this page). Significance at 5\,\% is lost near
+$\Gamma^{*} \approx 1.58$, and the report reads: the conclusion survives a hidden confounder that
+multiplies the within-pair odds of treatment by up to 1.58, and falls above that.
+\end{exemplo}
+
+The example is the sign test, the simplest case of this model.
+
+\begin{definicao}[Sensitivity model and sensitivity value]
+Let $\pi_{1}, \pi_{2}$ be the treatment probabilities of two members of a pair with the same observed
+covariates. The model with parameter $\Gamma \ge 1$ admits every assignment with
+\[
+\frac{1}{\Gamma} \;\le\; \frac{\pi_{1}(1-\pi_{2})}{\pi_{2}(1-\pi_{1})} \;\le\; \Gamma .
+\]
+Given that exactly one member is treated, the probability that it is the first lies in
+$[1/(1+\Gamma),\ \Gamma/(1+\Gamma)]$, and $\Gamma = 1$ is randomisation within the pair. The
+\emph{sensitivity value} $\Gamma^{*}$ is the smallest $\Gamma$ at which the worst-case p-value over
+the model exceeds the level $\alpha$.
+\end{definicao}
+
+\prompt[conceito=gamma-de-rosenbaum,dificuldade=0.7]{State what $\Gamma$ bounds, why $\Gamma = 1$ is
+the randomised experiment within pairs, and why the worst-case p-value can only grow with
+$\Gamma$.}{$\Gamma$ bounds the ratio of the odds of treatment of two members of a pair that agree on
+the observed covariates: a hidden confounder can tilt that chance by at most this factor. At
+$\Gamma = 1$ both members have the same chance, which is a coin flip within the pair. The worst-case
+p-value is a maximum over the admitted assignments, and the set admitted at $\Gamma'$ contains the
+set admitted at any $\Gamma < \Gamma'$; a maximum over a larger set cannot decrease. So there is a
+single point where significance is lost, $\Gamma^{*}$.}
+
+\begin{antes}
+\antesq[intervalo-conhecimento]{Which object of ours plays the worst-case p-value at each $\Gamma$,
+and which plays $\Gamma^{*}$?}
+\antesq[rval]{Which of our two radii has no counterpart in Rosenbaum?}
+\end{antes}
+
+\section{The translation, and where it breaks}
+
+Inside a Markov equivalence class every graph generates the same observational distributions, and
+Meek's rules certify that claims are consistent, not true: no test on the data separates an
+orientation from its reverse. That is the position of Rosenbaum's unmeasured covariate, and it takes
+the same answer, price the error instead of measuring it. The red rows are where the analogy breaks.
+
+\begin{center}
+\begin{tikzpicture}[
+  lbox/.style={draw=laranjaesc, fill=laranjaesc!7, rounded corners=2pt, text width=5.2cm,
+               minimum height=0.78cm, align=left, font=\scriptsize, inner sep=2.5pt},
+  rbox/.style={draw=azulesc, fill=azulesc!6, rounded corners=2pt, text width=5.2cm,
+               minimum height=0.78cm, align=left, font=\scriptsize, inner sep=2.5pt},
+  xbox/.style={draw=vermesc, fill=vermesc!6, rounded corners=2pt, text width=5.2cm,
+               minimum height=0.78cm, align=left, font=\scriptsize, inner sep=2.5pt},
+  vbox/.style={draw=cinzamedio, dashed, rounded corners=2pt, text width=5.2cm,
+               minimum height=0.78cm, align=center, font=\scriptsize, text=cinzamedio, inner sep=2.5pt},
+  mid/.style={font=\scriptsize\sffamily\bfseries, text width=2.6cm, align=center, text=cinzaescuro},
+  midx/.style={font=\scriptsize\sffamily\bfseries, text width=2.6cm, align=center, text=vermesc},
+  y=0.81cm]
+\node[font=\small\sffamily\bfseries, text=laranjaesc] at (-4.5,0.75) {Rosenbaum: matched pairs};
+\node[font=\small\sffamily\bfseries, text=azulesc] at (4.5,0.75) {Our paper: orientation claims};
+\foreach \yy/\mtxt/\ltxt/\rtxt/\rst/\mst in {
+  0/{what the data\\ cannot test}/{an unmeasured covariate $u$ within pairs equal on the observed
+     $x$}/{the orientations in $\Kset$ inside the class: Meek checks consistency, not
+     truth}/rbox/mid,
+  -1/{the parameter}/{$\Gamma \ge 1$: within-pair odds ratio of treatment}/{$r = 0,1,2,\dots$:
+     the number of the analyst's claims allowed to be wrong}/rbox/mid,
+  -2/{the report at\\ each value}/{the worst-case p-value over the assignments $\Gamma$
+     admits}/{$\Ir{r}$: hull of the 95\,\% bands of the effects over the graphs of
+     $\Ball{r}$}/rbox/mid,
+  -3/{the breakdown\\ value}/{$\Gamma^{*}$: smallest $\Gamma$ at which significance is
+     lost}/{$\rnul$: smallest $r$ at which the band contains zero}/rbox/mid,
+  -4/{the scale}/{continuous: $\Gamma^{*} \approx 1.58$ is an ordinary report}/{an integer; on real
+     structures $\rnul$ is almost always 1 or beyond 3}/xbox/midx,
+  -5/{the reading}/{a parameter of a model for treatment assignment}/{a count with no probability
+     reading: it does not estimate how many claims are wrong}/xbox/midx}
+{
+  \node[lbox] (L) at (-4.5,\yy) {\ltxt};
+  \node[\mst] (M) at (0,\yy) {\mtxt};
+  \node[\rst] (R) at (4.5,\yy) {\rtxt};
+  \draw[-{Stealth[length=1.4mm]}, cinzamedio] (L.east) -- (M.west);
+  \draw[-{Stealth[length=1.4mm]}, cinzamedio] (M.east) -- (R.west);
+}
+\node[vbox] at (-4.5,-6.15) {no counterpart};
+\node[mid] at (0,-6.15) {a second radius};
+\node[rbox] at (4.5,-6.15) {$\rval$: smallest $r$ at which the committed set $Z$ stops being
+     valid};
+\end{tikzpicture}
+\end{center}
+
+In symbols, with $\Gz = \mathrm{Meek}(\Chat, \Kset)$ and the committed set $Z = \Ostar(\Gz)$ read off
+the analyst's graph, the right-hand column is this.
+
+\begin{formulabox}[The translation, formally]
+\[
+\Ball{r} = \bigl\{\mathrm{Meek}(\Chat, \Kset \setminus S) : S \subseteq \Kset,\ |S| \le r\bigr\},
+\qquad
+\Ir{r} = \operatorname{hull} \bigcup_{G \in \Ball{r}} \mathrm{band}_{95}(G),
+\]
+\[
+\rnul = \min\{r : 0 \in \Ir{r}\}, \qquad
+\rval = \min\{r : Z \text{ is not valid in some } G \in \Ball{r}\},
+\]
+and each endpoint of $\Ir{r}$ comes with the set $S$ that produces it, named in the domain's
+variables. Both events are upward closed in $r$ because $\Ball{r} \subseteq \Ball{r+1}$.
+\end{formulabox}
+
+A real analysis shows the translation end to end. The query G311 $\to$ G43 on \emph{magic-niab},
+whose coefficients are fitted to real measurements, has two claims in the treatment's chain
+component under the larger supplier's knowledge, and both are true.
+
+\begin{medido}[One report, \texttt{results/interval/fig1\_candidates.json}, relaxed list (outside the registered rule), row 1]
+True effect $-0.255$; estimate $-0.251$ $[-0.259, -0.244]$ at $n = 20\,000$. The band barely moves at
+$r = 1$ (width ratio 1.06) and reaches zero at $r = 2$, when G1853 $\to$ G311 and G311 $\to$ G43 are
+both retracted: $\rnul = 2$ on 20 of 20 seeds, $\rval = 2$. The supplier made six claims in the
+network, three false, all outside the component.
+\end{medido}
+
+Read as Rosenbaum would: the conclusion that G311 lowers G43 rests on two named claims and survives the
+withdrawal of either. Three breaks in the analogy have to be said once, in the paper. The scale is an
+integer and, on real structures, almost without a middle (next section). There is no probability model
+behind $r$: this row has $\rnul = 2$ with both local claims true and three false claims elsewhere, so
+$r$ counts claims whose withdrawal changes the conclusion, not claims that are wrong. And the report is
+honest only if the class contains the truth, which fails once the CPDAG is estimated
+(Chapter~\ref{ch:pest}).
+
+\prompt[conceito=intervalo-conhecimento,dificuldade=0.65]{Complete the translation: $\Gamma$
+becomes what, the worst-case p-value becomes what, $\Gamma^{*}$ becomes what, and which object of
+ours has no counterpart in Rosenbaum?}{$\Gamma$ becomes $r$, the number of the analyst's claims
+allowed to be wrong. The worst-case p-value becomes the knowledge interval $\Ir{r}$, the hull of the
+95\,\% bands over the graphs of the retraction ball $\Ball{r}$. $\Gamma^{*}$ becomes the null radius
+$\rnul$, the smallest $r$ at which the band contains zero. The validity radius $\rval$ has no
+counterpart: a matched design does not read an adjustment set off a graph that can break. The named
+witnesses of each endpoint are also ours.}
+
+\begin{antes}
+\antesq[linhas-procedimento]{What do the rows of Table~1 have in common, and what do they differ
+in?}
+\antesq[colunas-cruzamento]{With one wrong claim, how much does the stated report cover, and at what
+width does the one-claim interval restore coverage?}
+\antesq[metrica-unica]{What does an $\Lnf$ above 1 mean?}
+\end{antes}
+
+\section{M1: Table 1 on real structure}
+
+Before M1 the headline table existed only on synthetic generators, uncalibrated. Its
+pre-registration (\texttt{results/interval/PREREGISTRATION.md}, P1 to P9) was written on 12 September
+before \texttt{experiments/interval\_panel.py} produced a row. A run takes about 90 seconds; five runs
+with 3 to 7 processes gave a byte-identical \texttt{rows.csv}.
+
+\textbf{Design.} The frozen frame, 528 queries. Panel~A: the 23 other networks of the ledger, real
+structure, semi-synthetic coefficients (magnitude uniform on $[0.5, 1.5]$, random sign, unit noise),
+448 queries. Panel~B: \texttt{ecoli70}, \texttt{arth150}, \texttt{magic-niab}, \texttt{magic-irri}
+with fitted coefficients, 80 queries. Knowledge: controlled reversals of $b = 0, 1, 2$ true claims
+inside the treatment's chain component (a reversal outside it moves no interval, a reduction tested
+against brute force on 7,770 pairs), and the 7B and 72B suppliers' elicited claims stratified by false
+local claims. Samples at $n = 1000$ and $20\,000$, twenty seeds. \textbf{One estimator} in every row,
+the OLS coefficient of $X$ given a set; rows differ only in the graphs the hull is taken over: the
+committed report (PLAIN), a matched control retracting one claim far from $X$ and $Y$ (FAR1),
+$\Ir{1}$, $\Ir{2}$, and the whole class (BLANKET, discarding the knowledge). The metric $\Lnf$
+stretches each procedure's intervals by the smallest common factor giving 95\,\% coverage in the cell
+and divides the mean stretched width by BLANKET's (Chapter~\ref{ch:tables} opens a cell).
+\textbf{Above 1 means wider than throwing the knowledge away.}
+
+\begin{table}[!ht]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.4pt}
+\caption{M1, informative queries, $n = 1000$: $\Lnf$ [network-bootstrap 95\,\% interval] / raw
+coverage. The three columns are different populations (see the rows line). Source:
+\texttt{results/interval/TABLE1\_L95.md}.}
+\label{tab:m1-gamma}
+\begin{tabular}{@{}l ll ll ll@{}}
+\toprule
+ & \multicolumn{2}{c}{$b = 0$} & \multicolumn{2}{c}{$b = 1$} & \multicolumn{2}{c}{$b = 2$} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+procedure & $\Lnf$ & cov. & $\Lnf$ & cov. & $\Lnf$ & cov. \\
+\midrule
+\multicolumn{7}{@{}l}{\emph{Panel~A, semi-synthetic coefficients, 23 networks}} \\
+PLAIN (committed) & 0.464 [0.35, 0.57] & 0.967 & 5.123 [3.24, inf) & 0.597 & 4.082 [2.71, inf) & 0.554 \\
+FAR1 (control)   & 0.655 & 0.967 & 10.771 & 0.640 & 7.539 & 0.614 \\
+$\Ir{1}$         & 0.957 [0.87, 0.99] & 0.982 & 0.851 [0.76, 0.94] & 0.980 & 4.234 & 0.781 \\
+$\Ir{2}$         & 0.984 & 0.984 & 0.980 & 0.984 & 0.847 [0.74, 0.94] & 0.984 \\
+BLANKET (class)  & 1.000 & 0.984 & 1.000 & 0.985 & 1.000 & 0.988 \\
+rows (networks)  & 391 (23) & & 359 (23) & & 131 (9) & \\
+\midrule
+\multicolumn{7}{@{}l}{\emph{Panel~B, fitted coefficients, 4 networks}} \\
+PLAIN            & 0.840 [0.76, 0.88] & 0.969 & 3.316 [0.81, 4.59] & 0.885 & 2.588 & 0.891 \\
+$\Ir{1}$         & 0.979 & 0.979 & 0.974 [0.94, 1.00] & 0.980 & 0.887 & 0.947 \\
+$\Ir{2}$         & 0.997 & 0.980 & 0.989 & 0.983 & 0.945 & 0.979 \\
+rows (networks)  & 69 (4) & & 44 (4) & & 35 (4) & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+On Panel~A, with no wrong claim the committed report is the narrowest (0.464) and the one-claim
+interval pays a premium (0.957): insurance costs when nothing is wrong (P1). With one wrong claim the
+committed report covers 0.597 and would need 5.1 class widths to reach 95\,\%, while $\Ir{1}$ covers
+0.980 at 0.851 of the class width. With two, $\Ir{1}$ is not enough (0.781) and $\Ir{2}$ pays.
+\figref{fig:l95} draws the crossing.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.74\linewidth]{l95_crossing.pdf}
+\caption{Panel~A: with one wrong claim the committed report costs more than five class widths and
+retracting a far claim does not help; with two, only the budget-two procedures stay below 1. Panel~B's
+four networks keep the order at smaller magnitudes. The columns are different populations, so the lines
+between them do not follow the same analyses.}
+\label{fig:l95}
+\end{figure}
+
+\begin{medido}[The crossing and the saving, \texttt{results/interval/TABLE1\_L95.md} and \texttt{PREREGISTRATION.md} A.2]
+Against discarding the knowledge, $\Ir{1}$ at $b = 1$ saves 14.9\,\% of the width at $n = 1000$ and
+24.2\,\% at $n = 20\,000$ on Panel~A (0.851 and 0.758), and 2.6\,\% and 4.8\,\% on Panel~B (0.974 and
+0.952). With errors nobody planted (elicited, one false local claim, suppliers pooled, $n = 1000$)
+the order repeats: PLAIN 0.600 at $\Lnf$ 6.92 against 0.867 for $\Ir{1}$ on Panel~A (208 rows), 0.696
+at 2.41 against 0.901 on Panel~B (23 rows). P1, P2, P4, P5, P7, P8, P9 supported; P3 partial; P6
+falsified.
+\end{medido}
+
+The saving is modest, and the paper should say so: the interval covers where the committed report does
+not, at less than the price of discarding the knowledge.
+
+\prompt[conceito=colunas-cruzamento,dificuldade=0.75]{Panel~A, $n = 1000$, one wrong claim: give the
+coverage and $\Lnf$ of the committed report and of $\Ir{1}$, and say what 5.12 means.}{PLAIN covers
+0.597 with $\Lnf = 5.123$; $\Ir{1}$ covers 0.980 with $\Lnf = 0.851$ [0.76, 0.94], over 359
+informative queries on 23 networks. The 5.12 means that to reach 95\,\% coverage the committed
+report's intervals would have to be stretched to a mean width of 5.1 times the calibrated width of the
+whole class: trusting one wrong claim costs more than discarding all the knowledge.}
+
+\begin{antes}
+\antesq[r0-binario]{Where an effect is established with the full knowledge, what values does
+$\rnul$ take on real structures?}
+\antesq[banda-plugin]{How often does the hull of point estimates state a null radius above the
+population one, and how often does the band?}
+\end{antes}
+
+\section{What M1 changed in the report}
+
+The translation promises a scale: how many wrong claims until the conclusion falls. On real
+structures the scale has almost no middle.
+
+\begin{medido}[$\rnul$ by knowledge condition, counted in \texttt{results/interval/rows.csv} (\texttt{r0\_pop})]
+Frame queries with an effect established under the full knowledge ($\rnul \ge 1$); ``beyond 3''
+pools \texttt{>3}, \texttt{never} and censored. Panel~A, true claims ($b = 0$): 221 queries, $\rnul = 1$
+on 71, 2 or 3 on 16, beyond 3 on 134, so 1 or beyond 3 on 92.8\,\%. The same share is 88.8\,\% at
+$b = 1$, 74.2\,\% at $b = 2$ (66 queries), 93.6\,\% (7B), 94.1\,\% (72B) and 97.7\,\% under the
+recovering set (6 of 257 at 2 or 3). Panel~B: 25 of 25 at $b = 0$, 33 of 38 under 72B. Restricted to
+informative queries the $b = 0$ share on Panel~A is 148 of 164 (90.2\,\%): a non-informative query
+with a nonzero effect is ``never'' by construction.
+\end{medido}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.70\linewidth]{r0_distribution.pdf}
+\caption{Under every knowledge source and on both panels, where an effect is established the
+conclusion rests on one claim or on none within depth three: the mass at 2 and 3 is a sliver, and
+even complete oracle knowledge does not spread it.}
+\label{fig:r0}
+\end{figure}
+
+\figref{fig:r0} shows it as a distribution. In the analyst's words, \emph{the conclusion rests on no
+claim, or on one claim that can be named}. That changed decision D2 in the outline of 13 September:
+lead with the knowledge interval and Table~1, print $\rnul$ beside it as ``rests on no claim / on this
+claim'' with its distribution, and retire the title candidate that named the null radius.
+
+A reading trap: $\rnul = 0$ (227 of 391 informative Panel~A queries under true claims, in
+\texttt{summary.json}) means there is no established effect to break, not a break at the first
+retraction.
+
+\textbf{The band, not the hull of point estimates, is the estimator} (P7). At $n = 1000$, over 23,120
+replicates of the controlled conditions, the plug-in hull states a null radius above the population
+one on 39.7\,\% of replicates and the band on 1.7\,\% (39.0\,\% and 1.8\,\% at $n = 20\,000$). A
+possible effect near zero lands on one side of it by sampling error, and the plug-in errs towards
+claiming robustness.
+
+\textbf{A confounding bound at its own oracle} (M2, P9). The Cinelli and Hazlett bound, given the true
+partial $R^{2}$ of the block missing from $Z$, is defined on 666 of 808 committed-set queries (on 101
+the wrong claim put a true descendant into $Z$; on 41 no valid set exists). There it is narrower than
+$\Ir{1}$ (Panel~A, $b = 1$, $n = 20\,000$: $\Lnf$ 0.445 against 0.632), being handed what the analyst
+lacks. On 102 queries whose set holds a true descendant and is invalid it covers 13.4\,\% at
+$n = 20\,000$: a wrong orientation is outside its model class.
+
+\begin{fonte}[Rosenbaum 2002; Cinelli and Hazlett 2020; Masten and Poirier 2020]
+Rosenbaum, \emph{Observational Studies}, 2nd ed.: the chapter on hidden bias, where our report's form
+comes from. Cinelli and Hazlett, JRSS~B 82(1):39--67: the bound M2 implemented. Masten and Poirier's
+breakdown frontiers, \emph{Quantitative Economics} 11(1):41--111: a breakdown value with inference,
+outside graphs, not yet in your bibliography.
+\end{fonte}
+
+\textbf{Table~2 came out thinner than planned.} Seven of the nine declared queries have no claim in the
+treatment's component, so $\rnul$ is ``never'' (\texttt{results/interval/TABLE2\_REPORTS.md}); only
+\texttt{mediator} has a finite one (2). The informative reports are the 17 real-coefficient queries,
+mostly $\rnul = 1$ with the claim named (Chapter~\ref{ch:tables}).
+
+
+\begin{sonorio}[The analogy stated once, with the place it breaks]
+Following Rosenbaum, we report how many of the analyst's orientation claims would have to be withdrawn
+before the conclusion changes, beside the interval of effects those withdrawals leave possible. Unlike
+a sensitivity value, this count is an integer with no probability reading; on the real structures
+measured here it is almost always one or more than three, so the report names the claim on which the
+conclusion rests.
+\end{sonorio}
+
+\prompt[conceito=r0-binario,dificuldade=0.7]{Give the measured count that shows $\rnul$ near-binary,
+with its population, and say what it changed in the way the paper reports.}{Panel~A, true claims
+($b = 0$), frame queries with an established effect: 205 of 221 (92.8\,\%) have $\rnul = 1$ (71) or
+beyond 3 (134); restricted to informative queries 148 of 164 (90.2\,\%); Panel~B 25 of 25. So the paper
+leads with the knowledge interval and Table~1 and reports $\rnul$ as ``the conclusion rests on no
+claim, or on this named claim'', printing the distribution; the title that named the radius was
+withdrawn.}
+
+\naopasse[nulidade]{Name the step where ``significance is lost'' becomes ``the band contains zero'', and
+say why the band and not the plug-in hull, with the P7 numbers and their sample size.}
+
+\subsection*{Exercises}
+
+\begin{exercicio}[metodo=calculation,conceito=intervalo-conhecimento]
+Illustrative, population level. Local claims $\Kset = \{a, b, c\}$, committed effect 0.80; effects
+each retraction leaves possible: $\emptyset$: $\{0.80\}$; $\{a\}$: $\{0.80\}$; $\{b\}$: $\{0.80, 0.35\}$; $\{c\}$:
+$\{0.80\}$; $\{a,b\}$: $\{0.80, 0.35\}$; $\{a,c\}$: $\{0.80, 0.00\}$; $\{b,c\}$:
+$\{0.80, 0.35, 0.00\}$; $\{a,b,c\}$ (the class): $\{0.80, 0.35, 0.00, -0.10\}$. $Z$ is invalid after
+retracting $b$ and valid after retracting $a$ or $c$ alone. (a) Compute $\Ir{0}$ to $\Ir{3}$. (b)
+Give $\rnul$ and $\rval$, with the witnesses. (c) What share of the class width does $\Ir{1}$ cover?
+\end{exercicio}
+\begin{solucao}
+(a) $\Ir{0} = [0.80, 0.80]$; $\Ir{1} = [0.35, 0.80]$ (from $\{b\}$); $\Ir{2} = [0.00, 0.80]$ (from
+$\{a,c\}$ or $\{b,c\}$); $\Ir{3} = [-0.10, 0.80]$, the class. (b) $0 \notin \Ir{1}$ and $0 \in \Ir{2}$,
+so $\rnul = 2$, witnessed by $\{a,c\}$ (and $\{b,c\}$); no single claim reaches zero, but $a$ and $c$
+together do, an interaction. $\rval = 1$, witnessed by $b$. Here the set breaks before the sign does,
+as on \texttt{mediator} ($\rval = 1$, $\rnul = 2$). (c) $0.45 / 0.90 = 50\,\%$. The listed sets respect
+the pre-registered reduction ``retracting more never removes an extension'' (each superset retraction
+contains its subsets' effects), which is what makes $\Ir{r}$ non-decreasing.
+\end{solucao}
+
+\begin{exercicio}[metodo=drawing,conceito=testemunha]
+Draw the report for \texttt{magic-niab}, G311 $\to$ G43 ($n = 20\,000$, seed 0), effect against
+$r = 0, 1, 2$, under two claim sets: (i) the 72B supplier's two local claims,
+bands $[-0.260, -0.245]$, $[-0.260, -0.244]$, $[-0.260, 0.000]$; (ii) the recovering set, whose only
+local claim is G1853 $\to$ G311, bands $[-0.260, -0.245]$ at $r = 0$ and $[-0.260, 0.000]$ at $r = 1$
+and $r = 2$ (\texttt{results/interval/profiles.jsonl}). Mark $\rnul$ and its witness, and explain how one query has $\rnul = 2$ in one report and 1 in the
+other.
+\end{exercicio}
+\begin{solucao}
+\begin{center}
+\begin{tikzpicture}[x=1.7cm, y=5.2cm]
+\foreach \dx/\a/\b/\c/\col in {-0.1/-0.245/-0.244/0.0/azulesc, 0.1/-0.245/0.0/0.0/laranjaesc}{
+  \draw[\col, line width=2.4pt] (0+\dx,-0.260) -- (0+\dx,\a);
+  \draw[\col, line width=2.4pt] (1+\dx,-0.260) -- (1+\dx,\b);
+  \draw[\col, line width=2.4pt] (2+\dx,-0.260) -- (2+\dx,\c);
+}
+\draw[cinzaescuro] (-0.5,0) node[left, font=\scriptsize] {zero} -- (2.5,0);
+\draw[cinzamedio, densely dotted] (-0.5,-0.255) node[left, font=\scriptsize] {truth $-0.255$} -- (2.5,-0.255);
+\foreach \r in {0,1,2} \node[font=\scriptsize] at (\r,-0.30) {$r = \r$};
+\node[font=\scriptsize, text=laranjaesc, align=right, anchor=east] at (0.9,-0.10)
+  {(ii) recovering set: $\rnul = 1$\\ witness G1853$\to$G311};
+\node[font=\scriptsize, text=azulesc, align=left, anchor=west] at (2.2,-0.10)
+  {(i) 72B supplier: $\rnul = 2$\\ witness G1853$\to$G311\\ and G311$\to$G43};
+\end{tikzpicture}
+\end{center}
+Both start from a point interval at $r = 0$, so both analyst graphs orient G311 $\to$ G43. In (ii) that
+orientation is not asserted, so it is propagated from G1853 $\to$ G311, and retracting that one claim
+admits the graph where G43 is a parent of G311 and the effect is zero. In (i) it is also asserted
+directly, so it survives either single retraction and falls only when both go. $\rnul$ belongs to the
+claims around the query, not to the query, so a Figure~1 caption must name the claim set.
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[node distance=0.6cm and 1.15cm]
+\node[cmapc] (g) {$\Gamma$: how strong\\ hidden bias must be};
+\node[cmap, right=of g] (k) {orientation claims:\\ untestable in the class};
+\node[cmapc, right=of k] (t) {$r$, $\Ir{r}$, $\rnul$, $\rval$,\\ named witnesses};
+\node[cmapg, below=of t] (m1) {M1: $\Ir{1}$ covers 0.980\\ at 0.851 of the class};
+\node[cmapr, below=of k] (bin) {$\rnul$ near-binary:\\ 1 or beyond 3};
+\node[cmap, below=of g] (d2) {D2: interval first,\\ $\rnul$ as the named claim};
+\node[cmap, below=of bin] (ch) {oracle $R^{2}$ bound:\\ 13.4\,\% on descendants};
+\draw[cedge] (g) -- node[above]{same move} (k);
+\draw[cedge] (k) -- node[above]{translated into} (t);
+\draw[cedge] (t) -- node[right]{measured by} (m1);
+\draw[cedge] (m1) -- node[above]{shows} (bin);
+\draw[cedge] (bin) -- node[above]{decides} (d2);
+\draw[cedge] (ch) -- node[right]{other model class} (bin);
+\end{tikzpicture}
+\end{center}

@@ -1,0 +1,392 @@
+% =============================================================================
+\chapter{The observable frame and the frozen questionnaire}\label{ch:frame}
+
+Chapter~\ref{ch:where} ended with a protocol on paper. This chapter is how its population and its
+knowledge were built on 11 and 12 September, before any number of Chapters~\ref{ch:suppliers}
+to~\ref{ch:pest} existed. The second \texttt{\textbackslash todo} of your Section~6 asks for this
+machine almost word for word: knowledge ``collected by asking for a causal order over each chain
+component'', measured ``on the same frozen instance frame, with a matched random control and an audit
+opened only after the rows are frozen''. It exists; its entry point is \texttt{docs/PROTOCOL\_RUN.md}.
+
+\begin{ideia}
+Choose the rows from the CPDAG alone and freeze them. From then on a knowledge source may change the
+\emph{status} of a row, never whether the row is in the table, so every source is scored on the same
+528 rows and every contrast between sources is paired by construction.
+\end{ideia}
+
+What matters most is the order of the freezes. Everything above the dashed line is a function of
+$\Chat$, the claims and the query; the true DAG enters below it, once to generate $\Chat$ and once,
+after \texttt{rows.csv} is written, to score.
+
+\begin{center}
+\begin{tikzpicture}[
+  st/.style={draw=azulesc!70, fill=azulesc!5, rounded corners=2pt, font=\scriptsize\sffamily,
+    align=center, text width=2.05cm, minimum height=1.0cm, inner sep=2pt},
+  tr/.style={st, draw=vermesc, fill=vermesc!6},
+  lk/.style={font=\tiny\sffamily, text=verdesc!75!black, align=center, text width=2.3cm},
+  ar/.style={-{Stealth[length=1.5mm]}, cinzaescuro, thick}]
+\node[st] (c) at (0,0)     {CPDAG $\Chat$};
+\node[st] (f) at (2.7,0)   {\textbf{frame}\\ pairs from $\Chat$};
+\node[st] (q) at (5.4,0)   {\textbf{questionnaire}\\ an order per component};
+\node[st] (s) at (8.1,0)   {\textbf{suppliers}\\ temperature 0};
+\node[st] (k) at (10.8,0)  {\textbf{Meek repair}\\ then $\Kset$ frozen};
+\node[st] (w) at (13.5,0)  {\textbf{sweep}\\ observables only};
+\node[lk, below=0.4mm of f] {\texttt{frame.jsonl}};
+\node[lk, below=0.4mm of q] {\texttt{questionnaire.sha256}};
+\node[lk, below=0.4mm of s] {cache key: SHA-256 of model and prompt};
+\node[lk, below=0.4mm of k] {\texttt{k\_sha256} per network};
+\node[lk, below=0.4mm of w] (wl) {\texttt{rows.csv}, stamped};
+\foreach \a/\b in {c/f, f/q, q/s, s/k, k/w} \draw[ar] (\a) -- (\b);
+\draw[dashed, cinzaescuro, thick] (-1.2,-1.45) -- (14.7,-1.45);
+\node[font=\scriptsize\sffamily\bfseries, text=cinzaescuro, fill=white, inner sep=1pt] at (5.4,-1.45)
+  {the truth is read only below this line};
+\node[tr] (d) at (0,-2.35) {\textbf{true DAG}};
+\node[tr, text width=4.9cm] (a) at (11.9,-2.35) {\textbf{audit}: false claims, omissions, validity of the committed set (GAC)};
+\draw[ar, vermesc!80, densely dashed] (d.north) -- node[right, font=\tiny\sffamily, text=vermesc] {generates} (c.south);
+\draw[ar] (d) -- (a);
+\draw[ar] (wl.south) -- (wl.south |- a.north);
+\end{tikzpicture}
+\end{center}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[quadro-observavel]{How does one get from 80,132 candidate pairs to 528 rows, and does any cut
+read the truth?}
+\antesq[amenabilidade]{Why are ``query reversed'' and ``not amenable'' statuses of a row rather than
+reasons to remove it?}
+\end{antes}
+
+\section{The frame: rows chosen from the CPDAG alone}\label{sec:frame-rule}
+
+The rule in \texttt{experiments/frame\_build.py} is one sentence: the treatment lies in a chain
+component of $\Chat$ with at least two nodes, or next to one, and the outcome is a possible descendant
+of the treatment in $\Chat$. Nothing else filters. The file's docstring lists the five reads of the
+true DAG the committed gate made before admitting a pair; each is now a status or an audit column.
+Per network, a deterministic stride over the sorted pairs keeps at most twenty and records the
+fraction kept.
+
+\begin{exemplo}[The fraction kept, on three networks]
+\texttt{child}: 20 of 228 pairs, fraction 0.0877. \texttt{munin2}: 20 of 22,016, fraction 0.000908.
+\texttt{mediator}: all 12. A rate pooled over rows weights each network by its cap, not by its size
+(\texttt{results/frame/per\_network.csv}).
+\end{exemplo}
+
+That, and the structure, supplier and repair that rows of one network share, is why the network is
+the unit of every interval in the ledger. Table~0 prints the price: on the certifiable indicator, the 260
+benchmark rows carry an intraclass correlation of 0.216 and a design effect of 5.1, so they are worth
+about 51 independent rows. The funnel, with each cut named:
+
+\begin{center}
+\begin{tikzpicture}[
+  fb/.style={draw=azulesc!70, fill=azulesc!6, rounded corners=2pt, font=\scriptsize\sffamily,
+     align=center, minimum height=6.5mm, inner sep=2pt},
+  cut/.style={font=\scriptsize\sffamily, text=cinzaescuro, align=left, anchor=west},
+  ar/.style={-{Stealth[length=1.5mm]}, cinzamedio, thick}]
+\node[fb, minimum width=7.6cm] (a) at (0,0)     {39 network files that parse as DAGs};
+\node[fb, minimum width=6.6cm] (b) at (0,-0.95) {\textbf{frame}: 80,132 candidate pairs on 33 networks};
+\node[fb, minimum width=5.6cm] (c) at (0,-1.9)  {648 rows, at most 20 per network};
+\node[fb, minimum width=4.6cm] (d) at (0,-2.85) {\textbf{528 rows} on 27 networks};
+\node[fb, draw=verdesc, fill=verdesc!8, text width=1.45cm] (e1) at (-1.7,-3.95) {229 certifiable};
+\node[fb, draw=laranjaesc, fill=laranjaesc!8, text width=1.45cm] (e2) at (0,-3.95) {155 query reversed};
+\node[fb, draw=cinzamedio, fill=cinzaclaro, text width=1.45cm] (e3) at (1.7,-3.95) {144 not amenable};
+\draw[ar] (a) -- (b); \draw[ar] (b) -- (c); \draw[ar] (c) -- (d);
+\draw[ar] (d) -- (e1); \draw[ar] (d) -- (e2); \draw[ar] (d) -- (e3);
+\node[cut] at (4.0,-0.95) {6 networks have no chain component;\\ all 543 committed pairs are inside};
+\node[cut] at (4.0,-1.9)  {deterministic stride; 31 networks capped};
+\node[cut] at (4.0,-2.85) {$-100$: five networks above 500 nodes (cost)\\ $-20$: \texttt{pathfinder}, a component of 85 nodes};
+\node[cut] at (4.0,-3.95) {statuses under the primary supplier,\\ recorded on the frozen row};
+\end{tikzpicture}
+\end{center}
+
+\begin{medido}[The frame, \texttt{results/frame/frame\_summary.json}]
+80,132 pairs on 33 of 39 networks; all 543 committed pairs inside, none outside, an expansion of
+\textbf{147.6$\times$}; eight networks yield a frame and yielded no committed instance. Both cuts from
+648 to 528 use sizes of networks and components, facts of $\Chat$ (\texttt{TABLE0\_FUNNEL.md}).
+\end{medido}
+
+The frame keeps the rows an arm cannot certify. What varies between arms is the composition of
+statuses on the same frozen rows (per tier in \texttt{results/ledger/TABLE3\_STATUS.md}).
+
+\begin{medido}[Statuses on the same rows, \texttt{results/ledger/sweep\_summary.json}]
+\begin{center}
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+arm & rows & certifiable & query reversed & not amenable \\
+\midrule
+no knowledge (\texttt{D\_DEGEN}) & 528 & 68 & 0 & 460 \\
+primary supplier, 7B (\texttt{D\_LLM}) & 528 & 229 & 155 & 144 \\
+scale replicate, 72B (\texttt{D\_LLM\_72B}) & 528 & 285 & 191 & 52 \\
+chance on the 7B's edges (\texttt{D\_RAND}, 3 draws) & 1,444 & 649 & 401 & 394 \\
+\midrule
+greedy recovering set (\texttt{A\_ORACLE}) & 528 & 294 & 234 & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{medido}
+
+The oracle arm's graph is fully oriented and true, so its statuses are the truth's: on 234 of the 528
+rows the outcome is not a descendant of the treatment. The committed gate removed such pairs by
+reading the truth; here they stay, and a supplier that orients the query away is right to. ``Query
+reversed'' under a supplier is information about its claims, not a missing row, and a filter that
+depended on $\Kset$ would have given each arm a population of its own. (Rows of
+\texttt{frame.jsonl} say \texttt{true\_dag\_on\_path: false}, true of the selection step;
+\texttt{rows.csv} restamps them \texttt{via\_Chat\_only}, the stamp to quote.)
+
+\prompt[conceito=quadro-observavel,dificuldade=0.7]{From 648 sampled rows to 528: name the two cuts,
+the rows each removes, and why neither reads the truth.}{Five networks above 500 nodes, excluded for
+cost: 100 rows. \texttt{pathfinder}, whose only chain component holding a frame treatment has 85
+nodes, above the questionnaire's cap of twenty, so no supplier was asked: 20 rows. Both cuts use only
+the size of a network and of a chain component, which are facts of $\Chat$.}
+
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[questionario-ordem]{Why ask for a causal order per chain component rather than for a
+direction per edge?}
+\antesq[consistencia-de-k]{When an elicited set has no consistent Meek closure, which claims go
+first, and where does a claim with no stated confidence go?}
+\end{antes}
+
+\section{The questionnaire, and the repair that freezes \texorpdfstring{$\Kset$}{K}}\label{sec:frame-questionnaire}
+
+\texttt{experiments/questionnaire\_build.py} asks one question per chain component that contains or
+touches a frame treatment, capped at twenty nodes, and the question is a causal \emph{order}.
+Pairwise directions from an imperfect source form cycles at scale; an order cannot, and the only
+inconsistency left is a v-structure that $\Chat$ does not have. On the fixed skeleton an order also
+carries required and forbidden edges; ancestral claims, the one granularity it cannot express, have
+their own block in Chapter~\ref{ch:suppliers}. The parser in \texttt{experiments/elicit\_run.py} reads
+each undirected pair as \texttt{a->b}, \texttt{b->a} or \texttt{DECLINE}. A \texttt{DECLINE} stands; a
+stated direction that contradicts the model's own order is counted and the order wins; a pair neither
+stated nor ordered is \texttt{not\_reached}; a pair only ordered becomes a claim with no confidence.
+
+Every component is rendered under real names, with a domain sentence that never names the benchmark
+and, where the file has them, the variables' states, and under scrambled tokens with a neutral sentence; each in two seeded
+presentation orders, asserted distinct at build time. Each network also gets a control block of up to
+eight edges that $\Chat$ already orients, asked as if open: a wrong answer there is commission visible
+without the truth.
+
+\begin{medido}[The questionnaire, \texttt{results/elicit/questionnaire.json}]
+120 components on 32 networks, \textbf{369 open pairs}, \textbf{540 items}: $120 \times 2$ namings
+$\times 2$ orders $= 480$, plus 60 control items (30 networks, both namings, first order), 206 control
+edges. Dropped for size: \texttt{pathfinder}'s 85-node component; two of 35 and 25 nodes on each of
+\texttt{munin2} and \texttt{munin3}. SHA-256 \texttt{a62896791a7b\ldots}, recorded by every condition in
+\texttt{knowledge.json}. It was hashed before the first supplier call.
+\end{medido}
+
+Per network, the claims are closed with Meek's rules against $\Chat$. A set with no consistent closure
+is recorded, which is the rejection rate the protocol asked for, and then repaired as a practitioner
+would: drop claims in increasing stated confidence until the closure succeeds. \texttt{repair()} puts
+unscored claims at the back of the queue. The result is frozen with its hash before any radius.
+
+\begin{exemplo}[The repair on \texttt{child}, primary supplier]
+Twelve pairs asked. The 7B declines \texttt{Disease}--\texttt{Sick}, states nine directions at
+confidence 1, and places \texttt{Age} $\to$ \texttt{Disease} and \texttt{CO2} $\to$
+\texttt{LungParench} only through its order, with no confidence
+(\texttt{results/elicit/answers\_D\_LLM.json}). Eleven claims, eight true at the truth. With
+\texttt{Disease} $\to$ \texttt{LungParench}, the claim \texttt{CO2} $\to$ \texttt{LungParench} makes a
+v-structure between non-adjacent parents that $\Chat$ does not have. The repair drops the nine
+confident claims (eight true), then \texttt{Age} $\to$ \texttt{Disease}, and the closure succeeds. The
+frozen $\Kset$ is \{\texttt{CO2} $\to$ \texttt{LungParench}\}, which is false: \texttt{LungParench} is
+the parent of \texttt{CO2} in the network.
+\end{exemplo}
+
+The rule did what it says; it rests on a confidence that is 1 almost everywhere and on an unargued
+tie-break for unscored claims.
+
+\begin{medido}[The repair, \texttt{results/ledger/PREREGISTRATION.md}, A.1]
+Primary supplier: 214 claims, \textbf{43 dropped}, 171 kept; 6 of 32 networks repaired. Order
+replicate 57 of 196 (7 networks); second family 41 of 264 (8); scrambled names 12 of 163 (4). A
+minority of networks every time (L2 supported), about one claim in five where it fires.
+\end{medido}
+
+\prompt[conceito=questionario-ordem,dificuldade=0.65]{Derive the 540 items from the 120 components,
+and say why the question is an order.}{Two namings times two presentation orders: $120 \times 4 = 480$
+open items; plus two control items (real and scrambled, first order) on each of the 30 networks with
+compelled edges: 60. An order cannot contain a cycle, whereas pairwise directions from an imperfect
+source produce cycles at scale; the inconsistency that remains is a new v-structure against $\Chat$,
+which the Meek repair handles.}
+
+\prompt[conceito=consistencia-de-k,dificuldade=0.8]{On \texttt{child}, why did the repair keep
+\texttt{CO2} $\to$ \texttt{LungParench}, and was it true?}{The model never stated that pair; its order
+implied it, so the claim carried no confidence, and \texttt{repair()} drops unscored claims last. The
+nine claims stated at confidence 1 went first, then the other unscored claim, \texttt{Age} $\to$
+\texttt{Disease}, and the closure succeeded with one claim left. It is false: \texttt{LungParench} is
+the parent of \texttt{CO2}.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[correcao-minima]{On how many exact rows is the break named by a single claim?}
+\antesq[testemunha]{When the named claim is true at the truth, is the committed set always valid?}
+\end{antes}
+
+\section{The decision table: the claim an estimate rests on}\label{sec:frame-decision}
+
+The certificate's search stops at the first retraction set that breaks the committed set, and that
+set, a minimal correction set in the sense of \texttt{docs/PRIOR\_ART.md}, is written in the analyst's
+variable names. Table~8 (\texttt{experiments/decision\_table.py}) turns it into a sentence: the
+estimate holds unless this claim is retracted.
+
+\begin{center}
+\small
+\begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{4.4cm}cc@{}}
+\toprule
+network & query & $\rclaim$ & holds unless retracted & named false? & set at truth \\
+\midrule
+\texttt{Acid\_1996} & x1 $\to$ x10 & 1 & x4 $\to$ x1 & yes & invalid \\
+\texttt{Didelez\_2010} & Occ $\to$ HRT & 1 & Age $\to$ Occ & no & valid \\
+\texttt{Kampen\_2014} & AIS $\to$ DET & 3 & ALN $\to$ SAN, APA $\to$ SAN, SAN $\to$ AIS & yes & invalid \\
+\texttt{Kampen\_2014} & AFF $\to$ AIS & 1 & AFF $\to$ ALN & no & invalid \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The columns left of ``named false?'' are observables; the last two are the audit. The fourth row is
+not a bug. The search enumerates retraction sets in a fixed order and names the \emph{first} that
+breaks, so when several single claims break the set, only one is named. On \texttt{AFF} $\to$
+\texttt{AIS} the named claim is true; the set is invalid at the truth because of the four false claims,
+out of eight, that the supplier made on that network.
+
+\begin{medido}[Table 8, \texttt{results/ledger/TABLE8\_DECISION.md}, \texttt{decision\_table.csv}]
+Primary supplier: 229 certifiable rows, \textbf{157 with an exact claim radius} (of the other 72, 44
+survive every retraction to depth three, 27 survive every retraction, 1 is censored by the budget).
+A \textbf{single claim names the break on 141 of 157} (8 need two, 8 three). Audit: named claim false
+and set invalid 58, false and valid 10, true and invalid 4 (all \texttt{Kampen\_2014}, treatment
+\texttt{AFF}), true and valid 85.
+\end{medido}
+
+On 58 of the 62 invalid rows the sentence points at a claim that is in fact false. That is the form of
+report Chapter~\ref{ch:gamma} asks for: the conclusion rests on none, or on one named claim that the
+analyst can go and check.
+
+\begin{sonorio}[The decision sentence]
+``For the effect of \texttt{x1} on \texttt{x10}, the adjustment set rests on a single background claim,
+\texttt{x4} $\to$ \texttt{x1}; without it, the set no longer satisfies the adjustment criterion.'' Always
+with its premise: the equivalence class is correct.
+\end{sonorio}
+
+\prompt[conceito=testemunha,dificuldade=0.75]{Why can the claim named by Table~8 be true while the
+committed set is invalid at the truth, and where does it happen?}{The search enumerates retraction
+sets in a fixed order and names the first one that breaks the set; when several single claims break
+it, only one is named. On the four \texttt{Kampen\_2014} rows with treatment \texttt{AFF}, the named
+claim \texttt{AFF} $\to$ \texttt{ALN} is true, and the set is invalid because of the supplier's four
+false claims on that network. The name is a minimal correction set, not necessarily the culprit.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[pre-registro]{Why does a seed built from Python's \texttt{hash()} of a network name differ in
+every process?}
+\antesq[baldes]{In the stage-0 calibration rerun, which instrument lost its zero, and which kept it?}
+\end{antes}
+
+\section{A salted seed, and the calibration rerun}\label{sec:frame-seeds}
+
+\begin{sloppypar}
+Python salts the hash of a string per interpreter process, so a seed built from
+\texttt{hash("child")} changes in every run and in every worker of a split sweep. I made that mistake
+more than once. It was found first in the chance arm of the sweep, fixed before the ledger was rerun
+(\texttt{results/ledger/PREREGISTRATION.md}, A.0), then in the source-overlap probe of
+Chapter~\ref{ch:suppliers}. On 13 September, re-reading every script against its output, I found it in
+four more scripts under \texttt{experiments/}: \texttt{lever0\_differential.py},
+\texttt{stage0\_calibration.py}, \texttt{frame\_status.py} and \texttt{questionnaire\_build.py}. All now
+seed from the SHA-256 of a stable key.
+\end{sloppypar}
+
+The Lever~0 differential was rerun: 834 agreements of 845, where the salted run printed 818 of 822,
+and no invalid set on either (\texttt{results/stage0/lever0\_differential.json}). The first status run
+of the frame is superseded by the ledger. The questionnaire cannot be rerun: every per-network
+permutation in it went through the salted seed. It stays authoritative, because it is what the
+suppliers answered and each item carries the SHA-256 of its prompt; the builder now refuses to
+overwrite it and writes a rebuild beside it. The corrupted-knowledge calibration (claims of the recovering set flipped at
+rates 0 to 0.5, coverages 1.0 and 0.5, on the committed rows) was rerun on 13 September. \texttt{results/stage0/STAGE0.md} still prints the salted run, and
+\texttt{docs/PROTOCOL\_RUN.md} says the rerun is in progress; both predate it.
+
+\begin{medido}[Stage-0 calibration, \texttt{results/stage0/calibration\_summary.json}]
+16,496 draws on 24 networks; \textbf{8,911 scored} (salted run: 8,553). Set invalid at the truth on
+1,009 rows (salted: 963). Corrupted rows only, salted run in parentheses:
+\begin{center}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+instrument & dangerous rows & detection & false alarm & certified moves \\
+\midrule
+claim radius (B7) & \textbf{0} (0) & 1.000 (1.000) & 0.473 (0.501) & 0.062 (0.083) \\
+hop radius (B6) & \textbf{3} (0) & 0.997 (1.000) & 0.386 (0.404) & 0.764 (0.792) \\
+free rule (B2) & 9 (8) & 0.991 (0.992) & 0.458 (0.498) & 0.294 (0.305) \\
+\bottomrule
+\end{tabular}
+\end{center}
+The three dangerous hop rows are all at corruption rate 0.5.
+\end{medido}
+
+Most cells moved by a few hundredths, as a new set of draws should. One moved in kind.
+
+\begin{armadilha}[``The hop radius never over-certified'' was a property of one draw]
+I read the salted run as a hop radius that never over-certifies and detects every invalid set. Under
+stable seeds it still beats the free rule on all four columns (3 dangerous rows against 9), but its zero
+is gone. The claim radius kept its zero, for the structural reason of Chapter~\ref{ch:table4}: a zero
+that moves with the draw is a statistic; one that cannot move is a property of the instrument.
+\end{armadilha}
+
+\prompt[conceito=baldes,dificuldade=0.75]{In the calibration rerun with stable seeds, which instrument
+went from zero to non-zero dangerous rows, by how many, and why is the claim radius's zero on both runs
+a different kind of number?}{The hop radius, from 0 to 3 dangerous rows, all at corruption rate 0.5
+(the free rule went from 8 to 9). The claim radius stayed at 0. Its zero is structural: given a correct
+class and a sound criterion, retracting the $w$ false claims leaves a graph the truth extends, so
+$\rclaim \leq w$ whenever the search reaches depth $w$, whatever the draw.}
+
+\naopasse[consistencia-de-k]{Start from the 7B's answer on \texttt{child} and write the two steps
+that turn its eleven orientations into the frozen $\Kset$: why the set is inconsistent, and the order
+in which claims are dropped. If you cannot say why the survivor is false, reread the example in
+Section~\ref{sec:frame-questionnaire}.}
+
+\begin{exercicio}[metodo=calculation,conceito=correcao-minima]
+(a) Check the funnel: rows lost from the sample to the sweep, and the expansion from the 543 committed
+pairs to the frame. (b) From the audit of Table~8, compute the share of exact rows named by a single
+claim, the share of invalid sets when the named claim is false, the share of valid sets when it is
+true, and the base rate of invalid sets among exact rows. (c) Say in one sentence what (b) means for an
+analyst without the truth.
+\end{exercicio}
+\begin{solucao}
+(a) $648 - 100 - 20 = 528$, so 120 rows; $80{,}132/543 = 147.6$. (b) $141/157 = 0.898$;
+$58/68 = 0.853$; $85/89 = 0.955$ (so $4/89 = 0.045$ invalid); $62/157 = 0.395$. (c) Checking the one
+named claim moves the chance that the set is invalid from 0.40 to 0.85 if the claim is false and to
+0.045 if it is true: the table says which single claim to verify, given a correct equivalence class.
+\end{solucao}
+
+\begin{exercicio}[metodo=counterexample,conceito=quadro-observavel]
+Refute each statement with a specific case from this chapter. (a) ``If the claim Table~8 names is true,
+the committed set is valid at the truth.'' (b) ``Eliciting an order rather than directions guarantees a
+Meek-consistent set.'' (c) ``Repairing by increasing confidence keeps the claims most likely to be
+true.'' (d) ``A seed derived from the network's name is reproducible.''
+\end{exercicio}
+\begin{solucao}
+(a) \texttt{Kampen\_2014}, \texttt{AFF} $\to$ \texttt{AIS}: the named \texttt{AFF} $\to$ \texttt{ALN} is
+true and the set is invalid, through the four false claims the supplier made there. (b) \texttt{child} under the 7B: the implied
+\texttt{CO2} $\to$ \texttt{LungParench} with \texttt{Disease} $\to$ \texttt{LungParench} is a v-structure
+$\Chat$ does not have. An order excludes cycles, not new v-structures. (c) \texttt{child} again: eight
+true claims at confidence 1 dropped, a false unscored one kept. (d) Python salts string hashes per
+process; the source-overlap probe re-asked its suppliers on every run because the prompt changed.
+\end{solucao}
+
+\section*{Chapter map}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm]
+\node[cmapc] (fr)  at (0,0)      {frame from $\Chat$ only: 80,132 pairs};
+\node[cmap]  (st)  at (4.6,0)    {528 frozen rows, statuses not filters};
+\node[cmap]  (qu)  at (9.2,0)    {questionnaire: an order per component, hashed};
+\node[cmap]  (rp)  at (9.2,-1.6) {Meek repair by increasing confidence};
+\node[cmapg] (k)   at (4.6,-1.6) {frozen $\Kset$ per network};
+\node[cmap]  (dt)  at (0,-1.6)   {Table 8: one named claim on 141 of 157};
+\node[cmapr] (sd)  at (9.2,-3.2) {salted \texttt{hash()} seeds, now SHA-256};
+\node[cmapg] (cal) at (4.6,-3.2) {calibration rerun: claim zero kept, hop zero lost};
+\draw[cedge] (fr) -- node[above] {sampled into} (st);
+\draw[cedge] (st) -- node[above] {defines} (qu);
+\draw[cedge] (qu) -- node[right] {answers go to} (rp);
+\draw[cedge] (rp) -- node[above] {yields} (k);
+\draw[cedge] (k) -- node[above] {names breaks in} (dt);
+\draw[cedge] (sd) -- node[above] {forced} (cal);
+\draw[cedge] (sd.east) to[out=0, in=0, looseness=0.9] node[right] {frozen into} (qu.east);
+\end{tikzpicture}
+\end{center}

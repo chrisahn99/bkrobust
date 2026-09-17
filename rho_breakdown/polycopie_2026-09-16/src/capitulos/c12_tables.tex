@@ -1,0 +1,383 @@
+% =============================================================================
+\chapter{16 September: what the cells mean, T3, and a bias in our own table}\label{ch:tables}
+
+\begin{ideia}[The chapter in two sentences]
+A cell of the price table answers one question: forced to cover honestly, how wide would this
+procedure have to be, compared with discarding the knowledge? And the table of named reports, read
+in full, shows that one retraction usually returns the analyst to the whole class, while the rule
+that chose its rows biased the one column that looked most like Rosenbaum.
+\end{ideia}
+
+Two documents were written this morning, both in English and both on the branch:
+\nolinkurl{rho_breakdown/table1_dossier_2026-09-16/}, a dossier of every Table~1 the results support,
+and \nolinkurl{rho_breakdown/panelB_T3_2026-09-16/}, which opens one cell of the price table, prints the
+named reports in full and audits how their rows were chosen.
+
+\begin{armadilha}[Three numbering schemes]
+The dossier's \textbf{T3} is M1's Table~2 (\texttt{results/interval/TABLE2\_REPORTS.md}), the paper's
+future Table~2. The ``Panel~B'' of its recommended \textbf{T11} is the price table on M1's
+\emph{Panel~A} (semi-synthetic), not M1's Panel~B. ``Table~3'' in the outline of 13 September is the
+audit under wrong knowledge. Below, T-numbers are the dossier's and panels are M1's.
+\end{armadilha}
+
+\begin{antes}
+\antesq[metrica-unica]{In the one-wrong-claim cell, what are $\lambda^{*}$ and the mean half-width of
+the committed report, and how do they give 5.123?}
+\antesq[metrica-unica]{How does a procedure earn an $\Lnf$ above 1?}
+\end{antes}
+
+\section{Opening one cell}
+
+Take the one-wrong-claim cell of Panel~A at $n = 1000$: 359 queries, twenty seeds each, 7,180
+replicates. For each replicate $i$ a procedure reports an interval with midpoint $m_i$ and half-width
+$h_i$, and $\lambda_i = |\tau - m_i| / h_i$ is the factor by which that interval must be stretched about
+its own midpoint to reach the true effect. Below 1, it already covers. Take $\lambda^{*}$, the 95th
+percentile of the $\lambda_i$ over the cell: stretching every interval by $\lambda^{*}$ makes 95\,\% of
+them cover. Average the stretched widths $2\lambda^{*}h_i$ and divide by the same quantity for the
+whole class.
+
+\begin{medido}[The cell, recomputed from replicates by \texttt{make\_figs.py}]
+Script \nolinkurl{rho_breakdown/panelB_T3_2026-09-16/make_figs.py}, reading
+\texttt{results/interval/replicates.csv.gz}. Panel~A, $b = 1$, $n = 1000$, 7,180 replicates.
+
+\medskip
+\begin{tabular}{@{}lrrrr@{}}
+procedure & $\lambda^{*}$ & mean half-width & calibrated width & $\Lnf$ \\
+\midrule
+PLAIN, the committed report & 20.416 & 0.3855 & 15.7397 & \textbf{5.123} \\
+$\Ir{1}$, one revision       & 1.000  & 1.3064 & 2.6129  & \textbf{0.851} \\
+BLANKET, the whole class     & 1.000  & 1.5361 & 3.0721  & 1.000 \\
+\end{tabular}
+
+\medskip
+$15.7397 / 3.0721 = 5.123$ and $2.6129 / 3.0721 = 0.851$. At $n = 20\,000$ the same two cells read
+14.368 and 0.758: more data narrows a wrongly centred interval without moving it.
+\end{medido}
+
+The committed report is the narrowest interval in the cell (mean half-width 0.39 against 1.54 for the
+class) and the most expensive once it is required to be right. \figref{fig:t3-why} shows why: the
+stretch is about the interval's own midpoint, so a narrow interval centred on the effect the wrong
+graph implies has to be compensated on both sides.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.74\linewidth]{t3_f5_why_above_one.pdf}
+\caption{Schematic. A narrow interval centred away from the truth needs a larger factor than a wide
+honest one; that is the only way a procedure lands above 1, wider than discarding the knowledge.}
+\label{fig:t3-why}
+\end{figure}
+
+\textbf{The reproduction.} The script reimplements the $\Lnf$ pipeline from \texttt{replicates.csv.gz}
+and \texttt{rows.csv} and asserts that all 27 Panel~A cells of \texttt{TABLE1\_L95.md} at $n = 1000$
+(nine procedures, three columns) come out to three decimals; I reran it today and it passes. The filter
+that makes it reproduce: a query enters a column iff it is informative \emph{and} its realised $b$ is
+non-empty (391, 359, 131 queries).
+
+\begin{armadilha}[\texttt{profiles.jsonl} is the wrong join key for cells]
+My first attempt joined the replicates on \texttt{results/interval/profiles.jsonl} and got 0.180 for
+PLAIN at $b = 0$ instead of 0.464. That file holds 934 profiles, only for queries whose analyst graph
+commits to a set, so the join silently rebuilt the committed-set secondary table, whose cell really is
+0.180 on 134 queries. A correct number for the wrong population; the comparison with the published
+cell is what caught it.
+\end{armadilha}
+
+\prompt[conceito=metrica-unica,dificuldade=0.7]{In the Panel~A, $b = 1$, $n = 1000$ cell, give
+$\lambda^{*}$ and the mean half-width of the committed report and of the class, and compute $\Lnf$ of
+the committed report.}{Committed report: $\lambda^{*} = 20.416$, mean half-width 0.3855, calibrated
+width $2 \times 20.416 \times 0.3855 = 15.74$. Class: $\lambda^{*} = 1.000$, mean half-width 1.5361,
+calibrated width 3.072. $\Lnf = 15.74 / 3.072 = 5.123$, over 7,180 replicates of 359 queries.}
+
+\begin{antes}
+\antesq[testemunha]{Of the nine certifiable declared queries, how many break under some retraction
+of up to three claims, and how many of the seventeen fitted-coefficient queries break at the first?}
+\antesq[r0-binario]{Why did the pre-registered Figure~1 rule return no candidate?}
+\antesq[nulidade]{Can a query have $\rval = 1$ and $\rnul$ ``never''?}
+\end{antes}
+
+\section{T3 in full: a cliff, not a curve}
+
+T3 has 26 rows under the recovering set, estimates at $n = 20\,000$ and seed 0: the nine declared
+queries with a valid status and 17 frame queries on the four fitted-coefficient networks. Three declared
+queries are excluded with their reasons (\texttt{M-bias}: the published diagram is not a DAG;
+\texttt{Schipf\_2010}, TT on T2DM: the outcome is not a possible descendant; \texttt{confounding}: the
+treatment has no undirected edge). Read twice, the table says four things.
+
+\textbf{The published analyses are robust and the sampled ones are not.} Eight of the nine declared
+queries are unbroken by any retraction to depth three; the exception is \texttt{mediator}, a four-node
+textbook diagram. On the fitted networks, 16 of 17 queries have $\rval = 1$. The mechanism is the frame:
+a pair is admitted beside an undirected edge, where knowledge can matter, so the measured population
+is close to the complement of the queries the source papers were written to answer. That is an
+applicability statement for the paper's evaluation section, not a result.
+
+\textbf{The sensitivity curve is a single step.} On 16 of T3's 17 informative rows (the 16 informative
+fitted queries and \texttt{mediator}) the interval after one retraction equals the whole-class interval
+to four decimals. The exception is again
+\texttt{mediator}, whose first retraction covers 57\,\% of the class and whose second saturates it. All
+the identifying power the knowledge supplies sits in one claim, and withdrawing it returns the analyst
+to where they would be with no knowledge. This is why the pre-registered Figure~1 rule (both radii in
+$\{2, 3\}$ and a plateau before the break) found nothing on real coefficients: the shape it looked for
+is not in the data, and the declared and applied rows that did have radii 2 or 3 widened 27 to 34 times
+before breaking. The companion's recommended figure (its candidate F-A) draws this cliff; the
+version on the full eligible pool is in the next section.
+
+\textbf{The null radius and the validity radius are different numbers.} On \texttt{mediator} the set
+fails after one retraction and the interval reaches zero after two. On \texttt{ecoli70} eutG $\to$
+lacY and both \texttt{magic-niab} G1217 queries, $\rval = 1$ and $\rnul$ is ``never'': the set breaks,
+the sign does not. On several fitted rows the band at seed 0 contains zero at budget zero (0 from the
+band, 1 from the population): no conclusion to break at that sample size. A sentence about $\rnul$
+must name its reading (population, one seed, range over twenty), and a figure's axis label must say
+whether it shows conclusions or validity.
+
+\textbf{Why the one- and two-revision columns look identical.} $\Ir{r}$ grows with $r$ and is capped by
+the class interval. Of the 303 committed queries under the recovering set, 281 (92.7\,\%) print the
+same interval at both budgets: on 76 the class interval is a point, on 205 the first revision already
+returns the class. The second column carries information on 20 queries, on \texttt{insurance},
+\texttt{Polzer\_2012}, \texttt{Kampen\_2014}, \texttt{sachs}, \texttt{Schipf\_2010} and
+\texttt{mediator}, all but the last excluded from T3 by its real-coefficient rule. Replace the
+two-revision column with the class interval, and the identity becomes visible as the finding.
+
+\prompt[conceito=r0-binario,dificuldade=0.75]{State the one-claim cliff as measured on T3, name the
+exception, and say what it did to the pre-registered Figure~1 rule.}{On 16 of the 17 informative T3
+rows the interval after one retraction equals the whole-class interval to four decimals; the exception
+is \texttt{mediator}, where one retraction covers 57\,\% of the class and two saturate it. The
+pre-registered rule wanted both radii in $\{2, 3\}$ and a plateau before the break on a real-coefficient
+network under truthful knowledge; the curve is a single step, so no row qualified, and the rows with
+radii 2 or 3 widened 27 to 34 times before breaking.}
+
+\begin{antes}
+\antesq[pre-registro]{T3 prints 17 of the 294 eligible sampled queries. By which two rules, and which
+one is indefensible?}
+\antesq[pre-registro]{What share of printed, dropped and eligible queries has a finite null radius?}
+\antesq[testemunha]{Which claim of T3 survives the selection audit?}
+\end{antes}
+
+\section{A selection bias in our own table}
+
+T3 is a selection made by two rules. The funnel is the whole path under the recovering set; the
+counts are in \texttt{results/ledger/TABLE0\_FUNNEL.md} or were recounted from
+\texttt{results/interval/rows.csv} and \texttt{profiles.jsonl} by
+\nolinkurl{rho_breakdown/panelB_T3_2026-09-16/make_exhaustive.py}, which first checks the 26 printed
+rows cell by cell against \texttt{table2.json}.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}rp{6.2cm}p{6.6cm}@{}}
+\toprule
+count & stage & what leaves, and why \\
+\midrule
+39 / 33 / 27 & networks parsed / with a frame / swept & over 500 nodes, or every component over the questionnaire cap \\
+80{,}132 & candidate pairs, from observables only & \\
+648 & pairs sampled (at most 20 per network) & \\
+537 & rows: 528 frame rows in the swept networks + 9 declared & \\
+303 & commit to an adjustment set (9 declared, 294 sampled) & 234: on the analyst's graph the outcome cannot descend from the treatment \\
+37 & \textbf{rule 1}: fitted coefficients only & 257 on the 23 semi-synthetic networks; \textcolor{verdesc}{defensible}, not in the caption \\
+17 & \textbf{rule 2}: finite $\rnul$ first, then frame order, five per network & 20; sorts on the outcome it illustrates: \textcolor{vermesc}{indefensible} \\
+\midrule
+26 & T3 = 9 declared + 17 sampled & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Rule 1 is defensible}: on the 23 semi-synthetic networks the effect size is one we drew, and a
+named report would present it as a real analysis. It belongs in the caption.
+
+\textbf{Rule 2 is not.} The Table~2 block of \texttt{experiments/interval\_tables.py} (line 1136) sorts the
+eligible queries of each network by \texttt{(r0\_pop == CENSORED, frame\_index)} and keeps the first five.
+A finite null radius is exactly what the table exists to illustrate.
+
+\begin{medido}[The bias, \texttt{rho\_breakdown/panelB\_T3\_2026-09-16/make\_figs.py} (rerun 16 September)]
+Queries on the four fitted networks with a committed set: 37 eligible, 17 printed, 20 dropped (9 on
+\texttt{magic-niab}, 8 on \texttt{magic-irri}, 3 on \texttt{ecoli70}). Finite population null radius:
+13 of 17 printed (76\,\%), 3 of 20 dropped (15\,\%), 16 of 37 eligible (43\,\%).
+\end{medido}
+
+I have to be exact about whose defect this is. The ordering was not chosen after seeing the answer: it
+is written in \S6 of \texttt{results/interval/PREREGISTRATION.md} (``finite r0 first, then frame
+order''), before any row existed, and the header of \texttt{TABLE2\_REPORTS.md} states it. It was still
+the wrong rule, because it sorts on the outcome, and nobody measured its effect until this morning. The
+$\rnul$ column of T3 is not representative of the population it was drawn from.
+
+\begin{noprato}[The fix, one line]
+In \texttt{experiments/interval\_tables.py}, sort the candidates by \texttt{frame\_index} alone (drop
+the \texttt{r0\_pop == CENSORED} term), or better, print all 37 eligible queries so the inclusion rule
+has nothing in it a reader must trust. Put rule 1 and the eligible count in the caption. Draw the
+figure on the 37, not on the 17.
+\end{noprato}
+
+\textbf{What the selection did not bias.} The cliff survives. On all 26 informative queries of the 37
+eligible, one retraction returns the whole-class interval (16 of 16 printed, 10 of 10 dropped). Over
+all 294 committed sampled queries on 27 networks, 226 are informative; on 205 the one-retraction
+interval equals the class interval to four decimals, and on 211 (93\,\%) it covers more than 90\,\% of
+the class width. \figref{fig:t3-pool} draws F-A on the 37 eligible queries, printed ones marked,
+including the 11 rows where nothing moves, which T3 hides.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.60\linewidth]{t3_f11_pool_dumbbell.pdf}
+\caption{All 37 eligible fitted-coefficient queries, printed ones marked with a square: the cliff holds
+on the dropped queries too, and the rows with no bar (the class already pins the effect) are the honest
+counterweight the printed table leaves out.}
+\label{fig:t3-pool}
+\end{figure}
+
+\prompt[conceito=pre-registro,dificuldade=0.75]{Give the three finite-null-radius shares of the T3
+audit with their denominators, the line that produced the bias, and the fix.}{Finite population
+$\rnul$ on 13 of 17 printed queries (76\,\%), 3 of 20 dropped (15\,\%), 16 of 37 eligible (43\,\%). The
+sort key \texttt{(r0\_pop == CENSORED, frame\_index)} in \nolinkurl{experiments/interval_tables.py} puts
+finite null radii first before taking five per network; the rule is in \S6 of the pre-registration.
+Fix: sort by \texttt{frame\_index} alone, or print all 37, and state the real-coefficient rule and the
+eligible count in the caption.}
+
+\begin{antes}
+\antesq[dois-paineis]{Which candidate does the dossier recommend as Table~1, and what are its two
+panels?}
+\antesq[decisoes-abertas]{What blocks the abstract of 18 September, according to the dossier?}
+\end{antes}
+
+\section{The Table 1 dossier}
+
+The dossier states eleven live claims before any table, each with evidence, significance, nearest
+prior art and falsifier (\nolinkurl{rho_breakdown/table1_dossier_2026-09-16/sections/02_claims.tex}).
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}lll@{}}
+\toprule
+& claim & what carries it \\
+\midrule
+C1 & nobody prices a structural assumption & framing; \textbf{novelty search never run in this wording} \\
+C2 & computable from the analyst's inputs & monotonicity audit: 5,000 pairs, 0 violations (bound 0.06\,\%) \\
+C3 & claims are the safe unit, hops are not & 3,014 certifiable rows: 0 over-certifications against 39 \\
+C4 & the price of a wrong claim & $\Ir{1}$ at 0.851 of the class, premium at zero (Ch.~\ref{ch:gamma}) \\
+C5 & the tie with the free screen & $+0.000$ at matched depth (Ch.~\ref{ch:m1b}) \\
+C6 & refusal where knowledge matters & 0.910 of 134 committed informative queries \\
+C7 & locality in claims, not hops & primary supplier: hop reading above claim depth on 21 of 157 \\
+C8 & applicability, as a limit & 8 of 9 declared queries unbroken to depth 3 \\
+C9 & the class must be correct & estimated CPDAG: over-certification on 14 of 38 (Ch.~\ref{ch:pest}) \\
+C10 & suppliers are an error process & invalid set 0.298 at 72B, 0.288 at 7B \\
+C11 & ranking by survival & your $\tau_b$ table; screen column owed \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Thirteen candidates} (T1 to T13, with a variant T1b) are typeset with the numbers that exist and
+scored against three requirements (readable after the abstract; verifies the claims we make; compares
+with the literature inside the float) and six constraints each earlier design paid
+for: one calibrated metric, one population per panel, a row that loses where it must, no discrimination
+column, no model family as subject, nothing internal in the float. \textbf{The recommendation is T11},
+one float with two panels on two named populations. Its first panel is the certificate ladder over the
+3,014 certifiable rows of eleven knowledge conditions on 27 networks (902 committed sets invalid at the
+truth): counting claims asserted over-certifies on 729, the separation rule on 15, the hop radius on 39,
+the claim radius on 0. Its second panel is the price table at $n = 1000$ with the leave-one-out screen as
+a row, and the refusal rate (0.910 of 134) under the float with its own denominator. T3 becomes Table~2,
+the policy table T8 becomes Table~3 or prose, your ranking table T4 stays in its section with the screen
+column added, and the decision table T5 is the best candidate for the first figure.
+
+Two defects were found and fixed while the dossier was written, each the kind it warns against. The
+first draft of T8 and of T11's second panel filled the two-wrong-claim cells of the screen and
+stop-rule rows from M1b's 59 committed queries beside cells from the price table's 131: two populations
+in one row. And the ladder's 15 over-certifications had been attributed to the leave-one-out screen;
+they belong to the separation rule (the screen never over-certifies relative to the stop rule, 0
+exceptions in 2,212 rows). A reconciliation, not a defect: my review notes quoted the depth-one screen
+gap as $+0.305$, the dossier as $+0.256$; both are in \texttt{TABLE1\_L95.md}, the population line and
+the $n = 1000$ line, and every quotation now carries its sample size.
+
+\begin{noprato}[Blocking before the abstract on 18 September]
+\textbf{C1's novelty search has never been run in the wording the claim uses.} The searches on record
+were pointed at latent-causal representation learning and at Taeb, Guo and Henckel, not at the
+sensitivity-analysis lineage C1 says does not already price this, and the statement that Guo and Perkovi\'c never
+perturb the knowledge rests on a paper I have not read in full. Either the search runs before the
+abstract, or C1 is narrowed to what was searched and the abstract says the narrower thing.
+\textbf{The author list must be settled by 18 September}; Chapter~\ref{ch:merge} quotes the rule.
+\end{noprato}
+
+\prompt[conceito=dois-paineis,dificuldade=0.7]{Which Table~1 does the dossier recommend, what are its
+two panels with their populations, and what blocks the abstract of 18 September?}{T11. Panel one is the
+certificate ladder over 3,014 certifiable rows (eleven knowledge conditions, 27 networks, 902 sets invalid
+at the truth): the claim count over-certifies on 729, the separation rule on 15, the hop radius on 39,
+the claim radius on 0. Panel two is the price table on M1's Panel~A at $n = 1000$ (391, 359, 131
+informative queries) with the leave-one-out screen as a row, and the refusal rate 0.910 of 134 printed
+under the float with its own denominator. Blocking: the novelty search for C1 has never been run in the
+wording of the claim, and the author list must be settled by 18 September.}
+
+\naopasse[pre-registro]{Name the sort key that biased T3, say what it sorts on, and explain in one
+sentence why it biases the $\rnul$ column but not the claim that one retraction returns the class
+interval. If you cannot, reread the paragraph ``What the selection did not bias''.}
+
+\subsection*{Exercises}
+
+\begin{exercicio}[metodo=table-reading,conceito=nulidade]
+Five rows of T3 (recovering set; bands at $n = 20\,000$, seed 0; class interval from the population;
+$\rnul$ as population / band at seed 0 / range over 20 seeds).
+
+\smallskip
+{\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrllllc@{}}
+\toprule
+query & true & one revision & two revisions & class & $\rnul$ & $\rval$ \\
+\midrule
+mediator, X $\to$ Y & $-2.603$ & $[-2.623, -1.109]$ & $[-2.623, 0.000]$ & $[-2.603, 0.000]$ & 2 / 2 / 2 & 1 \\
+ecoli70, eutG $\to$ lacY & $0.309$ & $[0.277, 0.377]$ & $[0.277, 0.377]$ & $[0.309, 0.354]$ & never / $>$3 / $>$3 & 1 \\
+magic-niab, G418 $\to$ FUS & $0.003$ & $[-0.022, 0.011]$ & $[-0.022, 0.011]$ & $[0.000, 0.003]$ & 1 / 0 / 0..1 & 1 \\
+ecoli70, pspB $\to$ nmpC & $-0.108$ & $[-0.531, 0.026]$ & $[-0.531, 0.026]$ & $[-0.525, 0.000]$ & 1 / 1 / 1..3 & 1 \\
+arth150, 81 $\to$ 464 & $0.256$ & $[0.097, 0.265]$ & $[0.097, 0.265]$ & $[0.256, 0.256]$ & $>$3 / $>$3 / $>$3 & $\ge 2$ \\
+\bottomrule
+\end{tabular}}
+
+\smallskip
+(a) On which row do the two revision columns differ, and what does that say about the cliff? (b) Which
+row has $\rval = 1$ and $\rnul$ ``never'', and why is that not a contradiction? (c) On which row does the
+null radius depend on the reading, and how should a sentence quote it? (d) Which row must be left out of
+``one retraction returns the class interval'', and why?
+\end{exercicio}
+\begin{solucao}
+(a) \texttt{mediator}: one revision reaches $-1.109$, two reach zero, the class. It is the only row
+where the first retraction stops short of the class (57\,\%), so the only one with a second step. (b)
+eutG $\to$ lacY. $\rval$ is about the set (one retraction makes $Z$ invalid); $\rnul$ is about the sign
+(every graph of the class gives an effect in $[0.309, 0.354]$). Validity breaks, the conclusion does
+not. (c) G418 $\to$ FUS: population 1, seed 0 gives 0, range 0 to 1. The true effect is 0.003, so at
+$n = 20\,000$ the band usually contains zero before any retraction; quote ``population null radius 1''
+or the range, never a bare ``1''. pspB $\to$ nmpC (1 to 3 over seeds) needs the same care. (d) arth150,
+81 $\to$ 464: the class interval is a point, so the query is not informative; its band is wide from
+sampling alone.
+\end{solucao}
+
+\begin{exercicio}[metodo=rewriting,conceito=pre-registro]
+T3's current caption reads, in part: \emph{``Sensitivity reports on twenty-six named analyses. \dots
+$r_0$ is the null radius, the number of revisions after which the interval contains zero \dots
+$r_{\mathrm{val}}$ is the breakdown radius \dots Knowledge: the recovering set; estimates at
+$n = 20\,000$, first seed.''} Rewrite it as it should be printed once the fix is applied (all 37
+eligible sampled queries shown), so that a reviewer can check the inclusion rule, the counts and the
+two radii without opening any file. No internal vocabulary.
+\end{exercicio}
+\begin{solucao}
+\emph{``Sensitivity reports on named analyses. Above the line, the nine published analyses whose
+authors declared a treatment and an outcome (three more are excluded: one diagram is not acyclic, in one
+the outcome cannot descend from the treatment, in one no claim bears on the treatment); structure as
+published, parameters drawn. Below, all 37 sampled queries on the four networks with coefficients fitted
+to real data whose analyst graph commits to an adjustment set; networks with drawn parameters are not
+shown, since their effect sizes would be ours. Intervals: every effect identified after retracting at
+most one claim, and over the whole equivalence class. Null radius: retracted claims until the 95\,\%
+band contains zero (population, and range over twenty samples). Validity radius: retracted claims until
+the adjustment set is no longer valid. Estimates at $n = 20\,000$.''} What changed: both inclusion rules
+and the eligible count are stated, nothing is selected on the outcome, the class interval replaces the
+two-revision column, the null radius carries its reading, and ``breakdown radius'' is renamed so it
+cannot be confused with the null radius.
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[node distance=0.6cm and 1.1cm]
+\node[cmapc] (cell) {a cell: $\lambda^{*}$, calibrated\\ width, ratio to class};
+\node[cmap, right=of cell] (t3) {T3: 26 named\\ reports};
+\node[cmapg, right=of t3] (cliff) {cliff: one retraction\\ returns the class};
+\node[cmapr, below=of t3] (bias) {rule 2 sorts on $\rnul$:\\ 76\,\% vs 43\,\% vs 15\,\%};
+\node[cmapg, below=of cliff] (pool) {not biased: 26/26,\\ 211 of 226};
+\node[cmap, below=of cell] (fix) {fix: frame order\\ or all 37};
+\node[cmapc, right=of pool] (t11) {dossier: T11;\\ C1 search blocks};
+\draw[cedge] (cell) -- node[above]{prices} (t3);
+\draw[cedge] (t3) -- node[above]{shows} (cliff);
+\draw[cedge] (t3) -- node[left]{selected by} (bias);
+\draw[cedge] (bias) -- node[above]{repaired by} (fix);
+\draw[cedge] (cliff) -- node[right]{audited on} (pool);
+\draw[cedge] (pool) -- node[above]{feeds} (t11);
+\end{tikzpicture}
+\end{center}

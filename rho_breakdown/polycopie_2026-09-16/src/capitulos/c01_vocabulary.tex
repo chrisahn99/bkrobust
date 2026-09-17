@@ -1,0 +1,322 @@
+% =============================================================================
+\chapter{One object, two vocabularies}
+\label{ch:vocabulary}
+
+Your draft of 16 September and everything in this document measure the same object: an estimated
+CPDAG $\Chat$, a set $\Kset$ of orientations the analyst asserts, the analyst's graph
+$\Gz = \mathrm{Meek}(\Chat, \Kset)$, and the adjustment set $Z = \Ostar(\Gz)$ read off it and then held
+fixed. We named the pieces differently, and in two places one word carries two meanings. This chapter
+states the object once in your geometry, gives the translation to the words the other chapters use,
+and draws your own running example counted both ways. There is no new mathematics here; it is the
+dictionary the rest of the document assumes.
+
+\begin{ideia}[One object, two ways of counting the distance to failure]
+Your radius counts covering steps in the space of knowledge states. Most of this document counts the
+analyst's own claims, withdrawn and re-closed under Meek's rules. The object is the same, and the two
+counts part exactly where Meek turns a claim into orientations the analyst never asserted.
+\end{ideia}
+
+\begin{antes}
+\antesq[mpdag-g-k]{In your running example, how many orientations does $\Gz$ add to the CPDAG, and how
+many of them did the analyst assert?}
+\antesq[unidade-afirmacao]{Your \S4.2 says that retracting a claim un-orients a knowledge-induced edge,
+and your \S6.3 says that $\rclaim$ retracts asserted claims. Are these the same move?}
+\end{antes}
+
+\section{Your geometry, on your example}
+
+The clearest way to see where the vocabularies meet is your statin example (\S4.1 of the draft), which
+can be drawn exactly from the text: six compelled edges, five undirected ones forming a single component
+on $\{\text{Smoke}, \text{BMI}, \text{Chol}, \text{CRP}, \text{Statin}\}$, and four asserted claims.
+
+\begin{exemplo}[Your running example, counted in hops and in claims]
+The analyst asserts Smoke$\to$BMI, BMI$\to$Chol, Chol$\to$CRP and Statin$\to$CRP. The fifth undirected
+edge is oriented by the closure, not by the analyst: BMI$\to$Chol$-$Statin with BMI and Statin
+non-adjacent forces Chol$\to$Statin by R1. So $\Gz$ adds five orientations to $\Chat$, four asserted and
+one propagated, and $\Ostar(\Gz) = \{\text{Age}, \text{Smoke}\}$. Your draft notes that reversing
+Statin$\to$CRP is, in this instance, a return to the truth, so that claim is the false one.
+
+Your Definition~3 gives $\rval = 3$: the first failing state un-orients BMI$-$Chol, BMI$-$Smoke and
+Chol$-$Statin (\S4.4). Now count the same state in claims. Withdraw Smoke$\to$BMI and BMI$\to$Chol and
+re-close. The two claims left, Chol$\to$CRP and Statin$\to$CRP, force nothing: no arrow points into the
+chain Smoke$-$BMI$-$Chol$-$Statin, and the two arrows into CRP come from adjacent nodes, so no rule
+fires. The chain stays undirected, and that is your failing state, reached by withdrawing \emph{two}
+claims. No single withdrawal breaks $Z$: re-closure restores BMI$\to$Chol or Chol$\to$CRP if
+either is withdrawn alone, and withdrawing Smoke$\to$BMI or Statin$\to$CRP alone leaves $Z$ valid. The
+claim radius is~2, the hop radius~3, and the extra hop is Chol$\to$Statin, which nobody asserted.
+\end{exemplo}
+
+The two graphs are side by side in \figref{fig:vocab-statin}. The same arithmetic runs through your
+clinician sentence: of its three statements, «cholesterol drives prescribing» is the propagated arrow,
+and the analyst never said it.
+
+\begin{figure}[htbp]
+\centering
+\tikzset{
+  pics/statinex/.style n args={3}{code={
+    \node[nodot, fill=verdesc!12] (-smoke) at (0,2.4) {Smoke};
+    \node[nodot] (-bmi) at (1.6,2.4) {BMI};
+    \node[nodot] (-chol) at (3.2,2.4) {Chol};
+    \node[nodot] (-crp) at (4.75,1.6) {CRP};
+    \node[nodot, draw=laranjaesc, thick] (-statin) at (3.2,0.8) {Statin};
+    \node[nodot, draw=laranjaesc, thick] (-cvd) at (1.6,0.0) {CVD};
+    \node[nodot] (-bp) at (4.15,-0.75) {BP};
+    \node[nodot, fill=verdesc!12] (-age) at (1.6,-1.6) {Age};
+    \draw[aresta] (-age) -- (-bp);
+    \draw[aresta] (-age) -- (-cvd);
+    \draw[aresta] (-bp) -- (-cvd);
+    \draw[aresta] (-smoke) -- (-cvd);
+    \draw[aresta] (-statin) -- (-bp);
+    \draw[aresta] (-statin) -- (-cvd);
+    \draw[#1] (-smoke) -- (-bmi);
+    \draw[#2] (-bmi) -- (-chol);
+    \draw[#3] (-chol) -- (-statin);
+    \draw[afirmada] (-chol) -- (-crp);
+    \draw[falsa] (-statin) -- (-crp);
+  }}
+}
+\begin{tikzpicture}[font=\scriptsize\sffamily]
+\pic (g) at (0,0) {statinex={afirmada}{afirmada}{propagada}};
+\node[font=\small\sffamily\bfseries, anchor=west] at (-0.55,3.25) {$\Gz$: four claims, five orientations};
+\node[font=\tiny\sffamily, azulesc, anchor=east, align=right] at (3.05,1.6) {propagated\\ by R1};
+\node[font=\tiny\sffamily, vermesc, anchor=north west] at (4.0,1.1) {false claim};
+\node[font=\tiny\sffamily, azulesc, anchor=south] at (0.8,2.6) {claim};
+\node[font=\tiny\sffamily, azulesc, anchor=south] at (2.4,2.6) {claim};
+\node[font=\tiny\sffamily, verdesc, anchor=east, align=right] at (1.1,-1.6) {$Z = \{\text{Age}, \text{Smoke}\}$\\ valid};
+\pic (h) at (8.4,0) {statinex={livre}{livre}{livre}};
+\node[font=\small\sffamily\bfseries, anchor=west] at (7.85,3.25) {the first failing state};
+\node[font=\tiny\sffamily, vermesc, anchor=north west, align=left] at (10.45,-1.72)
+  {$Z$ fails: one extension orients\\ Statin$\to$Chol$\to$BMI$\to$Smoke,\\ so Smoke descends from Statin};
+\draw[-{Stealth[length=2.6mm]}, azulesc, line width=1.4pt] (5.55,1.25) -- (7.55,1.25)
+  node[midway, above, align=center, font=\tiny\sffamily, text width=2.3cm]
+  {withdraw Smoke$\to$BMI and BMI$\to$Chol, re-close}
+  node[midway, below, font=\scriptsize] {$\rclaim = 2$};
+\draw[-{Stealth[length=2.6mm]}, laranjaesc, line width=1.4pt] (5.55,0.15) -- (7.55,0.15)
+  node[midway, below, align=center, font=\tiny\sffamily, text width=2.3cm]
+  {un-orient BMI$-$Chol, BMI$-$Smoke, Chol$-$Statin}
+  node[midway, above, font=\scriptsize] {$\rhop = 3$};
+\end{tikzpicture}
+\caption{The same failing state is two claims and three hops away, because the third hop removes an
+orientation the closure made and the analyst never asserted. A practitioner told «two safe revisions»
+can in fact lose only one of the things they said.}
+\label{fig:vocab-statin}
+\end{figure}
+
+The example fixes what the definitions have to say. Your geometry is the first two items below, stated
+in your notation; the last two are the claim-unit objects the later chapters use.
+
+\begin{definicao}[The object, in your geometry and in claims]
+Let $\Chat$ be a CPDAG, $\Kset$ a set of orientations consistent with it, $\Gz = \mathrm{Meek}(\Chat,
+\Kset)$, $Z = \Ostar(\Gz)$, and for a knowledge state $G$ write $\Kset_G = \mathrm{dir}(G) \setminus
+\mathrm{dir}(\Chat)$.
+\begin{enumerate}[nosep, label=(\alph*)]
+\item \emph{Knowledge states}: $\mathfrak{G}_{\Chat} = \{\mathrm{Meek}(\Chat, \Kset') : \Kset'
+  \text{ consistent}\}$, with membership decided by the fixpoint test $\mathrm{Meek}(\Chat, \Kset_G) = G$.
+\item \emph{Hops}: order by model inclusion, $G \preceq H$ iff $[G] \subseteq [H]$; $d$ is the shortest
+  path in the graph of covering pairs; the hop radius is $\rhop = \min\{d(\Gz, G) : Z \text{ invalid in }
+  G\}$, your $\rval$, and certifies $\rhop - 1$ safe revisions.
+\item \emph{Claims}: the retraction ball is $\Ball{r} = \{\mathrm{Meek}(\Chat, \Kset \setminus S) : S
+  \subseteq \Kset,\ |S| \le r\}$, and the claim radius is $\rclaim = \min\{|S| : Z \text{ invalid in }
+  \mathrm{Meek}(\Chat, \Kset \setminus S)\}$. A minimising $S$ is the \emph{witness}; the certificate
+  licenses $\rclaim - 1$ withdrawn claims.
+\item \emph{Conclusions}: the knowledge interval $\Ir{r}$ is the hull of the effects identified over the
+  graphs of $\Ball{r}$, estimated with a band from $\widehat\Sigma$ and $n$; the null radius $\rnul$ is the
+  smallest $r$ at which the band contains zero.
+\end{enumerate}
+\end{definicao}
+
+One collision in the symbols: in your draft $\rval$ is the hop count of item~(b). Elsewhere in this
+document, a bare $\rval$ is the validity radius counted in claims, which the ledger computes as $\rclaim$.
+Wherever the unit matters I write $\rhop$ or $\rclaim$.
+
+\prompt[conceito=mpdag-g-k,dificuldade=0.7]{In your running example, which orientation of $\Gz$ did the
+analyst not assert, and which rule forces it?}%
+{Chol$\to$Statin. The analyst asserts BMI$\to$Chol, the edge Chol$-$Statin is undirected in the CPDAG,
+and BMI and Statin are not adjacent, so Meek's rule R1 orients Chol$\to$Statin to avoid a new unshielded
+collider at Chol. $\Gz$ therefore adds five orientations to the CPDAG, of which four are asserted.}
+
+\prompt[conceito=unidade-afirmacao,dificuldade=0.75]{State the claim radius and the hop radius of your
+running example, the claim witness, and the reason the two differ by one.}%
+{$\rclaim = 2$ with witness $\{\text{Smoke}\to\text{BMI}, \text{BMI}\to\text{Chol}\}$; $\rhop = 3$. Both
+reach the same failing state, where Smoke$-$BMI$-$Chol$-$Statin is undirected. The hop walk must also
+un-orient Chol$\to$Statin, which R1 propagated from BMI$\to$Chol; withdrawing the asserted claim removes
+that propagation with it, so the claim count does not pay for it.}
+
+Your \S4.2 also says a flip costs two moves, a retraction and then an assertion. That is true of the
+distance between two states. It is not the right reading of what a budget covers: by Meek's theorem,
+the DAGs represented by the graphs of $\Ball{r}$ are exactly the DAGs of the class that contradict at
+most $r$ of the analyst's claims (lemma L1, Chapter~\ref{ch:redefinition}). A single withdrawn claim
+already covers every world in which that claim is reversed.
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[rval]{Which word in your draft maps to our $\rhop$, and which to our $\rclaim$?}
+\antesq[gac-backdoor]{Which adjustment criterion does the repository's fast MPDAG oracle decide?}
+\end{antes}
+
+\section{The translation table}
+
+Table~\ref{tab:vocab-map} is the dictionary. The left column quotes your draft, the middle one gives
+the word used from Chapter~\ref{ch:pilot} on, and the right one says what to watch for. Instrument
+labels B2 to B7 are those of \texttt{results/\allowbreak ledger/\allowbreak TABLE4.md}.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Your draft's vocabulary and this document's. Most rows are renamings; rows 4, 6, 12 and 13
+are not.}
+\label{tab:vocab-map}
+\begin{tabular}{@{}rp{0.30\linewidth}p{0.29\linewidth}p{0.31\linewidth}@{}}
+\toprule
+& in your draft & in this document & watch for \\
+\midrule
+1 & $\Chat$, $\Kset$, $\Gz$, the optimal set & same symbols; $Z = \Ostar(\Gz)$ is the committed set & \\
+2 & knowledge state, Def.~1 & knowledge state & same object, same fixpoint test \\
+3 & $\Kset$ (\S4.1); «asserted claims» (\S6.3) & claims; one element is a claim & \\
+4 & «retracting a claim» (\S4.2): un-orient an edge of $\Kset_G$ & one hop & $\Kset_G$ holds Meek propagations too, so a hop can remove an orientation nobody asserted \\
+5 & elementary revision, covering pair, $d$ (Def.~2) & hop, covering hop, hop distance & \\
+6 & $\rval$ (Def.~3); $\rval - 1$ safe revisions & $\rhop$, the hop radius (B6) & a bare $\rval$ here is counted in claims \\
+7 & $\rclaim$ (\S6.3), no definition environment & $\rclaim$, the claim certificate (B7) & item (c) of the definition above \\
+8 & $\varphi_1$ & $\varphi_1$ & same quantity \\
+9 & separation of $X$ from the nearest member of the optimal set (\S6.1) & the free rule (B2): predict $r$ by the separation, 1 where it is undefined & your finding, turned into an instrument \\
+10 & $|\Kset|$; SHD to the data-generating DAG & the claim count (B5); SHD is an audit quantity & SHD reads the truth, as your \S5.4 says \\
+11 & survival AUC and $\tau_b$ & not used; the endpoints are the four buckets, coverage and $\Lnf$ & two designs, two panels, never pooled \\
+12 & the generalized adjustment criterion (\S2) & GAC; back-door is Pearl's & the fast MPDAG oracle decides the back-door version; the two agree on the optimal set of the graph being judged \\
+13 & (no counterpart) & knowledge interval $\Ir{r}$, null radius $\rnul$ & the conclusion-level objects of Chapters~\ref{ch:gamma} to~\ref{ch:tables} \\
+14 & «the data-generating DAG is never on the computation path» (\S6) & the observables-only invariant & next section \\
+15 & «check whether the certificate held» (\S6) & the audit and its four buckets & next section \\
+16 & statuses, censoring (\S5.4) & statuses; the inspection trigger; the stop rule & the trigger halts a sweep, the stop rule reports or widens \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+On row~12: \texttt{src/\allowbreak bkrobust/\allowbreak mpdag\_criterion/\allowbreak criterion.py} decides the back-door version,
+\texttt{src/\allowbreak bkrobust/\allowbreak gac/\allowbreak mpdag\_level.py} the GAC, and \texttt{THEOREMS.md} §14 proves they coincide on
+the optimal set of the graph in which validity is judged. The committed set $\Ostar(\Gz)$ judged in
+another graph, the truth or a retracted state, is an arbitrary set there, and the two can part:
+the ledger audit found 4 such rows (Chapters~\ref{ch:table4} and~\ref{ch:review}).
+
+\prompt[conceito=rval,dificuldade=0.7]{Your draft's $\rval$ and this document's bare $\rval$: which unit
+does each count, and which symbol does this document use to avoid the clash?}%
+{Your $\rval$ (Definition 3) counts covering hops in the space of knowledge states; this document writes
+it $\rhop$ (instrument B6). A bare $\rval$ elsewhere in this document is the validity radius counted in the
+analyst's claims, the quantity the ledger computes as $\rclaim$ (instrument B7).}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[invariante]{Name the two places where the generating DAG is allowed to enter.}
+\antesq[baldes]{A certificate licenses one safe move and the analyst made one false claim. Is the row
+covered?}
+\end{antes}
+
+\section{The invariant, and the only place the truth enters}
+
+Your \S6 and \texttt{docs/\allowbreak EVALUATION\_PLAN.md} state the same invariant in almost the same words.
+
+\begin{formulabox}[The observables-only invariant]
+Every reported quantity ($\rclaim$, $\rhop$, $\varphi_1$, the free rule, $\Ir{r}$, $\rnul$) is a
+function of $(\Chat, \Kset, X, Y, \widehat\Sigma, n)$ alone. The generating DAG enters in two places
+only: to draw the samples behind $\widehat\Sigma$, and, after every row is frozen, to audit.
+\end{formulabox}
+
+{\sloppy The ledger enforces it row by row. Every line of \texttt{results/\allowbreak ledger/\allowbreak rows.csv} carries the
+three provenance columns \texttt{true\_dag\_on\_path}, \texttt{chat\_source\_sha256} and
+\texttt{generating\_dag\_sha256}. On the oracle panel the CPDAG is the true DAG's, so rows are stamped
+\texttt{via\_Chat\_only}; on the estimated-class panel of Chapter~\ref{ch:pest} the two hashes
+differ.\par}
+
+The audit then asks one question per instrument and per row. Let $w$ be the number of the analyst's
+claims that are false at the truth. A radius $r$ \emph{covers} the row when $w \le r - 1$, that is, when
+the false claims fit inside the moves it licenses; an unreached radius covers everything.
+
+\begin{noprato}[The four buckets, \texttt{bucket()} in \texttt{experiments/\allowbreak ledger\_sweep.py}]
+\begin{tabular}{@{}lll@{}}
+& $Z$ invalid at the truth & $Z$ valid at the truth \\
+covered, $w \le r - 1$ & \textbf{dangerous} & held \\
+not covered & safe & slack \\
+\end{tabular}
+
+\smallskip
+Dangerous is the only failure: the certificate licensed as many withdrawn claims as the analyst got
+wrong, and the set was invalid. Slack is the price of caution.
+\end{noprato}
+
+Chapter~\ref{ch:table4} shows why the claim certificate cannot land in the dangerous bucket when the
+class and the validity oracle are correct, and why the hop radius can.
+
+\prompt[conceito=baldes,dificuldade=0.7]{Define the four audit buckets, including the covering condition,
+and say which one is the failure.}%
+{With $w$ the number of the analyst's claims false at the truth, a radius $r$ covers the row when
+$w \le r - 1$ (an unreached radius covers everything). Covered and $Z$ invalid at the truth: dangerous,
+the failure. Covered and valid: held. Not covered and invalid: safe. Not covered and valid: slack, the
+price of caution.}
+
+\prompt[conceito=invariante,dificuldade=0.65]{State the observables-only invariant and name the ledger
+columns that record it.}%
+{Every reported quantity is a function of $(\Chat, \Kset, X, Y, \widehat\Sigma, n)$; the generating DAG
+enters only to draw the samples and, after the rows are frozen, to audit. \texttt{results/ledger/rows.csv}
+records it in \texttt{true\_dag\_on\_path}, \texttt{chat\_source\_sha256} and
+\texttt{generating\_dag\_sha256}.}
+
+\naopasse[unidade-afirmacao]{On your running example, withdraw BMI$\to$Chol alone and re-close. Name the
+rule that restores it and the arrow that triggers the rule. If you cannot, redo the closure of
+Smoke$\to$BMI$-$Chol before reading Chapter~\ref{ch:table4}.}
+
+\subsection*{Exercises}
+
+\begin{exercicio}[metodo=drawing,conceito=retracao]
+Starting from $\Gz$ of your running example, withdraw only the false claim Statin$\to$CRP and re-close.
+Draw the resulting knowledge state, mark every edge that stays oriented with the reason it does, and give
+its hop distance from $\Gz$. Is $Z = \{\text{Age}, \text{Smoke}\}$ valid there? Finally, place on your
+drawing the state your \S4.2 calls «two moves out», the one with Statin$\to$CRP reversed.
+\end{exercicio}
+\begin{solucao}
+The remaining claims are Smoke$\to$BMI, BMI$\to$Chol and Chol$\to$CRP. R1 still orients Chol$\to$Statin
+(BMI$\to$Chol$-$Statin, BMI and Statin non-adjacent). CRP$-$Statin stays undirected: the only arrow into
+CRP comes from Chol, which is adjacent to Statin, so R1 does not fire, and Chol$\to$Statin together with
+Chol$\to$CRP is not a directed path between CRP and Statin, so R2 does not fire either. The state has four
+knowledge-induced orientations against five in $\Gz$, so it is one hop away. $Z$ stays valid: in the
+extension with CRP$\to$Statin, every back-door path from Statin to CVD passes through Smoke
+(Statin$\leftarrow$CRP$\leftarrow$Chol$\leftarrow$BMI$\leftarrow$Smoke$\to$CVD, and the same through
+Chol$\to$Statin), and Smoke is in $Z$. The state with CRP$\to$Statin asserted is one of the two extensions
+of this graph's undirected edge, so the reversal you place two moves out lies inside a single withdrawn
+claim, which is lemma L1 on your example.
+\end{solucao}
+
+\begin{exercicio}[metodo=classification,conceito=unidade-afirmacao]
+Classify each quantity as (H) hop unit, (C) claim unit, (R) conclusion level, (O) observable and
+unit-free, or (A) audit only, reading the truth. (a) «$\rval = 3$» in your \S4.4. (b) «the practitioner-facing count of safe revisions is
+$\rval - 1$». (c) «a single claim propagates to orient a 15-node chain, resulting in a structural radius of
+14», your \S6.3. (d) $\varphi_1$. (e) SHD between $\Gz$ and the data-generating DAG. (f) the smallest $r$ at
+which the band of $\Ir{r}$ contains zero. (g) the separation of Statin from the nearest member of the
+optimal set. (h) «the committed set is invalid at the truth on 28.8\,\% of certifiable rows» (a result of Chapter~\ref{ch:table4}).
+\end{exercicio}
+\begin{solucao}
+(a) H: your Definition 3 counts covering hops. (b) H: it certifies hops, and on your example the analyst
+can lose only one claim, not two. (c) H for the 14; the same row has $\rclaim = 1$, which is why your
+\S6.3 calls the safe budget zero. (d) C: the fraction of single withdrawn claims that break $Z$. (e) A: it
+needs the data-generating DAG, which is why your \S5.4 calls it an oracle baseline. (f) R: that is $\rnul$,
+counted in claims. (g) O: it is read off $\Gz$ with no radius in it, and the free rule (B2) turns it into a predicted
+radius.
+(h) A: validity at the truth is only known after the rows are frozen.
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[node distance=0.55cm and 1.55cm]
+\node[cmapc] (obj) {$\Chat$, $\Kset$, $\Gz$,\\ $Z = \Ostar(\Gz)$};
+\node[cmap, right=of obj] (space) {knowledge states,\\ your geometry};
+\node[cmapr, right=of space] (hop) {$\rhop$: covering hops\\ (your $\rval$)};
+\node[cmap, below=of obj] (ball) {retraction ball\\ $\Ball{r}$};
+\node[cmapg, below=of space] (claim) {$\rclaim$: withdrawn\\ claims};
+\node[cmap, below=of ball] (int) {$\Ir{r}$ and $\rnul$};
+\node[cmapw, below=of hop, yshift=-0.9cm] (audit) {audit after freezing:\\ dangerous, held, safe, slack};
+\draw[cedge] (obj) -- node[above]{fixpoint} (space);
+\draw[cedge] (space) -- node[above]{shortest path} (hop);
+\draw[cedge] (obj) -- node[left]{withdraw, re-close} (ball);
+\draw[cedge] (ball) -- node[above]{min $|S|$} (claim);
+\draw[cedge] (ball) -- node[left]{hull of effects} (int);
+\draw[cedge] (hop) -- node[above, sloped]{also counts propagations} (claim);
+\draw[cedge] (claim) -- node[below, sloped]{scored by} (audit);
+\draw[cedge] (hop) -- node[right]{scored by} (audit);
+\end{tikzpicture}
+\end{center}

@@ -1,0 +1,2990 @@
+{
+ "generated_by": "gen_figs.py",
+ "note": "Every plotted value, with the result file and the key (JSON) or the filter (CSV) it came from. 'inf' marks an infinite bootstrap upper end.",
+ "figures": {
+  "figs/buckets_7b.pdf": [
+   {
+    "label": "certifiable rows, D_LLM",
+    "value": 229,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.certifiable"
+   },
+   {
+    "label": "rows invalid at the truth, D_LLM",
+    "value": 66,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.truth_invalid_rows"
+   },
+   {
+    "label": "free rule: dangerous",
+    "value": 0,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B2_free_rule.buckets.dangerous (missing key = 0)"
+   },
+   {
+    "label": "free rule: safe",
+    "value": 66,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B2_free_rule.buckets.safe"
+   },
+   {
+    "label": "free rule: held",
+    "value": 102,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B2_free_rule.buckets.held"
+   },
+   {
+    "label": "free rule: slack",
+    "value": 61,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B2_free_rule.buckets.slack"
+   },
+   {
+    "label": "free rule: detection",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B2_free_rule.detection"
+   },
+   {
+    "label": "free rule: false alarm",
+    "value": 0.37423312883435583,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B2_free_rule.false_alarm"
+   },
+   {
+    "label": "hop radius: dangerous",
+    "value": 4,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B6_hop.buckets.dangerous"
+   },
+   {
+    "label": "hop radius: safe",
+    "value": 62,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B6_hop.buckets.safe"
+   },
+   {
+    "label": "hop radius: held",
+    "value": 144,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B6_hop.buckets.held"
+   },
+   {
+    "label": "hop radius: slack",
+    "value": 19,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B6_hop.buckets.slack"
+   },
+   {
+    "label": "hop radius: detection",
+    "value": 0.9393939393939394,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B6_hop.detection"
+   },
+   {
+    "label": "hop radius: false alarm",
+    "value": 0.1165644171779141,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B6_hop.false_alarm"
+   },
+   {
+    "label": "claim radius: dangerous",
+    "value": 0,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B7_claim.buckets.dangerous (missing key = 0)"
+   },
+   {
+    "label": "claim radius: safe",
+    "value": 66,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B7_claim.buckets.safe"
+   },
+   {
+    "label": "claim radius: held",
+    "value": 133,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B7_claim.buckets.held"
+   },
+   {
+    "label": "claim radius: slack",
+    "value": 30,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B7_claim.buckets.slack"
+   },
+   {
+    "label": "claim radius: detection",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B7_claim.detection"
+   },
+   {
+    "label": "claim radius: false alarm",
+    "value": 0.18404907975460122,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.ladder.B7_claim.false_alarm"
+   }
+  ],
+  "figs/supplier_scale.pdf": [
+   {
+    "label": "questions per supplier",
+    "value": 369,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.*.asked (same for all)"
+   },
+   {
+    "label": "Qwen 7B: claims kept",
+    "value": 171,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM.asserted"
+   },
+   {
+    "label": "Qwen 7B, second order: claims kept",
+    "value": 139,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_INSTR.asserted"
+   },
+   {
+    "label": "Llama 8B: claims kept",
+    "value": 223,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC.asserted"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: claims kept",
+    "value": 151,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED.asserted"
+   },
+   {
+    "label": "Qwen 32B: claims kept",
+    "value": 223,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_32B.asserted"
+   },
+   {
+    "label": "Qwen 72B: claims kept",
+    "value": 281,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B.asserted"
+   },
+   {
+    "label": "Qwen 72B, second order: claims kept",
+    "value": 261,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B_INSTR.asserted"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: claims kept",
+    "value": 170,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED_72B.asserted"
+   },
+   {
+    "label": "Llama 70B: claims kept",
+    "value": 282,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC_70B.asserted"
+   },
+   {
+    "label": "Gemma 27B: claims kept",
+    "value": 194,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_GEMMA_27B.asserted"
+   },
+   {
+    "label": "Qwen 7B: false fraction of the claims (estimate)",
+    "value": 0.32519650488400487,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM.commission_network_mean[0]"
+   },
+   {
+    "label": "Qwen 7B: false fraction of the claims (CI low)",
+    "value": 0.20962301587301585,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM.commission_network_mean[1]"
+   },
+   {
+    "label": "Qwen 7B: false fraction of the claims (CI high)",
+    "value": 0.4489087301587301,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM.commission_network_mean[2]"
+   },
+   {
+    "label": "Qwen 7B, second order: false fraction of the claims (estimate)",
+    "value": 0.37478539803017985,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_INSTR.commission_network_mean[0]"
+   },
+   {
+    "label": "Qwen 7B, second order: false fraction of the claims (CI low)",
+    "value": 0.24450167163639647,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_INSTR.commission_network_mean[1]"
+   },
+   {
+    "label": "Qwen 7B, second order: false fraction of the claims (CI high)",
+    "value": 0.5066880515647119,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_INSTR.commission_network_mean[2]"
+   },
+   {
+    "label": "Llama 8B: false fraction of the claims (estimate)",
+    "value": 0.3081631042568542,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC.commission_network_mean[0]"
+   },
+   {
+    "label": "Llama 8B: false fraction of the claims (CI low)",
+    "value": 0.20360412157287158,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC.commission_network_mean[1]"
+   },
+   {
+    "label": "Llama 8B: false fraction of the claims (CI high)",
+    "value": 0.42181637806637806,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC.commission_network_mean[2]"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: false fraction of the claims (estimate)",
+    "value": 0.3426833895951543,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED.commission_network_mean[0]"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: false fraction of the claims (CI low)",
+    "value": 0.259614067849362,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED.commission_network_mean[1]"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: false fraction of the claims (CI high)",
+    "value": 0.4308544015896957,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED.commission_network_mean[2]"
+   },
+   {
+    "label": "Qwen 32B: false fraction of the claims (estimate)",
+    "value": 0.2708023413337423,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_32B.commission_network_mean[0]"
+   },
+   {
+    "label": "Qwen 32B: false fraction of the claims (CI low)",
+    "value": 0.15379188712522046,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_32B.commission_network_mean[1]"
+   },
+   {
+    "label": "Qwen 32B: false fraction of the claims (CI high)",
+    "value": 0.40184290570764003,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_32B.commission_network_mean[2]"
+   },
+   {
+    "label": "Qwen 72B: false fraction of the claims (estimate)",
+    "value": 0.23282246427407716,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B.commission_network_mean[0]"
+   },
+   {
+    "label": "Qwen 72B: false fraction of the claims (CI low)",
+    "value": 0.13729111390401713,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B.commission_network_mean[1]"
+   },
+   {
+    "label": "Qwen 72B: false fraction of the claims (CI high)",
+    "value": 0.3376867755900014,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B.commission_network_mean[2]"
+   },
+   {
+    "label": "Qwen 72B, second order: false fraction of the claims (estimate)",
+    "value": 0.22047629789565273,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B_INSTR.commission_network_mean[0]"
+   },
+   {
+    "label": "Qwen 72B, second order: false fraction of the claims (CI low)",
+    "value": 0.1277056277056277,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B_INSTR.commission_network_mean[1]"
+   },
+   {
+    "label": "Qwen 72B, second order: false fraction of the claims (CI high)",
+    "value": 0.3222839884130207,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_72B_INSTR.commission_network_mean[2]"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: false fraction of the claims (estimate)",
+    "value": 0.3324290880626573,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED_72B.commission_network_mean[0]"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: false fraction of the claims (CI low)",
+    "value": 0.2293202129336583,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED_72B.commission_network_mean[1]"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: false fraction of the claims (CI high)",
+    "value": 0.4486732172932969,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_SCRAMBLED_72B.commission_network_mean[2]"
+   },
+   {
+    "label": "Llama 70B: false fraction of the claims (estimate)",
+    "value": 0.25860563048063046,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC_70B.commission_network_mean[0]"
+   },
+   {
+    "label": "Llama 70B: false fraction of the claims (CI low)",
+    "value": 0.15282183094683094,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC_70B.commission_network_mean[1]"
+   },
+   {
+    "label": "Llama 70B: false fraction of the claims (CI high)",
+    "value": 0.3745525308025308,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_SRC_70B.commission_network_mean[2]"
+   },
+   {
+    "label": "Gemma 27B: false fraction of the claims (estimate)",
+    "value": 0.32435246745591567,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_GEMMA_27B.commission_network_mean[0]"
+   },
+   {
+    "label": "Gemma 27B: false fraction of the claims (CI low)",
+    "value": 0.21848037020450814,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_GEMMA_27B.commission_network_mean[1]"
+   },
+   {
+    "label": "Gemma 27B: false fraction of the claims (CI high)",
+    "value": 0.4308913308913308,
+    "source": "~/bkrobust/results/elicit/knowledge_audit.json",
+    "key": "per_condition.D_LLM_GEMMA_27B.commission_network_mean[2]"
+   },
+   {
+    "label": "random: false fraction of the claims (estimate)",
+    "value": 0.4790116662998019,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_RAND.false_claim_fraction[0]"
+   },
+   {
+    "label": "random: false fraction of the claims (CI low)",
+    "value": 0.39802693208430917,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_RAND.false_claim_fraction[1]"
+   },
+   {
+    "label": "random: false fraction of the claims (CI high)",
+    "value": 0.558875128998968,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_RAND.false_claim_fraction[2]"
+   },
+   {
+    "label": "Qwen 7B: committed set invalid at the truth (estimate)",
+    "value": 0.28820960698689957,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Qwen 7B: committed set invalid at the truth (CI low)",
+    "value": 0.1553398058252427,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Qwen 7B: committed set invalid at the truth (CI high)",
+    "value": 0.435,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Qwen 7B, second order: committed set invalid at the truth (estimate)",
+    "value": 0.2766990291262136,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_INSTR.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Qwen 7B, second order: committed set invalid at the truth (CI low)",
+    "value": 0.1485148514851485,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_INSTR.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Qwen 7B, second order: committed set invalid at the truth (CI high)",
+    "value": 0.4262948207171315,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_INSTR.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Llama 8B: committed set invalid at the truth (estimate)",
+    "value": 0.23045267489711935,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_SRC.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Llama 8B: committed set invalid at the truth (CI low)",
+    "value": 0.13025210084033614,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_SRC.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Llama 8B: committed set invalid at the truth (CI high)",
+    "value": 0.3444976076555024,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_SRC.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: committed set invalid at the truth (estimate)",
+    "value": 0.3401015228426396,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_SCRAMBLED.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: committed set invalid at the truth (CI low)",
+    "value": 0.2111801242236025,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_SCRAMBLED.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: committed set invalid at the truth (CI high)",
+    "value": 0.4669603524229075,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_SCRAMBLED.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Qwen 32B: committed set invalid at the truth (estimate)",
+    "value": 0.20098039215686275,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_32B.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Qwen 32B: committed set invalid at the truth (CI low)",
+    "value": 0.0892018779342723,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_32B.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Qwen 32B: committed set invalid at the truth (CI high)",
+    "value": 0.34054054054054056,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_32B.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Qwen 72B: committed set invalid at the truth (estimate)",
+    "value": 0.2982456140350877,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_72B.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Qwen 72B: committed set invalid at the truth (CI low)",
+    "value": 0.17073170731707318,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_72B.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Qwen 72B: committed set invalid at the truth (CI high)",
+    "value": 0.43137254901960786,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_72B.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Qwen 72B, second order: committed set invalid at the truth (estimate)",
+    "value": 0.2831541218637993,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_72B_INSTR.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Qwen 72B, second order: committed set invalid at the truth (CI low)",
+    "value": 0.14963503649635038,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_72B_INSTR.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Qwen 72B, second order: committed set invalid at the truth (CI high)",
+    "value": 0.43205574912891986,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_72B_INSTR.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: committed set invalid at the truth (estimate)",
+    "value": 0.3072916666666667,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_SCRAMBLED_72B.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: committed set invalid at the truth (CI low)",
+    "value": 0.1751412429378531,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_SCRAMBLED_72B.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: committed set invalid at the truth (CI high)",
+    "value": 0.42857142857142855,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_SCRAMBLED_72B.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Llama 70B: committed set invalid at the truth (estimate)",
+    "value": 0.24719101123595505,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_SRC_70B.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Llama 70B: committed set invalid at the truth (CI low)",
+    "value": 0.13427561837455831,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_SRC_70B.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Llama 70B: committed set invalid at the truth (CI high)",
+    "value": 0.3861788617886179,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_SRC_70B.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "Gemma 27B: committed set invalid at the truth (estimate)",
+    "value": 0.30798479087452474,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_GEMMA_27B.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "Gemma 27B: committed set invalid at the truth (CI low)",
+    "value": 0.18025751072961374,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_GEMMA_27B.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "Gemma 27B: committed set invalid at the truth (CI high)",
+    "value": 0.43795620437956206,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_LLM_GEMMA_27B.z_invalid_at_truth[2]"
+   },
+   {
+    "label": "random: committed set invalid at the truth (estimate)",
+    "value": 0.37750385208012327,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_RAND.z_invalid_at_truth[0]"
+   },
+   {
+    "label": "random: committed set invalid at the truth (CI low)",
+    "value": 0.29464285714285715,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_RAND.z_invalid_at_truth[1]"
+   },
+   {
+    "label": "random: committed set invalid at the truth (CI high)",
+    "value": 0.4603174603174603,
+    "source": "~/bkrobust/results/ledger/table4.json",
+    "key": "arms.D_RAND.z_invalid_at_truth[2]"
+   }
+  ],
+  "figs/cascade.pdf": [
+   {
+    "label": "oracle: per-network mean",
+    "value": 2.970831052727604,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.A_ORACLE.mean"
+   },
+   {
+    "label": "oracle: per-network median",
+    "value": 1.5,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.A_ORACLE.median"
+   },
+   {
+    "label": "oracle: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.A_ORACLE.networks"
+   },
+   {
+    "label": "true claims: per-network mean",
+    "value": 1.2143060643060641,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.A_TRUE.mean"
+   },
+   {
+    "label": "true claims: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.A_TRUE.median"
+   },
+   {
+    "label": "true claims: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.A_TRUE.networks"
+   },
+   {
+    "label": "Qwen 7B: per-network mean",
+    "value": 1.8425925925925926,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM.mean"
+   },
+   {
+    "label": "Qwen 7B: per-network median",
+    "value": 1.2,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM.median"
+   },
+   {
+    "label": "Qwen 7B: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM.networks"
+   },
+   {
+    "label": "Qwen 7B, second order: per-network mean",
+    "value": 1.49558856781079,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_INSTR.mean"
+   },
+   {
+    "label": "Qwen 7B, second order: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_INSTR.median"
+   },
+   {
+    "label": "Qwen 7B, second order: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_INSTR.networks"
+   },
+   {
+    "label": "Llama 8B: per-network mean",
+    "value": 1.5481922398589065,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_SRC.mean"
+   },
+   {
+    "label": "Llama 8B: per-network median",
+    "value": 1.2142857142857142,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_SRC.median"
+   },
+   {
+    "label": "Llama 8B: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_SRC.networks"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: per-network mean",
+    "value": 1.4363089133089133,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_SCRAMBLED.mean"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_SCRAMBLED.median"
+   },
+   {
+    "label": "Qwen 7B, scrambled names: networks",
+    "value": 25,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_SCRAMBLED.networks"
+   },
+   {
+    "label": "Qwen 32B: per-network mean",
+    "value": 1.1819283163801122,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_32B.mean"
+   },
+   {
+    "label": "Qwen 32B: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_32B.median"
+   },
+   {
+    "label": "Qwen 32B: networks",
+    "value": 23,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_32B.networks"
+   },
+   {
+    "label": "Qwen 72B: per-network mean",
+    "value": 1.153937728937729,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_72B.mean"
+   },
+   {
+    "label": "Qwen 72B: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_72B.median"
+   },
+   {
+    "label": "Qwen 72B: networks",
+    "value": 26,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_72B.networks"
+   },
+   {
+    "label": "Qwen 72B, second order: per-network mean",
+    "value": 1.162408424908425,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_72B_INSTR.mean"
+   },
+   {
+    "label": "Qwen 72B, second order: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_72B_INSTR.median"
+   },
+   {
+    "label": "Qwen 72B, second order: networks",
+    "value": 26,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_72B_INSTR.networks"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: per-network mean",
+    "value": 1.3783216722361462,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_SCRAMBLED_72B.mean"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: per-network median",
+    "value": 1.1414473684210527,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_SCRAMBLED_72B.median"
+   },
+   {
+    "label": "Qwen 72B, scrambled names: networks",
+    "value": 24,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_SCRAMBLED_72B.networks"
+   },
+   {
+    "label": "Llama 70B: per-network mean",
+    "value": 1.3481330911886469,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_SRC_70B.mean"
+   },
+   {
+    "label": "Llama 70B: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_SRC_70B.median"
+   },
+   {
+    "label": "Llama 70B: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_SRC_70B.networks"
+   },
+   {
+    "label": "Gemma 27B: per-network mean",
+    "value": 1.3546972703222704,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_GEMMA_27B.mean"
+   },
+   {
+    "label": "Gemma 27B: per-network median",
+    "value": 1.0,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_GEMMA_27B.median"
+   },
+   {
+    "label": "Gemma 27B: networks",
+    "value": 24,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_LLM_GEMMA_27B.networks"
+   },
+   {
+    "label": "random: per-network mean",
+    "value": 1.7032967032967032,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_RAND.mean"
+   },
+   {
+    "label": "random: per-network median",
+    "value": 1.1428571428571428,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_RAND.median"
+   },
+   {
+    "label": "random: networks",
+    "value": 26,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "per_arm.D_RAND.networks"
+   },
+   {
+    "label": "oracle − Qwen 7B: mean difference",
+    "value": 1.1282384601350117,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM.mean_diff"
+   },
+   {
+    "label": "oracle − Qwen 7B: CI low",
+    "value": -0.2579213038983154,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM.ci[0]"
+   },
+   {
+    "label": "oracle − Qwen 7B: CI high",
+    "value": 2.85927902450891,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM.ci[1]"
+   },
+   {
+    "label": "oracle − Qwen 7B: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM.networks"
+   },
+   {
+    "label": "oracle − Qwen 7B: verdict",
+    "value": "not separated",
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM.verdict"
+   },
+   {
+    "label": "oracle − Qwen 72B: mean difference",
+    "value": 1.2773099027409374,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_72B.mean_diff"
+   },
+   {
+    "label": "oracle − Qwen 72B: CI low",
+    "value": 0.43111026904130356,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_72B.ci[0]"
+   },
+   {
+    "label": "oracle − Qwen 72B: CI high",
+    "value": 2.5038461538461543,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_72B.ci[1]"
+   },
+   {
+    "label": "oracle − Qwen 72B: networks",
+    "value": 26,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_72B.networks"
+   },
+   {
+    "label": "oracle − Qwen 72B: verdict",
+    "value": "separated",
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_72B.verdict"
+   },
+   {
+    "label": "oracle − Llama 70B: mean difference",
+    "value": 1.622697961538958,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_SRC_70B.mean_diff"
+   },
+   {
+    "label": "oracle − Llama 70B: CI low",
+    "value": 0.32115945995256334,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_SRC_70B.ci[0]"
+   },
+   {
+    "label": "oracle − Llama 70B: CI high",
+    "value": 3.2742391353502462,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_SRC_70B.ci[1]"
+   },
+   {
+    "label": "oracle − Llama 70B: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_SRC_70B.networks"
+   },
+   {
+    "label": "oracle − Llama 70B: verdict",
+    "value": "separated",
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_ORACLE - D_LLM_SRC_70B.verdict"
+   },
+   {
+    "label": "true claims − Qwen 7B: mean difference",
+    "value": -0.6282865282865282,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_TRUE - D_LLM.mean_diff"
+   },
+   {
+    "label": "true claims − Qwen 7B: CI low",
+    "value": -1.515873015873016,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_TRUE - D_LLM.ci[0]"
+   },
+   {
+    "label": "true claims − Qwen 7B: CI high",
+    "value": -0.015059015059015055,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_TRUE - D_LLM.ci[1]"
+   },
+   {
+    "label": "true claims − Qwen 7B: networks",
+    "value": 27,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_TRUE - D_LLM.networks"
+   },
+   {
+    "label": "true claims − Qwen 7B: verdict",
+    "value": "reversed",
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.A_TRUE - D_LLM.verdict"
+   },
+   {
+    "label": "Qwen 72B − Qwen 7B: mean difference",
+    "value": -0.721062271062271,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.D_LLM_72B - D_LLM.mean_diff"
+   },
+   {
+    "label": "Qwen 72B − Qwen 7B: CI low",
+    "value": -1.5873168498168495,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.D_LLM_72B - D_LLM.ci[0]"
+   },
+   {
+    "label": "Qwen 72B − Qwen 7B: CI high",
+    "value": -0.09945054945054944,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.D_LLM_72B - D_LLM.ci[1]"
+   },
+   {
+    "label": "Qwen 72B − Qwen 7B: networks",
+    "value": 26,
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.D_LLM_72B - D_LLM.networks"
+   },
+   {
+    "label": "Qwen 72B − Qwen 7B: verdict",
+    "value": "reversed",
+    "source": "~/bkrobust/results/ledger/cascade_test.json",
+    "key": "paired.D_LLM_72B - D_LLM.verdict"
+   }
+  ],
+  "figs/pest_dangerous.pdf": [
+   {
+    "label": "D_LLM (estimated CPDAG): certifiable",
+    "value": 38,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_LLM, status=ok (count)"
+   },
+   {
+    "label": "D_LLM (estimated CPDAG): invalid at the truth",
+    "value": 28,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_LLM, status=ok, z_valid_at_truth=0 (count)"
+   },
+   {
+    "label": "D_LLM (estimated CPDAG): claim radius dangerous",
+    "value": 14,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_LLM, status=ok, bucket_B7_claim=dangerous (count)"
+   },
+   {
+    "label": "D_LLM (estimated CPDAG): hop radius dangerous",
+    "value": 14,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_LLM, status=ok, bucket_B6_hop=dangerous (count)"
+   },
+   {
+    "label": "D_RAND (estimated CPDAG): certifiable",
+    "value": 116,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_RAND, status=ok (count)"
+   },
+   {
+    "label": "D_RAND (estimated CPDAG): invalid at the truth",
+    "value": 85,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_RAND, status=ok, z_valid_at_truth=0 (count)"
+   },
+   {
+    "label": "D_RAND (estimated CPDAG): claim radius dangerous",
+    "value": 43,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_RAND, status=ok, bucket_B7_claim=dangerous (count)"
+   },
+   {
+    "label": "D_RAND (estimated CPDAG): hop radius dangerous",
+    "value": 44,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_RAND, status=ok, bucket_B6_hop=dangerous (count)"
+   },
+   {
+    "label": "D_DEGEN (estimated CPDAG): certifiable",
+    "value": 19,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_DEGEN, status=ok (count)"
+   },
+   {
+    "label": "D_DEGEN (estimated CPDAG): invalid at the truth",
+    "value": 14,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_DEGEN, status=ok, z_valid_at_truth=0 (count)"
+   },
+   {
+    "label": "D_DEGEN (estimated CPDAG): claim radius dangerous",
+    "value": 14,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_DEGEN, status=ok, bucket_B7_claim=dangerous (count)"
+   },
+   {
+    "label": "D_DEGEN (estimated CPDAG): hop radius dangerous",
+    "value": 14,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=D_DEGEN, status=ok, bucket_B6_hop=dangerous (count)"
+   },
+   {
+    "label": "A_TRUE (estimated CPDAG): certifiable",
+    "value": 34,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_TRUE, status=ok (count)"
+   },
+   {
+    "label": "A_TRUE (estimated CPDAG): invalid at the truth",
+    "value": 23,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_TRUE, status=ok, z_valid_at_truth=0 (count)"
+   },
+   {
+    "label": "A_TRUE (estimated CPDAG): claim radius dangerous",
+    "value": 23,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_TRUE, status=ok, bucket_B7_claim=dangerous (count)"
+   },
+   {
+    "label": "A_TRUE (estimated CPDAG): hop radius dangerous",
+    "value": 23,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_TRUE, status=ok, bucket_B6_hop=dangerous (count)"
+   },
+   {
+    "label": "A_ORACLE (estimated CPDAG): certifiable",
+    "value": 37,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_ORACLE, status=ok (count)"
+   },
+   {
+    "label": "A_ORACLE (estimated CPDAG): invalid at the truth",
+    "value": 22,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_ORACLE, status=ok, z_valid_at_truth=0 (count)"
+   },
+   {
+    "label": "A_ORACLE (estimated CPDAG): claim radius dangerous",
+    "value": 22,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_ORACLE, status=ok, bucket_B7_claim=dangerous (count)"
+   },
+   {
+    "label": "A_ORACLE (estimated CPDAG): hop radius dangerous",
+    "value": 22,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "arm=A_ORACLE, status=ok, bucket_B6_hop=dangerous (count)"
+   },
+   {
+    "label": "D_LLM (oracle CPDAG): certifiable",
+    "value": 26,
+    "source": "~/bkrobust/results/ledger/rows.csv",
+    "key": "arm=D_LLM, network in ['arth150', 'ecoli70', 'magic-irri', 'magic-niab'], status=ok (count)"
+   },
+   {
+    "label": "D_LLM (oracle CPDAG): invalid at the truth",
+    "value": 7,
+    "source": "~/bkrobust/results/ledger/rows.csv",
+    "key": "arm=D_LLM, network in ['arth150', 'ecoli70', 'magic-irri', 'magic-niab'], status=ok, z_valid_at_truth=0 (count)"
+   },
+   {
+    "label": "D_LLM (oracle CPDAG): claim radius dangerous",
+    "value": 0,
+    "source": "~/bkrobust/results/ledger/rows.csv",
+    "key": "arm=D_LLM, network in ['arth150', 'ecoli70', 'magic-irri', 'magic-niab'], status=ok, bucket_B7_claim=dangerous (count)"
+   },
+   {
+    "label": "D_LLM (oracle CPDAG): hop radius dangerous",
+    "value": 0,
+    "source": "~/bkrobust/results/ledger/rows.csv",
+    "key": "arm=D_LLM, network in ['arth150', 'ecoli70', 'magic-irri', 'magic-niab'], status=ok, bucket_B6_hop=dangerous (count)"
+   },
+   {
+    "label": "CPDAG of the estimated panel",
+    "value": "pc_fisherz_n5000",
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "cpdag_source (distinct values)"
+   },
+   {
+    "label": "networks of the estimated panel",
+    "value": 4,
+    "source": "~/bkrobust/results/pest/rows.csv",
+    "key": "network (distinct values)"
+   }
+  ],
+  "figs/l95_crossing.pdf": [
+   {
+    "label": "panel A, b=0, PLAIN: L95",
+    "value": 0.4638743508880386,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.PLAIN.L95"
+   },
+   {
+    "label": "panel A, b=0, PLAIN: CI low",
+    "value": 0.34608782624254086,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.PLAIN.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, PLAIN: CI high",
+    "value": 0.5656574310240099,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.PLAIN.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, PLAIN: L95",
+    "value": 5.123373788814526,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.PLAIN.L95"
+   },
+   {
+    "label": "panel A, b=1, PLAIN: CI low",
+    "value": 3.2356622782176245,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.PLAIN.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, PLAIN: CI high",
+    "value": "inf",
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.PLAIN.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, PLAIN: L95",
+    "value": 4.081970053883566,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.PLAIN.L95"
+   },
+   {
+    "label": "panel A, b=2, PLAIN: CI low",
+    "value": 2.7122566204173673,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.PLAIN.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, PLAIN: CI high",
+    "value": "inf",
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.PLAIN.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0, SCREEN: L95",
+    "value": 0.931530357054074,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.SCREEN.L95"
+   },
+   {
+    "label": "panel A, b=0, SCREEN: CI low",
+    "value": 0.8139771980770975,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.SCREEN.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, SCREEN: CI high",
+    "value": 0.976215272176636,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.SCREEN.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, SCREEN: L95",
+    "value": 0.6906195576424162,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.SCREEN.L95"
+   },
+   {
+    "label": "panel A, b=1, SCREEN: CI low",
+    "value": 0.5038467685217054,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.SCREEN.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, SCREEN: CI high",
+    "value": 0.921980811079986,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.SCREEN.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, SCREEN: L95",
+    "value": 5.966533711254721,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.SCREEN.L95"
+   },
+   {
+    "label": "panel A, b=2, SCREEN: CI low",
+    "value": 2.8804644316095325,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.SCREEN.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, SCREEN: CI high",
+    "value": 12.536333855531836,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.SCREEN.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0, STOP1: L95",
+    "value": 0.955524896326801,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.STOP1.L95"
+   },
+   {
+    "label": "panel A, b=0, STOP1: CI low",
+    "value": 0.8624857084836786,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.STOP1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, STOP1: CI high",
+    "value": 0.9875811934865255,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.STOP1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, STOP1: L95",
+    "value": 0.714814850493409,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.STOP1.L95"
+   },
+   {
+    "label": "panel A, b=1, STOP1: CI low",
+    "value": 0.5191233194649395,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.STOP1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, STOP1: CI high",
+    "value": 0.9240412162258222,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.STOP1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, STOP1: L95",
+    "value": 4.640073119692839,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.STOP1.L95"
+   },
+   {
+    "label": "panel A, b=2, STOP1: CI low",
+    "value": 2.373452408485054,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.STOP1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, STOP1: CI high",
+    "value": 12.887353098298616,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.STOP1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0, I1: L95",
+    "value": 0.9566125907421328,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.I1.L95"
+   },
+   {
+    "label": "panel A, b=0, I1: CI low",
+    "value": 0.8657543896539113,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.I1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, I1: CI high",
+    "value": 0.9878032499346782,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.I1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, I1: L95",
+    "value": 0.8505133028794617,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.I1.L95"
+   },
+   {
+    "label": "panel A, b=1, I1: CI low",
+    "value": 0.7601921278873595,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.I1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, I1: CI high",
+    "value": 0.9397631508108965,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.I1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, I1: L95",
+    "value": 4.2337839342872305,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.I1.L95"
+   },
+   {
+    "label": "panel A, b=2, I1: CI low",
+    "value": 1.4252915914197473,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.I1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, I1: CI high",
+    "value": 10.51496926970985,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.I1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0, STOP2: L95",
+    "value": 0.9829011107207433,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.STOP2.L95"
+   },
+   {
+    "label": "panel A, b=0, STOP2: CI low",
+    "value": 0.9346664807165512,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.STOP2.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, STOP2: CI high",
+    "value": 0.9996022809760947,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.STOP2.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, STOP2: L95",
+    "value": 0.97970720466617,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.STOP2.L95"
+   },
+   {
+    "label": "panel A, b=1, STOP2: CI low",
+    "value": 0.9328855839946265,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.STOP2.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, STOP2: CI high",
+    "value": 0.9973871381468975,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.STOP2.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, STOP2: L95",
+    "value": 0.7905015633710277,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.STOP2.L95"
+   },
+   {
+    "label": "panel A, b=2, STOP2: CI low",
+    "value": 0.6698592212324146,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.STOP2.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, STOP2: CI high",
+    "value": 0.896674508459839,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.STOP2.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0, I2: L95",
+    "value": 0.98356651285766,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.I2.L95"
+   },
+   {
+    "label": "panel A, b=0, I2: CI low",
+    "value": 0.937562438665678,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.I2.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, I2: CI high",
+    "value": 0.9996022809760947,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.I2.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, I2: L95",
+    "value": 0.9803602892186902,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.I2.L95"
+   },
+   {
+    "label": "panel A, b=1, I2: CI low",
+    "value": 0.9357608777552526,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.I2.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, I2: CI high",
+    "value": 0.9973871381468975,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.I2.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, I2: L95",
+    "value": 0.8472883288859682,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.I2.L95"
+   },
+   {
+    "label": "panel A, b=2, I2: CI low",
+    "value": 0.7411237211013472,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.I2.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, I2: CI high",
+    "value": 0.9424125888738393,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.I2.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0, BLANKET: L95",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.BLANKET.L95"
+   },
+   {
+    "label": "panel A, b=0, BLANKET: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.BLANKET.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, BLANKET: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.BLANKET.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, BLANKET: L95",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.BLANKET.L95"
+   },
+   {
+    "label": "panel A, b=1, BLANKET: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.BLANKET.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, BLANKET: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.BLANKET.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, BLANKET: L95",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.BLANKET.L95"
+   },
+   {
+    "label": "panel A, b=2, BLANKET: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.BLANKET.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, BLANKET: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.BLANKET.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0, FAR1: L95",
+    "value": 0.6550338227768174,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.FAR1.L95"
+   },
+   {
+    "label": "panel A, b=0, FAR1: CI low",
+    "value": 0.491073780410956,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.FAR1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=0, FAR1: CI high",
+    "value": 0.745836120254498,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.procedures.FAR1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=1, FAR1: L95",
+    "value": 10.7712897955291,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.FAR1.L95"
+   },
+   {
+    "label": "panel A, b=1, FAR1: CI low",
+    "value": 6.046276035679294,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.FAR1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=1, FAR1: CI high",
+    "value": "inf",
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.procedures.FAR1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=2, FAR1: L95",
+    "value": 7.5392874102147776,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.FAR1.L95"
+   },
+   {
+    "label": "panel A, b=2, FAR1: CI low",
+    "value": 4.744654027502002,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.FAR1.L95_ci[0]"
+   },
+   {
+    "label": "panel A, b=2, FAR1: CI high",
+    "value": "inf",
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.procedures.FAR1.L95_ci[1]"
+   },
+   {
+    "label": "panel A, b=0: informative rows",
+    "value": 391,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.rows"
+   },
+   {
+    "label": "panel A, b=0: networks",
+    "value": 23,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=0.networks"
+   },
+   {
+    "label": "panel A, b=1: informative rows",
+    "value": 359,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.rows"
+   },
+   {
+    "label": "panel A, b=1: networks",
+    "value": 23,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=1.networks"
+   },
+   {
+    "label": "panel A, b=2: informative rows",
+    "value": 131,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.rows"
+   },
+   {
+    "label": "panel A, b=2: networks",
+    "value": 9,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.A|1000.b=2.networks"
+   },
+   {
+    "label": "panel B, b=0, PLAIN: L95",
+    "value": 0.8402384489670409,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.PLAIN.L95"
+   },
+   {
+    "label": "panel B, b=0, PLAIN: CI low",
+    "value": 0.7649216119405999,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.PLAIN.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, PLAIN: CI high",
+    "value": 0.8843329370645919,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.PLAIN.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, PLAIN: L95",
+    "value": 3.3161459204079122,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.PLAIN.L95"
+   },
+   {
+    "label": "panel B, b=1, PLAIN: CI low",
+    "value": 0.8104897691979485,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.PLAIN.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, PLAIN: CI high",
+    "value": 4.594280841660732,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.PLAIN.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, PLAIN: L95",
+    "value": 2.5875866467097417,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.PLAIN.L95"
+   },
+   {
+    "label": "panel B, b=2, PLAIN: CI low",
+    "value": 0.698400052194209,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.PLAIN.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, PLAIN: CI high",
+    "value": 5.252387739121335,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.PLAIN.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0, SCREEN: L95",
+    "value": 0.9693545516436687,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.SCREEN.L95"
+   },
+   {
+    "label": "panel B, b=0, SCREEN: CI low",
+    "value": 0.962949508823215,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.SCREEN.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, SCREEN: CI high",
+    "value": 0.9806101547903889,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.SCREEN.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, SCREEN: L95",
+    "value": 0.9698351750353876,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.SCREEN.L95"
+   },
+   {
+    "label": "panel B, b=1, SCREEN: CI low",
+    "value": 0.9366504902716665,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.SCREEN.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, SCREEN: CI high",
+    "value": 0.9993786951972969,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.SCREEN.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, SCREEN: L95",
+    "value": 0.8072369250663874,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.SCREEN.L95"
+   },
+   {
+    "label": "panel B, b=2, SCREEN: CI low",
+    "value": 0.7182859179549778,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.SCREEN.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, SCREEN: CI high",
+    "value": 5.926697390384741,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.SCREEN.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0, STOP1: L95",
+    "value": 0.9784711831931785,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.STOP1.L95"
+   },
+   {
+    "label": "panel B, b=0, STOP1: CI low",
+    "value": 0.9646528986610656,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.STOP1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, STOP1: CI high",
+    "value": 0.9927244674036629,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.STOP1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, STOP1: L95",
+    "value": 0.9738976723961354,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.STOP1.L95"
+   },
+   {
+    "label": "panel B, b=1, STOP1: CI low",
+    "value": 0.944211913784412,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.STOP1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, STOP1: CI high",
+    "value": 0.9993786951972969,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.STOP1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, STOP1: L95",
+    "value": 0.8760174416576822,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.STOP1.L95"
+   },
+   {
+    "label": "panel B, b=2, STOP1: CI low",
+    "value": 0.8323447742678785,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.STOP1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, STOP1: CI high",
+    "value": 6.12405572878721,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.STOP1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0, I1: L95",
+    "value": 0.9791432420542665,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.I1.L95"
+   },
+   {
+    "label": "panel B, b=0, I1: CI low",
+    "value": 0.9646528986610656,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.I1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, I1: CI high",
+    "value": 0.99408974154274,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.I1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, I1: L95",
+    "value": 0.9738976723961354,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.I1.L95"
+   },
+   {
+    "label": "panel B, b=1, I1: CI low",
+    "value": 0.944211913784412,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.I1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, I1: CI high",
+    "value": 0.9993786951972969,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.I1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, I1: L95",
+    "value": 0.8872379529360412,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.I1.L95"
+   },
+   {
+    "label": "panel B, b=2, I1: CI low",
+    "value": 0.8499401196387577,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.I1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, I1: CI high",
+    "value": 6.073872696383351,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.I1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0, STOP2: L95",
+    "value": 0.9966126647667819,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.STOP2.L95"
+   },
+   {
+    "label": "panel B, b=0, STOP2: CI low",
+    "value": 0.9912860815564476,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.STOP2.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, STOP2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.STOP2.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, STOP2: L95",
+    "value": 0.9888154559911599,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.STOP2.L95"
+   },
+   {
+    "label": "panel B, b=1, STOP2: CI low",
+    "value": 0.9641450828139349,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.STOP2.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, STOP2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.STOP2.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, STOP2: L95",
+    "value": 0.9446262734675703,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.STOP2.L95"
+   },
+   {
+    "label": "panel B, b=2, STOP2: CI low",
+    "value": 0.8838397980983836,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.STOP2.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, STOP2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.STOP2.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0, I2: L95",
+    "value": 0.9966126647667819,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.I2.L95"
+   },
+   {
+    "label": "panel B, b=0, I2: CI low",
+    "value": 0.9912860815564476,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.I2.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, I2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.I2.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, I2: L95",
+    "value": 0.9888154559911599,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.I2.L95"
+   },
+   {
+    "label": "panel B, b=1, I2: CI low",
+    "value": 0.9641450828139349,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.I2.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, I2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.I2.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, I2: L95",
+    "value": 0.9446262734675703,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.I2.L95"
+   },
+   {
+    "label": "panel B, b=2, I2: CI low",
+    "value": 0.8838397980983836,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.I2.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, I2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.I2.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0, BLANKET: L95",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.BLANKET.L95"
+   },
+   {
+    "label": "panel B, b=0, BLANKET: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.BLANKET.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, BLANKET: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.BLANKET.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, BLANKET: L95",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.BLANKET.L95"
+   },
+   {
+    "label": "panel B, b=1, BLANKET: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.BLANKET.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, BLANKET: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.BLANKET.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, BLANKET: L95",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.BLANKET.L95"
+   },
+   {
+    "label": "panel B, b=2, BLANKET: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.BLANKET.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, BLANKET: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.BLANKET.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0, FAR1: L95",
+    "value": 0.8616507687038789,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.FAR1.L95"
+   },
+   {
+    "label": "panel B, b=0, FAR1: CI low",
+    "value": 0.7810104765723768,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.FAR1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=0, FAR1: CI high",
+    "value": 0.9138840759849856,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.procedures.FAR1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=1, FAR1: L95",
+    "value": 3.5228183997891267,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.FAR1.L95"
+   },
+   {
+    "label": "panel B, b=1, FAR1: CI low",
+    "value": 0.8313798355159093,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.FAR1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=1, FAR1: CI high",
+    "value": 4.699823966177998,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.procedures.FAR1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=2, FAR1: L95",
+    "value": 1.9319293514534568,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.FAR1.L95"
+   },
+   {
+    "label": "panel B, b=2, FAR1: CI low",
+    "value": 0.8309884275595206,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.FAR1.L95_ci[0]"
+   },
+   {
+    "label": "panel B, b=2, FAR1: CI high",
+    "value": 5.588854727118161,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.procedures.FAR1.L95_ci[1]"
+   },
+   {
+    "label": "panel B, b=0: informative rows",
+    "value": 69,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.rows"
+   },
+   {
+    "label": "panel B, b=0: networks",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=0.networks"
+   },
+   {
+    "label": "panel B, b=1: informative rows",
+    "value": 44,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.rows"
+   },
+   {
+    "label": "panel B, b=1: networks",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=1.networks"
+   },
+   {
+    "label": "panel B, b=2: informative rows",
+    "value": 35,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.rows"
+   },
+   {
+    "label": "panel B, b=2: networks",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "controlled.B|1000.b=2.networks"
+   }
+  ],
+  "figs/r0_distribution.pdf": [
+   {
+    "label": "panel A: networks (source=frame)",
+    "value": 23,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "panel=A, source=frame, distinct networks"
+   },
+   {
+    "label": "panel A, CTRL_b0: rows with a conclusion",
+    "value": 221,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=A, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel A, CTRL_b0: r0_pop=1",
+    "value": 71,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b0: r0_pop=2",
+    "value": 13,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b0: r0_pop=3",
+    "value": 3,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b0: r0_pop=4",
+    "value": 134,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b0: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel A, CTRL_b0: fraction r0_pop=1",
+    "value": 0.3212669683257919,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, CTRL_b0: fraction r0_pop=2",
+    "value": 0.058823529411764705,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, CTRL_b0: fraction r0_pop=3",
+    "value": 0.013574660633484163,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, CTRL_b0: fraction r0_pop=4",
+    "value": 0.6063348416289592,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, CTRL_b1: rows with a conclusion",
+    "value": 214,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=A, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel A, CTRL_b1: r0_pop=1",
+    "value": 76,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b1: r0_pop=2",
+    "value": 20,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b1: r0_pop=3",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b1: r0_pop=4",
+    "value": 114,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel A, CTRL_b1: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel A, CTRL_b1: fraction r0_pop=1",
+    "value": 0.35514018691588783,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, CTRL_b1: fraction r0_pop=2",
+    "value": 0.09345794392523364,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, CTRL_b1: fraction r0_pop=3",
+    "value": 0.018691588785046728,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, CTRL_b1: fraction r0_pop=4",
+    "value": 0.5327102803738317,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM: rows with a conclusion",
+    "value": 234,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=A, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel A, D_LLM: r0_pop=1",
+    "value": 85,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel A, D_LLM: r0_pop=2",
+    "value": 9,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel A, D_LLM: r0_pop=3",
+    "value": 6,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel A, D_LLM: r0_pop=4",
+    "value": 134,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel A, D_LLM: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel A, D_LLM: fraction r0_pop=1",
+    "value": 0.36324786324786323,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM: fraction r0_pop=2",
+    "value": 0.038461538461538464,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM: fraction r0_pop=3",
+    "value": 0.02564102564102564,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM: fraction r0_pop=4",
+    "value": 0.5726495726495726,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM_72B: rows with a conclusion",
+    "value": 255,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=A, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel A, D_LLM_72B: r0_pop=1",
+    "value": 99,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel A, D_LLM_72B: r0_pop=2",
+    "value": 15,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel A, D_LLM_72B: r0_pop=3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel A, D_LLM_72B: r0_pop=4",
+    "value": 141,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel A, D_LLM_72B: of r0_pop=4, censored at depth 3",
+    "value": 9,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel A, D_LLM_72B: fraction r0_pop=1",
+    "value": 0.38823529411764707,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM_72B: fraction r0_pop=2",
+    "value": 0.058823529411764705,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM_72B: fraction r0_pop=3",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, D_LLM_72B: fraction r0_pop=4",
+    "value": 0.5529411764705883,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, A_ORACLE: rows with a conclusion",
+    "value": 257,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=A, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel A, A_ORACLE: r0_pop=1",
+    "value": 122,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel A, A_ORACLE: r0_pop=2",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel A, A_ORACLE: r0_pop=3",
+    "value": 2,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel A, A_ORACLE: r0_pop=4",
+    "value": 129,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel A, A_ORACLE: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=A, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel A, A_ORACLE: fraction r0_pop=1",
+    "value": 0.47470817120622566,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, A_ORACLE: fraction r0_pop=2",
+    "value": 0.01556420233463035,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, A_ORACLE: fraction r0_pop=3",
+    "value": 0.007782101167315175,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel A, A_ORACLE: fraction r0_pop=4",
+    "value": 0.5019455252918288,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel B: networks (source=frame)",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "panel=B, source=frame, distinct networks"
+   },
+   {
+    "label": "panel B, CTRL_b0: rows with a conclusion",
+    "value": 25,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=B, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel B, CTRL_b0: r0_pop=1",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b0: r0_pop=2",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b0: r0_pop=3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b0: r0_pop=4",
+    "value": 21,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b0: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b0, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel B, CTRL_b0: fraction r0_pop=1",
+    "value": 0.16,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, CTRL_b0: fraction r0_pop=2",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, CTRL_b0: fraction r0_pop=3",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, CTRL_b0: fraction r0_pop=4",
+    "value": 0.84,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, CTRL_b1: rows with a conclusion",
+    "value": 23,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=B, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel B, CTRL_b1: r0_pop=1",
+    "value": 12,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b1: r0_pop=2",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b1: r0_pop=3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b1: r0_pop=4",
+    "value": 11,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel B, CTRL_b1: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=CTRL_b1, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel B, CTRL_b1: fraction r0_pop=1",
+    "value": 0.5217391304347826,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, CTRL_b1: fraction r0_pop=2",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, CTRL_b1: fraction r0_pop=3",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, CTRL_b1: fraction r0_pop=4",
+    "value": 0.4782608695652174,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM: rows with a conclusion",
+    "value": 31,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=B, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel B, D_LLM: r0_pop=1",
+    "value": 7,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel B, D_LLM: r0_pop=2",
+    "value": 2,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel B, D_LLM: r0_pop=3",
+    "value": 1,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel B, D_LLM: r0_pop=4",
+    "value": 21,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel B, D_LLM: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel B, D_LLM: fraction r0_pop=1",
+    "value": 0.22580645161290322,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM: fraction r0_pop=2",
+    "value": 0.06451612903225806,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM: fraction r0_pop=3",
+    "value": 0.03225806451612903,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM: fraction r0_pop=4",
+    "value": 0.6774193548387096,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM_72B: rows with a conclusion",
+    "value": 38,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=B, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel B, D_LLM_72B: r0_pop=1",
+    "value": 12,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel B, D_LLM_72B: r0_pop=2",
+    "value": 5,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel B, D_LLM_72B: r0_pop=3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel B, D_LLM_72B: r0_pop=4",
+    "value": 21,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel B, D_LLM_72B: of r0_pop=4, censored at depth 3",
+    "value": 2,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=D_LLM_72B, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel B, D_LLM_72B: fraction r0_pop=1",
+    "value": 0.3157894736842105,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM_72B: fraction r0_pop=2",
+    "value": 0.13157894736842105,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM_72B: fraction r0_pop=3",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, D_LLM_72B: fraction r0_pop=4",
+    "value": 0.5526315789473685,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, A_ORACLE: rows with a conclusion",
+    "value": 37,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=B, source=frame, r0_pop not in ('', '0') (count)"
+   },
+   {
+    "label": "panel B, A_ORACLE: r0_pop=1",
+    "value": 16,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=1 (count)"
+   },
+   {
+    "label": "panel B, A_ORACLE: r0_pop=2",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=2 (count)"
+   },
+   {
+    "label": "panel B, A_ORACLE: r0_pop=3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=3 (count)"
+   },
+   {
+    "label": "panel B, A_ORACLE: r0_pop=4",
+    "value": 21,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop=4 (count)"
+   },
+   {
+    "label": "panel B, A_ORACLE: of r0_pop=4, censored at depth 3",
+    "value": 0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "condition=A_ORACLE, panel=B, source=frame, r0_pop not in ('', '0'), r0_pop_status=censored_at_depth_3"
+   },
+   {
+    "label": "panel B, A_ORACLE: fraction r0_pop=1",
+    "value": 0.43243243243243246,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=1 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, A_ORACLE: fraction r0_pop=2",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=2 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, A_ORACLE: fraction r0_pop=3",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=3 / rows with a conclusion"
+   },
+   {
+    "label": "panel B, A_ORACLE: fraction r0_pop=4",
+    "value": 0.5675675675675675,
+    "source": "~/bkrobust/results/interval/rows.csv",
+    "key": "derived: r0_pop=4 / rows with a conclusion"
+   }
+  ],
+  "figs/stop_refusal.pdf": [
+   {
+    "label": "refusal b=0, panel A: rows",
+    "value": 134,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.rows"
+   },
+   {
+    "label": "refusal b=0, panel A: networks",
+    "value": 20,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.networks"
+   },
+   {
+    "label": "refusal b=0, panel A, STOP1",
+    "value": 0.9104477611940298,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.STOP1.rate"
+   },
+   {
+    "label": "refusal b=0, panel A, STOP1: CI low",
+    "value": 0.7627118644067796,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.STOP1.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel A, STOP1: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.STOP1.ci[1]"
+   },
+   {
+    "label": "refusal b=0, panel A, STOP2",
+    "value": 0.9552238805970149,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.STOP2.rate"
+   },
+   {
+    "label": "refusal b=0, panel A, STOP2: CI low",
+    "value": 0.8728813559322034,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.STOP2.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel A, STOP2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.STOP2.ci[1]"
+   },
+   {
+    "label": "refusal b=0, panel A, SCREEN",
+    "value": 0.9104477611940298,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.SCREEN.rate"
+   },
+   {
+    "label": "refusal b=0, panel A, SCREEN: CI low",
+    "value": 0.7627118644067796,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.SCREEN.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel A, SCREEN: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.SCREEN.ci[1]"
+   },
+   {
+    "label": "refusal b=0, panel A, SCREEN2",
+    "value": 0.9626865671641791,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.SCREEN2.rate"
+   },
+   {
+    "label": "refusal b=0, panel A, SCREEN2: CI low",
+    "value": 0.8837209302325582,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.SCREEN2.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel A, SCREEN2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|A.SCREEN2.ci[1]"
+   },
+   {
+    "label": "refusal b=0, panel B: rows",
+    "value": 7,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.rows"
+   },
+   {
+    "label": "refusal b=0, panel B: networks",
+    "value": 3,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.networks"
+   },
+   {
+    "label": "refusal b=0, panel B, STOP1",
+    "value": 0.8571428571428571,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.STOP1.rate"
+   },
+   {
+    "label": "refusal b=0, panel B, STOP1: CI low",
+    "value": 0.8,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.STOP1.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel B, STOP1: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.STOP1.ci[1]"
+   },
+   {
+    "label": "refusal b=0, panel B, STOP2",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.STOP2.rate"
+   },
+   {
+    "label": "refusal b=0, panel B, STOP2: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.STOP2.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel B, STOP2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.STOP2.ci[1]"
+   },
+   {
+    "label": "refusal b=0, panel B, SCREEN",
+    "value": 0.8571428571428571,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.SCREEN.rate"
+   },
+   {
+    "label": "refusal b=0, panel B, SCREEN: CI low",
+    "value": 0.8,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.SCREEN.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel B, SCREEN: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.SCREEN.ci[1]"
+   },
+   {
+    "label": "refusal b=0, panel B, SCREEN2",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.SCREEN2.rate"
+   },
+   {
+    "label": "refusal b=0, panel B, SCREEN2: CI low",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.SCREEN2.ci[0]"
+   },
+   {
+    "label": "refusal b=0, panel B, SCREEN2: CI high",
+    "value": 1.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.refusal.CTRL_b0|committed|B.SCREEN2.ci[1]"
+   },
+   {
+    "label": "b=2 panel A: coverage SCREEN",
+    "value": 0.7305084745762712,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|A|1000.coverage.SCREEN"
+   },
+   {
+    "label": "b=2 panel A: coverage SCREEN2",
+    "value": 0.9864406779661017,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|A|1000.coverage.SCREEN2"
+   },
+   {
+    "label": "b=2 panel A: coverage STOP2",
+    "value": 0.9864406779661017,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|A|1000.coverage.STOP2"
+   },
+   {
+    "label": "b=2 panel A: rows",
+    "value": 59,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|A|1000.rows"
+   },
+   {
+    "label": "b=2 panel A: networks",
+    "value": 8,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|A|1000.networks"
+   },
+   {
+    "label": "b=2 panel A: STOP2 − SCREEN",
+    "value": 0.2559322033898305,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|A|1000.coverage_diff"
+   },
+   {
+    "label": "b=2 panel A: STOP2 − SCREEN CI low",
+    "value": 0.14912280701754385,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|A|1000.coverage_diff_ci[0]"
+   },
+   {
+    "label": "b=2 panel A: STOP2 − SCREEN CI high",
+    "value": 0.3456896551724138,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|A|1000.coverage_diff_ci[1]"
+   },
+   {
+    "label": "b=2 panel A: STOP2 − SCREEN2",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|A|1000.coverage_diff"
+   },
+   {
+    "label": "b=2 panel A: STOP2 − SCREEN2 CI low",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|A|1000.coverage_diff_ci[0]"
+   },
+   {
+    "label": "b=2 panel A: STOP2 − SCREEN2 CI high",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|A|1000.coverage_diff_ci[1]"
+   },
+   {
+    "label": "b=2 panel B: coverage SCREEN",
+    "value": 0.9071428571428571,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|B|1000.coverage.SCREEN"
+   },
+   {
+    "label": "b=2 panel B: coverage SCREEN2",
+    "value": 0.9821428571428571,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|B|1000.coverage.SCREEN2"
+   },
+   {
+    "label": "b=2 panel B: coverage STOP2",
+    "value": 0.9821428571428571,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|B|1000.coverage.STOP2"
+   },
+   {
+    "label": "b=2 panel B: rows",
+    "value": 14,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|B|1000.rows"
+   },
+   {
+    "label": "b=2 panel B: networks",
+    "value": 4,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|B|1000.networks"
+   },
+   {
+    "label": "b=2 panel B: STOP2 − SCREEN",
+    "value": 0.075,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|B|1000.coverage_diff"
+   },
+   {
+    "label": "b=2 panel B: STOP2 − SCREEN CI low",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|B|1000.coverage_diff_ci[0]"
+   },
+   {
+    "label": "b=2 panel B: STOP2 − SCREEN CI high",
+    "value": 0.175,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred.committed|B|1000.coverage_diff_ci[1]"
+   },
+   {
+    "label": "b=2 panel B: STOP2 − SCREEN2",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|B|1000.coverage_diff"
+   },
+   {
+    "label": "b=2 panel B: STOP2 − SCREEN2 CI low",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|B|1000.coverage_diff_ci[0]"
+   },
+   {
+    "label": "b=2 panel B: STOP2 − SCREEN2 CI high",
+    "value": 0.0,
+    "source": "~/bkrobust/results/interval/table1.json",
+    "key": "m1b.starred_depth_matched.committed|B|1000.coverage_diff_ci[1]"
+   }
+  ]
+ }
+}

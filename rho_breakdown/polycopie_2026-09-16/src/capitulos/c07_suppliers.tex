@@ -1,0 +1,360 @@
+% =============================================================================
+\chapter{Knowledge suppliers as error processes}\label{ch:suppliers}
+
+Chapter~\ref{ch:frame} built the rows and the questions; this chapter is about who answered them.
+The question is not whether a language model understands causality. It is whether the wrong claims the
+certificate was tested against came from processes varied and realistic enough that the verdict of
+Chapter~\ref{ch:table4} does not depend on one way of being wrong. The models are suppliers of claims,
+one of four knowledge processes, and nothing in the paper ranks them.
+
+\begin{ideia}
+A certificate against wrong claims can only be tested with wrong claims, and whoever chooses
+\emph{which} claims are wrong decides what the test can see. So the evaluation uses several error
+processes, including one whose errors nobody chose.
+\end{ideia}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[fornecedor-conhecimento]{Which four processes produce the wrong claims of the evaluation, and
+what does each answer that the others cannot?}
+\antesq[fornecedor-conhecimento]{Why are commission and omission two columns and never a sum?}
+\end{antes}
+
+\section{Four sources of wrong claims}\label{sec:sup-sources}
+
+A synthetic reversal chooses the error: the experimenter knows how many claims are wrong and where,
+which is what the knowledge interval needs, so the controlled arms $b = 0, 1, 2$ feed Table~1
+(\texttt{results/interval/PREREGISTRATION.md}; Chapter~\ref{ch:gamma}). But a reversal never decides
+what to talk about, never correlates neighbouring errors and never declines. A real source does all
+three. The evaluation therefore has four processes, each answering one question:
+\begin{itemize}[nosep, leftmargin=*]
+\item controlled reversals: what exactly $b$ wrong claims cost;
+\item chance (\texttt{D\_RAND}): orientations drawn among the Meek-consistent choices on the
+  primary supplier's own edges, that is, what a coin does where the source spoke;
+\item language-model elicitation: an uncontrolled error process that chooses what to assert,
+  what to decline and where to err;
+\item truthful controls (\texttt{A\_TRUE}, and \texttt{A\_ORACLE}), read off the truth and
+  printed below the rule: where one asserts, separated from asserting wrongly.
+\end{itemize}
+An arm with no knowledge (\texttt{D\_DEGEN}) is the floor.
+
+\begin{sloppypar}
+The local suppliers ran at temperature zero and seed zero, each answer cached under the SHA-256 of
+model and prompt (\texttt{experiments/elicit\_run.py}). The primary supplier,
+\texttt{qwen2.5:7b-instruct}, answered on real names (\texttt{D\_LLM}), on the second presentation order
+(\texttt{D\_LLM\_INSTR}) and on scrambled names (\texttt{D\_SCRAMBLED}); a second family,
+\texttt{llama3.1:8b}, on real names (\texttt{D\_LLM\_SRC}). A twenty-billion reasoning model on the same
+host spent its whole budget reasoning, returned nothing, and was dropped.
+\end{sloppypar}
+
+\par\ifdim\dimexpr\pagegoal-\pagetotal\relax<4.2cm\newpage\fi
+\begin{exemplo}[What the primary supplier did with 369 open pairs]
+Every open pair of the questionnaire ends in exactly one box.
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm, font=\scriptsize\sffamily]
+\node[nodot] (all) at (0,-0.3) {369 asked};
+\node[nodot, densely dashed] (dec) at (2.3,0.3) {137 declined};
+\node[nodot, densely dashed] (nr)  at (2.3,-0.3) {18 not reached};
+\node[nodot] (ass) at (2.3,-0.9) {214 claims made};
+\node[nodot, densely dashed] (drop) at (5.4,-0.6) {43 dropped by the repair};
+\node[nodot] (kept) at (5.4,-1.2) {171 kept};
+\node[nodot, draw=verdesc, text=verdesc] (tru) at (8.5,-0.9) {118 true};
+\node[nodot, draw=vermesc, text=vermesc] (fal) at (8.5,-1.5) {\textbf{53 false} (commission)};
+\foreach \a/\b in {all/dec, all/nr, all/ass, ass/drop, ass/kept, kept/tru, kept/fal}
+  \draw[cedge] (\a.east) -- (\b.west);
+\end{tikzpicture}
+\end{center}
+Dashed boxes end with no kept claim: $137 + 18 + 43 = 198$ pairs, the omission. Counts from
+\texttt{TABLE4.md} (elicitation block) and \texttt{knowledge\_audit.json}.
+\end{exemplo}
+
+The tree separates two quantities, and the protocol names them so that nobody adds them.
+
+\begin{definicao}[Commission and omission, at the knowledge level]
+For one supplier and one network, \emph{commission} is the fraction of claims kept after the repair
+that are false at the truth, and \emph{omission} is the fraction of asked pairs that end with no kept
+claim: declined, not reached or dropped. Both are averaged over networks with a network bootstrap and
+printed in separate columns (\texttt{experiments/knowledge\_audit.py}).
+\end{definicao}
+
+A decline leaves the edge open and the analyst's graph wider; a false claim closes the edge the wrong
+way and can invalidate the set. The denominators also differ, so the sum is not the fraction of
+anything.
+
+\begin{medido}[Primary supplier, \texttt{results/elicit/knowledge\_audit.json}]
+Commission \textbf{0.325} [0.210, 0.449] by network mean (53 of 171 pooled); omission 0.450 [0.361,
+0.545]. By tier: 0.27 on the benchmarks, 0.28 on the applied-paper diagrams, 0.44 on the four Gaussian
+networks, \textbf{0.75} on the textbook diagrams, whose variables are abstract symbols. L1 registered a band of
+[0.10, 0.45]: supported.
+\end{medido}
+
+The protocol's two other suppliers, claims harvested from the source publications and human analysts,
+are absent: both cost human hours, and \texttt{docs/PROTOCOL\_RUN.md} records the deferral with that
+reason.
+
+\prompt[conceito=fornecedor-conhecimento,dificuldade=0.7]{The primary supplier has commission 0.325
+and omission 0.450. Why is there no ``total error'' column?}{The two act in opposite directions on the
+certificate and have different denominators. A decline leaves an edge open, widens the analyst's graph
+and may make the query non-amenable; a false claim closes the edge the wrong way and may invalidate
+the committed set. Commission is a fraction of kept claims, omission a fraction of asked pairs, so their
+sum is a fraction of nothing.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[escala-validade]{Of the predictions S1 to S10, which failure changes what the paper says?}
+\antesq[escala-validade]{How can a supplier that is wrong less often per claim have its committed set
+invalid as often?}
+\end{antes}
+
+\section{Scale buys claims, not validity}\label{sec:sup-scale}
+
+On 12 September four checkpoints on one node of four H100 answered the same 540 frozen items through
+vLLM, with each model's chat template, temperature zero, seed zero and 700 tokens:
+\texttt{Qwen2.5-72B-Instruct} (real names at both orders, and scrambled), \texttt{Qwen2.5-32B-Instruct},
+\texttt{Llama-3.3-70B-Instruct} and \texttt{gemma-3-27b-it}. The 2,160 answers entered the same cache
+and went through the same parser, repair and sweep: 8,308 ledger rows, 3,014 certifiable
+rows on the true CPDAG. Predictions S1 to S10 were written after the jobs were submitted and before any answer was read,
+with a decision rule: if S1 and S6 both held, the 72B row would lead.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{4.8cm}>{\raggedright\arraybackslash}p{3.15cm}>{\raggedright\arraybackslash}p{6.4cm}@{}}
+\toprule
+& prediction & verdict & number \\
+\midrule
+S1 & scale lowers commission & not as registered & 72B $-$ 7B: $-0.100$ [$-0.224$, $+0.017$] \\
+S2 & scale lowers omission & supported & 72B $-$ 7B: $-0.280$ [$-0.390$, $-0.164$] \\
+S3 & at 72B, names carry information & not supported & scrambled $-$ real $+0.088$ [$-0.064$, $+0.238$] \\
+S4 & claim certificate never dangerous & supported, structural & 0 of 3,014 certifiable rows \\
+S5 & the unit gap does not close & supported, thinly & hop: 1 dangerous row at 72B, 0 on gemma \\
+S6 & scale lowers invalid sets & \textbf{not supported} & 0.298 at 72B, 0.288 at 7B \\
+S7 & moves do not order by truth & unresolved, as predicted & 0.846 at 72B, 1.086 on the truthful arm \\
+S8 & the third family is no outlier & not supported & gemma $-$ 72B: $+0.112$ [$+0.029$, $+0.213$] \\
+S9 & less source variance at scale & direction only & 0.182 against 0.220 \\
+S10 & bridge improves, stays biased & not supported & 72B: control $-$ open $+0.004$ [$-0.153$, $+0.159$] \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+S6 is the row that decides (\texttt{results/elicit/PREREGISTRATION\_SCALE.md}, Appendix~A). The 72B
+keeps claims on 281 of the 369 pairs and declines 27, where the 7B kept 171 and declined 137. Commission
+falls from 0.325 to 0.233 by network mean without a separated paired interval, while the committed set
+is invalid at the truth on 85 of 285 certifiable rows at 72B and on 66 of 229 at 7B. S1 did not separate
+and S6 failed, so the 7B stays the primary supplier and the 72B is the scale replicate.
+\figref{fig:supplier-scale} puts all ten conditions side by side.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth,height=0.25\textheight,keepaspectratio]{supplier_scale.pdf}
+\caption{Scale buys claims and accuracy per claim, not validity: across the Qwen family the number of
+kept claims rises from 171 to 223 to 281 and the false fraction falls, while the share of certifiable
+rows whose committed set is invalid at the truth goes 0.288, 0.201, 0.298, in no order and with
+overlapping intervals.}
+\label{fig:supplier-scale}
+\end{figure}
+
+The mechanism is counting. A set is invalid when one wrong claim sits where the query needs it, and a
+supplier that asserts more puts more claims near each query. On commission, gemma is the high outlier
+against the 72B.
+At 72B the model is also far more stable under presentation order: instrument disagreement
+\textbf{0.047} [0.019, 0.079] on shared edges, against 0.160 at 7B (\texttt{TABLE4.md}). The batch
+script is \texttt{experiments/remote/elicit\_jz.slurm} (one node, four H100, every cache on scratch
+because vLLM's compile cache overflowed the home quota, eager mode); \texttt{elicit\_import.py} puts the
+answers under the local cache key, and \texttt{elicit\_run.py} refuses to call a cluster model.
+
+
+\prompt[conceito=escala-validade,dificuldade=0.7]{Without numbers: why can a supplier that is wrong
+less often per claim leave the committed set invalid just as often?}{A committed set is invalid when at
+least one wrong claim sits where the query needs it. The larger model declines far less, so it asserts
+more edges in each component and more queries become certifiable; every extra claim near a query is
+another chance that one of them is wrong. A lower rate per claim times more claims per query leaves the
+chance of at least one wrong claim where it was. Accuracy per claim and validity per query are
+different quantities, and the certificate sits between them.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[sobreposicao-fonte]{Asked cold for the publication behind each network, how many do the local
+suppliers name?}
+\antesq[ponte-compelida]{Is the error on compelled edges, which needs no truth, an unbiased estimate of
+commission on open edges?}
+\end{antes}
+
+\section{Names, a truth-free bridge, and two negative results}\label{sec:sup-names}
+
+\emph{Scrambled names.} At 7B, scrambling gives commission 0.343 [0.260, 0.431] against 0.325; what
+changes is declining, omission 0.568 against 0.450 (L3 not supported). At 72B the gap is $+0.088$
+[$-0.064$, $+0.238$] and the model declines 96 pairs against 27 (S3). A source reciting the benchmarks
+would collapse without the names, and neither does; by invariance, that licenses ``no recitation
+detected'' and nothing stronger.
+
+\emph{The compelled-edge bridge.} The control block asks about edges the data already orient, so its
+error needs no truth. If it estimated open-edge commission without bias, a tier with no known truth
+could be scored. At 7B it does not: 0.191 [0.094, 0.293] against 0.325, a correction of about 0.13 that
+varies by network (L9 not supported).
+
+\begin{medido}[Control minus open-edge commission, \texttt{results/elicit/knowledge\_audit.json}]
+Paired by network: 7B \textbf{$-0.153$} [$-0.324$, $+0.009$] on 23 networks; 72B \textbf{$+0.004$}
+[$-0.153$, $+0.159$] on 26. The 72B's own control error is 0.232 [0.121, 0.358], higher than the 7B's
+0.191, so size did not improve the control; it removed the bias. At 7B the paired interval reaches
+$+0.009$: the bias rests on the registered comparison and a point estimate of $-0.15$.
+\end{medido}
+
+The bridge is therefore reported per supplier: usable at 72B, biased at 7B.
+
+\emph{The source-overlap probe.} The scrambled arm answers the recitation question only by invariance,
+so a second probe asks it directly: shown the variable list alone, name the publication behind the
+network and its declared exposure, outcome and adjustment set. ``Recited'' requires the source and the
+query.
+
+\begin{medido}[Source overlap, \texttt{results/elicit/SOURCE\_OVERLAP.md}]
+32 networks, 29 with a scorable source, 10 with a declared query. Source named: \textbf{0 of 29} for
+\texttt{qwen2.5:7b}, which declines on 28 and misattributes the one it answers; \textbf{0 of 29} for
+\texttt{llama3.1:8b}, which answers all 29 and matches none. Declared query reproduced on 2 of 10 by
+each, never with the source. \textbf{Recited: none}, for both.
+\end{medido}
+
+Matching a query without the source is reading the names. The pre-registration's appendix scores an
+earlier pass on prompts rendered with the salted seed of Chapter~\ref{ch:frame} (27 declines, same
+verdict); the box is the rerun on stable prompts. The cluster models have not been probed.
+
+\emph{Ancestral claims.} Asked about 156 non-adjacent pairs at skeleton distance two, the 7B asserted
+ancestry on \textbf{6}, said ``neither'' on 45 and declined 105; the six reduce soundly to ten
+orientations, four false, which change one true claim on one swept network and no certificate
+(\texttt{results/elicit/PREREGISTRATION\_ANCESTRAL.md}). All three predictions fell: a negative result.
+
+\prompt[conceito=ponte-compelida,dificuldade=0.75]{At which supplier size is the compelled-edge bridge
+unbiased, what is the number, and why does that not mean the larger model is better on compelled
+edges?}{At 72B: control minus open-edge commission $+0.004$ [$-0.153$, $+0.159$], paired over 26
+networks, against $-0.153$ [$-0.324$, $+0.009$] at 7B. The 72B's error on compelled edges is 0.232,
+higher than the 7B's 0.191; the bridge is unbiased because its control error and its open-edge
+commission now agree, not because the control error fell.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[teste-cascata]{Does the greedy recovering set, which the old pipeline used as knowledge,
+orient more edges per claim than the 7B supplier?}
+\antesq[teste-cascata]{Which justification for the redesign was withdrawn, and what still carries it?}
+\end{antes}
+
+\section{The cascade test: a justification withdrawn}\label{sec:sup-cascade}
+
+The committed pipeline's knowledge was the greedy recovering set, now \texttt{A\_ORACLE}: few claims,
+chosen from the truth so that Meek's closure recovers as much as possible. The redesign had two reasons
+to drop it: the invariant, and ``the old generator cascades unrealistically'', registered to be
+withdrawn unless the oracle set compels more edges per claim than an elicited set, paired by network.
+
+\begin{exemplo}[Three sources on \texttt{child}]
+The 7B keeps one claim, the false \texttt{CO2} $\to$ \texttt{LungParench} of Chapter~\ref{ch:frame},
+and the closure orients 10 edges the CPDAG left open. The oracle set asserts 2 and orients 12; the 72B
+asserts 8 and orients 9. Per claim: 10, 6 and 1.125. The same edge oriented truthfully,
+\texttt{LungParench} $\to$ \texttt{CO2}, orients 2 (\texttt{results/ledger/rows.csv}, columns
+\texttt{n\_k} and \texttt{k\_g0}). On this network the 7B cascades most.
+\end{exemplo}
+
+The quantity is \emph{closure per claim}, $k_{\Gz}/|\Kset|$: edges the analyst's graph orients that
+$\Chat$ left open, asserted or propagated, over kept claims. It is constant within a network and an arm,
+so the test pairs arms by network (\texttt{experiments/cascade\_test.py}).
+
+\begin{medido}[Cascade test, \texttt{results/ledger/cascade\_test.json}]
+Oracle $-$ 7B: \textbf{$+1.13$} [$-0.26$, $+2.86$] on 27 networks, larger on 14: \textbf{not
+separated}. Oracle $-$ 72B: $+1.28$ [$+0.43$, $+2.50$]; oracle $-$ Llama 70B: $+1.62$ [$+0.32$,
+$+3.27$]; both separated. Truthful orientations on the 7B's edges $-$ 7B: $-0.63$ [$-1.52$, $-0.02$].
+Network means: oracle 2.97, 7B 1.84, 70B 1.35, 72B 1.15.
+\end{medido}
+
+The justification is withdrawn as written (\texttt{results/ledger/CHECKS.md}). \figref{fig:cascade}
+shows why ``unrealistic'' had no fixed referent: the 7B declines a lot, keeps few claims, and each drags
+others along, as the oracle's minimal set does; the large models assert almost every edge of a
+component, and then the closure has little left to add.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth,height=0.22\textheight,keepaspectratio]{cascade.pdf}
+\caption{Whether the old generator ``cascades too much'' depends on the supplier it is compared with:
+the oracle set does not separate from the 7B supplier in edges oriented per claim, and does separate
+from the 72B and 70B suppliers, which assert many claims that propagate little. The redesign keeps
+only the invariant as its reason.}
+\label{fig:cascade}
+\end{figure}
+
+\prompt[conceito=teste-cascata,dificuldade=0.7]{Explain without contradiction why the same oracle set
+does not cascade more than the 7B supplier but does cascade more than the 72B.}{Closure per claim
+depends on how much a source says. The 7B declines a lot (137 of 369 pairs) and keeps few claims per
+component, and each drags orientations along through Meek's rules, as the oracle's minimal set does.
+The 72B keeps claims on almost every pair (281 of 369); when nearly every edge of a component is asserted
+directly, the closure adds little and the ratio is close to 1. ``Unrealistic'' only means something
+against a reference source, and the real sources disagree with each other.}
+
+\naopasse[escala-validade]{Write the chain from ``the 72B keeps 281 claims'' to ``its set is invalid
+on 0.298 of certifiable rows''. If the step from more claims to more invalid sets does not come, reread
+Section~\ref{sec:sup-scale}.}
+
+\begin{exercicio}[metodo=table-reading,conceito=escala-validade]
+From \texttt{TABLE4.md} and \texttt{knowledge\_audit.json}, the six real-name suppliers at the first
+order. (a) Within the Qwen
+family, does the invalid-set rate fall with size? (b) Which column explains gemma? (c) Check that the
+first four columns account for all 369 pairs for the 72B and for Llama 70B. (d) Which supplier is
+``best'', and why does that question not belong in the paper?
+
+\begin{center}
+\small
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+supplier & kept & dropped & declined & not reached & commission & certifiable & invalid \\
+\midrule
+Qwen 7B   & 171 & 43 & 137 & 18 & 0.325 & 229 & 0.288 \\
+Qwen 32B  & 223 & 26 &  83 & 37 & 0.271 & 204 & 0.201 \\
+Qwen 72B  & 281 & 24 &  27 & 37 & 0.233 & 285 & 0.298 \\
+Llama 8B  & 223 & 41 &  92 & 13 & 0.308 & 243 & 0.230 \\
+Llama 70B & 282 & 78 &   9 &  0 & 0.259 & 267 & 0.247 \\
+gemma 27B & 194 & 68 &  14 & 93 & 0.324 & 263 & 0.308 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{exercicio}
+\begin{solucao}
+(a) No: 0.288, 0.201, 0.298, in no order, and Table~4's intervals overlap. (b) ``Not reached'': gemma
+leaves 93 pairs unanswered, drops 68 in the repair and keeps a commission as high as the 7B's.
+(c) 72B: $281 + 24 + 27 + 37 = 369$. Llama 70B: $282 + 78 + 9 + 0 = 369$. (d) None: the suppliers are
+error sources for testing instruments, and what the paper uses is that validity does not improve with
+scale.
+\end{solucao}
+
+\begin{exercicio}[metodo=estimation,conceito=escala-validade]
+Model a certifiable row as depending on $m$ claims, each false independently with probability equal to
+the supplier's commission $c$, so the set is invalid with probability $1 - (1-c)^m$. (a) Estimate the
+effective $m$ that reproduces the invalid-set rate for the 7B ($c = 0.325$, rate 0.288) and for the 72B
+($c = 0.233$, rate 0.298). Use $\ln 0.675 \approx -0.393$, $\ln 0.712 \approx -0.340$,
+$\ln 0.767 \approx -0.265$, $\ln 0.702 \approx -0.354$. (b) Compare the ratio of the two $m$ with the
+ratio of pairs the two suppliers kept. (c) Name two reasons the model is too crude to report.
+\end{exercicio}
+\begin{solucao}
+(a) 7B: $m = \ln 0.712 / \ln 0.675 \approx 0.340/0.393 \approx 0.86$. 72B: $m = \ln 0.702 / \ln 0.767
+\approx 0.354/0.265 \approx 1.33$. (b) $1.33/0.86 \approx 1.5$, against $281/171 \approx 1.6$ kept
+claims: the rise in effective claims per query is about the rise in claims, which is the counting
+mechanism in numbers. (c) Errors are not independent (one answer, one repair, clustering by network); validity
+depends on the claims on the query's paths, not on a random $m$; and the rates come from different
+certifiable rows, 229 and 285. An order-of-magnitude check, not a result.
+\end{solucao}
+
+\section*{Chapter map}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm]
+\node[cmap]  (q)  at (0, 0)      {four knowledge processes};
+\node[cmapc] (f)  at (4.15, 0)   {knowledge suppliers as error processes};
+\node[cmap]  (co) at (8.3, 0)    {commission and omission, never summed};
+\node[cmap]  (b)  at (12.45, 0)  {compelled-edge bridge, per supplier};
+\node[cmapr] (v)  at (0,-1.7)    {validity does not improve (S6)};
+\node[cmap]  (e)  at (4.15,-1.7) {scale, 7B to 72B};
+\node[cmapr] (c)  at (8.3,-1.7)  {cascade justification withdrawn};
+\node[cmapg] (s)  at (12.45,-1.7) {no recitation: source named 0 of 29};
+\draw[cedge] (q) -- node[above] {one of them} (f);
+\draw[cedge] (f) -- node[above] {scored by} (co);
+\draw[cedge] (co) -- node[above] {bias test} (b);
+\draw[cedge] (f) -- node[left] {varied by} (e);
+\draw[cedge] (e) -- node[above] {more claims} (v);
+\draw[cedge] (e) -- node[above] {7B ties} (c);
+\draw[cedge] (f.south east) -- node[above, sloped, pos=0.75] {probed by} (s.north west);
+\end{tikzpicture}
+\end{center}

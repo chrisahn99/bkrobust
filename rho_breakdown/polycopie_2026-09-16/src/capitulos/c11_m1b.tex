@@ -1,0 +1,346 @@
+% =============================================================================
+\chapter{M1b: the stop rule and the free screen tie}\label{ch:m1b}
+
+\begin{ideia}[M1b in two sentences]
+A stop rule uses the radius to decide when to widen the report; a free screen (leave a claim out,
+re-close, see whether the set changes) decides almost the same thing without computing any radius.
+M1b measured whether the rule beats such a screen, and at matched depth it does not.
+\end{ideia}
+
+Table~1 of Chapter~\ref{ch:gamma} compares intervals that always widen with a narrow committed
+report. It never shows the measure being \emph{used}. The table design of 7 September had asked for
+exactly that row, and I had not reread it when the outline was rebuilt on 12 September. M1b is that
+row, run on the M1 harness in the night of 13 September, with five predictions registered in
+Appendix~B of \texttt{results/interval/PREREGISTRATION.md} before any policy quantity was computed.
+M1's own cells did not move: projected onto M1's columns the new \texttt{rows.csv} has the same hash.
+
+\begin{antes}
+\antesq[tabelas-pagas]{Which comparison did the 7 September design fix in advance as the only one a
+radius could win against a free statistic?}
+\antesq[tabelas-pagas]{What sentence was written, before measuring, for the case of a tie?}
+\end{antes}
+
+\section{What the 7 September design asked for}
+
+Three conclusions of that design are the ones M1b tested. \textbf{Rows are complete procedures}, and
+the natural use of the radius in that format is a stop rule: report the committed interval
+when the set survives every retraction within the budget, widen only when it does not. \textbf{A free
+screen is the same policy at one claim}: retract one claim, re-close under Meek, flag if the committed
+set changes. An unchanged set under every single retraction is a set that stays valid under every
+single retraction, so at depth one the screen cannot certify what the rule refuses. The only place
+the radius could beat a free statistic is at two wrong claims, where two retractions interact; the
+design fixed that comparison in advance (the starred comparison) and wrote the caption for the
+null result before any number existed: the work would then be ``a measurement of when knowledge
+error is silent rather than a method''. \textbf{The price of the guarantee is a cell of its own}: the
+share of correct analyses the rule refuses when the knowledge is right.
+
+\begin{armadilha}[Two things called ``stop rule'' in my September notes]
+My notes of 12 September (in Portuguese) call the ledger's halt-and-inspect clause, the one that found
+the bucket bugs and the back-door oracle of Chapter~\ref{ch:table4}, a \emph{regra de parada}. Here that
+clause is the \textbf{inspection trigger}; the \textbf{stop rule} is the reporting policy
+$\mathrm{STOP}_r$.
+\end{armadilha}
+
+\prompt[conceito=tabelas-pagas,dificuldade=0.7]{Which comparison did the 7 September design fix in
+advance, why only that one, and what sentence did it write for a tie?}{The two-claim stop rule
+against the leave-one-out screen, at two wrong claims. Only that one, because at one claim the screen
+and the rule are the same policy (a set unchanged by every single retraction is valid under every
+single retraction), so any difference has to come from two retractions interacting. The sentence: the
+work would be ``a measurement of when knowledge error is silent rather than a method''.}
+
+\begin{antes}
+\antesq[screen-leave-k-out]{In what class of cases do the stop rule and the one-claim screen decide
+differently?}
+\antesq[regra-de-parada]{Why is ``refusal implies trigger'' an argument plus a measurement, and not a
+theorem?}
+\antesq[orcamento-retracao]{Why does comparing the two-claim rule with the one-claim screen mix two
+things?}
+\end{antes}
+
+\section{Four policies, one argument, five predictions}
+
+\begin{exemplo}[Three retractions, two decisions (schematic)]
+$\Gz$ commits to $Z$ and holds three claims; what each single retraction does, and what each policy
+decides:
+
+\begin{center}
+\begin{tikzpicture}[node distance=0.22cm and 0.9cm,
+  box/.style={blk, font=\scriptsize, text width=4.3cm, align=left, inner sep=3pt},
+  dec/.style={font=\scriptsize\sffamily, align=left, text width=4.6cm}]
+\node[blkc, font=\scriptsize, align=center, inner sep=4pt] (g0) {$\Gz$ commits to $Z$\\ claims $c_1, c_2, c_3$};
+\node[box, right=1.1cm of g0, yshift=0.95cm] (r1) {retract $c_1$: nothing changes};
+\node[box, draw=vermesc, fill=vermesc!7, below=of r1] (r2) {retract $c_2$: $Z$ is invalid in the re-closure};
+\node[box, draw=verdesc, fill=verdesc!7, below=of r2] (r3) {retract $c_3$: the optimal set becomes $Z' \neq Z$, and $Z$ is still valid};
+\draw[flow] (g0.east) -- (r1.west);
+\draw[flow] (g0.east) -- (r2.west);
+\draw[flow] (g0.east) -- (r3.west);
+\node[dec, right=0.4cm of r2] (d2) {rule refuses ($\rval = 1$), widens to $\Ir{1}$;\\ screen triggers, widens to $\Ir{1}$: \textbf{same}};
+\node[dec, right=0.4cm of r3] (d3) {without $c_2$: rule certifies, reports PLAIN;\\ screen still triggers on $c_3$: \textbf{differ}};
+\end{tikzpicture}
+\end{center}
+
+Where they differ, the screen widens without need and the rule is right to certify.
+\end{exemplo}
+
+Appendix~B fixed the policies before the run.
+
+\begin{definicao}[The M1b policies]
+$\mathrm{STOP}_r$, $r \in \{1, 2\}$: certify if $\Gz$ commits to a set and $\rval > r$, then report
+PLAIN; otherwise report the band $\Ir{r}$. SCREEN: retract each claim, re-close, recompute the
+committed result; if any differs from $\Gz$'s, report $\Ir{1}$, else PLAIN. SCREEN2: the same over
+every retraction of one or two claims, widening to $\Ir{2}$. The \emph{committed result} is the set,
+or the verdict class when there is no set. Policy comparisons are scored on informative queries
+\emph{with} a committed set; without one, the two rules read literally differ by construction.
+\end{definicao}
+
+One direction always holds: whenever the rule refuses, the screen fires.
+
+\begin{formulabox}[Argument: refusal implies trigger, at the same depth]
+\emph{Premise P}: every set the committed-set procedure returns for a graph is valid in that graph.
+If $\mathrm{STOP}_r$ refuses on a query with set $Z$, there is $S$ with $|S| \le r$ and $Z$ invalid in
+$G_S = \mathrm{Meek}(\Chat, \Kset \setminus S)$. Either $G_S$ commits to some $Z_S$, valid by P and
+therefore different from $Z$, or $G_S$ commits to no set and the verdict changes. In both cases the
+depth-$r$ screen triggers. The converse fails: the screen also triggers when the set changes and $Z$
+stays valid.
+\end{formulabox}
+
+This is not a theorem proved here, and the paper should not present it as one. P is a property of
+the implementation (the closed-form optimal set, and one criterion both building the set and judging
+it, which the back-door oracle of Chapter~\ref{ch:table4} showed can fail). What carries it is the
+measurement: on all 2,212 policy rows every refusal at budget $r$ is matched by a screen triggering at
+depth at most $r$, zero exceptions.
+
+\textbf{The predictions}, written after M1 was read: Q1, rule and screen differ on at most 1\,\% of
+committed queries at $b = 1$; Q2, at $b = 2$ on Panel~A the two-claim rule covers more than the
+one-claim screen, with the interaction ceiling at most 0.31; Q3, at $b = 0$ the rule keeps the narrow
+report; Q4, it refuses fewer than half of correct analyses; Q5, it covers at least 0.95 at $b = 1$.
+
+\prompt[conceito=screen-leave-k-out,dificuldade=0.75]{State the premise on which ``if the stop rule
+refuses, the screen triggers'' depends, and say why the converse fails.}{Premise: every set the
+committed-set procedure returns is valid in the graph it was returned for. With it, if $Z$ is invalid
+in some $G_S$ with $|S| \le r$, the committed result of $G_S$ is either a valid set (so different from
+$Z$) or a no-set verdict, and the screen triggers. The converse fails because the screen also triggers
+when a retraction changes the optimal set while $Z$ stays valid; there the rule certifies correctly
+and the screen widens without need.}
+
+\begin{antes}
+\antesq[regra-de-parada]{With correct knowledge, on what share of informative committed analyses
+does the stop rule refuse?}
+\antesq[estrato]{What moves that number from 0.91 to 0.64, or to zero?}
+\end{antes}
+
+\section{The price of the guarantee: 0.910}
+
+\begin{medido}[Refusal at $b = 0$, \texttt{results/interval/TABLE1\_L95.md}, M1b section]
+Share of informative queries with a committed set on which the policy widens, knowledge correct,
+network-bootstrap 95\,\% interval.
+
+\medskip
+\begin{tabular}{@{}lrrrr@{}}
+panel (queries, networks) & $\mathrm{STOP}_1$ & $\mathrm{STOP}_2$ & SCREEN & SCREEN2 \\
+\midrule
+A (134, 20) & 0.910 [0.76, 1.00] & 0.955 & 0.910 & 0.963 \\
+B (7, 3)    & 0.857 [0.80, 1.00] & 1.000 & 0.857 & 1.000 \\
+\end{tabular}
+\end{medido}
+
+\textbf{Q4 failed, by a wide margin.} With every claim true, the stop rule refuses nine informative
+committed analyses in ten. Where the knowledge carries identification, a single true claim, retracted,
+breaks the set: the same table reports $\rval = 1$ on 0.910 of these 134 queries, which is the refusal
+rate itself. The one-claim screen refuses on exactly the same queries. The left side of
+\figref{fig:stop} shows the four rates.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\linewidth]{stop_refusal.pdf}
+\caption{Left: with correct knowledge the stop rule and the one-claim screen refuse the same nine
+analyses in ten; the 0.91 does not measure how demanding the rule is, it measures that the conclusion
+rests on one claim. Right: at two wrong claims the two-claim rule covers more than the one-claim
+screen and exactly as much as the pair screen.}
+\label{fig:stop}
+\end{figure}
+
+The denominator must travel with the number: on committed queries outside the informative stratum
+the rule refuses none (57 on Panel~A, 11 on Panel~B), and over all committed queries it refuses 0.639
+(A) and 0.333 (B). \textbf{Q3 holds on the letter and is empty}: $\Lnf(\mathrm{STOP}_1)$ is below
+$\Lnf(\Ir{1})$ in all four cells by 0.0003 to 0.0011, because read literally the rule widens on 97 to
+99\,\% of informative queries. \textbf{Q5 holds}: at $b = 1$ it covers 0.979 and 0.979 on Panel~A
+($n = 1000$, $20\,000$), 0.980 and 0.966 on Panel~B.
+
+\prompt[conceito=regra-de-parada,dificuldade=0.7]{Give the three refusal rates of $\mathrm{STOP}_1$ at
+$b = 0$ on Panel~A by denominator, and say which one Q4 was about.}{0.910 over the 134 informative
+queries with a committed set (20 networks), the population of Q4, which predicted below 0.5; 0.639
+over all committed queries; zero over the 57 committed queries outside the informative stratum, where
+the class already identifies the effect.}
+
+\begin{antes}
+\antesq[screen-leave-k-out]{How much more does the two-claim rule cover than the one-claim screen at
+$b = 2$, at which sample size, and on how many queries?}
+\antesq[orcamento-retracao]{Where does a third of that difference come from?}
+\antesq[screen-leave-k-out]{Against the pair screen, what is the difference?}
+\end{antes}
+
+\section{The starred comparison separates, then ties}
+
+The comparison fixed on 7 September, $\mathrm{STOP}_2$ against SCREEN at $b = 2$ on Panel~A (59
+committed informative queries, 8 networks), separates as Q2 predicted: $+0.256$ $[+0.149, +0.346]$ in
+coverage at $n = 1000$ (0.986 against 0.731), $+0.269$ $[+0.163, +0.361]$ at $n = 20\,000$, and
+$+0.305$ $[+0.182, +0.410]$ in the population (1.000 against 0.695). The interaction ceiling is 0.237
+(A) and 0.286 (B). Q2 is supported as written, and two facts qualify it.
+
+\begin{table}[!ht]
+\centering\footnotesize
+\caption{Where the $\mathrm{STOP}_2 - \mathrm{SCREEN}$ coverage gap comes from, Panel~A, $b = 2$,
+$n = 1000$, committed informative queries. Source: \texttt{results/interval/TABLE1\_L95.md}, M1b
+section.}
+\label{tab:m1b-decomp}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+stratum & queries & share of replicates & gap inside & contribution \\
+\midrule
+interaction ($\rval = 2$, or a pair changes the result) & 14 & 0.24 & $+0.689$ & $+0.164$ \\
+$\rval = 1$ (both policies refuse)                       & 34 & 0.58 & $+0.159$ & $+0.092$ \\
+rest                                                     & 11 & 0.19 & $+0.005$ & $+0.001$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{About a third of the gap is the fallback, not the depth.} On the 34 queries with $\rval = 1$
+both policies refuse, but the rule reports $\Ir{2}$ and the screen $\Ir{1}$, and with two wrong claims
+$\Ir{2}$ covers more: $+0.092$ of the $+0.256$ (Table~\ref{tab:m1b-decomp}). Only the 14 interaction
+queries measure depth. On Panel~B (14 queries, 4 networks) the gap is $+0.075$ $[+0.000, +0.175]$ at
+$n = 1000$, all of it from 4 interaction queries, with an interval touching zero.
+
+\textbf{A free screen at depth two ties exactly.} $\mathrm{STOP}_2$ against SCREEN2, both falling back
+to $\Ir{2}$: coverage $+0.000$ $[+0.000, +0.000]$ at $n = 1000$, $-0.002$ $[-0.003, +0.000]$ at
+$n = 20\,000$, zero on Panel~B. They decide differently on 5 of the 754 committed informative queries of
+the five conditions ($141 + 162 + 73 + 161 + 217$), all of the example's class. The pre-fixed
+comparison separated only because its free baseline stopped at depth one.
+
+\textbf{Q1 failed by one query.} At $b = 1$, rule and screen differ on 2 of 162 committed queries
+(1.23\,\%), both of the expected class: \texttt{Kampen\_2014}, ALN on PER, $Z = \{\mathrm{AFF},
+\mathrm{SAN}\}$, $\rval = 3$; and \texttt{Schipf\_2010}, A on S, $Z$ empty, $\rval = 2$, where one
+retraction makes the closed form return a non-empty optimal set for which the empty set is still valid.
+Q2 and Q5 are supported, Q3 on the letter only, Q1 and Q4 falsified.
+
+\prompt[conceito=orcamento-retracao,dificuldade=0.8]{Why does the $+0.256$ advantage of the two-claim
+rule over the one-claim screen not measure only the value of certifying at depth two? Give the sample
+size and the population line.}{Because the policies differ in two things: the depth of the certificate
+and the budget of the fallback interval. On the 34 queries with $\rval = 1$ both refuse, but the rule
+reports $\Ir{2}$ and the screen $\Ir{1}$; with two wrong claims $\Ir{2}$ covers more, and that stratum
+contributes $+0.092$. Only the 14 interaction queries ($+0.164$) measure depth, and against a screen
+that also tries pairs, with the same fallback, the difference is $+0.000$. The $+0.256$
+$[+0.149, +0.346]$ is at $n = 1000$ on 59 queries and 8 networks; the population line of the same
+contrast is $+0.305$ $[+0.182, +0.410]$.}
+
+\begin{antes}
+\antesq[frases-proibidas]{What does the pre-declared sentence turn the paper into?}
+\antesq[regra-de-parada]{What survives M1b, measured?}
+\antesq[screen-leave-k-out]{Which column is missing from the $\tau_b$ table of your draft?}
+\end{antes}
+
+\section{What survives, and the column your ranking table lacks}
+
+Said without softening: \textbf{the sentence pre-declared on 7 September applies}. The starred
+comparison separated against the one-claim screen and tied against the pair screen; at no depth we
+measured does the stop rule compute something a leave-$k$-out screen does not. Nothing in the paper
+may suggest that the radius, the certificate or the stop rule beats such a screen.
+
+\begin{sonorio}[The tie, in the licensed form]
+This is a measurement of when background-knowledge error is silent and what it costs. At every depth
+we measured, the validity half of the sensitivity report matches a leave-$k$-out re-closure screen,
+and the two differ only where a retraction changes the adjustment set while leaving it valid. We state
+this as a property of the measure; what the report adds is the depth that was needed and the named
+claims that witness it.
+\end{sonorio}
+
+What survives is measured, each number with its population. One wrong claim costs the committed
+report 37 points of coverage (Panel~A, $n = 1000$: 0.967 to 0.597; 42 in the population), and the
+knowledge interval restores coverage at 76 to 97\,\% of the class width ($\Lnf(\Ir{1})$ at $b = 1$,
+0.758 to 0.974 over panels and sample sizes). Where an adjustment depends on knowledge, it almost
+always rests on one claim (refusal 0.910; $\rnul$ at 1 or beyond 3 on 92.8\,\% of Panel~A's
+established effects), so the report's most useful output is the \emph{name} of that claim; on the
+ledger (a different harness: primary supplier, 157 exact rows, oracle CPDAG) the named claim was false on
+58 of the 62 queries whose set was invalid at the truth (\texttt{results/ledger/CHECKS.md}, Table~8 in
+Chapter~\ref{ch:frame}). The outline of 13 September
+lists this framing as decision D9 and recommends accepting it rather than searching for a population
+where conclusions rest on more claims, which would be selected for the answer. I recommend the same.
+
+\textbf{The baseline your $\tau_b$ table is missing.} The ranking table of your draft
+(\texttt{tab:tau} in \texttt{sections/06\_simulation.tex}) sets $\tau_b(\rval)$ against $\tau_b(\mathrm{SHD})$ and
+$\tau_b(|\Kset|)$, two weak baselines. A reviewer who knows the area proposes the screen: the depth at
+which leave-$k$-out re-closure first changes the set. By the argument above it never exceeds $\rval$
+and equals it except where the set changes while staying valid (5 of 754 queries in M1b). The column
+is unrun; your corruption states are stored, so it is cheap. I expect $\tau_b(\text{screen depth})$
+close to $\tau_b(\rval)$; that is a prediction, not a measurement.
+
+\begin{noprato}[Before the ranking table goes into the merged paper]
+Add $\tau_b(\text{screen depth})$ on the same stored states and bootstrap. If it ties, state the
+ranking as a property shared with the screen and say what the radius adds: the depth, the witness, the
+certificate that no failure lies nearer.
+\end{noprato}
+
+\naopasse[orcamento-retracao]{Rebuild the decomposition of the starred comparison: queries, contribution
+and mechanism per stratum. If you cannot say why the 34 queries with $\rval = 1$ contribute although both
+policies refuse there, reread the paragraph on the fallback.}
+
+\subsection*{Exercises}
+
+\begin{exercicio}[metodo=estimation,conceito=regra-de-parada]
+Before looking at the refusal table, you are given only the identity table for correct knowledge
+($b = 0$), Panel~A, 134 informative committed queries: $\rval = 1$ on 0.910 of them and $\rval = 2$
+on 0.045; no query differs between $\mathrm{STOP}_1$ and SCREEN. (a) Estimate the refusal rates of
+$\mathrm{STOP}_1$, $\mathrm{STOP}_2$ and SCREEN. (b) Bound SCREEN2's from below, and say what the gap
+between SCREEN2 and $\mathrm{STOP}_2$ can consist of. (c) Describe the population on which Q4
+(refusal below 0.5) could have held.
+\end{exercicio}
+\begin{solucao}
+(a) $\mathrm{STOP}_1$ refuses iff $\rval \le 1$: 0.910 (measured 0.910); $\mathrm{STOP}_2$ iff
+$\rval \le 2$: $0.910 + 0.045 = 0.955$ (measured 0.955); SCREEN equals $\mathrm{STOP}_1$, no query
+differing: 0.910. (b) Refusal implies trigger at the same depth, so SCREEN2 refuses at
+least wherever $\mathrm{STOP}_2$ does: $\ge 0.955$. The excess can only be queries where a pair
+retraction changes the set while $Z$ stays valid to depth two. Measured 0.963, so
+$(0.963 - 0.955) \times 134 \approx 1$ query. (c) One where committed sets mostly survive every single
+retraction, conclusions resting on two or more claims (larger chain components, denser knowledge near
+the query). Here that is about one query in twenty; choosing such a population now would select for the
+answer.
+\end{solucao}
+
+\begin{exercicio}[metodo=diagnosis,conceito=screen-leave-k-out]
+A draft paragraph reads: \emph{``Our radius-based stop rule, which certifies the adjustment set up to
+two retractions, improves coverage over leave-one-out screening by 25.6 points (0.986 vs.\ 0.731),
+showing that the breakdown radius captures interactions between knowledge errors that a screen
+misses.''} Diagnose every defect, with the number that exposes it, and say which sentence of
+Chapter~\ref{ch:gamma} or this chapter should replace it.
+\end{exercicio}
+\begin{solucao}
+(1) No population or sample size: $+0.256$ $[+0.149, +0.346]$ is Panel~A, $n = 1000$, 59 committed
+informative queries on 8 networks; the population line is $+0.305$, and Panel~B's $+0.075$ touches zero.
+(2) Depth is confounded with fallback: $+0.092$ comes from the 34 queries with $\rval = 1$ where both
+policies refuse and differ only in widening to $\Ir{2}$ or $\Ir{1}$. (3) The conclusion is false at
+matched depth: against the pair screen the difference is $+0.000$ $[+0.000, +0.000]$, with 5 of 754
+queries decided differently, none unsafe. (4) ``Improves over'' is the forbidden claim that the radius
+beats a leave-$k$-out screen. Replace the paragraph with this chapter's purple box, keeping the
+one-claim contrast only with its sample size and decomposition.
+\end{solucao}
+
+\section*{Chapter map}
+\begin{center}
+\begin{tikzpicture}[node distance=0.6cm and 1.1cm]
+\node[cmapc] (des) {7 Sep design:\\ policy rows};
+\node[cmap, right=of des] (stop) {stop rule\\ $\mathrm{STOP}_r$};
+\node[cmap, right=of stop] (scr) {leave-$k$-out screen\\ SCREEN, SCREEN2};
+\node[cmapc, right=of scr] (frase) {pre-declared sentence\\ applies: a measurement};
+\node[cmapr, below=of des] (ref) {refusal 0.910\\ with correct claims};
+\node[cmapg, below=of stop] (sep) {separates: $+0.256$\\ ($n = 1000$) vs SCREEN};
+\node[cmapr, below=of scr] (tie) {ties: $+0.000$\\ vs SCREEN2};
+\node[cmap, below=of frase] (tau) {owed: screen-depth\\ column in $\tau_b$ table};
+\draw[cedge] (des) -- node[above]{asks for} (stop);
+\draw[cedge] (stop) -- node[above]{same at depth 1} (scr);
+\draw[cedge] (scr) -- node[above]{tie triggers} (frase);
+\draw[cedge] (des) -- node[left]{price cell} (ref);
+\draw[cedge] (stop) -- node[left]{at $b = 2$} (sep);
+\draw[cedge] (sep) -- node[above]{a third is fallback} (tie);
+\draw[cedge] (frase) -- node[right]{implies} (tau);
+\end{tikzpicture}
+\end{center}

@@ -1,0 +1,954 @@
+{
+ "generated_by": "gen_figs_august.py",
+ "note": "Every plotted value, with the result file and the JSON key (or the text line) it was read from. 'derived' marks a value computed from the listed keys.",
+ "figures": {
+  "figs/aug_coverage.pdf": [
+   {
+    "label": "naive CI coverage, r=0, n=20000 (estimate)",
+    "value": 0.9509,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r0_n20000.0.coverage[0]"
+   },
+   {
+    "label": "naive CI coverage, r=0, n=20000 (CI low)",
+    "value": 0.9481,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r0_n20000.0.coverage[1]"
+   },
+   {
+    "label": "naive CI coverage, r=0, n=20000 (CI high)",
+    "value": 0.9533,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r0_n20000.0.coverage[2]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=0, n=20000 (estimate)",
+    "value": 0.9611,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r0_n20000.1.coverage[0]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=0, n=20000 (CI low)",
+    "value": 0.9587,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r0_n20000.1.coverage[1]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=0, n=20000 (CI high)",
+    "value": 0.9634,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r0_n20000.1.coverage[2]"
+   },
+   {
+    "label": "naive CI coverage, r=1, n=20000 (estimate)",
+    "value": 0.7196,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n20000.0.coverage[0]"
+   },
+   {
+    "label": "naive CI coverage, r=1, n=20000 (CI low)",
+    "value": 0.7128,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n20000.0.coverage[1]"
+   },
+   {
+    "label": "naive CI coverage, r=1, n=20000 (CI high)",
+    "value": 0.7265,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n20000.0.coverage[2]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=1, n=20000 (estimate)",
+    "value": 0.8835,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n20000.1.coverage[0]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=1, n=20000 (CI low)",
+    "value": 0.8786,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n20000.1.coverage[1]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=1, n=20000 (CI high)",
+    "value": 0.8881,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n20000.1.coverage[2]"
+   },
+   {
+    "label": "naive CI coverage, r=2, n=20000 (estimate)",
+    "value": 0.568,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r2_n20000.0.coverage[0]"
+   },
+   {
+    "label": "naive CI coverage, r=2, n=20000 (CI low)",
+    "value": 0.5586,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r2_n20000.0.coverage[1]"
+   },
+   {
+    "label": "naive CI coverage, r=2, n=20000 (CI high)",
+    "value": 0.5772,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r2_n20000.0.coverage[2]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=2, n=20000 (estimate)",
+    "value": 0.7715,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r2_n20000.1.coverage[0]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=2, n=20000 (CI low)",
+    "value": 0.7631,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r2_n20000.1.coverage[1]"
+   },
+   {
+    "label": "robust CI (rho=1) coverage, r=2, n=20000 (CI high)",
+    "value": 0.78,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r2_n20000.1.coverage[2]"
+   },
+   {
+    "label": "mean width ratio, r=1, rho=1, n=200",
+    "value": 1.6073,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n200.1.mean_width_ratio"
+   },
+   {
+    "label": "mean width ratio, r=1, rho=1, n=1000",
+    "value": 2.3221,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n1000.1.mean_width_ratio"
+   },
+   {
+    "label": "mean width ratio, r=1, rho=1, n=5000",
+    "value": 3.9318,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n5000.1.mean_width_ratio"
+   },
+   {
+    "label": "mean width ratio, r=1, rho=1, n=20000",
+    "value": 6.8385,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm2_analysis.json",
+    "key": "frontier.r1_n20000.1.mean_width_ratio"
+   }
+  ],
+  "figs/aug_degeneracy.pdf": [
+   {
+    "label": "rho*_se censored fraction, n=50",
+    "value": 0.6143,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.50.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=100",
+    "value": 0.574,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.100.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=200",
+    "value": 0.5539,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.200.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=500",
+    "value": 0.5357,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.500.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=1000",
+    "value": 0.529,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.1000.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=2000",
+    "value": 0.5261,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.2000.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=5000",
+    "value": 0.5228,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.5000.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=10000",
+    "value": 0.5199,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.10000.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=20000",
+    "value": 0.5189,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.20000.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=50000",
+    "value": 0.517,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.50000.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=100000",
+    "value": 0.5156,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.100000.censored"
+   },
+   {
+    "label": "rho*_se censored fraction, n=1000000",
+    "value": 0.5151,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.1000000.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=50",
+    "value": 0.2147,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.50.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=100",
+    "value": 0.1945,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.100.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=200",
+    "value": 0.183,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.200.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=500",
+    "value": 0.1763,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.500.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=1000",
+    "value": 0.172,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.1000.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=2000",
+    "value": 0.1696,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.2000.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=5000",
+    "value": 0.1677,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.5000.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=10000",
+    "value": 0.1672,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.10000.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=20000",
+    "value": 0.1672,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.20000.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=50000",
+    "value": 0.1667,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.50000.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=100000",
+    "value": 0.1663,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.100000.ANY.censored"
+   },
+   {
+    "label": "rho*_any censored fraction, n=1000000",
+    "value": 0.1658,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.1000000.ANY.censored"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=50",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.50.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=100",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.100.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=200",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.200.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=500",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.500.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=1000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.1000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=2000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.2000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=5000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.5000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=10000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.10000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=20000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.20000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=50000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.50000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=100000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.100000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "inert ball (d == 0) fraction, n=1000000",
+    "value": 0.6459,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.1000000.ratio_rho1.frac_exactly_zero"
+   },
+   {
+    "label": "rho*_se censored fraction, n=inf (floor)",
+    "value": 0.5146,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "sweep.z1.960.inf.censored"
+   }
+  ],
+  "figs/aug_locality.pdf": [
+   {
+    "label": "original, dist. 0: censored fraction",
+    "value": 0.0374,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_original_K4.json",
+    "key": "locality_by_min_hopdist.20000.0.censored"
+   },
+   {
+    "label": "original, dist. 0: n",
+    "value": 2539,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_original_K4.json",
+    "key": "locality_by_min_hopdist.20000.0.n"
+   },
+   {
+    "label": "licensed, dist. 0: censored fraction",
+    "value": 0.0697,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "locality_by_min_hopdist.20000.0.censored"
+   },
+   {
+    "label": "licensed, dist. 0: n",
+    "value": 1852,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "locality_by_min_hopdist.20000.0.n"
+   },
+   {
+    "label": "large, dist. 0: censored fraction",
+    "value": 0.3302,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_large_K4.json",
+    "key": "locality_by_min_hopdist.20000.0.censored"
+   },
+   {
+    "label": "large, dist. 0: n",
+    "value": 1472,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_large_K4.json",
+    "key": "locality_by_min_hopdist.20000.0.n"
+   },
+   {
+    "label": "original, dist. 1: censored fraction",
+    "value": 1.0,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_original_K4.json",
+    "key": "locality_by_min_hopdist.20000.1.censored"
+   },
+   {
+    "label": "original, dist. 1: n",
+    "value": 93,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_original_K4.json",
+    "key": "locality_by_min_hopdist.20000.1.n"
+   },
+   {
+    "label": "licensed, dist. 1: censored fraction",
+    "value": 0.9345,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "locality_by_min_hopdist.20000.1.censored"
+   },
+   {
+    "label": "licensed, dist. 1: n",
+    "value": 229,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_licensed_K4.json",
+    "key": "locality_by_min_hopdist.20000.1.n"
+   },
+   {
+    "label": "large, dist. 1: censored fraction",
+    "value": 0.9765,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_large_K4.json",
+    "key": "locality_by_min_hopdist.20000.1.censored"
+   },
+   {
+    "label": "large, dist. 1: n",
+    "value": 638,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_large_K4.json",
+    "key": "locality_by_min_hopdist.20000.1.n"
+   },
+   {
+    "label": "large, dist. ≥ 2: censored fraction",
+    "value": 1.0,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_large_K4.json",
+    "key": "locality_by_min_hopdist.20000.{2,3,4,1048576} (n-weighted).censored"
+   },
+   {
+    "label": "large, dist. ≥ 2: n",
+    "value": 331,
+    "source": "~/mugango/output/2026-08-19_e1prime-se-criterion/results/arm1_analysis_large_K4.json",
+    "key": "locality_by_min_hopdist.20000.{2,3,4,1048576} (n-weighted).n"
+   }
+  ],
+  "figs/x3_hops.pdf": [
+   {
+    "label": "original, hop 0: silent-bias count k",
+    "value": 1354,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop0.k"
+   },
+   {
+    "label": "original, hop 0: amenable perturbations n",
+    "value": 8469,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop0.n"
+   },
+   {
+    "label": "original, hop 0: silent-bias rate",
+    "value": 0.15987719919707166,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop0.rate"
+   },
+   {
+    "label": "original, hop 1: silent-bias count k",
+    "value": 274,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop1.k"
+   },
+   {
+    "label": "original, hop 1: amenable perturbations n",
+    "value": 5980,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop1.n"
+   },
+   {
+    "label": "original, hop 1: silent-bias rate",
+    "value": 0.045819397993311035,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop1.rate"
+   },
+   {
+    "label": "original, hop >= 2: silent-bias count k",
+    "value": 0,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop2p.k"
+   },
+   {
+    "label": "original, hop >= 2: amenable perturbations n",
+    "value": 1879,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop2p.n"
+   },
+   {
+    "label": "original, hop >= 2: silent-bias rate",
+    "value": 0.0,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.hop2p.rate"
+   },
+   {
+    "label": "original, hop >= 2: rate drawn at the log-axis floor (label shows k / n)",
+    "value": 4e-05,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "plotting floor, not data"
+   },
+   {
+    "label": "licensed, hop 0: silent-bias count k",
+    "value": 2984,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop0.k"
+   },
+   {
+    "label": "licensed, hop 0: amenable perturbations n",
+    "value": 18215,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop0.n"
+   },
+   {
+    "label": "licensed, hop 0: silent-bias rate",
+    "value": 0.1638210266264068,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop0.rate"
+   },
+   {
+    "label": "licensed, hop 1: silent-bias count k",
+    "value": 551,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop1.k"
+   },
+   {
+    "label": "licensed, hop 1: amenable perturbations n",
+    "value": 20447,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop1.n"
+   },
+   {
+    "label": "licensed, hop 1: silent-bias rate",
+    "value": 0.026947718491710276,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop1.rate"
+   },
+   {
+    "label": "licensed, hop >= 2: silent-bias count k",
+    "value": 1,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop2p.k"
+   },
+   {
+    "label": "licensed, hop >= 2: amenable perturbations n",
+    "value": 3493,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop2p.n"
+   },
+   {
+    "label": "licensed, hop >= 2: silent-bias rate",
+    "value": 0.000286286859433152,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.hop2p.rate"
+   },
+   {
+    "label": "large, hop 0: silent-bias count k",
+    "value": 728,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop0.k"
+   },
+   {
+    "label": "large, hop 0: amenable perturbations n",
+    "value": 10145,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop0.n"
+   },
+   {
+    "label": "large, hop 0: silent-bias rate",
+    "value": 0.07175948743223262,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop0.rate"
+   },
+   {
+    "label": "large, hop 1: silent-bias count k",
+    "value": 305,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop1.k"
+   },
+   {
+    "label": "large, hop 1: amenable perturbations n",
+    "value": 17367,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop1.n"
+   },
+   {
+    "label": "large, hop 1: silent-bias rate",
+    "value": 0.017562042955029653,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop1.rate"
+   },
+   {
+    "label": "large, hop >= 2: silent-bias count k",
+    "value": 14,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop2p.k"
+   },
+   {
+    "label": "large, hop >= 2: amenable perturbations n",
+    "value": 30129,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop2p.n"
+   },
+   {
+    "label": "large, hop >= 2: silent-bias rate",
+    "value": 0.00046466859172226093,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.hop2p.rate"
+   }
+  ],
+  "figs/x3_taxonomy.pdf": [
+   {
+    "label": "original: all perturbations (denominator)",
+    "value": 19740,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.n_perturbations"
+   },
+   {
+    "label": "licensed: all perturbations (denominator)",
+    "value": 47395,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.n_perturbations"
+   },
+   {
+    "label": "large: all perturbations (denominator)",
+    "value": 62985,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.n_perturbations"
+   },
+   {
+    "label": "original: outcome unchanged (count)",
+    "value": 14237,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.all.outcomes.unchanged"
+   },
+   {
+    "label": "original: outcome unchanged (fraction of all perturbations)",
+    "value": 0.7212,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: original.SK.all.outcomes.unchanged / original.n_perturbations"
+   },
+   {
+    "label": "licensed: outcome unchanged (count)",
+    "value": 37361,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.all.outcomes.unchanged"
+   },
+   {
+    "label": "licensed: outcome unchanged (fraction of all perturbations)",
+    "value": 0.7883,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: licensed.SK.all.outcomes.unchanged / licensed.n_perturbations"
+   },
+   {
+    "label": "large: outcome unchanged (count)",
+    "value": 53109,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.all.outcomes.unchanged"
+   },
+   {
+    "label": "large: outcome unchanged (fraction of all perturbations)",
+    "value": 0.8432,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: large.SK.all.outcomes.unchanged / large.n_perturbations"
+   },
+   {
+    "label": "original: outcome not_amenable (count)",
+    "value": 3412,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.all.outcomes.not_amenable"
+   },
+   {
+    "label": "original: outcome not_amenable (fraction of all perturbations)",
+    "value": 0.1728,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: original.SK.all.outcomes.not_amenable / original.n_perturbations"
+   },
+   {
+    "label": "licensed: outcome not_amenable (count)",
+    "value": 5240,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.all.outcomes.not_amenable"
+   },
+   {
+    "label": "licensed: outcome not_amenable (fraction of all perturbations)",
+    "value": 0.1106,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: licensed.SK.all.outcomes.not_amenable / licensed.n_perturbations"
+   },
+   {
+    "label": "large: outcome not_amenable (count)",
+    "value": 5344,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.all.outcomes.not_amenable"
+   },
+   {
+    "label": "large: outcome not_amenable (fraction of all perturbations)",
+    "value": 0.0848,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: large.SK.all.outcomes.not_amenable / large.n_perturbations"
+   },
+   {
+    "label": "original: outcome silent_bias (count)",
+    "value": 1628,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.all.outcomes.silent_bias"
+   },
+   {
+    "label": "original: outcome silent_bias (fraction of all perturbations)",
+    "value": 0.0825,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: original.SK.all.outcomes.silent_bias / original.n_perturbations"
+   },
+   {
+    "label": "licensed: outcome silent_bias (count)",
+    "value": 3536,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.all.outcomes.silent_bias"
+   },
+   {
+    "label": "licensed: outcome silent_bias (fraction of all perturbations)",
+    "value": 0.0746,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: licensed.SK.all.outcomes.silent_bias / licensed.n_perturbations"
+   },
+   {
+    "label": "large: outcome silent_bias (count)",
+    "value": 1047,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.all.outcomes.silent_bias"
+   },
+   {
+    "label": "large: outcome silent_bias (fraction of all perturbations)",
+    "value": 0.0166,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: large.SK.all.outcomes.silent_bias / large.n_perturbations"
+   },
+   {
+    "label": "original: outcome changed_valid (count)",
+    "value": 463,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.SK.all.outcomes.changed_valid"
+   },
+   {
+    "label": "original: outcome changed_valid (fraction of all perturbations)",
+    "value": 0.0235,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: original.SK.all.outcomes.changed_valid / original.n_perturbations"
+   },
+   {
+    "label": "licensed: outcome changed_valid (count)",
+    "value": 1258,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.SK.all.outcomes.changed_valid"
+   },
+   {
+    "label": "licensed: outcome changed_valid (fraction of all perturbations)",
+    "value": 0.0265,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: licensed.SK.all.outcomes.changed_valid / licensed.n_perturbations"
+   },
+   {
+    "label": "large: outcome changed_valid (count)",
+    "value": 3485,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.SK.all.outcomes.changed_valid"
+   },
+   {
+    "label": "large: outcome changed_valid (fraction of all perturbations)",
+    "value": 0.0553,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "derived: large.SK.all.outcomes.changed_valid / large.n_perturbations"
+   },
+   {
+    "label": "original: CPDAG amenable without K (k)",
+    "value": 224,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.cpdag_amenable.k"
+   },
+   {
+    "label": "original: CPDAG amenable without K (n)",
+    "value": 2748,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "original.cpdag_amenable.n"
+   },
+   {
+    "label": "licensed: CPDAG amenable without K (k)",
+    "value": 652,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.cpdag_amenable.k"
+   },
+   {
+    "label": "licensed: CPDAG amenable without K (n)",
+    "value": 3853,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "licensed.cpdag_amenable.n"
+   },
+   {
+    "label": "large: CPDAG amenable without K (k)",
+    "value": 1740,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.cpdag_amenable.k"
+   },
+   {
+    "label": "large: CPDAG amenable without K (n)",
+    "value": 3120,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/x3_analysis.json",
+    "key": "large.cpdag_amenable.n"
+   }
+  ],
+  "figs/aug_worked_example.pdf": [
+   {
+    "label": "ignorance interval, radius 0: low",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (low)"
+   },
+   {
+    "label": "ignorance interval, radius 0: high",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (high)"
+   },
+   {
+    "label": "ignorance interval, radius 0: width",
+    "value": 0.0,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'width'"
+   },
+   {
+    "label": "ignorance interval, radius 1: low",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (low)"
+   },
+   {
+    "label": "ignorance interval, radius 1: high",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (high)"
+   },
+   {
+    "label": "ignorance interval, radius 1: width",
+    "value": 0.0,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'width'"
+   },
+   {
+    "label": "ignorance interval, radius 2: low",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (low)"
+   },
+   {
+    "label": "ignorance interval, radius 2: high",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (high)"
+   },
+   {
+    "label": "ignorance interval, radius 2: width",
+    "value": 0.0,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'width'"
+   },
+   {
+    "label": "ignorance interval, radius 3: low",
+    "value": -0.8711,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (low)"
+   },
+   {
+    "label": "ignorance interval, radius 3: high",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (high)"
+   },
+   {
+    "label": "ignorance interval, radius 3: width",
+    "value": 0.452,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'width'"
+   },
+   {
+    "label": "ignorance interval, radius 4: low",
+    "value": -0.8711,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (low)"
+   },
+   {
+    "label": "ignorance interval, radius 4: high",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (high)"
+   },
+   {
+    "label": "ignorance interval, radius 4: width",
+    "value": 0.452,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'width'"
+   },
+   {
+    "label": "ignorance interval, radius 5: low",
+    "value": -0.8711,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (low)"
+   },
+   {
+    "label": "ignorance interval, radius 5: high",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'ignorance interval' (high)"
+   },
+   {
+    "label": "ignorance interval, radius 5: width",
+    "value": 0.452,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 5 table, column 'width'"
+   },
+   {
+    "label": "estimate adjusting for O*",
+    "value": -0.4191,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 3 'estimate, adjusting for O*'"
+   },
+   {
+    "label": "r_val",
+    "value": 2,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "STEP 4 'r_val = '"
+   },
+   {
+    "label": "r_eps (first radius with positive width)",
+    "value": 3,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "derived: first row of the STEP 5 table with width > 0"
+   },
+   {
+    "label": "width at r_eps as % of |estimate|",
+    "value": 108,
+    "source": "~/mugango/output/2026-08-31_x3-skeleton-perturbation/results/worked_example.txt",
+    "key": "derived: width at r_eps / |estimate|"
+   }
+  ]
+ }
+}

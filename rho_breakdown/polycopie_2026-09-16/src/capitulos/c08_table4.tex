@@ -1,0 +1,454 @@
+% =============================================================================
+\chapter[Table 4: the claim unit never over-certifies, the hop unit does]{Table 4: the claim unit\\ never over-certifies, the hop unit does}\label{ch:table4}
+
+Table~4 is the audit that closes the protocol run. On every certifiable row it asks each instrument
+one question: when you promised that $r-1$ revisions were safe, had the analyst already made more
+wrong claims than that, on a set that was invalid? This chapter reads
+\texttt{results/ledger/TABLE4.md}, shows why the claim radius's zero is a consequence and not an
+estimate, and tells what the pre-registered inspection trigger found on 12 September. Three findings
+touch code in your repository; I state each one as exactly as I can.
+
+\begin{antes}
+\antesq[baldes]{A radius promises that $r-1$ revisions are safe. Against which two facts, known only
+to the truth, does the audit check that promise?}
+\antesq[distancia-em-saltos]{On the \texttt{child} row of this section, how many claims and how many
+covering hops separate $\Gz$ from the first state where the committed set fails?}
+\end{antes}
+
+\section{The ledger, five instruments and four buckets}
+
+\begin{ideia}
+A radius is a promise: you may be wrong in up to $r-1$ of your moves and the adjustment set still
+holds. The audit checks it against the two things only the truth knows, the number $w$ of asserted
+claims that are false and whether $Z$ is valid; two yes-or-no answers give four buckets.
+\end{ideia}
+
+The ledger crosses the frozen frame of Chapter~\ref{ch:frame} with every knowledge condition of
+Chapter~\ref{ch:suppliers}.
+
+\begin{medido}[The ledger, \texttt{results/ledger/sweep\_summary.json} and \texttt{TABLE4.md}]
+528 frame rows on 27 networks, 14 knowledge conditions, 8,308 evaluations by
+\texttt{experiments/ledger\_sweep.py}. The eleven deployment conditions that assert knowledge (the 7B
+primary supplier with its order and scrambled-name replicates, the 8B second family, six conditions on
+four larger checkpoints, chance with three draws) certify \textbf{3,014} rows; no knowledge certifies
+68, none invalid at the truth; the two audit conditions, which read the truth, 503. The primary
+supplier \texttt{D\_LLM} (qwen2.5 7B, real names) certifies 229 of 528; on 155 its own graph reverses
+the query, and 144 are not amenable.
+\end{medido}
+
+Every CPDAG in the ledger is the true DAG's (stamp \texttt{via\_Chat\_only}); Chapter~\ref{ch:pest}
+removes that idealisation. Five instruments answer from observables alone.
+
+\begin{center}\small
+\begin{tabular}{@{}p{3.75cm}p{11.75cm}@{}}
+\toprule
+free rule (B2) & hop distance inside $X$'s chain component to the nearest member of $Z$; 1 when none
+is there \\
+closure count $k_{\Gz}$ (B4) & orientations of $\Gz$ absent from $\Chat$, asserted and propagated \\
+claim count $|\Kset|$ (B5) & number of claims \\
+hop radius $\rhop$ (B6) & your $\rval$ as \texttt{hybrid.breakdown\_radius} computes it: fewest covering
+hops up from $\Gz$ to a failing state; a floor when the walk is budgeted \\
+claim radius $\rclaim$ (B7) & fewest claims whose retraction and re-closure make $Z$ fail, exhaustive to
+depth 3 under 300 subsets; a floor when censored \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exemplo}[\texttt{child}, LungParench $\to$ Grunting, primary supplier]\label{ex:child}
+One claim, CO2 $\to$ LungParench, and it is false ($w = 1$). Meek's rules turn it into ten
+orientations: LungParench $\to$ Disease, seven edges out of Disease (Sick among them), LVH $\to$
+LVHreport. In $\Gz$ Disease is a mediator and the committed set $Z = \emptyset$ is valid; in the truth
+Disease causes both LungParench and Sick, and $\emptyset$ leaves that path open.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,
+  nd/.style={nodot, font=\scriptsize\sffamily},
+  st/.style={blk, font=\tiny\sffamily, align=center, text width=2.2cm, inner sep=2pt},
+  stf/.style={blkr, font=\tiny\sffamily, align=center, text width=2.2cm, inner sep=2pt},
+  lab/.style={font=\tiny\sffamily, text=cinzaescuro}]
+\node[font=\scriptsize\sffamily\bfseries] at (1.6,0.95) {$\Gz$: one claim, false};
+\node[nd] (c) at (0,0.3) {CO2};
+\node[nd] (l) at (1.6,0.3) {LungParench};
+\node[nd] (g) at (3.3,0.3) {Grunting};
+\node[nd] (d) at (1.6,-0.9) {Disease};
+\node[nd] (s) at (3.3,-0.9) {Sick};
+\draw[falsa] (c) -- (l);
+\draw[aresta] (l) -- (g);
+\draw[propagada] (l) -- (d);
+\draw[propagada] (d) -- (s);
+\draw[aresta] (s) -- (g);
+\node[font=\tiny\sffamily, text=azulesc] at (1.6,-1.45) {+ 7 more propagated};
+\begin{scope}[xshift=4.5cm]
+\node[font=\scriptsize\sffamily\bfseries] at (1.6,0.95) {the truth};
+\node[nd] (c) at (0,0.3) {CO2};
+\node[nd] (l) at (1.6,0.3) {LungParench};
+\node[nd] (g) at (3.3,0.3) {Grunting};
+\node[nd, draw=vermesc] (d) at (1.6,-0.9) {Disease};
+\node[nd] (s) at (3.3,-0.9) {Sick};
+\draw[aresta] (l) -- (c);
+\draw[aresta] (l) -- (g);
+\draw[aresta] (d) -- (l);
+\draw[aresta] (d) -- (s);
+\draw[aresta] (s) -- (g);
+\node[font=\tiny\sffamily, text=vermesc] at (1.6,-1.45) {$Z=\emptyset$ invalid};
+\end{scope}
+\begin{scope}[xshift=9.3cm]
+\node[st, text width=2.6cm] (g0) at (2.5,0.8) {$\Gz$: 10 orientations; $\emptyset$ valid};
+\node[st] (h1) at (1.15,-0.35) {drop the claim, keep its 9; $\emptyset$ valid};
+\node[stf] (h2) at (1.15,-1.45) {also drop LungPar.\,$\to$\,Disease; fails};
+\node[stf] (ch) at (4.1,-0.35) {back to $\Chat$; $\emptyset$ fails};
+\draw[flow] (g0.south west) ++(0.35,0) -- node[lab, left, pos=0.45] {hop 1} (h1.north);
+\draw[flow] (h1) -- node[lab, left] {hop 2} (h2);
+\draw[flow] (g0.south east) ++(-0.35,0) -- node[lab, right, pos=0.45] {1 claim} (ch.north);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+Retracting the claim returns to $\Chat$, where $\emptyset$ fails: $\rclaim = 1$. The hop walk moves one
+orientation at a time; its only first step keeps the nine propagated orientations, a closed state
+nobody asserted, and only the second step breaks $Z$: $\rhop = 2$. Free rule, closure count, claim
+count,
+hop and claim radius certify 1, 10, 1, 2, 1 (\texttt{results/ledger/rows.csv}); covering $w = 1$ needs
+$r \ge 2$, so the closure count and the hop radius promise safety on a broken set.
+\end{exemplo}
+
+Every instrument is scored against $w$ counted in claims, since claims are what the analyst asserted.
+In its own unit the hop radius is right; the danger is hearing «one revision is safe» as «one wrong
+claim is safe», when undoing this one wrong claim takes ten orientations.
+
+\begin{formulabox}[The buckets, \texttt{experiments/ledger\_sweep.py}, function \texttt{bucket}]
+An instrument certifies $r$ on a row with $w$ false claims. It \emph{covers} the row iff $r = \infty$ or
+$w \le r-1$. \textbf{dangerous}: covers, $Z$ invalid at the truth; \textbf{held}: covers, valid;
+\textbf{safe}: does not cover, invalid; \textbf{slack}: does not cover, valid. Dangerous rate over
+certifiable rows; detection = safe over invalid rows; false alarm = slack over valid rows. A budgeted
+search enters with the floor it certifies (\texttt{claim\_lower\_bound}), never as $\infty$.
+\end{formulabox}
+
+Dangerous is the verdict an analyst cannot recover from; slack is a refused move that was fine. So
+validity is read as absolute and sharpness only among safe instruments, as one reads a conformal
+method: coverage first, size second.
+
+\prompt[conceito=baldes,dificuldade=0.65]{Explain to yourself, then check: why can a row on which no
+retraction breaks $Z$ ($r = \infty$) only be held or dangerous, and what would a dangerous row of that
+kind mean for the claim radius?}{Because $r = \infty$ covers every $w$, so only validity at the truth
+separates held from dangerous. For the claim radius such a row contradicts the proposition of
+Section~\ref{sec:t4-why} as long as the class is correct: retracting the $w$ false claims leaves a graph
+the truth extends, where an invalid $Z$ must fail, so some retraction would have broken $Z$. The row
+is a code defect or a violated premise, which is what the inspection trigger of
+Section~\ref{sec:t4-trigger} exists to separate.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[fornecedor-conhecimento]{Is the primary supplier better than chance at what it asserts, and is
+its committed set invalid less often?}
+\antesq[baldes]{On how many deployment rows is each of the free rule, the hop radius and the claim
+radius dangerous, and over which population?}
+\end{antes}
+
+\section{What Table 4 says}
+
+\begin{medido}[Table 4, blocks 1 and 2, \texttt{results/ledger/TABLE4.md}]
+Primary supplier, 229 certifiable rows: false claims over asserted \textbf{0.329} [0.184, 0.494]; set
+invalid at the truth \textbf{0.288} [0.155, 0.435], 66 rows. Chance on the same edges, 649 rows: 0.479
+[0.398, 0.559] and 0.378 [0.295, 0.460]. Paired on 24 networks, chance minus supplier, post hoc: +0.143
+[+0.006, +0.287] and +0.082 [$-$0.020, +0.176]. Network cluster bootstrap, $B = 4000$. The false-claim
+rate here is over the 229 certifiable rows on 27 networks; Chapter~\ref{ch:suppliers} quotes 0.325
+[0.210, 0.449], the network mean over all kept claims on 32 networks (\texttt{results/elicit/knowledge\_audit.json}).
+Both are right for their population.
+\end{medido}
+
+The supplier beats a coin on what it says, in a contrast declared afterwards; on whether the set breaks
+the difference is not shown. L4 asked for separated intervals and did not get them, so the abstract
+leads
+with the identifiability step (68 certifiable rows without knowledge, 229 with it) and with the
+dangerous
+counts, each of which needs its population.
+
+\begin{medido}[Dangerous rows, \texttt{TABLE4.md} ladder block, recounted from \texttt{rows.csv}]
+\centering\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& primary supplier & five conditions, 12 Sep & eleven conditions & audit conditions \\
+certifiable rows & 229 & 1,524 & 3,014 & 503 \\
+\midrule
+free rule & 0 & 15 & 15 & 0 \\
+hop radius & 4 & 29 & 39 & 0 \\
+claim radius & \textbf{0} & \textbf{0} & \textbf{0} & 0 \\
+\bottomrule
+\end{tabular}\\[0.3em]
+\raggedright
+The five conditions of 12 September: primary supplier, order replicate, second family, scrambled names,
+chance. There the closure count is dangerous on 0.22 to 0.34 of rows, the claim count on 0.17 to 0.34.
+The audit zeros hold by construction ($w = 0$, true claims keep $Z$ valid) and never enter a sentence
+about instruments.
+\end{medido}
+
+On the primary supplier the free rule and the claim radius are both safe, so what separates them is
+sharpness. \figref{fig:buckets} shows it bucket by bucket, and the paired ladder measures it.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{buckets_7b.pdf}
+\caption{Safety is read left of the rule and sharpness right of it. Of the 66 sets invalid at the
+truth, only the hop radius leaves any in the dangerous bucket. Of the 163 valid sets, the claim radius
+refuses a move on 30 and the free rule, equally safe on this supplier, on 61.}
+\label{fig:buckets}
+\end{figure}
+
+\begin{medido}[The paired ladder, \texttt{TABLE4.md}, last block]
+False alarm, claim radius minus the other instrument, difference of network means on the same rows.
+Against the free rule: primary supplier \textbf{$-$0.206} [$-$0.380, $-$0.053] on 25 networks, radius
+wins; order replicate $-$0.188, scrambled $-$0.246, chance $-$0.308, wins; second family $-$0.129
+[$-$0.294, +0.038], underpowered; the six scale-axis conditions $-$0.19 to $-$0.27, six wins. Against
+the
+hop radius: primary supplier \textbf{+0.144} [+0.025, +0.297], radius loses; +0.12 to +0.19 on the other
+four conditions of 12 September.
+\end{medido}
+
+Appendix A.2 of \texttt{results/ledger/PREREGISTRATION.md} writes the abstract from one sentence: the
+free rule is safe and blunt, the hop radius sharp and unsafe, the claim radius safe and sharper than the
+safe alternative. Its errata of 13 September qualify «safe» for the free rule, strict only on the
+primary
+supplier and the scale axis and dangerous on 3 to 6 rows in each of the other four conditions.
+
+\prompt[conceito=fornecedor-conhecimento,dificuldade=0.75]{Is the primary supplier better than chance?
+Answer on both measures with the numbers, and say what the pre-registration asked.}{On false claims
+yes, but only in a post hoc paired contrast: chance is +0.143 [+0.006, +0.287] higher on 24 networks
+(0.479 against 0.329). On sets invalid at the truth it is not shown: +0.082 [$-$0.020, +0.176] (0.378
+against 0.288). L4 asked for separated intervals and is not supported as registered, so the elicited
+condition is reported as not shown to be informative on this substrate.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[unidade-afirmacao]{Why does the claim radius's zero get no confidence interval?}
+\antesq[gac-backdoor]{Do the claim radius and the hop radius in the ledger decide validity with the
+same criterion?}
+\end{antes}
+
+\section{Why the zero is structural, and what the hop rows are}\label{sec:t4-why}
+
+More rows would not tighten the zero. It follows from one move: retracting exactly the false claims.
+
+\begin{proposicao}[The claim radius cannot over-certify, given a correct
+class]\label{prop:t4-structural}
+Let $Z$ be committed in $\Gz = \mathrm{Meek}(\Chat, \Kset)$, let certificate and audit decide validity
+with the same generalised adjustment criterion, and suppose the true DAG belongs to the class of
+$\Chat$. If $Z$ is invalid at the truth and the false claims form $W \subseteq \Kset$, $|W| = w$, then
+retracting $W$ breaks $Z$. Hence $\rclaim \le w$ whenever the search reaches depth $w$, every floor
+certified below depth $w$ is at most $w$, and the claim radius never covers $w$.
+\end{proposicao}
+
+\noindent\emph{Proof.} The claims in $\Kset \setminus W$ are true and the truth is in the class of
+$\Chat$, so the truth extends $\mathrm{Meek}(\Chat, \Kset \setminus W)$. Validity in an MPDAG is
+validity
+in every extension, and $Z$ fails in this one. \hfill$\square$
+
+The zero is what a sound criterion and an audit asking the same question must return, so it gets no
+interval; the rule-of-three floor Table~4 prints beside it (0.0131 for the primary supplier, $3/229$)
+would turn a consequence into a rate. Reading the radius as a minimal correction set needs failure to be
+upward-closed under retraction, your Theorem~1, and that was audited as implemented.
+
+\begin{medido}[Monotonicity, \texttt{experiments/monotonicity\_audit.py}]
+5,000 pairs (a failing retraction set, a random superset) on 469 rows of the elicited, truthful and
+oracle conditions: \textbf{0 violations}; one-sided 95\,\% bound 0.0006, treating pairs as independent
+although they cluster within rows (\texttt{results/ledger/monotonicity\_audit.json}). Proposition~1 of
+your draft rests on this theorem.
+\end{medido}
+
+The hop radius's dangerous rows are where the two units part.
+
+\begin{medido}[The unit gap, \texttt{PREREGISTRATION.md} A.0b and A.2, recounted from \texttt{rows.csv}]
+Of the hop radius's 29 dangerous rows on the five conditions of 12 September, \textbf{22} have
+$\rclaim = 1$, $\rhop = 2$, one false claim and an invalid set, the shape of Example~\ref{ex:child}; of
+its 39 on all eleven conditions, 28. Leverage $\rhop/\rclaim$ on the 1,390 rows of the 12 September
+ledger with both radii exact and finite: median 1, above 5 on 8 rows, maximum 12 (oracle) and 9
+(deployment).
+\end{medido}
+
+One confound had to be ruled out before quoting the gap, and I found it only while writing this chapter.
+
+\begin{armadilha}[Two criteria inside one ladder]
+In the ledger the claim radius decides failure with the generalised criterion,
+\texttt{is\_gac\_valid\_mpdag}
+in \texttt{src/bkrobust/gac/mpdag\_level.py}. The hop radius, through \texttt{breakdown\_radius}, uses
+\texttt{is\_valid\_mpdag} in \texttt{src/bkrobust/mpdag\_criterion/criterion.py}, which carries the
+back-door strengthening. Your \texttt{THEOREMS.md} §13 gives the direction, $\rval(\text{GAC}) \ge
+\rval(\text{back-door})$, so a GAC
+hop radius would be dangerous on at least the same rows and raise no more false alarms. Both hop
+conclusions are conservative; the columns should still share one criterion before the paper sets them
+side by side.
+\end{armadilha}
+
+For your draft, this is the measurement behind the abstract's distance that «counts elementary revisions
+of the analyst's own claims». An elementary revision is a covering step, which on every case checked
+changes exactly one orientation, propagated or asserted alike (\texttt{THEOREMS.md}, Lemma~R). Read as a
+count of wrong claims, the hop radius over-certified on 39 of 3,014 rows where the claim radius never
+did. Chapter~\ref{ch:merge} takes up the unit the paper reports in.
+
+\begin{sonorio}[The licensed form, for the audit table]
+\emph{On the 3,014 certifiable queries of eleven elicited and chance knowledge conditions, on the true CPDAG, the claim radius never
+certified more wrong claims than the analyst had made on an invalid adjustment set, which a sound
+criterion guarantees when the equivalence class is correct. Counted in covering hops, the radius did so
+on 39 queries, and the free hop-count rule on 15. Where the free rule was also safe, the claim radius
+raised fewer false alarms.} Never: an interval on the zero, «robust», «in deployment», «beats a
+leave-$k$-out screen» (Chapter~\ref{ch:m1b}).
+\end{sonorio}
+
+\prompt[conceito=unidade-afirmacao,dificuldade=0.75]{State the move that makes the claim radius's zero
+structural, its premise, and why the rule-of-three column must not be quoted as its bound.}{Retract
+exactly the $w$ false claims: the rest are true, so if the truth is in the class of $\Chat$ it extends
+the re-closed graph, where an invalid $Z$ fails, giving $\rclaim \le w$ (and any censored floor below
+depth $w$ is at most $w$). The premise is a correct class, with certificate and audit on one criterion.
+The zero is a consequence, not a frequency: a bound like $3/229 = 0.0131$ describes a rate that more
+rows
+could tighten, while this zero fails only when the premise does.}
+
+\prompt[conceito=gac-backdoor,dificuldade=0.8]{In the ledger the two radii decide failure with different
+predicates. Which ones, and why can that not have produced any of the 39 dangerous hop rows?}{The claim
+radius uses \texttt{is\_gac\_valid\_mpdag}, the generalised criterion; the hop radius uses
+\texttt{mpdag\_criterion.is\_valid\_mpdag}, with the back-door strengthening. Back-door validity implies
+GAC validity (\texttt{THEOREMS.md} §13), so back-door failure comes no later and that hop radius is
+never
+larger than a GAC one. A larger radius covers more, so a GAC hop radius would be dangerous on at least
+the same rows.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[gatilho-inspecao]{What does the clause attached to L6 order when one dangerous row of the claim
+radius appears, and what does it forbid until then?}
+\antesq[orcamento-retracao]{A claim search stopped by its 300-subset budget: what did it certify?}
+\antesq[gac-backdoor]{Which function in your repository is Pearl's back-door criterion, and which test
+now pins where it differs from the generalised criterion?}
+\end{antes}
+
+\section{The inspection trigger fired}\label{sec:t4-trigger}
+
+L6 predicted no dangerous row for the claim radius, and the clause beside it said: one such row, halt
+and inspect it before reading anything else, because it is a bug or the result. The first complete
+table showed seven, six under the order replicate and one under the second family, and 29 for the hop
+radius (\texttt{PREREGISTRATION.md}, A.0b). The inspection found two bugs and one result.
+
+\paragraph{Six rows: a floor read as infinity.} All six are on \texttt{paths}, the 17-node textbook network (its chain component holds 15 nodes)
+chain, where the order replicate asserted 13 claims, all false. The search stops before exceeding 300
+subsets: $13 + 78 = 91$, and size three would add 286, so it stops at \texttt{censored\_at\_depth\_3},
+certifying $\rclaim \ge 3$. That floor covers two wrong claims against $w = 13$: safe. The first bucket
+function scored the censored radius as unbounded, hence dangerous. Every censored radius now enters at
+its floor, and a search that tried every subset without a failure is stamped \texttt{unreached} instead
+of \texttt{gt\_d}. The six rows are still in \texttt{rows.csv}, now safe; the ledger holds 66 rows
+censored at depth 3 and 3 at depth 2.
+
+\paragraph{One row: the audit asked a different question.} On \texttt{ecoli70}, second family, query
+yedE $\to$ b1963: four claims, three false (nmpC $\to$ pspA, pspA $\to$ cspG, pspA $\to$ pspB),
+committed
+set $\{\text{atpD}, \text{pspA}\}$. The certificate found no break up to depth three; the audit called
+the set invalid. By the proposition both cannot hold, since the three false claims were a subset the
+search tried. An independent implementation of the generalised criterion on \texttt{networkx} sided with
+the certificate. The audit had used \texttt{is\_valid\_adjustment\_set\_dag}
+(\texttt{src/bkrobust/demo/evaluate.py}), which is Pearl's back-door criterion and says so in its
+docstring: it forbids every descendant of the treatment, and pspA descends from yedE on no causal path
+to
+b1963. Your \texttt{THEOREMS.md} §13 and §14 already state the relation (the generalised criterion
+accepts a superset and coincides on $\Ostar$). The error was ours, in choosing that function for the
+audit.
+
+\begin{medido}[The oracle, \texttt{PREREGISTRATION.md} A.0b, recounted from \texttt{rows.csv}]
+On the 1,169 committed sets of the four elicited conditions of 12 September and the oracle condition,
+the back-door function rejected \textbf{4} that the generalised criterion accepts, each holding a
+descendant of the treatment off every causal path, and agreed on the other 1,165. On all 3,585
+certifiable rows of the current ledger: 6, always in that direction.
+\end{medido}
+
+Your function was not touched. The audit calls \texttt{is\_valid\_adjustment\_set\_gac\_dag} in
+\texttt{src/bkrobust/benchmarks/audit.py}, which shares no code with the instrument, and keeps the
+back-door verdict as the column \texttt{z\_backdoor\_at\_truth}. The guard test
+\texttt{tests/\allowbreak benchmarks/\allowbreak test\_audit\_oracle.py} pins the smallest case: $U
+\to X \to C \to Y$, $U \to Y$,
+$X \to A$, where $\{U, A\}$ is valid under the generalised criterion and rejected by the back-door
+function, while all three oracles agree on $\{U\}$, $\emptyset$, $\{C\}$, $\{U, C\}$. The 29 hop rows
+showed no defect: they are the unit gap, and they stayed. The sweep was rerun with the two fixes and
+nothing else.
+
+A zero reached by fixing code is suspect by default. This one rests on checkable facts: the halt clause
+predates the first row, each fix is recorded in A.0b with the row that triggered it and a reason
+independent of the outcome, the unwelcome hop rows were left alone, and the next fix (the severity
+label)
+was rerun and diffed, changing only that column on 113 of 5,140 rows.
+
+\begin{digressao}[The ladder that never returned]
+The first sweep hung on \texttt{andes} (223 nodes) inside the CP-SAT ladder: \texttt{add\_failure}
+(\texttt{src/bkrobust/sat/failure.py}) loops, at each of the path's node positions, over every ordered
+node triple, about $2.4 \times 10^{9}$ iterations at 223 nodes against $1.2 \times 10^{7}$ at 60. The
+5-second limit bounds the solver, not the build, which had not returned after twelve minutes; those rows
+were discarded unread (A.0). The hop walk is now exhaustive up to 12 retractable edges and depth 3
+beyond,
+under 4,000 closures, the ladder runs only up to 60 nodes, and a budgeted walk enters the bucket as
+$\rhop \ge \text{depth}+1$. The gate is a workaround; the build itself is unchanged.
+\end{digressao}
+
+\naopasse[gac-backdoor]{Write the three facts that made the \texttt{ecoli70} row a contradiction: how
+many claims were false, how deep the search went, and what that implied for $\rclaim$ if $Z$ were
+invalid. If one is missing, reread that paragraph before the exercises.}
+
+\begin{exercicio}[metodo=diagnosis,conceito=gatilho-inspecao]
+A row built for this exercise. Oracle CPDAG, claims $a, b, c$ with $a$ and $b$ false;
+\texttt{r\_claim\_status} is \texttt{unreached}; \texttt{z\_valid\_at\_truth} $= 0$ and
+\texttt{z\_backdoor\_at\_truth} $= 0$; the claim bucket reads dangerous. (a) Can either defect of 12
+September explain it? (b) What should the search have found, and at which depth? (c) Name, in order, the
+three checks you would run and the function each calls. (d) Could this row be a result on an estimated
+CPDAG?
+\end{exercicio}
+\begin{solucao}
+(a) No: \texttt{unreached} means all $3 + 3 + 1 = 7$ subsets were tried, and both oracles call $Z$
+invalid. (b) Retracting $\{a, b\}$ leaves the true claim $c$, the truth extends
+$\mathrm{Meek}(\Chat, \{c\})$, so $Z$ must fail at depth at most 2. (c)
+\texttt{apply\_orientations}$(\Chat,
+[c])$, checking the truth is a consistent extension (the closure); \texttt{is\_gac\_valid\_mpdag} on
+that
+graph against \texttt{is\_valid\_adjustment\_set\_gac\_dag} on the truth (the two implementations of the
+criterion); the count of $w$ in \texttt{audit\_row}. On the oracle ledger it is a defect in one of
+these,
+never a result. (d) Yes: once the class may miss the truth, a dangerous row is a measurement
+(Chapter~\ref{ch:pest}).
+\end{solucao}
+
+\begin{exercicio}[metodo=table-reading,conceito=baldes]
+Table~4, scrambled names (\texttt{D\_SCRAMBLED}, 197 certifiable rows): free rule held 43, dangerous 3,
+safe 64, slack 87; hop radius held 99, dangerous 7, safe 60, slack 31; claim radius held 76, safe 67,
+slack 54. (a) How many rows are invalid at the truth? (b) Detection and false alarm of each. (c) The
+ladder gives claim minus free rule $-$0.246 [$-$0.405, $-$0.103] and claim minus hop +0.171 [+0.074,
++0.279]; compare with the pooled differences and state each verdict. (d) Why is the printed
+rule-of-three floor 0.0152 not the claim radius's bound?
+\end{exercicio}
+\begin{solucao}
+(a) Safe plus dangerous: $64 + 3 = 60 + 7 = 67$; valid 130. (b) Free rule $0.955$ and $87/130 = 0.669$;
+hop radius $60/67 = 0.896$ and $31/130 = 0.238$; claim radius $1$ and $54/130 = 0.415$. (c) Pooled
+$-0.254$ and $+0.177$, close to the paired values (network means first). The claim radius
+dominates the free rule (safe where it is dangerous on 3, and radius wins on false alarm); against the
+hop
+radius it is safe where the hop is dangerous on 7 but less sharp (radius loses). (d) $3/197$, the
+bound a
+zero would carry if it were a rate; this zero is a consequence of the proposition.
+\end{solucao}
+
+\section*{Chapter map}
+
+\begin{center}
+\begin{tikzpicture}[lb/.style={font=\tiny\sffamily, align=center}]
+\node[cmapc] (p) at (0,0) {promise: $r-1$ revisions are safe};
+\node[cmapr] (v) at (4.8,0) {truth: $w$ false claims, validity of $Z$};
+\node[cmap] (b) at (9.6,0) {four buckets: dangerous, held, safe, slack};
+\node[cmapr] (t) at (0,-1.55) {inspection trigger: 6 floors, 1 back-door oracle};
+\node[cmap] (h) at (4.8,-1.55) {hop radius: 39 dangerous, the unit gap};
+\node[cmapg] (c) at (9.6,-1.55) {claim radius: 0 dangerous on 3,014};
+\node[cmap] (m) at (4.8,-3.1) {monotonicity: 0 violations in 5,000};
+\node[cmapg] (s) at (9.6,-3.1) {structural: correct class, one criterion};
+\draw[cedge] (p) -- node[lb, above] {checked\\ against} (v);
+\draw[cedge] (v) -- node[lb, above] {sorts\\ into} (b);
+\draw[cedge] (b) -- node[lb, right] {measures} (c);
+\draw[cedge] (c) -- node[lb, above] {same rows,\\ other unit} (h);
+\draw[cedge] (t) -- node[lb, above] {kept as\\ result} (h);
+\draw[cedge] (s) -- node[lb, right] {explains\\ the zero} (c);
+\draw[cedge] (m) -- node[lb, above] {supports} (s);
+\draw[cedge] (t) -- node[lb, below, sloped, pos=0.3] {fixed before the zero} (s);
+\end{tikzpicture}
+\end{center}

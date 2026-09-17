@@ -1,0 +1,370 @@
+% =============================================================================
+\chapter{When the class itself is estimated}\label{ch:pest}
+
+Every row of Chapter~\ref{ch:table4} was computed on the CPDAG of the true DAG, which is what the stamp
+\texttt{via\_Chat\_only} says. The claim radius's zero rests on Proposition~\ref{prop:t4-structural},
+and that proposition has a premise: the true DAG belongs to the
+class of $\Chat$. This chapter reads \texttt{results/pest/TABLE7.md}, the panel that drops the premise
+by learning the class from data. What it measured limits the scope of the paper's main claim. The
+substrate decisions behind Table~2 close the chapter.
+
+\begin{antes}
+\antesq[premissa-classe]{Which algorithms, sample sizes and seeds did the panel use, and how was the
+reference class chosen?}
+\antesq[premissa-classe]{At $n = 200$, does a learned CPDAG leave more edges open than the oracle's?}
+\end{antes}
+
+\section{The panel}
+
+\begin{ideia}
+The claim radius answers how many of your claims can be wrong before the set breaks. It does not ask
+whether the graph the claims were made on is right, and it has no way to ask.
+\end{ideia}
+
+The invariant of Chapter~\ref{ch:vocabulary} says the analyst sees $\Chat$, $\Kset$, the query and the
+data. In the ledger $\Chat$ was the oracle's; in an analysis it comes out of a discovery algorithm.
+Only four networks in the corpus carry fitted Gaussian parameters from which data can be simulated:
+\texttt{ecoli70} and \texttt{arth150} (gene expression), \texttt{magic-niab} and \texttt{magic-irri}
+(plant genetics). P-EST uses those four.
+
+The design was registered in \texttt{results/pest/PREREGISTRATION.md} on 12 September, after the
+ledger was read and before any discovery run: samples from each linear-Gaussian SEM at
+$n \in \{200, 1000, 5000\}$, ten seeds; PC with a Fisher-$z$ test at $\alpha = 0.01$ and GES with BIC
+(\texttt{causal-learn}), a 900-second wall per run, GES on \texttt{arth150} limited to three seeds. The
+reference class $\Chat_E$ of each network is PC at $n = 5000$, seed 0, or the next seed if its Meek
+closure fails. On $\Chat_E$ everything was rebuilt: frame, questionnaire, the primary 7B supplier,
+sweep and audit. The truth draws the samples and audits the frozen rows, nothing else
+(\texttt{true\_dag\_on\_path = false}). Fed the oracle CPDAG instead of $\Chat_E$, the pipeline
+reproduced all 420 comparable ledger rows with no difference in any field (A.0).
+
+\begin{medido}[What discovery returned, \texttt{TABLE7.md} blocks 1 and 2,
+\texttt{experiments/pest\_table.py}]
+219 runs, 7 at the wall. The Meek closure failed on 36 of 120 PC runs, 24 of which returned a graph
+that already held a directed cycle; the references of \texttt{arth150} and \texttt{magic-niab} fell
+back to seeds 1 and 5. Reference skeletons against the truth, edges missing and extra: 12 and 2
+(\texttt{ecoli70}), 29 and 6 (\texttt{arth150}), 0 and 1 (\texttt{magic-niab}), 5 and 4
+(\texttt{magic-irri}). Compelled edges pointing the wrong way: 12 of 52, 40 of 86, 14 of 62, 25 of 90.
+Open edges, estimate against oracle: 8/25, 41/45, 5/10, 11/12.
+\end{medido}
+
+At $n = 200$ the two algorithms fail in opposite directions: PC leaves more edges open than the oracle
+on all four networks, GES returns a sparse graph that is almost fully oriented.
+
+\prompt[conceito=premissa-classe,dificuldade=0.75]{At $n = 200$ GES leaves only 3 to 4\,\% of its
+edges open, far fewer than the oracle CPDAG. Why is that bad news for the analyst rather than good
+news?}{Because its skeleton precision there is 0.47 to 0.67: BIC on few samples returns a sparse,
+nearly fully oriented graph, so the low open fraction is a wrong graph with orientations, not
+information. Fewer open edges means fewer questions to the supplier and more certifiable queries, all
+built on orientations the truth does not have.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[premissa-classe]{On how many of the 244 certifiable rows does the truth extend the analyst's
+graph?}
+\antesq[premissa-classe]{For the primary supplier, on how many rows is the claim radius dangerous, and
+the hop radius?}
+\antesq[premissa-classe]{Which network has no dangerous row on any deployment condition, and why?}
+\end{antes}
+
+\section{What the panel measured}\label{sec:pest-measured}
+
+The number that decides is the premise itself, checked row by row: is the generating DAG a consistent
+extension of the analyst's graph? On \textbf{0 of the 244} certifiable rows, summed over all
+conditions. Every reference skeleton differs from the truth, so Proposition~\ref{prop:t4-structural}
+has no row to apply to.
+
+\begin{medido}[Table 7, \texttt{results/pest/TABLE7.md} blocks 3 to 7, from \texttt{rows.csv}]
+Primary supplier: committed set invalid at the truth on \textbf{28 of 38} certifiable rows (0.737,
+against 0.269 on the oracle panel of the same networks). Claim radius dangerous on \textbf{14 of 38};
+hop radius on the same 14 rows. Chance: 43 and 44 of 116. No knowledge: 14 of 19. Truthful claims on
+the supplier's edges: 23 of 34. On the oracle panel of the same four networks, neither radius is
+dangerous on any row of any condition. Primary supplier by network: 6 of 8 (\texttt{ecoli70}), 5 of 7
+(\texttt{arth150}), 0 of 14 (\texttt{magic-niab}), 3 of 9 (\texttt{magic-irri}).
+\end{medido}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\linewidth]{pest_dangerous.pdf}
+\caption{On the learned CPDAG the claim radius and the hop radius are dangerous on the same rows, and
+truthful claims do not rescue them. On the oracle CPDAG of the same four networks the supplier's two
+radii
+are dangerous on none of its 26 rows. The error that breaks the set is in the learned graph, where no
+retraction of
+claims reaches it.}
+\label{fig:pest}
+\end{figure}
+
+\figref{fig:pest} sets the two panels side by side. Without knowledge there is no claim to retract,
+the certificate reports no break, and every invalid set becomes dangerous. The truthful condition
+asserts nothing false and is still dangerous on 23 of 34 rows,
+because the error is in the graph. In the ledger the two radii differed by the unit; here both reason
+inside the wrong class
+and certify the same broken sets, and over the whole panel they differ on one row.
+
+The certifiable share rose instead of falling, which falsified P2: the primary supplier certifies 38 of
+80 frame rows (0.475) against 26 of 80 (0.325) on the oracle panel. The learned graph orients more than
+the truth does, and identifiability is bought with wrong orientations. \texttt{magic-niab}, whose
+reference misses no skeleton edge and adds one, is the only network where neither the supplier nor
+chance is ever dangerous, and all their invalid sets (6 and 14) are detected. The audit conditions are
+still dangerous there on 3 and 4 rows, because 14 of its 62 compelled edges point the wrong way.
+
+\prompt[conceito=premissa-classe,dificuldade=0.8]{\texttt{magic-niab} is the one network with no
+dangerous row on the deployment conditions. Why does that confirm the scope limit rather than weaken
+it, and why are the audit conditions still dangerous there?}{Its reference skeleton misses no edge
+and adds one, so the invalid sets of the supplier and of chance come from their claims, which the
+certificate sees: all 6 and 14 are detected. The truth still does not extend the analyst's graph,
+because 14 of 62 compelled edges are wrong, and the audit conditions, which assert only true claims,
+are dangerous on 3 and 4 rows: an error on a compelled edge that no retraction reaches. The limit shows
+up exactly where the premise almost holds.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[premissa-classe]{Name the three mechanisms the inspection found on the dangerous rows of the
+supplier and of no knowledge.}
+\antesq[correcao-minima]{Why can no retraction of claims repair an edge the data got wrong?}
+\end{antes}
+
+\section{Why no retraction reaches the error}\label{sec:pest-why}
+
+P3 carried the ledger's decision rule, and it fired: the six dangerous rows of the supplier and of no
+knowledge that passed its test (three queries, two networks) were inspected before anything else was
+read. No bug: each committed set is valid on the analyst's graph and contains
+a node the truth forbids.
+
+\begin{exemplo}[A true claim, a dangerous row]\label{ex:pest-collider}
+The data suggest a collider that does not exist: the learned CPDAG compels $X \to Y \leftarrow H$ and
+leaves $W - X$ open. The analyst asserts $W \to X$, which is true.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm]
+\begin{scope}
+\node[font=\scriptsize\sffamily] at (2.25,0.8) {analyst's graph $\Gz$: learned class + one true claim};
+\node[nodo] (w) at (0,0) {$W$};
+\node[nodo] (x) at (1.5,0) {$X$};
+\node[nodo] (y) at (3.0,0) {$Y$};
+\node[nodo, draw=verdesc, very thick] (h) at (4.5,0) {$H$};
+\draw[afirmada] (w) -- (x);
+\draw[aresta] (x) -- (y);
+\draw[falsa] (h) -- (y);
+\node[font=\scriptsize\sffamily, text=verdesc] at (4.5,-0.6) {$Z = \{H\}$};
+\node[font=\tiny\sffamily, text=vermesc] at (3.75,0.3) {wrong};
+\end{scope}
+\begin{scope}[xshift=7.4cm]
+\node[font=\scriptsize\sffamily] at (2.25,0.8) {the truth};
+\node[nodo] (w) at (0,0) {$W$};
+\node[nodo] (x) at (1.5,0) {$X$};
+\node[nodo] (y) at (3.0,0) {$Y$};
+\node[nodo, draw=vermesc, very thick] (h) at (4.5,0) {$H$};
+\draw[aresta] (w) -- (x);
+\draw[aresta] (x) -- (y);
+\draw[aresta] (y) -- (h);
+\node[font=\scriptsize\sffamily, text=vermesc] at (4.5,-0.6) {child of $Y$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+On $\Gz$ the optimal set for $X \to Y$ is $\mathrm{pa}(Y) \setminus \{X\} = \{H\}$, and it is valid.
+Retracting $W \to X$ reopens $W - X$ and leaves $H \to Y$ alone, since no claim created it, so $\{H\}$
+stays valid and the certificate reports no break. At the truth $H$ is a child of $Y$, hence forbidden,
+and $\{H\}$ is invalid. The row is dangerous with no false claim at all.
+\end{exemplo}
+
+The measured rows follow the same pattern with real variables. On \texttt{magic-irri}, for the effect
+on \texttt{FT}, $\Chat_E$ compels \texttt{HT} $\to$ \texttt{FT} and \texttt{YLD} $\to$ \texttt{FT}
+against the truth, so both variables, descendants of the outcome in the truth, enter the set; that is
+the example above. The other two mechanisms are missing edges: on \texttt{magic-irri}, for the effect
+of \texttt{GTEMP}, $\Chat_E$ lacks \texttt{GTEMP} -- \texttt{GW}, so \texttt{GW}, which the truth
+forbids, enters the set; on \texttt{arth150}, $\Chat_E$ lacks three of the treatment's edges and 11
+members of the set are forbidden at the truth (\texttt{PREREGISTRATION.md}, A.1, P3).
+
+The inspection also showed that P3 had been registered on the wrong test: it looked only at the claims
+and the query, and an error in the skeleton or in a compelled edge passes it. The exact test,
+\texttt{truth\_extends\_g0}, was added after the first table and is marked post hoc; the frozen
+instrument rows were byte-identical across both runs. Written with its premise in view,
+Proposition~\ref{prop:t4-structural} says: \emph{if the true DAG belongs to the class of $\Chat$},
+retracting the false claims lands on a graph the truth extends. Without that clause nothing follows,
+and on this panel the clause held on no row.
+
+\prompt[conceito=premissa-classe,dificuldade=0.75]{State the structural property of the claim radius
+with the premise P-EST removed, and say on how many certifiable rows of the panel the premise
+held.}{With certificate and audit on the same criterion, and supposing the true DAG belongs to the
+class of $\Chat$: if the committed set is invalid at the truth and $w$ claims are false, retracting
+those $w$ claims leaves a graph the truth extends, where the set fails, so $\rclaim \le w$ and the
+claim radius does not over-certify. The premise is that the class contains the truth. On the panel it
+held on 0 of 244 certifiable rows.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[pre-registro]{Which of P1 to P5 turned out vacuous, and why?}
+\antesq[frases-proibidas]{What is the licensed sentence for this panel, and which sentence does it
+forbid?}
+\end{antes}
+
+\section{Predictions, and the sentence the paper can print}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{6.0cm}@{}}
+\toprule
+& \textbf{prediction} & \textbf{verdict} & \textbf{what decided it} \\
+\midrule
+P1 & estimation leaves more open than the oracle, less as $n$ grows & not supported as registered &
+holds for PC (non-increasing on three networks); GES at $n = 200$ is sparse and almost fully oriented \\
+P2 & the certifiable share falls & falsified & 0.475 against 0.325 \\
+P3 & no dangerous row where the truth extends the graph & falsified as operationalised; premise held
+on no row & truth extends $\Gz$ on 0 of 244; the inspection found no bug \\
+P4 & wrong-skeleton rows are counted, not dropped & partly supported & nothing dropped; one of the two
+statuses never fires \\
+P5 & realised bias larger at certified floor 1 & supported as registered, not robust & 0.110 against
+0.063; medians reverse \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+P5 is supported only as pooled means (absolute bias of the OLS estimate 0.110 on 71 rows at floor 1,
+0.063 on 102 at floor 2 or more, deployment conditions): the medians reverse, and so do the means
+without \texttt{magic-irri}. On an invalid set the bias is structural, so the certified floor is not a
+bias proxy on this panel.
+
+\begin{sonorio}[The licensed form, \texttt{docs/PROTOCOL\_RUN.md}, stage 6]
+\emph{The claim radius certifies against error in the analyst's claims given a correct equivalence
+class. It does not certify against discovery error, which on these four networks at $n = 5000$
+invalidates more committed sets than the claims do.} It goes in the main text (one results paragraph,
+one sentence in the limitations, Table~7 in the appendix), as \texttt{results/pest/PREREGISTRATION.md}
+A.2 says. Never «robust under an estimated
+CPDAG», for the claim radius or for the hop radius.
+\end{sonorio}
+
+The wrong use of this panel is the usual limitations sentence, and your draft has one.
+
+\begin{armadilha}[A scope limit, not a softened idealisation]
+Section~7 of your draft says: «The skeleton and the v-structures are treated as given \ldots\ Real
+discovery on finite data returns a different and usually sparser skeleton, and a missing weak edge is
+precisely the error that breaks back-door blocking; nothing here speaks to it.» The mechanism is right,
+and it is one of the two the inspection found; the other is a compelled edge pointing the wrong way.
+«Nothing here speaks to it» is no longer true: P-EST measured that the guarantee fails, not an
+idealisation to relax later. A deployment claim for either radius needs a certificate that also
+retracts the discovery output; the panel sizes that gap and does not close it.
+\end{armadilha}
+
+\prompt[conceito=pre-registro,dificuldade=0.7]{P5 came out supported as registered: mean bias 0.110
+at certified floor 1 against 0.063 at floor 2 or more. Give the three readings that stop anyone calling
+the floor a bias proxy.}{The medians reverse, 0.021 against 0.028. Without \texttt{magic-irri} the
+means reverse too, 0.047 against 0.050, because the pooled order comes from that network's 14 chance
+rows at floor 1, averaging 0.344. And of the eight network-by-condition cells with rows at both floors,
+four go each way. On an invalid set the bias is structural anyway, and a sampling band says nothing
+about it.}
+
+% -----------------------------------------------------------------------------
+\begin{antes}
+\antesq[var-sortability]{How close to one are var-sortability and $R^2$-sortability on the four
+Gaussian networks?}
+\antesq[invariante]{What exactly is the \texttt{sachs} network in the repository, and what word must
+the paper never use for it?}
+\end{antes}
+
+\section{The substrate decisions behind Table 2}
+
+Table~2 describes the corpus network by network (\texttt{results/substrate/TABLE2\_SUBSTRATE.md}).
+Four decisions were closed on 12 September in \texttt{results/substrate/DECISIONS.md}, and the first
+concerns the four networks of this chapter.
+
+\begin{medido}[Sortability, \texttt{results/substrate/sortability.json}]
+\texttt{experiments/sortability\_probe.py}, $n = 5000$, ten seeds, definitions of Reisach et al.\
+(2021, 2023) implemented from the papers.
+Var-sortability 0.62 (\texttt{arth150}), 0.71 (\texttt{ecoli70}), 0.59 (\texttt{magic-irri}), 0.33
+(\texttt{magic-niab}); $R^2$-sortability 0.25, 0.38, 0.61, 0.76. Seed dispersion at most 0.015; every
+mean within about one standard deviation of its population value.
+\end{medido}
+
+None of the four sits near one on either criterion, and the two do not track each other
+(\texttt{arth150} has the second-highest var-sortability and the lowest $R^2$-sortability). A learned
+CPDAG on these networks cannot be read off the variances, so the discovery errors of P-EST
+are not an artefact of an easy ordering; every other network is undefined, having no continuous
+parameters.
+
+The other three decisions fix what three files are. \texttt{M-bias.txt}, dagitty's three-node ADMG, is
+refused as a DAG and expanded into \texttt{M-structure.txt}, five nodes with both latent causes
+explicit; once they are measured the trap disappears (the optimal set for $(E, D)$ is $\{U_2\}$ either
+way), so it is a calibration fixture outside the frozen frame and the ledger. In
+\texttt{Didelez\_2010} the node \texttt{S} is dagitty's \texttt{selected} indicator; it
+changes no orientation, and the 48 ledger rows with \texttt{S} as outcome are declared as a named
+stratum. \texttt{sachs} is byte-identical to bnlearn's file: the 17-arc network that Sachs et
+al.\ (2005) inferred, which differs from the 20-edge Tetrad ground truth by one reversal
+(\texttt{Plcg}--\texttt{PIP3}) and three added edges. Its CPDAG is fully undirected, and on that one
+edge five knowledge
+conditions answered in the map's direction and two in the file's. The commission count on
+\texttt{sachs} depends on the choice, and the paper names the object and never calls it the consensus
+network.
+
+\prompt[conceito=invariante,dificuldade=0.7]{What is \texttt{sachs} in the repository, how does it
+differ from the Tetrad ground truth, and why does the difference change a measured
+number?}{bnlearn's 17-arc network inferred in Sachs et al.\ (2005), with tables fitted to discretised
+data. The Tetrad ground truth has 20 edges: it shares 16, reverses \texttt{Plcg}--\texttt{PIP3} and
+adds three. The CPDAG of the 17-arc graph is fully undirected, so the reversed edge is a claim; five
+conditions answered \texttt{PIP3} $\to$ \texttt{Plcg} and two \texttt{Plcg} $\to$ \texttt{PIP3}, so
+which group is scored as wrong depends on which object is called the truth.}
+
+\naopasse[premissa-classe]{In Example~\ref{ex:pest-collider}, point to the edge that makes the row
+dangerous and say why retracting $W \to X$ cannot reach it. If you pointed to the claim $W \to X$,
+reread the example before the exercises.}
+
+\begin{exercicio}[metodo=counterexample,conceito=premissa-classe]
+P3 was registered on rows whose claims all name true edges in the true direction and whose outcome is
+a true descendant of the treatment. A colleague argues that on such rows the claim radius cannot be
+dangerous, since every claim is true. Refute it with four nodes, using a \emph{missing} edge rather
+than the wrong collider of Example~\ref{ex:pest-collider}: give the truth, the learned CPDAG, the claim,
+the committed set, and the bucket. Which measured mechanism does your construction reproduce?
+\end{exercicio}
+\begin{solucao}
+Truth: $W \to X$, $X \to Y$, $X \to C$, $C \to Y$, so $C$ is a mediator. The learned skeleton misses
+$X - C$; with $X$ and $C$ non-adjacent, $X \to Y \leftarrow C$ is compelled as a v-structure and $W - X$
+stays open. The analyst asserts $W \to X$, which is true, and $Y$ is a true descendant of $X$, so the
+row passes P3's test. On $\Gz$ the optimal set is $\mathrm{pa}(Y) \setminus \{X\} = \{C\}$, valid
+because $C$ is not a descendant of $X$ there. Retracting $W \to X$ leaves $\{C\}$ valid, so the
+certificate reports no break and covers $w = 0$. At the truth $C$ lies on the causal path
+$X \to C \to Y$, is forbidden, and $\{C\}$ is invalid: dangerous. It reproduces the missing-edge
+mechanism of
+\texttt{GTEMP} -- \texttt{GW} on \texttt{magic-irri}; Table~7 counts 3 rows of the supplier that pass
+P3's test and are dangerous.
+\end{solucao}
+
+\begin{exercicio}[metodo=rewriting,conceito=frases-proibidas]
+Rewrite the first two sentences of the paragraph quoted in the trap of this chapter («Assumptions
+inherited by every number», Section~7 of your draft) so that they carry what P-EST measured, in at most
+five sentences, in the paper's register: no percentages in parentheses on every clause, no forbidden
+phrase, and the premise stated as the scope of the certificate.
+\end{exercicio}
+\begin{solucao}
+One acceptable version: \emph{The radius certifies against error in the analyst's claims given a
+correct equivalence class; the skeleton and the v-structures are treated as given. We measured what
+happens when that condition is dropped. On four networks with fitted Gaussian parameters we learned the
+class with PC from 5,000 samples and rebuilt every stage on it: no learned class contained the true
+graph, and the committed set was invalid at the truth on 28 of the 38 certifiable queries of the
+primary knowledge source. Both the claim radius and the hop radius over-certified on 14 of them, and
+truthful claims did not prevent it, because a missing edge or a wrong compelled orientation lies
+outside every retraction of claims.} What changed: the premise became the scope of the
+certificate, «nothing here speaks to it» became a measurement, and «usually sparser» went, since the
+learned classes both lose and add edges and orient more than the truth.
+\end{solucao}
+
+\section*{Chapter map}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm, y=1cm, lb/.style={font=\tiny\sffamily, align=center}]
+\node[cmapc] (g)  at ( 0.0, 0)    {claim radius's guarantee};
+\node[cmap]  (p)  at (-4.4, 0)    {premise: the class contains the truth};
+\node[cmapg] (o)  at ( 4.4, 0)    {oracle panel: dangerous on 0 rows};
+\node[cmap]  (a)  at (-4.4,-1.45)  {learned CPDAG: PC and GES, three $n$, ten seeds};
+\node[cmapr] (e)  at ( 0.0,-1.45)  {truth extends $\Gz$ on 0 of 244};
+\node[cmapr] (d)  at ( 4.4,-1.45)  {dangerous on 14 of 38; hop radius the same 14};
+\node[cmap]  (n)  at (-2.2,-2.8)  {missing edges, wrong compelled edges};
+\node[cmapg] (s)  at ( 2.2,-2.8)  {licensed: given a correct class};
+\draw[cedge] (p) -- node[lb, above]{sustains} (g);
+\draw[cedge] (g) -- node[lb, above]{holds on} (o);
+\draw[cedge] (p) -- node[lb, left]{tested by} (a);
+\draw[cedge] (a) -- node[lb, above]{voids} (e);
+\draw[cedge] (e) -- node[lb, above]{so} (d);
+\draw[cedge] (n) -- node[lb, left, pos=0.4]{no retraction\\ reaches} (e);
+\draw[cedge] (d) -- node[lb, right, pos=0.4]{scopes\\ the claim} (s);
+\end{tikzpicture}
+\end{center}

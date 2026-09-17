@@ -1,0 +1,386 @@
+{
+ "generated_by": "gen_figs_redef.py",
+ "note": "Every plotted value, with the result file and the JSON key it was read from. The JSON keys of the source files are in Portuguese.",
+ "figures": {
+  "figs/redef_degeneracy.pdf": [
+   {
+    "label": "problems (exp1)",
+    "value": 400,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp1.n"
+   },
+   {
+    "label": "r_val = 1: problems",
+    "value": 190,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp1.dist.1"
+   },
+   {
+    "label": "r_val = 2: problems",
+    "value": 6,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp1.dist.2"
+   },
+   {
+    "label": "r_val = 3: problems",
+    "value": 3,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp1.dist.3"
+   },
+   {
+    "label": "r_val = UNREACHED: problems",
+    "value": 201,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp1.dist.UNREACHED"
+   },
+   {
+    "label": "fraction of mass at the two extremes (1 or not reached)",
+    "value": 0.9775,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp1.frac_binary"
+   }
+  ],
+  "figs/redef_direction.pdf": [
+   {
+    "label": "0 reversed claims: informative problems",
+    "value": 77,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.0.direction.of"
+   },
+   {
+    "label": "0 reversed claims: class disagrees whether X causes Y (count)",
+    "value": 64,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.0.direction.disputed"
+   },
+   {
+    "label": "0 reversed claims: class disagrees whether X causes Y (fraction)",
+    "value": 0.8311688311688312,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.0.direction.frac"
+   },
+   {
+    "label": "0 reversed claims: width among worlds where X causes Y is 0 (fraction)",
+    "value": 0.5584415584415584,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.0.direction.frac_zero"
+   },
+   {
+    "label": "0 reversed claims: that width as fraction of the blanket (mean)",
+    "value": 0.37501513444079293,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.0.direction.width_share"
+   },
+   {
+    "label": "1 reversed claims: informative problems",
+    "value": 61,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.1.direction.of"
+   },
+   {
+    "label": "1 reversed claims: class disagrees whether X causes Y (count)",
+    "value": 53,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.1.direction.disputed"
+   },
+   {
+    "label": "1 reversed claims: class disagrees whether X causes Y (fraction)",
+    "value": 0.8688524590163934,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.1.direction.frac"
+   },
+   {
+    "label": "1 reversed claims: width among worlds where X causes Y is 0 (fraction)",
+    "value": 0.6065573770491803,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.1.direction.frac_zero"
+   },
+   {
+    "label": "1 reversed claims: that width as fraction of the blanket (mean)",
+    "value": 0.3143578274766524,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.1.direction.width_share"
+   },
+   {
+    "label": "2 reversed claims: informative problems",
+    "value": 72,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.2.direction.of"
+   },
+   {
+    "label": "2 reversed claims: class disagrees whether X causes Y (count)",
+    "value": 61,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.2.direction.disputed"
+   },
+   {
+    "label": "2 reversed claims: class disagrees whether X causes Y (fraction)",
+    "value": 0.8472222222222222,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.2.direction.frac"
+   },
+   {
+    "label": "2 reversed claims: width among worlds where X causes Y is 0 (fraction)",
+    "value": 0.5833333333333334,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.2.direction.frac_zero"
+   },
+   {
+    "label": "2 reversed claims: that width as fraction of the blanket (mean)",
+    "value": 0.3587381976352642,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp2.2.direction.width_share"
+   }
+  ],
+  "figs/redef_hull_example.pdf": [
+   {
+    "label": "effect in extension 0 of the class",
+    "value": 0.949,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "theta_blanket[0].efeito"
+   },
+   {
+    "label": "effect in extension 1 of the class",
+    "value": -0.203,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "theta_blanket[1].efeito"
+   },
+   {
+    "label": "effect in extension 2 of the class",
+    "value": 0.746,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "theta_blanket[2].efeito"
+   },
+   {
+    "label": "effect in extension 3 of the class",
+    "value": 0.949,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "theta_blanket[3].efeito"
+   },
+   {
+    "label": "true effect",
+    "value": 0.949,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "verdadeiro.efeito_verdadeiro"
+   },
+   {
+    "label": "blanket hull: low",
+    "value": -0.203,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "casco_blanket[0]"
+   },
+   {
+    "label": "blanket hull: high",
+    "value": 0.949,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "casco_blanket[1]"
+   },
+   {
+    "label": "retraction hull RH_1: low",
+    "value": 0.746,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "escada_RH[1].casco[0]"
+   },
+   {
+    "label": "retraction hull RH_1: high",
+    "value": 0.949,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "escada_RH[1].casco[1]"
+   },
+   {
+    "label": "RH_0 with the correct expert: low",
+    "value": 0.949,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "casco_G0[0]"
+   },
+   {
+    "label": "RH_0 with the correct expert: high",
+    "value": 0.949,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "casco_G0[1]"
+   },
+   {
+    "label": "RH_0 with one reversed claim: low",
+    "value": 0.746,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "braco_com_erro.escada[0].casco[0]"
+   },
+   {
+    "label": "RH_0 with one reversed claim: high",
+    "value": 0.746,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "braco_com_erro.escada[0].casco[1]"
+   },
+   {
+    "label": "RH_1 width / blanket width",
+    "value": 0.1762,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "escada_RH[1].razao_blanket"
+   },
+   {
+    "label": "RH_0 with one reversed claim covers the true effect",
+    "value": false,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/exemplo.json",
+    "key": "braco_com_erro.escada[0].cobre_o_verdadeiro"
+   }
+  ],
+  "figs/redef_stratum.pdf": [
+   {
+    "label": "all problems: n",
+    "value": 1800,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.n"
+   },
+   {
+    "label": "all problems, r_val = 0: fraction",
+    "value": 0,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.r_val.dist.0 (missing key = 0)"
+   },
+   {
+    "label": "all problems, r_val = 1: fraction",
+    "value": 0.4388888888888889,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.r_val.dist.1"
+   },
+   {
+    "label": "all problems, r_val = 2: fraction",
+    "value": 0.027777777777777776,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.r_val.dist.2"
+   },
+   {
+    "label": "all problems, r_val = 3: fraction",
+    "value": 0.0038888888888888888,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.r_val.dist.3"
+   },
+   {
+    "label": "all problems, r_val = never: fraction",
+    "value": 0.5288888888888889,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.r_val.dist.nunca"
+   },
+   {
+    "label": "all problems, null radius = 0: fraction",
+    "value": 0.4777777777777778,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.nulidade.dist.0"
+   },
+   {
+    "label": "all problems, null radius = 1: fraction",
+    "value": 0.057777777777777775,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.nulidade.dist.1"
+   },
+   {
+    "label": "all problems, null radius = 2: fraction",
+    "value": 0.01888888888888889,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.nulidade.dist.2"
+   },
+   {
+    "label": "all problems, null radius = 3: fraction",
+    "value": 0.0044444444444444444,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.nulidade.dist.3"
+   },
+   {
+    "label": "all problems, null radius = never: fraction",
+    "value": 0.4411111111111111,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.nulidade.dist.nunca"
+   },
+   {
+    "label": "all problems: r_val effective values",
+    "value": 2.278704872362796,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.r_val.valores_efetivos"
+   },
+   {
+    "label": "all problems: null radius effective values",
+    "value": 2.6583364115705277,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.todos.nulidade.valores_efetivos"
+   },
+   {
+    "label": "informative only: n",
+    "value": 381,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.n"
+   },
+   {
+    "label": "informative only, r_val = 0: fraction",
+    "value": 0,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.r_val.dist.0 (missing key = 0)"
+   },
+   {
+    "label": "informative only, r_val = 1: fraction",
+    "value": 0.89501312335958,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.r_val.dist.1"
+   },
+   {
+    "label": "informative only, r_val = 2: fraction",
+    "value": 0.07874015748031496,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.r_val.dist.2"
+   },
+   {
+    "label": "informative only, r_val = 3: fraction",
+    "value": 0.013123359580052493,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.r_val.dist.3"
+   },
+   {
+    "label": "informative only, r_val = never: fraction",
+    "value": 0.013123359580052493,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.r_val.dist.nunca"
+   },
+   {
+    "label": "informative only, null radius = 0: fraction",
+    "value": 0.14173228346456693,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.nulidade.dist.0"
+   },
+   {
+    "label": "informative only, null radius = 1: fraction",
+    "value": 0.2283464566929134,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.nulidade.dist.1"
+   },
+   {
+    "label": "informative only, null radius = 2: fraction",
+    "value": 0.08398950131233596,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.nulidade.dist.2"
+   },
+   {
+    "label": "informative only, null radius = 3: fraction",
+    "value": 0.02099737532808399,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.nulidade.dist.3"
+   },
+   {
+    "label": "informative only, null radius = never: fraction",
+    "value": 0.5249343832020997,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.nulidade.dist.nunca"
+   },
+   {
+    "label": "informative only: r_val effective values",
+    "value": 1.511548680882673,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.r_val.valores_efetivos"
+   },
+   {
+    "label": "informative only: null radius effective values",
+    "value": 3.4612855253854105,
+    "source": "~/mugango/output/2026-09-08_apostila-raio-redefinicao/resultados.json",
+    "key": "exp4.informativos.nulidade.valores_efetivos"
+   }
+  ]
+ }
+}

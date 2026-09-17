@@ -1,0 +1,413 @@
+\chapter{August II: locality, the firewall, and a wrong skeleton}
+\label{ch:locality}
+
+One intuition ran through August: a wrong claim far from the query rarely matters. This chapter
+follows it through five runs and says what is left. Some of it is a result, some is a lemma that
+Henckel, Perkovi\'c and Maathuis had already published, and some is dead, including two sentences I
+sent you on 31 August. Table~\ref{tab:loc-status} is the ledger; the sections give the evidence.
+Throughout, \emph{distance} means skeleton distance from a claim's edge to $\{X,Y\}$, the minimum
+over both endpoints. The files call it \texttt{hop}; it is not the covering hop of
+Chapter~\ref{ch:vocabulary}.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{7.0cm}>{\raggedright\arraybackslash}p{7.6cm}@{}}
+\toprule
+August claim & status on 16 September \\
+\midrule
+censoring of $\rhostar_{\mathrm{any}}$ separates by distance & result, per ensemble: $26.7\times$,
+$13.4\times$, $59.7\times$, $3.0\times$ \\
+``$\Ostar$ is a local functional; 0 of 791 at distance $\ge 1$'' & dead: 142 of 3,639 and 70 of
+10,615; 791 has no provenance \\
+one reversal off $X$ and $Y$ never moves $\Ostar$ & true by enumeration at $p \le 5$; 95.8\,\% of
+it is class invariance \\
+knowledge beyond one hop need not be elicited & dead: identification changes at distance 2 \\
+C-FIREWALL & conjecture, complete census at $p \le 5$ \\
+firewall with an estimated $\Chat$ & result: degrades monotonically with discovery quality \\
+false identification gains & result: not bounded by distance \\
+locality survives a wrong skeleton (X3) & INCONCLUSIVE; the two-hop cut is post hoc \\
+the efficiency-only band is empty & corrected: 2.35--5.53\,\% under skeleton deletions \\
+only retractions can break a fixed valid $Z$ & lemma, by refinement \\
+\bottomrule
+\end{tabular}
+\caption{Where each August claim about locality stands. ``Dead'' means refuted by our own
+measurements, not merely unproven. Each row's files are named in the section that discusses it.}
+\label{tab:loc-status}
+\end{table}
+
+\begin{antes}
+\antesq[o-star-otimo]{Before any locality run, what had the 14 August experiments already said about
+$\Ostar$-relevance?}
+\antesq[k-background-knowledge]{Do Guo and Perkovi\'c ever perturb the background knowledge they
+enumerate within?}
+\end{antes}
+
+\section{Prehistory: the three re-rank experiments of 14 August}
+
+Three small runs on 14 August shaped what came after. None of them is in the paper, and one of them
+is a literature read rather than a measurement.
+
+\textbf{E2}, R1-closed finiteness (\texttt{rerank\_2026-08-14/e2-r1-finiteness/RESULTS.md}). Your
+draft's tiered corruption model is close to its T-move arm. When the error is a variable moved
+between tiers, R1-only closure equals full Meek closure in every member (39,267 of 39,267), which
+Bang and Didelez entail. When the
+error is a reversed claim, it holds in 0.8416 of members, so flip errors break the premise of the
+lemma. Containment is real but only in the tail: the 90th percentile of orientations changed per changed
+claim is 1 for tier moves against 2 for flips. The same run found that the form of the knowledge buys nothing (tiered
+against generic under flips, $p = 0.49$); the error model does.
+
+\textbf{E3}, $\Ostar$-relevance (\texttt{e3-ostar-relevance/RESULTS.md}). A metric weighting wrong
+claims by their role in $\mathrm{pa}(\mathrm{cn})\setminus\mathrm{forb}$ beat edit distance at predicting silent bias, AUC
+0.842 against 0.637. Against a plain count of wrong claims touching $X$ or $Y$ the gain fell to
+$+0.029$, under the pre-declared bar of 0.05, and the specifically $\Ostar$ tier was anti-predictive
+(AUC 0.409). The content was locality, not adjustment-set membership.
+
+\textbf{E4}, a full read of Guo and Perkovi\'c (arXiv:\allowbreak{}2010.08611) and Taeb, Guo and Henckel
+(arXiv:\allowbreak{}2511.10625v3) (\texttt{e4-guo-perkovic-read/\allowbreak{}RESULTS.md}). Guo and Perkovi\'c take $\Kset$ as
+true throughout (``perturb'', ``wrong'' and ``misspecif'' occur zero times); Taeb et al.'s
+Section~6 perturbs the graph with the knowledge fixed. Two narrowings bind the paper: the separation
+of identification from estimation is Guo and Perkovi\'c's sentence, and their Corollary~8 already
+gives one adjustment set per member.
+
+\begin{antes}
+\antesq[lei-de-localidade]{The E1$'$ locality table was said to separate by 13 to 27 times. What do
+its four rows actually give?}
+\antesq[localidade]{Which two measurements killed the sentence ``$\Ostar$ is a local functional of
+the graph''?}
+\end{antes}
+
+\section{Locality, measured and then cut down to size}
+
+\begin{ideia}[The intuition]
+$\Ostar = \mathrm{pa}(\mathrm{cn}(X,Y)) \setminus \mathrm{forb}(X,Y)$ reads the causal paths from $X$ to $Y$ and one layer
+of parents around them. A claim that never reaches that region cannot move it, so an inert ball
+should mean claims far from the query.
+\end{ideia}
+
+\figref{fig:aug-locality} is the E1$'$ measurement. Each licensed problem is placed by the smallest
+distance of any of its claims, and the censoring of $\rhostar_{\mathrm{any}}$ at $n = 20{,}000$ is
+low when some claim touches the query and near one when none does.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.72\textwidth]{aug_locality.pdf}
+\caption{The distance of the nearest claim governs whether the radius has anything to say, but the
+size of the gap depends on the ensemble: $26.7\times$, $13.4\times$ and $3.0\times$ for the three
+shown. Licensed at distance~1 is 0.9345 in the JSON (\texttt{NUMBERS.md} rounds to 0.935). Of the
+331 \texttt{large} SCMs in the red bar, 57 have every claim in a component disconnected from the
+query. Source: \texttt{e1prime/results/arm1\_analysis\_*\_K4.json}.}
+\label{fig:aug-locality}
+\end{figure}
+
+\begin{armadilha}[Four defects in the table I sent you]
+The separation ratios are 26.7, 13.4, 59.7 (\texttt{k8}, $n = 22$ at distance~1) and 3.0
+(\texttt{large}), so ``13 to 27 times'' holds for two rows of four. The weakest cell,
+\texttt{k8}/K4 at 0.778 ($n = 27$), was left out. ``Invariant in $n$ to four decimals'' is true at
+distance~1 (0.9345 at $n = 2{,}000$, $20{,}000$ and $\infty$); at distance~0 the licensed value
+moves from 0.0724 to 0.0697 to 0.0680. And $\rhostar_{\mathrm{any}}$ folds in loud failures: of the
+38 uncensored SCMs whose claims all sit at distance $\ge 1$, 37 lose amenability, 1 has a genuine
+change at two reversals, and none moves the estimate at one (\texttt{locality/x2/RESULTS.md} \S3).
+\end{armadilha}
+
+Two runs of 19 August then attacked the sentence ``$\Ostar$ is a local functional, and no
+misstatement at distance at least 1 moved it (0 of 791)''. The number went first: the pilot code
+contains no distance function at all, so 791 could not have been computed
+(\texttt{locality/VERDICT.md} \S4). X1 (\texttt{locality/x1/}) built the operator for spurious
+required edges on non-adjacent pairs, replacing one true claim with a spurious one under the semantics of
+b-LOAD, our CIKM paper's noise operator. On the \texttt{original} ensemble such a replacement at distance $\ge 1$ moved
+$\Ostar$ into invalidity 142 times in 3,639; pooled over three ensembles, 13 in 2,919 at distance
+$\ge 2$ and 0 in 931 at distance $\ge 3$. X2 enumerated instead of sampling. At
+$p \le 5$, over every CPDAG, every reachable MPDAG, every query and both orientations of every
+undirected edge, a single reversal off $X$ and $Y$ never changed $\Ostar$: 0 of 136,200 far trials,
+against 184,332 of 307,584 near ones. Joint reversals did: 70 of 10,615 knowledge sets from the
+E1$'$ archive whose every misstatement lies at distance $\ge 1$ changed $\Ostar$, all 70 into
+invalidity, each with a misstatement at distance exactly 1, the smallest at $p = 5$. The same
+enumeration records 360 identification changes at distance~2, which ended ``knowledge beyond one hop
+need not be elicited''.
+
+\begin{medido}[What the far zero is made of, \texttt{locality/x2/code/run\_lemma.py}]
+At $p = 5$ the far zero rests on 137,040 trials in which both orientations of the claim leave the
+query amenable (\texttt{lemma\_p5.json}, disconnected components included). In 131,280 of them, 95.8\,\%, the base MPDAG is
+already amenable. The informative trials, where the claim decides something, number 5,760, all at
+distance~1; at distance~2 there are none. The split by base is from my notes of 23 August, which
+recount the strata with the same code.
+\end{medido}
+
+When the base is amenable, $\Ostar$ is constant over the whole class, so no refinement of it can
+move $\Ostar$ at any distance, near ones included. I traced this class invariance to Henckel,
+Perkovi\'c and Maathuis (JRSS-B 84(2), 2022, Lemma~E.7 in their appendix); I have not re-read that
+lemma in the published text, so check the number before citing it. The consequence is plain: most
+of the far zero is a published fact, the pilot's ``wrong knowledge was harmless in 75 of 75
+CPDAG-amenable SCMs'' is the same fact, and what distance adds is an incidence condition (the claim
+does not touch $X$), not a decay law.
+
+\begin{noprato}[In your draft]
+The paragraph ``Over-claiming does not pay'' in your Section~6 (``once a valid set is identified,
+adding more truthful claims does not improve statistical efficiency'') is this class invariance.
+Cite it rather than argue it.
+\end{noprato}
+
+\prompt[conceito=localidade,dificuldade=0.75]{Which two measurements killed ``$\Ostar$ is a local
+functional of the graph'', and what survives in its place?}{X1: a spurious required edge replacing
+a true claim at distance $\ge 1$ moved $\Ostar$ into invalidity 142 times in 3,639
+(\texttt{original}). X2: 70 of 10,615 knowledge sets whose every reversed claim lies at distance
+$\ge 1$ changed $\Ostar$, all into invalidity. What survives is narrower: a single reversed claim
+that does not touch $X$ or $Y$ never changed $\Ostar$ in the complete enumeration at $p \le 5$, and
+95.8\,\% of those trials had an amenable base, where class invariance already forbids any change.}
+
+\prompt[conceito=distancia-em-saltos,dificuldade=0.7]{Why is ``distance $\ge 1$'' in the X2 zero
+better read as an incidence condition, and what is the informative denominator at $p = 5$?}%
+{Distance $\ge 1$ holds exactly when the claim's edge touches neither $X$ nor $Y$, and no graded
+distance does any work: the informative trials all sit at distance~1 and there are none at
+distance~2. Of 137,040 far trials with both orientations amenable, 131,280 have an amenable base,
+where $\Ostar$ cannot move at any distance; 5,760 carry information.}
+
+\begin{antes}
+\antesq[consistencia-de-k]{For a query already identified by adjustment, can a spurious edge that
+passes the coherence check make the reported $\Ostar$ invalid?}
+\antesq[vies-silencioso]{How does the protection change when the CPDAG is estimated by PC?}
+\end{antes}
+
+\section{The firewall: what the consistency check buys}
+
+\begin{ideia}[Checked is not true, but it is not nothing]
+Meek's check never decides truth. For a query that adjustment already identifies, though, a false
+adjacency claim that passes the check appears never to invalidate the set the analyst reports: the
+check acts as a firewall for validity, and only there. The surprise is that the graph after the claim has a
+skeleton no member of the true class has, yet the set read from it is valid in the truth.
+\end{ideia}
+
+Stated for a single spurious claim, it reads as follows.
+
+\begin{formulabox}[C-FIREWALL, a conjecture]
+Let $\Gz$ be an MPDAG amenable for $(X,Y)$, $\{a,b\}$ non-adjacent in its skeleton, and $H$ the Meek
+closure of $\Gz$ plus $a \to b$. If $H$ has no directed cycle, then either $H$ is not amenable (a
+visible refusal) or $\Ostar(X,Y,H)$ is a valid adjustment set in every DAG of $[\Gz]$.
+\end{formulabox}
+
+The evidence for it is a census, not a proof.
+
+\begin{medido}[The census, \texttt{locality/x2/cfirewall/results/SUMMARY.json}]
+0 violations in 70,375,325 trials and 103,105,398 (trial, DAG) checks. The census is complete at
+$p = 3, 4, 5$ for one claim (and for two claims at $p = 4, 5$, three at $p = 4$); $p = 6, 7, 8$ are
+samples, with a rule-of-three bound below $4.3 \times 10^{-8}$. The detector has power: when the
+check fails and the edge is stamped anyway, 3,005,488 of 13,791,476 reported sets (21.8\,\%) are
+invalid. Pointwise over 791,484 evaluations at $p \le 5$, the conflict test never fires and
+``has a directed cycle'' coincides with ``not extendable'', so the whole hypothesis is acyclicity
+(\texttt{checks\_agree.txt}).
+\end{medido}
+
+It is a conjecture, not a theorem. The first proof handle offered (adding the edge only grows
+$\mathrm{cn}$) is false; what holds in every enumerated trial is $\Ostar(H) \cap \mathrm{forb}(\Gz) = \emptyset$, which settles the first clause of the adjustment
+criterion for the whole class, given a further hypothesis that held in every census trial; the second clause is closed by a sufficient condition in 98.0\,\% of
+checks and open in the rest. X1 looked like a contradiction (1.1\,\% silent bias, 64 of 5,815, among
+coherent spurious claims). My reading is that the operators differ: X1 replaces a true claim, so each
+of its perturbations is a retraction plus an assertion, closed claim by claim, while the census adds
+one spurious edge on top of the full closed $\Gz$.
+
+\begin{medido}[With PC instead of the oracle, \texttt{locality/x2/chat/RESULTS.md}]
+PC written from scratch; with oracle tests it returns the true CPDAG in 150 of 150 gate draws. 400
+SCMs per cell, $p$ from 6 to 10, $\alpha = 0.01$. Among reports valid before the claim whose $\Ostar$
+moved, a checked spurious claim leaves them invalid in 10.9\,\% at $n = 200$, falling to 2.4\,\% at
+$n = 50{,}000$ and to 0 of 22,282 with oracle tests; stamped past a failed check, 17.4 to 34.8\,\%.
+Discovery error alone leaves 35.9\,\% of base reports invalid at $n = 200$, 17.1\,\% at $n = 50{,}000$.
+\end{medido}
+
+My first version of that table compared rates on different conditioning sets and reversed the sign
+of the conclusion; the numbers above condition on a valid base report. Two further arms were written
+and run on 23 August itself, in the same working session, so they corroborate nothing independently.
+The false-gain search (\texttt{falsegain/results/search\_6\_7\_8\_23.json}) adjudicated every report
+transition against the truth on random DAGs with $p$ from 6 to 8: no report that was already
+identified became unsound under a checked claim, but when a checked claim turned a refusal into an
+estimate, the estimate was wrong in 13,988 of 17,936 cases for a false orientation (78.0\,\%) and in
+24,895 of 49,467 for a spurious edge (50.3\,\%). Exercise~\ref{ex:loc-chain} builds the family that
+takes this to any distance. The refutation arm (\texttt{refutation/conjectureA/exh6\_result.json})
+enumerated all 1,067,825 CPDAGs on six nodes, 149,123,280 orientation additions on amenable bases, and found $\Ostar$
+unchanged in every one; that is class invariance again, and it killed nothing.
+
+\prompt[conceito=consistencia-de-k,dificuldade=0.75]{State C-FIREWALL and the two numbers that make
+its zero meaningful.}{For an MPDAG $\Gz$ amenable for $(X,Y)$ and a spurious claim $a \to b$ on a
+non-adjacent pair, if the closure $H$ is acyclic then either $H$ is not amenable or $\Ostar(H)$ is
+valid in every DAG of $[\Gz]$. The census found 0 violations in 70,375,325 trials, complete at
+$p \le 5$; and the control arm, where the check fails and the edge is stamped anyway, has 21.8\,\%
+invalid sets, so the detector can fire.}
+
+\begin{antes}
+\antesq[vies-silencioso]{If the discovery method misses one edge, does the damage fall off with the
+distance of that edge from the query?}
+\antesq[testemunha]{In the worked example, how many claims have to be retracted before the reported
+set stops being valid, and when does the estimate first move?}
+\end{antes}
+
+\section{X3: a wrong skeleton, and one problem end to end}
+
+For the 3 September meeting you asked what happens when the discovery output itself is wrong. X3 answered for
+one kind of error: $\Chat$ is the CPDAG of the true DAG with one edge deleted, which models a missed
+weak edge rather than what a CI test actually returns. The run covers 9,721 SCMs and all 130,120
+single-edge deletions, with population $\Sigma$. The claims of $\Kset$ are kept where their edge is
+still undirected. A smoke test found the true CPDAG not amenable for the query in 18 of 19 draws,
+so before any outcome was computed the arm with knowledge became the primary one.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{x3_hops.pdf}
+\caption{A missed edge at distance~1 still breaks the set in 2.7\,\% of amenable cases on the
+licensed ensemble; pooled with distance $\ge 2$ that is 2.3\,\%, above the pre-registered 0.02,
+so the rule returns INCONCLUSIVE. The cut at two
+hops looks clean but was chosen after seeing these lines. The \texttt{original} zero (0 of 1,879)
+is drawn at the axis floor. Source: \texttt{x3\_skeleton/results/x3\_analysis.json}.}
+\label{fig:x3-hops}
+\end{figure}
+
+\figref{fig:x3-hops} carries the verdict. The rule asked for a ratio of at least 5 between the
+silent-bias rate at distance~0 and at distance $\ge 1$, and a rate below 0.02 at distance $\ge 1$.
+The ratio is 7.10; the rate is 0.0231. Pooled over the three ensembles, distance~0 gives 5,066 of
+36,829 (0.1376) and distance $\ge 2$ gives 15 of 35,501 (0.000423), a 326-fold drop, but that cut is
+post hoc and has to be re-registered and re-run before it goes near the paper. The sentence the
+paper can print today is that the pre-registered test was inconclusive and the data suggest a
+threshold at two edges rather than one; and ``a distant skeleton error rarely does damage'', never
+``does little damage''.
+
+\figref{fig:x3-taxonomy} holds what does not depend on the verdict. Without any knowledge the CPDAG
+answers the query by adjustment in 8.2, 16.9 and 55.8\,\% of problems, so on most of them there is
+nothing to be robust about until knowledge arrives. The efficiency-only band exists: $\Ostar$ moves
+and stays valid in 2.35, 2.65 and 5.53\,\% of deletions. The median absolute weight of the deleted
+edge is the same for damaging and harmless deletions (0.5726 against 0.5583 on licensed, inverted on
+\texttt{large}), so strength does not predict damage and distance does. Severity does not fall with
+distance: among silent-bias events on licensed at distance $\ge 1$ the relative bias has median
+0.39, 90th percentile 1.75 and maximum 1,204.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{x3_taxonomy.pdf}
+\caption{Left: the efficiency-only band (green) is not empty under skeleton deletions, which
+corrects the 0 of 754 we measured with claim reversals. Right: without knowledge the question of
+robustness rarely arises, because the CPDAG seldom identifies the effect. Source:
+\texttt{x3\_skeleton/results/x3\_analysis.json}.}
+\label{fig:x3-taxonomy}
+\end{figure}
+
+The worked example (\texttt{x3\_skeleton/results/worked\_example.txt}, seed 4906, $p = 7$) was built
+for the 3 September meeting. The names are attached by topological position and claim nothing
+empirical. The query is the effect of \textsf{Statin} on \textsf{CardiacEvent}; the analyst asserts
+\textsf{Exercise}~$\to$~\textsf{BMI} and \textsf{BMI}~$\to$~\textsf{BloodPressure}, Meek propagates
+\textsf{BloodPressure}~$\to$~\textsf{Statin}, and $\Ostar = \{\textsf{BMI}, \textsf{Exercise}\}$
+gives $-0.4191$, which is also the true effect. A move is adding or retracting one claim and closing
+again (\texttt{worked\_example.py}, function \texttt{neighbours}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.64\textwidth]{aug_worked_example.pdf}
+\caption{The set stops being provably valid after two retracted claims, but the estimate does not
+move until radius three, where the interval opens by 0.4520, 108\,\% of the effect. One radius would
+have raised the alarm one step early. The axis counts claim additions and retractions. Source:
+\texttt{worked\_example.txt}.}
+\label{fig:aug-example}
+\end{figure}
+
+\figref{fig:aug-example} is the case that justifies reporting validity and estimate separately:
+fragile identification, stable estimate. The witness reads ``the estimate holds unless
+\textsf{BMI}~$\to$~\textsf{BloodPressure} is retracted and \textsf{Exercise}~$\to$~\textsf{BMI} is
+retracted''. Building it also produced a lemma. If $G'$ refines $G$ then $[G'] \subseteq [G]$, so a
+$Z$ valid in every DAG of $[G]$ stays valid in every DAG of $[G']$: asserting a consistent claim can
+never break a fixed valid set, only retracting can. It is the same monotonicity that
+Chapter~\ref{ch:table4} audits on the ledger.
+
+\prompt[conceito=vies-silencioso,dificuldade=0.7]{What did X3 return under its pre-registered rule,
+and why is the two-hop cut not a result?}{INCONCLUSIVE. The ratio of silent-bias rates, distance~0
+against distance $\ge 1$, is 7.10 and passes the bar of 5, but the rate at distance $\ge 1$ is
+0.0231 and fails the bar of 0.02. The cut at two hops (0.1376 against 0.000423, 326 times) was chosen
+after seeing the data, so it is a hypothesis to re-register and re-run on fresh draws.}
+
+\prompt[conceito=testemunha,dificuldade=0.7]{In the worked example, what does ``fragile
+identification, stable estimate'' mean in numbers?}{The fixed set $\{\textsf{BMI},
+\textsf{Exercise}\}$ stops being valid in every DAG of the graph after two claim retractions
+($\rval = 2$), while the interval of estimates is the single point $-0.4191$ up to radius two and
+opens to $[-0.8711, -0.4191]$ only at radius three, a width of 0.4520, or 108\,\% of the effect.}
+
+\begin{exercicio}[metodo=counterexample,conceito=localidade]
+\label{ex:loc-chain}
+Refute with a construction: ``a false claim that passes Meek's check and lies two or more edges from
+the query can at worst make the analyst refuse to report.'' Use a path of five nodes.
+\end{exercicio}
+\begin{solucao}
+Take the skeleton $c_0 - c_1 - c_2 - X - Y$ and the true DAG $Y \to X \to c_2 \to c_1 \to c_0$, so
+the true effect of $X$ on $Y$ is $\tau = 0$. A directed path has no v-structure, so the CPDAG is
+fully undirected; the path $X - Y$ starts undirected and the query is not amenable: the analyst
+refuses. Now assert the false claim $c_0 \to c_1$, at distance 2 from $\{X,Y\}$. It is consistent,
+and R1 propagates it along the path:
+\begin{center}
+\begin{tikzpicture}[x=1.5cm, font=\scriptsize\sffamily]
+\foreach \i/\n in {0/c_0,1/c_1,2/c_2,3/X,4/Y} {\node[nodo] (n\i) at (\i,0) {$\n$};}
+\draw[falsa] (n0) -- (n1);
+\draw[propagada] (n1) -- (n2); \draw[propagada] (n2) -- (n3); \draw[propagada] (n3) -- (n4);
+\node[rotulo, anchor=north] at (0.5,-0.3) {asserted, false};
+\node[rotulo, anchor=north] at (2.5,-0.3) {propagated by R1};
+\end{tikzpicture}
+\end{center}
+Now the query is amenable, $\Ostar = \mathrm{pa}(Y) \setminus \mathrm{forb} = \emptyset$, and the
+analyst reports the regression of $Y$ on $X$, which is not zero because $Y$ causes $X$. The same
+construction works at distance $k$ on $k + 3$ nodes; \texttt{locality/x2/falsegain/results/chain\_k0\_k8.log}
+checks $k = 0, \dots, 8$ (all unsound, absolute bias 0.85 to 0.95 against $\tau = 0$). The
+firewall does not apply: the base was not identified.
+\end{solucao}
+
+\begin{exercicio}[metodo=drawing,conceito=testemunha]
+Draw $\Gz$ of the worked example, marking asserted, propagated, compelled and undirected edges. Then
+retract each claim alone and say what the closure returns and whether $Z = \{\textsf{BMI},
+\textsf{Exercise}\}$ stays valid. Why is $\rval = 2$?
+\end{exercicio}
+\begin{solucao}
+\begin{center}
+\begin{tikzpicture}[x=1.55cm, y=0.8cm, font=\scriptsize\sffamily]
+\node[nodot] (age) at (0,1) {Age};
+\node[nodot] (smk) at (1.2,1) {Smoking};
+\node[nodot] (ex) at (2.5,1) {Exercise};
+\node[nodot] (bmi) at (2.5,0) {BMI};
+\node[nodot] (bp) at (4.0,0) {BloodPressure};
+\node[nodot] (st) at (5.5,0) {Statin};
+\node[nodot] (ce) at (4.0,-1.1) {CardiacEvent};
+\draw[livre] (age) -- (smk); \draw[livre] (smk) -- (ex);
+\draw[afirmada] (ex) -- (bmi); \draw[afirmada] (bmi) -- (bp);
+\draw[propagada] (bp) -- (st);
+\draw[aresta] (bmi) -- (ce); \draw[aresta] (ex) to[out=-10,in=100] (ce); \draw[aresta] (st) -- (ce);
+\end{tikzpicture}
+\end{center}
+Thick blue: the claims; dashed: propagated; grey arrows: compelled; plain lines: undirected.
+Retracting \textsf{BMI}~$\to$~\textsf{BloodPressure} alone returns the same graph: R1 re-derives it
+from \textsf{Exercise}~$\to$~\textsf{BMI}, since \textsf{Exercise} and \textsf{BloodPressure} are
+not adjacent. Retracting \textsf{Exercise}~$\to$~\textsf{BMI} alone leaves that edge undirected, but
+\textsf{Statin} keeps no undirected edge, so the query stays amenable and $Z$ valid. Retracting both
+returns the CPDAG: \textsf{Statin}~$-$~\textsf{BloodPressure} is undirected, the query is not
+amenable, and some DAG of the class has \textsf{Statin}~$\to$~\textsf{BloodPressure}~$\to$~\textsf{BMI}
+with \textsf{BMI} a mediator. So $\rclaim = 2$, and the witness's first step moves nothing, a step a covering-hop count would not
+charge. The hop walk is not cheaper for that: it pays three steps here, one of them for the propagated
+orientation between \textsf{BloodPressure} and \textsf{Statin} ($\rhop = 3$, Chapter~\ref{ch:vocabulary};
+the unit comparison is Chapter~\ref{ch:table4}). I checked the three closures
+with \texttt{x3\_skeleton/code/}.
+\end{solucao}
+
+\naopasse[localidade]{Name the difference in operator that lets X1 find silent bias from coherent
+spurious claims while the firewall census finds none. If you cannot, the step to redo is what X1 does
+to the claim its spurious edge replaces.}
+
+\section*{Chapter map}
+
+\begin{center}
+\begin{tikzpicture}[node distance=0.9cm and 1.1cm]
+\node[cmapc] (loc) {E1$'$: censoring separates by claim distance};
+\node[cmapr, right=of loc] (dead) {``$\Ostar$ is local'', 0/791: dead};
+\node[cmap, right=of dead] (inv) {class invariance: most of the far zero};
+\node[cmapg, below=of loc] (fw) {C-FIREWALL: census, 0 in 70\,M};
+\node[cmap, below=of dead] (chat) {PC instead of oracle: firewall degrades};
+\node[cmapr, below=of inv] (gain) {false gains: no distance protects};
+\node[cmapw, below=of chat] (x3) {X3, wrong skeleton: INCONCLUSIVE, band exists};
+\draw[cedge] (loc) -- node[above]{over-read as} (dead);
+\draw[cedge] (dead) -- node[above]{replaced by} (inv);
+\draw[cedge] (loc) -- node[left]{identified queries} (fw);
+\draw[cedge] (fw) -- node[above]{estimated $\Chat$} (chat);
+\draw[cedge] (inv) -- node[right]{unidentified base} (gain);
+\draw[cedge] (chat) -- node[right]{wrong skeleton} (x3);
+\draw[cedge] (gain) -- node[above, sloped]{the other side of} (fw);
+\end{tikzpicture}
+\end{center}

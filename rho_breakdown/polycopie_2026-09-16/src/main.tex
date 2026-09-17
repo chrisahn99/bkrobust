@@ -1,0 +1,133 @@
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[a4paper,margin=2.4cm,top=2.6cm,bottom=2.6cm]{geometry}
+\usepackage[english]{mugango-apostila}
+\usepackage[hidelinks]{hyperref}
+
+\DeclareUnicodeCharacter{26A0}{\textcolor{vermesc}{\textbf{\textsf{!}}}}
+\DeclareUnicodeCharacter{FE0F}{}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{0393}{\ensuremath{\Gamma}}
+\DeclareUnicodeCharacter{03C1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{0394}{\ensuremath{\Delta}}
+
+\graphicspath{{figs/}}
+
+% ---- notation shared by every chapter (see BRIEF.md) ------------------------------
+\newcommand{\rval}{r_{\mathrm{val}}}
+\newcommand{\rnul}{r_{0}}
+\newcommand{\rclaim}{r_{\mathrm{claim}}}
+\newcommand{\rhop}{r_{\mathrm{hop}}}
+\newcommand{\rhostar}{\rho^{*}}
+\newcommand{\Chat}{\widehat{C}}
+\newcommand{\Gz}{G_0}
+\newcommand{\Ostar}{O^{*}}
+\newcommand{\Kset}{K}
+\newcommand{\Ir}[1]{I_{#1}}
+\newcommand{\Lnf}{\mathrm{L}_{95}}
+\newcommand{\Ball}[1]{B_{#1}(K)}
+
+\tikzset{
+  cmap/.style={draw=azulesc!60, fill=azulesc!5, rounded corners=2pt, inner sep=3pt,
+               font=\scriptsize\sffamily, align=center, text width=2.75cm},
+  cmapw/.style={draw=azulesc!60, fill=azulesc!5, rounded corners=2pt, inner sep=3pt,
+               font=\scriptsize\sffamily, align=center, text width=3.6cm},
+  cmapc/.style={draw=laranjaesc, fill=laranjaesc!12, rounded corners=2pt, inner sep=3pt,
+                font=\scriptsize\sffamily\bfseries, align=center, text width=2.75cm},
+  cmapr/.style={draw=vermesc, fill=vermesc!10, rounded corners=2pt, inner sep=3pt,
+                font=\scriptsize\sffamily\bfseries, align=center, text width=2.75cm},
+  cmapg/.style={draw=verdesc, fill=verdesc!10, rounded corners=2pt, inner sep=3pt,
+                font=\scriptsize\sffamily, align=center, text width=2.75cm},
+  cedge/.style={-{Stealth[length=1.6mm]}, cinzamedio, font=\tiny\sffamily},
+  nodo/.style={circle, draw=cinzaescuro, fill=white, inner sep=1.2pt, font=\scriptsize,
+               minimum size=5.5mm},
+  nodot/.style={rounded corners=2pt, draw=cinzaescuro, fill=white, inner sep=2pt,
+               font=\scriptsize\sffamily},
+  aresta/.style={-{Stealth[length=1.5mm]}, cinzaescuro, thick},
+  afirmada/.style={-{Stealth[length=1.8mm]}, azulesc, very thick},
+  propagada/.style={-{Stealth[length=1.5mm]}, azulesc!70, thick, densely dashed},
+  falsa/.style={-{Stealth[length=1.8mm]}, vermesc, very thick},
+  livre/.style={cinzaescuro, thick},
+}
+
+\apostilaslug{polycopie-chris-rho}
+\apostilahorizonte{120}
+\apostilatitulo{What changed, and what it means for our paper}
+\apostilasubtitulo{The breakdown-radius measurements from August to 16 September, for Chris}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{1.0cm}
+{\sffamily\Large\color{cinzamedio} POLYCOPI\'E}\\[0.5cm]
+{\sffamily\Huge\bfseries\color{azulesc} What changed,\\ and what it means\\ for our paper}\\[0.6cm]
+{\sffamily\LARGE\color{azulesc!80!black} The breakdown-radius measurements,\\ August to
+16 September 2026}\\[1.1cm]
+
+\begin{minipage}{0.86\textwidth}
+\small\sffamily\color{cinzamedio}\raggedright
+For Chris, from Zé. Everything I ran on our breakdown-radius line since the August pilots, most of
+which never left my machine: what was measured and on what, what came out, what I had to retract on
+the way, what it changes in your draft of 16 September, and where each file lives in the
+repository branch \texttt{ze/experiments}.
+
+\vspace{0.7em}
+\textbf{Written for someone who knows the object.} Nothing here re-teaches CPDAGs or Meek closure.
+Chapter~1 aligns our two vocabularies; Parts~II to~V are the measurements in the order they
+happened; Part~VI is your draft and the merge; Part~VII is the repository.
+
+\vspace{0.7em}
+\textbf{Every number carries a file.} Each green box names the repository file or script that
+produced it. Where I corrected myself, the correction is in the text.
+\end{minipage}
+
+\vfill
+{\sffamily\small\color{cinzamedio} 16 September 2026 \quad$\cdot$\quad abstract and author lock
+Friday 18 September (AoE) \quad$\cdot$\quad paper Friday 25 September (AoE)}
+\end{titlepage}
+
+\tableofcontents
+
+\input{capitulos/c00_preface}
+
+\part{The shared object}
+\input{capitulos/c01_vocabulary}
+
+\part{August: what the pilots established}
+\input{capitulos/c02_pilot_e1prime}
+\input{capitulos/c03_locality}
+
+\part{Early September: what the radius should measure}
+\input{capitulos/c04_redefinition}
+\input{capitulos/c05_where_to_evaluate}
+
+\part{The protocol, executed (11 to 13 September)}
+\input{capitulos/c06_frame}
+\input{capitulos/c07_suppliers}
+\input{capitulos/c08_table4}
+\input{capitulos/c09_learned_cpdag}
+
+\part{Pricing knowledge: the Rosenbaum analogue}
+\input{capitulos/c10_gamma_m1}
+\input{capitulos/c11_m1b}
+\input{capitulos/c12_tables}
+
+\part{Your draft and ours}
+\input{capitulos/c13_draft_review}
+\input{capitulos/c14_merge}
+
+\part{The repository}
+\input{capitulos/c15_repository}
+
+\appendix
+\apostilarespostas
+
+\end{document}
