@@ -42,7 +42,7 @@ A real analyst is not a minimal generator set. The questionnaire in the
 evaluation plan asks for **a causal order over each chain component**, which
 yields every orientation in that component rather than a generator for it. If
 that produces `|K| ≈ k_g0`, the defect is confined to the synthetic oracle rows
-and `r_hop` keeps its practitioner reading in the deployment arm.
+and `r_val` keeps its practitioner reading in the deployment arm.
 
 **Artifact.** A two-column table, `|K|` against `k_g0`, per elicited instance,
 plus the fraction with `|K| == k_g0`.
@@ -180,7 +180,7 @@ and the committed `axisa3` rows.
 ### [RE-9] Radius sweep on elicited knowledge
 Per instance, report all four:
 - `r_claim` — exhaustive retraction subsets to depth 3, with a `>3` sentinel.
-- `r_hop` — the existing search, dispatch leg recorded.
+- `r_val` — the existing search, dispatch leg recorded.
 - `φ₁` — the fraction of single retractions that break validity. This is the one
   quantity that varies where `r_claim` is flat (0.034 to 1.0, median 0.30 on the
   committed rows).
@@ -228,7 +228,7 @@ Every committed radius comes from `local_up_fast` or `e1_ladder` — both
 **retraction-only**, both exact only if Conjecture 2 holds, both one-sided (too
 large, never too small). **E2 and E3 have never been run on the real corpus.** E3
 permits down-moves and assumes nothing; `r_E3 < r_E1` would refute Conjecture 2
-with an explicit witness walk. Given that `r_hop` reaches 14 on real structure,
+with an explicit witness walk. Given that `r_val` reaches 14 on real structure,
 a spot-check on the largest radii is worth having before print.
 
 ---

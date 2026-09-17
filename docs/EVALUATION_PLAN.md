@@ -53,7 +53,7 @@ claim radius does not.
 
 The certificate is priced in the analyst's asserted claims (`r_claim`). The
 hop radius is reported beside it as the geometry, and the ratio
-`r_hop / r_claim` is the leverage of a claim: how many data-compelled
+`r_val / r_claim` is the leverage of a claim: how many data-compelled
 orientations hang on it. Safe moves counted in hops are not a headline.
 
 A claim radius above 1 can only be measured on knowledge that did not come
@@ -103,7 +103,7 @@ empty set as a status line. Below the line: the truthful recovering set, its
 corrupted versions, and the committed rows.
 
 Radius. `r_claim` by exhaustive retraction subsets to depth 3 with a `>3`
-sentinel; `r_hop` from the existing search with the dispatch leg printed on
+sentinel; `r_val` from the existing search with the dispatch leg printed on
 every row; `phi_1`; and an identifiability radius, the number of retractions
 until the effect stops being identifiable by adjustment, which is monotone and
 is defined on the rows the current pipeline rejects. Polynomial GAC gate only.

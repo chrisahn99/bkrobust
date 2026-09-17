@@ -173,7 +173,7 @@ is a *price tag*, read before purchase.
 This is the paper's conceptual centrepiece and must be presented as a **finding**,
 not as an erratum.
 
-| | `r_hop` (geometric) | `r_claim` (practitioner) |
+| | `r_val` (geometric) | `r_claim` (practitioner) |
 |---|---|---|
 | One step is | one covering step in MPDAG space | one revision of one asserted sentence |
 | Defined on | `G₀` alone | `(K, G₀)` |
@@ -196,7 +196,7 @@ claim, how many data-compelled orientations hang on it.
 **The honest statement, which must appear:** the two coincide exactly when the
 analyst's knowledge is already Meek-closed (`|K| == k_g0`). Verified with no
 exceptions on the committed corpus: all 114 closed-knowledge rows have
-`r_hop = 1`, and all 163 rows where the geometric reading over-states the claim
+`r_val = 1`, and all 163 rows where the geometric reading over-states the claim
 budget have `|K| < k_g0`. Report `|K| == k_g0` as a per-row status column.
 
 **Do not** present the committed `axisa3` numbers as evidence that `r_claim` is
@@ -440,15 +440,16 @@ of their headlines are superseded. Mine them for numbers, not for narrative.
 
 ## 11. Conventions to hold throughout
 
-- **Naming.** `r_hop` for the geometric radius, `r_claim` for the practitioner
-  radius. The legacy name `r_val` appears throughout the code and older reports
-  and means `r_hop`; do not use `r_val` in the paper. `r_opt` and `r_eps` keep
-  their meanings (first failure of *optimality*, first exceedance of a bias
-  tolerance ε).
+- **Naming.** `r_val` for the geometric radius, `r_claim` for the practitioner
+  radius. `r_val` is the name used in the code, in every committed result and in
+  the paper: use it throughout, and use no alias for it. When the *unit*
+  rather than the radius is meant, say "hop units" and "claim units" in words.
+  `r_opt` and `r_eps` keep their meanings (first failure of *optimality*, first
+  exceedance of a bias tolerance ε).
 - **"Two radii" is overloaded — never use the phrase unqualified.** There are two
   independent pairs. One is indexed by *which property breaks*
   (`r_val` / `r_opt` / `r_eps`); the other by *what one move costs*
-  (`r_hop` / `r_claim`). The README and the older reports use the phrase for the
+  (hop units / claim units). The README and the older reports use the phrase for the
   first; this document uses it for the second. In the paper, say
   "validity and optimality radii" or "geometric and claim units" explicitly.
 - **`k_g0` is not "the knowledge size."** It is the number of orientations in

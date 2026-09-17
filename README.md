@@ -64,9 +64,9 @@ costs**:
 | Pair | Axis | Members |
 |---|---|---|
 | property | what breaks | `r_val`, `r_opt`, `r_eps` |
-| unit | what one move is | `r_hop` (a covering step in MPDAG space), `r_claim` (one revision of one asserted sentence) |
+| unit | what one move is | a **hop** (a covering step in MPDAG space), a **claim** (one revision of one asserted sentence) |
 
-`r_val` in the code and in every committed result is a **`r_hop`-unit** radius:
+`r_val` in the code and in every committed result is a **hop-unit** radius:
 its move set is the orientations of `G0`, i.e. the Meek closure of `K`, not the
 sentences the analyst uttered. The two units coincide exactly when the analyst's
 knowledge is already Meek-closed (`|K| == k_g0`). They can differ by more than an
