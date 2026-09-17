@@ -1,0 +1,2527 @@
+{
+ "rule": "A_ORACLE then CTRL_b0; real-coefficient networks, then declared queries, then applied-DAG frame rows; population r0 and seed-0 band r0 in {2, 3}; band width at r0 - 1 at most 1.5 x width at 0; ranked by width(r0) / width(r0 - 1).",
+ "n": 20000,
+ "seed": 0,
+ "candidates": [],
+ "near_misses": [
+  {
+   "network": "mediator",
+   "panel": "A",
+   "params": "semi-synthetic",
+   "source": "declared",
+   "frame_index": -1,
+   "condition": "A_ORACLE",
+   "x": "X",
+   "y": "Y",
+   "x_id": "X",
+   "y_id": "Y",
+   "tau": -2.602923003476804,
+   "n_k": 3,
+   "n_k_loc": 3,
+   "n_false_local": 0,
+   "n_false_total": 0,
+   "claims": [
+    [
+     "X",
+     "I"
+    ],
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "claims_local": [
+    [
+     "X",
+     "I"
+    ],
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [
+    "Z"
+   ],
+   "r_val": 1,
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -2.6029230034768034,
+    0.0
+   ],
+   "estimate": -2.5997855810339745,
+   "estimate_ci": [
+    -2.6232665791885545,
+    -2.5763045828793945
+   ],
+   "estimate_pop": -2.6029230034768034,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      -2.6029230034768034
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      -2.5763045828793945
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      -1.1251175982670374
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      -1.1094904914006032
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "X",
+       "I"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      0.0
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "Z",
+       "I"
+      ],
+      [
+       "Z",
+       "X"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      0.0
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "X",
+       "I"
+      ],
+      [
+       "Z",
+       "I"
+      ],
+      [
+       "Z",
+       "X"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "failed": [
+    "no plateau: width at 1 is 32.23 x width at 0"
+   ]
+  },
+  {
+   "network": "Kampen_2014",
+   "panel": "A",
+   "params": "semi-synthetic",
+   "source": "frame",
+   "frame_index": 45,
+   "condition": "A_ORACLE",
+   "x": "AIS",
+   "y": "DET",
+   "x_id": "AIS",
+   "y_id": "DET",
+   "tau": -4.947913904416042,
+   "n_k": 3,
+   "n_k_loc": 3,
+   "n_false_local": 0,
+   "n_false_total": 0,
+   "claims": [
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "ALN",
+     "APA"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ]
+   ],
+   "claims_local": [
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "ALN",
+     "APA"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [
+    "SAN"
+   ],
+   "r_val": "1",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -4.9479139044160405,
+    0.8829764356589471
+   ],
+   "estimate": -4.939655002421658,
+   "estimate_ci": [
+    -4.997311154307679,
+    -4.881998850535636
+   ],
+   "estimate_pop": -4.9479139044160405,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      -4.9479139044160405
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      -4.881998850535636
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      -1.1302707167530326
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      -1.0305775402423039
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "AIS",
+       "AFF"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      0.8829764356589471
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      0.9516881051610832
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "AIS",
+       "AFF"
+      ],
+      [
+       "SAN",
+       "AIS"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      0.8829764356589471
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      0.9516881051610832
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "AIS",
+       "AFF"
+      ],
+      [
+       "ALN",
+       "APA"
+      ],
+      [
+       "SAN",
+       "AIS"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ]
+   ],
+   "failed": [
+    "no plateau: width at 1 is 34.40 x width at 0"
+   ]
+  },
+  {
+   "network": "Kampen_2014",
+   "panel": "A",
+   "params": "semi-synthetic",
+   "source": "frame",
+   "frame_index": 45,
+   "condition": "CTRL_b0",
+   "x": "AIS",
+   "y": "DET",
+   "x_id": "AIS",
+   "y_id": "DET",
+   "tau": -4.947913904416042,
+   "n_k": 8,
+   "n_k_loc": 8,
+   "n_false_local": 0,
+   "n_false_total": 0,
+   "claims": [
+    [
+     "AFF",
+     "ALN"
+    ],
+    [
+     "AFF",
+     "APA"
+    ],
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "ALN",
+     "PER"
+    ],
+    [
+     "SAN",
+     "AFF"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ],
+    [
+     "SAN",
+     "ALN"
+    ],
+    [
+     "SAN",
+     "APA"
+    ]
+   ],
+   "claims_local": [
+    [
+     "AFF",
+     "ALN"
+    ],
+    [
+     "AFF",
+     "APA"
+    ],
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "ALN",
+     "PER"
+    ],
+    [
+     "SAN",
+     "AFF"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ],
+    [
+     "SAN",
+     "ALN"
+    ],
+    [
+     "SAN",
+     "APA"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [
+    "SAN"
+   ],
+   "r_val": "1",
+   "r_val_status": "exact",
+   "r0_pop": 3,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "informative": 1,
+   "class_pop": [
+    -4.9479139044160405,
+    0.8829764356589471
+   ],
+   "estimate": -4.939655002421658,
+   "estimate_ci": [
+    -4.997311154307679,
+    -4.881998850535636
+   ],
+   "estimate_pop": -4.9479139044160405,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      -4.9479139044160405
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      -4.881998850535636
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      -1.1302707167530326
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      -1.0305775402423039
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "AIS",
+       "AFF"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      -1.1302707167530326
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      -1.0305775402423039
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "AIS",
+       "AFF"
+      ],
+      [
+       "SAN",
+       "APA"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -4.9479139044160405,
+      0.8829764356589471
+     ],
+     "band_seed0": [
+      -4.997311154307679,
+      0.9516881051610832
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "AIS",
+       "AFF"
+      ],
+      [
+       "SAN",
+       "AFF"
+      ],
+      [
+       "SAN",
+       "AIS"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "SAN",
+     "AFF"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ]
+   ],
+   "failed": [
+    "no plateau: width at 2 is 34.40 x width at 0"
+   ]
+  },
+  {
+   "network": "Kampen_2014",
+   "panel": "A",
+   "params": "semi-synthetic",
+   "source": "frame",
+   "frame_index": 49,
+   "condition": "CTRL_b0",
+   "x": "ALN",
+   "y": "EGC",
+   "x_id": "ALN",
+   "y_id": "EGC",
+   "tau": -0.02442362085648191,
+   "n_k": 8,
+   "n_k_loc": 8,
+   "n_false_local": 0,
+   "n_false_total": 0,
+   "claims": [
+    [
+     "AFF",
+     "ALN"
+    ],
+    [
+     "AFF",
+     "APA"
+    ],
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "ALN",
+     "PER"
+    ],
+    [
+     "SAN",
+     "AFF"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ],
+    [
+     "SAN",
+     "ALN"
+    ],
+    [
+     "SAN",
+     "APA"
+    ]
+   ],
+   "claims_local": [
+    [
+     "AFF",
+     "ALN"
+    ],
+    [
+     "AFF",
+     "APA"
+    ],
+    [
+     "AIS",
+     "AFF"
+    ],
+    [
+     "ALN",
+     "PER"
+    ],
+    [
+     "SAN",
+     "AFF"
+    ],
+    [
+     "SAN",
+     "AIS"
+    ],
+    [
+     "SAN",
+     "ALN"
+    ],
+    [
+     "SAN",
+     "APA"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [
+    "AFF",
+    "AIS",
+    "SAN"
+   ],
+   "r_val": "2",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    2,
+    0,
+    2,
+    0,
+    0,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -0.5466548842065474,
+    0.505709381208993
+   ],
+   "estimate": -0.02068500213873207,
+   "estimate_ci": [
+    -0.03922043398947264,
+    -0.0021495702879914917
+   ],
+   "estimate_pop": -0.02442362085648223,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -0.02442362085648232,
+      -0.024423620856481754
+     ],
+     "band_seed0": [
+      -0.048106197919944554,
+      0.001512253569562031
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -0.02442362085648232,
+      -0.024423620856481754
+     ],
+     "band_seed0": [
+      -0.048106197919944554,
+      0.001512253569562031
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "SAN",
+       "APA"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -0.02442362085648232,
+      0.505709381208993
+     ],
+     "band_seed0": [
+      -0.048106197919944554,
+      0.520700578508314
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "AFF",
+       "ALN"
+      ],
+      [
+       "AIS",
+       "AFF"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -0.5466548842065474,
+      0.505709381208993
+     ],
+     "band_seed0": [
+      -0.5681709508521063,
+      0.520700578508314
+     ],
+     "witness_lo": [
+      [
+       "AIS",
+       "AFF"
+      ],
+      [
+       "SAN",
+       "AFF"
+      ],
+      [
+       "SAN",
+       "ALN"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "AFF",
+       "ALN"
+      ],
+      [
+       "AIS",
+       "AFF"
+      ],
+      [
+       "SAN",
+       "APA"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": null,
+   "failed": [
+    "band r0 = 0"
+   ]
+  },
+  {
+   "network": "Schipf_2010",
+   "panel": "A",
+   "params": "semi-synthetic",
+   "source": "frame",
+   "frame_index": 84,
+   "condition": "CTRL_b0",
+   "x": "A",
+   "y": "U",
+   "x_id": "A",
+   "y_id": "U",
+   "tau": -1.5639208416030528,
+   "n_k": 5,
+   "n_k_loc": 5,
+   "n_false_local": 0,
+   "n_false_total": 0,
+   "claims": [
+    [
+     "A",
+     "PA"
+    ],
+    [
+     "A",
+     "S"
+    ],
+    [
+     "A",
+     "U"
+    ],
+    [
+     "A",
+     "WC"
+    ],
+    [
+     "PA",
+     "WC"
+    ]
+   ],
+   "claims_local": [
+    [
+     "A",
+     "PA"
+    ],
+    [
+     "A",
+     "S"
+    ],
+    [
+     "A",
+     "U"
+    ],
+    [
+     "A",
+     "WC"
+    ],
+    [
+     "PA",
+     "WC"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [],
+   "r_val": "1",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -1.5639208416030534,
+    0.8673975156072546
+   ],
+   "estimate": -1.5736548811871809,
+   "estimate_ci": [
+    -1.5974850124474675,
+    -1.5498247499268942
+   ],
+   "estimate_pop": -1.5639208416030528,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -1.5639208416030528,
+      -1.5639208416030528
+     ],
+     "band_seed0": [
+      -1.5974850124474675,
+      -1.5498247499268942
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -1.5639208416030534,
+      -0.32689287281361423
+     ],
+     "band_seed0": [
+      -1.6036234373634755,
+      -0.3123743679144802
+     ],
+     "witness_lo": [
+      [
+       "A",
+       "S"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "A",
+       "PA"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -1.5639208416030534,
+      0.8673975156072546
+     ],
+     "band_seed0": [
+      -1.6036234373634755,
+      0.8700038938358415
+     ],
+     "witness_lo": [
+      [
+       "A",
+       "S"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "A",
+       "WC"
+      ],
+      [
+       "PA",
+       "WC"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -1.5639208416030534,
+      0.8673975156072546
+     ],
+     "band_seed0": [
+      -1.6036234373634755,
+      0.8700038938358415
+     ],
+     "witness_lo": [
+      [
+       "A",
+       "S"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "A",
+       "U"
+      ],
+      [
+       "A",
+       "WC"
+      ],
+      [
+       "PA",
+       "WC"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "A",
+     "PA"
+    ],
+    [
+     "A",
+     "WC"
+    ]
+   ],
+   "failed": [
+    "no plateau: width at 1 is 27.09 x width at 0"
+   ]
+  },
+  {
+   "network": "Schipf_2010",
+   "panel": "A",
+   "params": "semi-synthetic",
+   "source": "frame",
+   "frame_index": 85,
+   "condition": "CTRL_b0",
+   "x": "A",
+   "y": "WC",
+   "x_id": "A",
+   "y_id": "WC",
+   "tau": -2.427569143935301,
+   "n_k": 5,
+   "n_k_loc": 5,
+   "n_false_local": 0,
+   "n_false_total": 0,
+   "claims": [
+    [
+     "A",
+     "PA"
+    ],
+    [
+     "A",
+     "S"
+    ],
+    [
+     "A",
+     "U"
+    ],
+    [
+     "A",
+     "WC"
+    ],
+    [
+     "PA",
+     "WC"
+    ]
+   ],
+   "claims_local": [
+    [
+     "A",
+     "PA"
+    ],
+    [
+     "A",
+     "S"
+    ],
+    [
+     "A",
+     "U"
+    ],
+    [
+     "A",
+     "WC"
+    ],
+    [
+     "PA",
+     "WC"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [],
+   "r_val": "1",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -2.427569143935301,
+    0.0
+   ],
+   "estimate": -2.4326945184447117,
+   "estimate_ci": [
+    -2.452231313835438,
+    -2.4131577230539856
+   ],
+   "estimate_pop": -2.427569143935301,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -2.427569143935301,
+      -2.427569143935301
+     ],
+     "band_seed0": [
+      -2.452231313835438,
+      -2.4131577230539856
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -2.427569143935301,
+      -1.1924487335157423
+     ],
+     "band_seed0": [
+      -2.452231313835438,
+      -1.1663119396503863
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "A",
+       "PA"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -2.427569143935301,
+      0.0
+     ],
+     "band_seed0": [
+      -2.452231313835438,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "A",
+       "WC"
+      ],
+      [
+       "PA",
+       "WC"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -2.427569143935301,
+      0.0
+     ],
+     "band_seed0": [
+      -2.452231313835438,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "A",
+       "U"
+      ],
+      [
+       "A",
+       "WC"
+      ],
+      [
+       "PA",
+       "WC"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "A",
+     "PA"
+    ],
+    [
+     "A",
+     "WC"
+    ]
+   ],
+   "failed": [
+    "no plateau: width at 1 is 32.91 x width at 0"
+   ]
+  }
+ ],
+ "relaxed_rule": "NOT the pre-registered rule, added after it returned no candidate: any condition, population r0 and seed-0 band r0 in {2, 3}, plateau condition dropped; real-coefficient networks, then declared queries, then applied-DAG frame rows; rows whose local claims are all true first; flattest band before r0 first; then truthful, controlled, elicited.",
+ "relaxed_candidates": [
+  {
+   "network": "magic-niab",
+   "panel": "B",
+   "params": "fitted",
+   "source": "frame",
+   "frame_index": 432,
+   "condition": "D_LLM_72B",
+   "x": "G311",
+   "y": "G43",
+   "x_id": "G311",
+   "y_id": "G43",
+   "tau": -0.2551,
+   "n_k": 6,
+   "n_k_loc": 2,
+   "n_false_local": 0,
+   "n_false_total": 3,
+   "claims": [
+    [
+     "G1294",
+     "G418"
+    ],
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G2208",
+     "G257"
+    ],
+    [
+     "G257",
+     "G1217"
+    ],
+    [
+     "G311",
+     "G43"
+    ],
+    [
+     "G418",
+     "G2835"
+    ]
+   ],
+   "claims_local": [
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G311",
+     "G43"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [],
+   "r_val": "2",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -0.2551,
+    0.0
+   ],
+   "estimate": -0.2512087130303133,
+   "estimate_ci": [
+    -0.25877368140207796,
+    -0.24364374465854863
+   ],
+   "estimate_pop": -0.2551,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -0.2551,
+      -0.2551
+     ],
+     "band_seed0": [
+      -0.2598622094318011,
+      -0.24462104308163693
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -0.2551,
+      -0.2551
+     ],
+     "band_seed0": [
+      -0.2598622094318011,
+      -0.24364374465854863
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G1853",
+       "G311"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -0.2551,
+      0.0
+     ],
+     "band_seed0": [
+      -0.2598622094318011,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G1853",
+       "G311"
+      ],
+      [
+       "G311",
+       "G43"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -0.2551,
+      0.0
+     ],
+     "band_seed0": [
+      -0.2598622094318011,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G1853",
+       "G311"
+      ],
+      [
+       "G311",
+       "G43"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G311",
+     "G43"
+    ]
+   ],
+   "group": "B",
+   "plateau_ratio": 1.064122285698809,
+   "jump": 16.022614536264022,
+   "r0_band_stable_share": 1.0
+  },
+  {
+   "network": "magic-niab",
+   "panel": "B",
+   "params": "fitted",
+   "source": "frame",
+   "frame_index": 427,
+   "condition": "CTRL_b2",
+   "x": "G257",
+   "y": "G1217",
+   "x_id": "G257",
+   "y_id": "G1217",
+   "tau": 0.0,
+   "n_k": 4,
+   "n_k_loc": 2,
+   "n_false_local": 2,
+   "n_false_total": 2,
+   "claims": [
+    [
+     "G418",
+     "G2835"
+    ],
+    [
+     "G800",
+     "G383"
+    ],
+    [
+     "G2208",
+     "G257"
+    ],
+    [
+     "G257",
+     "G1217"
+    ]
+   ],
+   "claims_local": [
+    [
+     "G2208",
+     "G257"
+    ],
+    [
+     "G257",
+     "G1217"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [],
+   "r_val": 2,
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -0.38426163481672415,
+    0.0
+   ],
+   "estimate": -0.38371515918086435,
+   "estimate_ci": [
+    -0.39526785044769913,
+    -0.37216246791402957
+   ],
+   "estimate_pop": -0.38426163481672415,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      -0.38426163481672415
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      -0.37221899634596506
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      -0.38426163481672415
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      -0.37216246791402957
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G2208",
+       "G257"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      0.0
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G2208",
+       "G257"
+      ],
+      [
+       "G257",
+       "G1217"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      0.0
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G2208",
+       "G257"
+      ],
+      [
+       "G257",
+       "G1217"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "G2208",
+     "G257"
+    ],
+    [
+     "G257",
+     "G1217"
+    ]
+   ],
+   "group": "B",
+   "plateau_ratio": 1.0024183040653813,
+   "jump": 16.8828177355955,
+   "r0_band_stable_share": 1.0
+  },
+  {
+   "network": "magic-niab",
+   "panel": "B",
+   "params": "fitted",
+   "source": "frame",
+   "frame_index": 427,
+   "condition": "D_LLM_72B",
+   "x": "G257",
+   "y": "G1217",
+   "x_id": "G257",
+   "y_id": "G1217",
+   "tau": 0.0,
+   "n_k": 6,
+   "n_k_loc": 2,
+   "n_false_local": 2,
+   "n_false_total": 3,
+   "claims": [
+    [
+     "G1294",
+     "G418"
+    ],
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G2208",
+     "G257"
+    ],
+    [
+     "G257",
+     "G1217"
+    ],
+    [
+     "G311",
+     "G43"
+    ],
+    [
+     "G418",
+     "G2835"
+    ]
+   ],
+   "claims_local": [
+    [
+     "G2208",
+     "G257"
+    ],
+    [
+     "G257",
+     "G1217"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [],
+   "r_val": "2",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -0.38426163481672415,
+    0.0
+   ],
+   "estimate": -0.38371515918086435,
+   "estimate_ci": [
+    -0.39526785044769913,
+    -0.37216246791402957
+   ],
+   "estimate_pop": -0.38426163481672415,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      -0.38426163481672415
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      -0.37221899634596506
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      -0.38426163481672415
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      -0.37216246791402957
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G2208",
+       "G257"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      0.0
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G2208",
+       "G257"
+      ],
+      [
+       "G257",
+       "G1217"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -0.38426163481672415,
+      0.0
+     ],
+     "band_seed0": [
+      -0.39559423387076936,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "G2208",
+       "G257"
+      ],
+      [
+       "G257",
+       "G1217"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "G2208",
+     "G257"
+    ],
+    [
+     "G257",
+     "G1217"
+    ]
+   ],
+   "group": "B",
+   "plateau_ratio": 1.0024183040653813,
+   "jump": 16.8828177355955,
+   "r0_band_stable_share": 1.0
+  },
+  {
+   "network": "ecoli70",
+   "panel": "B",
+   "params": "fitted",
+   "source": "frame",
+   "frame_index": 308,
+   "condition": "D_LLM_72B",
+   "x": "pspA",
+   "y": "folK",
+   "x_id": "pspA",
+   "y_id": "folK",
+   "tau": 0.0,
+   "n_k": 21,
+   "n_k_loc": 13,
+   "n_false_local": 5,
+   "n_false_total": 7,
+   "claims": [
+    [
+     "asnA",
+     "icdA"
+    ],
+    [
+     "cspA",
+     "cspG"
+    ],
+    [
+     "cspA",
+     "hupB"
+    ],
+    [
+     "cspA",
+     "yfiA"
+    ],
+    [
+     "cspG",
+     "pspA"
+    ],
+    [
+     "cspG",
+     "pspB"
+    ],
+    [
+     "cspG",
+     "yecO"
+    ],
+    [
+     "cspG",
+     "yedE"
+    ],
+    [
+     "fixC",
+     "b1191"
+    ],
+    [
+     "fixC",
+     "cchB"
+    ],
+    [
+     "fixC",
+     "ygbD"
+    ],
+    [
+     "fixC",
+     "yjbO"
+    ],
+    [
+     "gltA",
+     "sucA"
+    ],
+    [
+     "hupB",
+     "yfiA"
+    ],
+    [
+     "pspA",
+     "nmpC"
+    ],
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ],
+    [
+     "sucA",
+     "sucD"
+    ],
+    [
+     "sucA",
+     "yhdM"
+    ],
+    [
+     "yedE",
+     "lpdA"
+    ]
+   ],
+   "claims_local": [
+    [
+     "cspA",
+     "cspG"
+    ],
+    [
+     "cspA",
+     "hupB"
+    ],
+    [
+     "cspA",
+     "yfiA"
+    ],
+    [
+     "cspG",
+     "pspA"
+    ],
+    [
+     "cspG",
+     "pspB"
+    ],
+    [
+     "cspG",
+     "yecO"
+    ],
+    [
+     "cspG",
+     "yedE"
+    ],
+    [
+     "hupB",
+     "yfiA"
+    ],
+    [
+     "pspA",
+     "nmpC"
+    ],
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ],
+    [
+     "yedE",
+     "lpdA"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [
+    "atpD",
+    "cspG"
+   ],
+   "r_val": "1",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    4,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -0.2166370767751806,
+    2.356101411219895e-16
+   ],
+   "estimate": -0.16465034623402244,
+   "estimate_ci": [
+    -0.1753871302071604,
+    -0.15391356226088448
+   ],
+   "estimate_pop": -0.17191559955544627,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -0.17191559955544622,
+      -0.17191559955544622
+     ],
+     "band_seed0": [
+      -0.19815107071964935,
+      -0.14739780900536084
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -0.17191559955544622,
+      -0.11456068539408623
+     ],
+     "band_seed0": [
+      -0.19815107071964935,
+      -0.08794242079907694
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "pspA",
+       "pspB"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -0.2166370767751806,
+      2.356101411219895e-16
+     ],
+     "band_seed0": [
+      -0.22678287580669865,
+      0.024360998917208984
+     ],
+     "witness_lo": [
+      [
+       "cspA",
+       "cspG"
+      ],
+      [
+       "cspG",
+       "pspA"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "pspA",
+       "pspB"
+      ],
+      [
+       "pspA",
+       "yedE"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": false
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ]
+   ],
+   "group": "B",
+   "plateau_ratio": 2.1714594530098053,
+   "jump": 2.278803659285433,
+   "r0_band_stable_share": 0.95
+  },
+  {
+   "network": "ecoli70",
+   "panel": "B",
+   "params": "fitted",
+   "source": "frame",
+   "frame_index": 308,
+   "condition": "D_LLM",
+   "x": "pspA",
+   "y": "folK",
+   "x_id": "pspA",
+   "y_id": "folK",
+   "tau": 0.0,
+   "n_k": 10,
+   "n_k_loc": 10,
+   "n_false_local": 7,
+   "n_false_total": 7,
+   "claims": [
+    [
+     "cspA",
+     "hupB"
+    ],
+    [
+     "cspA",
+     "yfiA"
+    ],
+    [
+     "hupB",
+     "yfiA"
+    ],
+    [
+     "pspA",
+     "cspG"
+    ],
+    [
+     "pspA",
+     "nmpC"
+    ],
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "cspG"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ],
+    [
+     "yedE",
+     "cspG"
+    ]
+   ],
+   "claims_local": [
+    [
+     "cspA",
+     "hupB"
+    ],
+    [
+     "cspA",
+     "yfiA"
+    ],
+    [
+     "hupB",
+     "yfiA"
+    ],
+    [
+     "pspA",
+     "cspG"
+    ],
+    [
+     "pspA",
+     "nmpC"
+    ],
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "cspG"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ],
+    [
+     "yedE",
+     "cspG"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [
+    "atpD"
+   ],
+   "r_val": "1",
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    4,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -0.2166370767751806,
+    2.356101411219895e-16
+   ],
+   "estimate": -0.21789279447660614,
+   "estimate_ci": [
+    -0.22480737222091648,
+    -0.2109782167322958
+   ],
+   "estimate_pop": -0.21663707677518057,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -0.2166370767751806,
+      -0.2166370767751806
+     ],
+     "band_seed0": [
+      -0.22678287580669865,
+      -0.19421640884981795
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -0.2166370767751806,
+      -0.12261941397317648
+     ],
+     "band_seed0": [
+      -0.23932440041415284,
+      -0.09560935062352591
+     ],
+     "witness_lo": [
+      [
+       "pspA",
+       "nmpC"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "pspA",
+       "pspB"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -0.2166370767751806,
+      1.1780507056099475e-16
+     ],
+     "band_seed0": [
+      -0.23932440041415284,
+      0.024451633628783446
+     ],
+     "witness_lo": [
+      [
+       "pspA",
+       "nmpC"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "pspA",
+       "pspB"
+      ],
+      [
+       "pspA",
+       "yedE"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -0.2166370767751806,
+      1.1780507056099475e-16
+     ],
+     "band_seed0": [
+      -0.23932440041415284,
+      0.024451633628783446
+     ],
+     "witness_lo": [
+      [
+       "pspA",
+       "nmpC"
+      ]
+     ],
+     "witness_hi": [
+      [
+       "pspA",
+       "pspB"
+      ],
+      [
+       "pspA",
+       "yedE"
+      ],
+      [
+       "yedE",
+       "cspG"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ]
+   ],
+   "group": "B",
+   "plateau_ratio": 4.4129763901288825,
+   "jump": 1.8354099617765969,
+   "r0_band_stable_share": 0.95
+  },
+  {
+   "network": "mediator",
+   "panel": "A",
+   "params": "semi-synthetic",
+   "source": "declared",
+   "frame_index": -1,
+   "condition": "A_ORACLE",
+   "x": "X",
+   "y": "Y",
+   "x_id": "X",
+   "y_id": "Y",
+   "tau": -2.602923003476804,
+   "n_k": 3,
+   "n_k_loc": 3,
+   "n_false_local": 0,
+   "n_false_total": 0,
+   "claims": [
+    [
+     "X",
+     "I"
+    ],
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "claims_local": [
+    [
+     "X",
+     "I"
+    ],
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "committed_verdict": "closed_form",
+   "z": [
+    "Z"
+   ],
+   "r_val": 1,
+   "r_val_status": "exact",
+   "r0_pop": 2,
+   "r0_pop_status": "exact",
+   "r0_band_seeds": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "informative": 1,
+   "class_pop": [
+    -2.6029230034768034,
+    0.0
+   ],
+   "estimate": -2.5997855810339745,
+   "estimate_ci": [
+    -2.6232665791885545,
+    -2.5763045828793945
+   ],
+   "estimate_pop": -2.6029230034768034,
+   "budgets": [
+    {
+     "r": 0,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      -2.6029230034768034
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      -2.5763045828793945
+     ],
+     "witness_lo": [],
+     "witness_hi": []
+    },
+    {
+     "r": 1,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      -1.1251175982670374
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      -1.1094904914006032
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "X",
+       "I"
+      ]
+     ]
+    },
+    {
+     "r": 2,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      0.0
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "Z",
+       "I"
+      ],
+      [
+       "Z",
+       "X"
+      ]
+     ]
+    },
+    {
+     "r": 3,
+     "enumerated": true,
+     "pop": [
+      -2.6029230034768034,
+      0.0
+     ],
+     "band_seed0": [
+      -2.6232665791885545,
+      0.0
+     ],
+     "witness_lo": [],
+     "witness_hi": [
+      [
+       "X",
+       "I"
+      ],
+      [
+       "Z",
+       "I"
+      ],
+      [
+       "Z",
+       "X"
+      ]
+     ]
+    }
+   ],
+   "breaking_claims_seed0": [
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "group": "declared",
+   "plateau_ratio": 32.23406598438586,
+   "jump": 1.7329290641800783,
+   "r0_band_stable_share": 1.0
+  }
+ ],
+ "relaxed_total": 46
+}

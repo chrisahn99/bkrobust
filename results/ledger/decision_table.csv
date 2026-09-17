@@ -1,0 +1,230 @@
+network,tier,query,r_claim,safe_moves,first_failing_retraction,free_rule,r_hop,claims_asserted,audit_named_claim_false,audit_set_at_truth,audit_severity
+Acid_1996,T2,x1 -> x10,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x11,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x12,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x13,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x14,unreached,,,undefined,-1,1,,valid,benign
+Acid_1996,T2,x1 -> x15,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x16,unreached,,,undefined,-1,1,,valid,benign
+Acid_1996,T2,x1 -> x17,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x18,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x3,unreached,,,undefined,-1,1,,valid,benign
+Acid_1996,T2,x1 -> x5,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x6,unreached,,,undefined,-1,1,,valid,benign
+Acid_1996,T2,x1 -> x7,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x1 -> x9,1,0,x4->x1,1,1,1,True,invalid,validity
+Acid_1996,T2,x4 -> x1,1,0,x4->x1,undefined,1,1,True,invalid,validity
+Acid_1996,T2,x4 -> x10,1,0,x4->x1,undefined,1,1,True,invalid,validity
+Acid_1996,T2,x4 -> x11,1,0,x4->x1,undefined,1,1,True,invalid,validity
+Acid_1996,T2,x4 -> x12,1,0,x4->x1,undefined,1,1,True,invalid,validity
+Acid_1996,T2,x4 -> x13,1,0,x4->x1,undefined,1,1,True,invalid,validity
+Didelez_2010,T2,Age -> HRT,1,0,Age->Occ,undefined,1,1,False,valid,benign
+Didelez_2010,T2,Age -> Occ,1,0,Age->Occ,undefined,1,1,False,valid,benign
+Didelez_2010,T2,Age -> S,1,0,Age->Occ,undefined,1,1,False,valid,benign
+Didelez_2010,T2,Age -> Smo,1,0,Age->Occ,undefined,1,1,False,valid,benign
+Didelez_2010,T2,Age -> TCI,1,0,Age->Occ,undefined,1,1,False,valid,benign
+Didelez_2010,T2,Age -> Thist,1,0,Age->Occ,undefined,1,1,False,valid,benign
+Didelez_2010,T2,Occ -> HRT,1,0,Age->Occ,1,1,1,False,valid,benign
+Didelez_2010,T2,Occ -> S,1,0,Age->Occ,1,1,1,False,valid,benign
+Didelez_2010,T2,Occ -> Smo,1,0,Age->Occ,undefined,2,1,False,valid,benign
+Didelez_2010,T2,Occ -> TCI,1,0,Age->Occ,1,1,1,False,valid,benign
+Didelez_2010,T2,Occ -> Thist,1,0,Age->Occ,undefined,2,1,False,valid,benign
+Didelez_2010,T2,Smo -> HRT,1,0,Age->Occ,2,2,1,False,valid,benign
+Didelez_2010,T2,Smo -> S,1,0,Age->Occ,2,2,1,False,valid,benign
+Didelez_2010,T2,Smo -> TCI,1,0,Age->Occ,2,2,1,False,valid,benign
+Kampen_2014,T2,AFF -> AIS,1,0,AFF->ALN,undefined,1,8,False,invalid,validity
+Kampen_2014,T2,AFF -> CDR,1,0,AFF->ALN,undefined,1,8,False,invalid,validity
+Kampen_2014,T2,AFF -> FTW,1,0,AFF->ALN,undefined,1,8,False,invalid,validity
+Kampen_2014,T2,AFF -> SAN,1,0,AFF->ALN,undefined,1,8,False,invalid,validity
+Kampen_2014,T2,AIS -> DET,3,2,ALN->SAN and APA->SAN and SAN->AIS,2,3,8,True,invalid,validity
+Kampen_2014,T2,AIS -> HOS,3,2,ALN->SAN and APA->SAN and SAN->AIS,2,3,8,True,invalid,validity
+Kampen_2014,T2,AIS -> SUS,3,2,ALN->SAN and APA->SAN and SAN->AIS,2,3,8,True,invalid,validity
+Kampen_2014,T2,ALN -> PER,2,1,AFF->ALN and ALN->PER,1,1,8,False,valid,efficiency
+Kampen_2014,T2,CDR -> DET,2,1,ALN->SAN and APA->SAN,2,3,8,True,valid,benign
+Polzer_2012,T2,Caries -> Diabetes,1,0,Caries->Psychosocial,undefined,1,4,True,invalid,validity
+Polzer_2012,T2,Caries -> Mortality,1,0,Caries->Psychosocial,undefined,1,4,True,invalid,validity
+Polzer_2012,T2,Caries -> Psychosocial,1,0,Caries->Psychosocial,undefined,1,4,True,invalid,validity
+Polzer_2012,T2,Caries -> ToothLoss,1,0,Caries->Psychosocial,undefined,1,4,True,invalid,validity
+Polzer_2012,T2,Psychosocial -> Diabetes,1,0,Caries->Psychosocial,undefined,2,4,True,valid,benign
+Polzer_2012,T2,Psychosocial -> Mortality,1,0,Caries->Psychosocial,1,1,4,True,invalid,validity
+Polzer_2012,T2,Psychosocial -> Smoking,1,0,Caries->Psychosocial,undefined,2,4,True,valid,benign
+Schipf_2010,T2,A -> PA,1,0,A->PA,undefined,1,5,False,valid,benign
+Schipf_2010,T2,A -> S,1,0,A->S,undefined,1,5,False,valid,benign
+Schipf_2010,T2,A -> T2DM,1,0,A->PA,undefined,1,5,False,valid,benign
+Schipf_2010,T2,A -> TT,1,0,A->PA,undefined,1,5,False,valid,benign
+Schipf_2010,T2,A -> U,1,0,A->PA,undefined,1,5,False,valid,benign
+Schipf_2010,T2,A -> WC,1,0,A->PA,undefined,1,5,False,valid,benign
+Schipf_2010,T2,PA -> T2DM,1,0,A->PA,1,1,5,False,valid,benign
+Schipf_2010,T2,PA -> TT,1,0,A->PA,1,1,5,False,valid,benign
+Schipf_2010,T2,PA -> U,1,0,A->PA,1,1,5,False,valid,benign
+Schipf_2010,T2,PA -> WC,1,0,A->PA,1,1,5,False,valid,benign
+Schipf_2010,T2,S -> T2DM,1,0,A->S,2,1,5,False,valid,benign
+Schipf_2010,T2,S -> TT,1,0,A->S,1,1,5,False,valid,benign
+Sebastiani_2005,T2,ANXA2.5 -> ANXA2.11,1,0,ANXA2.5->ANXA2.7,undefined,1,4,True,invalid,validity
+Sebastiani_2005,T2,ANXA2.8 -> ANXA2.7,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,BMP6 -> BMP6.13,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,CAT -> CSF2.4,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,CAT -> SELP.12,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,EDN1.9 -> ANXA2.12,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,EDNI1.6 -> EDN1.10,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,Stroke -> BMP6.9,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,Stroke -> SELP.17,gt_3,,,undefined,-1,4,,valid,benign
+Sebastiani_2005,T2,TGFBR3.8 -> BMP6.10,1,0,TGFBR3.8->Stroke,undefined,1,4,True,invalid,validity
+Shrier_2008,T2,Coach -> FitnessLevel,unreached,,,undefined,-1,2,,valid,benign
+Shrier_2008,T2,Coach -> IntraGameProprioception,1,0,Coach->TeamMotivation,undefined,1,2,False,valid,benign
+Shrier_2008,T2,Coach -> PreGameProprioception,unreached,,,undefined,-1,2,,valid,benign
+Shrier_2008,T2,Coach -> TeamMotivation,1,0,Coach->TeamMotivation,undefined,1,2,False,valid,benign
+Shrier_2008,T2,ConnectiveTissueDisorder -> Injury,1,0,Genetics->ConnectiveTissueDisorder,1,1,2,False,valid,benign
+Shrier_2008,T2,ConnectiveTissueDisorder -> NeuromuscularFatigue,1,0,Genetics->ConnectiveTissueDisorder,1,1,2,False,valid,benign
+Shrier_2008,T2,ConnectiveTissueDisorder -> TissueWeakness,1,0,Genetics->ConnectiveTissueDisorder,undefined,2,2,False,valid,benign
+Shrier_2008,T2,Genetics -> ConnectiveTissueDisorder,1,0,Genetics->ConnectiveTissueDisorder,undefined,1,2,False,valid,benign
+Shrier_2008,T2,Genetics -> Injury,1,0,Genetics->ConnectiveTissueDisorder,undefined,1,2,False,valid,benign
+Shrier_2008,T2,Genetics -> NeuromuscularFatigue,1,0,Genetics->ConnectiveTissueDisorder,undefined,1,2,False,valid,benign
+Shrier_2008,T2,Genetics -> TissueWeakness,1,0,Genetics->ConnectiveTissueDisorder,undefined,1,2,False,valid,benign
+Shrier_2008,T2,TeamMotivation -> Injury,1,0,Coach->TeamMotivation,undefined,1,2,False,valid,benign
+Shrier_2008,T2,TeamMotivation -> PreviousInjury,unreached,,,undefined,-1,2,,valid,benign
+Thoemmes_2013,T2,e0 -> s1,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,e0 -> s2,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,e0 -> s3,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,e0 -> x,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,e0 -> y,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,e0 -> z,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,e0 -> z2,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,e0 -> z3,1,0,e0->x,undefined,1,1,False,valid,benign
+Thoemmes_2013,T2,x -> s1,unreached,,,undefined,-1,1,,valid,benign
+Thoemmes_2013,T2,x -> s2,unreached,,,undefined,-1,1,,valid,benign
+Thoemmes_2013,T2,x -> s3,unreached,,,undefined,-1,1,,valid,benign
+Thoemmes_2013,T2,x -> y,unreached,,,undefined,-1,1,,valid,benign
+Thoemmes_2013,T2,x -> z,unreached,,,undefined,-1,1,,valid,benign
+Thoemmes_2013,T2,x -> z2,unreached,,,undefined,-1,1,,valid,benign
+Thoemmes_2013,T2,x -> z3,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,ANAPHYLAXIS -> BP,1,0,ANAPHYLAXIS->TPR,undefined,1,1,False,valid,benign
+alarm,T1,ANAPHYLAXIS -> HRBP,1,0,ANAPHYLAXIS->TPR,undefined,1,1,False,valid,benign
+alarm,T1,LVFAILURE -> CO,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,LVFAILURE -> PCWP,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,PULMEMBOLUS -> HR,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,TPR -> BP,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,TPR -> HRBP,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,VENTMACH -> BP,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,VENTMACH -> HR,unreached,,,undefined,-1,1,,valid,benign
+alarm,T1,VENTMACH -> MINVOL,unreached,,,undefined,-1,1,,valid,benign
+andes,T1,GIVEN_1 -> SNode_100,1,0,GIVEN_1->RApp2,undefined,1,7,False,valid,benign
+andes,T1,HORIZ53 -> SNode_118,1,0,HORIZ53->NORMAL52,undefined,1,7,True,invalid,validity
+andes,T1,RApp2 -> GOAL_153,gt_3,,,undefined,>= 11,7,,valid,benign
+andes,T1,RApp2 -> SNode_43,gt_3,,,undefined,>= 11,7,,valid,benign
+andes,T1,TRY11 -> GOAL_81,gt_3,,,undefined,>= 11,7,,valid,benign
+andes,T1,TRY11 -> SNode_43,gt_3,,,undefined,>= 11,7,,valid,benign
+andes,T1,TRY24 -> GOAL_113,gt_3,,,undefined,>= 11,7,,valid,benign
+andes,T1,TRY24 -> SNode_151,gt_3,,,undefined,>= 11,7,,valid,benign
+arth150,T3,81 -> 464,censored_at_depth_3,,,undefined,>= 4,14,,valid,benign
+asia,T1,asia -> dysp,1,0,asia->tub,undefined,1,3,False,valid,benign
+asia,T1,asia -> either,1,0,asia->tub,undefined,1,3,False,valid,benign
+asia,T1,asia -> tub,1,0,asia->tub,undefined,1,3,False,valid,benign
+asia,T1,asia -> xray,1,0,asia->tub,undefined,1,3,False,valid,benign
+asia,T1,bronc -> dysp,1,0,smoke->bronc,undefined,1,3,False,valid,benign
+asia,T1,lung -> dysp,1,0,smoke->lung,2,1,3,False,valid,benign
+asia,T1,lung -> either,unreached,,,undefined,-1,3,,valid,benign
+asia,T1,lung -> xray,unreached,,,undefined,-1,3,,valid,benign
+asia,T1,smoke -> bronc,1,0,smoke->bronc,undefined,1,3,False,valid,benign
+asia,T1,smoke -> dysp,1,0,smoke->bronc,undefined,1,3,False,valid,benign
+asia,T1,smoke -> either,1,0,smoke->lung,undefined,1,3,False,valid,benign
+asia,T1,smoke -> lung,1,0,smoke->lung,undefined,1,3,False,valid,benign
+asia,T1,smoke -> xray,1,0,smoke->lung,undefined,1,3,False,valid,benign
+barley,T1,dg25 -> aks_m2,3,2,frspdag->saatid and jordinf->frspdag and saatid->dg25,undefined,3,7,True,valid,benign
+barley,T1,dg25 -> s2225,3,2,frspdag->saatid and jordinf->frspdag and saatid->dg25,undefined,3,7,True,valid,benign
+barley,T1,frspdag -> dg25,2,1,frspdag->saatid and jordinf->frspdag,undefined,2,7,True,invalid,validity
+barley,T1,frspdag -> spndx,1,0,jordinf->frspdag,undefined,1,7,True,invalid,validity
+barley,T1,jordinf -> ngtilg,1,0,jordinf->frspdag,undefined,1,7,True,invalid,validity
+barley,T1,jordtype -> nopt,gt_3,,,undefined,-1,7,,valid,benign
+barley,T1,komm -> aks_m2,1,0,komm->nedbarea,undefined,1,7,False,valid,benign
+barley,T1,komm -> ntilg,1,0,komm->nedbarea,undefined,1,7,False,valid,benign
+barley,T1,nedbarea -> slt22,1,0,komm->nedbarea,undefined,1,7,False,valid,benign
+barley,T1,sort -> aks_m2,1,0,sort->sorttkv,undefined,1,7,False,valid,benign
+barley,T1,sort -> udb,1,0,sort->sorttkv,undefined,1,7,False,valid,benign
+barley,T1,sorttkv -> tkv,gt_3,,,undefined,-1,7,,valid,benign
+child,T1,CO2 -> DuctFlow,1,0,CO2->LungParench,undefined,1,1,True,invalid,validity
+child,T1,CO2 -> Sick,1,0,CO2->LungParench,undefined,1,1,True,invalid,validity
+child,T1,Disease -> CardiacMixing,1,0,CO2->LungParench,undefined,3,1,True,valid,benign
+child,T1,LungFlow -> ChestXray,1,0,CO2->LungParench,2,3,1,True,valid,benign
+child,T1,LungParench -> Grunting,1,0,CO2->LungParench,undefined,2,1,True,invalid,validity
+diabetes,T1,cho_bal_15 -> glu_prod_22,1,0,gut_abs_15->cho_bal_15,undefined,1,8,False,valid,benign
+diabetes,T1,cho_bal_3 -> cho_bal_17,gt_3,,,undefined,>= 9,8,,valid,efficiency
+diabetes,T1,cho_bal_4 -> ins_indep_util_8,1,0,gut_abs_4->cho_bal_4,undefined,1,8,False,valid,benign
+diabetes,T1,cho_bal_6 -> ins_dep_13,1,0,gut_abs_6->cho_bal_6,undefined,1,8,False,valid,benign
+diabetes,T1,cho_bal_8 -> gut_abs_10,gt_3,,,undefined,>= 9,8,,valid,benign
+diabetes,T1,gut_abs_1 -> ins_indep_21,1,0,gut_abs_1->cho_bal_1,undefined,1,8,False,valid,benign
+diabetes,T1,gut_abs_11 -> tot_bal_18,1,0,gut_abs_11->cho_bal_11,undefined,1,8,False,valid,benign
+diabetes,T1,gut_abs_14 -> tot_bal_19,1,0,gut_abs_14->cho_bal_14,undefined,1,8,False,valid,benign
+diabetes,T1,gut_abs_4 -> ins_dep_util_11,1,0,gut_abs_4->cho_bal_4,undefined,1,8,False,valid,benign
+diabetes,T1,gut_abs_6 -> endo_bal_10,1,0,gut_abs_6->cho_bal_6,undefined,1,8,False,valid,benign
+diabetes,T1,gut_abs_8 -> cho_17,1,0,gut_abs_8->cho_bal_8,undefined,1,8,False,valid,benign
+ecoli70,T3,cspG -> hupB,3,2,pspA->cspG and pspB->cspG and yedE->cspG,undefined,4,10,True,valid,benign
+ecoli70,T3,icdA -> aceB,gt_3,,,undefined,-1,10,,valid,efficiency
+ecoli70,T3,pspA -> folK,1,0,pspA->pspB,undefined,1,10,True,invalid,validity
+ecoli70,T3,sucA -> tnaA,gt_3,,,undefined,-1,10,,valid,benign
+ecoli70,T3,yedE -> b1963,gt_3,,,undefined,-1,10,,valid,benign
+hepar2,T1,RHepatitis -> THepatitis,1,0,RHepatitis->hepatotoxic,undefined,1,5,True,invalid,validity
+hepar2,T1,choledocholithotomy -> consciousness,gt_3,,,undefined,>= 6,5,,valid,benign
+hepar2,T1,choledocholithotomy -> irregular_liver,gt_3,,,undefined,>= 6,5,,valid,benign
+hepar2,T1,hepatotoxic -> phosphatase,1,0,RHepatitis->hepatotoxic,1,1,5,True,invalid,validity
+hepar2,T1,obesity -> edema,gt_3,,,undefined,>= 6,5,,valid,benign
+hepar2,T1,obesity -> triglycerides,gt_3,,,undefined,>= 6,5,,valid,benign
+insurance,T1,DrivingSkill -> OtherCarCost,1,0,RiskAversion->SeniorTrain,2,2,5,False,valid,benign
+magic-irri,T3,G2670 -> YLD,gt_3,,,undefined,>= 9,7,,valid,benign
+magic-irri,T3,G3209 -> G3106,gt_3,,,undefined,>= 9,7,,valid,benign
+magic-irri,T3,G3212 -> FT,1,0,G4109->G4145,1,2,7,True,valid,benign
+magic-irri,T3,G3219 -> G3102,gt_3,,,undefined,>= 9,7,,valid,benign
+magic-irri,T3,G3823 -> HT,gt_3,,,undefined,>= 9,7,,valid,benign
+magic-irri,T3,G3925 -> GTEMP,1,0,G3925->G5794,undefined,1,7,False,valid,benign
+magic-irri,T3,G4109 -> G3209,1,0,G4109->G4145,undefined,1,7,True,invalid,validity
+magic-irri,T3,G4109 -> YLD,1,0,G4109->G4145,undefined,1,7,True,invalid,validity
+magic-irri,T3,G4145 -> G3222,1,0,G4109->G4145,1,1,7,True,valid,efficiency
+magic-irri,T3,G4529 -> G4573,1,0,G4529->G4573,undefined,1,7,True,invalid,validity
+magic-niab,T3,G1217 -> FT,1,0,G1217->G257,undefined,1,4,False,valid,benign
+magic-niab,T3,G1217 -> YLD,1,0,G1217->G257,undefined,1,4,False,valid,benign
+magic-niab,T3,G1276 -> G1789,gt_3,,,undefined,-1,4,,valid,benign
+magic-niab,T3,G1750 -> YLD,gt_3,,,undefined,-1,4,,valid,benign
+magic-niab,T3,G2208 -> MIL,2,1,G1217->G257 and G257->G2208,2,2,4,False,valid,benign
+magic-niab,T3,G257 -> YR.FIELD,1,0,G1217->G257,1,1,4,False,valid,benign
+magic-niab,T3,G2835 -> G1800,gt_3,,,undefined,-1,4,,valid,benign
+magic-niab,T3,G2835 -> YR.GLASS,1,0,G2835->G418,undefined,1,4,True,invalid,validity
+magic-niab,T3,G383 -> G800,1,0,G383->G800,undefined,1,4,True,invalid,validity
+magic-niab,T3,G418 -> YLD,1,0,G2835->G418,undefined,1,4,True,invalid,validity
+mediator,T0,I -> X,1,0,I->X,undefined,1,4,True,invalid,validity
+mediator,T0,I -> Y,1,0,I->X,undefined,1,4,True,invalid,validity
+mediator,T0,I -> Z,1,0,I->X,undefined,1,4,True,invalid,validity
+mediator,T0,X -> Y,1,0,I->X,1,1,4,True,invalid,validity
+munin1,T1,R_LNLBE_MED_PATHO -> R_LNLBE_APB_DENERV,unreached,,,undefined,>= 3,2,,valid,benign
+munin1,T1,R_LNLBE_MED_PATHO -> R_MED_AMP_WA,unreached,,,undefined,>= 3,2,,valid,benign
+munin1,T1,R_LNLW_MED_PATHO -> R_APB_SPONT_INS_ACT,unreached,,,undefined,>= 3,2,,valid,benign
+munin1,T1,R_MEDD2_RD_WD -> R_MEDD2_LSLOW_WD,1,0,R_LNLW_MEDD2_RD_WD->R_MEDD2_RD_WD,undefined,1,2,False,valid,benign
+paths,T0,1 -> 10,1,0,1->2,undefined,1,10,True,invalid,validity
+paths,T0,1 -> 8,1,0,1->2,undefined,1,10,True,invalid,validity
+paths,T0,11 -> 14,gt_3,,,undefined,11,10,,invalid,validity
+paths,T0,2 -> 4,2,1,1->2 and 2->3,undefined,2,10,True,invalid,validity
+paths,T0,3 -> 13,3,2,1->2 and 2->3 and 3->4,undefined,3,10,True,invalid,validity
+paths,T0,4 -> 8,3,2,1->2 and 2->3 and 3->4,undefined,4,10,True,invalid,validity
+paths,T0,6 -> 13,gt_3,,,undefined,6,10,,invalid,validity
+paths,T0,7 -> 8,gt_3,,,undefined,7,10,,invalid,validity
+paths,T0,9 -> 13,gt_3,,,undefined,9,10,,invalid,validity
+water,T1,CKNI_12_00 -> CBODD_12_15,gt_3,,,undefined,-1,5,,valid,benign
+water,T1,CKNI_12_00 -> CKND_12_15,gt_3,,,undefined,-1,5,,valid,benign
+water,T1,CKNI_12_00 -> CNON_12_45,gt_3,,,undefined,-1,5,,valid,benign
+water,T1,CKNI_12_15 -> CBODN_12_45,2,1,CKNI_12_15->CKNI_12_00 and CKNI_12_45->CKNI_12_30,undefined,3,5,True,invalid,validity
+water,T1,CKNI_12_15 -> CNOD_12_45,2,1,CKNI_12_15->CKNI_12_00 and CKNI_12_45->CKNI_12_30,undefined,3,5,True,invalid,validity
+water,T1,CKNI_12_30 -> CBODN_12_30,1,0,CKNI_12_45->CKNI_12_30,undefined,2,5,True,invalid,validity
+water,T1,CKNI_12_30 -> CKNI_12_00,1,0,CKNI_12_45->CKNI_12_30,undefined,2,5,True,invalid,validity
+water,T1,CKNI_12_30 -> CNOD_12_30,1,0,CKNI_12_45->CKNI_12_30,undefined,2,5,True,invalid,validity
+water,T1,CKNI_12_45 -> CBODD_12_45,1,0,CKNI_12_45->CKNI_12_30,undefined,1,5,True,invalid,validity
+water,T1,CKNI_12_45 -> CKND_12_45,1,0,CKNI_12_45->CKNI_12_30,undefined,1,5,True,invalid,validity
+water,T1,CKNI_12_45 -> CKNN_12_45,1,0,CKNI_12_45->CKNI_12_30,undefined,1,5,True,invalid,validity
+water,T1,C_NI_12_00 -> CBODD_12_30,1,0,C_NI_12_00->C_NI_12_15,undefined,1,5,False,valid,benign
+water,T1,C_NI_12_00 -> CNOD_12_45,1,0,C_NI_12_00->C_NI_12_15,undefined,1,5,False,valid,benign
+water,T1,C_NI_12_15 -> C_NI_12_45,2,1,C_NI_12_00->C_NI_12_15 and C_NI_12_15->C_NI_12_30,undefined,2,5,False,valid,benign
+win95pts,T1,AvlblVrtlMmry -> IncmpltPS,gt_3,,,undefined,>= 7,6,,valid,benign
+win95pts,T1,PrtMem -> DeskPrntSpd,gt_3,,,undefined,>= 7,6,,valid,benign
+win95pts,T1,PrtMem -> NtGrbld,gt_3,,,undefined,>= 7,6,,valid,benign
+win95pts,T1,PrtMem -> Problem5,gt_3,,,undefined,>= 7,6,,valid,benign
+win95pts,T1,PrtOn -> PrtStatOff,1,0,PrtOn->PrtStatOff,undefined,1,6,False,valid,benign
+win95pts,T1,PrtSpool -> GDIIN,gt_3,,,undefined,>= 7,6,,valid,benign
+win95pts,T1,TnrSpply -> PrtStatToner,1,0,TnrSpply->PrtStatToner,undefined,1,6,False,valid,benign

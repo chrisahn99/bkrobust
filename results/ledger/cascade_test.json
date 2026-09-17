@@ -1,0 +1,134 @@
+{
+ "per_arm": {
+  "A_ORACLE": {
+   "networks": 27,
+   "mean": 2.970831052727604,
+   "median": 1.5,
+   "max": 17.0
+  },
+  "A_TRUE": {
+   "networks": 27,
+   "mean": 1.2143060643060641,
+   "median": 1.0,
+   "max": 3.0
+  },
+  "D_LLM": {
+   "networks": 27,
+   "mean": 1.8425925925925926,
+   "median": 1.2,
+   "max": 10.0
+  },
+  "D_LLM_32B": {
+   "networks": 23,
+   "mean": 1.1819283163801122,
+   "median": 1.0,
+   "max": 2.5
+  },
+  "D_LLM_72B": {
+   "networks": 26,
+   "mean": 1.153937728937729,
+   "median": 1.0,
+   "max": 3.2
+  },
+  "D_LLM_72B_INSTR": {
+   "networks": 26,
+   "mean": 1.162408424908425,
+   "median": 1.0,
+   "max": 2.5
+  },
+  "D_LLM_GEMMA_27B": {
+   "networks": 24,
+   "mean": 1.3546972703222704,
+   "median": 1.0,
+   "max": 3.5
+  },
+  "D_LLM_INSTR": {
+   "networks": 27,
+   "mean": 1.49558856781079,
+   "median": 1.0,
+   "max": 5.666666666666667
+  },
+  "D_LLM_SRC": {
+   "networks": 27,
+   "mean": 1.5481922398589065,
+   "median": 1.2142857142857142,
+   "max": 5.0
+  },
+  "D_LLM_SRC_70B": {
+   "networks": 27,
+   "mean": 1.3481330911886469,
+   "median": 1.0,
+   "max": 5.666666666666667
+  },
+  "D_RAND": {
+   "networks": 26,
+   "mean": 1.7032967032967032,
+   "median": 1.1428571428571428,
+   "max": 10.0
+  },
+  "D_SCRAMBLED": {
+   "networks": 25,
+   "mean": 1.4363089133089133,
+   "median": 1.0,
+   "max": 3.5
+  },
+  "D_SCRAMBLED_72B": {
+   "networks": 24,
+   "mean": 1.3783216722361462,
+   "median": 1.1414473684210527,
+   "max": 5.5
+  }
+ },
+ "paired": {
+  "A_ORACLE - D_LLM": {
+   "mean_diff": 1.1282384601350117,
+   "ci": [
+    -0.2579213038983154,
+    2.85927902450891
+   ],
+   "networks": 27,
+   "a_larger_on": 14,
+   "verdict": "not separated"
+  },
+  "A_ORACLE - D_LLM_72B": {
+   "mean_diff": 1.2773099027409374,
+   "ci": [
+    0.43111026904130356,
+    2.5038461538461543
+   ],
+   "networks": 26,
+   "a_larger_on": 16,
+   "verdict": "separated"
+  },
+  "A_ORACLE - D_LLM_SRC_70B": {
+   "mean_diff": 1.622697961538958,
+   "ci": [
+    0.32115945995256334,
+    3.2742391353502462
+   ],
+   "networks": 27,
+   "a_larger_on": 16,
+   "verdict": "separated"
+  },
+  "A_TRUE - D_LLM": {
+   "mean_diff": -0.6282865282865282,
+   "ci": [
+    -1.515873015873016,
+    -0.015059015059015055
+   ],
+   "networks": 27,
+   "a_larger_on": 1,
+   "verdict": "reversed"
+  },
+  "D_LLM_72B - D_LLM": {
+   "mean_diff": -0.721062271062271,
+   "ci": [
+    -1.5873168498168495,
+    -0.09945054945054944
+   ],
+   "networks": 26,
+   "a_larger_on": 1,
+   "verdict": "reversed"
+  }
+ }
+}

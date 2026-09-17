@@ -1,0 +1,111 @@
+{
+ "frame_rows": 528,
+ "networks": 27,
+ "arms": [
+  "D_LLM",
+  "D_LLM_INSTR",
+  "D_LLM_SRC",
+  "D_SCRAMBLED",
+  "D_LLM_72B",
+  "D_LLM_72B_INSTR",
+  "D_SCRAMBLED_72B",
+  "D_LLM_32B",
+  "D_LLM_SRC_70B",
+  "D_LLM_GEMMA_27B",
+  "D_RAND",
+  "D_DEGEN",
+  "A_TRUE",
+  "A_ORACLE"
+ ],
+ "evaluations": 8308,
+ "seconds": 516.4,
+ "parts": [
+  "p1",
+  "p2",
+  "p3",
+  "p4",
+  "p5",
+  "p6"
+ ],
+ "status_by_arm": {
+  "A_ORACLE": {
+   "ok": 294,
+   "y_not_possible_descendant": 234
+  },
+  "A_TRUE": {
+   "not_amenable": 177,
+   "y_not_possible_descendant": 142,
+   "ok": 209
+  },
+  "D_DEGEN": {
+   "not_amenable": 460,
+   "ok": 68
+  },
+  "D_LLM": {
+   "not_amenable": 144,
+   "y_not_possible_descendant": 155,
+   "ok": 229
+  },
+  "D_LLM_32B": {
+   "not_amenable": 140,
+   "ok": 204,
+   "y_not_possible_descendant": 184
+  },
+  "D_LLM_72B": {
+   "ok": 285,
+   "y_not_possible_descendant": 191,
+   "not_amenable": 52
+  },
+  "D_LLM_72B_INSTR": {
+   "not_amenable": 72,
+   "ok": 279,
+   "y_not_possible_descendant": 177
+  },
+  "D_LLM_GEMMA_27B": {
+   "not_amenable": 94,
+   "ok": 263,
+   "y_not_possible_descendant": 171
+  },
+  "D_LLM_INSTR": {
+   "not_amenable": 189,
+   "y_not_possible_descendant": 133,
+   "ok": 206
+  },
+  "D_LLM_SRC": {
+   "ok": 243,
+   "y_not_possible_descendant": 211,
+   "not_amenable": 74
+  },
+  "D_LLM_SRC_70B": {
+   "ok": 267,
+   "y_not_possible_descendant": 194,
+   "not_amenable": 67
+  },
+  "D_RAND": {
+   "ok": 649,
+   "not_amenable": 394,
+   "y_not_possible_descendant": 401
+  },
+  "D_SCRAMBLED": {
+   "not_amenable": 196,
+   "ok": 197,
+   "y_not_possible_descendant": 135
+  },
+  "D_SCRAMBLED_72B": {
+   "ok": 192,
+   "not_amenable": 155,
+   "y_not_possible_descendant": 181
+  }
+ },
+ "settings": {
+  "rand_reps": 3,
+  "seed": 20260913,
+  "max_depth": 3,
+  "subset_budget": 300,
+  "radius_limit_s": 5.0,
+  "exhaustive_max_retractable": 12,
+  "ladder_max_nodes": 60,
+  "closure_budget": 4000
+ },
+ "excluded_for_size": []
+}

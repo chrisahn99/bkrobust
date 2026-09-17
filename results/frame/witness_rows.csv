@@ -1,0 +1,541 @@
+network,treatment,outcome,n_claims,retraction_depth,retraction_set,retraction_sits,n_sets_at_depth,what_it_costs,free_rule_said,hop_radius_said,closure_size_said,claim_count_said,free_rule_unit_gap,hop_unit_gap,closure_unit_gap,z_valid_at_truth
+mediator,I,Y,3,1,X -> I,into the treatment,1,identifiability,1,1,5,3,0,0,4,1
+mediator,X,I,3,1,X -> I,out of the treatment,2,identifiability,1,1,5,3,0,0,4,1
+mediator,X,Y,3,1,X -> I,out of the treatment,2,identifiability,1,1,5,3,0,0,4,1
+Didelez_2010,Occ,HRT,1,1,Age -> Occ,into the treatment,1,identifiability,1,1,3,1,0,0,2,1
+Didelez_2010,Occ,S,1,1,Age -> Occ,into the treatment,1,identifiability,1,1,3,1,0,0,2,1
+Didelez_2010,Occ,TCI,1,1,Age -> Occ,into the treatment,1,identifiability,1,1,3,1,0,0,2,1
+Didelez_2010,Smo,HRT,1,1,Age -> Occ,elsewhere in the component,1,identifiability,2,2,3,1,1,1,2,1
+Didelez_2010,Smo,S,1,1,Age -> Occ,elsewhere in the component,1,identifiability,2,2,3,1,1,1,2,1
+Didelez_2010,Smo,TCI,1,1,Age -> Occ,elsewhere in the component,1,identifiability,2,2,3,1,1,1,2,1
+Didelez_2010,Thist,S,1,1,Age -> Occ,elsewhere in the component,1,identifiability,2,2,3,1,1,1,2,1
+Didelez_2010,Thist,TCI,1,1,Age -> Occ,elsewhere in the component,1,identifiability,2,2,3,1,1,1,2,1
+Schipf_2010,PA,T2DM,3,1,A -> PA,into the treatment,2,identifiability,1,1,6,3,0,0,5,1
+Schipf_2010,PA,TT,3,1,A -> PA,into the treatment,2,identifiability,1,1,6,3,0,0,5,1
+Schipf_2010,PA,U,3,1,A -> PA,into the treatment,2,identifiability,1,1,6,3,0,0,5,1
+Schipf_2010,PA,WC,3,1,A -> PA,into the treatment,2,identifiability,1,1,6,3,0,0,5,1
+Schipf_2010,S,T2DM,3,1,A -> S,into the treatment,1,identifiability,2,1,6,3,1,0,5,1
+Schipf_2010,S,TT,3,1,A -> S,into the treatment,1,identifiability,1,1,6,3,0,0,5,1
+Schipf_2010,U,T2DM,3,1,PA -> WC,elsewhere in the component,1,identifiability,1,2,6,3,0,1,5,1
+Schipf_2010,U,TT,3,1,PA -> WC,elsewhere in the component,1,identifiability,1,2,6,3,0,1,5,1
+Schipf_2010,WC,T2DM,3,1,A -> PA,elsewhere in the component,2,identifiability,1,1,6,3,0,0,5,1
+Schipf_2010,WC,TT,3,1,A -> PA,elsewhere in the component,2,identifiability,1,2,6,3,0,1,5,1
+Schipf_2010,WC,U,3,1,A -> PA,elsewhere in the component,2,identifiability,1,2,6,3,0,1,5,1
+asia,bronc,dysp,3,1,smoke -> bronc,into the treatment,1,identifiability,1,1,3,3,0,0,2,1
+asia,lung,dysp,3,1,smoke -> lung,into the treatment,1,identifiability,2,1,3,3,1,0,2,1
+sachs,Mek,Akt,8,1,PKA -> Raf,elsewhere in the component,2,identifiability,1,2,17,8,0,1,16,1
+sachs,Mek,Erk,8,1,PKA -> Raf,elsewhere in the component,2,identifiability,1,2,17,8,0,1,16,1
+sachs,PIP3,PIP2,8,1,PIP3 -> PIP2,out of the treatment,2,identifiability,1,1,17,8,0,0,16,1
+sachs,PKA,Akt,8,1,PKA -> Raf,out of the treatment,3,identifiability,1,1,17,8,0,0,16,1
+sachs,PKA,Erk,8,1,PKA -> Raf,out of the treatment,3,identifiability,1,1,17,8,0,0,16,1
+sachs,PKA,Jnk,8,1,PKA -> Jnk,out of the treatment,2,identifiability,1,1,17,8,0,0,16,1
+sachs,PKA,Mek,8,1,PKA -> Raf,out of the treatment,3,identifiability,1,1,17,8,0,0,16,1
+sachs,PKA,P38,8,1,PKA -> P38,out of the treatment,2,identifiability,1,1,17,8,0,0,16,1
+sachs,PKA,Raf,8,1,PKA -> Raf,out of the treatment,3,identifiability,1,1,17,8,0,0,16,1
+sachs,Raf,Akt,8,1,PKA -> Raf,into the treatment,3,identifiability,1,1,17,8,0,0,16,1
+sachs,Raf,Erk,8,1,PKA -> Raf,into the treatment,3,identifiability,1,1,17,8,0,0,16,1
+sachs,Raf,Mek,8,1,PKA -> Raf,into the treatment,3,identifiability,1,1,17,8,0,0,16,1
+Kampen_2014,AFF,ALN,3,1,AIS -> AFF,into the treatment,2,identifiability,1,2,11,3,0,1,10,1
+Kampen_2014,AFF,APA,3,1,AIS -> AFF,into the treatment,2,identifiability,1,2,11,3,0,1,10,1
+Kampen_2014,AFF,CDR,3,1,AIS -> AFF,into the treatment,2,identifiability,1,2,11,3,0,1,10,1
+Kampen_2014,AFF,DET,3,1,AIS -> AFF,into the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AFF,EGC,3,1,AIS -> AFF,into the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AFF,FTW,3,1,AIS -> AFF,into the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AFF,HOS,3,1,AIS -> AFF,into the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AFF,PER,3,1,AIS -> AFF,into the treatment,2,identifiability,1,2,11,3,0,1,10,1
+Kampen_2014,AFF,SUS,3,1,AIS -> AFF,into the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,AFF,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,ALN,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,APA,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,CDR,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,DET,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,EGC,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,FTW,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,HOS,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,PER,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,AIS,SUS,3,1,AIS -> AFF,out of the treatment,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,ALN,APA,3,1,AIS -> AFF,elsewhere in the component,2,identifiability,1,1,11,3,0,0,10,1
+Kampen_2014,ALN,DET,3,1,AIS -> AFF,elsewhere in the component,1,identifiability,2,2,11,3,1,1,10,1
+Kampen_2014,ALN,EGC,3,1,AIS -> AFF,elsewhere in the component,1,identifiability,2,2,11,3,1,1,10,1
+Kampen_2014,ALN,FTW,3,1,AIS -> AFF,elsewhere in the component,1,identifiability,2,2,11,3,1,1,10,1
+Kampen_2014,ALN,HOS,3,1,AIS -> AFF,elsewhere in the component,1,identifiability,2,2,11,3,1,1,10,1
+Kampen_2014,ALN,SUS,3,1,AIS -> AFF,elsewhere in the component,1,identifiability,2,2,11,3,1,1,10,1
+Kampen_2014,CDR,DET,3,1,AIS -> AFF,elsewhere in the component,1,identifiability,2,2,11,3,1,1,10,1
+Kampen_2014,PER,DET,3,1,AIS -> AFF,elsewhere in the component,1,identifiability,1,4,11,3,0,3,10,1
+Shrier_2008,ConnectiveTissueDisorder,Injury,2,1,Genetics -> ConnectiveTissueDisorder,into the treatment,1,identifiability,1,1,3,2,0,0,2,1
+Shrier_2008,ConnectiveTissueDisorder,IntraGameProprioception,2,1,Genetics -> ConnectiveTissueDisorder,into the treatment,1,identifiability,1,1,3,2,0,0,2,1
+Shrier_2008,ConnectiveTissueDisorder,NeuromuscularFatigue,2,1,Genetics -> ConnectiveTissueDisorder,into the treatment,1,identifiability,1,1,3,2,0,0,2,1
+Shrier_2008,TeamMotivation,Injury,2,1,Coach -> TeamMotivation,into the treatment,1,identifiability,1,1,3,2,0,0,2,1
+Shrier_2008,TeamMotivation,IntraGameProprioception,2,1,Coach -> TeamMotivation,into the treatment,1,identifiability,1,1,3,2,0,0,2,1
+Shrier_2008,TeamMotivation,WarmUpExercises,2,1,Coach -> TeamMotivation,into the treatment,1,identifiability,1,1,3,2,0,0,2,1
+Shrier_2008,TissueWeakness,Injury,2,1,Genetics -> ConnectiveTissueDisorder,elsewhere in the component,1,identifiability,1,2,3,2,0,1,2,1
+Polzer_2012,Alcohol,Diabetes,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,Hypertension,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,Lipids,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,Mortality,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,Obesity,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,Periodontitis,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,Smoking,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,Sport,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Alcohol,ToothLoss,5,1,Alcohol -> Smoking,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Caries,Mortality,5,1,Psychosocial -> Caries,into the treatment,1,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Caries,ToothLoss,5,1,Psychosocial -> Caries,into the treatment,1,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Diabetes,Hypertension,5,1,Diabetes -> Hypertension,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Diabetes,Lipids,5,1,Obesity -> Diabetes,into the treatment,1,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Diabetes,Mortality,5,1,Diabetes -> Hypertension,out of the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Diabetes,Periodontitis,5,1,Obesity -> Diabetes,into the treatment,1,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Diabetes,ToothLoss,5,1,Obesity -> Diabetes,into the treatment,1,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Hypertension,Mortality,5,1,Diabetes -> Hypertension,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Obesity,Diabetes,5,1,Diabetes -> Hypertension,out of the outcome,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Obesity,Hypertension,5,1,Diabetes -> Hypertension,into the outcome,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Obesity,Lipids,5,1,Diabetes -> Hypertension,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Obesity,Mortality,5,1,Diabetes -> Hypertension,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Obesity,Periodontitis,5,1,Diabetes -> Hypertension,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Obesity,ToothLoss,5,1,Diabetes -> Hypertension,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Alcohol,5,1,Alcohol -> Smoking,out of the outcome,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Caries,5,1,Psychosocial -> Caries,out of the treatment,1,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Diabetes,5,1,Alcohol -> Smoking,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Hypertension,5,1,Alcohol -> Smoking,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Lipids,5,1,Alcohol -> Smoking,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Mortality,5,1,Alcohol -> Smoking,elsewhere in the component,3,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Obesity,5,1,Alcohol -> Smoking,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Periodontitis,5,1,Alcohol -> Smoking,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Smoking,5,1,Alcohol -> Smoking,into the outcome,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,Sport,5,1,Alcohol -> Smoking,elsewhere in the component,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Psychosocial,ToothLoss,5,1,Alcohol -> Smoking,elsewhere in the component,3,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Smoking,Diabetes,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Smoking,Hypertension,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Smoking,Lipids,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Smoking,Mortality,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Smoking,Obesity,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Smoking,Periodontitis,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Smoking,Sport,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,2,9,5,0,1,8,1
+Polzer_2012,Smoking,ToothLoss,5,1,Alcohol -> Smoking,into the treatment,2,identifiability,1,1,9,5,0,0,8,1
+Polzer_2012,Sport,Diabetes,5,1,Alcohol -> Smoking,elsewhere in the component,1,identifiability,1,2,9,5,0,1,8,1
+Polzer_2012,Sport,Hypertension,5,1,Alcohol -> Smoking,elsewhere in the component,1,identifiability,1,2,9,5,0,1,8,1
+Polzer_2012,Sport,Lipids,5,1,Alcohol -> Smoking,elsewhere in the component,1,identifiability,1,2,9,5,0,1,8,1
+Polzer_2012,Sport,Mortality,5,1,Alcohol -> Smoking,elsewhere in the component,1,identifiability,1,2,9,5,0,1,8,1
+Polzer_2012,Sport,Obesity,5,1,Alcohol -> Smoking,elsewhere in the component,1,identifiability,1,2,9,5,0,1,8,1
+Polzer_2012,Sport,Periodontitis,5,1,Alcohol -> Smoking,elsewhere in the component,1,identifiability,1,2,9,5,0,1,8,1
+Polzer_2012,Sport,ToothLoss,5,1,Alcohol -> Smoking,elsewhere in the component,1,identifiability,1,2,9,5,0,1,8,1
+paths,1,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,6,14,14,1,5,13,13,1
+paths,1,E,1,1,15 -> 14,elsewhere in the component,1,identifiability,6,14,14,1,5,13,13,1
+paths,10,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,5,5,14,1,4,4,13,1
+paths,11,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,4,4,14,1,3,3,13,1
+paths,12,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,3,3,14,1,2,2,13,1
+paths,13,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,2,2,14,1,1,1,13,1
+paths,14,D,1,1,15 -> 14,into the treatment,1,identifiability,1,1,14,1,0,0,13,1
+paths,2,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,5,13,14,1,4,12,13,1
+paths,2,E,1,1,15 -> 14,elsewhere in the component,1,identifiability,5,13,14,1,4,12,13,1
+paths,3,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,4,12,14,1,3,11,13,1
+paths,3,E,1,1,15 -> 14,elsewhere in the component,1,identifiability,4,12,14,1,3,11,13,1
+paths,4,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,3,11,14,1,2,10,13,1
+paths,4,E,1,1,15 -> 14,elsewhere in the component,1,identifiability,3,11,14,1,2,10,13,1
+paths,5,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,2,10,14,1,1,9,13,1
+paths,5,E,1,1,15 -> 14,elsewhere in the component,1,identifiability,2,10,14,1,1,9,13,1
+paths,6,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,1,9,14,1,0,8,13,1
+paths,6,E,1,1,15 -> 14,elsewhere in the component,1,identifiability,1,9,14,1,0,8,13,1
+paths,7,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,1,8,14,1,0,7,13,1
+paths,8,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,7,7,14,1,6,6,13,1
+paths,9,D,1,1,15 -> 14,elsewhere in the component,1,identifiability,6,6,14,1,5,5,13,1
+Acid_1996,x4,x10,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x11,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x12,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x13,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x15,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x17,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x18,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x5,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x7,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+Acid_1996,x4,x9,1,1,x1 -> x4,into the treatment,1,identifiability,1,1,1,1,0,0,0,1
+child,CardiacMixing,HypDistrib,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,CardiacMixing,HypoxiaInO2,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,CardiacMixing,LowerBodyO2,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,CardiacMixing,RUQO2,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,DuctFlow,HypDistrib,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,DuctFlow,LowerBodyO2,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungFlow,ChestXray,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungFlow,XrayReport,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungParench,ChestXray,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungParench,Grunting,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungParench,GruntingReport,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungParench,HypoxiaInO2,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungParench,LowerBodyO2,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungParench,RUQO2,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,LungParench,XrayReport,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,Sick,Age,2,1,BirthAsphyxia -> Disease,elsewhere in the component,2,identifiability,1,1,12,2,0,0,11,1
+child,Sick,Grunting,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+child,Sick,GruntingReport,2,1,BirthAsphyxia -> Disease,elsewhere in the component,1,identifiability,2,2,12,2,1,1,11,1
+insurance,AntiTheft,PropCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,AntiTheft,Theft,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,AntiTheft,ThisCarCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,Accident,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,DrivHist,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,DrivQuality,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,ILiCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,MedCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,3,18,3,0,2,17,1
+insurance,DrivingSkill,OtherCarCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,PropCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,ThisCarCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,DrivingSkill,ThisCarDam,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,HomeBase,PropCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,HomeBase,Theft,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,HomeBase,ThisCarCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,Accident,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,Airbag,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,Antilock,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,CarValue,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,Cushioning,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,ILiCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,MedCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,OtherCarCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,PropCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,RuggedAuto,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,Theft,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,ThisCarCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,MakeModel,ThisCarDam,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,RiskAversion,Accident,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,Airbag,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,AntiTheft,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,Antilock,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,CarValue,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,Cushioning,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,DrivHist,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,2,18,3,0,1,17,1
+insurance,RiskAversion,DrivQuality,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,2,18,3,0,1,17,1
+insurance,RiskAversion,DrivingSkill,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,2,18,3,0,1,17,1
+insurance,RiskAversion,HomeBase,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,ILiCost,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,MakeModel,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,MedCost,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,OtherCarCost,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,PropCost,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,RuggedAuto,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,SeniorTrain,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,2,18,3,0,1,17,1
+insurance,RiskAversion,Theft,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,ThisCarCost,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,ThisCarDam,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,RiskAversion,VehicleYear,3,1,Age -> SocioEcon,elsewhere in the component,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SeniorTrain,Accident,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,DrivHist,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,DrivQuality,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,DrivingSkill,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,3,18,3,0,2,17,1
+insurance,SeniorTrain,ILiCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,MedCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,OtherCarCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,PropCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,ThisCarCost,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SeniorTrain,ThisCarDam,3,1,SocioEcon -> RiskAversion,elsewhere in the component,1,identifiability,1,2,18,3,0,1,17,1
+insurance,SocioEcon,Accident,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,Airbag,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,AntiTheft,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,Antilock,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,CarValue,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,Cushioning,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,DrivHist,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,DrivQuality,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,DrivingSkill,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,GoodStudent,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,HomeBase,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,ILiCost,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,MakeModel,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,MedCost,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,OtherCarCost,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,PropCost,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,RiskAversion,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,RuggedAuto,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,SeniorTrain,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,Theft,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,ThisCarCost,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,ThisCarDam,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,SocioEcon,VehicleYear,3,1,Age -> SocioEcon,into the treatment,2,identifiability,1,1,18,3,0,0,17,1
+insurance,VehicleYear,Accident,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,Airbag,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,Antilock,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,CarValue,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,Cushioning,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,ILiCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,MedCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,OtherCarCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,PropCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,RuggedAuto,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,Theft,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,ThisCarCost,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+insurance,VehicleYear,ThisCarDam,3,1,Age -> SocioEcon,elsewhere in the component,1,identifiability,2,3,18,3,1,2,17,1
+water,CKNI_12_15,CBODD_12_30,2,1,CKNI_12_00 -> CKNI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,CKNI_12_15,CBODD_12_45,2,1,CKNI_12_00 -> CKNI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,CKNI_12_15,CBODN_12_45,2,1,CKNI_12_00 -> CKNI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,CKNI_12_15,CKND_12_30,2,1,CKNI_12_00 -> CKNI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,CKNI_12_15,CKND_12_45,2,1,CKNI_12_00 -> CKNI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,CKNI_12_15,CKNN_12_45,2,1,CKNI_12_00 -> CKNI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,CKNI_12_15,CNOD_12_45,2,1,CKNI_12_00 -> CKNI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,CKNI_12_30,CBODD_12_45,2,1,CKNI_12_00 -> CKNI_12_15,elsewhere in the component,1,identifiability,1,2,6,2,0,1,5,1
+water,CKNI_12_30,CKND_12_45,2,1,CKNI_12_00 -> CKNI_12_15,elsewhere in the component,1,identifiability,1,2,6,2,0,1,5,1
+water,C_NI_12_15,CBODD_12_30,2,1,C_NI_12_00 -> C_NI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,C_NI_12_15,CBODD_12_45,2,1,C_NI_12_00 -> C_NI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,C_NI_12_15,CBODN_12_45,2,1,C_NI_12_00 -> C_NI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,C_NI_12_15,CNOD_12_45,2,1,C_NI_12_00 -> C_NI_12_15,into the treatment,1,identifiability,1,1,6,2,0,0,5,1
+water,C_NI_12_30,CBODD_12_45,2,1,C_NI_12_00 -> C_NI_12_15,elsewhere in the component,1,identifiability,1,2,6,2,0,1,5,1
+Sebastiani_2005,ANXA2.7,ANXA2.5,7,1,ANXA2.7 -> ANXA2.5,out of the treatment,1,identifiability,1,1,7,7,0,0,6,1
+Sebastiani_2005,EDNI1.6,EDNI1.7,7,1,ANXA2.8 -> EDNI1.6,into the treatment,1,identifiability,1,1,7,7,0,0,6,1
+Sebastiani_2005,TGFBR3.2,TGFBR3.9,7,1,TGFBR3.2 -> TGFBR3.9,out of the treatment,1,identifiability,1,1,7,7,0,0,6,1
+Sebastiani_2005,TGFBR3.8,TGFBR3.2,7,1,Stroke -> TGFBR3.8,into the treatment,1,identifiability,1,1,7,7,0,0,6,1
+Sebastiani_2005,TGFBR3.8,TGFBR3.9,7,1,Stroke -> TGFBR3.8,into the treatment,1,identifiability,1,1,7,7,0,0,6,1
+magic-niab,G1276,YR.FIELD,8,1,G599 -> G1276,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G1294,FT,8,1,G418 -> G1294,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G1294,YLD,8,1,G418 -> G1294,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G1294,YR.FIELD,8,1,G418 -> G1294,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G1373,YR.FIELD,8,1,G1750 -> G1373,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G1896,FUS,8,1,G2953 -> G1896,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G1896,HT,8,1,G2953 -> G1896,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G1896,YLD,8,1,G2953 -> G1896,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G2208,MIL,8,1,G1217 -> G257,elsewhere in the component,1,identifiability,2,2,10,8,1,1,9,1
+magic-niab,G2208,YLD,8,1,G1217 -> G257,elsewhere in the component,1,identifiability,2,2,10,8,1,1,9,1
+magic-niab,G2208,YR.FIELD,8,1,G1217 -> G257,elsewhere in the component,1,identifiability,1,2,10,8,0,1,9,1
+magic-niab,G2208,YR.GLASS,8,1,G1217 -> G257,elsewhere in the component,1,identifiability,2,2,10,8,1,1,9,1
+magic-niab,G257,FT,8,1,G1217 -> G257,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G257,G1800,8,1,G1217 -> G257,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G257,MIL,8,1,G1217 -> G257,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G257,YLD,8,1,G1217 -> G257,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G257,YR.FIELD,8,1,G1217 -> G257,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G257,YR.GLASS,8,1,G1217 -> G257,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+magic-niab,G2835,FT,8,1,G418 -> G2835,into the treatment,1,identifiability,2,1,10,8,1,0,9,1
+magic-niab,G2835,YLD,8,1,G418 -> G2835,into the treatment,1,identifiability,2,1,10,8,1,0,9,1
+magic-niab,G2835,YR.FIELD,8,1,G418 -> G2835,into the treatment,1,identifiability,1,1,10,8,0,0,9,1
+ecoli70,asnA,aceB,10,1,asnA -> icdA,out of the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,asnA,icdA,10,1,asnA -> icdA,out of the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,fixC,b1583,10,1,b1191 -> fixC,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,fixC,dnaG,10,1,b1191 -> fixC,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,fixC,tnaA,10,1,b1191 -> fixC,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,fixC,ycgX,10,1,b1191 -> fixC,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,pspB,nmpC,10,1,cspG -> yedE,elsewhere in the component,3,identifiability,1,1,25,10,0,0,24,1
+ecoli70,pspB,pspA,10,1,cspG -> yedE,elsewhere in the component,3,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,b1583,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,ftsJ,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,lacY,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,lacZ,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,mopB,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,nuoM,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,yaeM,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,sucA,yfaD,10,1,eutG -> sucA,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,yedE,ftsJ,10,1,cspG -> yedE,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,yedE,mopB,10,1,cspG -> yedE,into the treatment,1,identifiability,1,1,25,10,0,0,24,1
+ecoli70,yedE,nmpC,10,1,cspG -> yedE,into the treatment,3,identifiability,1,1,25,10,0,0,24,1
+ecoli70,yedE,pspA,10,1,cspG -> yedE,into the treatment,3,identifiability,1,1,25,10,0,0,24,1
+ecoli70,yedE,pspB,10,1,cspG -> yedE,into the treatment,3,identifiability,1,1,25,10,0,0,24,1
+ecoli70,yfiA,hupB,10,1,cspG -> cspA,elsewhere in the component,2,identifiability,1,1,25,10,0,0,24,1
+barley,dg25,aks_m2,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,aks_vgt,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,keraks,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,ksort,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,protein,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,s2225,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,s2528,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,slt22,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,spndx,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,tkv,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dg25,udb,7,1,saatid -> dg25,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,dgv5980,aks_vgt,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,bgbyg,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,ksort,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,protein,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,s2225,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,s2528,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,slt22,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,spndx,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,dgv5980,udb,7,1,jordtype -> rokap,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,frspdag,aks_m2,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,aks_vgt,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,keraks,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,ksort,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,protein,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,s2225,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,s2528,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,slt22,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,spndx,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,tkv,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,frspdag,udb,7,1,saatid -> frspdag,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,jordinf,aks_m2,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,aks_vgt,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,keraks,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,ksort,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,protein,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,s2225,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,s2528,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,slt22,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,spndx,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,tkv,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,jordinf,udb,7,1,saatid -> frspdag,elsewhere in the component,1,identifiability,1,2,9,7,0,1,8,1
+barley,nedbarea,aks_m2,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,aks_vgt,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,jordn,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,keraks,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,ksort,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,mod_nmin,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,ngodn,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,ngodnn,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,ngodnt,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,ngtilg,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,nprot,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,ntilg,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,protein,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,s2225,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,s2528,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,slt22,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,spndx,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,tkv,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,nedbarea,udb,7,1,komm -> nedbarea,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,aks_m2,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,aks_vgt,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,keraks,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,ksort,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,protein,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,s2225,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,s2528,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,slt22,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,spndx,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,tkv,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,rokap,udb,7,1,jordtype -> rokap,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,sorttkv,ksort,7,1,sort -> sorttkv,into the treatment,1,identifiability,2,1,9,7,1,0,8,1
+barley,sorttkv,protein,7,1,sort -> sorttkv,into the treatment,1,identifiability,2,1,9,7,1,0,8,1
+barley,sorttkv,s2225,7,1,sort -> sorttkv,into the treatment,1,identifiability,2,1,9,7,1,0,8,1
+barley,sorttkv,s2528,7,1,sort -> sorttkv,into the treatment,1,identifiability,2,1,9,7,1,0,8,1
+barley,sorttkv,slt22,7,1,sort -> sorttkv,into the treatment,1,identifiability,2,1,9,7,1,0,8,1
+barley,sorttkv,spndx,7,1,sort -> sorttkv,into the treatment,1,identifiability,2,1,9,7,1,0,8,1
+barley,srtprot,protein,7,1,sort -> srtprot,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,srtsize,ksort,7,1,sort -> srtsize,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,srtsize,protein,7,1,sort -> srtsize,into the treatment,1,identifiability,2,1,9,7,1,0,8,1
+barley,srtsize,s2225,7,1,sort -> srtsize,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,srtsize,s2528,7,1,sort -> srtsize,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,srtsize,slt22,7,1,sort -> srtsize,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+barley,srtsize,spndx,7,1,sort -> srtsize,into the treatment,1,identifiability,1,1,9,7,0,0,8,1
+hailfinder,ScenRel3_4,N34StarFcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,1,2,17,1,0,1,16,1
+hailfinder,ScenRel3_4,R5Fcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,1,2,17,1,0,1,16,1
+hailfinder,ScenRelAMCIN,N34StarFcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+hailfinder,ScenRelAMCIN,PlainsFcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+hailfinder,ScenRelAMCIN,R5Fcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+hailfinder,ScenRelAMIns,N34StarFcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+hailfinder,ScenRelAMIns,PlainsFcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+hailfinder,ScenRelAMIns,R5Fcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+hailfinder,ScnRelPlFcst,N34StarFcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+hailfinder,ScnRelPlFcst,PlainsFcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,1,2,17,1,0,1,16,1
+hailfinder,ScnRelPlFcst,R5Fcst,1,1,Date -> Scenario,elsewhere in the component,1,identifiability,2,2,17,1,1,1,16,1
+magic-irri,G3209,G3222,10,1,G3209 -> G3222,out of the treatment,1,identifiability,1,1,12,10,0,0,11,1
+magic-irri,G3209,GW,10,1,G3209 -> G3222,out of the treatment,1,identifiability,1,1,12,10,0,0,11,1
+magic-irri,G3212,CHALK,10,1,G4156 -> G4145,elsewhere in the component,1,identifiability,1,2,12,10,0,1,11,1
+magic-irri,G3212,HT,10,1,G4156 -> G4145,elsewhere in the component,1,identifiability,1,2,12,10,0,1,11,1
+magic-irri,G3212,YLD,10,1,G4156 -> G4145,elsewhere in the component,1,identifiability,1,2,12,10,0,1,11,1
+magic-irri,G3222,CHALK,10,1,G3209 -> G3222,into the treatment,1,identifiability,1,1,12,10,0,0,11,1
+magic-irri,G3222,GTEMP,10,1,G3209 -> G3222,into the treatment,1,identifiability,1,1,12,10,0,0,11,1
+magic-irri,G3222,YLD,10,1,G3209 -> G3222,into the treatment,1,identifiability,1,1,12,10,0,0,11,1
+magic-irri,G4145,CHALK,10,1,G4145 -> G4109,out of the treatment,2,identifiability,1,1,12,10,0,0,11,1
+magic-irri,G4145,HT,10,1,G4156 -> G4145,into the treatment,1,identifiability,1,1,12,10,0,0,11,1
+magic-irri,G4145,YLD,10,1,G4156 -> G4145,into the treatment,1,identifiability,1,1,12,10,0,0,11,1
+hepar2,RHepatitis,alt,9,1,hepatotoxic -> RHepatitis,into the treatment,1,identifiability,1,1,9,9,0,0,8,1
+hepar2,RHepatitis,fatigue,9,1,hepatotoxic -> RHepatitis,into the treatment,1,identifiability,1,1,9,9,0,0,8,1
+hepar2,RHepatitis,ggtp,9,1,hepatotoxic -> RHepatitis,into the treatment,1,identifiability,1,1,9,9,0,0,8,1
+hepar2,RHepatitis,hepatalgia,9,1,hepatotoxic -> RHepatitis,into the treatment,1,identifiability,1,1,9,9,0,0,8,1
+hepar2,RHepatitis,phosphatase,9,1,hepatotoxic -> RHepatitis,into the treatment,1,identifiability,1,1,9,9,0,0,8,1
+hepar2,choledocholithotomy,jaundice,9,1,gallstones -> choledocholithotomy,into the treatment,1,identifiability,1,1,9,9,0,0,8,1
+hepar2,choledocholithotomy,pressure_ruq,9,1,gallstones -> choledocholithotomy,into the treatment,1,identifiability,1,1,9,9,0,0,8,1
+hepar2,hbsag,hbsag_anti,9,1,hbsag -> hbsag_anti,out of the treatment,1,identifiability,1,1,9,9,0,0,8,1
+win95pts,AppDtGnTm,DeskPrntSpd,9,1,PrtSpool -> AppDtGnTm,into the treatment,1,identifiability,2,1,12,9,1,0,11,1
+win95pts,AppDtGnTm,NtSpd,9,1,PrtSpool -> AppDtGnTm,into the treatment,1,identifiability,2,1,12,9,1,0,11,1
+win95pts,AvlblVrtlMmry,Problem3,9,1,PrtPScript -> AvlblVrtlMmry,into the treatment,1,identifiability,1,1,12,9,0,0,11,1
+arth150,629,331,29,1,422 -> 629,into the treatment,1,identifiability,1,1,45,29,0,0,44,1
+arth150,629,677,29,1,422 -> 629,into the treatment,1,identifiability,1,1,45,29,0,0,44,1
+arth150,629,714,29,1,422 -> 629,into the treatment,1,identifiability,1,1,45,29,0,0,44,1
+arth150,726,289,29,1,414 -> 726,into the treatment,1,identifiability,1,1,45,29,0,0,44,1
+arth150,726,677,29,1,414 -> 726,into the treatment,1,identifiability,1,1,45,29,0,0,44,1
+arth150,726,714,29,1,414 -> 726,into the treatment,1,identifiability,1,1,45,29,0,0,44,1
+munin1,R_LNLBE_MEDD2_DIFSLOW_WD,R_MEDD2_ALLCV_WD,6,1,R_LNLBE_MED_PATHO -> R_LNLBE_MEDD2_DIFSLOW_WD,into the treatment,1,identifiability,1,1,8,6,0,0,7,1
+munin1,R_LNLBE_MEDD2_RD_EW,R_MEDD2_CV_EW,6,1,R_LNLBE_MED_PATHO -> R_LNLBE_MEDD2_RD_EW,into the treatment,1,identifiability,1,1,8,6,0,0,7,1
+munin1,R_MED_RD_EW,R_MED_CV_EW,6,1,R_LNLBE_MED_PATHO -> R_MED_RD_EW,into the treatment,1,identifiability,1,1,8,6,0,0,7,1
+diabetes,cho_bal_0,glu_prod_14,26,1,gut_abs_0 -> cho_bal_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_0,ins_dep_10,26,1,gut_abs_0 -> cho_bal_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_0,ins_indep_8,26,1,gut_abs_0 -> cho_bal_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_1,glu_prod_10,26,1,gut_abs_1 -> cho_bal_1,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_1,ins_indep_4,26,1,gut_abs_1 -> cho_bal_1,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_10,ins_indep_21,26,1,gut_abs_10 -> cho_bal_10,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_11,ins_indep_18,26,1,gut_abs_11 -> cho_bal_11,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_12,endo_bal_21,26,1,gut_abs_12 -> cho_bal_12,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_12,ins_indep_14,26,1,gut_abs_12 -> cho_bal_12,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_13,bg_23,26,1,gut_abs_13 -> cho_bal_13,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_13,endo_bal_18,26,1,gut_abs_13 -> cho_bal_13,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_13,tot_bal_23,26,1,gut_abs_13 -> cho_bal_13,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_15,tot_bal_16,26,1,gut_abs_15 -> cho_bal_15,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_16,ins_dep_util_21,26,1,gut_abs_16 -> cho_bal_16,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_19,basal_bal_23,26,1,gut_abs_19 -> cho_bal_19,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_19,renal_cl_23,26,1,gut_abs_19 -> cho_bal_19,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_2,ins_dep_8,26,1,gut_abs_2 -> cho_bal_2,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_2,ins_indep_util_4,26,1,gut_abs_2 -> cho_bal_2,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_3,glu_prod_14,26,1,gut_abs_3 -> cho_bal_3,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_3,ins_dep_10,26,1,gut_abs_3 -> cho_bal_3,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_3,ins_indep_8,26,1,gut_abs_3 -> cho_bal_3,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_4,glu_prod_10,26,1,gut_abs_4 -> cho_bal_4,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_5,endo_bal_8,26,1,gut_abs_5 -> cho_bal_5,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_5,ins_indep_21,26,1,gut_abs_5 -> cho_bal_5,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_6,bg_9,26,1,gut_abs_6 -> cho_bal_6,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_6,ins_indep_18,26,1,gut_abs_6 -> cho_bal_6,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_7,endo_bal_21,26,1,gut_abs_7 -> cho_bal_7,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_7,ins_indep_14,26,1,gut_abs_7 -> cho_bal_7,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_8,bg_23,26,1,gut_abs_8 -> cho_bal_8,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_8,endo_bal_18,26,1,gut_abs_8 -> cho_bal_8,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_8,ins_indep_10,26,1,gut_abs_8 -> cho_bal_8,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_8,tot_bal_23,26,1,gut_abs_8 -> cho_bal_8,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,cho_bal_9,endo_bal_14,26,1,gut_abs_9 -> cho_bal_9,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_0,bg_23,26,1,gut_abs_0 -> cho_bal_0,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_0,endo_bal_17,26,1,gut_abs_0 -> cho_bal_0,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_0,ins_indep_10,26,1,gut_abs_0 -> cho_bal_0,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_0,tot_bal_23,26,1,gut_abs_0 -> cho_bal_0,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_1,endo_bal_13,26,1,gut_abs_1 -> cho_bal_1,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_1,ins_dep_util_8,26,1,gut_abs_1 -> cho_bal_1,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_1,tot_bal_2,26,1,gut_abs_1 -> cho_bal_1,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_10,bg_16,26,1,gut_abs_10 -> cho_bal_10,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_10,tot_bal_16,26,1,gut_abs_10 -> cho_bal_10,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_11,ins_dep_util_21,26,1,gut_abs_11 -> cho_bal_11,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_11,tot_bal_12,26,1,gut_abs_11 -> cho_bal_11,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_12,gut_abs_21,26,1,gut_abs_12 -> cho_bal_12,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_12,ins_dep_util_18,26,1,gut_abs_12 -> cho_bal_12,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_13,cho_bal_21,26,1,gut_abs_13 -> cho_bal_13,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_13,gut_abs_18,26,1,gut_abs_13 -> cho_bal_13,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_14,basal_bal_23,26,1,gut_abs_14 -> cho_bal_14,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_14,cho_bal_18,26,1,gut_abs_14 -> cho_bal_14,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_14,renal_cl_23,26,1,gut_abs_14 -> cho_bal_14,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_16,ins_indep_util_21,26,1,gut_abs_16 -> cho_bal_16,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_17,ins_dep_21,26,1,gut_abs_17 -> cho_bal_17,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_18,glu_prod_20,26,1,gut_abs_18 -> cho_bal_18,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_19,cho_22,26,1,gut_abs_19 -> cho_bal_19,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_2,cho_19,26,1,gut_abs_2 -> cho_bal_2,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_2,glu_prod_13,26,1,gut_abs_2 -> cho_bal_2,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_2,ins_dep_10,26,1,gut_abs_2 -> cho_bal_2,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_2,ins_indep_8,26,1,gut_abs_2 -> cho_bal_2,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_3,bg_23,26,1,gut_abs_3 -> cho_bal_3,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_3,endo_bal_17,26,1,gut_abs_3 -> cho_bal_3,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_3,ins_indep_10,26,1,gut_abs_3 -> cho_bal_3,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_3,tot_bal_23,26,1,gut_abs_3 -> cho_bal_3,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_4,endo_bal_13,26,1,gut_abs_4 -> cho_bal_4,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_4,ins_dep_util_8,26,1,gut_abs_4 -> cho_bal_4,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_5,bg_16,26,1,gut_abs_5 -> cho_bal_5,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_5,gut_abs_8,26,1,gut_abs_5 -> cho_bal_5,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_5,tot_bal_16,26,1,gut_abs_5 -> cho_bal_5,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_6,bg_12,26,1,gut_abs_6 -> cho_bal_6,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_6,cho_bal_8,26,1,gut_abs_6 -> cho_bal_6,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_6,ins_dep_util_21,26,1,gut_abs_6 -> cho_bal_6,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_6,tot_bal_12,26,1,gut_abs_6 -> cho_bal_6,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_7,gut_abs_20,26,1,gut_abs_7 -> cho_bal_7,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_7,ins_dep_util_18,26,1,gut_abs_7 -> cho_bal_7,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_8,cho_bal_21,26,1,gut_abs_8 -> cho_bal_8,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_8,gut_abs_17,26,1,gut_abs_8 -> cho_bal_8,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_8,ins_dep_util_14,26,1,gut_abs_8 -> cho_bal_8,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_9,basal_bal_23,26,1,gut_abs_9 -> cho_bal_9,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_9,cho_bal_18,26,1,gut_abs_9 -> cho_bal_9,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_9,gut_abs_13,26,1,gut_abs_9 -> cho_bal_9,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,gut_abs_9,renal_cl_23,26,1,gut_abs_9 -> cho_bal_9,out of the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,ins_indep_util_0,bg_2,26,1,bg_0 -> ins_indep_util_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,ins_indep_util_0,endo_bal_13,26,1,bg_0 -> ins_indep_util_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,ins_indep_util_0,ins_dep_util_7,26,1,bg_0 -> ins_indep_util_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,ins_indep_util_0,tot_bal_2,26,1,bg_0 -> ins_indep_util_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,renal_cl_0,basal_bal_2,26,1,bg_0 -> renal_cl_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,renal_cl_0,ins_dep_7,26,1,bg_0 -> renal_cl_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,renal_cl_0,ins_indep_util_3,26,1,bg_0 -> renal_cl_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1
+diabetes,renal_cl_0,renal_cl_2,26,1,bg_0 -> renal_cl_0,into the treatment,1,identifiability,1,1,26,26,0,0,25,1

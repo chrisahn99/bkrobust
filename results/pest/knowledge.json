@@ -1,0 +1,349 @@
+{
+ "D_LLM": {
+  "arm": "deployment",
+  "family": "qwen2",
+  "model": "qwen2.5:7b-instruct",
+  "naming": "real",
+  "networks": {
+   "arth150": {
+    "compelled_control": {
+     "asked": 8,
+     "declined": 1,
+     "not_reached": 1,
+     "right": 1,
+     "wrong": 0
+    },
+    "confidence_quarantined": {
+     "13|422": 1.0,
+     "197|539": 1.0,
+     "209|738": 1.0,
+     "20|573": 1.0,
+     "20|781": 1.0,
+     "226|573": null,
+     "422|629": 1.0,
+     "422|714": 1.0,
+     "480|61": 1.0,
+     "4|539": 1.0,
+     "539|585": 1.0,
+     "539|596": 1.0,
+     "539|758": 1.0,
+     "539|778": 1.0,
+     "539|93": 1.0,
+     "640|783": 1.0,
+     "738|86": 1.0,
+     "781|783": 1.0
+    },
+    "contradicts_order": 0,
+    "declined": 16,
+    "dropped_for_consistency": 13,
+    "invented": 2,
+    "k": [
+     [
+      "209",
+      "738"
+     ],
+     [
+      "480",
+      "61"
+     ],
+     [
+      "573",
+      "226"
+     ],
+     [
+      "738",
+      "86"
+     ],
+     [
+      "93",
+      "539"
+     ]
+    ],
+    "k_pre": [
+     [
+      "13",
+      "422"
+     ],
+     [
+      "197",
+      "539"
+     ],
+     [
+      "20",
+      "573"
+     ],
+     [
+      "20",
+      "781"
+     ],
+     [
+      "209",
+      "738"
+     ],
+     [
+      "4",
+      "539"
+     ],
+     [
+      "422",
+      "629"
+     ],
+     [
+      "422",
+      "714"
+     ],
+     [
+      "480",
+      "61"
+     ],
+     [
+      "539",
+      "596"
+     ],
+     [
+      "573",
+      "226"
+     ],
+     [
+      "585",
+      "539"
+     ],
+     [
+      "640",
+      "783"
+     ],
+     [
+      "738",
+      "86"
+     ],
+     [
+      "758",
+      "539"
+     ],
+     [
+      "778",
+      "539"
+     ],
+     [
+      "781",
+      "783"
+     ],
+     [
+      "93",
+      "539"
+     ]
+    ],
+    "k_sha256": "9e7ec4c8ba9771db320b50b3e0eb2c4653e1f0e1d297744a73d2240de4a384b2",
+    "meek_consistent_pre": false,
+    "n_asked": 38,
+    "n_asserted": 5,
+    "n_asserted_pre": 18,
+    "not_reached": 4,
+    "parse_fail": 0
+   },
+   "ecoli70": {
+    "compelled_control": {
+     "asked": 8,
+     "declined": 1,
+     "not_reached": 0,
+     "right": 3,
+     "wrong": 1
+    },
+    "confidence_quarantined": {
+     "asnA|icdA": 1.0,
+     "dnaG|ycgX": 1.0,
+     "lacA|lacY": 1.0,
+     "lacY|nuoM": 1.0
+    },
+    "contradicts_order": 0,
+    "declined": 2,
+    "dropped_for_consistency": 0,
+    "invented": 0,
+    "k": [
+     [
+      "dnaG",
+      "ycgX"
+     ],
+     [
+      "icdA",
+      "asnA"
+     ],
+     [
+      "lacA",
+      "lacY"
+     ],
+     [
+      "lacY",
+      "nuoM"
+     ]
+    ],
+    "k_pre": [
+     [
+      "dnaG",
+      "ycgX"
+     ],
+     [
+      "icdA",
+      "asnA"
+     ],
+     [
+      "lacA",
+      "lacY"
+     ],
+     [
+      "lacY",
+      "nuoM"
+     ]
+    ],
+    "k_sha256": "adf48c616bbda2fae184ac25e109ce6a33bd1ac24229a547a09a7d1f74f5f57b",
+    "meek_consistent_pre": true,
+    "n_asked": 7,
+    "n_asserted": 4,
+    "n_asserted_pre": 4,
+    "not_reached": 1,
+    "parse_fail": 0
+   },
+   "magic-irri": {
+    "compelled_control": {
+     "asked": 8,
+     "declined": 0,
+     "not_reached": 0,
+     "right": 1,
+     "wrong": 0
+    },
+    "confidence_quarantined": {
+     "G3098|G3105": 1.0,
+     "G3105|G3106": 1.0,
+     "G3219|GTEMP": 1.0,
+     "G4109|G4145": 1.0,
+     "G4145|G4156": 1.0,
+     "G6003|G6010": 0.5
+    },
+    "contradicts_order": 0,
+    "declined": 2,
+    "dropped_for_consistency": 0,
+    "invented": 1,
+    "k": [
+     [
+      "G3098",
+      "G3105"
+     ],
+     [
+      "G3105",
+      "G3106"
+     ],
+     [
+      "G3219",
+      "GTEMP"
+     ],
+     [
+      "G4109",
+      "G4145"
+     ],
+     [
+      "G4145",
+      "G4156"
+     ],
+     [
+      "G6003",
+      "G6010"
+     ]
+    ],
+    "k_pre": [
+     [
+      "G3098",
+      "G3105"
+     ],
+     [
+      "G3105",
+      "G3106"
+     ],
+     [
+      "G3219",
+      "GTEMP"
+     ],
+     [
+      "G4109",
+      "G4145"
+     ],
+     [
+      "G4145",
+      "G4156"
+     ],
+     [
+      "G6003",
+      "G6010"
+     ]
+    ],
+    "k_sha256": "efe3b035a21002e01a4d29e7fbb73a6df3241b4b4ef323f71dca94860dff8090",
+    "meek_consistent_pre": true,
+    "n_asked": 11,
+    "n_asserted": 6,
+    "n_asserted_pre": 6,
+    "not_reached": 3,
+    "parse_fail": 0
+   },
+   "magic-niab": {
+    "compelled_control": {
+     "asked": 8,
+     "declined": 4,
+     "not_reached": 0,
+     "right": 2,
+     "wrong": 2
+    },
+    "confidence_quarantined": {
+     "G1853|G311": 0.9,
+     "G1896|G2953": 1.0,
+     "G311|G43": null,
+     "G383|G800": 1.0
+    },
+    "contradicts_order": 0,
+    "declined": 1,
+    "dropped_for_consistency": 1,
+    "invented": 1,
+    "k": [
+     [
+      "G1896",
+      "G2953"
+     ],
+     [
+      "G383",
+      "G800"
+     ],
+     [
+      "G43",
+      "G311"
+     ]
+    ],
+    "k_pre": [
+     [
+      "G1853",
+      "G311"
+     ],
+     [
+      "G1896",
+      "G2953"
+     ],
+     [
+      "G383",
+      "G800"
+     ],
+     [
+      "G43",
+      "G311"
+     ]
+    ],
+    "k_sha256": "2bf3a379ea02623d67f2fbe99dc5619692d151e788a35a6d2138b48eea4d39f4",
+    "meek_consistent_pre": false,
+    "n_asked": 5,
+    "n_asserted": 3,
+    "n_asserted_pre": 4,
+    "not_reached": 0,
+    "parse_fail": 0
+   }
+  },
+  "order_seed": 0,
+  "questionnaire_sha256": "1ce6147a7947158997c850d1b35f7ec3299e50a9aa97f99b072a3c4027294a8c",
+  "true_dag_on_path": "false"
+ }
+}

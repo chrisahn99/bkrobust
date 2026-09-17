@@ -1,0 +1,8 @@
+{
+ "pairs_checked": 5000,
+ "rows_used": 469,
+ "violations": 0,
+ "one_sided_95_upper_bound": 0.000599,
+ "seconds": 550.2,
+ "examples": []
+}

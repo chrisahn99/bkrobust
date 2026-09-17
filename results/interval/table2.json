@@ -1,0 +1,1301 @@
+{
+ "rows": [
+  {
+   "network": "Acid_1996",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "x3 -> x15",
+   "n_k": 1,
+   "n_k_loc": 0,
+   "tau_true": -2.16901816050375,
+   "estimate": -2.1758953262001475,
+   "estimate_ci": [
+    -2.20259249995055,
+    -2.149198152449745
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -2.2260142901346702,
+    -2.1473209695102335
+   ],
+   "I1_pop": [
+    -2.16901816050375,
+    -2.16901816050375
+   ],
+   "I2_band": [
+    -2.2260142901346702,
+    -2.1473209695102335
+   ],
+   "I2_pop": [
+    -2.16901816050375,
+    -2.16901816050375
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": "never",
+   "breaking_claims": null,
+   "claims_local": [],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "Didelez_2010",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "HRT -> TCI",
+   "n_k": 1,
+   "n_k_loc": 0,
+   "tau_true": -0.5861724162824874,
+   "estimate": -0.585511079265185,
+   "estimate_ci": [
+    -0.5994081198606473,
+    -0.5716140386697226
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.6035401047897062,
+    -0.5681327725149317
+   ],
+   "I1_pop": [
+    -0.5861724162824864,
+    -0.5861724162824864
+   ],
+   "I2_band": [
+    -0.6035401047897062,
+    -0.5681327725149317
+   ],
+   "I2_pop": [
+    -0.5861724162824864,
+    -0.5861724162824864
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": "never",
+   "breaking_claims": null,
+   "claims_local": [],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "Kampen_2014",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "SUS -> EGC",
+   "n_k": 3,
+   "n_k_loc": 0,
+   "tau_true": -0.6426111584622699,
+   "estimate": -0.6467121739735348,
+   "estimate_ci": [
+    -0.6629460441650786,
+    -0.6304783037819909
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.6629460441650786,
+    -0.6304783037819909
+   ],
+   "I1_pop": [
+    -0.642611158462269,
+    -0.642611158462269
+   ],
+   "I2_band": [
+    -0.6629460441650786,
+    -0.6304783037819909
+   ],
+   "I2_pop": [
+    -0.642611158462269,
+    -0.642611158462269
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": "never",
+   "breaking_claims": null,
+   "claims_local": [],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "Polzer_2012",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "ToothLoss -> Mortality",
+   "n_k": 5,
+   "n_k_loc": 0,
+   "tau_true": 1.1931435063938058,
+   "estimate": 1.1900173918985504,
+   "estimate_ci": [
+    1.183113326325523,
+    1.1969214574715779
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    1.12803357617835,
+    1.2084872371689157
+   ],
+   "I1_pop": [
+    1.1931435063937987,
+    1.1931435063937987
+   ],
+   "I2_band": [
+    1.12803357617835,
+    1.2084872371689157
+   ],
+   "I2_pop": [
+    1.1931435063937987,
+    1.1931435063937987
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": ">3",
+   "breaking_claims": null,
+   "claims_local": [],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "Sebastiani_2005",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "EDN1.3 -> EDNI1.7",
+   "n_k": 7,
+   "n_k_loc": 0,
+   "tau_true": -1.212107975871433,
+   "estimate": -1.208829557457019,
+   "estimate_ci": [
+    -1.2188736236816873,
+    -1.1987854912323506
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -1.2342333378729542,
+    -1.179273784621869
+   ],
+   "I1_pop": [
+    -1.2121079758714333,
+    -1.2121079758714333
+   ],
+   "I2_band": [
+    -1.2342333378729542,
+    -1.179273784621869
+   ],
+   "I2_pop": [
+    -1.2121079758714333,
+    -1.2121079758714333
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": ">3",
+   "breaking_claims": null,
+   "claims_local": [],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "Shrier_2008",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "WarmUpExercises -> Injury",
+   "n_k": 2,
+   "n_k_loc": 0,
+   "tau_true": -1.3514959585626802,
+   "estimate": -1.3480740832445701,
+   "estimate_ci": [
+    -1.3575534529860982,
+    -1.338594713503042
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -1.430663008014583,
+    -1.2279570118977128
+   ],
+   "I1_pop": [
+    -1.35149595856268,
+    -1.35149595856268
+   ],
+   "I2_band": [
+    -1.430663008014583,
+    -1.2279570118977128
+   ],
+   "I2_pop": [
+    -1.35149595856268,
+    -1.35149595856268
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": "never",
+   "breaking_claims": null,
+   "claims_local": [],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "Thoemmes_2013",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "x -> y",
+   "n_k": 1,
+   "n_k_loc": 1,
+   "tau_true": -0.9225185754677755,
+   "estimate": -0.9129074045550257,
+   "estimate_ci": [
+    -0.9281846540420401,
+    -0.8976301550680114
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -1.0022784162217757,
+    -0.8712124322890058
+   ],
+   "I1_pop": [
+    -0.9225185754677759,
+    -0.9225185754677756
+   ],
+   "I2_band": [
+    -1.0022784162217757,
+    -0.8712124322890058
+   ],
+   "I2_pop": [
+    -0.9225185754677759,
+    -0.9225185754677756
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": "never",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "e0",
+     "x"
+    ]
+   ],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "mediator",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "X -> Y",
+   "n_k": 3,
+   "n_k_loc": 3,
+   "tau_true": -2.602923003476804,
+   "estimate": -2.5997855810339745,
+   "estimate_ci": [
+    -2.6232665791885545,
+    -2.5763045828793945
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -2.6232665791885545,
+    -1.1094904914006032
+   ],
+   "I1_pop": [
+    -2.6029230034768034,
+    -1.1251175982670374
+   ],
+   "I2_band": [
+    -2.6232665791885545,
+    0.0
+   ],
+   "I2_pop": [
+    -2.6029230034768034,
+    0.0
+   ],
+   "r0_pop": "2",
+   "r0_band_seed0": "2",
+   "r0_band_range": "2",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "claims_local": [
+    [
+     "X",
+     "I"
+    ],
+    [
+     "Z",
+     "I"
+    ],
+    [
+     "Z",
+     "X"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": -1
+  },
+  {
+   "network": "paths",
+   "provenance": "structure from the published DAG, semi-synthetic parameters",
+   "source": "declared",
+   "query": "E -> D",
+   "n_k": 1,
+   "n_k_loc": 0,
+   "tau_true": 1.1938767988729486,
+   "estimate": 1.1925698935042959,
+   "estimate_ci": [
+    1.1880936162735698,
+    1.197046170735022
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    1.16929717241853,
+    1.2164715591588338
+   ],
+   "I1_pop": [
+    1.1938767988729466,
+    1.1938767988729466
+   ],
+   "I2_band": [
+    1.16929717241853,
+    1.2164715591588338
+   ],
+   "I2_pop": [
+    1.1938767988729466,
+    1.1938767988729466
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": "never",
+   "breaking_claims": null,
+   "claims_local": [],
+   "informative": 0,
+   "frame_index": -1
+  },
+  {
+   "network": "ecoli70",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "asnA -> aceB",
+   "n_k": 10,
+   "n_k_loc": 1,
+   "tau_true": 0.5470579200000001,
+   "estimate": 0.541566004052886,
+   "estimate_ci": [
+    0.5112693600752112,
+    0.5718626480305609
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.0107008521170652,
+    0.5718626480305609
+   ],
+   "I1_pop": [
+    1.8024916596632828e-16,
+    0.5470579200000001
+   ],
+   "I2_band": [
+    -0.0107008521170652,
+    0.5718626480305609
+   ],
+   "I2_pop": [
+    1.8024916596632828e-16,
+    0.5470579200000001
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1..>3",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "asnA",
+     "icdA"
+    ]
+   ],
+   "claims_local": [
+    [
+     "asnA",
+     "icdA"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 296
+  },
+  {
+   "network": "ecoli70",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "b1191 -> yfaD",
+   "n_k": 10,
+   "n_k_loc": 1,
+   "tau_true": -0.09765803955599998,
+   "estimate": -0.09711361988278101,
+   "estimate_ci": [
+    -0.10535952656585146,
+    -0.08886771319971057
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.11408526337111458,
+    0.028513046079006232
+   ],
+   "I1_pop": [
+    -0.09765803955600008,
+    -9.12112245009166e-17
+   ],
+   "I2_band": [
+    -0.11408526337111458,
+    0.028513046079006232
+   ],
+   "I2_pop": [
+    -0.09765803955600008,
+    -9.12112245009166e-17
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "b1191",
+     "fixC"
+    ]
+   ],
+   "claims_local": [
+    [
+     "b1191",
+     "fixC"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 298
+  },
+  {
+   "network": "ecoli70",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "cspG -> hupB",
+   "n_k": 10,
+   "n_k_loc": 7,
+   "tau_true": 0.25702361658800005,
+   "estimate": 0.26466310297146245,
+   "estimate_ci": [
+    0.24642663166173148,
+    0.2828995742811934
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    0.0026336584194412566,
+    0.3077366756571777
+   ],
+   "I1_pop": [
+    0.0,
+    0.25702361658800005
+   ],
+   "I2_band": [
+    0.0026336584194412566,
+    0.3077366756571777
+   ],
+   "I2_pop": [
+    0.0,
+    0.25702361658800005
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": ">3",
+   "r0_band_range": "1..>3",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "cspG",
+     "cspA"
+    ],
+    [
+     "cspG",
+     "pspA"
+    ],
+    [
+     "cspG",
+     "yecO"
+    ],
+    [
+     "cspG",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "pspA"
+    ],
+    [
+     "yedE",
+     "pspB"
+    ],
+    [
+     "yfiA",
+     "hupB"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 300
+  },
+  {
+   "network": "ecoli70",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "pspB -> nmpC",
+   "n_k": 10,
+   "n_k_loc": 7,
+   "tau_true": -0.1075831,
+   "estimate": -0.10004996184531897,
+   "estimate_ci": [
+    -0.11760973872630365,
+    -0.0824901849643343
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.5305132130362702,
+    0.026384272169385187
+   ],
+   "I1_pop": [
+    -0.5254107149616475,
+    -1.523392068460686e-16
+   ],
+   "I2_band": [
+    -0.5305132130362702,
+    0.026384272169385187
+   ],
+   "I2_pop": [
+    -0.5254107149616475,
+    -1.523392068460686e-16
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1..3",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "pspB",
+     "pspA"
+    ]
+   ],
+   "claims_local": [
+    [
+     "cspG",
+     "cspA"
+    ],
+    [
+     "cspG",
+     "pspA"
+    ],
+    [
+     "cspG",
+     "yecO"
+    ],
+    [
+     "cspG",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "pspA"
+    ],
+    [
+     "yedE",
+     "pspB"
+    ],
+    [
+     "yfiA",
+     "hupB"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 309
+  },
+  {
+   "network": "ecoli70",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "eutG -> lacY",
+   "n_k": 10,
+   "n_k_loc": 1,
+   "tau_true": 0.3091836200861387,
+   "estimate": 0.3085518983206404,
+   "estimate_ci": [
+    0.2786302682528529,
+    0.33847352838842787
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    0.27735589266202554,
+    0.3767871295885577
+   ],
+   "I1_pop": [
+    0.3091836200861387,
+    0.35369999999999996
+   ],
+   "I2_band": [
+    0.27735589266202554,
+    0.3767871295885577
+   ],
+   "I2_pop": [
+    0.3091836200861387,
+    0.35369999999999996
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "eutG",
+     "sucA"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 302
+  },
+  {
+   "network": "arth150",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "100 -> 245",
+   "n_k": 29,
+   "n_k_loc": 3,
+   "tau_true": 1.5347000000000002,
+   "estimate": 1.5341488826841525,
+   "estimate_ci": [
+    1.5266242516168438,
+    1.5416735137514612
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    0.0,
+    1.5453382290430395
+   ],
+   "I1_pop": [
+    0.0,
+    1.5346999999999997
+   ],
+   "I2_band": [
+    0.0,
+    1.5453382290430395
+   ],
+   "I2_pop": [
+    0.0,
+    1.5346999999999997
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "100",
+     "245"
+    ]
+   ],
+   "claims_local": [
+    [
+     "100",
+     "245"
+    ],
+    [
+     "100",
+     "296"
+    ],
+    [
+     "100",
+     "412"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 196
+  },
+  {
+   "network": "arth150",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "81 -> 464",
+   "n_k": 29,
+   "n_k_loc": 10,
+   "tau_true": 0.255983,
+   "estimate": 0.18400549623730822,
+   "estimate_ci": [
+    0.11837698350269497,
+    0.24963400897192145
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    0.09681552455450786,
+    0.26541259238311754
+   ],
+   "I1_pop": [
+    0.255983,
+    0.255983
+   ],
+   "I2_band": [
+    0.09681552455450786,
+    0.26541259238311754
+   ],
+   "I2_pop": [
+    0.255983,
+    0.255983
+   ],
+   "r0_pop": ">3",
+   "r0_band_seed0": ">3",
+   "r0_band_range": ">3",
+   "r_val": ">=2",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "81",
+     "144"
+    ],
+    [
+     "81",
+     "198"
+    ],
+    [
+     "81",
+     "211"
+    ],
+    [
+     "81",
+     "248"
+    ],
+    [
+     "81",
+     "368"
+    ],
+    [
+     "81",
+     "377"
+    ],
+    [
+     "81",
+     "622"
+    ],
+    [
+     "81",
+     "665"
+    ],
+    [
+     "81",
+     "666"
+    ],
+    [
+     "81",
+     "712"
+    ]
+   ],
+   "informative": 0,
+   "frame_index": 215
+  },
+  {
+   "network": "magic-niab",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G1853 -> G43",
+   "n_k": 8,
+   "n_k_loc": 1,
+   "tau_true": -0.039361929999999996,
+   "estimate": -0.027896443887521934,
+   "estimate_ci": [
+    -0.03840006122453574,
+    -0.017392826550508125
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.03840006122453574,
+    0.020360030209654004
+   ],
+   "I1_pop": [
+    -0.039361929999999996,
+    0.0
+   ],
+   "I2_band": [
+    -0.03840006122453574,
+    0.020360030209654004
+   ],
+   "I2_pop": [
+    -0.039361929999999996,
+    0.0
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1..>3",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "G1853",
+     "G311"
+    ]
+   ],
+   "claims_local": [
+    [
+     "G1853",
+     "G311"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 423
+  },
+  {
+   "network": "magic-niab",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G311 -> G43",
+   "n_k": 8,
+   "n_k_loc": 1,
+   "tau_true": -0.2551,
+   "estimate": -0.2512087130303133,
+   "estimate_ci": [
+    -0.25877368140207796,
+    -0.24364374465854863
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.2598622094318011,
+    0.0
+   ],
+   "I1_pop": [
+    -0.2551,
+    0.0
+   ],
+   "I2_band": [
+    -0.2598622094318011,
+    0.0
+   ],
+   "I2_pop": [
+    -0.2551,
+    0.0
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "G1853",
+     "G311"
+    ]
+   ],
+   "claims_local": [
+    [
+     "G1853",
+     "G311"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 432
+  },
+  {
+   "network": "magic-niab",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G418 -> FUS",
+   "n_k": 8,
+   "n_k_loc": 2,
+   "tau_true": 0.0032858278200000005,
+   "estimate": -0.0026146695447585872,
+   "estimate_ci": [
+    -0.015293712476738896,
+    0.010064373387221721
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.021618474180069965,
+    0.010883812739845017
+   ],
+   "I1_pop": [
+    5.783182677613039e-19,
+    0.0032858278200000005
+   ],
+   "I2_band": [
+    -0.021618474180069965,
+    0.010883812739845017
+   ],
+   "I2_pop": [
+    5.783182677613039e-19,
+    0.0032858278200000005
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "0",
+   "r0_band_range": "0..1",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "G418",
+     "G1294"
+    ],
+    [
+     "G418",
+     "G2835"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 434
+  },
+  {
+   "network": "magic-niab",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G1217 -> FT",
+   "n_k": 8,
+   "n_k_loc": 1,
+   "tau_true": 0.06765228664,
+   "estimate": 0.015488751125908461,
+   "estimate_ci": [
+    -0.0290084852392911,
+    0.05998598749110802
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.03093306634929403,
+    0.1305955569921634
+   ],
+   "I1_pop": [
+    0.06765228664,
+    0.12240560000000002
+   ],
+   "I2_band": [
+    -0.03093306634929403,
+    0.1305955569921634
+   ],
+   "I2_pop": [
+    0.06765228664,
+    0.12240560000000002
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": "0",
+   "r0_band_range": "0..>3",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "G1217",
+     "G257"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 416
+  },
+  {
+   "network": "magic-niab",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G1217 -> YLD",
+   "n_k": 8,
+   "n_k_loc": 1,
+   "tau_true": 0.009294810362333176,
+   "estimate": 0.010628805273229189,
+   "estimate_ci": [
+    0.003459017891423251,
+    0.017798592655035125
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    0.003973826067385737,
+    0.020827791107600323
+   ],
+   "I1_pop": [
+    0.0065427411200000025,
+    0.009294810362333176
+   ],
+   "I2_band": [
+    0.003973826067385737,
+    0.020827791107600323
+   ],
+   "I2_pop": [
+    0.0065427411200000025,
+    0.009294810362333176
+   ],
+   "r0_pop": "never",
+   "r0_band_seed0": ">3",
+   "r0_band_range": "0..>3",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "G1217",
+     "G257"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 417
+  },
+  {
+   "network": "magic-irri",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G1378 -> SUB",
+   "n_k": 10,
+   "n_k_loc": 1,
+   "tau_true": -0.03506488,
+   "estimate": -0.030525864831986382,
+   "estimate_ci": [
+    -0.0437525706804351,
+    -0.017299158983537663
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.0478711494280672,
+    0.02080726035145995
+   ],
+   "I1_pop": [
+    -0.03506488,
+    0.0
+   ],
+   "I2_band": [
+    -0.0478711494280672,
+    0.02080726035145995
+   ],
+   "I2_pop": [
+    -0.03506488,
+    0.0
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "G1378",
+     "G1311"
+    ]
+   ],
+   "claims_local": [
+    [
+     "G1378",
+     "G1311"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 397
+  },
+  {
+   "network": "magic-irri",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G3212 -> FT",
+   "n_k": 10,
+   "n_k_loc": 2,
+   "tau_true": 0.004458816930456001,
+   "estimate": -0.02500936658585107,
+   "estimate_ci": [
+    -0.07039710654215833,
+    0.020378373370456195
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.14276816532084105,
+    0.00849424352458529
+   ],
+   "I1_pop": [
+    -0.0423801674061836,
+    0.004458816930455991
+   ],
+   "I2_band": [
+    -0.14276816532084105,
+    0.00849424352458529
+   ],
+   "I2_pop": [
+    -0.0423801674061836,
+    0.004458816930455991
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "0",
+   "r0_band_range": "0..1",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "G4145",
+     "G4109"
+    ],
+    [
+     "G4156",
+     "G4145"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 400
+  },
+  {
+   "network": "magic-irri",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G3925 -> GTEMP",
+   "n_k": 10,
+   "n_k_loc": 1,
+   "tau_true": 0.00020852878703347933,
+   "estimate": 0.001087009293426818,
+   "estimate_ci": [
+    -0.033775479885658134,
+    0.03594949847251177
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.13100952905225102,
+    0.03807219188396427
+   ],
+   "I1_pop": [
+    2.3664269523430775e-20,
+    0.00020852878703347933
+   ],
+   "I2_band": [
+    -0.13100952905225102,
+    0.03807219188396427
+   ],
+   "I2_pop": [
+    2.3664269523430775e-20,
+    0.00020852878703347933
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "0",
+   "r0_band_range": "0",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "G3925",
+     "G5794"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 406
+  },
+  {
+   "network": "magic-irri",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G4145 -> G3222",
+   "n_k": 10,
+   "n_k_loc": 2,
+   "tau_true": -0.020009349099999994,
+   "estimate": -0.014502380677491643,
+   "estimate_ci": [
+    -0.024925386030687197,
+    -0.004079375324296088
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.0258545385361958,
+    0.02601858225653933
+   ],
+   "I1_pop": [
+    -0.02000934909999999,
+    -3.619319750592131e-18
+   ],
+   "I2_band": [
+    -0.0258545385361958,
+    0.02601858225653933
+   ],
+   "I2_pop": [
+    -0.02000934909999999,
+    -3.619319750592131e-18
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "0",
+   "r0_band_range": "0..1",
+   "r_val": "1",
+   "breaking_claims": null,
+   "claims_local": [
+    [
+     "G4145",
+     "G4109"
+    ],
+    [
+     "G4156",
+     "G4145"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 409
+  },
+  {
+   "network": "magic-irri",
+   "provenance": "structure and fitted coefficients from the network file",
+   "source": "frame",
+   "query": "G4156 -> CHALK",
+   "n_k": 10,
+   "n_k_loc": 2,
+   "tau_true": 0.40370831004188945,
+   "estimate": 0.5011306508986504,
+   "estimate_ci": [
+    0.3613360891922507,
+    0.6409252126050501
+   ],
+   "committed_verdict": "closed_form",
+   "I1_band": [
+    -0.15385325862712887,
+    0.6640170400528936
+   ],
+   "I1_pop": [
+    5.874195897487602e-17,
+    0.4037083100418895
+   ],
+   "I2_band": [
+    -0.15385325862712887,
+    0.6640170400528936
+   ],
+   "I2_pop": [
+    5.874195897487602e-17,
+    0.4037083100418895
+   ],
+   "r0_pop": "1",
+   "r0_band_seed0": "1",
+   "r0_band_range": "1..>3",
+   "r_val": "1",
+   "breaking_claims": [
+    [
+     "G4156",
+     "G4145"
+    ]
+   ],
+   "claims_local": [
+    [
+     "G4145",
+     "G4109"
+    ],
+    [
+     "G4156",
+     "G4145"
+    ]
+   ],
+   "informative": 1,
+   "frame_index": 410
+  }
+ ],
+ "excluded_declared": [
+  {
+   "network": "M-bias",
+   "exposure": "E",
+   "outcome": "D",
+   "status": "not_a_dag"
+  },
+  {
+   "network": "Schipf_2010",
+   "exposure": "TT",
+   "outcome": "T2DM",
+   "status": "outcome_not_possibly_descendant"
+  },
+  {
+   "network": "confounding",
+   "exposure": "E",
+   "outcome": "D",
+   "status": "treatment_has_no_free_edge"
+  }
+ ],
+ "knowledge": "A_ORACLE (recovering set)",
+ "n": 20000,
+ "seed": 0
+}

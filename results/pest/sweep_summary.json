@@ -1,0 +1,117 @@
+{
+ "frame_rows": 80,
+ "networks": 4,
+ "arms": [
+  "D_LLM",
+  "D_RAND",
+  "D_DEGEN",
+  "A_TRUE",
+  "A_ORACLE"
+ ],
+ "evaluations": 560,
+ "seconds": 319.6,
+ "frozen_rows_sha256": "a4ff90e6cd2272f3cf0001dc190320dffc23efce886e0af4d4d877b38186eac2",
+ "status_by_arm": {
+  "A_ORACLE": {
+   "knowledge_inconsistent": 20,
+   "ok": 37,
+   "y_not_possible_descendant": 22,
+   "not_amenable": 1
+  },
+  "A_TRUE": {
+   "not_amenable": 26,
+   "y_not_possible_descendant": 20,
+   "ok": 34
+  },
+  "D_DEGEN": {
+   "not_amenable": 61,
+   "ok": 19
+  },
+  "D_LLM": {
+   "not_amenable": 19,
+   "y_not_possible_descendant": 23,
+   "ok": 38
+  },
+  "D_RAND": {
+   "not_amenable": 61,
+   "y_not_possible_descendant": 63,
+   "ok": 116
+  }
+ },
+ "truth_status_by_arm": {
+  "A_ORACLE": {
+   "ok": 25,
+   "y_not_true_descendant": 55
+  },
+  "A_TRUE": {
+   "ok": 25,
+   "y_not_true_descendant": 55
+  },
+  "D_DEGEN": {
+   "ok": 25,
+   "y_not_true_descendant": 55
+  },
+  "D_LLM": {
+   "ok": 25,
+   "y_not_true_descendant": 55
+  },
+  "D_RAND": {
+   "ok": 75,
+   "y_not_true_descendant": 165
+  }
+ },
+ "knowledge_per_network": {
+  "arth150": {
+   "llm_claims": 5,
+   "llm_claims_on_absent_edges": 0,
+   "chat_undirected": 41,
+   "chat_undirected_in_truth": 41,
+   "chat_directed": 86,
+   "chat_directed_wrong_way": 40,
+   "chat_directed_absent": 6,
+   "chat_skeleton_missing": 29,
+   "chat_skeleton_extra": 6
+  },
+  "ecoli70": {
+   "llm_claims": 4,
+   "llm_claims_on_absent_edges": 0,
+   "chat_undirected": 8,
+   "chat_undirected_in_truth": 8,
+   "chat_directed": 52,
+   "chat_directed_wrong_way": 12,
+   "chat_directed_absent": 2,
+   "chat_skeleton_missing": 12,
+   "chat_skeleton_extra": 2
+  },
+  "magic-irri": {
+   "llm_claims": 6,
+   "llm_claims_on_absent_edges": 0,
+   "chat_undirected": 11,
+   "chat_undirected_in_truth": 10,
+   "chat_directed": 90,
+   "chat_directed_wrong_way": 25,
+   "chat_directed_absent": 3,
+   "chat_skeleton_missing": 5,
+   "chat_skeleton_extra": 4
+  },
+  "magic-niab": {
+   "llm_claims": 3,
+   "llm_claims_on_absent_edges": 0,
+   "chat_undirected": 5,
+   "chat_undirected_in_truth": 5,
+   "chat_directed": 62,
+   "chat_directed_wrong_way": 14,
+   "chat_directed_absent": 1,
+   "chat_skeleton_missing": 0,
+   "chat_skeleton_extra": 1
+  }
+ },
+ "settings": {
+  "rand_reps": 3,
+  "seed": 20260913,
+  "radius_limit_s": 5.0,
+  "panel_n": 5000,
+  "cpdag_source": "pc_fisherz_n5000",
+  "instruments": "ledger_sweep.instrument_row, unchanged"
+ }
+}

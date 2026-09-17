@@ -1,0 +1,1058 @@
+{
+ "condition": "ANCESTRAL",
+ "model": "qwen2.5:7b-instruct",
+ "questionnaire_ancestral_sha256": "fc66f983a1d986f611ec8d30176ebaf5a762646da99fd4256f337c48a6dfe2fd",
+ "cache_hits": 0,
+ "items": [
+  {
+   "network": "Didelez_2010",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ce56ddf95946a4b3b035281ba9e5458e1a5ed7bfb17cdd6066a39397027aa106",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "fe380cec815080fb68f0b690c2778c160b76e90800910ade717b807e0a30adbb",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "Age|Smo",
+    "Age|Thist",
+    "Smo|Thist"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "Kampen_2014",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3ccf741c0a0b0222c0961b87543d453a9ae9ac87e94406906a991dcb18707a43",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "f7e7091451e9e2ef0eb5e399c37bdd48ba6918dee88d524b5f92f0b46b19952e",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "AFF|PER",
+    "AIS|ALN",
+    "AIS|APA",
+    "AIS|CDR",
+    "ALN|CDR",
+    "APA|CDR",
+    "APA|PER",
+    "PER|SAN"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "Polzer_2012",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2a1bf770714ae4c3e2def0e8835f7b6d7a4ac1c8235ac9b1af9b83222faa87d9",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "b18b7238b2b14c9ee8745349b7f6dd7cdd67ef65a20875ef284dce6bacc0498d",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "Alcohol|Caries",
+    "Caries|Smoking"
+   ],
+   "declined": [
+    "Alcohol|Sport",
+    "Caries|Sport"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "Schipf_2010",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "6122421de37a9f791f961247ad4cd3f7ac7ce353a4c2b56e0485a890cf661cc0",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "2e157c655f3cf82c90368cd13b15d80300c37169d98f294fc8eba419fc805227",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "PA|S",
+    "PA|U",
+    "S|U",
+    "S|WC"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "Sebastiani_2005",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "9b8f945baf58709f06ae882f18ad24099cc2ca537424b134d9ff868bb80c7113",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "a452f79d81cb41c302ee3a1d06a1751af0e0f4d16216d732bd24bcfe40439727",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "BMP6|CAT",
+    "BMP6|EDNI1.6",
+    "CAT|EDNI1.6"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "Shrier_2008",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "8da9811b7f7e248c4ec98c92b2f150f2c93c308ecbb9b36023ad879cc4ca2191",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "699588206d9f213ff399841f42af91ed01b83c7024c6618a6fbda4f9e8db6345",
+   "claims": {
+    "Genetics|TissueWeakness": [
+     "Genetics",
+     "TissueWeakness"
+    ]
+   },
+   "confidence": {
+    "Genetics|TissueWeakness": 0.8
+   },
+   "neither": [],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "andes",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e92112ecf122c9b72d1dd28a1799881a8dd99afb64583cba0b7d35e4428b3c37",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "f5f4cee4f748e8fe921ea6dcc16f3a3008312e81da0bc20ff57508aa246ecd64",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "BUGGY54|HORIZ53",
+    "BUGGY54|INCLINE51"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "andes",
+   "component": 2,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "fd64ac2b23d978fcfa6ad98706dbe71dae526df047155d5859af038141332034",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "294e11a6d7e0b0f4297d40beb8ea4466c5b8df7872410a2d8d62e7da55d5f198",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "TRY11|TRY13",
+    "TRY11|TRY15",
+    "TRY13|TRY14",
+    "TRY13|TRY15",
+    "TRY14|TRY15"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "andes",
+   "component": 3,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e98007b6772f8cfe3706521a4a6c8ba278c913a4257b789d36c77fa9430a5e2d",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "3e497ac61a0a7ac07107cb44f2c470ff0cfe58feab6892c8970b33b4f8730b67",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "TRY24|TRY26"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "arth150",
+   "component": 2,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "58c1856f0f276864ebdb03861ba51a612ae6c655aa96412956115d8a3d63da46",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "5ed8b76d4c7c4e7df468f182acac25d8ef77de3419be61bb48d7dbf106a3ae48",
+   "claims": {
+    "454|640": [
+     "454",
+     "640"
+    ],
+    "739|783": [
+     "739",
+     "783"
+    ]
+   },
+   "confidence": {
+    "454|640": 0.7,
+    "739|783": 0.8
+   },
+   "neither": [],
+   "declined": [
+    "126|363",
+    "126|679",
+    "187|679",
+    "269|679"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "arth150",
+   "component": 3,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "81d331e6ddec4568469d6ddfd838155608742c31a642f75d78404313958b3f83",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "97501f3e7f9bb3967e30501c6df8814f9e6ebeadd6a422c8a9a90921d24f3aae",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "377|622",
+    "377|666"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "asia",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "f10e1874d3c5fc749ebbbfedc1794d3bb7eec03fe58416a81fdb7fd27d033e6e",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "b912d1fc131065cc7da56d3013e6c86b37e17ac5de855cafd04029c5395dbaed",
+   "claims": {
+    "bronc|lung": [
+     "bronc",
+     "lung"
+    ]
+   },
+   "confidence": {
+    "bronc|lung": 0.8
+   },
+   "neither": [],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "barley",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "664669539c5287d73e79c57eaf19dbee5f7759079f7d01f0b0c00278f16dc29b",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "c4eec9e594b8d04820a6bfbe0c2b4e6948c3bba377b7c77019a2efe9ee0e25c2",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "dg25|frspdag",
+    "jordinf|saatid"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "barley",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "86dfd3792809a99b79a93763c99fa716d414a59ddb26224ba82b91438390d415",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "0b41b6bf9d095bb6e513000534ad364f1afff1047d9a7428d4950f5ccfdfa9be",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "dgv5980|jordtype"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "barley",
+   "component": 3,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e277fad1488cd856c83dfed6c16652a61fc403dc9161a07305e4d98332c8521a",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "296192127a23243911e8d5abd5311783167c480ef90a65133928ad4212732255",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "sorttkv|srtprot",
+    "sorttkv|srtsize",
+    "srtprot|srtsize"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "child",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "6f455ed9431eb371aaf96a971b4d906fae776d39568af0147523489ec83e22b4",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "9424e2c58f481f51983c78f59f7101706109fba1af6b8202618146274e8bb727",
+   "claims": {
+    "BirthAsphyxia|Sick": [
+     "BirthAsphyxia",
+     "Sick"
+    ]
+   },
+   "confidence": {
+    "BirthAsphyxia|Sick": 0.8
+   },
+   "neither": [],
+   "declined": [
+    "Age|LVH",
+    "Age|LungFlow",
+    "Age|LungParench",
+    "CardiacMixing|LungParench",
+    "DuctFlow|LungParench",
+    "LVH|LungParench",
+    "LVH|Sick"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "diabetes",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ef1f32b71cc7b6cfb5d6f9eec17dc8637c9c61fb0ec05edc825efc62d8e1dd8c",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "9ec57aa4186abb9747c0362d825535aaf3e36af925b0ec94853f58fd47de5446",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "ins_indep_util_0|renal_cl_0"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "ecoli70",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "eb6082d1932a013fdc957b4ebe09b923071cf0ff10163359ff178a40ca651859",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "ccca806dda55b8c07daa2344098576a99c7c315ae1e164bf3d10ddcd1d1bcbc1",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "atpG|sucD",
+    "dnaJ|sucD",
+    "eutG|gltA"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "ecoli70",
+   "component": 2,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ed12bdfaec7fe8f1fa3a43dc3223ad469cfb6cec80e50d5bcccd250be2a225e9",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "958405709224c2784d5a5b9f645633291655414a54511a864ad8e24d2b7949c6",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "ygbD|yjbO"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "ecoli70",
+   "component": 3,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2982c1c1e7f390387194bb850caf3db6c80a1d9f71f6238a288fe8fc292fa80a",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "99636c493e24428c35dd48b094bf73d69367d499e6aef387504d2d9ecac6da04",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "cspA|yecO",
+    "lpdA|pspA",
+    "nmpC|pspB",
+    "nmpC|yedE"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "hailfinder",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c8e85735fe91cedbf5a44ccf7bda3c31f6d51945c64f42d58809eafb5cf9d9f4",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "5cd2c8f7d7aa637621cd2926d869b14a4a35f672f7ab3de3a87a6eb0a9e41388",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "Dewpoints|MeanRH",
+    "MeanRH|MidLLapse",
+    "MvmtFeatures|SynForcng",
+    "ScenRelAMIns|TempDis",
+    "ScenRelAMIns|WindFieldPln",
+    "SfcWndShfDis|WindAloft",
+    "SfcWndShfDis|WindFieldMt",
+    "TempDis|WindFieldPln"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "hepar2",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3053f4f99700c5d61d73ce270fbe3e40e9aca5060e76dd9d5fac5521a92ca2d4",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "3a316b69210f1021882f0b465f2d54e0cd13971b17beea49569efcea9be9a8b0",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "amylase|fat",
+    "amylase|flatulence",
+    "amylase|upper_pain",
+    "choledocholithotomy|fat",
+    "choledocholithotomy|upper_pain",
+    "fat|flatulence",
+    "flatulence|upper_pain"
+   ],
+   "declined": [
+    "amylase|choledocholithotomy"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "insurance",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "52f27b73623b726faff4106a1c83ed9eb45f2a36d87caf061fe2de019201fd01",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "3f57fa65275410a11809b3b9c9677e3649ada3e2b75b5d6c9d2d2b28d3ae53ba",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "GoodStudent|OtherCar",
+    "HomeBase|VehicleYear",
+    "MakeModel|OtherCar",
+    "MakeModel|SeniorTrain",
+    "MakeModel|VehicleYear"
+   ],
+   "declined": [
+    "Age|HomeBase",
+    "AntiTheft|HomeBase",
+    "DrivingSkill|SocioEcon"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "magic-irri",
+   "component": 3,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2ed3b80ad6983f1c0736c75333ff6d438bca5ddbd6a98318798629dd0fe76060",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "46c38ef3206bd5c9833fa04ee0e1697bd8f3f564de5bf6d75750ada5f64325dc",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "G3212|G4109",
+    "G3212|G4156"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "magic-niab",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "a729fd1413745d84e5ffc5a63255d1807f26df0bc019c5772efcee2ca81898f8",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "466e4a2adac87bbbd9cd7929558fb617a62ad71605107dc5a913b84f7b857b24",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "G1217|G2208"
+   ],
+   "not_reached": [],
+   "invented": 2,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "magic-niab",
+   "component": 2,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "a5b99c29cefd631a692b73ed13b536e223cd58a8be4662a60af8d659fefc2959",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "6a04c5597b5a814ab1cf8a90ce7ef6f57af04e7ca65192e458a2c9855de28748",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "G1294|G2835"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "magic-niab",
+   "component": 4,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "7fe95707b2967ef9d00df81535e718fd55e8eaac701ee6b8aa91290c446b55df",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "65cb7de831b9be7ebfcccedde650be42112506087ab5d5e40e940b08df8b5a52",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "G1853|G43"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "mediator",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "7a8cbea2b92d72f181f1113a1df0b1e1b99fc9ee9a6995396bbf6663389be460",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "b2387c32e449df233c32a25bf0e8288938c5e04288a76e592a02c095b32aa3e8",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "Y|Z"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "1624695e3ba2bf03670059750e5bb2a374df0e12010e4cf4c569c5a3e7f745d2",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "2be24f29aca406cb56778db916724e44ec6a3a925c02ff5aa8b4c500e0345ee3",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "L_LNLE_ULND5_DIFSLOW|L_ULN_RD_EW",
+    "L_LNLE_ULND5_RD_E|L_ULN_RD_EW"
+   ],
+   "declined": [
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_DIFSLOW"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin",
+   "component": 4,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "350238cf5c94ce5313cb1c37815c76b911cf10a18f8211e5b80b11df2fbfd5c2",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "05b39b66f1f1a0c6d3dc1ec8e537799e9d7e67beab5606c1287c903147e6eae6",
+   "claims": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULND5_RD_E": [
+     "R_LNLE_ULND5_DIFSLOW",
+     "R_LNLE_ULND5_RD_E"
+    ]
+   },
+   "confidence": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULND5_RD_E": 0.9
+   },
+   "neither": [],
+   "declined": [
+    "R_LNLE_ULND5_RD_E|R_LNLE_ULN_DIFSLOW",
+    "R_LNLE_ULND5_RD_E|R_ULN_RD_EW",
+    "R_LNLE_ULN_DIFSLOW|R_ULN_RD_EW"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin",
+   "component": 5,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "fb07a31d5fc396cf6cbede5872c31773429a1f0ddedd6f65bc121a664002b065",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "16e5f91f4a8d8ce8cd3d1f046d231ff7ba803309df4234fc44e65095e1ca5153",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "R_LNLW_MED_PATHO|R_MEDD2_RD_WD"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin1",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "bac3381ec0dafba7985d261a6ff5827f8a06c731acc8dfd78f8bb1c097ffa211",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "1b054ba4cfb01fb34d89f252cda9e43e6fd396d5eb7de801203bdd013f09d3ff",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "R_LNLBE_MEDD2_DIFSLOW_WD|R_LNLBE_MEDD2_RD_EW",
+    "R_LNLBE_MEDD2_DIFSLOW_WD|R_LNLBE_MED_DIFSLOW",
+    "R_LNLBE_MEDD2_DIFSLOW_WD|R_MED_RD_EW",
+    "R_LNLBE_MEDD2_RD_EW|R_LNLBE_MED_DIFSLOW",
+    "R_LNLBE_MEDD2_RD_EW|R_MED_RD_EW",
+    "R_LNLBE_MED_DIFSLOW|R_MED_RD_EW",
+    "R_LNLBE_MED_PATHO|R_MEDD2_RD_EW"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin1",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c06ea59a26c2dc583d270687b7027b5f4fda3dd7db57f70cb76689e62a661a40",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "815633f77626b31c5d29dfd86b9fd8e3085f20467a48461911294bd1a2ac1110",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "R_LNLW_MED_PATHO|R_MEDD2_RD_WD"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin2",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "396a1ac2fb8baf50a8b58ac9b8cfb670819410f5c4e43750a9ed8e2fb7b98625",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "04fc2ee4f5428eb81276795c163b9122c226f9c1cc2f2c970657ece076255225",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "L_LNLE_ULN_DIFSLOW|L_ULN_RD_EW"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin2",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "992f4e7cd1c155acad4e1d7657940902edafeec330d1887cb450e0050c1952d1",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "c355cf8307340a31d7e989387dcd2018efd8ecf68349194d93e1355350e69a5c",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "L_MYAS_ADM_NMT|R_MYAS_APB_NMT",
+    "L_MYAS_ADM_NMT|R_MYAS_DELT_MUDENS",
+    "L_MYAS_APB_MUDENS|L_MYAS_DELT_MUDENS",
+    "L_MYAS_APB_NMT|R_MYAS_ADM_MUDENS",
+    "R_MYAS_ADM_MUDENS|R_MYAS_APB_MUDENS",
+    "R_MYAS_ADM_MUDENS|R_MYAS_APB_NMT",
+    "R_MYAS_ADM_NMT|R_MYAS_APB_NMT"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin3",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "93811e2af4b7842998bd040bb02bc58edb621228c5666e62e266abac8860d1d8",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "74d1755b2bd4044d8eb39731562799304f8d66548597ab8af6f2a429b638c478",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "L_MYAS_ADM_MUDENS|L_MYAS_APB_NMT",
+    "L_MYAS_ADM_MUDENS|R_MYAS_DELT_MUDENS",
+    "L_MYAS_ADM_NMT|L_MYAS_DELT_MUDENS",
+    "L_MYAS_ADM_NMT|L_MYAS_DELT_NMT",
+    "L_MYAS_ADM_NMT|R_MYAS_APB_MUDENS",
+    "L_MYAS_APB_MUDENS|L_MYAS_DELT_NMT",
+    "L_MYAS_APB_NMT|R_MYAS_APB_MUDENS",
+    "L_MYAS_DELT_MUDENS|R_MYAS_ADM_NMT"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin4",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "4e23a124755e5cc58326e07c9962252f475ef32721d12d10f6a05b7b4d2c0025",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "e40cb0f3609974ab034aec8fd92421b270bf794c3a1ba73b48f22c83c2101c55",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "L_LNLE_ULND5_DIFSLOW|L_LNLE_ULND5_RD_E",
+    "L_LNLE_ULND5_DIFSLOW|L_ULN_RD_EW",
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_DIFSLOW"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin4",
+   "component": 2,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c1874b17b6b132ee2849e2400409f99bc4e425df697dba8b6eb734561f03944b",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "019088da8611c73c996676049f7bf065aa3a6c5c4d4a7ef81b3b6f732761db72",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "L_LNLW_MEDD2_RD_WD|L_MED_RD_WA"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "munin4",
+   "component": 4,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "644a1b3baef08561bee996b9d2f9f33164653d8c27c08fb7e89a5379e9f0862a",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "3c33b11d8217834631117c2efd010fa8dc0e04bb32edfa9a7077abb0affe4592",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULND5_RD_E",
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_DIFSLOW"
+   ],
+   "declined": [
+    "R_LNLE_ULND5_DIFSLOW|R_ULN_RD_EW",
+    "R_LNLE_ULND5_RD_E|R_ULN_RD_EW"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "paths",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "50f08eafecf8e6292fcf9a6d9783416429718c80f84a50af1c4b7453f49d25bf",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "26177ad8742e95e4adc29e08d937d6e5b409b0f7f5adcab9f7c95cad0c6ca372",
+   "claims": {},
+   "confidence": {},
+   "neither": [],
+   "declined": [
+    "1|3",
+    "10|12",
+    "11|13",
+    "11|9",
+    "12|14",
+    "2|4",
+    "4|6",
+    "6|8"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "sachs",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2fb2571ed847474e2dfd0310718b09da37e8870d05e3b43f8ad6dd03a3258da4",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "0cd1b080aef3bd8c07af6732acc4b95ac6190de7e5bc4a67c8d0dc2f31a78f43",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "Akt|Jnk",
+    "Akt|P38",
+    "Akt|PKC",
+    "Erk|PKC",
+    "Erk|Raf",
+    "Jnk|P38"
+   ],
+   "declined": [
+    "Jnk|Raf",
+    "P38|Raf"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "water",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ee989bb825c1f6f4a5ef15fd8801168952ae17c95d9ddeb0d076b6252f05646e",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "3b8ffdf5288eabd05cfa4664e8092c7b3d1176cdbecb94c8c149680f6940b758",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "CKNI_12_00|CKNI_12_30",
+    "CKNI_12_15|CKNI_12_45"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "water",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "04eaec01c301436e7d5c91427b5f63698daa08d35396e1afb127974ca23111e3",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "9b075ce57c990a097451128adb139b6a638e4a4bceb1441db87cd530a494ab34",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "C_NI_12_00|C_NI_12_30",
+    "C_NI_12_15|C_NI_12_45"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "win95pts",
+   "component": 0,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "1dd10b5755c33bd79e875c522e7b1504f863d653b6d74233880732619766d671",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "90ebf1d6880945f53f6d2710050fbafd041944d4f57a602a33fda3609f1d4aa1",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "AppDtGnTm|PrntPrcssTm"
+   ],
+   "declined": [
+    "HrglssDrtnAftrPrnt|PrtSpool"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  },
+  {
+   "network": "win95pts",
+   "component": 1,
+   "kind": "ancestral",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e9681a213e06d3303403f1997d66793c4e82624671a7c8ad68815ff62375b145",
+   "model": "qwen2.5:7b-instruct",
+   "cache_key": "a8282273a3637bafb67df8742f57d2db6f66a1814a8fce7df8529ec7ae4754ae",
+   "claims": {},
+   "confidence": {},
+   "neither": [
+    "PSERRMEM|TstpsTxt"
+   ],
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "unparsed_answer": 0,
+   "parse_ok": true
+  }
+ ]
+}

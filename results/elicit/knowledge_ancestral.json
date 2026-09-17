@@ -1,0 +1,2268 @@
+{
+ "ANCESTRAL": {
+  "audit": {
+   "ancestral_asserted": 6,
+   "ancestral_commission_pooled": 0.6666666666666666,
+   "ancestral_false": 4,
+   "networks_with_reduced": 5,
+   "reduced_commission_network_mean": 0.3333333333333333,
+   "reduced_commission_pooled": 0.4,
+   "reduced_false": 4,
+   "reduced_orientations": 10,
+   "true_dag_on_path": "via_K"
+  },
+  "cache_hits": 0,
+  "family": "qwen2",
+  "model": "qwen2.5:7b-instruct",
+  "naming": "real",
+  "networks": {
+   "Didelez_2010": {
+    "ancestral_claims": [],
+    "asked": 3,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 3,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "Kampen_2014": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 8,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "Polzer_2012": {
+    "ancestral_claims": [],
+    "asked": 4,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 2,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 2,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "Schipf_2010": {
+    "ancestral_claims": [],
+    "asked": 4,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 4,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "Sebastiani_2005": {
+    "ancestral_claims": [],
+    "asked": 3,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 3,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "Shrier_2008": {
+    "ancestral_claims": [
+     {
+      "confidence": 0.8,
+      "head": "TissueWeakness",
+      "n_first_edges": 1,
+      "n_last_edges": 1,
+      "orientations": [
+       [
+        "Genetics",
+        "ConnectiveTissueDisorder"
+       ],
+       [
+        "ConnectiveTissueDisorder",
+        "TissueWeakness"
+       ]
+      ],
+      "pair": "Genetics|TissueWeakness",
+      "reason": "unique_first_and_last_edge",
+      "status": "reduced",
+      "tail": "Genetics"
+     }
+    ],
+    "asked": 1,
+    "asserted": 1,
+    "audit": {
+     "ancestral_asserted": 1,
+     "ancestral_commission": 0.0,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": 0.0,
+     "reduced_false": 0,
+     "reduced_orientations": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {
+     "Genetics|TissueWeakness": 0.8
+    },
+    "declined": 0,
+    "invented": 0,
+    "k_anc": [
+     [
+      "ConnectiveTissueDisorder",
+      "TissueWeakness"
+     ],
+     [
+      "Genetics",
+      "ConnectiveTissueDisorder"
+     ]
+    ],
+    "k_anc_confidence": {
+     "ConnectiveTissueDisorder|TissueWeakness": 0.8,
+     "Genetics|ConnectiveTissueDisorder": 0.8
+    },
+    "k_anc_sha256": "53d1e04a5e11b84c0ea760472323a15bc4af2c1af0785fab31139f0b54c98f22",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 1,
+    "unparsed_answer": 0
+   },
+   "andes": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 8,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "arth150": {
+    "ancestral_claims": [
+     {
+      "confidence": 0.7,
+      "head": "640",
+      "n_first_edges": 1,
+      "n_last_edges": 1,
+      "orientations": [
+       [
+        "454",
+        "783"
+       ],
+       [
+        "783",
+        "640"
+       ]
+      ],
+      "pair": "454|640",
+      "reason": "unique_first_and_last_edge",
+      "status": "reduced",
+      "tail": "454"
+     },
+     {
+      "confidence": 0.8,
+      "head": "783",
+      "n_first_edges": 1,
+      "n_last_edges": 3,
+      "orientations": [
+       [
+        "739",
+        "558"
+       ]
+      ],
+      "pair": "739|783",
+      "reason": "unique_first_edge",
+      "status": "reduced",
+      "tail": "739"
+     }
+    ],
+    "asked": 8,
+    "asserted": 2,
+    "audit": {
+     "ancestral_asserted": 2,
+     "ancestral_commission": 1.0,
+     "ancestral_false": 2,
+     "ancestral_false_among_reduced": 2,
+     "reduced_commission": 0.6666666666666666,
+     "reduced_false": 2,
+     "reduced_orientations": 3,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {
+     "454|640": 0.7,
+     "739|783": 0.8
+    },
+    "declined": 6,
+    "invented": 0,
+    "k_anc": [
+     [
+      "454",
+      "783"
+     ],
+     [
+      "739",
+      "558"
+     ],
+     [
+      "783",
+      "640"
+     ]
+    ],
+    "k_anc_confidence": {
+     "454|783": 0.7,
+     "739|558": 0.8,
+     "783|640": 0.7
+    },
+    "k_anc_sha256": "0b328cb96942b89da5a519fc64875aea52989293447de4985a612f733d8bd23f",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 2,
+    "unparsed_answer": 0
+   },
+   "asia": {
+    "ancestral_claims": [
+     {
+      "confidence": 0.8,
+      "head": "lung",
+      "n_first_edges": 1,
+      "n_last_edges": 1,
+      "orientations": [
+       [
+        "bronc",
+        "smoke"
+       ],
+       [
+        "smoke",
+        "lung"
+       ]
+      ],
+      "pair": "bronc|lung",
+      "reason": "unique_first_and_last_edge",
+      "status": "reduced",
+      "tail": "bronc"
+     }
+    ],
+    "asked": 1,
+    "asserted": 1,
+    "audit": {
+     "ancestral_asserted": 1,
+     "ancestral_commission": 1.0,
+     "ancestral_false": 1,
+     "ancestral_false_among_reduced": 1,
+     "reduced_commission": 0.5,
+     "reduced_false": 1,
+     "reduced_orientations": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {
+     "bronc|lung": 0.8
+    },
+    "declined": 0,
+    "invented": 0,
+    "k_anc": [
+     [
+      "bronc",
+      "smoke"
+     ],
+     [
+      "smoke",
+      "lung"
+     ]
+    ],
+    "k_anc_confidence": {
+     "bronc|smoke": 0.8,
+     "smoke|lung": 0.8
+    },
+    "k_anc_sha256": "54ac709e0d3534c2571d92c5b9a99a672e3275a7aa3d381ae176e9d7d729ca76",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 1,
+    "unparsed_answer": 0
+   },
+   "barley": {
+    "ancestral_claims": [],
+    "asked": 6,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 5,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 1,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "child": {
+    "ancestral_claims": [
+     {
+      "confidence": 0.8,
+      "head": "Sick",
+      "n_first_edges": 1,
+      "n_last_edges": 2,
+      "orientations": [
+       [
+        "BirthAsphyxia",
+        "Disease"
+       ]
+      ],
+      "pair": "BirthAsphyxia|Sick",
+      "reason": "unique_first_edge",
+      "status": "reduced",
+      "tail": "BirthAsphyxia"
+     }
+    ],
+    "asked": 8,
+    "asserted": 1,
+    "audit": {
+     "ancestral_asserted": 1,
+     "ancestral_commission": 0.0,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": 0.0,
+     "reduced_false": 0,
+     "reduced_orientations": 1,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {
+     "BirthAsphyxia|Sick": 0.8
+    },
+    "declined": 7,
+    "invented": 0,
+    "k_anc": [
+     [
+      "BirthAsphyxia",
+      "Disease"
+     ]
+    ],
+    "k_anc_confidence": {
+     "BirthAsphyxia|Disease": 0.8
+    },
+    "k_anc_sha256": "a577d503edb67057d92d5baf8d71f72f4caddc089bbe36bb1cea49b122f00dfb",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 1,
+    "unparsed_answer": 0
+   },
+   "diabetes": {
+    "ancestral_claims": [],
+    "asked": 1,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 1,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "ecoli70": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 8,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "hailfinder": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 0,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 8,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "hepar2": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 1,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 7,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "insurance": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 3,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 5,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "magic-irri": {
+    "ancestral_claims": [],
+    "asked": 2,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 2,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "magic-niab": {
+    "ancestral_claims": [],
+    "asked": 3,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 3,
+    "invented": 2,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "mediator": {
+    "ancestral_claims": [],
+    "asked": 1,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 1,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "munin": {
+    "ancestral_claims": [
+     {
+      "confidence": 0.9,
+      "head": "R_LNLE_ULND5_RD_E",
+      "n_first_edges": 1,
+      "n_last_edges": 1,
+      "orientations": [
+       [
+        "R_LNLE_ULND5_DIFSLOW",
+        "R_LNLE_ULN_PATHO"
+       ],
+       [
+        "R_LNLE_ULN_PATHO",
+        "R_LNLE_ULND5_RD_E"
+       ]
+      ],
+      "pair": "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULND5_RD_E",
+      "reason": "unique_first_and_last_edge",
+      "status": "reduced",
+      "tail": "R_LNLE_ULND5_DIFSLOW"
+     }
+    ],
+    "asked": 8,
+    "asserted": 1,
+    "audit": {
+     "ancestral_asserted": 1,
+     "ancestral_commission": 1.0,
+     "ancestral_false": 1,
+     "ancestral_false_among_reduced": 1,
+     "reduced_commission": 0.5,
+     "reduced_false": 1,
+     "reduced_orientations": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {
+     "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULND5_RD_E": 0.9
+    },
+    "declined": 5,
+    "invented": 0,
+    "k_anc": [
+     [
+      "R_LNLE_ULND5_DIFSLOW",
+      "R_LNLE_ULN_PATHO"
+     ],
+     [
+      "R_LNLE_ULN_PATHO",
+      "R_LNLE_ULND5_RD_E"
+     ]
+    ],
+    "k_anc_confidence": {
+     "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_PATHO": 0.9,
+     "R_LNLE_ULN_PATHO|R_LNLE_ULND5_RD_E": 0.9
+    },
+    "k_anc_sha256": "5ebc323177ffab2ed6a851ac8097c6f439d54af9e106cf8100811eb102a26143",
+    "neither": 2,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 1,
+    "unparsed_answer": 0
+   },
+   "munin1": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 7,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 1,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "munin2": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 7,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 1,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "munin3": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 8,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "munin4": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 2,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 6,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "paths": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 8,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 0,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "sachs": {
+    "ancestral_claims": [],
+    "asked": 8,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 2,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 6,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "water": {
+    "ancestral_claims": [],
+    "asked": 4,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 0,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 4,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   },
+   "win95pts": {
+    "ancestral_claims": [],
+    "asked": 3,
+    "asserted": 0,
+    "audit": {
+     "ancestral_asserted": 0,
+     "ancestral_commission": null,
+     "ancestral_false": 0,
+     "ancestral_false_among_reduced": 0,
+     "reduced_commission": null,
+     "reduced_false": 0,
+     "reduced_orientations": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "confidence_quarantined": {},
+    "declined": 1,
+    "invented": 0,
+    "k_anc": [],
+    "k_anc_confidence": {},
+    "k_anc_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "neither": 2,
+    "not_reached": 0,
+    "not_reducible": 0,
+    "not_reducible_reasons": [],
+    "parse_fail": 0,
+    "reduced": 0,
+    "unparsed_answer": 0
+   }
+  },
+  "order_seed": 0,
+  "pairs_per_network": 8,
+  "questionnaire_ancestral_sha256": "fc66f983a1d986f611ec8d30176ebaf5a762646da99fd4256f337c48a6dfe2fd",
+  "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+  "reduction_rule": "a causes b -> orient the unique undirected first edge of every possibly directed a..b path away from a, and the unique undirected last edge into b; else not_reducible",
+  "totals": {
+   "asked": 156,
+   "asserted": 6,
+   "declined": 105,
+   "invented": 2,
+   "neither": 45,
+   "not_reached": 0,
+   "not_reducible": 0,
+   "parse_fail": 0,
+   "reduced": 6,
+   "reduced_orientations": 10,
+   "unparsed_answer": 0
+  }
+ },
+ "D_LLM_PLUS_ANC": {
+  "arm": "deployment",
+  "base_condition": "D_LLM",
+  "family": "qwen2",
+  "model": "qwen2.5:7b-instruct",
+  "naming": "real",
+  "networks": {
+   "Acid_1996": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 1.0,
+     "false": 1,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "x4",
+      "x1"
+     ]
+    ],
+    "k_sha256": "8c027a333a948b29dd5bcd52a623a3a36158bc1202935ff1514cd9588b513961",
+    "meek_consistent_pre": true,
+    "n_asserted": 1,
+    "n_from_ancestral": 0,
+    "n_from_order": 1
+   },
+   "Didelez_2010": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "Age",
+      "Occ"
+     ]
+    ],
+    "k_sha256": "69b2a0dd536e57b51cc3da3467a6bad903350a5b589f3078cf69727832403ff4",
+    "meek_consistent_pre": true,
+    "n_asserted": 1,
+    "n_from_ancestral": 0,
+    "n_from_order": 1
+   },
+   "Kampen_2014": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.5,
+     "false": 4,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "AFF",
+      "AIS"
+     ],
+     [
+      "AFF",
+      "ALN"
+     ],
+     [
+      "AFF",
+      "APA"
+     ],
+     [
+      "AFF",
+      "SAN"
+     ],
+     [
+      "ALN",
+      "PER"
+     ],
+     [
+      "ALN",
+      "SAN"
+     ],
+     [
+      "APA",
+      "SAN"
+     ],
+     [
+      "SAN",
+      "AIS"
+     ]
+    ],
+    "k_sha256": "dd8927b8036793b7a840b937cc287d9f809bacf0399608d7c030cc8008b82b81",
+    "meek_consistent_pre": true,
+    "n_asserted": 8,
+    "n_from_ancestral": 0,
+    "n_from_order": 8
+   },
+   "Polzer_2012": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.25,
+     "false": 1,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "Caries",
+      "Psychosocial"
+     ],
+     [
+      "Diabetes",
+      "Hypertension"
+     ],
+     [
+      "Psychosocial",
+      "Smoking"
+     ],
+     [
+      "Psychosocial",
+      "Sport"
+     ]
+    ],
+    "k_sha256": "5ea8250cab9346ea30bca7a352ac800ceea40cbc15f13d5e5742fca7e7f2260e",
+    "meek_consistent_pre": true,
+    "n_asserted": 4,
+    "n_from_ancestral": 0,
+    "n_from_order": 4
+   },
+   "Schipf_2010": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "A",
+      "PA"
+     ],
+     [
+      "A",
+      "S"
+     ],
+     [
+      "A",
+      "U"
+     ],
+     [
+      "A",
+      "WC"
+     ],
+     [
+      "PA",
+      "WC"
+     ]
+    ],
+    "k_sha256": "46f3c1669b67c41b84412b83017b14530fee99bc68ef0f6e09bd9a6180269acd",
+    "meek_consistent_pre": true,
+    "n_asserted": 5,
+    "n_from_ancestral": 0,
+    "n_from_order": 5
+   },
+   "Sebastiani_2005": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.5,
+     "false": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "ANXA2.5",
+      "ANXA2.7"
+     ],
+     [
+      "ANXA2.8",
+      "EDNI1.6"
+     ],
+     [
+      "TGFBR3.2",
+      "TGFBR3.9"
+     ],
+     [
+      "TGFBR3.8",
+      "Stroke"
+     ]
+    ],
+    "k_sha256": "8cad2c05ef8dfdd2e56b187039394d153f5f9c3521382927e1823456cfebdc19",
+    "meek_consistent_pre": true,
+    "n_asserted": 4,
+    "n_from_ancestral": 0,
+    "n_from_order": 4
+   },
+   "Shrier_2008": {
+    "already_asserted": 1,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "Coach",
+      "TeamMotivation"
+     ],
+     [
+      "ConnectiveTissueDisorder",
+      "TissueWeakness"
+     ],
+     [
+      "Genetics",
+      "ConnectiveTissueDisorder"
+     ]
+    ],
+    "k_sha256": "61b26382a978817b301ed2075a282cc8910b28ca105f66fb6d504e0c53e58d87",
+    "meek_consistent_pre": true,
+    "n_asserted": 3,
+    "n_from_ancestral": 1,
+    "n_from_order": 2
+   },
+   "Thoemmes_2013": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "e0",
+      "x"
+     ]
+    ],
+    "k_sha256": "692bf224370ee1de54f444105e9dd42dec95dcb7209316825281d50a450dfb9f",
+    "meek_consistent_pre": true,
+    "n_asserted": 1,
+    "n_from_ancestral": 0,
+    "n_from_order": 1
+   },
+   "alarm": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "ANAPHYLAXIS",
+      "TPR"
+     ]
+    ],
+    "k_sha256": "ea2379ab7855f266c982836e2f2ac284d249e07f0fbcee94605c35d2688139ed",
+    "meek_consistent_pre": true,
+    "n_asserted": 1,
+    "n_from_ancestral": 0,
+    "n_from_order": 1
+   },
+   "andes": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.42857142857142855,
+     "false": 3,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "GIVEN_1",
+      "RApp2"
+     ],
+     [
+      "HORIZ53",
+      "NORMAL52"
+     ],
+     [
+      "TRY11",
+      "TRY12"
+     ],
+     [
+      "TRY12",
+      "TRY13"
+     ],
+     [
+      "TRY12",
+      "TRY14"
+     ],
+     [
+      "TRY24",
+      "TRY25"
+     ],
+     [
+      "TRY25",
+      "TRY26"
+     ]
+    ],
+    "k_sha256": "dc424769b461b7af1b7f5c32b924d35bdba95a06236385018d0a25989ed910aa",
+    "meek_consistent_pre": true,
+    "n_asserted": 7,
+    "n_from_ancestral": 0,
+    "n_from_order": 7
+   },
+   "arth150": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 3,
+    "k": [
+     [
+      "414",
+      "726"
+     ],
+     [
+      "558",
+      "363"
+     ],
+     [
+      "726",
+      "78"
+     ],
+     [
+      "779",
+      "798"
+     ],
+     [
+      "783",
+      "558"
+     ],
+     [
+      "81",
+      "198"
+     ],
+     [
+      "81",
+      "211"
+     ],
+     [
+      "81",
+      "248"
+     ],
+     [
+      "81",
+      "368"
+     ],
+     [
+      "81",
+      "377"
+     ],
+     [
+      "81",
+      "622"
+     ],
+     [
+      "81",
+      "665"
+     ],
+     [
+      "81",
+      "666"
+     ],
+     [
+      "81",
+      "712"
+     ]
+    ],
+    "k_sha256": "7de27a0f96fd3f258dcd08ba0300de1b94ceffeda566988edad4df2ec10ee192",
+    "meek_consistent_pre": false,
+    "n_asserted": 14,
+    "n_from_ancestral": 0,
+    "n_from_order": 14
+   },
+   "asia": {
+    "already_asserted": 1,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 1,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "asia",
+      "tub"
+     ],
+     [
+      "smoke",
+      "bronc"
+     ],
+     [
+      "smoke",
+      "lung"
+     ]
+    ],
+    "k_sha256": "57b0ee77c36003a898806c0abec657277ad5b5e822573b2e180dea879fc9ab9e",
+    "meek_consistent_pre": true,
+    "n_asserted": 3,
+    "n_from_ancestral": 0,
+    "n_from_order": 3
+   },
+   "barley": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.2857142857142857,
+     "false": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "frspdag",
+      "saatid"
+     ],
+     [
+      "jordinf",
+      "frspdag"
+     ],
+     [
+      "komm",
+      "nedbarea"
+     ],
+     [
+      "saatid",
+      "dg25"
+     ],
+     [
+      "sort",
+      "sorttkv"
+     ],
+     [
+      "sort",
+      "srtprot"
+     ],
+     [
+      "sort",
+      "srtsize"
+     ]
+    ],
+    "k_sha256": "7067d0f70c207ed54f5c14591fff5886f17c5cee0c3f3ab439e7f817e6d07904",
+    "meek_consistent_pre": true,
+    "n_asserted": 7,
+    "n_from_ancestral": 0,
+    "n_from_order": 7
+   },
+   "child": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 1.0,
+     "false": 1,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 1,
+    "k": [
+     [
+      "CO2",
+      "LungParench"
+     ]
+    ],
+    "k_sha256": "1aa1bd2cc65ac63ff2b4f813164337d484811dedffd138b24bd389165554644c",
+    "meek_consistent_pre": false,
+    "n_asserted": 1,
+    "n_from_ancestral": 0,
+    "n_from_order": 1
+   },
+   "diabetes": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "bg_0",
+      "renal_cl_0"
+     ],
+     [
+      "gut_abs_1",
+      "cho_bal_1"
+     ],
+     [
+      "gut_abs_11",
+      "cho_bal_11"
+     ],
+     [
+      "gut_abs_14",
+      "cho_bal_14"
+     ],
+     [
+      "gut_abs_15",
+      "cho_bal_15"
+     ],
+     [
+      "gut_abs_4",
+      "cho_bal_4"
+     ],
+     [
+      "gut_abs_6",
+      "cho_bal_6"
+     ],
+     [
+      "gut_abs_8",
+      "cho_bal_8"
+     ]
+    ],
+    "k_sha256": "b5bd53e9fd3f78c27afb5ca167124a10f023c3f593b97a8babb08857b7df296c",
+    "meek_consistent_pre": true,
+    "n_asserted": 8,
+    "n_from_ancestral": 0,
+    "n_from_order": 8
+   },
+   "ecoli70": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.7,
+     "false": 7,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "cspA",
+      "hupB"
+     ],
+     [
+      "cspA",
+      "yfiA"
+     ],
+     [
+      "hupB",
+      "yfiA"
+     ],
+     [
+      "pspA",
+      "cspG"
+     ],
+     [
+      "pspA",
+      "nmpC"
+     ],
+     [
+      "pspA",
+      "pspB"
+     ],
+     [
+      "pspA",
+      "yedE"
+     ],
+     [
+      "pspB",
+      "cspG"
+     ],
+     [
+      "pspB",
+      "yedE"
+     ],
+     [
+      "yedE",
+      "cspG"
+     ]
+    ],
+    "k_sha256": "f22670ab87f826d2f91a8fa4ce9ab14e33a7caf249667380009f989c20784eea",
+    "meek_consistent_pre": true,
+    "n_asserted": 10,
+    "n_from_ancestral": 0,
+    "n_from_order": 10
+   },
+   "hailfinder": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.07692307692307693,
+     "false": 1,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "Scenario",
+      "Date"
+     ],
+     [
+      "Scenario",
+      "Dewpoints"
+     ],
+     [
+      "Scenario",
+      "MeanRH"
+     ],
+     [
+      "Scenario",
+      "MvmtFeatures"
+     ],
+     [
+      "Scenario",
+      "RHRatio"
+     ],
+     [
+      "Scenario",
+      "ScenRel3_4"
+     ],
+     [
+      "Scenario",
+      "ScenRelAMCIN"
+     ],
+     [
+      "Scenario",
+      "SfcWndShfDis"
+     ],
+     [
+      "Scenario",
+      "SynForcng"
+     ],
+     [
+      "Scenario",
+      "TempDis"
+     ],
+     [
+      "Scenario",
+      "WindAloft"
+     ],
+     [
+      "Scenario",
+      "WindFieldMt"
+     ],
+     [
+      "Scenario",
+      "WindFieldPln"
+     ]
+    ],
+    "k_sha256": "88482224b0a13e173967255a7cba47bb4aad229c911a25efb565194176b60268",
+    "meek_consistent_pre": true,
+    "n_asserted": 13,
+    "n_from_ancestral": 0,
+    "n_from_order": 13
+   },
+   "hepar2": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.4,
+     "false": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "RHepatitis",
+      "hepatotoxic"
+     ],
+     [
+      "gallstones",
+      "fat"
+     ],
+     [
+      "gallstones",
+      "flatulence"
+     ],
+     [
+      "gallstones",
+      "upper_pain"
+     ],
+     [
+      "obesity",
+      "diabetes"
+     ]
+    ],
+    "k_sha256": "9561709cc31ce155b585f97c3a187b45e4c73697f1571bd2914c74f6b6a2028e",
+    "meek_consistent_pre": true,
+    "n_asserted": 5,
+    "n_from_ancestral": 0,
+    "n_from_order": 5
+   },
+   "insurance": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "RiskAversion",
+      "SeniorTrain"
+     ],
+     [
+      "SocioEcon",
+      "GoodStudent"
+     ],
+     [
+      "SocioEcon",
+      "HomeBase"
+     ],
+     [
+      "SocioEcon",
+      "MakeModel"
+     ],
+     [
+      "SocioEcon",
+      "VehicleYear"
+     ]
+    ],
+    "k_sha256": "142d32ab56300f608ee8f67db989ffd0fdc5052e8d236d5d301042c8750f0ae8",
+    "meek_consistent_pre": true,
+    "n_asserted": 5,
+    "n_from_ancestral": 0,
+    "n_from_order": 5
+   },
+   "link": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "Z_10_a_f",
+      "Z_10_d_f"
+     ],
+     [
+      "Z_33_a_f",
+      "Z_33_d_f"
+     ]
+    ],
+    "k_sha256": "4bf390c3ae7b68051ca4856af2e7ca725a7733eb3413ae6847cd898ea412bcf2",
+    "meek_consistent_pre": true,
+    "n_asserted": 2,
+    "n_from_ancestral": 0,
+    "n_from_order": 2
+   },
+   "magic-irri": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.5714285714285714,
+     "false": 4,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "G2670",
+      "G2815"
+     ],
+     [
+      "G3209",
+      "G3222"
+     ],
+     [
+      "G3823",
+      "G457"
+     ],
+     [
+      "G3925",
+      "G5794"
+     ],
+     [
+      "G4109",
+      "G4145"
+     ],
+     [
+      "G4109",
+      "G4156"
+     ],
+     [
+      "G4529",
+      "G4573"
+     ]
+    ],
+    "k_sha256": "f09328871d91823a4eceeedda693945eb9161b179203c4cb07d3cd7739701216",
+    "meek_consistent_pre": true,
+    "n_asserted": 7,
+    "n_from_ancestral": 0,
+    "n_from_order": 7
+   },
+   "magic-niab": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.5,
+     "false": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "G1217",
+      "G257"
+     ],
+     [
+      "G257",
+      "G2208"
+     ],
+     [
+      "G2835",
+      "G418"
+     ],
+     [
+      "G383",
+      "G800"
+     ]
+    ],
+    "k_sha256": "55e610f09cad1e82eabae142e53a03d092822af1707075d4d9468a85c946e372",
+    "meek_consistent_pre": true,
+    "n_asserted": 4,
+    "n_from_ancestral": 0,
+    "n_from_order": 4
+   },
+   "mediator": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.5,
+     "false": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "I",
+      "X"
+     ],
+     [
+      "I",
+      "Y"
+     ],
+     [
+      "I",
+      "Z"
+     ],
+     [
+      "X",
+      "Y"
+     ]
+    ],
+    "k_sha256": "15e426c6d28429dbbadea75fa3e9d3b197a793b92bf7857d64f1f5fad3bdf5b7",
+    "meek_consistent_pre": true,
+    "n_asserted": 4,
+    "n_from_ancestral": 0,
+    "n_from_order": 4
+   },
+   "munin": {
+    "already_asserted": 1,
+    "audit": {
+     "commission": 0.6,
+     "false": 3,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "L_LNLE_ULND5_DIFSLOW",
+      "L_LNLE_ULN_PATHO"
+     ],
+     [
+      "L_LNLW_MEDD2_RD_WD",
+      "L_MEDD2_RD_WD"
+     ],
+     [
+      "R_LNLE_ULND5_DIFSLOW",
+      "R_LNLE_ULN_PATHO"
+     ],
+     [
+      "R_LNLE_ULN_PATHO",
+      "R_LNLE_ULND5_RD_E"
+     ],
+     [
+      "R_LNLPC5_AXIL_DIFSLOW",
+      "R_LNLPC5_AXIL_PATHO"
+     ]
+    ],
+    "k_sha256": "cef5a3d83f39323f59c76ddd0ec201eb362b6a57503c620943007bb6bd2276fb",
+    "meek_consistent_pre": true,
+    "n_asserted": 5,
+    "n_from_ancestral": 1,
+    "n_from_order": 4
+   },
+   "munin1": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "R_LNLBE_MED_PATHO",
+      "R_MED_RD_EW"
+     ],
+     [
+      "R_LNLW_MEDD2_RD_WD",
+      "R_MEDD2_RD_WD"
+     ]
+    ],
+    "k_sha256": "feec500195402a34504957ff46922c1c4528e50842f06e0dd02eb47d2bcc5779",
+    "meek_consistent_pre": true,
+    "n_asserted": 2,
+    "n_from_ancestral": 0,
+    "n_from_order": 2
+   },
+   "munin2": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.2222222222222222,
+     "false": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "L_LNLE_ULND5_DIFSLOW",
+      "L_LNLE_ULN_PATHO"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_ADM_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_APB_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_DELT_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "R_MYAS_ADM_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "R_MYAS_ADM_NMT"
+     ],
+     [
+      "MYASTHENIA",
+      "R_MYAS_APB_NMT"
+     ],
+     [
+      "MYASTHENIA",
+      "R_MYAS_DELT_NMT"
+     ],
+     [
+      "R_LNLE_ULND5_DIFSLOW",
+      "R_LNLE_ULN_PATHO"
+     ]
+    ],
+    "k_sha256": "d8bad3e63d1d1cb005a7eb39fa240b8f0f7f78806782ffdd03927a3d1e5203fc",
+    "meek_consistent_pre": true,
+    "n_asserted": 9,
+    "n_from_ancestral": 0,
+    "n_from_order": 9
+   },
+   "munin3": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "MYASTHENIA",
+      "L_MYAS_ADM_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_ADM_NMT"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_APB_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_APB_NMT"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_DELT_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "L_MYAS_DELT_NMT"
+     ],
+     [
+      "MYASTHENIA",
+      "R_MYAS_ADM_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "R_MYAS_APB_MUDENS"
+     ],
+     [
+      "MYASTHENIA",
+      "R_MYAS_APB_NMT"
+     ],
+     [
+      "R_LNLBE_MEDD2_LD_EW",
+      "R_MEDD2_LD_EW"
+     ]
+    ],
+    "k_sha256": "ed9498517f2c0c1c6c78459443619eeddbeaab963e84e68ecabc9bcf944f6979",
+    "meek_consistent_pre": true,
+    "n_asserted": 10,
+    "n_from_ancestral": 0,
+    "n_from_order": 10
+   },
+   "munin4": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.5714285714285714,
+     "false": 4,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "L_LNLE_ULND5_DIFSLOW",
+      "L_LNLE_ULN_PATHO"
+     ],
+     [
+      "L_LNLE_ULN_PATHO",
+      "L_LNLE_ULN_DIFSLOW"
+     ],
+     [
+      "L_LNLW_MEDD2_RD_WD",
+      "L_LNLW_MED_PATHO"
+     ],
+     [
+      "L_MEDD2_RD_WD",
+      "L_LNLW_MEDD2_RD_WD"
+     ],
+     [
+      "R_LNLE_ULN_PATHO",
+      "R_LNLE_ULND5_DIFSLOW"
+     ],
+     [
+      "R_LNLE_ULN_PATHO",
+      "R_LNLE_ULND5_RD_E"
+     ],
+     [
+      "R_LNLPC5_AXIL_DIFSLOW",
+      "R_LNLPC5_AXIL_PATHO"
+     ]
+    ],
+    "k_sha256": "1e64a028bec20681282b42a6c083dcb264445a0d275f25e80c6d71f676561429",
+    "meek_consistent_pre": true,
+    "n_asserted": 7,
+    "n_from_ancestral": 0,
+    "n_from_order": 7
+   },
+   "paths": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 1.0,
+     "false": 10,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "1",
+      "2"
+     ],
+     [
+      "10",
+      "11"
+     ],
+     [
+      "13",
+      "14"
+     ],
+     [
+      "14",
+      "15"
+     ],
+     [
+      "2",
+      "3"
+     ],
+     [
+      "3",
+      "4"
+     ],
+     [
+      "5",
+      "6"
+     ],
+     [
+      "6",
+      "7"
+     ],
+     [
+      "7",
+      "8"
+     ],
+     [
+      "8",
+      "9"
+     ]
+    ],
+    "k_sha256": "e9f43d4d09469b0e667f269faeaf16d3785d04e85358c8d41a1415014436b130",
+    "meek_consistent_pre": true,
+    "n_asserted": 10,
+    "n_from_ancestral": 0,
+    "n_from_order": 10
+   },
+   "sachs": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 1.0,
+     "false": 1,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "Raf",
+      "PKA"
+     ]
+    ],
+    "k_sha256": "be9dabfce89c82dd38430c9d19968ace9e3dd5c53c4862da7afd8181b4e7fba9",
+    "meek_consistent_pre": true,
+    "n_asserted": 1,
+    "n_from_ancestral": 0,
+    "n_from_order": 1
+   },
+   "water": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.4,
+     "false": 2,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "CKNI_12_15",
+      "CKNI_12_00"
+     ],
+     [
+      "CKNI_12_45",
+      "CKNI_12_30"
+     ],
+     [
+      "C_NI_12_00",
+      "C_NI_12_15"
+     ],
+     [
+      "C_NI_12_15",
+      "C_NI_12_30"
+     ],
+     [
+      "C_NI_12_30",
+      "C_NI_12_45"
+     ]
+    ],
+    "k_sha256": "7536a657270838fcff10dee540ff9086815491994c9c186f206b58ca3bd8d726",
+    "meek_consistent_pre": true,
+    "n_asserted": 5,
+    "n_from_ancestral": 0,
+    "n_from_order": 5
+   },
+   "win95pts": {
+    "already_asserted": 0,
+    "audit": {
+     "commission": 0.0,
+     "false": 0,
+     "true_dag_on_path": "via_K"
+    },
+    "conflicts_with_orientation": 0,
+    "dropped_for_consistency": 0,
+    "k": [
+     [
+      "AvlblVrtlMmry",
+      "PSERRMEM"
+     ],
+     [
+      "AvlblVrtlMmry",
+      "TstpsTxt"
+     ],
+     [
+      "PrtMem",
+      "PrtStatMem"
+     ],
+     [
+      "PrtOn",
+      "PrtStatOff"
+     ],
+     [
+      "PrtPScript",
+      "TstpsTxt"
+     ],
+     [
+      "TnrSpply",
+      "PrtStatToner"
+     ]
+    ],
+    "k_sha256": "9b31f9351c7a06786189e2564bf46caa0a456ecbd03a39cb751e6aa7822bddb1",
+    "meek_consistent_pre": true,
+    "n_asserted": 6,
+    "n_from_ancestral": 0,
+    "n_from_order": 6
+   }
+  },
+  "order_seed": 0,
+  "questionnaire_ancestral_sha256": "fc66f983a1d986f611ec8d30176ebaf5a762646da99fd4256f337c48a6dfe2fd",
+  "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+  "totals": {
+   "already_asserted": 3,
+   "conflicts_with_orientation": 1,
+   "dropped_for_consistency": 4,
+   "n_asserted": 173,
+   "n_from_ancestral": 2,
+   "n_from_order": 171
+  },
+  "true_dag_on_path": "false"
+ }
+}

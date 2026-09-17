@@ -1,0 +1,61 @@
+{
+ "seconds": 48.7,
+ "cap": 20,
+ "min_component": 2,
+ "totals": {
+  "networks_parsed": 39,
+  "frame_pairs": 80132,
+  "sampled_pairs": 648,
+  "candidate_treatments": 969,
+  "committed_admissible": 543,
+  "committed_inside_frame": 543,
+  "committed_outside_frame": 0,
+  "networks_with_frame": 33,
+  "networks_capped": 31,
+  "networks_not_dag": 1
+ },
+ "frame_vs_committed": {
+  "frame_pairs": 80132,
+  "committed_admissible_pairs": 543,
+  "committed_inside_frame": 543,
+  "committed_outside_frame": 0,
+  "expansion_factor": 147.6
+ },
+ "networks_yielding_frame": 33,
+ "networks_yielding_committed_instances": 25,
+ "top_by_frame_size": [
+  [
+   "munin2",
+   22016
+  ],
+  [
+   "munin3",
+   19786
+  ],
+  [
+   "link",
+   9336
+  ],
+  [
+   "pathfinder",
+   9226
+  ],
+  [
+   "diabetes",
+   8136
+  ],
+  [
+   "munin",
+   2110
+  ],
+  [
+   "munin4",
+   2110
+  ],
+  [
+   "arth150",
+   1883
+  ]
+ ],
+ "capped_networks": 31
+}

@@ -1,0 +1,1005 @@
+{
+ "seed": 20260912,
+ "skipped_networks": [
+  "pathfinder"
+ ],
+ "pairs": 71,
+ "stride": {
+  "checked": 213,
+  "mismatched": 57,
+  "mismatch_rows": [
+   {
+    "key": [
+     "Kampen_2014",
+     "AFF",
+     "ALN",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 9
+    }
+   },
+   {
+    "key": [
+     "Kampen_2014",
+     "AFF",
+     "ALN",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 8
+    }
+   },
+   {
+    "key": [
+     "Kampen_2014",
+     "AIS",
+     "AFF",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 9
+    }
+   },
+   {
+    "key": [
+     "Kampen_2014",
+     "AIS",
+     "AFF",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 8
+    }
+   },
+   {
+    "key": [
+     "Kampen_2014",
+     "AIS",
+     "EGC",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 9
+    }
+   },
+   {
+    "key": [
+     "Kampen_2014",
+     "AIS",
+     "EGC",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 8
+    }
+   },
+   {
+    "key": [
+     "Polzer_2012",
+     "Alcohol",
+     "Obesity",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "Polzer_2012",
+     "Alcohol",
+     "Obesity",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 3
+    }
+   },
+   {
+    "key": [
+     "Polzer_2012",
+     "Obesity",
+     "ToothLoss",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "Polzer_2012",
+     "Obesity",
+     "ToothLoss",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 3
+    }
+   },
+   {
+    "key": [
+     "Polzer_2012",
+     "Psychosocial",
+     "Mortality",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "Polzer_2012",
+     "Psychosocial",
+     "Mortality",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 3
+    }
+   },
+   {
+    "key": [
+     "Schipf_2010",
+     "U",
+     "TT",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "Schipf_2010",
+     "U",
+     "TT",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "Schipf_2010",
+     "WC",
+     "T2DM",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "Schipf_2010",
+     "WC",
+     "T2DM",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "Schipf_2010",
+     "WC",
+     "TT",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "Schipf_2010",
+     "WC",
+     "TT",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "Sebastiani_2005",
+     "TGFBR3.8",
+     "TGFBR3.2",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "Shrier_2008",
+     "ConnectiveTissueDisorder",
+     "IntraGameProprioception",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "Shrier_2008",
+     "ConnectiveTissueDisorder",
+     "NeuromuscularFatigue",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "asia",
+     "bronc",
+     "dysp",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "asia",
+     "lung",
+     "dysp",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "asia",
+     "lung",
+     "dysp",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "barley",
+     "nedbarea",
+     "s2528",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "ecoli70",
+     "pspB",
+     "pspA",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 13
+    }
+   },
+   {
+    "key": [
+     "hepar2",
+     "RHepatitis",
+     "phosphatase",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "hepar2",
+     "RHepatitis",
+     "phosphatase",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "hepar2",
+     "choledocholithotomy",
+     "jaundice",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "hepar2",
+     "hbsag",
+     "hbsag_anti",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "insurance",
+     "RiskAversion",
+     "Theft",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 12
+    }
+   },
+   {
+    "key": [
+     "insurance",
+     "RiskAversion",
+     "Theft",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 10
+    }
+   },
+   {
+    "key": [
+     "magic-irri",
+     "G3222",
+     "GTEMP",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 5
+    }
+   },
+   {
+    "key": [
+     "magic-irri",
+     "G3222",
+     "GTEMP",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "magic-irri",
+     "G3222",
+     "YLD",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 5
+    }
+   },
+   {
+    "key": [
+     "magic-irri",
+     "G3222",
+     "YLD",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "magic-irri",
+     "G4145",
+     "HT",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 5
+    }
+   },
+   {
+    "key": [
+     "magic-irri",
+     "G4145",
+     "HT",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "magic-niab",
+     "G2835",
+     "YR.FIELD",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 6
+    }
+   },
+   {
+    "key": [
+     "magic-niab",
+     "G2835",
+     "YR.FIELD",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 3
+    }
+   },
+   {
+    "key": [
+     "mediator",
+     "I",
+     "Y",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "mediator",
+     "X",
+     "I",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "mediator",
+     "X",
+     "I",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "mediator",
+     "X",
+     "Y",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "mediator",
+     "X",
+     "Y",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 1
+    }
+   },
+   {
+    "key": [
+     "munin1",
+     "R_LNLBE_MEDD2_RD_EW",
+     "R_MEDD2_CV_EW",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "munin1",
+     "R_LNLBE_MEDD2_RD_EW",
+     "R_MEDD2_CV_EW",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 2
+    }
+   },
+   {
+    "key": [
+     "munin1",
+     "R_MED_RD_EW",
+     "R_MED_CV_EW",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 4
+    }
+   },
+   {
+    "key": [
+     "sachs",
+     "Mek",
+     "Akt",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 9
+    }
+   },
+   {
+    "key": [
+     "sachs",
+     "Mek",
+     "Akt",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 6
+    }
+   },
+   {
+    "key": [
+     "sachs",
+     "Raf",
+     "Akt",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 9
+    }
+   },
+   {
+    "key": [
+     "sachs",
+     "Raf",
+     "Akt",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 6
+    }
+   },
+   {
+    "key": [
+     "sachs",
+     "Raf",
+     "Mek",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 9
+    }
+   },
+   {
+    "key": [
+     "sachs",
+     "Raf",
+     "Mek",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 6
+    }
+   },
+   {
+    "key": [
+     "water",
+     "C_NI_12_15",
+     "CBODN_12_45",
+     0.5
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 3
+    }
+   },
+   {
+    "key": [
+     "win95pts",
+     "AppDtGnTm",
+     "DeskPrntSpd",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 3
+    }
+   },
+   {
+    "key": [
+     "win95pts",
+     "AppDtGnTm",
+     "NtSpd",
+     0.25
+    ],
+    "fields": [
+     "k_g0"
+    ],
+    "committed": {
+     "k_g0": 0
+    },
+    "recomputed": {
+     "k_g0": 3
+    }
+   }
+  ],
+  "label_decomposition": {
+   "not_amenable": 78
+  }
+ },
+ "nested": {
+  "coverage_1_checked": 71,
+  "coverage_1_mismatched": 0,
+  "partial_coverage_changed": 29,
+  "partial_coverage_checked": 142,
+  "radius_delta": {
+   "-1->2": 3,
+   "-1->1": 14,
+   "1->-1": 8,
+   "2->3": 2,
+   "2->-1": 2
+  },
+  "status_delta": {
+   "not_amenable->ok": 17,
+   "ok->not_amenable": 8,
+   "ok->o_g0_extensions_intractable": 2,
+   "ok->ok": 2
+  }
+ },
+ "seconds": 87.3
+}

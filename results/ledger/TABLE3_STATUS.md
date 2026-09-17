@@ -1,0 +1,62 @@
+# Table 3 — the status composition, per tier and knowledge arm
+
+The fixed denominator. Every arm reports the same rows; the columns say why a row could not be certified. `ok` rows carry a certificate.
+
+| arm | tier | rows | ok | y_not_possible_descendant | not_amenable | no_valid_set | knowledge_inconsistent |
+|---|---|---|---|---|---|---|---|
+| `D_DEGEN` | T0 | 32 | 0 | 0 | 32 | 0 | 0 |
+| `D_DEGEN` | T1 | 260 | 35 | 0 | 225 | 0 | 0 |
+| `D_DEGEN` | T2 | 156 | 22 | 0 | 134 | 0 | 0 |
+| `D_DEGEN` | T3 | 80 | 11 | 0 | 69 | 0 | 0 |
+| `D_LLM` | T0 | 32 | 13 | 16 | 3 | 0 | 0 |
+| `D_LLM` | T1 | 260 | 91 | 83 | 86 | 0 | 0 |
+| `D_LLM` | T2 | 156 | 99 | 33 | 24 | 0 | 0 |
+| `D_LLM` | T3 | 80 | 26 | 23 | 31 | 0 | 0 |
+| `D_LLM_32B` | T0 | 32 | 14 | 18 | 0 | 0 | 0 |
+| `D_LLM_32B` | T1 | 260 | 97 | 100 | 63 | 0 | 0 |
+| `D_LLM_32B` | T2 | 156 | 74 | 38 | 44 | 0 | 0 |
+| `D_LLM_32B` | T3 | 80 | 19 | 28 | 33 | 0 | 0 |
+| `D_LLM_72B` | T0 | 32 | 14 | 18 | 0 | 0 | 0 |
+| `D_LLM_72B` | T1 | 260 | 126 | 106 | 28 | 0 | 0 |
+| `D_LLM_72B` | T2 | 156 | 111 | 38 | 7 | 0 | 0 |
+| `D_LLM_72B` | T3 | 80 | 34 | 29 | 17 | 0 | 0 |
+| `D_LLM_72B_INSTR` | T0 | 32 | 14 | 18 | 0 | 0 | 0 |
+| `D_LLM_72B_INSTR` | T1 | 260 | 124 | 101 | 35 | 0 | 0 |
+| `D_LLM_72B_INSTR` | T2 | 156 | 107 | 38 | 11 | 0 | 0 |
+| `D_LLM_72B_INSTR` | T3 | 80 | 34 | 20 | 26 | 0 | 0 |
+| `D_LLM_GEMMA_27B` | T0 | 32 | 5 | 7 | 20 | 0 | 0 |
+| `D_LLM_GEMMA_27B` | T1 | 260 | 109 | 95 | 56 | 0 | 0 |
+| `D_LLM_GEMMA_27B` | T2 | 156 | 113 | 36 | 7 | 0 | 0 |
+| `D_LLM_GEMMA_27B` | T3 | 80 | 36 | 33 | 11 | 0 | 0 |
+| `D_LLM_INSTR` | T0 | 32 | 9 | 12 | 11 | 0 | 0 |
+| `D_LLM_INSTR` | T1 | 260 | 88 | 76 | 96 | 0 | 0 |
+| `D_LLM_INSTR` | T2 | 156 | 84 | 25 | 47 | 0 | 0 |
+| `D_LLM_INSTR` | T3 | 80 | 25 | 20 | 35 | 0 | 0 |
+| `D_LLM_SRC` | T0 | 32 | 13 | 16 | 3 | 0 | 0 |
+| `D_LLM_SRC` | T1 | 260 | 108 | 124 | 28 | 0 | 0 |
+| `D_LLM_SRC` | T2 | 156 | 87 | 39 | 30 | 0 | 0 |
+| `D_LLM_SRC` | T3 | 80 | 35 | 32 | 13 | 0 | 0 |
+| `D_LLM_SRC_70B` | T0 | 32 | 14 | 18 | 0 | 0 | 0 |
+| `D_LLM_SRC_70B` | T1 | 260 | 122 | 121 | 17 | 0 | 0 |
+| `D_LLM_SRC_70B` | T2 | 156 | 102 | 34 | 20 | 0 | 0 |
+| `D_LLM_SRC_70B` | T3 | 80 | 29 | 21 | 30 | 0 | 0 |
+| `D_RAND` | T0 | 56 | 21 | 35 | 0 | 0 | 0 |
+| `D_RAND` | T1 | 740 | 295 | 217 | 228 | 0 | 0 |
+| `D_RAND` | T2 | 468 | 267 | 120 | 81 | 0 | 0 |
+| `D_RAND` | T3 | 180 | 66 | 29 | 85 | 0 | 0 |
+| `D_SCRAMBLED` | T0 | 32 | 8 | 17 | 7 | 0 | 0 |
+| `D_SCRAMBLED` | T1 | 260 | 94 | 68 | 98 | 0 | 0 |
+| `D_SCRAMBLED` | T2 | 156 | 70 | 31 | 55 | 0 | 0 |
+| `D_SCRAMBLED` | T3 | 80 | 25 | 19 | 36 | 0 | 0 |
+| `D_SCRAMBLED_72B` | T0 | 32 | 9 | 19 | 4 | 0 | 0 |
+| `D_SCRAMBLED_72B` | T1 | 260 | 77 | 101 | 82 | 0 | 0 |
+| `D_SCRAMBLED_72B` | T2 | 156 | 81 | 42 | 33 | 0 | 0 |
+| `D_SCRAMBLED_72B` | T3 | 80 | 25 | 19 | 36 | 0 | 0 |
+| `A_ORACLE` | T0 | 32 | 17 | 15 | 0 | 0 | 0 |
+| `A_ORACLE` | T1 | 260 | 132 | 128 | 0 | 0 | 0 |
+| `A_ORACLE` | T2 | 156 | 108 | 48 | 0 | 0 | 0 |
+| `A_ORACLE` | T3 | 80 | 37 | 43 | 0 | 0 | 0 |
+| `A_TRUE` | T0 | 32 | 12 | 14 | 6 | 0 | 0 |
+| `A_TRUE` | T1 | 260 | 87 | 64 | 109 | 0 | 0 |
+| `A_TRUE` | T2 | 156 | 92 | 39 | 25 | 0 | 0 |
+| `A_TRUE` | T3 | 80 | 18 | 25 | 37 | 0 | 0 |

@@ -1,0 +1,5 @@
+network,nodes,undirected_edges,components_ge2,candidate_treatments,frame_pairs,sampled_pairs,inclusion_probability
+ecoli70,46,8,5,12,101,20,0.19802
+arth150,107,41,8,48,858,20,0.02331
+magic-niab,44,5,4,9,121,20,0.165289
+magic-irri,64,11,5,14,82,20,0.243902

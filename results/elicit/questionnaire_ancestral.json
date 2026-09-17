@@ -1,0 +1,2105 @@
+{
+ "cpdag_source": "dag_to_cpdag(true DAG); true_dag_on_path = via_Chat_only",
+ "items": [
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "Age": "Age",
+    "Occ": "Occ",
+    "Smo": "Smo",
+    "Thist": "Thist"
+   },
+   "naming": "real",
+   "network": "Didelez_2010",
+   "nodes": [
+    "Age",
+    "Occ",
+    "Smo",
+    "Thist"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Age",
+     "Smo"
+    ],
+    [
+     "Age",
+     "Thist"
+    ],
+    [
+     "Smo",
+     "Thist"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from hormone replacement therapy and venous thromboembolism in women: age, smoking, occupation and selection into the study.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  Smo\n  Age\n  Occ\n  Thist\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is Smo a cause of Thist, possibly through other variables?\n  2. Is Age a cause of Thist, possibly through other variables?\n  3. Is Age a cause of Smo, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "ce56ddf95946a4b3b035281ba9e5458e1a5ed7bfb17cdd6066a39397027aa106"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "AFF": "AFF",
+    "AIS": "AIS",
+    "ALN": "ALN",
+    "APA": "APA",
+    "CDR": "CDR",
+    "PER": "PER",
+    "SAN": "SAN"
+   },
+   "naming": "real",
+   "network": "Kampen_2014",
+   "nodes": [
+    "AFF",
+    "AIS",
+    "ALN",
+    "APA",
+    "CDR",
+    "PER",
+    "SAN"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "AFF",
+     "PER"
+    ],
+    [
+     "AIS",
+     "ALN"
+    ],
+    [
+     "AIS",
+     "APA"
+    ],
+    [
+     "AIS",
+     "CDR"
+    ],
+    [
+     "ALN",
+     "CDR"
+    ],
+    [
+     "APA",
+     "CDR"
+    ],
+    [
+     "APA",
+     "PER"
+    ],
+    [
+     "PER",
+     "SAN"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from an applied clinical study; the variables are given by their published codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  ALN\n  APA\n  SAN\n  AIS\n  PER\n  CDR\n  AFF\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is AIS a cause of APA, possibly through other variables?\n  2. Is AIS a cause of ALN, possibly through other variables?\n  3. Is ALN a cause of CDR, possibly through other variables?\n  4. Is PER a cause of SAN, possibly through other variables?\n  5. Is AFF a cause of PER, possibly through other variables?\n  6. Is APA a cause of CDR, possibly through other variables?\n  7. Is APA a cause of PER, possibly through other variables?\n  8. Is AIS a cause of CDR, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "3ccf741c0a0b0222c0961b87543d453a9ae9ac87e94406906a991dcb18707a43"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "Alcohol": "Alcohol",
+    "Caries": "Caries",
+    "Psychosocial": "Psychosocial",
+    "Smoking": "Smoking",
+    "Sport": "Sport"
+   },
+   "naming": "real",
+   "network": "Polzer_2012",
+   "nodes": [
+    "Alcohol",
+    "Caries",
+    "Psychosocial",
+    "Smoking",
+    "Sport"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Alcohol",
+     "Caries"
+    ],
+    [
+     "Alcohol",
+     "Sport"
+    ],
+    [
+     "Caries",
+     "Smoking"
+    ],
+    [
+     "Caries",
+     "Sport"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from tooth loss and mortality: alcohol, smoking, diabetes and socio-economic factors.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  Smoking\n  Alcohol\n  Sport\n  Psychosocial\n  Caries\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is Alcohol a cause of Caries, possibly through other variables?\n  2. Is Caries a cause of Smoking, possibly through other variables?\n  3. Is Alcohol a cause of Sport, possibly through other variables?\n  4. Is Caries a cause of Sport, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "2a1bf770714ae4c3e2def0e8835f7b6d7a4ac1c8235ac9b1af9b83222faa87d9"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "A": "A",
+    "PA": "PA",
+    "S": "S",
+    "U": "U",
+    "WC": "WC"
+   },
+   "naming": "real",
+   "network": "Schipf_2010",
+   "nodes": [
+    "A",
+    "PA",
+    "S",
+    "U",
+    "WC"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "PA",
+     "S"
+    ],
+    [
+     "PA",
+     "U"
+    ],
+    [
+     "S",
+     "U"
+    ],
+    [
+     "S",
+     "WC"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from type 2 diabetes in men: testosterone, physical activity, waist circumference, smoking and age.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  U\n  WC\n  A\n  S\n  PA\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is PA a cause of S, possibly through other variables?\n  2. Is S a cause of WC, possibly through other variables?\n  3. Is S a cause of U, possibly through other variables?\n  4. Is PA a cause of U, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "6122421de37a9f791f961247ad4cd3f7ac7ce353a4c2b56e0485a890cf661cc0"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "ANXA2.8": "ANXA2.8",
+    "BMP6": "BMP6",
+    "CAT": "CAT",
+    "EDNI1.6": "EDNI1.6"
+   },
+   "naming": "real",
+   "network": "Sebastiani_2005",
+   "nodes": [
+    "ANXA2.8",
+    "BMP6",
+    "CAT",
+    "EDNI1.6"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "BMP6",
+     "CAT"
+    ],
+    [
+     "BMP6",
+     "EDNI1.6"
+    ],
+    [
+     "CAT",
+     "EDNI1.6"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from stroke in sickle-cell anaemia: gene polymorphisms and clinical outcome.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  ANXA2.8\n  BMP6\n  EDNI1.6\n  CAT\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is CAT a cause of EDNI1.6, possibly through other variables?\n  2. Is BMP6 a cause of CAT, possibly through other variables?\n  3. Is BMP6 a cause of EDNI1.6, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "9b8f945baf58709f06ae882f18ad24099cc2ca537424b134d9ff868bb80c7113"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "ConnectiveTissueDisorder": "ConnectiveTissueDisorder",
+    "Genetics": "Genetics",
+    "TissueWeakness": "TissueWeakness"
+   },
+   "naming": "real",
+   "network": "Shrier_2008",
+   "nodes": [
+    "ConnectiveTissueDisorder",
+    "Genetics",
+    "TissueWeakness"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Genetics",
+     "TissueWeakness"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from sports injury: warm-up, fitness, connective tissue, genetics, coaching and team motivation.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  TissueWeakness\n  Genetics\n  ConnectiveTissueDisorder\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is Genetics a cause of TissueWeakness, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "8da9811b7f7e248c4ec98c92b2f150f2c93c308ecbb9b36023ad879cc4ca2191"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "BUGGY54": "BUGGY54",
+    "HORIZ53": "HORIZ53",
+    "INCLINE51": "INCLINE51",
+    "NORMAL52": "NORMAL52"
+   },
+   "naming": "real",
+   "network": "andes",
+   "nodes": [
+    "BUGGY54",
+    "HORIZ53",
+    "INCLINE51",
+    "NORMAL52"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "BUGGY54",
+     "HORIZ53"
+    ],
+    [
+     "BUGGY54",
+     "INCLINE51"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a student's problem-solving steps and knowledge in an introductory physics tutor.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  INCLINE51 (values: false, true)\n  NORMAL52 (values: false, true)\n  BUGGY54 (values: false, true)\n  HORIZ53 (values: false, true)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is BUGGY54 a cause of HORIZ53, possibly through other variables?\n  2. Is BUGGY54 a cause of INCLINE51, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e92112ecf122c9b72d1dd28a1799881a8dd99afb64583cba0b7d35e4428b3c37"
+  },
+  {
+   "component": 2,
+   "kind": "ancestral",
+   "label_of": {
+    "TRY11": "TRY11",
+    "TRY12": "TRY12",
+    "TRY13": "TRY13",
+    "TRY14": "TRY14",
+    "TRY15": "TRY15"
+   },
+   "naming": "real",
+   "network": "andes",
+   "nodes": [
+    "TRY11",
+    "TRY12",
+    "TRY13",
+    "TRY14",
+    "TRY15"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "TRY11",
+     "TRY13"
+    ],
+    [
+     "TRY11",
+     "TRY15"
+    ],
+    [
+     "TRY13",
+     "TRY14"
+    ],
+    [
+     "TRY13",
+     "TRY15"
+    ],
+    [
+     "TRY14",
+     "TRY15"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a student's problem-solving steps and knowledge in an introductory physics tutor.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  TRY11 (values: false, true)\n  TRY15 (values: false, true)\n  TRY13 (values: false, true)\n  TRY14 (values: false, true)\n  TRY12 (values: false, true)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is TRY14 a cause of TRY15, possibly through other variables?\n  2. Is TRY11 a cause of TRY13, possibly through other variables?\n  3. Is TRY13 a cause of TRY15, possibly through other variables?\n  4. Is TRY11 a cause of TRY15, possibly through other variables?\n  5. Is TRY13 a cause of TRY14, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "fd64ac2b23d978fcfa6ad98706dbe71dae526df047155d5859af038141332034"
+  },
+  {
+   "component": 3,
+   "kind": "ancestral",
+   "label_of": {
+    "TRY24": "TRY24",
+    "TRY25": "TRY25",
+    "TRY26": "TRY26"
+   },
+   "naming": "real",
+   "network": "andes",
+   "nodes": [
+    "TRY24",
+    "TRY25",
+    "TRY26"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "TRY24",
+     "TRY26"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a student's problem-solving steps and knowledge in an introductory physics tutor.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  TRY26 (values: false, true)\n  TRY25 (values: false, true)\n  TRY24 (values: false, true)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is TRY24 a cause of TRY26, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e98007b6772f8cfe3706521a4a6c8ba278c913a4257b789d36c77fa9430a5e2d"
+  },
+  {
+   "component": 2,
+   "kind": "ancestral",
+   "label_of": {
+    "126": "126",
+    "155": "155",
+    "161": "161",
+    "187": "187",
+    "20": "20",
+    "26": "26",
+    "269": "269",
+    "342": "342",
+    "363": "363",
+    "454": "454",
+    "547": "547",
+    "558": "558",
+    "603": "603",
+    "640": "640",
+    "679": "679",
+    "739": "739",
+    "781": "781",
+    "783": "783",
+    "96": "96"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "126",
+    "155",
+    "161",
+    "187",
+    "20",
+    "26",
+    "269",
+    "342",
+    "363",
+    "454",
+    "547",
+    "558",
+    "603",
+    "640",
+    "679",
+    "739",
+    "781",
+    "783",
+    "96"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "126",
+     "363"
+    ],
+    [
+     "126",
+     "679"
+    ],
+    [
+     "187",
+     "679"
+    ],
+    [
+     "269",
+     "679"
+    ],
+    [
+     "454",
+     "640"
+    ],
+    [
+     "739",
+     "783"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  547\n  558\n  155\n  26\n  363\n  640\n  96\n  783\n  739\n  781\n  187\n  454\n  679\n  269\n  20\n  161\n  603\n  126\n  342\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is 187 a cause of 679, possibly through other variables?\n  2. Is 126 a cause of 679, possibly through other variables?\n  3. Is 739 a cause of 783, possibly through other variables?\n  4. Is 126 a cause of 363, possibly through other variables?\n  5. Is 454 a cause of 640, possibly through other variables?\n  6. Is 269 a cause of 679, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "58c1856f0f276864ebdb03861ba51a612ae6c655aa96412956115d8a3d63da46"
+  },
+  {
+   "component": 3,
+   "kind": "ancestral",
+   "label_of": {
+    "144": "144",
+    "198": "198",
+    "211": "211",
+    "248": "248",
+    "368": "368",
+    "377": "377",
+    "622": "622",
+    "665": "665",
+    "666": "666",
+    "686": "686",
+    "712": "712",
+    "779": "779",
+    "798": "798",
+    "81": "81"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "144",
+    "198",
+    "211",
+    "248",
+    "368",
+    "377",
+    "622",
+    "665",
+    "666",
+    "686",
+    "712",
+    "779",
+    "798",
+    "81"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "377",
+     "622"
+    ],
+    [
+     "377",
+     "666"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  144\n  377\n  666\n  622\n  198\n  248\n  81\n  712\n  798\n  211\n  368\n  665\n  686\n  779\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is 377 a cause of 622, possibly through other variables?\n  2. Is 377 a cause of 666, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "81d331e6ddec4568469d6ddfd838155608742c31a642f75d78404313958b3f83"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "bronc": "bronc",
+    "lung": "lung",
+    "smoke": "smoke"
+   },
+   "naming": "real",
+   "network": "asia",
+   "nodes": [
+    "bronc",
+    "lung",
+    "smoke"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "bronc",
+     "lung"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from patients at a chest clinic: travel history, smoking, tuberculosis, lung cancer, bronchitis, chest X-ray and shortness of breath.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  smoke (values: yes, no)\n  bronc (values: yes, no)\n  lung (values: yes, no)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is bronc a cause of lung, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "f10e1874d3c5fc749ebbbfedc1794d3bb7eec03fe58416a81fdb7fd27d033e6e"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "dg25": "dg25",
+    "frspdag": "frspdag",
+    "jordinf": "jordinf",
+    "saatid": "saatid"
+   },
+   "naming": "real",
+   "network": "barley",
+   "nodes": [
+    "dg25",
+    "frspdag",
+    "jordinf",
+    "saatid"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "dg25",
+     "frspdag"
+    ],
+    [
+     "jordinf",
+     "saatid"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a field trial of malting barley: soil, fertiliser, sowing, weather, pests, grain yield and grain quality.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  jordinf (values: x__80, x_80__85, x_94__90, x90__93, x93__95, x_95__97, x_97__98, x_98__99, x_99_1_00)\n  dg25 (values: x_22_5, x11_5_27_5, x27_5_32_5, x32_5_37_5, x37_5_47_5, x47_5_57_5, x_57_5)\n  frspdag (values: x_15, x15_17, x17_19, x19_21, x21_23, x23_25, x25_27, x_27)\n  saatid (values: x_26_3, x26_3_10_4, x11_4_20_4, x21_4_26_4, x_26_4)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is jordinf a cause of saatid, possibly through other variables?\n  2. Is dg25 a cause of frspdag, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "664669539c5287d73e79c57eaf19dbee5f7759079f7d01f0b0c00278f16dc29b"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "dgv5980": "dgv5980",
+    "jordtype": "jordtype",
+    "rokap": "rokap"
+   },
+   "naming": "real",
+   "network": "barley",
+   "nodes": [
+    "dgv5980",
+    "jordtype",
+    "rokap"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "dgv5980",
+     "jordtype"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a field trial of malting barley: soil, fertiliser, sowing, weather, pests, grain yield and grain quality.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  jordtype (values: Jb_1_, JB_2, JB_3, JB_4, JB_5, JB_6, Jb_7, JB_8, JB_9)\n  rokap (values: x37_5_62_5, x62_5_87_5, x87_5_112_5, x112_5_137_5, x137_5_162_5, x162_5_187_5, x187_5_212_5)\n  dgv5980 (values: x0_5, x5_10, x10_15, x15_25, x25_35, x_35)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is dgv5980 a cause of jordtype, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "86dfd3792809a99b79a93763c99fa716d414a59ddb26224ba82b91438390d415"
+  },
+  {
+   "component": 3,
+   "kind": "ancestral",
+   "label_of": {
+    "sort": "sort",
+    "sorttkv": "sorttkv",
+    "srtprot": "srtprot",
+    "srtsize": "srtsize"
+   },
+   "naming": "real",
+   "network": "barley",
+   "nodes": [
+    "sort",
+    "sorttkv",
+    "srtprot",
+    "srtsize"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "sorttkv",
+     "srtprot"
+    ],
+    [
+     "sorttkv",
+     "srtsize"
+    ],
+    [
+     "srtprot",
+     "srtsize"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a field trial of malting barley: soil, fertiliser, sowing, weather, pests, grain yield and grain quality.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  srtprot (values: x1, x2, x3, x4, x5, x6, x7, x8, x9)\n  sort (values: Abelone, Alexis, Alis, Amber, Ariel, Baracuda, Baronesse, Bartok, Blenheim, Brewster, Caminant, Canut, Caruso, Chariot, Collie, Cooper, Cork, Delibes, Derkado, Digger, Etna, Evelyn, Give, Goldie, G_363ta, Heron, Jarek, Jill, Korinna, Krona, Lamba, Lenka, Limbo, Loma, Lysimax, Maresi, Marielle, Marina, Maud, Meltan, Mentor, Mie, Miralix, Nevada, Optic, Peel, Polygena, Portia, Princesse, Prisma, Ragtime, Reggae, Rima, Saxo, Segu, Sehila, Selim, Semal, Senor, Shamu, Teal, Texane, Tofta, Trebon, Vintage, x_321rja, andre)\n  srtsize (values: x__1, x_1, x0, x1, x2, x3, x_3)\n  sorttkv (values: x1, x2, x3, x4, x5, x6, x7, x8, x9)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is sorttkv a cause of srtprot, possibly through other variables?\n  2. Is srtprot a cause of srtsize, possibly through other variables?\n  3. Is sorttkv a cause of srtsize, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e277fad1488cd856c83dfed6c16652a61fc403dc9161a07305e4d98332c8521a"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "Age": "Age",
+    "BirthAsphyxia": "BirthAsphyxia",
+    "CO2": "CO2",
+    "CO2Report": "CO2Report",
+    "CardiacMixing": "CardiacMixing",
+    "Disease": "Disease",
+    "DuctFlow": "DuctFlow",
+    "LVH": "LVH",
+    "LVHreport": "LVHreport",
+    "LungFlow": "LungFlow",
+    "LungParench": "LungParench",
+    "Sick": "Sick"
+   },
+   "naming": "real",
+   "network": "child",
+   "nodes": [
+    "Age",
+    "BirthAsphyxia",
+    "CO2",
+    "CO2Report",
+    "CardiacMixing",
+    "Disease",
+    "DuctFlow",
+    "LVH",
+    "LVHreport",
+    "LungFlow",
+    "LungParench",
+    "Sick"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Age",
+     "LVH"
+    ],
+    [
+     "Age",
+     "LungFlow"
+    ],
+    [
+     "Age",
+     "LungParench"
+    ],
+    [
+     "BirthAsphyxia",
+     "Sick"
+    ],
+    [
+     "CardiacMixing",
+     "LungParench"
+    ],
+    [
+     "DuctFlow",
+     "LungParench"
+    ],
+    [
+     "LVH",
+     "LungParench"
+    ],
+    [
+     "LVH",
+     "Sick"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from newborn infants referred with suspected congenital heart disease: history, examination findings, tests and diagnosis.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  Age (values: 0-3_days, 4-10_days, 11-30_days)\n  LVHreport (values: yes, no)\n  LungFlow (values: Normal, Low, High)\n  CO2Report (values: <7.5, >=7.5)\n  CardiacMixing (values: None, Mild, Complete, Transp.)\n  CO2 (values: Normal, Low, High)\n  LungParench (values: Normal, Congested, Abnormal)\n  LVH (values: yes, no)\n  Sick (values: yes, no)\n  DuctFlow (values: Lt_to_Rt, None, Rt_to_Lt)\n  Disease (values: PFC, TGA, Fallot, PAIVS, TAPVD, Lung)\n  BirthAsphyxia (values: yes, no)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is BirthAsphyxia a cause of Sick, possibly through other variables?\n  2. Is Age a cause of LungParench, possibly through other variables?\n  3. Is LVH a cause of Sick, possibly through other variables?\n  4. Is Age a cause of LVH, possibly through other variables?\n  5. Is Age a cause of LungFlow, possibly through other variables?\n  6. Is LVH a cause of LungParench, possibly through other variables?\n  7. Is CardiacMixing a cause of LungParench, possibly through other variables?\n  8. Is DuctFlow a cause of LungParench, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "6f455ed9431eb371aaf96a971b4d906fae776d39568af0147523489ec83e22b4"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "bg_0": "bg_0",
+    "ins_indep_util_0": "ins_indep_util_0",
+    "renal_cl_0": "renal_cl_0"
+   },
+   "naming": "real",
+   "network": "diabetes",
+   "nodes": [
+    "bg_0",
+    "ins_indep_util_0",
+    "renal_cl_0"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "ins_indep_util_0",
+     "renal_cl_0"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from the physiology of a diabetic patient over one day: meals, insulin, glucose and related quantities measured hourly.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  renal_cl_0 (values: 0_8mmol_kg_h, 0_4mmol_kg_h, 0_0mmol_kg_h)\n  bg_0 (values: 20mmol_l, 18mmol_l, 16mmol_l, 14mmol_l, 12mmol_l, 10mmol_l, 8mmol_l, 6mmol_l, 4mmol_l, 2mmol_l, 1mmol_l)\n  ins_indep_util_0 (values: 0_8mmol_kg_h, 0_4mmol_kg_h, 0_0mmol_kg_h)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is ins_indep_util_0 a cause of renal_cl_0, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "ef1f32b71cc7b6cfb5d6f9eec17dc8637c9c61fb0ec05edc825efc62d8e1dd8c"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "atpG": "atpG",
+    "dnaJ": "dnaJ",
+    "eutG": "eutG",
+    "flgD": "flgD",
+    "gltA": "gltA",
+    "sucA": "sucA",
+    "sucD": "sucD",
+    "yhdM": "yhdM"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "atpG",
+    "dnaJ",
+    "eutG",
+    "flgD",
+    "gltA",
+    "sucA",
+    "sucD",
+    "yhdM"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "atpG",
+     "sucD"
+    ],
+    [
+     "dnaJ",
+     "sucD"
+    ],
+    [
+     "eutG",
+     "gltA"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  yhdM\n  gltA\n  sucD\n  dnaJ\n  eutG\n  atpG\n  flgD\n  sucA\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is dnaJ a cause of sucD, possibly through other variables?\n  2. Is eutG a cause of gltA, possibly through other variables?\n  3. Is atpG a cause of sucD, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "eb6082d1932a013fdc957b4ebe09b923071cf0ff10163359ff178a40ca651859"
+  },
+  {
+   "component": 2,
+   "kind": "ancestral",
+   "label_of": {
+    "b1191": "b1191",
+    "cchB": "cchB",
+    "fixC": "fixC",
+    "ygbD": "ygbD",
+    "yjbO": "yjbO"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "b1191",
+    "cchB",
+    "fixC",
+    "ygbD",
+    "yjbO"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "ygbD",
+     "yjbO"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  b1191\n  ygbD\n  fixC\n  yjbO\n  cchB\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is ygbD a cause of yjbO, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "ed12bdfaec7fe8f1fa3a43dc3223ad469cfb6cec80e50d5bcccd250be2a225e9"
+  },
+  {
+   "component": 3,
+   "kind": "ancestral",
+   "label_of": {
+    "cspA": "cspA",
+    "cspG": "cspG",
+    "hupB": "hupB",
+    "lpdA": "lpdA",
+    "nmpC": "nmpC",
+    "pspA": "pspA",
+    "pspB": "pspB",
+    "yecO": "yecO",
+    "yedE": "yedE",
+    "yfiA": "yfiA"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "cspA",
+    "cspG",
+    "hupB",
+    "lpdA",
+    "nmpC",
+    "pspA",
+    "pspB",
+    "yecO",
+    "yedE",
+    "yfiA"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "cspA",
+     "yecO"
+    ],
+    [
+     "lpdA",
+     "pspA"
+    ],
+    [
+     "nmpC",
+     "pspB"
+    ],
+    [
+     "nmpC",
+     "yedE"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  cspA\n  lpdA\n  hupB\n  cspG\n  pspA\n  yecO\n  yfiA\n  yedE\n  pspB\n  nmpC\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is nmpC a cause of yedE, possibly through other variables?\n  2. Is cspA a cause of yecO, possibly through other variables?\n  3. Is nmpC a cause of pspB, possibly through other variables?\n  4. Is lpdA a cause of pspA, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "2982c1c1e7f390387194bb850caf3db6c80a1d9f71f6238a288fe8fc292fa80a"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "Date": "Date",
+    "Dewpoints": "Dewpoints",
+    "LowLLapse": "LowLLapse",
+    "MeanRH": "MeanRH",
+    "MidLLapse": "MidLLapse",
+    "MvmtFeatures": "MvmtFeatures",
+    "RHRatio": "RHRatio",
+    "ScenRel3_4": "ScenRel3_4",
+    "ScenRelAMCIN": "ScenRelAMCIN",
+    "ScenRelAMIns": "ScenRelAMIns",
+    "Scenario": "Scenario",
+    "ScnRelPlFcst": "ScnRelPlFcst",
+    "SfcWndShfDis": "SfcWndShfDis",
+    "SynForcng": "SynForcng",
+    "TempDis": "TempDis",
+    "WindAloft": "WindAloft",
+    "WindFieldMt": "WindFieldMt",
+    "WindFieldPln": "WindFieldPln"
+   },
+   "naming": "real",
+   "network": "hailfinder",
+   "nodes": [
+    "Date",
+    "Dewpoints",
+    "LowLLapse",
+    "MeanRH",
+    "MidLLapse",
+    "MvmtFeatures",
+    "RHRatio",
+    "ScenRel3_4",
+    "ScenRelAMCIN",
+    "ScenRelAMIns",
+    "Scenario",
+    "ScnRelPlFcst",
+    "SfcWndShfDis",
+    "SynForcng",
+    "TempDis",
+    "WindAloft",
+    "WindFieldMt",
+    "WindFieldPln"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Dewpoints",
+     "MeanRH"
+    ],
+    [
+     "MeanRH",
+     "MidLLapse"
+    ],
+    [
+     "MvmtFeatures",
+     "SynForcng"
+    ],
+    [
+     "ScenRelAMIns",
+     "TempDis"
+    ],
+    [
+     "ScenRelAMIns",
+     "WindFieldPln"
+    ],
+    [
+     "SfcWndShfDis",
+     "WindAloft"
+    ],
+    [
+     "SfcWndShfDis",
+     "WindFieldMt"
+    ],
+    [
+     "TempDis",
+     "WindFieldPln"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from severe summer weather forecasting on the high plains: atmospheric conditions, scenarios and forecasts.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  WindFieldMt (values: Westerly, LVorOther)\n  SynForcng (values: SigNegative, NegToPos, SigPositive, PosToNeg, LittleChange)\n  TempDis (values: QStationary, Moving, None, Other)\n  MidLLapse (values: CloseToDryAd, Steep, ModerateOrLe)\n  RHRatio (values: MoistMDryL, DryMMoistL, Other)\n  MvmtFeatures (values: StrongFront, MarkedUpper, OtherRapid, NoMajor)\n  WindAloft (values: LV, SWQuad, NWQuad, AllElse)\n  Date (values: May15_Jun14, Jun15_Jul1, Jul2_Jul15, Jul16_Aug10, Aug11_Aug20, Aug20_Sep15)\n  LowLLapse (values: CloseToDryAd, Steep, ModerateOrLe, Stable)\n  ScenRel3_4 (values: ACEFK, B, D, GJ, HI)\n  Scenario (values: A, B, C, D, E, F, G, H, I, J, K)\n  ScnRelPlFcst (values: A, B, C, D, E, F, G, H, I, J, K)\n  ScenRelAMIns (values: ABI, CDEJ, F, G, H, K)\n  WindFieldPln (values: LV, DenvCyclone, LongAnticyc, E_NE, SEQuad, WidespdDnsl)\n  ScenRelAMCIN (values: AB, CThruK)\n  MeanRH (values: VeryMoist, Average, Dry)\n  SfcWndShfDis (values: DenvCyclone, E_W_N, E_W_S, MovingFtorOt, DryLine, None, Other)\n  Dewpoints (values: LowEvrywhere, LowAtStation, LowSHighN, LowNHighS, LowMtsHighPl, HighEvrywher, Other)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is SfcWndShfDis a cause of WindAloft, possibly through other variables?\n  2. Is SfcWndShfDis a cause of WindFieldMt, possibly through other variables?\n  3. Is MeanRH a cause of MidLLapse, possibly through other variables?\n  4. Is ScenRelAMIns a cause of WindFieldPln, possibly through other variables?\n  5. Is TempDis a cause of WindFieldPln, possibly through other variables?\n  6. Is Dewpoints a cause of MeanRH, possibly through other variables?\n  7. Is ScenRelAMIns a cause of TempDis, possibly through other variables?\n  8. Is MvmtFeatures a cause of SynForcng, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c8e85735fe91cedbf5a44ccf7bda3c31f6d51945c64f42d58809eafb5cf9d9f4"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "amylase": "amylase",
+    "choledocholithotomy": "choledocholithotomy",
+    "fat": "fat",
+    "flatulence": "flatulence",
+    "gallstones": "gallstones",
+    "upper_pain": "upper_pain"
+   },
+   "naming": "real",
+   "network": "hepar2",
+   "nodes": [
+    "amylase",
+    "choledocholithotomy",
+    "fat",
+    "flatulence",
+    "gallstones",
+    "upper_pain"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "amylase",
+     "choledocholithotomy"
+    ],
+    [
+     "amylase",
+     "fat"
+    ],
+    [
+     "amylase",
+     "flatulence"
+    ],
+    [
+     "amylase",
+     "upper_pain"
+    ],
+    [
+     "choledocholithotomy",
+     "fat"
+    ],
+    [
+     "choledocholithotomy",
+     "upper_pain"
+    ],
+    [
+     "fat",
+     "flatulence"
+    ],
+    [
+     "flatulence",
+     "upper_pain"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from liver disorders: risk factors, symptoms, laboratory tests and diagnoses.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  choledocholithotomy (values: present, absent)\n  amylase (values: a1400_500, a499_300, a299_0)\n  fat (values: present, absent)\n  upper_pain (values: present, absent)\n  flatulence (values: present, absent)\n  gallstones (values: present, absent)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is flatulence a cause of upper_pain, possibly through other variables?\n  2. Is fat a cause of flatulence, possibly through other variables?\n  3. Is amylase a cause of flatulence, possibly through other variables?\n  4. Is choledocholithotomy a cause of fat, possibly through other variables?\n  5. Is choledocholithotomy a cause of upper_pain, possibly through other variables?\n  6. Is amylase a cause of choledocholithotomy, possibly through other variables?\n  7. Is amylase a cause of upper_pain, possibly through other variables?\n  8. Is amylase a cause of fat, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "3053f4f99700c5d61d73ce270fbe3e40e9aca5060e76dd9d5fac5521a92ca2d4"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "Age": "Age",
+    "AntiTheft": "AntiTheft",
+    "DrivingSkill": "DrivingSkill",
+    "GoodStudent": "GoodStudent",
+    "HomeBase": "HomeBase",
+    "MakeModel": "MakeModel",
+    "OtherCar": "OtherCar",
+    "RiskAversion": "RiskAversion",
+    "SeniorTrain": "SeniorTrain",
+    "SocioEcon": "SocioEcon",
+    "VehicleYear": "VehicleYear"
+   },
+   "naming": "real",
+   "network": "insurance",
+   "nodes": [
+    "Age",
+    "AntiTheft",
+    "DrivingSkill",
+    "GoodStudent",
+    "HomeBase",
+    "MakeModel",
+    "OtherCar",
+    "RiskAversion",
+    "SeniorTrain",
+    "SocioEcon",
+    "VehicleYear"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Age",
+     "HomeBase"
+    ],
+    [
+     "AntiTheft",
+     "HomeBase"
+    ],
+    [
+     "DrivingSkill",
+     "SocioEcon"
+    ],
+    [
+     "GoodStudent",
+     "OtherCar"
+    ],
+    [
+     "HomeBase",
+     "VehicleYear"
+    ],
+    [
+     "MakeModel",
+     "OtherCar"
+    ],
+    [
+     "MakeModel",
+     "SeniorTrain"
+    ],
+    [
+     "MakeModel",
+     "VehicleYear"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from car insurance risk: driver characteristics, vehicle, accidents and costs.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  SocioEcon (values: Prole, Middle, UpperMiddle, Wealthy)\n  SeniorTrain (values: True, False)\n  GoodStudent (values: True, False)\n  OtherCar (values: True, False)\n  AntiTheft (values: True, False)\n  HomeBase (values: Secure, City, Suburb, Rural)\n  RiskAversion (values: Psychopath, Adventurous, Normal, Cautious)\n  DrivingSkill (values: SubStandard, Normal, Expert)\n  Age (values: Adolescent, Adult, Senior)\n  MakeModel (values: SportsCar, Economy, FamilySedan, Luxury, SuperLuxury)\n  VehicleYear (values: Current, Older)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is Age a cause of HomeBase, possibly through other variables?\n  2. Is GoodStudent a cause of OtherCar, possibly through other variables?\n  3. Is AntiTheft a cause of HomeBase, possibly through other variables?\n  4. Is MakeModel a cause of SeniorTrain, possibly through other variables?\n  5. Is HomeBase a cause of VehicleYear, possibly through other variables?\n  6. Is DrivingSkill a cause of SocioEcon, possibly through other variables?\n  7. Is MakeModel a cause of OtherCar, possibly through other variables?\n  8. Is MakeModel a cause of VehicleYear, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "52f27b73623b726faff4106a1c83ed9eb45f2a36d87caf061fe2de019201fd01"
+  },
+  {
+   "component": 3,
+   "kind": "ancestral",
+   "label_of": {
+    "G3212": "G3212",
+    "G4109": "G4109",
+    "G4145": "G4145",
+    "G4156": "G4156"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G3212",
+    "G4109",
+    "G4145",
+    "G4156"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G3212",
+     "G4109"
+    ],
+    [
+     "G3212",
+     "G4156"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G3212\n  G4145\n  G4109\n  G4156\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is G3212 a cause of G4109, possibly through other variables?\n  2. Is G3212 a cause of G4156, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "2ed3b80ad6983f1c0736c75333ff6d438bca5ddbd6a98318798629dd0fe76060"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "G1217": "G1217",
+    "G2208": "G2208",
+    "G257": "G257"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1217",
+    "G2208",
+    "G257"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1217",
+     "G2208"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G1217\n  G2208\n  G257\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is G1217 a cause of G2208, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "a729fd1413745d84e5ffc5a63255d1807f26df0bc019c5772efcee2ca81898f8"
+  },
+  {
+   "component": 2,
+   "kind": "ancestral",
+   "label_of": {
+    "G1294": "G1294",
+    "G2835": "G2835",
+    "G418": "G418"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1294",
+    "G2835",
+    "G418"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1294",
+     "G2835"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G2835\n  G1294\n  G418\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is G1294 a cause of G2835, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "a5b99c29cefd631a692b73ed13b536e223cd58a8be4662a60af8d659fefc2959"
+  },
+  {
+   "component": 4,
+   "kind": "ancestral",
+   "label_of": {
+    "G1853": "G1853",
+    "G311": "G311",
+    "G43": "G43"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1853",
+    "G311",
+    "G43"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1853",
+     "G43"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G43\n  G1853\n  G311\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is G1853 a cause of G43, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "7fe95707b2967ef9d00df81535e718fd55e8eaac701ee6b8aa91290c446b55df"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "I": "I",
+    "X": "X",
+    "Y": "Y",
+    "Z": "Z"
+   },
+   "naming": "real",
+   "network": "mediator",
+   "nodes": [
+    "I",
+    "X",
+    "Y",
+    "Z"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Y",
+     "Z"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a textbook causal diagram with abstract variables.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  Y\n  I\n  Z\n  X\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is Y a cause of Z, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "7a8cbea2b92d72f181f1113a1df0b1e1b99fc9ee9a6995396bbf6663389be460"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "L_LNLE_ULND5_DIFSLOW": "L_LNLE_ULND5_DIFSLOW",
+    "L_LNLE_ULND5_RD_E": "L_LNLE_ULND5_RD_E",
+    "L_LNLE_ULN_DIFSLOW": "L_LNLE_ULN_DIFSLOW",
+    "L_LNLE_ULN_PATHO": "L_LNLE_ULN_PATHO",
+    "L_ULN_RD_EW": "L_ULN_RD_EW"
+   },
+   "naming": "real",
+   "network": "munin",
+   "nodes": [
+    "L_LNLE_ULND5_DIFSLOW",
+    "L_LNLE_ULND5_RD_E",
+    "L_LNLE_ULN_DIFSLOW",
+    "L_LNLE_ULN_PATHO",
+    "L_ULN_RD_EW"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "L_LNLE_ULND5_DIFSLOW",
+     "L_ULN_RD_EW"
+    ],
+    [
+     "L_LNLE_ULND5_RD_E",
+     "L_LNLE_ULN_DIFSLOW"
+    ],
+    [
+     "L_LNLE_ULND5_RD_E",
+     "L_ULN_RD_EW"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  L_LNLE_ULND5_RD_E (values: NO, MOD, SEV)\n  L_LNLE_ULN_DIFSLOW (values: NO, MILD, MOD, SEV)\n  L_LNLE_ULN_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  L_ULN_RD_EW (values: NO, MOD, SEV)\n  L_LNLE_ULND5_DIFSLOW (values: NO, MILD, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is L_LNLE_ULND5_DIFSLOW a cause of L_ULN_RD_EW, possibly through other variables?\n  2. Is L_LNLE_ULND5_RD_E a cause of L_LNLE_ULN_DIFSLOW, possibly through other variables?\n  3. Is L_LNLE_ULND5_RD_E a cause of L_ULN_RD_EW, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "1624695e3ba2bf03670059750e5bb2a374df0e12010e4cf4c569c5a3e7f745d2"
+  },
+  {
+   "component": 4,
+   "kind": "ancestral",
+   "label_of": {
+    "R_LNLE_ULND5_DIFSLOW": "R_LNLE_ULND5_DIFSLOW",
+    "R_LNLE_ULND5_RD_E": "R_LNLE_ULND5_RD_E",
+    "R_LNLE_ULN_DIFSLOW": "R_LNLE_ULN_DIFSLOW",
+    "R_LNLE_ULN_PATHO": "R_LNLE_ULN_PATHO",
+    "R_ULN_RD_EW": "R_ULN_RD_EW"
+   },
+   "naming": "real",
+   "network": "munin",
+   "nodes": [
+    "R_LNLE_ULND5_DIFSLOW",
+    "R_LNLE_ULND5_RD_E",
+    "R_LNLE_ULN_DIFSLOW",
+    "R_LNLE_ULN_PATHO",
+    "R_ULN_RD_EW"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "R_LNLE_ULND5_DIFSLOW",
+     "R_LNLE_ULND5_RD_E"
+    ],
+    [
+     "R_LNLE_ULND5_RD_E",
+     "R_LNLE_ULN_DIFSLOW"
+    ],
+    [
+     "R_LNLE_ULND5_RD_E",
+     "R_ULN_RD_EW"
+    ],
+    [
+     "R_LNLE_ULN_DIFSLOW",
+     "R_ULN_RD_EW"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  R_ULN_RD_EW (values: NO, MOD, SEV)\n  R_LNLE_ULND5_DIFSLOW (values: NO, MILD, MOD, SEV)\n  R_LNLE_ULND5_RD_E (values: NO, MOD, SEV)\n  R_LNLE_ULN_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  R_LNLE_ULN_DIFSLOW (values: NO, MILD, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is R_LNLE_ULND5_RD_E a cause of R_ULN_RD_EW, possibly through other variables?\n  2. Is R_LNLE_ULN_DIFSLOW a cause of R_ULN_RD_EW, possibly through other variables?\n  3. Is R_LNLE_ULND5_DIFSLOW a cause of R_LNLE_ULND5_RD_E, possibly through other variables?\n  4. Is R_LNLE_ULND5_RD_E a cause of R_LNLE_ULN_DIFSLOW, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "350238cf5c94ce5313cb1c37815c76b911cf10a18f8211e5b80b11df2fbfd5c2"
+  },
+  {
+   "component": 5,
+   "kind": "ancestral",
+   "label_of": {
+    "R_LNLW_MEDD2_RD_WD": "R_LNLW_MEDD2_RD_WD",
+    "R_LNLW_MED_PATHO": "R_LNLW_MED_PATHO",
+    "R_MEDD2_RD_WD": "R_MEDD2_RD_WD",
+    "R_MED_RD_WA": "R_MED_RD_WA"
+   },
+   "naming": "real",
+   "network": "munin",
+   "nodes": [
+    "R_LNLW_MEDD2_RD_WD",
+    "R_LNLW_MED_PATHO",
+    "R_MEDD2_RD_WD",
+    "R_MED_RD_WA"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "R_LNLW_MED_PATHO",
+     "R_MEDD2_RD_WD"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  R_LNLW_MEDD2_RD_WD (values: NO, MOD, SEV)\n  R_MEDD2_RD_WD (values: NO, MOD, SEV)\n  R_LNLW_MED_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  R_MED_RD_WA (values: NO, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is R_LNLW_MED_PATHO a cause of R_MEDD2_RD_WD, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "fb07a31d5fc396cf6cbede5872c31773429a1f0ddedd6f65bc121a664002b065"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "R_LNLBE_MEDD2_DIFSLOW_WD": "R_LNLBE_MEDD2_DIFSLOW_WD",
+    "R_LNLBE_MEDD2_RD_EW": "R_LNLBE_MEDD2_RD_EW",
+    "R_LNLBE_MED_DIFSLOW": "R_LNLBE_MED_DIFSLOW",
+    "R_LNLBE_MED_PATHO": "R_LNLBE_MED_PATHO",
+    "R_MEDD2_RD_EW": "R_MEDD2_RD_EW",
+    "R_MED_RD_EW": "R_MED_RD_EW"
+   },
+   "naming": "real",
+   "network": "munin1",
+   "nodes": [
+    "R_LNLBE_MEDD2_DIFSLOW_WD",
+    "R_LNLBE_MEDD2_RD_EW",
+    "R_LNLBE_MED_DIFSLOW",
+    "R_LNLBE_MED_PATHO",
+    "R_MEDD2_RD_EW",
+    "R_MED_RD_EW"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "R_LNLBE_MEDD2_DIFSLOW_WD",
+     "R_LNLBE_MEDD2_RD_EW"
+    ],
+    [
+     "R_LNLBE_MEDD2_DIFSLOW_WD",
+     "R_LNLBE_MED_DIFSLOW"
+    ],
+    [
+     "R_LNLBE_MEDD2_DIFSLOW_WD",
+     "R_MED_RD_EW"
+    ],
+    [
+     "R_LNLBE_MEDD2_RD_EW",
+     "R_LNLBE_MED_DIFSLOW"
+    ],
+    [
+     "R_LNLBE_MEDD2_RD_EW",
+     "R_MED_RD_EW"
+    ],
+    [
+     "R_LNLBE_MED_DIFSLOW",
+     "R_MED_RD_EW"
+    ],
+    [
+     "R_LNLBE_MED_PATHO",
+     "R_MEDD2_RD_EW"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  R_MED_RD_EW (values: NO, MOD, SEV)\n  R_LNLBE_MED_DIFSLOW (values: NO, MILD, MOD, SEV)\n  R_LNLBE_MED_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  R_LNLBE_MEDD2_DIFSLOW_WD (values: NO, MILD, MOD, SEV)\n  R_MEDD2_RD_EW (values: NO, MOD, SEV)\n  R_LNLBE_MEDD2_RD_EW (values: NO, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is R_LNLBE_MED_PATHO a cause of R_MEDD2_RD_EW, possibly through other variables?\n  2. Is R_LNLBE_MEDD2_RD_EW a cause of R_MED_RD_EW, possibly through other variables?\n  3. Is R_LNLBE_MEDD2_RD_EW a cause of R_LNLBE_MED_DIFSLOW, possibly through other variables?\n  4. Is R_LNLBE_MED_DIFSLOW a cause of R_MED_RD_EW, possibly through other variables?\n  5. Is R_LNLBE_MEDD2_DIFSLOW_WD a cause of R_LNLBE_MEDD2_RD_EW, possibly through other variables?\n  6. Is R_LNLBE_MEDD2_DIFSLOW_WD a cause of R_LNLBE_MED_DIFSLOW, possibly through other variables?\n  7. Is R_LNLBE_MEDD2_DIFSLOW_WD a cause of R_MED_RD_EW, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "bac3381ec0dafba7985d261a6ff5827f8a06c731acc8dfd78f8bb1c097ffa211"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "R_LNLW_MEDD2_RD_WD": "R_LNLW_MEDD2_RD_WD",
+    "R_LNLW_MED_PATHO": "R_LNLW_MED_PATHO",
+    "R_MEDD2_RD_WD": "R_MEDD2_RD_WD",
+    "R_MED_RD_WA": "R_MED_RD_WA"
+   },
+   "naming": "real",
+   "network": "munin1",
+   "nodes": [
+    "R_LNLW_MEDD2_RD_WD",
+    "R_LNLW_MED_PATHO",
+    "R_MEDD2_RD_WD",
+    "R_MED_RD_WA"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "R_LNLW_MED_PATHO",
+     "R_MEDD2_RD_WD"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  R_LNLW_MED_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  R_LNLW_MEDD2_RD_WD (values: NO, MOD, SEV)\n  R_MEDD2_RD_WD (values: NO, MOD, SEV)\n  R_MED_RD_WA (values: NO, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is R_LNLW_MED_PATHO a cause of R_MEDD2_RD_WD, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c06ea59a26c2dc583d270687b7027b5f4fda3dd7db57f70cb76689e62a661a40"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "L_LNLE_ULND5_DIFSLOW": "L_LNLE_ULND5_DIFSLOW",
+    "L_LNLE_ULND5_RD_E": "L_LNLE_ULND5_RD_E",
+    "L_LNLE_ULN_DIFSLOW": "L_LNLE_ULN_DIFSLOW",
+    "L_LNLE_ULN_PATHO": "L_LNLE_ULN_PATHO",
+    "L_ULN_RD_EW": "L_ULN_RD_EW"
+   },
+   "naming": "real",
+   "network": "munin2",
+   "nodes": [
+    "L_LNLE_ULND5_DIFSLOW",
+    "L_LNLE_ULND5_RD_E",
+    "L_LNLE_ULN_DIFSLOW",
+    "L_LNLE_ULN_PATHO",
+    "L_ULN_RD_EW"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "L_LNLE_ULN_DIFSLOW",
+     "L_ULN_RD_EW"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  L_ULN_RD_EW (values: NO, MOD, SEV)\n  L_LNLE_ULND5_DIFSLOW (values: NO, MILD, MOD, SEV)\n  L_LNLE_ULND5_RD_E (values: NO, MOD, SEV)\n  L_LNLE_ULN_DIFSLOW (values: NO, MILD, MOD, SEV)\n  L_LNLE_ULN_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is L_LNLE_ULN_DIFSLOW a cause of L_ULN_RD_EW, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "396a1ac2fb8baf50a8b58ac9b8cfb670819410f5c4e43750a9ed8e2fb7b98625"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "L_MYAS_ADM_MUDENS": "L_MYAS_ADM_MUDENS",
+    "L_MYAS_ADM_NMT": "L_MYAS_ADM_NMT",
+    "L_MYAS_APB_MUDENS": "L_MYAS_APB_MUDENS",
+    "L_MYAS_APB_NMT": "L_MYAS_APB_NMT",
+    "L_MYAS_DELT_MUDENS": "L_MYAS_DELT_MUDENS",
+    "L_MYAS_DELT_NMT": "L_MYAS_DELT_NMT",
+    "MYASTHENIA": "MYASTHENIA",
+    "R_MYAS_ADM_MUDENS": "R_MYAS_ADM_MUDENS",
+    "R_MYAS_ADM_NMT": "R_MYAS_ADM_NMT",
+    "R_MYAS_APB_MUDENS": "R_MYAS_APB_MUDENS",
+    "R_MYAS_APB_NMT": "R_MYAS_APB_NMT",
+    "R_MYAS_DELT_MUDENS": "R_MYAS_DELT_MUDENS",
+    "R_MYAS_DELT_NMT": "R_MYAS_DELT_NMT"
+   },
+   "naming": "real",
+   "network": "munin2",
+   "nodes": [
+    "L_MYAS_ADM_MUDENS",
+    "L_MYAS_ADM_NMT",
+    "L_MYAS_APB_MUDENS",
+    "L_MYAS_APB_NMT",
+    "L_MYAS_DELT_MUDENS",
+    "L_MYAS_DELT_NMT",
+    "MYASTHENIA",
+    "R_MYAS_ADM_MUDENS",
+    "R_MYAS_ADM_NMT",
+    "R_MYAS_APB_MUDENS",
+    "R_MYAS_APB_NMT",
+    "R_MYAS_DELT_MUDENS",
+    "R_MYAS_DELT_NMT"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "L_MYAS_ADM_NMT",
+     "R_MYAS_APB_NMT"
+    ],
+    [
+     "L_MYAS_ADM_NMT",
+     "R_MYAS_DELT_MUDENS"
+    ],
+    [
+     "L_MYAS_APB_MUDENS",
+     "L_MYAS_DELT_MUDENS"
+    ],
+    [
+     "L_MYAS_APB_NMT",
+     "R_MYAS_ADM_MUDENS"
+    ],
+    [
+     "R_MYAS_ADM_MUDENS",
+     "R_MYAS_APB_MUDENS"
+    ],
+    [
+     "R_MYAS_ADM_MUDENS",
+     "R_MYAS_APB_NMT"
+    ],
+    [
+     "R_MYAS_ADM_NMT",
+     "R_MYAS_APB_NMT"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  L_MYAS_ADM_MUDENS (values: NORMAL, INCR, V_INCR)\n  R_MYAS_DELT_MUDENS (values: NORMAL, INCR, V_INCR)\n  MYASTHENIA (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  L_MYAS_DELT_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_APB_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  L_MYAS_ADM_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_DELT_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  L_MYAS_DELT_MUDENS (values: NORMAL, INCR, V_INCR)\n  L_MYAS_APB_MUDENS (values: NORMAL, INCR, V_INCR)\n  L_MYAS_APB_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_APB_MUDENS (values: NORMAL, INCR, V_INCR)\n  R_MYAS_ADM_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_ADM_MUDENS (values: NORMAL, INCR, V_INCR)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is L_MYAS_APB_NMT a cause of R_MYAS_ADM_MUDENS, possibly through other variables?\n  2. Is L_MYAS_ADM_NMT a cause of R_MYAS_DELT_MUDENS, possibly through other variables?\n  3. Is R_MYAS_ADM_NMT a cause of R_MYAS_APB_NMT, possibly through other variables?\n  4. Is R_MYAS_ADM_MUDENS a cause of R_MYAS_APB_MUDENS, possibly through other variables?\n  5. Is L_MYAS_ADM_NMT a cause of R_MYAS_APB_NMT, possibly through other variables?\n  6. Is L_MYAS_APB_MUDENS a cause of L_MYAS_DELT_MUDENS, possibly through other variables?\n  7. Is R_MYAS_ADM_MUDENS a cause of R_MYAS_APB_NMT, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "992f4e7cd1c155acad4e1d7657940902edafeec330d1887cb450e0050c1952d1"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "L_MYAS_ADM_MUDENS": "L_MYAS_ADM_MUDENS",
+    "L_MYAS_ADM_NMT": "L_MYAS_ADM_NMT",
+    "L_MYAS_APB_MUDENS": "L_MYAS_APB_MUDENS",
+    "L_MYAS_APB_NMT": "L_MYAS_APB_NMT",
+    "L_MYAS_DELT_MUDENS": "L_MYAS_DELT_MUDENS",
+    "L_MYAS_DELT_NMT": "L_MYAS_DELT_NMT",
+    "MYASTHENIA": "MYASTHENIA",
+    "R_MYAS_ADM_MUDENS": "R_MYAS_ADM_MUDENS",
+    "R_MYAS_ADM_NMT": "R_MYAS_ADM_NMT",
+    "R_MYAS_APB_MUDENS": "R_MYAS_APB_MUDENS",
+    "R_MYAS_APB_NMT": "R_MYAS_APB_NMT",
+    "R_MYAS_DELT_MUDENS": "R_MYAS_DELT_MUDENS",
+    "R_MYAS_DELT_NMT": "R_MYAS_DELT_NMT"
+   },
+   "naming": "real",
+   "network": "munin3",
+   "nodes": [
+    "L_MYAS_ADM_MUDENS",
+    "L_MYAS_ADM_NMT",
+    "L_MYAS_APB_MUDENS",
+    "L_MYAS_APB_NMT",
+    "L_MYAS_DELT_MUDENS",
+    "L_MYAS_DELT_NMT",
+    "MYASTHENIA",
+    "R_MYAS_ADM_MUDENS",
+    "R_MYAS_ADM_NMT",
+    "R_MYAS_APB_MUDENS",
+    "R_MYAS_APB_NMT",
+    "R_MYAS_DELT_MUDENS",
+    "R_MYAS_DELT_NMT"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "L_MYAS_ADM_MUDENS",
+     "L_MYAS_APB_NMT"
+    ],
+    [
+     "L_MYAS_ADM_MUDENS",
+     "R_MYAS_DELT_MUDENS"
+    ],
+    [
+     "L_MYAS_ADM_NMT",
+     "L_MYAS_DELT_MUDENS"
+    ],
+    [
+     "L_MYAS_ADM_NMT",
+     "L_MYAS_DELT_NMT"
+    ],
+    [
+     "L_MYAS_ADM_NMT",
+     "R_MYAS_APB_MUDENS"
+    ],
+    [
+     "L_MYAS_APB_MUDENS",
+     "L_MYAS_DELT_NMT"
+    ],
+    [
+     "L_MYAS_APB_NMT",
+     "R_MYAS_APB_MUDENS"
+    ],
+    [
+     "L_MYAS_DELT_MUDENS",
+     "R_MYAS_ADM_NMT"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  MYASTHENIA (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  L_MYAS_ADM_MUDENS (values: NORMAL, INCR, V_INCR)\n  L_MYAS_DELT_MUDENS (values: NORMAL, INCR, V_INCR)\n  L_MYAS_APB_MUDENS (values: NORMAL, INCR, V_INCR)\n  R_MYAS_APB_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_DELT_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  L_MYAS_DELT_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_DELT_MUDENS (values: NORMAL, INCR, V_INCR)\n  L_MYAS_ADM_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_ADM_MUDENS (values: NORMAL, INCR, V_INCR)\n  R_MYAS_ADM_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  L_MYAS_APB_NMT (values: NO, MOD_PRE, SEV_PRE, MLD_POST, MOD_POST, SEV_POST, MIXED)\n  R_MYAS_APB_MUDENS (values: NORMAL, INCR, V_INCR)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is L_MYAS_ADM_MUDENS a cause of R_MYAS_DELT_MUDENS, possibly through other variables?\n  2. Is L_MYAS_ADM_NMT a cause of L_MYAS_DELT_MUDENS, possibly through other variables?\n  3. Is L_MYAS_ADM_NMT a cause of L_MYAS_DELT_NMT, possibly through other variables?\n  4. Is L_MYAS_DELT_MUDENS a cause of R_MYAS_ADM_NMT, possibly through other variables?\n  5. Is L_MYAS_ADM_MUDENS a cause of L_MYAS_APB_NMT, possibly through other variables?\n  6. Is L_MYAS_APB_NMT a cause of R_MYAS_APB_MUDENS, possibly through other variables?\n  7. Is L_MYAS_APB_MUDENS a cause of L_MYAS_DELT_NMT, possibly through other variables?\n  8. Is L_MYAS_ADM_NMT a cause of R_MYAS_APB_MUDENS, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "93811e2af4b7842998bd040bb02bc58edb621228c5666e62e266abac8860d1d8"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "L_LNLE_ULND5_DIFSLOW": "L_LNLE_ULND5_DIFSLOW",
+    "L_LNLE_ULND5_RD_E": "L_LNLE_ULND5_RD_E",
+    "L_LNLE_ULN_DIFSLOW": "L_LNLE_ULN_DIFSLOW",
+    "L_LNLE_ULN_PATHO": "L_LNLE_ULN_PATHO",
+    "L_ULN_RD_EW": "L_ULN_RD_EW"
+   },
+   "naming": "real",
+   "network": "munin4",
+   "nodes": [
+    "L_LNLE_ULND5_DIFSLOW",
+    "L_LNLE_ULND5_RD_E",
+    "L_LNLE_ULN_DIFSLOW",
+    "L_LNLE_ULN_PATHO",
+    "L_ULN_RD_EW"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "L_LNLE_ULND5_DIFSLOW",
+     "L_LNLE_ULND5_RD_E"
+    ],
+    [
+     "L_LNLE_ULND5_DIFSLOW",
+     "L_ULN_RD_EW"
+    ],
+    [
+     "L_LNLE_ULND5_RD_E",
+     "L_LNLE_ULN_DIFSLOW"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  L_ULN_RD_EW (values: NO, MOD, SEV)\n  L_LNLE_ULN_DIFSLOW (values: NO, MILD, MOD, SEV)\n  L_LNLE_ULND5_RD_E (values: NO, MOD, SEV)\n  L_LNLE_ULN_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  L_LNLE_ULND5_DIFSLOW (values: NO, MILD, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is L_LNLE_ULND5_RD_E a cause of L_LNLE_ULN_DIFSLOW, possibly through other variables?\n  2. Is L_LNLE_ULND5_DIFSLOW a cause of L_LNLE_ULND5_RD_E, possibly through other variables?\n  3. Is L_LNLE_ULND5_DIFSLOW a cause of L_ULN_RD_EW, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "4e23a124755e5cc58326e07c9962252f475ef32721d12d10f6a05b7b4d2c0025"
+  },
+  {
+   "component": 2,
+   "kind": "ancestral",
+   "label_of": {
+    "L_LNLW_MEDD2_RD_WD": "L_LNLW_MEDD2_RD_WD",
+    "L_LNLW_MED_PATHO": "L_LNLW_MED_PATHO",
+    "L_MEDD2_RD_WD": "L_MEDD2_RD_WD",
+    "L_MED_RD_WA": "L_MED_RD_WA"
+   },
+   "naming": "real",
+   "network": "munin4",
+   "nodes": [
+    "L_LNLW_MEDD2_RD_WD",
+    "L_LNLW_MED_PATHO",
+    "L_MEDD2_RD_WD",
+    "L_MED_RD_WA"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "L_LNLW_MEDD2_RD_WD",
+     "L_MED_RD_WA"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  L_LNLW_MED_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  L_LNLW_MEDD2_RD_WD (values: NO, MOD, SEV)\n  L_MED_RD_WA (values: NO, MOD, SEV)\n  L_MEDD2_RD_WD (values: NO, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is L_LNLW_MEDD2_RD_WD a cause of L_MED_RD_WA, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c1874b17b6b132ee2849e2400409f99bc4e425df697dba8b6eb734561f03944b"
+  },
+  {
+   "component": 4,
+   "kind": "ancestral",
+   "label_of": {
+    "R_LNLE_ULND5_DIFSLOW": "R_LNLE_ULND5_DIFSLOW",
+    "R_LNLE_ULND5_RD_E": "R_LNLE_ULND5_RD_E",
+    "R_LNLE_ULN_DIFSLOW": "R_LNLE_ULN_DIFSLOW",
+    "R_LNLE_ULN_PATHO": "R_LNLE_ULN_PATHO",
+    "R_ULN_RD_EW": "R_ULN_RD_EW"
+   },
+   "naming": "real",
+   "network": "munin4",
+   "nodes": [
+    "R_LNLE_ULND5_DIFSLOW",
+    "R_LNLE_ULND5_RD_E",
+    "R_LNLE_ULN_DIFSLOW",
+    "R_LNLE_ULN_PATHO",
+    "R_ULN_RD_EW"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "R_LNLE_ULND5_DIFSLOW",
+     "R_LNLE_ULND5_RD_E"
+    ],
+    [
+     "R_LNLE_ULND5_DIFSLOW",
+     "R_LNLE_ULN_DIFSLOW"
+    ],
+    [
+     "R_LNLE_ULND5_DIFSLOW",
+     "R_ULN_RD_EW"
+    ],
+    [
+     "R_LNLE_ULND5_RD_E",
+     "R_ULN_RD_EW"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from electromyography for neuromuscular disorders: muscle and nerve findings.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  R_LNLE_ULN_DIFSLOW (values: NO, MILD, MOD, SEV)\n  R_LNLE_ULND5_DIFSLOW (values: NO, MILD, MOD, SEV)\n  R_LNLE_ULN_PATHO (values: DEMY, BLOCK, AXONAL, V_E_REIN, E_REIN)\n  R_ULN_RD_EW (values: NO, MOD, SEV)\n  R_LNLE_ULND5_RD_E (values: NO, MOD, SEV)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is R_LNLE_ULND5_DIFSLOW a cause of R_LNLE_ULN_DIFSLOW, possibly through other variables?\n  2. Is R_LNLE_ULND5_RD_E a cause of R_ULN_RD_EW, possibly through other variables?\n  3. Is R_LNLE_ULND5_DIFSLOW a cause of R_LNLE_ULND5_RD_E, possibly through other variables?\n  4. Is R_LNLE_ULND5_DIFSLOW a cause of R_ULN_RD_EW, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "644a1b3baef08561bee996b9d2f9f33164653d8c27c08fb7e89a5379e9f0862a"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "1": "1",
+    "10": "10",
+    "11": "11",
+    "12": "12",
+    "13": "13",
+    "14": "14",
+    "15": "15",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9"
+   },
+   "naming": "real",
+   "network": "paths",
+   "nodes": [
+    "1",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "1",
+     "3"
+    ],
+    [
+     "10",
+     "12"
+    ],
+    [
+     "11",
+     "13"
+    ],
+    [
+     "11",
+     "9"
+    ],
+    [
+     "12",
+     "14"
+    ],
+    [
+     "2",
+     "4"
+    ],
+    [
+     "4",
+     "6"
+    ],
+    [
+     "6",
+     "8"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a textbook causal diagram with abstract variables.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  6\n  8\n  10\n  1\n  12\n  3\n  9\n  5\n  11\n  15\n  4\n  14\n  2\n  13\n  7\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is 11 a cause of 13, possibly through other variables?\n  2. Is 6 a cause of 8, possibly through other variables?\n  3. Is 12 a cause of 14, possibly through other variables?\n  4. Is 1 a cause of 3, possibly through other variables?\n  5. Is 2 a cause of 4, possibly through other variables?\n  6. Is 11 a cause of 9, possibly through other variables?\n  7. Is 10 a cause of 12, possibly through other variables?\n  8. Is 4 a cause of 6, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "50f08eafecf8e6292fcf9a6d9783416429718c80f84a50af1c4b7453f49d25bf"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "Akt": "Akt",
+    "Erk": "Erk",
+    "Jnk": "Jnk",
+    "Mek": "Mek",
+    "P38": "P38",
+    "PKA": "PKA",
+    "PKC": "PKC",
+    "Raf": "Raf"
+   },
+   "naming": "real",
+   "network": "sachs",
+   "nodes": [
+    "Akt",
+    "Erk",
+    "Jnk",
+    "Mek",
+    "P38",
+    "PKA",
+    "PKC",
+    "Raf"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "Akt",
+     "Jnk"
+    ],
+    [
+     "Akt",
+     "P38"
+    ],
+    [
+     "Akt",
+     "PKC"
+    ],
+    [
+     "Erk",
+     "PKC"
+    ],
+    [
+     "Erk",
+     "Raf"
+    ],
+    [
+     "Jnk",
+     "P38"
+    ],
+    [
+     "Jnk",
+     "Raf"
+    ],
+    [
+     "P38",
+     "Raf"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from signalling in human immune cells: phosphorylation states of signalling proteins under perturbations.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  Mek (values: LOW, AVG, HIGH)\n  Akt (values: LOW, AVG, HIGH)\n  Erk (values: LOW, AVG, HIGH)\n  P38 (values: LOW, AVG, HIGH)\n  PKA (values: LOW, AVG, HIGH)\n  PKC (values: LOW, AVG, HIGH)\n  Raf (values: LOW, AVG, HIGH)\n  Jnk (values: LOW, AVG, HIGH)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is Akt a cause of Jnk, possibly through other variables?\n  2. Is P38 a cause of Raf, possibly through other variables?\n  3. Is Akt a cause of PKC, possibly through other variables?\n  4. Is Jnk a cause of P38, possibly through other variables?\n  5. Is Akt a cause of P38, possibly through other variables?\n  6. Is Erk a cause of PKC, possibly through other variables?\n  7. Is Erk a cause of Raf, possibly through other variables?\n  8. Is Jnk a cause of Raf, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "2fb2571ed847474e2dfd0310718b09da37e8870d05e3b43f8ad6dd03a3258da4"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "CKNI_12_00": "CKNI_12_00",
+    "CKNI_12_15": "CKNI_12_15",
+    "CKNI_12_30": "CKNI_12_30",
+    "CKNI_12_45": "CKNI_12_45"
+   },
+   "naming": "real",
+   "network": "water",
+   "nodes": [
+    "CKNI_12_00",
+    "CKNI_12_15",
+    "CKNI_12_30",
+    "CKNI_12_45"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "CKNI_12_00",
+     "CKNI_12_30"
+    ],
+    [
+     "CKNI_12_15",
+     "CKNI_12_45"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a biological wastewater treatment plant: inflow, process states and outflow.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  CKNI_12_00 (values: 20_MG_L, 30_MG_L, 40_MG_L)\n  CKNI_12_15 (values: 20_MG_L, 30_MG_L, 40_MG_L)\n  CKNI_12_45 (values: 20_MG_L, 30_MG_L, 40_MG_L)\n  CKNI_12_30 (values: 20_MG_L, 30_MG_L, 40_MG_L)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is CKNI_12_15 a cause of CKNI_12_45, possibly through other variables?\n  2. Is CKNI_12_00 a cause of CKNI_12_30, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "ee989bb825c1f6f4a5ef15fd8801168952ae17c95d9ddeb0d076b6252f05646e"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "C_NI_12_00": "C_NI_12_00",
+    "C_NI_12_15": "C_NI_12_15",
+    "C_NI_12_30": "C_NI_12_30",
+    "C_NI_12_45": "C_NI_12_45"
+   },
+   "naming": "real",
+   "network": "water",
+   "nodes": [
+    "C_NI_12_00",
+    "C_NI_12_15",
+    "C_NI_12_30",
+    "C_NI_12_45"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "C_NI_12_00",
+     "C_NI_12_30"
+    ],
+    [
+     "C_NI_12_15",
+     "C_NI_12_45"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from a biological wastewater treatment plant: inflow, process states and outflow.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  C_NI_12_00 (values: 3, 4, 5, 6)\n  C_NI_12_15 (values: 3, 4, 5, 6)\n  C_NI_12_30 (values: 3, 4, 5, 6)\n  C_NI_12_45 (values: 3, 4, 5, 6)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is C_NI_12_00 a cause of C_NI_12_30, possibly through other variables?\n  2. Is C_NI_12_15 a cause of C_NI_12_45, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "04eaec01c301436e7d5c91427b5f63698daa08d35396e1afb127974ca23111e3"
+  },
+  {
+   "component": 0,
+   "kind": "ancestral",
+   "label_of": {
+    "AppDtGnTm": "AppDtGnTm",
+    "HrglssDrtnAftrPrnt": "HrglssDrtnAftrPrnt",
+    "PrntPrcssTm": "PrntPrcssTm",
+    "PrtSpool": "PrtSpool"
+   },
+   "naming": "real",
+   "network": "win95pts",
+   "nodes": [
+    "AppDtGnTm",
+    "HrglssDrtnAftrPrnt",
+    "PrntPrcssTm",
+    "PrtSpool"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "AppDtGnTm",
+     "PrntPrcssTm"
+    ],
+    [
+     "HrglssDrtnAftrPrnt",
+     "PrtSpool"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from troubleshooting printing from a personal computer: application, spooler, network, driver and printer.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  AppDtGnTm (values: Fast_Enough, Too_Long)\n  HrglssDrtnAftrPrnt (values: Fast_Enough, Too_Long)\n  PrtSpool (values: Enabled, Disabled)\n  PrntPrcssTm (values: Fast_Enough, Too_Long)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is HrglssDrtnAftrPrnt a cause of PrtSpool, possibly through other variables?\n  2. Is AppDtGnTm a cause of PrntPrcssTm, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "1dd10b5755c33bd79e875c522e7b1504f863d653b6d74233880732619766d671"
+  },
+  {
+   "component": 1,
+   "kind": "ancestral",
+   "label_of": {
+    "AvlblVrtlMmry": "AvlblVrtlMmry",
+    "PSERRMEM": "PSERRMEM",
+    "PrtPScript": "PrtPScript",
+    "TstpsTxt": "TstpsTxt"
+   },
+   "naming": "real",
+   "network": "win95pts",
+   "nodes": [
+    "AvlblVrtlMmry",
+    "PSERRMEM",
+    "PrtPScript",
+    "TstpsTxt"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "PSERRMEM",
+     "TstpsTxt"
+    ]
+   ],
+   "prompt": "You are asked about causal influence among variables from troubleshooting printing from a personal computer: application, spooler, network, driver and printer.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  PrtPScript (values: Yes, No)\n  TstpsTxt (values: x_1_Mb_Available_VM, x_1_Mb_Available_VM2)\n  AvlblVrtlMmry (values: Adequate____1Mb_, Inadequate____1_Mb_)\n  PSERRMEM (values: No_Error, Low_Memory)\n\nEach question below is about two variables that are NOT directly related; one may still be a cause of the other through other variables in the group.\n  1. Is PSERRMEM a cause of TstpsTxt, possibly through other variables?\n\nFor each question answer \"a causes b\" if the first variable named is a cause of the second, possibly through other variables; \"b causes a\" if instead the second is a cause of the first, possibly through other variables; \"neither\" if neither is a cause of the other, even indirectly; or DECLINE if you cannot judge it. Give a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"pairs\": [{\"a\": \"<first name as asked>\", \"b\": \"<second name as asked>\", \"answer\": \"a causes b\" | \"b causes a\" | \"neither\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e9681a213e06d3303403f1997d66793c4e82624671a7c8ad68815ff62375b145"
+  }
+ ],
+ "order_seed": 0,
+ "pair_rule": "non-adjacent, distance two in the component's undirected skeleton",
+ "pairs_per_network": 8,
+ "per_network": [
+  {
+   "asked_pairs": 0,
+   "candidate_pairs": 0,
+   "components": 1,
+   "items": 0,
+   "network": "Acid_1996"
+  },
+  {
+   "asked_pairs": 3,
+   "candidate_pairs": 3,
+   "components": 1,
+   "items": 1,
+   "network": "Didelez_2010"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 8,
+   "components": 1,
+   "items": 1,
+   "network": "Kampen_2014"
+  },
+  {
+   "asked_pairs": 4,
+   "candidate_pairs": 4,
+   "components": 2,
+   "items": 1,
+   "network": "Polzer_2012"
+  },
+  {
+   "asked_pairs": 4,
+   "candidate_pairs": 4,
+   "components": 1,
+   "items": 1,
+   "network": "Schipf_2010"
+  },
+  {
+   "asked_pairs": 3,
+   "candidate_pairs": 3,
+   "components": 5,
+   "items": 1,
+   "network": "Sebastiani_2005"
+  },
+  {
+   "asked_pairs": 1,
+   "candidate_pairs": 1,
+   "components": 2,
+   "items": 1,
+   "network": "Shrier_2008"
+  },
+  {
+   "asked_pairs": 0,
+   "candidate_pairs": 0,
+   "components": 1,
+   "items": 0,
+   "network": "Thoemmes_2013"
+  },
+  {
+   "asked_pairs": 0,
+   "candidate_pairs": 0,
+   "components": 4,
+   "items": 0,
+   "network": "alarm"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 10,
+   "components": 4,
+   "items": 3,
+   "network": "andes"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 119,
+   "components": 5,
+   "items": 2,
+   "network": "arth150"
+  },
+  {
+   "asked_pairs": 1,
+   "candidate_pairs": 1,
+   "components": 2,
+   "items": 1,
+   "network": "asia"
+  },
+  {
+   "asked_pairs": 6,
+   "candidate_pairs": 6,
+   "components": 4,
+   "items": 3,
+   "network": "barley"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 30,
+   "components": 1,
+   "items": 1,
+   "network": "child"
+  },
+  {
+   "asked_pairs": 1,
+   "candidate_pairs": 1,
+   "components": 13,
+   "items": 1,
+   "network": "diabetes"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 42,
+   "components": 4,
+   "items": 3,
+   "network": "ecoli70"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 136,
+   "components": 1,
+   "items": 1,
+   "network": "hailfinder"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 10,
+   "components": 3,
+   "items": 1,
+   "network": "hepar2"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 31,
+   "components": 1,
+   "items": 1,
+   "network": "insurance"
+  },
+  {
+   "asked_pairs": 0,
+   "candidate_pairs": 0,
+   "components": 18,
+   "items": 0,
+   "network": "link"
+  },
+  {
+   "asked_pairs": 2,
+   "candidate_pairs": 2,
+   "components": 8,
+   "items": 1,
+   "network": "magic-irri"
+  },
+  {
+   "asked_pairs": 3,
+   "candidate_pairs": 3,
+   "components": 7,
+   "items": 3,
+   "network": "magic-niab"
+  },
+  {
+   "asked_pairs": 1,
+   "candidate_pairs": 1,
+   "components": 1,
+   "items": 1,
+   "network": "mediator"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 18,
+   "components": 6,
+   "items": 3,
+   "network": "munin"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 9,
+   "components": 2,
+   "items": 2,
+   "network": "munin1"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 78,
+   "components": 3,
+   "items": 2,
+   "network": "munin2"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 66,
+   "components": 2,
+   "items": 1,
+   "network": "munin3"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 18,
+   "components": 6,
+   "items": 3,
+   "network": "munin4"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 13,
+   "components": 1,
+   "items": 1,
+   "network": "paths"
+  },
+  {
+   "asked_pairs": 8,
+   "candidate_pairs": 14,
+   "components": 2,
+   "items": 1,
+   "network": "sachs"
+  },
+  {
+   "asked_pairs": 4,
+   "candidate_pairs": 4,
+   "components": 2,
+   "items": 2,
+   "network": "water"
+  },
+  {
+   "asked_pairs": 3,
+   "candidate_pairs": 3,
+   "components": 6,
+   "items": 2,
+   "network": "win95pts"
+  }
+ ],
+ "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+ "seed": 20260913
+}

@@ -1,0 +1,7 @@
+{
+ "cap": 20,
+ "min_component": 2,
+ "source": "estimated_cpdag:pc_fisherz_a0.01_n5000",
+ "frame_pairs": 1162,
+ "sampled_pairs": 80
+}

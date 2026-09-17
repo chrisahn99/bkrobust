@@ -1,0 +1,13 @@
+network,is_dag,exposure,outcome,author_adjusted,author_latent,author_selected,status,in_frame,n_claims,r_claim,r_hop,separation,retraction_set,z_size,z_valid_at_truth
+Acid_1996,True,x3,x15,,0,,ok,1,1,>3,unreached,undefined,nothing inside the depth budget,2,1
+Didelez_2010,True,HRT,TCI,Age Smo,0,S,ok,1,1,>3,unreached,undefined,nothing inside the depth budget,3,1
+Kampen_2014,True,SUS,EGC,,0,,ok,1,3,>3,unreached,undefined,nothing inside the depth budget,2,1
+M-bias,False,E,D,,0,,not_a_dag,,,,,,,,
+Polzer_2012,True,ToothLoss,Mortality,,0,,ok,1,5,>3,unreached,undefined,nothing inside the depth budget,10,1
+Schipf_2010,True,TT,T2DM,,0,,outcome_not_possibly_descendant,0,,,,,,,
+Sebastiani_2005,True,EDN1.3,EDNI1.7,,0,,ok,1,7,>3,unreached,undefined,nothing inside the depth budget,2,1
+Shrier_2008,True,WarmUpExercises,Injury,,0,,ok,1,2,>3,unreached,undefined,nothing inside the depth budget,3,1
+Thoemmes_2013,True,x,y,s2,4,,ok,1,1,>3,unreached,undefined,nothing inside the depth budget,4,1
+confounding,True,E,D,,0,,treatment_has_no_free_edge,0,,,,,,,
+mediator,True,X,Y,,0,,ok,1,3,1,1,1,X -> I,1,1
+paths,True,E,D,,0,,ok,1,1,>3,unreached,undefined,nothing inside the depth budget,2,1

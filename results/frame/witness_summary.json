@@ -1,0 +1,122 @@
+{
+ "coverage": 1.0,
+ "rows": 540,
+ "networks": 24,
+ "seconds": 195.7,
+ "retraction_depth": {
+  "1": 540
+ },
+ "what_it_costs": {
+  "identifiability": 540
+ },
+ "sets_at_depth": {
+  "one_set_only": 411,
+  "median": 1,
+  "max": 3
+ },
+ "unit_gap_against_claim_depth": {
+  "free_rule": {
+   "reads_high": 108,
+   "exact": 432,
+   "reads_low": 0,
+   "max_gap": 6
+  },
+  "hop_radius": {
+   "reads_high": 163,
+   "exact": 377,
+   "reads_low": 0,
+   "max_gap": 13
+  },
+  "closure_size": {
+   "reads_high": 530,
+   "exact": 10,
+   "reads_low": 0,
+   "max_gap": 44
+  },
+  "note": "A positive gap is the unit mismatch, not an error: a hop count and a closure size are not counts of retractable claims. Every instrument denominated in anything but asserted claims reads high against the depth an analyst can act on."
+ },
+ "free_rule_reads_high": {
+  "rows": 108,
+  "by_network": {
+   "Didelez_2010": 5,
+   "Schipf_2010": 1,
+   "asia": 1,
+   "Kampen_2014": 6,
+   "paths": 16,
+   "child": 17,
+   "insurance": 40,
+   "magic-niab": 5,
+   "barley": 7,
+   "hailfinder": 8,
+   "win95pts": 2
+  }
+ },
+ "where_the_retraction_sits": {
+  "all_rows": {
+   "into the treatment": 256,
+   "elsewhere in the component": 193,
+   "out of the treatment": 87,
+   "out of the outcome": 2,
+   "into the outcome": 2
+  },
+  "where_free_rule_reads_high": {
+   "elsewhere in the component": 95,
+   "into the treatment": 13
+  },
+  "where_free_rule_is_exact": {
+   "into the treatment": 243,
+   "elsewhere in the component": 98,
+   "out of the treatment": 87,
+   "out of the outcome": 2,
+   "into the outcome": 2
+  }
+ },
+ "single_claim_networks": {
+  "Didelez_2010": 1,
+  "paths": 1,
+  "Acid_1996": 1,
+  "hailfinder": 1
+ },
+ "widest_gap_between_hop_and_claim": [
+  {
+   "network": "paths",
+   "treatment": "1",
+   "outcome": "D",
+   "hop": 14,
+   "claim_depth": 1,
+   "retraction_set": "15 -> 14"
+  },
+  {
+   "network": "paths",
+   "treatment": "1",
+   "outcome": "E",
+   "hop": 14,
+   "claim_depth": 1,
+   "retraction_set": "15 -> 14"
+  },
+  {
+   "network": "paths",
+   "treatment": "2",
+   "outcome": "D",
+   "hop": 13,
+   "claim_depth": 1,
+   "retraction_set": "15 -> 14"
+  },
+  {
+   "network": "paths",
+   "treatment": "2",
+   "outcome": "E",
+   "hop": 13,
+   "claim_depth": 1,
+   "retraction_set": "15 -> 14"
+  },
+  {
+   "network": "paths",
+   "treatment": "3",
+   "outcome": "D",
+   "hop": 12,
+   "claim_depth": 1,
+   "retraction_set": "15 -> 14"
+  }
+ ]
+}

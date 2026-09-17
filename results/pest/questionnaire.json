@@ -1,0 +1,3626 @@
+{
+ "control_edges_per_network": 8,
+ "cpdag_source": "estimated CPDAG from chat_e.json; true_dag_on_path = false",
+ "items": [
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "100": "100",
+    "245": "245",
+    "412": "412"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "100",
+    "245",
+    "412"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "100",
+     "245"
+    ],
+    [
+     "100",
+     "412"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  412\n  245\n  100\n\nDirectly related pairs whose direction is unknown:\n  100 -- 412\n  100 -- 245\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "42626d1ce9a02efc94d41252fda5fe452c33c17c7583d4e13669790617d92208"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "100": "100",
+    "245": "245",
+    "412": "412"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "100",
+    "245",
+    "412"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "100",
+     "245"
+    ],
+    [
+     "100",
+     "412"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  100\n  412\n  245\n\nDirectly related pairs whose direction is unknown:\n  100 -- 245\n  100 -- 412\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "00a2c7f108bed71454b642f92f67204c85b839369a87cba7202dc4b55d008c5e"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "100": "V76",
+    "245": "V19",
+    "412": "V46"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "100",
+    "245",
+    "412"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "100",
+     "245"
+    ],
+    [
+     "100",
+     "412"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V46\n  V19\n  V76\n\nDirectly related pairs whose direction is unknown:\n  V76 -- V46\n  V76 -- V19\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "a8e7e73d716b814a65e72fedacfbc62c1b7f02d057871809f7e76da816d4dd57"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "100": "V76",
+    "245": "V19",
+    "412": "V46"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "100",
+    "245",
+    "412"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "100",
+     "245"
+    ],
+    [
+     "100",
+     "412"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V76\n  V46\n  V19\n\nDirectly related pairs whose direction is unknown:\n  V76 -- V19\n  V76 -- V46\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "80e9c2e24547ae509764713910451ae3468f43b761247a69c0df76770db97764"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "13": "13",
+    "331": "331",
+    "422": "422",
+    "47": "47",
+    "629": "629",
+    "677": "677",
+    "714": "714",
+    "736": "736"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "13",
+    "331",
+    "422",
+    "47",
+    "629",
+    "677",
+    "714",
+    "736"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "13",
+     "331"
+    ],
+    [
+     "13",
+     "422"
+    ],
+    [
+     "422",
+     "629"
+    ],
+    [
+     "422",
+     "714"
+    ],
+    [
+     "422",
+     "736"
+    ],
+    [
+     "47",
+     "714"
+    ],
+    [
+     "47",
+     "736"
+    ],
+    [
+     "677",
+     "714"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  331\n  47\n  714\n  736\n  13\n  422\n  629\n  677\n\nDirectly related pairs whose direction is unknown:\n  422 -- 736\n  47 -- 736\n  422 -- 714\n  13 -- 422\n  422 -- 629\n  13 -- 331\n  677 -- 714\n  47 -- 714\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "d9ea809006ac0cd3c566dfbfd1d7be3bcb377aba4fb8e10abd94757e178ffd2f"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "13": "13",
+    "331": "331",
+    "422": "422",
+    "47": "47",
+    "629": "629",
+    "677": "677",
+    "714": "714",
+    "736": "736"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "13",
+    "331",
+    "422",
+    "47",
+    "629",
+    "677",
+    "714",
+    "736"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "13",
+     "331"
+    ],
+    [
+     "13",
+     "422"
+    ],
+    [
+     "422",
+     "629"
+    ],
+    [
+     "422",
+     "714"
+    ],
+    [
+     "422",
+     "736"
+    ],
+    [
+     "47",
+     "714"
+    ],
+    [
+     "47",
+     "736"
+    ],
+    [
+     "677",
+     "714"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  422\n  714\n  13\n  47\n  629\n  331\n  736\n  677\n\nDirectly related pairs whose direction is unknown:\n  677 -- 714\n  422 -- 714\n  13 -- 331\n  422 -- 629\n  422 -- 736\n  13 -- 422\n  47 -- 736\n  47 -- 714\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "d55761773ac3b2ce9a5b85c054d0eeaf854a0dabf683bd9e3d95c6799f3706cb"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "13": "V17",
+    "331": "V27",
+    "422": "V38",
+    "47": "V33",
+    "629": "V35",
+    "677": "V96",
+    "714": "V67",
+    "736": "V44"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "13",
+    "331",
+    "422",
+    "47",
+    "629",
+    "677",
+    "714",
+    "736"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "13",
+     "331"
+    ],
+    [
+     "13",
+     "422"
+    ],
+    [
+     "422",
+     "629"
+    ],
+    [
+     "422",
+     "714"
+    ],
+    [
+     "422",
+     "736"
+    ],
+    [
+     "47",
+     "714"
+    ],
+    [
+     "47",
+     "736"
+    ],
+    [
+     "677",
+     "714"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V27\n  V33\n  V67\n  V44\n  V17\n  V38\n  V35\n  V96\n\nDirectly related pairs whose direction is unknown:\n  V38 -- V44\n  V33 -- V44\n  V38 -- V67\n  V17 -- V38\n  V38 -- V35\n  V17 -- V27\n  V96 -- V67\n  V33 -- V67\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "dc643e3b4d7845b6de2bb7378e3da83274b07e802901d2d8eff01f479a6ae54b"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "13": "V17",
+    "331": "V27",
+    "422": "V38",
+    "47": "V33",
+    "629": "V35",
+    "677": "V96",
+    "714": "V67",
+    "736": "V44"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "13",
+    "331",
+    "422",
+    "47",
+    "629",
+    "677",
+    "714",
+    "736"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "13",
+     "331"
+    ],
+    [
+     "13",
+     "422"
+    ],
+    [
+     "422",
+     "629"
+    ],
+    [
+     "422",
+     "714"
+    ],
+    [
+     "422",
+     "736"
+    ],
+    [
+     "47",
+     "714"
+    ],
+    [
+     "47",
+     "736"
+    ],
+    [
+     "677",
+     "714"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V38\n  V67\n  V17\n  V33\n  V35\n  V27\n  V44\n  V96\n\nDirectly related pairs whose direction is unknown:\n  V96 -- V67\n  V38 -- V67\n  V17 -- V27\n  V38 -- V35\n  V38 -- V44\n  V17 -- V38\n  V33 -- V44\n  V33 -- V67\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "9ea98f1ccb451c0ab5682a86a1b969a43e75cc7477c46ebfe7e1edd8423538d1"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "187": "187",
+    "20": "20",
+    "226": "226",
+    "26": "26",
+    "269": "269",
+    "454": "454",
+    "547": "547",
+    "573": "573",
+    "603": "603",
+    "640": "640",
+    "679": "679",
+    "781": "781",
+    "783": "783"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "187",
+    "20",
+    "226",
+    "26",
+    "269",
+    "454",
+    "547",
+    "573",
+    "603",
+    "640",
+    "679",
+    "781",
+    "783"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "187",
+     "783"
+    ],
+    [
+     "20",
+     "573"
+    ],
+    [
+     "20",
+     "781"
+    ],
+    [
+     "226",
+     "573"
+    ],
+    [
+     "26",
+     "781"
+    ],
+    [
+     "269",
+     "783"
+    ],
+    [
+     "454",
+     "783"
+    ],
+    [
+     "547",
+     "783"
+    ],
+    [
+     "603",
+     "781"
+    ],
+    [
+     "640",
+     "783"
+    ],
+    [
+     "679",
+     "783"
+    ],
+    [
+     "781",
+     "783"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  20\n  640\n  783\n  679\n  603\n  226\n  781\n  454\n  547\n  187\n  573\n  269\n  26\n\nDirectly related pairs whose direction is unknown:\n  679 -- 783\n  781 -- 783\n  20 -- 573\n  269 -- 783\n  603 -- 781\n  454 -- 783\n  547 -- 783\n  187 -- 783\n  20 -- 781\n  26 -- 781\n  226 -- 573\n  640 -- 783\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "a2148a8b0b12b69ab2050e359dcf99e086345078345a20b5ee7e303fd1c7e89f"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "187": "187",
+    "20": "20",
+    "226": "226",
+    "26": "26",
+    "269": "269",
+    "454": "454",
+    "547": "547",
+    "573": "573",
+    "603": "603",
+    "640": "640",
+    "679": "679",
+    "781": "781",
+    "783": "783"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "187",
+    "20",
+    "226",
+    "26",
+    "269",
+    "454",
+    "547",
+    "573",
+    "603",
+    "640",
+    "679",
+    "781",
+    "783"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "187",
+     "783"
+    ],
+    [
+     "20",
+     "573"
+    ],
+    [
+     "20",
+     "781"
+    ],
+    [
+     "226",
+     "573"
+    ],
+    [
+     "26",
+     "781"
+    ],
+    [
+     "269",
+     "783"
+    ],
+    [
+     "454",
+     "783"
+    ],
+    [
+     "547",
+     "783"
+    ],
+    [
+     "603",
+     "781"
+    ],
+    [
+     "640",
+     "783"
+    ],
+    [
+     "679",
+     "783"
+    ],
+    [
+     "781",
+     "783"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  20\n  781\n  783\n  269\n  187\n  454\n  547\n  573\n  603\n  26\n  226\n  679\n  640\n\nDirectly related pairs whose direction is unknown:\n  640 -- 783\n  26 -- 781\n  20 -- 573\n  679 -- 783\n  187 -- 783\n  269 -- 783\n  781 -- 783\n  226 -- 573\n  20 -- 781\n  454 -- 783\n  547 -- 783\n  603 -- 781\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "df5a1169e970b1f6bcaca10d15f43952c3437e0c454e71c82aca1c92d40e8126"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "187": "V29",
+    "20": "V75",
+    "226": "V81",
+    "26": "V83",
+    "269": "V59",
+    "454": "V91",
+    "547": "V77",
+    "573": "V42",
+    "603": "V36",
+    "640": "V40",
+    "679": "V41",
+    "781": "V34",
+    "783": "V28"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "187",
+    "20",
+    "226",
+    "26",
+    "269",
+    "454",
+    "547",
+    "573",
+    "603",
+    "640",
+    "679",
+    "781",
+    "783"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "187",
+     "783"
+    ],
+    [
+     "20",
+     "573"
+    ],
+    [
+     "20",
+     "781"
+    ],
+    [
+     "226",
+     "573"
+    ],
+    [
+     "26",
+     "781"
+    ],
+    [
+     "269",
+     "783"
+    ],
+    [
+     "454",
+     "783"
+    ],
+    [
+     "547",
+     "783"
+    ],
+    [
+     "603",
+     "781"
+    ],
+    [
+     "640",
+     "783"
+    ],
+    [
+     "679",
+     "783"
+    ],
+    [
+     "781",
+     "783"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V75\n  V40\n  V28\n  V41\n  V36\n  V81\n  V34\n  V91\n  V77\n  V29\n  V42\n  V59\n  V83\n\nDirectly related pairs whose direction is unknown:\n  V41 -- V28\n  V34 -- V28\n  V75 -- V42\n  V59 -- V28\n  V36 -- V34\n  V91 -- V28\n  V77 -- V28\n  V29 -- V28\n  V75 -- V34\n  V83 -- V34\n  V81 -- V42\n  V40 -- V28\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "49e65e95c9822ec3059b3a9bdf97679628935b85f78dac8c659613afbdc095dc"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "187": "V29",
+    "20": "V75",
+    "226": "V81",
+    "26": "V83",
+    "269": "V59",
+    "454": "V91",
+    "547": "V77",
+    "573": "V42",
+    "603": "V36",
+    "640": "V40",
+    "679": "V41",
+    "781": "V34",
+    "783": "V28"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "187",
+    "20",
+    "226",
+    "26",
+    "269",
+    "454",
+    "547",
+    "573",
+    "603",
+    "640",
+    "679",
+    "781",
+    "783"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "187",
+     "783"
+    ],
+    [
+     "20",
+     "573"
+    ],
+    [
+     "20",
+     "781"
+    ],
+    [
+     "226",
+     "573"
+    ],
+    [
+     "26",
+     "781"
+    ],
+    [
+     "269",
+     "783"
+    ],
+    [
+     "454",
+     "783"
+    ],
+    [
+     "547",
+     "783"
+    ],
+    [
+     "603",
+     "781"
+    ],
+    [
+     "640",
+     "783"
+    ],
+    [
+     "679",
+     "783"
+    ],
+    [
+     "781",
+     "783"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V75\n  V34\n  V28\n  V59\n  V29\n  V91\n  V77\n  V42\n  V36\n  V83\n  V81\n  V41\n  V40\n\nDirectly related pairs whose direction is unknown:\n  V40 -- V28\n  V83 -- V34\n  V75 -- V42\n  V41 -- V28\n  V29 -- V28\n  V59 -- V28\n  V34 -- V28\n  V81 -- V42\n  V75 -- V34\n  V91 -- V28\n  V77 -- V28\n  V36 -- V34\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "387a6450505e64c3d76d9c4848f47dbc8d7916a81623d3585bf4b21660cf0a7b"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "197": "197",
+    "360": "360",
+    "4": "4",
+    "539": "539",
+    "585": "585",
+    "596": "596",
+    "758": "758",
+    "778": "778",
+    "93": "93"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "197",
+    "360",
+    "4",
+    "539",
+    "585",
+    "596",
+    "758",
+    "778",
+    "93"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "197",
+     "539"
+    ],
+    [
+     "360",
+     "539"
+    ],
+    [
+     "4",
+     "539"
+    ],
+    [
+     "539",
+     "585"
+    ],
+    [
+     "539",
+     "596"
+    ],
+    [
+     "539",
+     "758"
+    ],
+    [
+     "539",
+     "778"
+    ],
+    [
+     "539",
+     "93"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  539\n  596\n  360\n  197\n  93\n  758\n  4\n  585\n  778\n\nDirectly related pairs whose direction is unknown:\n  360 -- 539\n  4 -- 539\n  539 -- 596\n  197 -- 539\n  539 -- 93\n  539 -- 758\n  539 -- 585\n  539 -- 778\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c35f63cf2c9dc9b5faa1f9e5f966c52dfff8b1a159391a389e3b703f81bf4017"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "197": "197",
+    "360": "360",
+    "4": "4",
+    "539": "539",
+    "585": "585",
+    "596": "596",
+    "758": "758",
+    "778": "778",
+    "93": "93"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "197",
+    "360",
+    "4",
+    "539",
+    "585",
+    "596",
+    "758",
+    "778",
+    "93"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "197",
+     "539"
+    ],
+    [
+     "360",
+     "539"
+    ],
+    [
+     "4",
+     "539"
+    ],
+    [
+     "539",
+     "585"
+    ],
+    [
+     "539",
+     "596"
+    ],
+    [
+     "539",
+     "758"
+    ],
+    [
+     "539",
+     "778"
+    ],
+    [
+     "539",
+     "93"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  197\n  758\n  4\n  360\n  778\n  596\n  93\n  539\n  585\n\nDirectly related pairs whose direction is unknown:\n  539 -- 93\n  4 -- 539\n  539 -- 758\n  197 -- 539\n  539 -- 778\n  360 -- 539\n  539 -- 596\n  539 -- 585\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "a98f75df363c11af7d9874d4b8af954ca70c4bda01c4f9acd398ac268128e039"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "197": "V23",
+    "360": "V37",
+    "4": "V11",
+    "539": "V90",
+    "585": "V60",
+    "596": "V58",
+    "758": "V39",
+    "778": "V25",
+    "93": "V88"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "197",
+    "360",
+    "4",
+    "539",
+    "585",
+    "596",
+    "758",
+    "778",
+    "93"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "197",
+     "539"
+    ],
+    [
+     "360",
+     "539"
+    ],
+    [
+     "4",
+     "539"
+    ],
+    [
+     "539",
+     "585"
+    ],
+    [
+     "539",
+     "596"
+    ],
+    [
+     "539",
+     "758"
+    ],
+    [
+     "539",
+     "778"
+    ],
+    [
+     "539",
+     "93"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V90\n  V58\n  V37\n  V23\n  V88\n  V39\n  V11\n  V60\n  V25\n\nDirectly related pairs whose direction is unknown:\n  V37 -- V90\n  V11 -- V90\n  V90 -- V58\n  V23 -- V90\n  V90 -- V88\n  V90 -- V39\n  V90 -- V60\n  V90 -- V25\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "7131c877306505251b181affc280e5e2d19b3187772daf4519cde5d6f84707ed"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "197": "V23",
+    "360": "V37",
+    "4": "V11",
+    "539": "V90",
+    "585": "V60",
+    "596": "V58",
+    "758": "V39",
+    "778": "V25",
+    "93": "V88"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "197",
+    "360",
+    "4",
+    "539",
+    "585",
+    "596",
+    "758",
+    "778",
+    "93"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "197",
+     "539"
+    ],
+    [
+     "360",
+     "539"
+    ],
+    [
+     "4",
+     "539"
+    ],
+    [
+     "539",
+     "585"
+    ],
+    [
+     "539",
+     "596"
+    ],
+    [
+     "539",
+     "758"
+    ],
+    [
+     "539",
+     "778"
+    ],
+    [
+     "539",
+     "93"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V23\n  V39\n  V11\n  V37\n  V25\n  V58\n  V88\n  V90\n  V60\n\nDirectly related pairs whose direction is unknown:\n  V90 -- V88\n  V11 -- V90\n  V90 -- V39\n  V23 -- V90\n  V90 -- V25\n  V37 -- V90\n  V90 -- V58\n  V90 -- V60\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "61e021d63b7f6ca34fc37eb163f574c149f6acdf060fb9ff301a7d4438e79bbf"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "209": "209",
+    "299": "299",
+    "444": "444",
+    "540": "540",
+    "63": "63",
+    "738": "738",
+    "8": "8",
+    "86": "86"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "209",
+    "299",
+    "444",
+    "540",
+    "63",
+    "738",
+    "8",
+    "86"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "209",
+     "738"
+    ],
+    [
+     "209",
+     "8"
+    ],
+    [
+     "299",
+     "444"
+    ],
+    [
+     "444",
+     "63"
+    ],
+    [
+     "444",
+     "738"
+    ],
+    [
+     "540",
+     "738"
+    ],
+    [
+     "738",
+     "86"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  8\n  86\n  738\n  540\n  63\n  299\n  209\n  444\n\nDirectly related pairs whose direction is unknown:\n  209 -- 8\n  444 -- 738\n  444 -- 63\n  540 -- 738\n  738 -- 86\n  209 -- 738\n  299 -- 444\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "816332a6f2beb3786fa1e54042d8b6122ea568b7262b1f146fba08ca0557e2f4"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "209": "209",
+    "299": "299",
+    "444": "444",
+    "540": "540",
+    "63": "63",
+    "738": "738",
+    "8": "8",
+    "86": "86"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "209",
+    "299",
+    "444",
+    "540",
+    "63",
+    "738",
+    "8",
+    "86"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "209",
+     "738"
+    ],
+    [
+     "209",
+     "8"
+    ],
+    [
+     "299",
+     "444"
+    ],
+    [
+     "444",
+     "63"
+    ],
+    [
+     "444",
+     "738"
+    ],
+    [
+     "540",
+     "738"
+    ],
+    [
+     "738",
+     "86"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  444\n  8\n  86\n  299\n  63\n  738\n  209\n  540\n\nDirectly related pairs whose direction is unknown:\n  540 -- 738\n  444 -- 63\n  299 -- 444\n  209 -- 738\n  209 -- 8\n  444 -- 738\n  738 -- 86\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "6b82867290ef96d4f3577830efd7cd05a54ac9c2c4e5871d7b382063b304b962"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "209": "V99",
+    "299": "V50",
+    "444": "V24",
+    "540": "V45",
+    "63": "V49",
+    "738": "V78",
+    "8": "V52",
+    "86": "V30"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "209",
+    "299",
+    "444",
+    "540",
+    "63",
+    "738",
+    "8",
+    "86"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "209",
+     "738"
+    ],
+    [
+     "209",
+     "8"
+    ],
+    [
+     "299",
+     "444"
+    ],
+    [
+     "444",
+     "63"
+    ],
+    [
+     "444",
+     "738"
+    ],
+    [
+     "540",
+     "738"
+    ],
+    [
+     "738",
+     "86"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V52\n  V30\n  V78\n  V45\n  V49\n  V50\n  V99\n  V24\n\nDirectly related pairs whose direction is unknown:\n  V99 -- V52\n  V24 -- V78\n  V24 -- V49\n  V45 -- V78\n  V78 -- V30\n  V99 -- V78\n  V50 -- V24\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "8742f56591da8465dec0e4733331cb0a753928dc6e75ac8865cc87d70f1a9729"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "209": "V99",
+    "299": "V50",
+    "444": "V24",
+    "540": "V45",
+    "63": "V49",
+    "738": "V78",
+    "8": "V52",
+    "86": "V30"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "209",
+    "299",
+    "444",
+    "540",
+    "63",
+    "738",
+    "8",
+    "86"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "209",
+     "738"
+    ],
+    [
+     "209",
+     "8"
+    ],
+    [
+     "299",
+     "444"
+    ],
+    [
+     "444",
+     "63"
+    ],
+    [
+     "444",
+     "738"
+    ],
+    [
+     "540",
+     "738"
+    ],
+    [
+     "738",
+     "86"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V24\n  V52\n  V30\n  V50\n  V49\n  V78\n  V99\n  V45\n\nDirectly related pairs whose direction is unknown:\n  V45 -- V78\n  V24 -- V49\n  V50 -- V24\n  V99 -- V78\n  V99 -- V52\n  V24 -- V78\n  V78 -- V30\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "0755365b777875a8dc5ea1a15622e010a7e39f2738be44b7e58573ae56166bd6"
+  },
+  {
+   "component": 5,
+   "kind": "open",
+   "label_of": {
+    "480": "480",
+    "61": "61"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "480",
+    "61"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "480",
+     "61"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  480\n  61\n\nDirectly related pairs whose direction is unknown:\n  480 -- 61\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "64ff4e842c303a24be69ac925abd919e69e3ab4702f1ceac8dde2a1f98b35779"
+  },
+  {
+   "component": 5,
+   "kind": "open",
+   "label_of": {
+    "480": "480",
+    "61": "61"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "480",
+    "61"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "480",
+     "61"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  61\n  480\n\nDirectly related pairs whose direction is unknown:\n  480 -- 61\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "aa62c82ad85f6df682f10dc72114ad54c08746c69b2e0a0b91e6e1684642bf06"
+  },
+  {
+   "component": 5,
+   "kind": "open",
+   "label_of": {
+    "480": "V18",
+    "61": "V69"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "480",
+    "61"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "480",
+     "61"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V18\n  V69\n\nDirectly related pairs whose direction is unknown:\n  V18 -- V69\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "154f9285fed077578ded49ca7818cbcb4c3a324a390d3de24713be1eeeeaacd4"
+  },
+  {
+   "component": 5,
+   "kind": "open",
+   "label_of": {
+    "480": "V18",
+    "61": "V69"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "480",
+    "61"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "480",
+     "61"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V69\n  V18\n\nDirectly related pairs whose direction is unknown:\n  V18 -- V69\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "bca4d405b10595c36dc445884c4ad0fc045af9cd7186a0d298c16724bcfd23e0"
+  },
+  {
+   "compelled_direction": {
+    "226|443": [
+     "226",
+     "443"
+    ],
+    "269|558": [
+     "269",
+     "558"
+    ],
+    "573|443": [
+     "573",
+     "443"
+    ],
+    "603|452": [
+     "603",
+     "452"
+    ],
+    "61|570": [
+     "61",
+     "570"
+    ],
+    "679|155": [
+     "679",
+     "155"
+    ],
+    "783|126": [
+     "783",
+     "126"
+    ],
+    "8|342": [
+     "8",
+     "342"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "126": "126",
+    "155": "155",
+    "226": "226",
+    "269": "269",
+    "342": "342",
+    "443": "443",
+    "452": "452",
+    "558": "558",
+    "570": "570",
+    "573": "573",
+    "603": "603",
+    "61": "61",
+    "679": "679",
+    "783": "783",
+    "8": "8"
+   },
+   "naming": "real",
+   "network": "arth150",
+   "nodes": [
+    "126",
+    "155",
+    "226",
+    "269",
+    "342",
+    "443",
+    "452",
+    "558",
+    "570",
+    "573",
+    "603",
+    "61",
+    "679",
+    "783",
+    "8"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "226",
+     "443"
+    ],
+    [
+     "269",
+     "558"
+    ],
+    [
+     "443",
+     "573"
+    ],
+    [
+     "452",
+     "603"
+    ],
+    [
+     "570",
+     "61"
+    ],
+    [
+     "155",
+     "679"
+    ],
+    [
+     "126",
+     "783"
+    ],
+    [
+     "342",
+     "8"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the plant Arabidopsis thaliana: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  679\n  570\n  126\n  155\n  61\n  269\n  452\n  8\n  342\n  443\n  603\n  573\n  783\n  558\n  226\n\nDirectly related pairs whose direction is unknown:\n  452 -- 603\n  126 -- 783\n  226 -- 443\n  269 -- 558\n  155 -- 679\n  342 -- 8\n  570 -- 61\n  443 -- 573\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "65aa89d2caa39ccd5bbf1893d01b9d10d8c9e4421ffa338d519c88a500a2b699"
+  },
+  {
+   "compelled_direction": {
+    "226|443": [
+     "226",
+     "443"
+    ],
+    "269|558": [
+     "269",
+     "558"
+    ],
+    "573|443": [
+     "573",
+     "443"
+    ],
+    "603|452": [
+     "603",
+     "452"
+    ],
+    "61|570": [
+     "61",
+     "570"
+    ],
+    "679|155": [
+     "679",
+     "155"
+    ],
+    "783|126": [
+     "783",
+     "126"
+    ],
+    "8|342": [
+     "8",
+     "342"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "126": "V31",
+    "155": "V100",
+    "226": "V81",
+    "269": "V59",
+    "342": "V105",
+    "443": "V10",
+    "452": "V20",
+    "558": "V87",
+    "570": "V26",
+    "573": "V42",
+    "603": "V36",
+    "61": "V69",
+    "679": "V41",
+    "783": "V28",
+    "8": "V52"
+   },
+   "naming": "scrambled",
+   "network": "arth150",
+   "nodes": [
+    "126",
+    "155",
+    "226",
+    "269",
+    "342",
+    "443",
+    "452",
+    "558",
+    "570",
+    "573",
+    "603",
+    "61",
+    "679",
+    "783",
+    "8"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "226",
+     "443"
+    ],
+    [
+     "269",
+     "558"
+    ],
+    [
+     "443",
+     "573"
+    ],
+    [
+     "452",
+     "603"
+    ],
+    [
+     "570",
+     "61"
+    ],
+    [
+     "155",
+     "679"
+    ],
+    [
+     "126",
+     "783"
+    ],
+    [
+     "342",
+     "8"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V41\n  V26\n  V31\n  V100\n  V69\n  V59\n  V20\n  V52\n  V105\n  V10\n  V36\n  V42\n  V28\n  V87\n  V81\n\nDirectly related pairs whose direction is unknown:\n  V20 -- V36\n  V31 -- V28\n  V81 -- V10\n  V59 -- V87\n  V100 -- V41\n  V105 -- V52\n  V26 -- V69\n  V10 -- V42\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "bfb5eb67afe07740e513bbbcc657eb03efd3aa8680f2136afd00ff0b0f7f86b2"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "asnA": "asnA",
+    "icdA": "icdA"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "asnA",
+    "icdA"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "asnA",
+     "icdA"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  icdA\n  asnA\n\nDirectly related pairs whose direction is unknown:\n  asnA -- icdA\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "8c3cfa0356a32194a0a7f0d424ef35e75cc3b80ee2b9c83842ccba73c32fc009"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "asnA": "asnA",
+    "icdA": "icdA"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "asnA",
+    "icdA"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "asnA",
+     "icdA"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  asnA\n  icdA\n\nDirectly related pairs whose direction is unknown:\n  asnA -- icdA\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "3f7e1203d4d8dd106f1dd27caac7d6a81ff2b4eacd1bcf6f7cc2893de3942341"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "asnA": "V13",
+    "icdA": "V26"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "asnA",
+    "icdA"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "asnA",
+     "icdA"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V26\n  V13\n\nDirectly related pairs whose direction is unknown:\n  V13 -- V26\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "a452914275fcf3a1fc884caad5a0b30c71371665e1a01f6a75eef861915355dc"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "asnA": "V13",
+    "icdA": "V26"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "asnA",
+    "icdA"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "asnA",
+     "icdA"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V13\n  V26\n\nDirectly related pairs whose direction is unknown:\n  V13 -- V26\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "bae3591d5397c27c9aee805bf078e2754fb7dc92cb446c83e4b07d39f763369a"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "dnaG": "dnaG",
+    "ycgX": "ycgX"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "dnaG",
+    "ycgX"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "dnaG",
+     "ycgX"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  dnaG\n  ycgX\n\nDirectly related pairs whose direction is unknown:\n  dnaG -- ycgX\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "fc64aac0e58dd9617558091f78f73db2532bd2a36a5d1dffc90b0290e7042b48"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "dnaG": "dnaG",
+    "ycgX": "ycgX"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "dnaG",
+    "ycgX"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "dnaG",
+     "ycgX"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  ycgX\n  dnaG\n\nDirectly related pairs whose direction is unknown:\n  dnaG -- ycgX\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "14303d39a79e58be69c960d08610a24c2c89d36a1b18e07c5c148dab966a16f6"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "dnaG": "V44",
+    "ycgX": "V41"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "dnaG",
+    "ycgX"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "dnaG",
+     "ycgX"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V44\n  V41\n\nDirectly related pairs whose direction is unknown:\n  V44 -- V41\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "2185fa1994522d0c61178ba1a4778d68eb7fffc3fe6e4e840d01f979e52acad9"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "dnaG": "V44",
+    "ycgX": "V41"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "dnaG",
+    "ycgX"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "dnaG",
+     "ycgX"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V41\n  V44\n\nDirectly related pairs whose direction is unknown:\n  V44 -- V41\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "f6a73f738629d184b9090316865217d92118a772950a455691ad7e8292a35ab0"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "lacA": "lacA",
+    "lacY": "lacY",
+    "nuoM": "nuoM"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "lacA",
+    "lacY",
+    "nuoM"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "lacA",
+     "lacY"
+    ],
+    [
+     "lacY",
+     "nuoM"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  lacA\n  lacY\n  nuoM\n\nDirectly related pairs whose direction is unknown:\n  lacA -- lacY\n  lacY -- nuoM\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "44e6242eaf12e473665ea42fafa8ea6872c183f221215392594a7dc43a346aa5"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "lacA": "lacA",
+    "lacY": "lacY",
+    "nuoM": "nuoM"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "lacA",
+    "lacY",
+    "nuoM"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "lacA",
+     "lacY"
+    ],
+    [
+     "lacY",
+     "nuoM"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  nuoM\n  lacY\n  lacA\n\nDirectly related pairs whose direction is unknown:\n  lacA -- lacY\n  lacY -- nuoM\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e1683be5600f75eb6282fdc4129ab92e241f2d28812f376301a83ef637072750"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "lacA": "V40",
+    "lacY": "V2",
+    "nuoM": "V4"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "lacA",
+    "lacY",
+    "nuoM"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "lacA",
+     "lacY"
+    ],
+    [
+     "lacY",
+     "nuoM"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V40\n  V2\n  V4\n\nDirectly related pairs whose direction is unknown:\n  V40 -- V2\n  V2 -- V4\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c8f3fa06c123d3480ff84a7048b3ab4fd5b31e0c3e9521d57e9aeb4768acdf21"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "lacA": "V40",
+    "lacY": "V2",
+    "nuoM": "V4"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "lacA",
+    "lacY",
+    "nuoM"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "lacA",
+     "lacY"
+    ],
+    [
+     "lacY",
+     "nuoM"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V4\n  V2\n  V40\n\nDirectly related pairs whose direction is unknown:\n  V40 -- V2\n  V2 -- V4\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "718b72a982daa042ca8c9bdc618c2fa089c28f2e0119f606e40a5c1b0e5ae17d"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "pspA": "pspA",
+    "pspB": "pspB",
+    "yedE": "yedE"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "pspA",
+    "pspB",
+    "yedE"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  pspB\n  yedE\n  pspA\n\nDirectly related pairs whose direction is unknown:\n  pspA -- yedE\n  pspA -- pspB\n  pspB -- yedE\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "57c0401ee518aaba5fde1813724acdc7c14cdc64c2da3d03705f87b05799d33d"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "pspA": "pspA",
+    "pspB": "pspB",
+    "yedE": "yedE"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "pspA",
+    "pspB",
+    "yedE"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  pspA\n  yedE\n  pspB\n\nDirectly related pairs whose direction is unknown:\n  pspB -- yedE\n  pspA -- yedE\n  pspA -- pspB\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "fd8b3d5d94401a362542db1fb145dbad440401696f148f5501bbbb94ba8b54b8"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "pspA": "V34",
+    "pspB": "V30",
+    "yedE": "V9"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "pspA",
+    "pspB",
+    "yedE"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V30\n  V9\n  V34\n\nDirectly related pairs whose direction is unknown:\n  V34 -- V9\n  V34 -- V30\n  V30 -- V9\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e2a24ed9c417e44cbf33fd183c3d8faf82c29ccdc47b5872627f29d0187f7960"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "pspA": "V34",
+    "pspB": "V30",
+    "yedE": "V9"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "pspA",
+    "pspB",
+    "yedE"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "pspA",
+     "pspB"
+    ],
+    [
+     "pspA",
+     "yedE"
+    ],
+    [
+     "pspB",
+     "yedE"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V34\n  V9\n  V30\n\nDirectly related pairs whose direction is unknown:\n  V30 -- V9\n  V34 -- V9\n  V34 -- V30\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "302d6a617cc452ff689fcf1143bc573f1d62edf1479e3da6d93c393fbd81592c"
+  },
+  {
+   "compelled_direction": {
+    "cspG|pspA": [
+     "cspG",
+     "pspA"
+    ],
+    "cspG|yedE": [
+     "cspG",
+     "yedE"
+    ],
+    "icdA|aceB": [
+     "icdA",
+     "aceB"
+    ],
+    "lacA|lacZ": [
+     "lacA",
+     "lacZ"
+    ],
+    "lacY|eutG": [
+     "lacY",
+     "eutG"
+    ],
+    "lacY|lacZ": [
+     "lacY",
+     "lacZ"
+    ],
+    "ygcE|asnA": [
+     "ygcE",
+     "asnA"
+    ],
+    "yheI|ycgX": [
+     "yheI",
+     "ycgX"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "aceB": "aceB",
+    "asnA": "asnA",
+    "cspG": "cspG",
+    "eutG": "eutG",
+    "icdA": "icdA",
+    "lacA": "lacA",
+    "lacY": "lacY",
+    "lacZ": "lacZ",
+    "pspA": "pspA",
+    "ycgX": "ycgX",
+    "yedE": "yedE",
+    "ygcE": "ygcE",
+    "yheI": "yheI"
+   },
+   "naming": "real",
+   "network": "ecoli70",
+   "nodes": [
+    "aceB",
+    "asnA",
+    "cspG",
+    "eutG",
+    "icdA",
+    "lacA",
+    "lacY",
+    "lacZ",
+    "pspA",
+    "ycgX",
+    "yedE",
+    "ygcE",
+    "yheI"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "cspG",
+     "pspA"
+    ],
+    [
+     "cspG",
+     "yedE"
+    ],
+    [
+     "aceB",
+     "icdA"
+    ],
+    [
+     "lacA",
+     "lacZ"
+    ],
+    [
+     "eutG",
+     "lacY"
+    ],
+    [
+     "lacY",
+     "lacZ"
+    ],
+    [
+     "asnA",
+     "ygcE"
+    ],
+    [
+     "ycgX",
+     "yheI"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from gene expression in the bacterium E. coli: transcript levels of named genes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  aceB\n  cspG\n  ycgX\n  ygcE\n  lacY\n  lacZ\n  yedE\n  lacA\n  yheI\n  pspA\n  icdA\n  asnA\n  eutG\n\nDirectly related pairs whose direction is unknown:\n  aceB -- icdA\n  eutG -- lacY\n  lacY -- lacZ\n  ycgX -- yheI\n  asnA -- ygcE\n  cspG -- pspA\n  cspG -- yedE\n  lacA -- lacZ\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "1a557e9f8146f20a5c29b94af1e3c00e150b80f96058d18329aaffab274b8fad"
+  },
+  {
+   "compelled_direction": {
+    "cspG|pspA": [
+     "cspG",
+     "pspA"
+    ],
+    "cspG|yedE": [
+     "cspG",
+     "yedE"
+    ],
+    "icdA|aceB": [
+     "icdA",
+     "aceB"
+    ],
+    "lacA|lacZ": [
+     "lacA",
+     "lacZ"
+    ],
+    "lacY|eutG": [
+     "lacY",
+     "eutG"
+    ],
+    "lacY|lacZ": [
+     "lacY",
+     "lacZ"
+    ],
+    "ygcE|asnA": [
+     "ygcE",
+     "asnA"
+    ],
+    "yheI|ycgX": [
+     "yheI",
+     "ycgX"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "aceB": "V31",
+    "asnA": "V13",
+    "cspG": "V3",
+    "eutG": "V27",
+    "icdA": "V26",
+    "lacA": "V40",
+    "lacY": "V2",
+    "lacZ": "V42",
+    "pspA": "V34",
+    "ycgX": "V41",
+    "yedE": "V9",
+    "ygcE": "V16",
+    "yheI": "V37"
+   },
+   "naming": "scrambled",
+   "network": "ecoli70",
+   "nodes": [
+    "aceB",
+    "asnA",
+    "cspG",
+    "eutG",
+    "icdA",
+    "lacA",
+    "lacY",
+    "lacZ",
+    "pspA",
+    "ycgX",
+    "yedE",
+    "ygcE",
+    "yheI"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "cspG",
+     "pspA"
+    ],
+    [
+     "cspG",
+     "yedE"
+    ],
+    [
+     "aceB",
+     "icdA"
+    ],
+    [
+     "lacA",
+     "lacZ"
+    ],
+    [
+     "eutG",
+     "lacY"
+    ],
+    [
+     "lacY",
+     "lacZ"
+    ],
+    [
+     "asnA",
+     "ygcE"
+    ],
+    [
+     "ycgX",
+     "yheI"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V31\n  V3\n  V41\n  V16\n  V2\n  V42\n  V9\n  V40\n  V37\n  V34\n  V26\n  V13\n  V27\n\nDirectly related pairs whose direction is unknown:\n  V31 -- V26\n  V27 -- V2\n  V2 -- V42\n  V41 -- V37\n  V13 -- V16\n  V3 -- V34\n  V3 -- V9\n  V40 -- V42\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "466c8347d98fdcfad2ffff6ab252f7d4599a2ea7a392df0fdc74edc376478e4e"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G3049": "G3049",
+    "G6123": "G6123"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G3049",
+    "G6123"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G3049",
+     "G6123"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G3049\n  G6123\n\nDirectly related pairs whose direction is unknown:\n  G3049 -- G6123\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "3312cc72f22bafa8739426b77934ba1072dc283fb270fcba9b04b71eb72ca94e"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G3049": "G3049",
+    "G6123": "G6123"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G3049",
+    "G6123"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G3049",
+     "G6123"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G6123\n  G3049\n\nDirectly related pairs whose direction is unknown:\n  G3049 -- G6123\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "52d382c887acacdef7031d893aff7b0a07aff2f03b6e98f30fd09fa51c007a07"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G3049": "V2",
+    "G6123": "V30"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G3049",
+    "G6123"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G3049",
+     "G6123"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V2\n  V30\n\nDirectly related pairs whose direction is unknown:\n  V2 -- V30\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "6e5c9fc9cc845896e24d44155765741d979c02dec2d94252a19948214742ea87"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G3049": "V2",
+    "G6123": "V30"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G3049",
+    "G6123"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G3049",
+     "G6123"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V30\n  V2\n\nDirectly related pairs whose direction is unknown:\n  V2 -- V30\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "b5d6233a87d1b40d72a047a3287f6429515c59bd4b4ba8b9873076de2f19dabe"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G3098": "G3098",
+    "G3102": "G3102",
+    "G3105": "G3105",
+    "G3106": "G3106"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G3098",
+    "G3102",
+    "G3105",
+    "G3106"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G3098",
+     "G3105"
+    ],
+    [
+     "G3102",
+     "G3105"
+    ],
+    [
+     "G3105",
+     "G3106"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G3105\n  G3106\n  G3098\n  G3102\n\nDirectly related pairs whose direction is unknown:\n  G3102 -- G3105\n  G3105 -- G3106\n  G3098 -- G3105\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c5449fe221db66b19f7add789dedccdd736865f66d9a7eadd7ad87753d0bd771"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G3098": "G3098",
+    "G3102": "G3102",
+    "G3105": "G3105",
+    "G3106": "G3106"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G3098",
+    "G3102",
+    "G3105",
+    "G3106"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G3098",
+     "G3105"
+    ],
+    [
+     "G3102",
+     "G3105"
+    ],
+    [
+     "G3105",
+     "G3106"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G3105\n  G3106\n  G3102\n  G3098\n\nDirectly related pairs whose direction is unknown:\n  G3102 -- G3105\n  G3105 -- G3106\n  G3098 -- G3105\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "632fa8f074e5910de9ccb4ace544d0538001463d92a636f8013add907e627500"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G3098": "V61",
+    "G3102": "V64",
+    "G3105": "V26",
+    "G3106": "V40"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G3098",
+    "G3102",
+    "G3105",
+    "G3106"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G3098",
+     "G3105"
+    ],
+    [
+     "G3102",
+     "G3105"
+    ],
+    [
+     "G3105",
+     "G3106"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V26\n  V40\n  V61\n  V64\n\nDirectly related pairs whose direction is unknown:\n  V64 -- V26\n  V26 -- V40\n  V61 -- V26\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "532d0a238b601ae7f03325e16b797482ae1a411ca133bb76fb6b0e015dff1d50"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G3098": "V61",
+    "G3102": "V64",
+    "G3105": "V26",
+    "G3106": "V40"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G3098",
+    "G3102",
+    "G3105",
+    "G3106"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G3098",
+     "G3105"
+    ],
+    [
+     "G3102",
+     "G3105"
+    ],
+    [
+     "G3105",
+     "G3106"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V26\n  V40\n  V64\n  V61\n\nDirectly related pairs whose direction is unknown:\n  V64 -- V26\n  V26 -- V40\n  V61 -- V26\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "b51d44fd8af93c95354658f7c00bacc9694c6778175b67aca3c3d020f683c4c6"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G3219": "G3219",
+    "G3222": "G3222",
+    "GTEMP": "GTEMP"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G3219",
+    "G3222",
+    "GTEMP"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G3219",
+     "G3222"
+    ],
+    [
+     "G3219",
+     "GTEMP"
+    ],
+    [
+     "G3222",
+     "GTEMP"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  GTEMP\n  G3222\n  G3219\n\nDirectly related pairs whose direction is unknown:\n  G3219 -- GTEMP\n  G3222 -- GTEMP\n  G3219 -- G3222\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "423d821e1378c37be804c9efb3bcddec9baf24073f1ae821c3a3f85800c61778"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G3219": "G3219",
+    "G3222": "G3222",
+    "GTEMP": "GTEMP"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G3219",
+    "G3222",
+    "GTEMP"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G3219",
+     "G3222"
+    ],
+    [
+     "G3219",
+     "GTEMP"
+    ],
+    [
+     "G3222",
+     "GTEMP"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G3219\n  G3222\n  GTEMP\n\nDirectly related pairs whose direction is unknown:\n  G3222 -- GTEMP\n  G3219 -- G3222\n  G3219 -- GTEMP\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c756d22ecf57f3a8d06a6f7b445df1d7df5245af632597ad30d4ef8a73326f62"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G3219": "V53",
+    "G3222": "V3",
+    "GTEMP": "V16"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G3219",
+    "G3222",
+    "GTEMP"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G3219",
+     "G3222"
+    ],
+    [
+     "G3219",
+     "GTEMP"
+    ],
+    [
+     "G3222",
+     "GTEMP"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V16\n  V3\n  V53\n\nDirectly related pairs whose direction is unknown:\n  V53 -- V16\n  V3 -- V16\n  V53 -- V3\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "5b6749c413416d84fb434b383a43f2593c04940a5b5cc2e98f4cd073741f76c0"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G3219": "V53",
+    "G3222": "V3",
+    "GTEMP": "V16"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G3219",
+    "G3222",
+    "GTEMP"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G3219",
+     "G3222"
+    ],
+    [
+     "G3219",
+     "GTEMP"
+    ],
+    [
+     "G3222",
+     "GTEMP"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V53\n  V3\n  V16\n\nDirectly related pairs whose direction is unknown:\n  V3 -- V16\n  V53 -- V3\n  V53 -- V16\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c2d9cfb4bc0936531830f38564db511b93560b60a581a40a0bf2ec0db12a44cd"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G4109": "G4109",
+    "G4145": "G4145",
+    "G4156": "G4156"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G4109",
+    "G4145",
+    "G4156"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G4109",
+     "G4145"
+    ],
+    [
+     "G4109",
+     "G4156"
+    ],
+    [
+     "G4145",
+     "G4156"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G4109\n  G4156\n  G4145\n\nDirectly related pairs whose direction is unknown:\n  G4145 -- G4156\n  G4109 -- G4145\n  G4109 -- G4156\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "8e6a79c445bf4f745f0b6d7ac8fcb1805a3bee6d5520ccd04b0a00123b487107"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G4109": "G4109",
+    "G4145": "G4145",
+    "G4156": "G4156"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G4109",
+    "G4145",
+    "G4156"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G4109",
+     "G4145"
+    ],
+    [
+     "G4109",
+     "G4156"
+    ],
+    [
+     "G4145",
+     "G4156"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G4109\n  G4145\n  G4156\n\nDirectly related pairs whose direction is unknown:\n  G4109 -- G4145\n  G4109 -- G4156\n  G4145 -- G4156\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "81d1309abad84dd0bd157e0f35ae2149e0f8e5108e2ec137c4f921d2cf14d835"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G4109": "V48",
+    "G4145": "V44",
+    "G4156": "V54"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G4109",
+    "G4145",
+    "G4156"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G4109",
+     "G4145"
+    ],
+    [
+     "G4109",
+     "G4156"
+    ],
+    [
+     "G4145",
+     "G4156"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V48\n  V54\n  V44\n\nDirectly related pairs whose direction is unknown:\n  V44 -- V54\n  V48 -- V44\n  V48 -- V54\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "1895d14597706637877efde02d9018fe08e96c367235fb95c34e56ec75319256"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G4109": "V48",
+    "G4145": "V44",
+    "G4156": "V54"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G4109",
+    "G4145",
+    "G4156"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G4109",
+     "G4145"
+    ],
+    [
+     "G4109",
+     "G4156"
+    ],
+    [
+     "G4145",
+     "G4156"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V48\n  V44\n  V54\n\nDirectly related pairs whose direction is unknown:\n  V48 -- V44\n  V48 -- V54\n  V44 -- V54\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c9c6363ed200a5abe7152ba3bbcb9610926ad702afbf30ef9bc94f27d7c72ead"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "G6003": "G6003",
+    "G6010": "G6010"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G6003",
+    "G6010"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G6003",
+     "G6010"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G6003\n  G6010\n\nDirectly related pairs whose direction is unknown:\n  G6003 -- G6010\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "fe4a961dca80c0475154038db429960efea8b2f3be49fa8ea1efdc307c881ac6"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "G6003": "G6003",
+    "G6010": "G6010"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "G6003",
+    "G6010"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G6003",
+     "G6010"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G6010\n  G6003\n\nDirectly related pairs whose direction is unknown:\n  G6003 -- G6010\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "5a4da1abc9db5500c4b2c0a05ccba9d6e1fb0bc88104265eac071d8efc610ccf"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "G6003": "V19",
+    "G6010": "V6"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G6003",
+    "G6010"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G6003",
+     "G6010"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V19\n  V6\n\nDirectly related pairs whose direction is unknown:\n  V19 -- V6\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "fa5758a25ef2cbca36e7cb80fc99bf708587deb3b98b8c76f6700ca75c9c4a02"
+  },
+  {
+   "component": 4,
+   "kind": "open",
+   "label_of": {
+    "G6003": "V19",
+    "G6010": "V6"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "G6003",
+    "G6010"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G6003",
+     "G6010"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V6\n  V19\n\nDirectly related pairs whose direction is unknown:\n  V19 -- V6\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "081d58fe45a9844d552f84f50ab60eeaea3f75b8135e6393d4ae107c6e83978c"
+  },
+  {
+   "compelled_direction": {
+    "G3098|AMY": [
+     "G3098",
+     "AMY"
+    ],
+    "G3106|AMY": [
+     "G3106",
+     "AMY"
+    ],
+    "G3219|G4382": [
+     "G3219",
+     "G4382"
+    ],
+    "G3222|G3212": [
+     "G3222",
+     "G3212"
+    ],
+    "G4145|FT": [
+     "G4145",
+     "FT"
+    ],
+    "G4145|G3212": [
+     "G4145",
+     "G3212"
+    ],
+    "G6010|G317": [
+     "G6010",
+     "G317"
+    ],
+    "GTEMP|AMY": [
+     "GTEMP",
+     "AMY"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "AMY": "AMY",
+    "FT": "FT",
+    "G3098": "G3098",
+    "G3106": "G3106",
+    "G317": "G317",
+    "G3212": "G3212",
+    "G3219": "G3219",
+    "G3222": "G3222",
+    "G4145": "G4145",
+    "G4382": "G4382",
+    "G6010": "G6010",
+    "GTEMP": "GTEMP"
+   },
+   "naming": "real",
+   "network": "magic-irri",
+   "nodes": [
+    "AMY",
+    "FT",
+    "G3098",
+    "G3106",
+    "G317",
+    "G3212",
+    "G3219",
+    "G3222",
+    "G4145",
+    "G4382",
+    "G6010",
+    "GTEMP"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "AMY",
+     "G3098"
+    ],
+    [
+     "AMY",
+     "G3106"
+    ],
+    [
+     "G3219",
+     "G4382"
+    ],
+    [
+     "G3212",
+     "G3222"
+    ],
+    [
+     "FT",
+     "G4145"
+    ],
+    [
+     "G3212",
+     "G4145"
+    ],
+    [
+     "G317",
+     "G6010"
+    ],
+    [
+     "AMY",
+     "GTEMP"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from rice: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  AMY\n  G3212\n  G3219\n  G3098\n  G3222\n  FT\n  G317\n  GTEMP\n  G3106\n  G4382\n  G6010\n  G4145\n\nDirectly related pairs whose direction is unknown:\n  AMY -- GTEMP\n  AMY -- G3098\n  G3212 -- G3222\n  G3212 -- G4145\n  FT -- G4145\n  G317 -- G6010\n  AMY -- G3106\n  G3219 -- G4382\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c9920f763bcb6882f7f6d9be5004812e636b0b7fa93474bf2661b6be60e9867e"
+  },
+  {
+   "compelled_direction": {
+    "G3098|AMY": [
+     "G3098",
+     "AMY"
+    ],
+    "G3106|AMY": [
+     "G3106",
+     "AMY"
+    ],
+    "G3219|G4382": [
+     "G3219",
+     "G4382"
+    ],
+    "G3222|G3212": [
+     "G3222",
+     "G3212"
+    ],
+    "G4145|FT": [
+     "G4145",
+     "FT"
+    ],
+    "G4145|G3212": [
+     "G4145",
+     "G3212"
+    ],
+    "G6010|G317": [
+     "G6010",
+     "G317"
+    ],
+    "GTEMP|AMY": [
+     "GTEMP",
+     "AMY"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "AMY": "V59",
+    "FT": "V15",
+    "G3098": "V61",
+    "G3106": "V40",
+    "G317": "V46",
+    "G3212": "V49",
+    "G3219": "V53",
+    "G3222": "V3",
+    "G4145": "V44",
+    "G4382": "V34",
+    "G6010": "V6",
+    "GTEMP": "V16"
+   },
+   "naming": "scrambled",
+   "network": "magic-irri",
+   "nodes": [
+    "AMY",
+    "FT",
+    "G3098",
+    "G3106",
+    "G317",
+    "G3212",
+    "G3219",
+    "G3222",
+    "G4145",
+    "G4382",
+    "G6010",
+    "GTEMP"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "AMY",
+     "G3098"
+    ],
+    [
+     "AMY",
+     "G3106"
+    ],
+    [
+     "G3219",
+     "G4382"
+    ],
+    [
+     "G3212",
+     "G3222"
+    ],
+    [
+     "FT",
+     "G4145"
+    ],
+    [
+     "G3212",
+     "G4145"
+    ],
+    [
+     "G317",
+     "G6010"
+    ],
+    [
+     "AMY",
+     "GTEMP"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V59\n  V49\n  V53\n  V61\n  V3\n  V15\n  V46\n  V16\n  V40\n  V34\n  V6\n  V44\n\nDirectly related pairs whose direction is unknown:\n  V59 -- V16\n  V59 -- V61\n  V49 -- V3\n  V49 -- V44\n  V15 -- V44\n  V46 -- V6\n  V59 -- V40\n  V53 -- V34\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "9101624857d65ada13436d3c4fdff3930321987d64f21eb63f391bc648374ede"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G1294": "G1294",
+    "G418": "G418"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1294",
+    "G418"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1294",
+     "G418"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G1294\n  G418\n\nDirectly related pairs whose direction is unknown:\n  G1294 -- G418\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c707ad00c858d7022276896ba48a3598ffa0d20efc357601c2beb866950c4be3"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G1294": "G1294",
+    "G418": "G418"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1294",
+    "G418"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G1294",
+     "G418"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G418\n  G1294\n\nDirectly related pairs whose direction is unknown:\n  G1294 -- G418\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "0417a28d03b927862c210922cb75404d7edc1ad44ea004d47916390066ddaa65"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G1294": "V26",
+    "G418": "V13"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G1294",
+    "G418"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1294",
+     "G418"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V26\n  V13\n\nDirectly related pairs whose direction is unknown:\n  V26 -- V13\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e5d9e40bdea47b3734cae49c1436bd0e798c95e375c941fef04f7728abbc1e0f"
+  },
+  {
+   "component": 0,
+   "kind": "open",
+   "label_of": {
+    "G1294": "V26",
+    "G418": "V13"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G1294",
+    "G418"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G1294",
+     "G418"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V13\n  V26\n\nDirectly related pairs whose direction is unknown:\n  V26 -- V13\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "a42d08d039632d800070453862fd536d58029a20a14a0146a22b467ddd4f527b"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G1853": "G1853",
+    "G311": "G311",
+    "G43": "G43"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1853",
+    "G311",
+    "G43"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G311",
+     "G43"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G311\n  G1853\n  G43\n\nDirectly related pairs whose direction is unknown:\n  G1853 -- G311\n  G311 -- G43\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "2b3b609510a0b9bfd52ccbb107f03e59288254d8a9a49b352a79ef9af07b6aac"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G1853": "G1853",
+    "G311": "G311",
+    "G43": "G43"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1853",
+    "G311",
+    "G43"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G311",
+     "G43"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G311\n  G43\n  G1853\n\nDirectly related pairs whose direction is unknown:\n  G1853 -- G311\n  G311 -- G43\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "89bec9797c516efac3c33154c63d3f8f3ea434bb3c10e4701742048062b9f4aa"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G1853": "V15",
+    "G311": "V17",
+    "G43": "V37"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G1853",
+    "G311",
+    "G43"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G311",
+     "G43"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V17\n  V15\n  V37\n\nDirectly related pairs whose direction is unknown:\n  V15 -- V17\n  V17 -- V37\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "1ccffc391f48333c501e1cce898e6e38aaffdef9e152fc99fa997919f94a7bc9"
+  },
+  {
+   "component": 1,
+   "kind": "open",
+   "label_of": {
+    "G1853": "V15",
+    "G311": "V17",
+    "G43": "V37"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G1853",
+    "G311",
+    "G43"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G1853",
+     "G311"
+    ],
+    [
+     "G311",
+     "G43"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V17\n  V37\n  V15\n\nDirectly related pairs whose direction is unknown:\n  V15 -- V17\n  V17 -- V37\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "8df1e02b71c18e6ab6518368f6c990622210dd6fba8d72ce2b97be991eeac45f"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G1896": "G1896",
+    "G2953": "G2953"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1896",
+    "G2953"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1896",
+     "G2953"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G2953\n  G1896\n\nDirectly related pairs whose direction is unknown:\n  G1896 -- G2953\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "e57506de8c3b85ba10cf675264f45873b92dcb41d006a90882fb1af7f040d541"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G1896": "G1896",
+    "G2953": "G2953"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G1896",
+    "G2953"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G1896",
+     "G2953"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G1896\n  G2953\n\nDirectly related pairs whose direction is unknown:\n  G1896 -- G2953\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "2e845e0e2d06e967a82d956a0bd836f184fb5ca7ca1a0ff4bd180bc2247a91d2"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G1896": "V42",
+    "G2953": "V3"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G1896",
+    "G2953"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G1896",
+     "G2953"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V3\n  V42\n\nDirectly related pairs whose direction is unknown:\n  V42 -- V3\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "fe560506266cc187c269d11ead34b7e29f830b72dfc72dd24caee2ade144783e"
+  },
+  {
+   "component": 2,
+   "kind": "open",
+   "label_of": {
+    "G1896": "V42",
+    "G2953": "V3"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G1896",
+    "G2953"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G1896",
+     "G2953"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V42\n  V3\n\nDirectly related pairs whose direction is unknown:\n  V42 -- V3\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "c6a8d6b0668f6c9ed87f03333dda04d3646c51c480251d13ff5f3e0ae50eab57"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G383": "G383",
+    "G800": "G800"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G383",
+    "G800"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G383",
+     "G800"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G800\n  G383\n\nDirectly related pairs whose direction is unknown:\n  G383 -- G800\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "f93af3ff1bd322345ed473e0ed99a919fb9c8f411c52279be1541044a6b7eda4"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G383": "G383",
+    "G800": "G800"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "G383",
+    "G800"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G383",
+     "G800"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  G383\n  G800\n\nDirectly related pairs whose direction is unknown:\n  G383 -- G800\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "345dc192eb73b903085476a1dcdd9a5da374435b541ee217767c458fe372f319"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G383": "V21",
+    "G800": "V25"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G383",
+    "G800"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "G383",
+     "G800"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V25\n  V21\n\nDirectly related pairs whose direction is unknown:\n  V21 -- V25\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "5b0339bb639a37d94574e25ca10d1ec0459f9e14c6b2867d94699ac813219ce9"
+  },
+  {
+   "component": 3,
+   "kind": "open",
+   "label_of": {
+    "G383": "V21",
+    "G800": "V25"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "G383",
+    "G800"
+   ],
+   "order_seed": 1,
+   "pairs": [
+    [
+     "G383",
+     "G800"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V21\n  V25\n\nDirectly related pairs whose direction is unknown:\n  V21 -- V25\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "aef6400b657168eb6ed27d5e76734ade82bf8f1450601f2712121baa02e35be1"
+  },
+  {
+   "compelled_direction": {
+    "G1294|FT": [
+     "G1294",
+     "FT"
+    ],
+    "G1853|FUS": [
+     "G1853",
+     "FUS"
+    ],
+    "G1896|FUS": [
+     "G1896",
+     "FUS"
+    ],
+    "G1896|HT": [
+     "G1896",
+     "HT"
+    ],
+    "G2953|HT": [
+     "G2953",
+     "HT"
+    ],
+    "G383|FUS": [
+     "G383",
+     "FUS"
+    ],
+    "G418|YR.FIELD": [
+     "G418",
+     "YR.FIELD"
+    ],
+    "G418|YR.GLASS": [
+     "G418",
+     "YR.GLASS"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "FT": "FT",
+    "FUS": "FUS",
+    "G1294": "G1294",
+    "G1853": "G1853",
+    "G1896": "G1896",
+    "G2953": "G2953",
+    "G383": "G383",
+    "G418": "G418",
+    "HT": "HT",
+    "YR.FIELD": "YR.FIELD",
+    "YR.GLASS": "YR.GLASS"
+   },
+   "naming": "real",
+   "network": "magic-niab",
+   "nodes": [
+    "FT",
+    "FUS",
+    "G1294",
+    "G1853",
+    "G1896",
+    "G2953",
+    "G383",
+    "G418",
+    "HT",
+    "YR.FIELD",
+    "YR.GLASS"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "FT",
+     "G1294"
+    ],
+    [
+     "FUS",
+     "G1853"
+    ],
+    [
+     "FUS",
+     "G1896"
+    ],
+    [
+     "G1896",
+     "HT"
+    ],
+    [
+     "G2953",
+     "HT"
+    ],
+    [
+     "FUS",
+     "G383"
+    ],
+    [
+     "G418",
+     "YR.FIELD"
+    ],
+    [
+     "G418",
+     "YR.GLASS"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from wheat: genetic markers and agronomic phenotypes in a multi-parent population.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  FT\n  YR.FIELD\n  YR.GLASS\n  G1853\n  G1896\n  G2953\n  G383\n  G418\n  HT\n  G1294\n  FUS\n\nDirectly related pairs whose direction is unknown:\n  G418 -- YR.FIELD\n  G418 -- YR.GLASS\n  G2953 -- HT\n  FUS -- G383\n  FUS -- G1896\n  FT -- G1294\n  FUS -- G1853\n  G1896 -- HT\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "efd49fbdd46bf45c8e36971135ca8587f75719a48dd7f0cc2ac3020e51252225"
+  },
+  {
+   "compelled_direction": {
+    "G1294|FT": [
+     "G1294",
+     "FT"
+    ],
+    "G1853|FUS": [
+     "G1853",
+     "FUS"
+    ],
+    "G1896|FUS": [
+     "G1896",
+     "FUS"
+    ],
+    "G1896|HT": [
+     "G1896",
+     "HT"
+    ],
+    "G2953|HT": [
+     "G2953",
+     "HT"
+    ],
+    "G383|FUS": [
+     "G383",
+     "FUS"
+    ],
+    "G418|YR.FIELD": [
+     "G418",
+     "YR.FIELD"
+    ],
+    "G418|YR.GLASS": [
+     "G418",
+     "YR.GLASS"
+    ]
+   },
+   "component": -1,
+   "kind": "compelled_control",
+   "label_of": {
+    "FT": "V32",
+    "FUS": "V39",
+    "G1294": "V26",
+    "G1853": "V15",
+    "G1896": "V42",
+    "G2953": "V3",
+    "G383": "V21",
+    "G418": "V13",
+    "HT": "V14",
+    "YR.FIELD": "V30",
+    "YR.GLASS": "V19"
+   },
+   "naming": "scrambled",
+   "network": "magic-niab",
+   "nodes": [
+    "FT",
+    "FUS",
+    "G1294",
+    "G1853",
+    "G1896",
+    "G2953",
+    "G383",
+    "G418",
+    "HT",
+    "YR.FIELD",
+    "YR.GLASS"
+   ],
+   "order_seed": 0,
+   "pairs": [
+    [
+     "FT",
+     "G1294"
+    ],
+    [
+     "FUS",
+     "G1853"
+    ],
+    [
+     "FUS",
+     "G1896"
+    ],
+    [
+     "G1896",
+     "HT"
+    ],
+    [
+     "G2953",
+     "HT"
+    ],
+    [
+     "FUS",
+     "G383"
+    ],
+    [
+     "G418",
+     "YR.FIELD"
+    ],
+    [
+     "G418",
+     "YR.GLASS"
+    ]
+   ],
+   "prompt": "You are asked about causal direction among variables from an observational dataset; the variables are given by neutral codes.\nSome of these variables are directly related, but the data alone cannot tell which of each related pair causes the other.\n\nVariables in this group:\n  V32\n  V30\n  V19\n  V15\n  V42\n  V3\n  V21\n  V13\n  V14\n  V26\n  V39\n\nDirectly related pairs whose direction is unknown:\n  V13 -- V30\n  V13 -- V19\n  V3 -- V14\n  V39 -- V21\n  V39 -- V42\n  V32 -- V26\n  V39 -- V15\n  V42 -- V14\n\nGive a causal ORDER of the variables in this group, earliest cause first, so that every related pair is oriented from the earlier variable to the later one. Omit a variable if you cannot place it. Then, for each listed pair, state the direction your order implies, or DECLINE if you cannot judge it, with a confidence from 0 to 1.\n\nAnswer ONLY with JSON: {\"order\": [\"...\", \"...\"], \"pairs\": [{\"a\": \"<first name as listed>\", \"b\": \"<second name as listed>\", \"direction\": \"a->b\" | \"b->a\" | \"DECLINE\", \"confidence\": 0.0}, ...]}",
+   "prompt_sha256": "1bd7b23e567f327097370ef9fc502db04102b2cbed174464df7e0bc057bc6f0d"
+  }
+ ],
+ "max_component": 20,
+ "order_seeds": [
+  0,
+  1
+ ],
+ "per_network": [
+  {
+   "components_dropped_for_size": [],
+   "components_kept": 6,
+   "components_with_candidate": 6,
+   "control_edges": 8,
+   "items": 24,
+   "network": "arth150",
+   "open_questions": 38
+  },
+  {
+   "components_dropped_for_size": [],
+   "components_kept": 4,
+   "components_with_candidate": 4,
+   "control_edges": 8,
+   "items": 16,
+   "network": "ecoli70",
+   "open_questions": 7
+  },
+  {
+   "components_dropped_for_size": [],
+   "components_kept": 5,
+   "components_with_candidate": 5,
+   "control_edges": 8,
+   "items": 20,
+   "network": "magic-irri",
+   "open_questions": 11
+  },
+  {
+   "components_dropped_for_size": [],
+   "components_kept": 4,
+   "components_with_candidate": 4,
+   "control_edges": 8,
+   "items": 16,
+   "network": "magic-niab",
+   "open_questions": 5
+  }
+ ],
+ "seed": 20260913
+}

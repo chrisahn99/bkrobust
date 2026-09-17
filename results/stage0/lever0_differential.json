@@ -1,0 +1,70 @@
+{
+ "pairs": 540,
+ "max_undirected_for_enumeration": 8,
+ "seconds": 15.6,
+ "populations": {
+  "true_full": {
+   "rows": 540,
+   "closed_verdict": {
+    "closed_form": 540
+   },
+   "closed_valid_where_set": 540,
+   "closed_invalid_where_set": 0,
+   "enumeration": {
+    "set": 540
+   },
+   "both_defined": 540,
+   "agree": 540,
+   "closed_strict_subset_of_enum": 0,
+   "enum_strict_subset_of_closed": 0,
+   "closed_returns_set_where_enum_not_identified": 0,
+   "closed_returns_set_where_enum_not_run": 0,
+   "undirected_edges_max": 0
+  },
+  "true_half": {
+   "rows": 540,
+   "closed_verdict": {
+    "closed_form": 222,
+    "not_amenable": 318
+   },
+   "closed_valid_where_set": 222,
+   "closed_invalid_where_set": 0,
+   "enumeration": {
+    "set": 151,
+    "not_run": 211,
+    "not_identified": 178
+   },
+   "both_defined": 151,
+   "agree": 146,
+   "closed_strict_subset_of_enum": 0,
+   "enum_strict_subset_of_closed": 5,
+   "closed_returns_set_where_enum_not_identified": 0,
+   "closed_returns_set_where_enum_not_run": 71,
+   "undirected_edges_max": 27
+  },
+  "corrupted_half": {
+   "rows": 540,
+   "closed_verdict": {
+    "closed_form": 214,
+    "not_amenable": 286,
+    "knowledge_inconsistent": 35,
+    "y_not_possible_descendant": 5
+   },
+   "closed_valid_where_set": 214,
+   "closed_invalid_where_set": 0,
+   "enumeration": {
+    "set": 154,
+    "not_run": 225,
+    "not_identified": 159,
+    "empty": 2
+   },
+   "both_defined": 154,
+   "agree": 148,
+   "closed_strict_subset_of_enum": 0,
+   "enum_strict_subset_of_closed": 6,
+   "closed_returns_set_where_enum_not_identified": 0,
+   "closed_returns_set_where_enum_not_run": 60,
+   "undirected_edges_max": 19
+  }
+ }
+}

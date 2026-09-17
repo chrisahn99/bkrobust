@@ -1,0 +1,33 @@
+{
+ "frame_rows": 80,
+ "networks": 4,
+ "arms": [
+  "D_LLM_PLUS_ANC"
+ ],
+ "evaluations": 80,
+ "seconds": 53.4,
+ "status_by_arm": {
+  "D_LLM_PLUS_ANC": {
+   "ok": 32,
+   "y_not_possible_descendant": 41,
+   "not_amenable": 7
+  }
+ },
+ "settings": {
+  "rand_reps": 3,
+  "seed": 20260913,
+  "max_depth": 3,
+  "subset_budget": 300,
+  "radius_limit_s": 5.0,
+  "exhaustive_max_retractable": 12,
+  "ladder_max_nodes": 60,
+  "closure_budget": 4000
+ },
+ "excluded_for_size": [
+  {
+   "network": "munin",
+   "nodes": 1041
+  }
+ ],
+ "knowledge_extra": "results/elicit/knowledge_ancestral.json"
+}

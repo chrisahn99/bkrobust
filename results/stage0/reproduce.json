@@ -1,0 +1,556 @@
+{
+ "seed": 20260912,
+ "skipped_networks": [
+  "pathfinder"
+ ],
+ "rows_checked": 30,
+ "by_dispatch_leg": {
+  "e1_ladder": 15,
+  "local_up_fast": 15
+ },
+ "disagreements": 0,
+ "disagreement_rows": [],
+ "seconds": 3.7,
+ "rows": [
+  {
+   "network": "Kampen_2014",
+   "x": "PER",
+   "y": "DET",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 4,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 4,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "Kampen_2014",
+   "x": "PER",
+   "y": "DET",
+   "coverage": 0.5,
+   "committed": {
+    "radius": 4,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 4,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "paths",
+   "x": "1",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 14,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 14,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "paths",
+   "x": "10",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 5,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 5,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "paths",
+   "x": "11",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 4,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 4,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "paths",
+   "x": "2",
+   "y": "E",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 13,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 13,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "paths",
+   "x": "3",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 12,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 12,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "paths",
+   "x": "4",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 11,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 11,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "paths",
+   "x": "4",
+   "y": "E",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 11,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 11,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "paths",
+   "x": "5",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 10,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 10,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "paths",
+   "x": "6",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 9,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 9,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "paths",
+   "x": "6",
+   "y": "E",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 9,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 9,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "paths",
+   "x": "7",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 8,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 8,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 2,
+   "z_size_recomputed": 2
+  },
+  {
+   "network": "paths",
+   "x": "8",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 7,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 7,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "paths",
+   "x": "9",
+   "y": "D",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 6,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 6,
+    "method": "e1_ladder",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "asia",
+   "x": "bronc",
+   "y": "dysp",
+   "coverage": 0.5,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "Kampen_2014",
+   "x": "CDR",
+   "y": "DET",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 3,
+   "z_size_recomputed": 3
+  },
+  {
+   "network": "child",
+   "x": "LungParench",
+   "y": "LowerBodyO2",
+   "coverage": 0.5,
+   "committed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 2,
+   "z_size_recomputed": 2
+  },
+  {
+   "network": "insurance",
+   "x": "SocioEcon",
+   "y": "Airbag",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "insurance",
+   "x": "SocioEcon",
+   "y": "AntiTheft",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "insurance",
+   "x": "SocioEcon",
+   "y": "Cushioning",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 1,
+   "z_size_recomputed": 1
+  },
+  {
+   "network": "insurance",
+   "x": "VehicleYear",
+   "y": "Theft",
+   "coverage": 0.5,
+   "committed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 4,
+   "z_size_recomputed": 4
+  },
+  {
+   "network": "magic-niab",
+   "x": "G1276",
+   "y": "YR.FIELD",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 14,
+   "z_size_recomputed": 14
+  },
+  {
+   "network": "magic-niab",
+   "x": "G257",
+   "y": "MIL",
+   "coverage": 0.5,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 4,
+   "z_size_recomputed": 4
+  },
+  {
+   "network": "barley",
+   "x": "rokap",
+   "y": "udb",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 4,
+   "z_size_recomputed": 4
+  },
+  {
+   "network": "barley",
+   "x": "frspdag",
+   "y": "spndx",
+   "coverage": 0.5,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 7,
+   "z_size_recomputed": 7
+  },
+  {
+   "network": "barley",
+   "x": "nedbarea",
+   "y": "ngtilg",
+   "coverage": 0.5,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 8,
+   "z_size_recomputed": 8
+  },
+  {
+   "network": "barley",
+   "x": "jordinf",
+   "y": "aks_vgt",
+   "coverage": 0.25,
+   "committed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 2,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 6,
+   "z_size_recomputed": 6
+  },
+  {
+   "network": "magic-irri",
+   "x": "G3222",
+   "y": "GTEMP",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 4,
+   "z_size_recomputed": 4
+  },
+  {
+   "network": "diabetes",
+   "x": "gut_abs_6",
+   "y": "ins_dep_util_21",
+   "coverage": 1.0,
+   "committed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "recomputed": {
+    "radius": 1,
+    "method": "local_up_fast",
+    "exact": true
+   },
+   "z_size_committed": 47,
+   "z_size_recomputed": 47
+  }
+ ]
+}
