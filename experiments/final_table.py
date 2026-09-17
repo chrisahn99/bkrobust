@@ -340,7 +340,13 @@ def summarise_network(
     Returns:
         Aggregate dict used both for summary.json and the printed table.
     """
-    ok = [r for r in net_instances if r["status"] == "ok"]
+    solved = [r for r in net_instances if r["status"] == "ok"]
+    # r_val == 0 is `hybrid`'s "degenerate" verdict: Z is already invalid at G0
+    # (here always the empty optimal set), so the query is ill-posed rather than
+    # fragile. Its radii answer no robustness question and must not be averaged
+    # with radii that do -- they are counted, and reported, separately.
+    degenerate = [r for r in solved if r["r_val"] == 0]
+    ok = [r for r in solved if r["r_val"] != 0]
     len_k = net_instances[0]["len_k"] if net_instances else 0
     eps_cells = {
         str(eps): _cell(
@@ -351,13 +357,16 @@ def summarise_network(
     # |K_G0| is a count of closure-oriented edges, never a radius: it has no
     # UNREACHED case. Take it from any solved instance; it is graph-determined
     # and so identical across this network's queries.
-    n_knowledge = next((r["n_knowledge"] for r in ok if r["n_knowledge"] is not None), None)
+    n_knowledge = next(
+        (r["n_knowledge"] for r in solved if r["n_knowledge"] is not None), None
+    )
     return {
         "n_nodes": n_nodes,
         "len_k": len_k,
         "n_knowledge": n_knowledge,
         "n_queries": len(net_instances),
         "n_ok": len(ok),
+        "n_degenerate": len(degenerate),
         "n_error": sum(1 for r in net_instances if r["status"] == "error"),
         "n_timeout": sum(1 for r in net_instances if r["status"] == "timeout"),
         "r_val": _cell([r["r_val"] for r in ok]),
@@ -407,12 +416,12 @@ def render_table(
     Returns:
         The table as one multi-line string.
     """
-    net_w = max([len("network"), len("TOTAL/median")] + [len(n) for n in universe]) + 1
+    net_w = max([len("network"), len("MEDIAN over nets")] + [len(n) for n in universe]) + 1
     eps_headers = [f"eps={e:g}" for e in epsilons]
     col_w = max([9] + [len(h) + 1 for h in eps_headers])
     header = (
         f"{'network':<{net_w}}"
-        f"{'|V|':>6}{'K':>6}{'|K_G0|':>8}{'ok/to/er':>10}{'r_val':>{col_w}}"
+        f"{'|V|':>6}{'K':>6}{'|K_G0|':>8}{'ok/dg/to/er':>13}{'r_val':>{col_w}}"
         + "".join(f"{h:>{col_w}}" for h in eps_headers)
     )
     rule = "-" * len(header)
@@ -420,11 +429,11 @@ def render_table(
 
     for net in universe:
         s = summaries[net]
-        support = f"{s['n_ok']}/{s['n_timeout']}/{s['n_error']}"
+        support = f"{s['n_ok']}/{s['n_degenerate']}/{s['n_timeout']}/{s['n_error']}"
         row = (
             f"{net:<{net_w}}"
             f"{s['n_nodes']:>6}{s['len_k']:>6}{_fmt_count(s['n_knowledge']):>8}"
-            f"{support:>10}{_fmt_cell(s['r_val']):>{col_w}}"
+            f"{support:>13}{_fmt_cell(s['r_val']):>{col_w}}"
         )
         for eps in epsilons:
             row += f"{_fmt_cell(s['r_eps'][str(eps)]):>{col_w}}"
@@ -433,18 +442,41 @@ def render_table(
     lines.append(rule)
     pooled_support = (
         f"{sum(summaries[n]['n_ok'] for n in universe)}"
+        f"/{sum(summaries[n]['n_degenerate'] for n in universe)}"
         f"/{sum(summaries[n]['n_timeout'] for n in universe)}"
         f"/{sum(summaries[n]['n_error'] for n in universe)}"
     )
+    # PAPER_NARRATIVE.md: networks, not pairs, are the unit of analysis. The
+    # pooled row is therefore a median over per-network medians, not over the
+    # instance pool -- otherwise a 20-query network would outvote a 2-query one.
+    net_r_val = [
+        summaries[n]["r_val"]["value"]
+        for n in universe
+        if summaries[n]["r_val"]["value"] is not None
+    ]
+    r_val_cell = {
+        "value": _median_finite(net_r_val),
+        "n_resolved": len(net_r_val),
+        "n_unreached": 0,
+    }
     total_row = (
-        f"{'POOLED median':<{net_w}}"
-        f"{'':>6}{'':>6}{'':>8}{pooled_support:>10}"
-        f"{_fmt_cell(_cell([r['r_val'] for r in all_ok])):>{col_w}}"
+        f"{'MEDIAN over nets':<{net_w}}"
+        f"{'':>6}{'':>6}{'':>8}{pooled_support:>13}"
+        f"{_fmt_cell(r_val_cell):>{col_w}}"
     )
     for eps in epsilons:
         key = str(eps)
-        pooled = _cell([r["r_eps"][key] for r in all_ok if r["r_eps"] is not None])
-        total_row += f"{_fmt_cell(pooled):>{col_w}}"
+        per_net = [
+            summaries[n]["r_eps"][key]["value"]
+            for n in universe
+            if summaries[n]["r_eps"][key]["value"] is not None
+        ]
+        cell = {
+            "value": _median_finite(per_net),
+            "n_resolved": len(per_net),
+            "n_unreached": 0,
+        }
+        total_row += f"{_fmt_cell(cell):>{col_w}}"
     lines.append(total_row)
     lines.append(rule)
     lines.append(
@@ -460,9 +492,10 @@ def render_table(
         "the enumerated space crosses that threshold) -- a result, not a "
         "radius. '-' = no query resolved (all timed out or errored) -- unknown, "
         "NOT unreachable. '*' = a finite median that co-exists with some "
-        "UNREACHED queries. ok/to/er = queries that solved / timed out / "
-        "errored. epsilon is relative: a fraction of the reported estimate "
-        "theta_z."
+        "UNREACHED queries. ok/dg/to/er = queries that solved / were degenerate "
+        "(Z already invalid at G0, so the query is ill-posed and excluded from "
+        "every median) / timed out / errored. epsilon is relative: a fraction "
+        "of the reported estimate theta_z."
     )
     return "\n".join(lines)
 
@@ -512,7 +545,7 @@ def _report_only(out_dir: Path, epsilons: tuple[float, ...], args: argparse.Name
         net: summarise_network(n_nodes.get(net) or 0, per_network[net], epsilons)
         for net in universe
     }
-    all_ok = [r for r in instances if r["status"] == "ok"]
+    all_ok = [r for r in instances if r["status"] == "ok" and r["r_val"] != 0]
     summary = {
         "args": vars(args),
         "epsilons": list(epsilons),
@@ -592,7 +625,7 @@ def main() -> None:
         net: summarise_network(len(parsed[net]["dag"].nodes), per_network[net], epsilons)
         for net in universe
     }
-    all_ok = [r for r in instances if r["status"] == "ok"]
+    all_ok = [r for r in instances if r["status"] == "ok" and r["r_val"] != 0]
 
     instances_path = out_dir / "instances.jsonl"
     with instances_path.open("w") as f:
