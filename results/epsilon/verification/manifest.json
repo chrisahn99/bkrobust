@@ -1,0 +1,85 @@
+{
+  "base_seed": 20260916,
+  "diagnostics": {
+    "k_g0_size_max": 7,
+    "k_g0_size_mean": 2.825,
+    "k_g0_size_min": 1,
+    "n_false_orientations_total": 250,
+    "n_instances_with_finite_r_val": 400,
+    "r_val_mean_over_finite": 1.2175,
+    "r_val_unreached_note": "UNREACHED (-1) instances are excluded from the mean above, per house style: UNREACHED is a status, never averaged.",
+    "space_size_max": 657,
+    "space_size_mean": 28.5325,
+    "space_size_min": 3
+  },
+  "executable": "/Users/ahn/Documents/Research/iclr27/bkrobust/.venv/bin/python",
+  "generator_counts": {
+    "block": 181,
+    "erdos_renyi": 93,
+    "scale_free": 126
+  },
+  "git_dirty": true,
+  "git_sha": "5b90a0cccd73a975d270952c4da0a69db7f723ba",
+  "interpreter": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "max_attempts": 32000,
+  "n_attempts": 8367,
+  "n_contexts_total": 1200,
+  "n_graph_instances_accepted": 400,
+  "n_sem_draws_per_instance": 3,
+  "n_total_violations": 0,
+  "predicates": {
+    "P1": {
+      "checked": 1758,
+      "violations": 0
+    },
+    "P2": {
+      "checked": 372099,
+      "violations": 0
+    },
+    "P3": {
+      "checked": 17160,
+      "violations": 0
+    },
+    "P4": {
+      "checked": 5844,
+      "violations": 0
+    },
+    "P5": {
+      "checked": 5844,
+      "violations": 0
+    },
+    "P6": {
+      "checked": 22680,
+      "violations": 0
+    },
+    "P7": {
+      "checked": 11413,
+      "violations": 0
+    }
+  },
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "rejection_counts": {
+    "cpdag_too_large_for_space": 147,
+    "empty_set_trivially_valid": 3795,
+    "k_assumed_inconsistent": 168,
+    "no_atomic_perturbation_changes_validity": 2195,
+    "treatment_not_in_or_adjacent_to_component": 1559,
+    "z_invalid_at_g0": 41,
+    "z_not_identified": 62
+  },
+  "space_construction": "bkrobust.search.space_fixed.build_space_correct (the CORRECTED enumerator). bkrobust.core.spacelib.build_space is deliberately not used: it calls bkrobust.demo.space.enumerate_space, whose chordality validity filter omits legitimate knowledge states -- see bkrobust.search.space_fixed's module docstring.",
+  "target_instances": 400,
+  "timings_seconds": {
+    "P1": 0.0025,
+    "P2": 0.6321,
+    "P3": 0.0245,
+    "P4_P5": 15.2157,
+    "P6": 2.2951,
+    "P7": 2.1759,
+    "bias_evaluation": 4.9946,
+    "bias_profile": 2.712,
+    "generation": 15.4873
+  },
+  "tolerance": 1e-09,
+  "total_seconds": 43.6725
+}

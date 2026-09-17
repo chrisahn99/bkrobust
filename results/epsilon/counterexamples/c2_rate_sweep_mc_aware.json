@@ -1,0 +1,800 @@
+{
+  "design": {
+    "rule": "a pair counts as a mean_abs_bias violation only if the deficit exceeds 3.0 combined Monte-Carlo standard errors in ALL 2 independent repetitions, at 300 draws per state. This is conservative, so the rate is a LOWER BOUND on the population rate.",
+    "z_multiplier": 3.0,
+    "n_draws": 300,
+    "n_repetitions": 2,
+    "B_tolerance": 1e-09,
+    "root_seed": 20260916,
+    "n_instances": 45,
+    "max_space_size": 24,
+    "max_pairs_per_instance": 120
+  },
+  "results": {
+    "n_pairs_total": 801,
+    "mean_abs_bias_violations_naive_1e-6": 351,
+    "mean_abs_bias_violations_mc_aware": 278,
+    "B_violations": 0,
+    "rate_mean_naive": 0.4382,
+    "rate_mean_mc_aware_LOWER_BOUND": 0.3471,
+    "rate_B": 0.0,
+    "mc_margin_in_SEs": {
+      "min": 3.02,
+      "median": 9.62,
+      "max": 30.03
+    }
+  },
+  "per_instance": [
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 5,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 4,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 5,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 4,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 1,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 4,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 5,
+      "viol_mean_mc": 4,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20460940,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560944,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "viol_mean_naive": 3,
+      "viol_mean_mc": 3,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 28,
+      "viol_mean_mc": 16,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 27,
+      "viol_mean_mc": 15,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 2,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 28,
+      "viol_mean_mc": 25,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 27,
+      "viol_mean_mc": 15,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 27,
+      "viol_mean_mc": 15,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 2,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 29,
+      "viol_mean_mc": 25,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 26,
+      "viol_mean_mc": 17,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 30,
+      "viol_mean_mc": 26,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20560967,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "viol_mean_naive": 30,
+      "viol_mean_mc": 25,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20660935,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 1,
+      "n_knowledge_g0": 1,
+      "space_size": 3,
+      "n_pairs": 2,
+      "viol_mean_naive": 1,
+      "viol_mean_mc": 1,
+      "viol_B": 0
+    }
+  ],
+  "provenance": {
+    "git_commit": "5b90a0cccd73a975d270952c4da0a69db7f723ba",
+    "python": "3.14.7",
+    "numpy": "2.5.3",
+    "seconds": 131.59
+  }
+}

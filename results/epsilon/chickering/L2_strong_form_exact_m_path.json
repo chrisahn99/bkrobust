@@ -1,0 +1,30 @@
+{
+  "checked": 206878,
+  "elapsed_s": 7.460791110992432,
+  "n_violations": 0,
+  "name": "L2_strong_form_exact_m_path",
+  "scope": {
+    "3": {
+      "n_classes_nontrivial": 7,
+      "n_classes_total": 11,
+      "n_ordered_pairs_checked": 54,
+      "n_violations_this_n": 0,
+      "note": "exhaustive (all equivalence classes, all ordered pairs)"
+    },
+    "4": {
+      "n_classes_nontrivial": 126,
+      "n_classes_total": 185,
+      "n_ordered_pairs_checked": 2424,
+      "n_violations_this_n": 0,
+      "note": "exhaustive (all equivalence classes, all ordered pairs)"
+    },
+    "5": {
+      "n_classes_nontrivial": 6166,
+      "n_classes_total": 8782,
+      "n_ordered_pairs_checked": 204400,
+      "n_violations_this_n": 0,
+      "note": "exhaustive (all equivalence classes, all ordered pairs)"
+    }
+  },
+  "violations": []
+}

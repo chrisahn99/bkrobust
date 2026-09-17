@@ -1,0 +1,15 @@
+{
+  "checked": 7034,
+  "elapsed_s": 0.4019038677215576,
+  "n_violations": 0,
+  "name": "L1_equivalence_preservation_n6_sample",
+  "scope": {
+    "6": {
+      "n_covered_edge_reversals_checked": 7034,
+      "n_dags": 4000,
+      "n_violations_this_n": 0,
+      "note": "random sample, n_samples=4000, seed=20260916"
+    }
+  },
+  "violations": []
+}

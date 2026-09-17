@@ -1,0 +1,90 @@
+{
+  "created_utc": "2026-09-16T23:02:34.415630+00:00",
+  "git_sha": "5b90a0cccd73a975d270952c4da0a69db7f723ba",
+  "git_dirty": true,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 20260916,
+  "grid": {
+    "n_cells": 420,
+    "generators": [
+      "erdos_renyi",
+      "erdos_renyi",
+      "erdos_renyi",
+      "scale_free",
+      "scale_free",
+      "block",
+      "decoupled_backdoor"
+    ],
+    "n_values": [
+      6,
+      7,
+      8,
+      10,
+      12
+    ],
+    "knows_fractions": [
+      0.4,
+      0.7,
+      1.0
+    ],
+    "corruptions": [
+      [
+        "none",
+        0.0
+      ],
+      [
+        "flip",
+        0.15
+      ],
+      [
+        "flip",
+        0.3
+      ],
+      [
+        "omit",
+        0.3
+      ]
+    ],
+    "cap_undirected": 9,
+    "eps_relative_grid": [
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "target_accepted": 1200,
+    "time_budget_s": 2400.0
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "numpy": "2.5.3",
+    "networkx": "3.6.1",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "n_attempted": 14953,
+  "n_accepted": 1188,
+  "rejection_counts": {
+    "cpdag_too_large": 173,
+    "empty_set_trivially_valid": 6417,
+    "generator_incompatible_n": 420,
+    "k_assumed_inconsistent": 190,
+    "no_atomic_perturbation_changes_validity": 2560,
+    "treatment_not_in_or_adjacent_to_component": 3344,
+    "x_undirected_degree_too_high": 7,
+    "z_invalid_at_g0": 21,
+    "z_not_identified": 633
+  },
+  "status_counts": {
+    "capped_timeout": 288,
+    "ok": 900
+  },
+  "states_saved_count": 149,
+  "old_comparison_count": 50,
+  "total_seconds": 2407.1334535409987
+}

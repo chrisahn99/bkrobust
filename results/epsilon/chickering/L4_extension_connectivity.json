@@ -1,0 +1,33 @@
+{
+  "checked": 118643,
+  "elapsed_s": 229.9371418952942,
+  "n_violations": 0,
+  "name": "L4_extension_connectivity",
+  "scope": {
+    "3": {
+      "G_note": "exhaustive (all elements of enumerate_space_correct)",
+      "cpdag_note": "exhaustive",
+      "cpdags_examined": 11,
+      "n_G_graphs_checked": 50,
+      "n_violations_this_n": 0,
+      "total_G_available": 50
+    },
+    "4": {
+      "G_note": "exhaustive (all elements of enumerate_space_correct)",
+      "cpdag_note": "exhaustive",
+      "cpdags_examined": 185,
+      "n_G_graphs_checked": 1601,
+      "n_violations_this_n": 0,
+      "total_G_available": 1601
+    },
+    "5": {
+      "G_note": "exhaustive (all elements of enumerate_space_correct)",
+      "cpdag_note": "exhaustive (all 8,782 CPDAGs on 5 nodes)",
+      "cpdags_examined": 8782,
+      "n_G_graphs_checked": 116992,
+      "n_violations_this_n": 0,
+      "total_G_available": 116992
+    }
+  },
+  "violations": []
+}

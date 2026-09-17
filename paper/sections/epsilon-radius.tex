@@ -1,0 +1,269 @@
+% The epsilon-bias radius. Session 8 draft.
+% Theory is settled (docs/R_EPSILON_THEORY.md, THEOREMS.md sections 16-24).
+% Every number traces to a file under results/epsilon/. Do not edit one without the file.
+% Convention reminder: r is the distance to the NEAREST failure, so the safe-move count is r-1.
+
+\section{From a validity radius to a bias radius}
+\label{sec:epsilon}
+
+The breakdown radius says where the committed adjustment set stops being valid. It does not say how
+wrong the reported number becomes once it does, and the two questions come apart: the shell profile
+of the running example (Appendix~\ref{app:worked}) shows the bias rising gradually past $r_{\mathrm{val}}$
+rather than jumping. An analyst told that their conclusion survives two revisions and fails at the
+third still does not know whether the third costs them one percent or one hundred. This section
+supplies the missing half, and it does so without weakening anything: the quantity defined here is
+exactly zero on the ball $r_{\mathrm{val}}$ already certifies, so the validity radius is recovered as
+the first point of a curve rather than replaced by it.
+
+\subsection{The worst-case bias a knowledge state leaves open}
+
+Fix the query $(X,Y)$, the set $Z$ read off $G_0$, and the observational law the analyst has, with
+population covariance $\Sigma$. Write $\beta(S;\Sigma)$ for the coefficient on $X$ in the population
+least-squares regression of $Y$ on $\{X\}\cup S$. The analyst reports a single number,
+$\theta_Z=\beta(Z;\Sigma)$, which does not depend on which directed acyclic graph is the truth. What
+the knowledge state leaves open is which one is, and each candidate $D$ assigns the effect its own
+value $\tau_D=\beta(\mathrm{pa}_D(X);\Sigma)$, the quantity enumerated by \textsc{ida}
+\citep{maathuis2009}, taken to be zero when $D$ makes $Y$ a parent of $X$. The ambiguity a state
+leaves is therefore a finite set of real numbers, $T(G)=\{\tau_D : D\in[G]\}$, and the natural
+diagnostic is how far the reported number can sit from any of them,
+\begin{equation}
+  B(G) \;=\; \max\{\,|\theta_Z-\tau| \;:\; \tau\in T(G)\,\}
+        \;=\; \max\bigl(|\theta_Z-\min T(G)|,\;|\theta_Z-\max T(G)|\bigr).
+  \label{eq:B}
+\end{equation}
+Two properties make \eqref{eq:B} the right object rather than one of the several alternatives. It is
+an exact supremum over the ambiguity, not an average over resampled parameters, so it is an upper
+bound on an error the analyst actually carries rather than on a hypothetical one; and because $T(G)$
+is indexed by $[G]$, which grows as knowledge is withdrawn, it is monotone under the order on
+$\mathfrak{G}_{\widehat{C}}$ by construction. A relative reading divides by $|\theta_Z|$, which is a
+constant of the instance; dividing instead by anything that varies with the state --- the state's own
+mean effect, say --- would read as a percentage and would destroy the monotonicity the certificate is
+built on.
+
+\begin{theorem}[Zero bias inside the certified shell]
+\label{thm:zero}
+If $d(G_0,G)\le r_{\mathrm{val}}-1$ then $T(G)=\{\theta_Z\}$, and hence $B(G)=0$.
+\end{theorem}
+
+The proof is one line: no state inside the shell fails, so $Z$ is a valid adjustment set in every
+graph the state represents, and a valid adjustment set identifies the total effect. The content is in
+how strong the conclusion is. It is not that the bias is small or insignificant; it is algebraically
+zero, at the population level, for every observational law compatible with the equivalence class.
+Inside the shell the only error left is sampling error, and there is nothing to recompute from state
+to state because every state gives the same estimand. The converse fails in the benign direction:
+at distance $r_{\mathrm{val}}$ some state admits a graph in which $Z$ is invalid, yet $\beta(Z;\Sigma)$
+can still coincide with $\tau_D$ for the particular $\Sigma$ at hand, so $r_{\mathrm{val}}$ is a lower
+bound on every bias radius defined below and understates robustness rather than overstating it.
+
+\begin{theorem}[Monotonicity]
+\label{thm:mono}
+If $[G]\subseteq[H]$ then $T(G)\subseteq T(H)$ and $B(G)\le B(H)$. Consequently
+$F_\varepsilon=\{G : B(G)>\varepsilon\}$ is upward-closed, and $F_{\varepsilon'}\subseteq F_\varepsilon$
+whenever $\varepsilon\le\varepsilon'$.
+\end{theorem}
+
+Theorem~\ref{thm:mono} is monotonicity along the order, which is not the same as monotonicity along
+the distance, and the difference is worth stating because the second reading is the tempting one and
+it is false: two states at the same distance are typically incomparable, and a state one shell further
+out can carry strictly less bias than a state nearer in. Section~\ref{sec:epsilon-eval} exhibits
+minimal counterexamples. What is monotone in the distance is the worst case over the ball, which is
+also the only thing a certificate could be built from, since a guarantee has to hold for whichever
+wrong claims the analyst is in fact holding and not for an average one.
+
+\subsection{The radius, and why it costs no more than the one we already compute}
+
+Writing $\beta^{\uparrow}(d)$ for the largest $B$ over states within $d$ retractions of $G_0$, define
+\begin{equation}
+  r_\varepsilon \;=\; \min\{\,d(G_0,G) \;:\; B(G)>\varepsilon\,\} \;=\; \min\{\,d : \beta^{\uparrow}(d)>\varepsilon\,\}.
+  \label{eq:reps}
+\end{equation}
+The reduction that makes $r_{\mathrm{val}}$ computable applies verbatim. Reading the proof of
+Proposition~\ref{prop:monotone-reach} back, the only property of failure it consumes is that failure
+is upward-closed; nothing about adjustment sets or $d$-separation enters. It is therefore a statement
+about arbitrary up-sets, and Theorem~\ref{thm:mono} puts $F_\varepsilon$ among them, so the nearest
+$\varepsilon$-violating state is again reachable by retraction alone and the search is again confined
+to withdrawals of the analyst's own commitments. The up-set of $G_0$ is parameterised by the subsets
+of $\mathcal{K}_{G_0}$, and shell $d$ is generated directly from the $d$-subsets, so a shell can be
+built without traversing any shell beneath it.
+
+Four consequences give the algorithm. Shells below $r_{\mathrm{val}}$ are never evaluated, by
+Theorem~\ref{thm:zero}, so the expensive part of the computation is skipped on exactly the region the
+certificate is strongest; the maximum over a ball is attained on its outermost sphere, so interior
+states need no evaluation either; one traversal answers every $\varepsilon$, including one chosen
+after the fact, because each radius is then a lookup on a monotone staircase rather than a separate
+search; and monotonicity licenses bisection, locating the first crossing in a logarithmic number of
+shells when the crossing is far out. Evaluating $B$ itself needs no graph enumeration: the ambiguity
+set is determined by the possible parent sets of the treatment, and those are obtained by orienting
+the undirected edges at $X$ each way and keeping the assignments whose Meek closure does not fail,
+which is $2^{\deg(X)}$ polynomial closures where $\deg(X)$ counts undirected edges at the treatment
+alone. Two-sided bounds are available without any exhaustive pass: $r_{\mathrm{val}}$ and any
+smaller-$\varepsilon$ radius bound $r_\varepsilon$ from below at no cost, a single greedy retraction
+chain that reaches a violating state bounds it from above with a replayable witness, and one
+evaluation at $\widehat{C}$ --- the maximum of the order, hence the maximum of $B$ --- settles
+$r_\varepsilon=\infty$ for every threshold above it.
+
+\begin{proposition}[The certificate]
+\label{prop:cert}
+Suppose at most $k$ of the orientations of $\mathcal{K}_{G_0}$ are false of the truth. Then the
+realised identification error obeys $|\theta_Z-\tau^{*}|\le\beta^{\uparrow}(k)$. In particular
+$\theta_Z=\tau^{*}$ exactly when $k<r_{\mathrm{val}}$, the error is at most $\varepsilon$ when
+$k<r_\varepsilon$, and when $r_{\varepsilon_x}\le k<r_{\varepsilon_y}$ the worst case lies in
+$(\varepsilon_x,\varepsilon_y]$.
+\end{proposition}
+
+\begin{proposition}[The band is attained]
+\label{thm:tight}
+For every $k$ there is a graph $D\in[\widehat{C}]$ that fits the observed law exactly, contradicts at
+most $k$ of the analyst's orientations, and realises $|\theta_Z-\tau_D|=\beta^{\uparrow}(k)$.
+\end{proposition}
+
+Take a state at distance at most $k$ attaining $\beta^{\uparrow}(k)$ and, inside it, a graph attaining
+the maximum. It is Markov equivalent to the truth, so it fits $\Sigma$; and it withholds at most $k$
+of $\mathcal{K}_{G_0}$, by the parameterisation of the up-set. So the bound is realised by a world the
+analyst cannot rule out on the evidence they hold, and the band cannot be tightened without an
+assumption beyond the CPDAG, the data and the error budget. Refining the $\varepsilon$ grid refines
+the band; nothing else does.
+
+The proof is that the state obtained by withdrawing exactly the false orientations still represents
+the true graph, so the truth is inside the ambiguity set that state leaves and the bound applies to
+it. The budget is denominated in orientations of the closure, the same unit as $r_{\mathrm{val}}$, and
+not in asserted claims: Meek's rules cascade, so a small number of wrong assertions can produce a
+larger number of wrong closure orientations, and reading the budget in the wrong unit makes a sound
+certificate look violated. The claim-level statement is the analogue built on $r_{\mathrm{claim}}$.
+
+\subsection{What this changes about the assumption the radius carried}
+\label{sec:epsilon-assumption}
+
+Everything above rests on the same order-theoretic chain as $r_{\mathrm{val}}$ and adds nothing to it,
+so it is worth recording that the chain is now complete. The anti-exchange property, on which the
+retraction reduction depends, had been verified rather than proved in the case of two distinct
+undirected edges, and every radius was accordingly reported with a one-sided caveat. The obstruction
+was that the classical argument reorients freely inside a chordal chain component, and an MPDAG
+carrying background knowledge need not have one. The missing step is supplied instead by the form of
+Chickering's transformational theorem that counts its reversals: between Markov equivalent graphs
+differing on $m$ edges there is a sequence of exactly $m$ distinct covered-edge reversals, and a walk
+of $m$ unit steps taking the difference count from $m$ to zero must decrease at every step, so every
+reversal flips an edge on which the two graphs currently differ and no edge on which they agree is
+ever touched. Two extensions of the same MPDAG agree on all of its directed edges, so every
+intermediate graph retains them and stays inside the class the MPDAG represents, which is exactly the
+premise the anti-exchange argument needed. Appendix~\ref{app:order} carries the corrected proof.
+Anti-exchange, and with it the covering lemma, upper semimodularity, the non-expansion of distance
+under the join and monotone reachability, are therefore unconditional, and the caveat attached to
+every reported radius in the preceding sections can be dropped. No previously reported number
+changes; what changes is that ``exact if the conjecture holds'' becomes ``exact''.
+
+\subsection{Evaluation}
+\label{sec:epsilon-eval}
+
+Everything below is traced to a file under \texttt{results/epsilon/}; nothing here is estimated from
+memory. Tolerances are absolute and stated; no tolerance was widened to make a check pass.
+
+\paragraph{The predictions the construction has to survive.}
+Seven consequences of Section~\ref{sec:epsilon} are falsifiable by direct computation, and were
+checked over 400 screened instances crossed with three independent parameter draws each
+(\texttt{results/epsilon/verification/}): that the bias vanishes identically inside the certified
+shell (1{,}758 states); that it is monotone over every ordered pair of the enumerated space
+(372{,}099 pairs); that the staircase is non-decreasing and attained on its sphere (17{,}160 shells);
+that the incremental, bisection and brute-force radii coincide (5{,}844 comparisons); that the
+radius is non-decreasing in the threshold and never below $r_{\mathrm{val}}$ (5{,}844); that the
+realised error respects the certificate at the budget the closure actually denominates (22{,}680);
+and that the semi-local ambiguity set equals the enumerated one (11{,}413). Across
+\textbf{436{,}798 checks there were no violations}, at a tolerance of $10^{-9}$.
+
+\paragraph{The staircase, on the running example.}
+Figure~\ref{fig:staircase} replaces the sampled-mean column of Appendix~\ref{app:worked} with the
+exact worst case. The two disagree in shape, and the disagreement is informative. The mean rises
+shell by shell; the worst case, at the documented parameter draw, is flat at zero out to
+$r_{\mathrm{val}}$ and then jumps straight to $B(\widehat{C})$ --- the largest bias any perturbation
+anywhere can produce --- and stays there. What rises gradually with depth is the *proportion* of
+states at which $Z$ fails, not how badly the worst one fails, so the apparent ramp is an artefact of
+averaging over an increasingly contaminated shell. Over 400 further parameter draws the shape splits
+roughly evenly (221 flat, 179 with one further rise), so neither shape is universal; what is stable
+is that on this instance the entire bias risk arrives at $r_{\mathrm{val}}$. The radii computed over
+the retraction up-set agree with a brute-force breadth-first search over the whole enumerated space
+in all three knowledge states, which is Theorem~\ref{thm:mono} and its corollaries holding on a case
+where the two code paths share nothing but the definition.
+
+Two further readings matter. Depths beyond $|\mathcal{K}_{G_0}|$ carry no entry, and that is not a
+gap: an analyst holding $|\mathcal{K}_{G_0}|$ orientations cannot have more than that many of them
+wrong, so those depths lie outside Proposition~\ref{prop:cert} by construction. And
+$r_\varepsilon = r_{\mathrm{val}}$ is not a null result: even where tolerating $\varepsilon$ buys no
+extra certified shell, it supplies the magnitude that $r_{\mathrm{val}}$ cannot. The validity radius
+says the third revision breaks the set; the band says what breaking it costs.
+
+\paragraph{Two naive readings, refuted.}
+The construction maximises over a shell and uses a supremum rather than a mean, and both choices are
+forced (\texttt{results/epsilon/counterexamples/}).
+
+\emph{Bias is not monotone in distance.} At four nodes --- the smallest size at which the question is
+non-trivial, and where 355 witnesses exist --- there is an instance with a state at distance one
+carrying bias $1.34$ and a state at distance two carrying exactly zero. The two are incomparable in
+the order, so Theorem~\ref{thm:mono} is untouched; what fails is the reading of it that confuses
+distance with knowledge. A certificate read off a single perturbation path would be wrong here,
+which is why $\beta^{\uparrow}$ maximises over the shell.
+
+\emph{The mean-based alternative is not merely unjustified; it is wrong.} On identical pairs, a
+sampled mean absolute bias is non-monotone under the order on at least $34.7\%$ of comparable pairs
+($278$ of $801$, counting a pair only when the deficit exceeds three combined Monte-Carlo standard
+errors in each of two independent repetitions, so the rate is a lower bound; median margin $9.6$
+standard errors), while the worst case defined here is non-monotone on \textbf{none} of them. The
+consequence is operational: because $\{$mean $> \varepsilon\}$ is not an up-set, the retraction-only
+search is not licensed for it, and comparing it against brute force over the whole space
+disagrees on $269$ of $644$ threshold probes --- in the observed cases by reporting that no
+perturbation reaches the threshold anywhere when one does at distance two. That is not a
+conservative approximation but an answer in the direction that overstates robustness.
+
+\paragraph{What the refinement buys, over 900 instances.}
+The sweep (\texttt{results/epsilon/study/}, 900 accepted instances over five generators, node counts
+6--12, three knowledge coverages and four corruption regimes) says the payoff is not the one the
+framing suggests. Extra certified shells are rare: $r_\varepsilon$ exceeds $r_{\mathrm{val}}$ on
+$1.0\%$ of instances at $\varepsilon = 1\%$, rising to $24.5\%$ at $25\%$ and $75.6\%$ at $100\%$,
+and when it does the gain is almost always exactly one shell (mean $1.00$--$1.14$). What rises much
+faster is the fraction of instances where the threshold is \emph{never} reached: from $1.4\%$ at
+$\varepsilon = 1\%$ to $70.1\%$ at $\varepsilon = 100\%$. The practical content of the
+$\varepsilon$-radius is therefore a \emph{ceiling} rather than a longer runway --- on seven instances
+in ten, no perturbation of the analyst's knowledge, however large, can move the estimate by its own
+magnitude. That is a statement $r_{\mathrm{val}}$ cannot make at all, and it is available from the
+same traversal.
+
+Three further readings. First, $r_0 = r_{\mathrm{val}}$ on all 900 instances with no exceptions,
+which is the genericity in the converse to Theorem~\ref{thm:zero} behaving as expected: coincidental
+cancellation at the breakdown radius is possible but was never observed. Second, the staircase is a
+step in $84.1\%$ of instances and a ramp in $15.1\%$, so the worst case usually saturates the moment
+validity fails --- the gradual rise visible in a sampled mean is, in the large majority of cases, an
+artefact of averaging over a shell whose contaminated fraction is growing. Third, the certificate
+held on every one of the 884 instances where $\beta^{\uparrow}(k)$ was actually computed, with
+\textbf{zero violations}; the remaining 16 are instances where the traversal stopped before depth
+$k$, so the recorded value is a lower bound and the comparison is not a test of
+Proposition~\ref{prop:cert} (recomputing their full staircases, the certificate holds there too).
+Among instances with a non-degenerate bound the conservativeness ratio has \emph{median} $1.000$ and
+maximum $1.000$: the bound is not merely valid but routinely attained, which is
+Theorem~\ref{thm:tight} in the data.
+
+\paragraph{Cost.}
+Both exact strategies agree on every instance (zero disagreements). The incremental traversal
+evaluates a median of one state and a mean of $2.09$; bisection a median of one and a mean of
+$5.14$, and up to $172$ against the incremental maximum of $65$. The reason is that
+$r_\varepsilon$ is small almost everywhere, so a probe near the middle of the subset lattice is
+wasted work; bisection is the right strategy only in the regime this corpus does not contain, and
+the dispatch --- incremental under a shell budget, bisection as a fallback --- fires its fallback
+rarely. The anytime greedy chain, which enumerates no shell at all, returns the exact radius on
+$98.4\%$ of instances, so an upper bound is usually free. Skipping the certified shells saves a
+median of one and up to six bias evaluations per instance on the measured subsample; the saving is
+modest here because $r_{\mathrm{val}}$ is itself usually one, and would grow with it.
+
+\paragraph{Against the incumbent.}
+On a matched subsample, the radius defined here disagrees with the mean-based quantity currently in
+the codebase on at least one threshold in $84\%$ of instances, in both directions (23 larger, 14
+smaller, 8 equal, 5 mixed). The disagreement is not a tie-break between two reasonable choices: on
+the same instances the mean was non-monotone under the order in 49 of 50 cases, so the search used
+to compute its radius is not licensed there at all.
+
+\paragraph{Finite samples.}
+$r_{\mathrm{val}}$ reads no numbers and has no sampling distribution; $r_\varepsilon$ reads a
+covariance and does. Over 120 instances at sample sizes $100$ to $10{,}000$
+(\texttt{results/epsilon/finite\_sample/}), the plug-in radius is too large --- the direction that
+overstates robustness --- in up to $5.0\%$ of cases at $n=100$, falling to $0$--$0.8\%$ at
+$n=10{,}000$. Thresholding a bootstrap upper bound on the bias instead, and reporting the $5\%$
+quantile of the resulting radius, drives that rate to \textbf{$0.0\%$ in every cell}, at the cost of
+understating the radius on $1$--$17\%$ of instances. The conservative radius is the one to report.

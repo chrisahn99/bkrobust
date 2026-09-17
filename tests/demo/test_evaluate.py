@@ -170,7 +170,11 @@ def test_dseparation_matches_networkx_on_random_dags() -> None:
         z_size = int(rng.integers(0, len(remaining) + 1))
         z = set(remaining[:z_size])
 
-        expected = nx.algorithms.d_separated(nxg, {a}, {b}, z)
+        # networkx renamed d_separated -> is_d_separator in 3.5 and removed the
+        # old spelling in 3.6; accept either so the differential test keeps
+        # running on both. The semantics are unchanged.
+        d_sep = getattr(nx, "is_d_separator", None) or nx.algorithms.d_separated
+        expected = d_sep(nxg, {a}, {b}, z)
         actual = is_dseparated(dag, a, b, z)
         assert actual == expected, f"mismatch for dag={dag}, a={a}, b={b}, z={z}"
         checked += 1

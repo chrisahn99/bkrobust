@@ -71,6 +71,11 @@ coverage.xml
 # Stage 0 of the evaluation plan: the claim-unit radius audit of the committed
 # axisa3 rows, cited by docs/EVALUATION_PLAN.md and docs/PAPER_NARRATIVE.md.
 !/results/stage0/
+# Session 8 (the epsilon-bias radius) outputs are deliverables: every number in
+# report_r_epsilon.md, docs/PAPER_INTEGRATION_R_EPSILON.md and
+# paper/sections/epsilon-radius.tex traces to a file here, and the
+# counterexample witnesses carry the SEMs needed to replay them. 936 KB total.
+!/results/epsilon/
 /data/
 /checkpoints/
 *.pt
