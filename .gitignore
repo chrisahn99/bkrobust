@@ -68,6 +68,24 @@ coverage.xml
 # Stage 0 of the evaluation plan: the free rule and the claim-unit radius on the
 # committed axisa3 rows, cited by docs/EVALUATION_PLAN.md.
 !/results/stage0/
+# Phase B: the observables-only candidate frame, its status composition under
+# each knowledge source, and the first-failing retraction sets.
+!/results/frame/
+# The frozen questionnaire, the supplier answers and the knowledge they became.
+# The response cache is regenerable from the questionnaire and stays untracked.
+!/results/elicit/
+/results/elicit/cache/
+# The certificate ledger.
+!/results/ledger/
+# The estimated-CPDAG panel (P-EST, Table 7). The learned graphs are small JSON
+# and the panel's substrate; samples regenerate from their seeds.
+!/results/pest/
+# The substrate of Table 2: sortability probes on the Gaussian tier, the
+# per-network structure table and the written decisions on the fixtures.
+!/results/substrate/
+# Measurement M1: the knowledge interval, the null radius and their bands, with the
+# pre-registration, the per-row and per-replicate outputs and the tables built on them.
+!/results/interval/
 /data/
 /checkpoints/
 *.pt
@@ -95,3 +113,4 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+/results/ledger/parts/

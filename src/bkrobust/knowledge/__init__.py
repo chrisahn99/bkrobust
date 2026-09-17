@@ -23,6 +23,11 @@ Module map:
 ``elicit``
     Adapters for knowledge that comes from somewhere real -- a knowledge graph,
     an LLM -- rather than from a sampler.
+``ancestral``
+    The sound reduction of an ancestral claim, "a causes b, possibly through
+    other variables", to the orientation claims it entails on a CPDAG, and
+    to nothing more. Implemented; the elicited block in
+    ``experiments/ancestral_block.py`` runs on it.
 """
 
 from __future__ import annotations

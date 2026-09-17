@@ -94,6 +94,7 @@ def radius_local_up_fast(
     fails: Callable[[MPDAG], bool],
     *,
     max_depth: int | None = None,
+    max_closures: int | None = None,
     stats: SearchStats | None = None,
 ) -> RadiusResult:
     """Exact radius by upward BFS, using enumeration-free cover generation.
@@ -110,6 +111,13 @@ def radius_local_up_fast(
         max_depth: Stop after this many retractions; on exhaustion the result is
             the anytime statement ``radius >= max_depth + 1``, with
             ``exact=False``.
+        max_closures: Stop expanding once this many Meek closures have been
+            spent. A radius found before the budget is still exact, because the
+            search is breadth-first and every element at a smaller depth was
+            checked before any at a larger one; only ``UNREACHED`` becomes
+            inexact. The depth up to which every element was checked is left in
+            ``stats.depth_checked``, so the caller can state ``radius >=
+            depth_checked + 1``.
         stats: Optional counters.
 
     Returns:
@@ -127,7 +135,13 @@ def radius_local_up_fast(
     while frontier:
         cur, d = frontier.popleft()
         st.elements_visited += 1
+        # Breadth-first: popping an element at depth d means every element at
+        # depth <= d has already been generated and checked.
+        st.depth_checked = max(st.depth_checked, d)
         if max_depth is not None and d >= max_depth:
+            budget_hit = True
+            continue
+        if max_closures is not None and st.closures >= max_closures:
             budget_hit = True
             continue
         for h in local_up_covers_fast(cpdag, cur, st):

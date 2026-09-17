@@ -32,6 +32,8 @@ import time
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+import numpy as np
+
 from bkrobust.core.conventions import UNREACHED
 from bkrobust.demo.evaluate import (
     is_valid_adjustment_set_dag,
@@ -42,7 +44,8 @@ from bkrobust.demo.example import knowledge_to_recover
 from bkrobust.demo.graph import MPDAG, undirected_components
 from bkrobust.demo.meek import apply_orientations
 from bkrobust.gac import is_gac_valid_mpdag
-from bkrobust.hybrid import breakdown_radius
+from bkrobust.hybrid import DEFAULT_SEARCH_BUDGET, breakdown_radius
+from bkrobust.mpdag_criterion.criterion import is_amenable
 
 Edge = tuple[str, str]
 
@@ -100,27 +103,55 @@ def fast_gate(dag: MPDAG, cpdag: MPDAG, x: str, y: str) -> tuple[bool, str]:
     return False, "no_atomic_perturbation_changes_validity"
 
 
-def select_knowledge(dag: MPDAG, cpdag: MPDAG, coverage: float) -> list[Edge]:
+def select_knowledge(
+    dag: MPDAG,
+    cpdag: MPDAG,
+    coverage: float,
+    *,
+    mode: str = "stride",
+    seed: int = 20260912,
+) -> list[Edge]:
     """The analyst's asserted orientations, at a given coverage.
 
-    Deterministic: the true orientations of the CPDAG's undirected edges, sorted,
-    with an evenly spaced ``coverage`` fraction retained. No RNG, so the same
-    network and coverage always give the same ``K``.
+    Deterministic under both modes: no global RNG, so a network and a coverage
+    always give the same ``K``.
+
+    ``stride`` is the original rule and stays the default so every committed
+    result reproduces: sort the recovering set and keep an evenly spaced
+    ``coverage`` fraction of it.
+
+    ``nested`` keeps a prefix of one seeded permutation instead. The stride is
+    **not nested** -- the indices it keeps at 0.25 are not a subset of those it
+    keeps at 0.5 -- so a coverage sweep under ``stride`` is not a retraction
+    sequence, and on this corpus that fails on four of the twenty-five
+    instance-yielding networks (diabetes, ecoli70, magic-irri, munin1). Use
+    ``nested`` for anything that reads a coverage sweep as retraction. The two
+    modes agree at coverage 1.0.
 
     Args:
         dag: The ground-truth DAG, read for the true orientations.
         cpdag: Its CPDAG, read for which edges are undirected.
         coverage: Fraction of undirected edges the analyst asserts, in ``[0, 1]``.
+        mode: ``"stride"`` (committed behaviour) or ``"nested"``.
+        seed: Permutation seed, used by ``nested`` only.
 
     Returns:
         The asserted orientations as ``(tail, head)`` pairs.
+
+    Raises:
+        ValueError: If ``mode`` is neither ``"stride"`` nor ``"nested"``.
     """
+    if mode not in ("stride", "nested"):
+        raise ValueError(f"unknown selection mode {mode!r}")
     k_true = sorted(knowledge_to_recover(dag, cpdag))
     if coverage >= 1.0:
         return k_true
     keep = round(len(k_true) * coverage)
     if keep <= 0:
         return []
+    if mode == "nested":
+        order = np.random.default_rng(seed).permutation(len(k_true))
+        return [k_true[int(i)] for i in sorted(order[:keep])]
     step = len(k_true) / keep
     return [k_true[min(len(k_true) - 1, int(i * step))] for i in range(keep)]
 
@@ -181,6 +212,16 @@ class InstanceResult:
     exact: bool = True
     seconds: float = 0.0
     g0_undirected_edges: int = 0
+    #: Asserted claims, as distinct from ``k_g0``, which counts the Meek closure.
+    n_k: int = 0
+    #: ``identified_nonempty`` / ``identified_empty`` / ``not_identified`` / ``""``.
+    o_verdict: str = ""
+    #: Whether the query is amenable at ``G0``; ``None`` where it was not reached.
+    amenable: bool | None = None
+    #: Which leg of the hybrid answered, printed so the estimator and the
+    #: answer are not confounded in the analysis.
+    dispatch_leg: str = ""
+    search_budget: int = 0
     stats: dict[str, int] = field(default_factory=dict)
 
     def as_row(self) -> dict[str, Any]:
@@ -197,6 +238,8 @@ def evaluate(
     coverage: float,
     *,
     time_limit_s: float = 300.0,
+    selection_mode: str = "stride",
+    search_budget: int | None = None,
 ) -> InstanceResult:
     """Screen one ``(X, Y)`` pair and, if admissible, compute its radius.
 
@@ -208,6 +251,12 @@ def evaluate(
         y: Outcome.
         coverage: Knowledge coverage level.
         time_limit_s: Ladder time limit.
+        selection_mode: Passed to :func:`select_knowledge`. ``"stride"``
+            reproduces every committed row; ``"nested"`` makes the coverage
+            sweep a retraction sequence.
+        search_budget: Depth budget for the bounded search before the ladder
+            takes over. ``None`` keeps the library default and is what every
+            committed row used.
 
     Returns:
         An :class:`InstanceResult`, admissible or not.
@@ -227,22 +276,40 @@ def evaluate(
         res.reject_reason = reason
         return res
 
-    k = select_knowledge(dag, cpdag, coverage)
+    k = select_knowledge(dag, cpdag, coverage, mode=selection_mode)
+    res.n_k = len(k)
     g0 = apply_orientations(cpdag, k)
     if g0 is None:
         res.reject_reason = "knowledge_inconsistent"
         return res
+    # Assigned on every branch from here down. It used to be written only in the
+    # intractable branch, so on every other row the value was the dataclass
+    # default and could be read as a measurement of zero.
+    res.g0_undirected_edges = len(g0.undirected_edges)
+    res.k_g0 = sum(
+        1 for (a, b) in g0.directed_edges if tuple(sorted((a, b))) in cpdag.undirected_edges
+    )
     if len(g0.undirected_edges) > MAX_G0_UNDIRECTED_FOR_EXTENSIONS:
         res.reject_reason = O_INTRACTABLE
-        res.k_g0 = sum(
-            1 for (a, b) in g0.directed_edges if tuple(sorted((a, b))) in cpdag.undirected_edges
-        )
-        res.g0_undirected_edges = len(g0.undirected_edges)
         return res
     o = optimal_adjustment_set_mpdag(g0, x, y)
-    if not o:
-        res.reject_reason = "o_g0_not_identified"
+    # Three-valued, because ``if not o`` cannot tell "the extensions disagree"
+    # (None) from "the optimal set is empty" (frozenset()), and the two are
+    # different facts about the query.
+    if o is None:
+        res.o_verdict = "not_identified"
+        # Whether the effect is identifiable by adjustment at all is the
+        # substantive question here, and it is what the old single label
+        # ``o_g0_not_identified`` was silently reporting.
+        res.amenable = is_amenable(g0, x, y)
+        res.reject_reason = "not_amenable" if not res.amenable else "o_g0_not_identified"
         return res
+    if not o:
+        res.o_verdict = "identified_empty"
+        res.reject_reason = "o_g0_empty"
+        return res
+    res.o_verdict = "identified_nonempty"
+    res.amenable = True
     z = frozenset(o)
     if not is_gac_valid_mpdag(g0, x, y, z):
         res.reject_reason = "z_invalid_at_g0"
@@ -254,14 +321,17 @@ def evaluate(
     res.reject_reason = "ok"
     res.component_size = len(comp) if comp else 0
     res.separation, res.separation_status = sep, status
-    res.k_g0 = sum(
-        1 for (a, b) in g0.directed_edges if tuple(sorted((a, b))) in cpdag.undirected_edges
-    )
     res.z_size = len(z)
 
     t = time.perf_counter()
-    out = breakdown_radius(cpdag, None, x, y, z, g0=g0, time_limit_s=time_limit_s)
+    kwargs = {} if search_budget is None else {"search_budget": search_budget}
+    out = breakdown_radius(cpdag, None, x, y, z, g0=g0, time_limit_s=time_limit_s, **kwargs)
     res.seconds = round(time.perf_counter() - t, 5)
     res.radius, res.method, res.oracle, res.exact = (out.radius, out.method, out.oracle, out.exact)
+    # ``method`` is a deterministic function of the answer: the bounded search
+    # answers everything inside its budget and the ladder answers the rest, so
+    # the estimator and the radius are confounded unless the leg is printed.
+    res.dispatch_leg = out.method
+    res.search_budget = search_budget if search_budget is not None else DEFAULT_SEARCH_BUDGET
     res.stats = out.stats.as_dict()
     return res

@@ -69,6 +69,12 @@ class ParsedNetwork:
             such a file is parsed successfully but is not a DAG.
         name_map: Normalised name -> raw name, recorded only where the two
             differ, so normalisation is auditable and reversible.
+        roles: Normalised name -> the roles its source file declared for it,
+            among ``exposure``, ``outcome``, ``latent`` and ``adjusted``. Empty
+            for every format that declares none. These are the applied paper's
+            own statement of which effect it set out to estimate, and they are
+            the only place in the corpus where a query comes from a domain
+            expert rather than from our sampling policy.
     """
 
     name: str
@@ -79,6 +85,7 @@ class ParsedNetwork:
     edges: tuple[tuple[str, str], ...]
     bidirected: tuple[tuple[str, str], ...] = ()
     name_map: dict[str, str] = field(default_factory=dict)
+    roles: dict[str, tuple[str, ...]] = field(default_factory=dict)
 
     @property
     def n_nodes(self) -> int:
@@ -99,6 +106,7 @@ def build(
     raw_nodes: list[str],
     raw_edges: list[tuple[str, str]],
     raw_bidirected: list[tuple[str, str]] | None = None,
+    raw_roles: dict[str, tuple[str, ...]] | None = None,
 ) -> ParsedNetwork:
     """Normalise names and assemble a :class:`ParsedNetwork`.
 
@@ -110,6 +118,7 @@ def build(
         raw_nodes: Vertices as named in the file.
         raw_edges: Arcs ``(parent, child)`` as named in the file.
         raw_bidirected: Bidirected pairs as named in the file.
+        raw_roles: Declared roles per node, keyed by the name used in the file.
 
     Returns:
         The assembled network, with sorted, de-duplicated node and edge tuples.
@@ -146,4 +155,9 @@ def build(
         edges=tuple(sorted(edges)),
         bidirected=tuple(sorted(bidirected)),
         name_map={v: k for k, v in sorted(mapping.items()) if v != k},
+        roles={
+            mapping[raw]: tuple(sorted(set(vals)))
+            for raw, vals in sorted((raw_roles or {}).items())
+            if raw in known and vals
+        },
     )

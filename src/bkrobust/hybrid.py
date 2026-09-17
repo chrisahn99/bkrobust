@@ -71,8 +71,9 @@ class HybridResult:
             a sentinel, not a number: never average or plot it numerically.
         method: ``"local_up_fast"`` when the bounded search found the failure,
             ``"e1_ladder"`` when the search exhausted its budget and the
-            encoding answered, ``"degenerate"`` when ``Z`` already fails at
-            ``G0``.
+            encoding answered, ``"local_up_fast_budget"`` when the search
+            exhausted its budget and the ladder was turned off,
+            ``"degenerate"`` when ``Z`` already fails at ``G0``.
         oracle: ``"mpdag_criterion"`` or ``"enumeration"``.
         exact: False only if the ladder timed out; the radius is then not a
             completed search.
@@ -110,6 +111,8 @@ def breakdown_radius(
     search_budget: int = DEFAULT_SEARCH_BUDGET,
     use_criterion: bool = True,
     time_limit_s: float = 300.0,
+    use_ladder: bool = True,
+    search_closure_budget: int | None = None,
 ) -> HybridResult:
     """Compute the exact breakdown radius, dispatching between the two methods.
 
@@ -127,6 +130,14 @@ def breakdown_radius(
             falls back to the enumeration oracle, which is far slower but shares
             no code with the criterion -- useful for differential testing.
         time_limit_s: Per-rung limit for the ladder leg.
+        use_ladder: Fall through to the ladder when the search is not exact.
+            The ladder's model is built over every ordered node triple, so on
+            graphs of a few hundred nodes the build alone never returns; a
+            caller that knows the graph is that large turns it off and gets
+            the search's anytime statement back, marked inexact, with the
+            depth it did check in ``stats.depth_checked``.
+        search_closure_budget: Closures the search may spend before it stops
+            expanding; a radius it finds before that is still exact.
 
     Returns:
         A :class:`HybridResult`.
@@ -156,7 +167,9 @@ def breakdown_radius(
 
     stats = SearchStats()
     t0 = time.perf_counter()
-    found = radius_local_up_fast(cpdag, g0, fails, max_depth=search_budget, stats=stats)
+    found = radius_local_up_fast(
+        cpdag, g0, fails, max_depth=search_budget, max_closures=search_closure_budget, stats=stats
+    )
     search_s = time.perf_counter() - t0
 
     if found.radius != UNREACHED:
@@ -179,6 +192,16 @@ def breakdown_radius(
             method="local_up_fast",
             oracle=oracle,
             exact=True,
+            search_seconds=search_s,
+            stats=stats,
+        )
+
+    if not use_ladder:
+        return HybridResult(
+            radius=UNREACHED,
+            method="local_up_fast_budget",
+            oracle=oracle,
+            exact=False,
             search_seconds=search_s,
             stats=stats,
         )

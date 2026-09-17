@@ -63,6 +63,38 @@ UNREACHED: int = -1
 #: The property already fails at ``G0``. Degenerate; gated out at generation.
 DEGENERATE: int = 0
 
+#: ``K`` asserts nothing that could be taken back: no edge of ``G0`` is both
+#: directed in ``G0`` and undirected in the CPDAG. Distinct from
+#: :data:`UNREACHED`, which says every retraction was tried and none failed.
+#: Without the distinction a vacuous knowledge set and a maximally robust one
+#: print the same value, which is how the empty-knowledge arm was once read as
+#: "no failure found anywhere".
+NO_RETRACTABLE_EDGES: str = "no_retractable_edges"
+
+#: The exhaustive retraction enumeration stopped at a declared depth without a
+#: failure; the radius is at least that depth plus one and is otherwise unknown.
+#: Carries a bracket, never a point.
+CENSORED_EXACT: str = "censored_exact"
+
+#: The enumeration was not entered at some depth because its width exceeded the
+#: per-row subset budget. A cost fact about the row, not a property of the query.
+CENSORED_BUDGET: str = "censored_budget"
+
+#: An elicitation item the supplier never answered inside its sitting: distinct
+#: from ``DECLINE``, which is an answer.
+NOT_REACHED: str = "not_reached"
+
+#: The four provenance values a row may carry for whether the generating graph
+#: touched its computation path. ``false`` is the only one that may back a
+#: deployment claim; ``via_Chat_only`` marks the idealisation panel whose CPDAG
+#: is the true DAG's; ``via_K`` marks knowledge read off the truth; ``true``
+#: marks a substrate statistic. Propagated over a row's inputs, never inferred
+#: from which function computed the radius.
+TRUE_DAG_ON_PATH: tuple[str, ...] = ("false", "via_Chat_only", "via_K", "true")
+
+#: The three arms a row can belong to.
+ARMS: tuple[str, ...] = ("deployment", "audit", "substrate_design")
+
 #: Human-readable statement of the convention, embedded in every manifest so a
 #: results file is self-describing.
 RADIUS_CONVENTION: str = (

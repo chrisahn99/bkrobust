@@ -41,6 +41,10 @@ from pathlib import Path
 from bkrobust.benchmarks.parsed import ParsedNetwork, build
 
 #: A node declaration: a bare name, optionally followed by ``[attributes]``.
+#: Node annotations that say something substantive about the query, as opposed
+#: to ``pos``, which is a drawing coordinate.
+_ROLES = ("exposure", "outcome", "latent", "adjusted", "selected")
+
 _NODE_DECL = re.compile(r'^(?P<name>(?:"[^"]+"|[^\s\[\]{}]+))\s*(?:\[(?P<attrs>[^\]]*)\])?$')
 
 #: An edge line: ``A -> B``, ``A <- B``, ``A <-> B`` or ``A -- B``, with an
@@ -107,6 +111,10 @@ def parse_dagitty_text(
 
     nodes: list[str] = []
     seen: set[str] = set()
+    # The declared roles were captured by the node regex and then dropped, so
+    # the applied tier had no author-declared query and the pre-registration's
+    # domain-documented stratum had no rows to put in it.
+    roles: dict[str, tuple[str, ...]] = {}
     edges: list[tuple[str, str]] = []
     bidirected: list[tuple[str, str]] = []
 
@@ -137,7 +145,19 @@ def parse_dagitty_text(
             continue
         decl = _NODE_DECL.match(stripped)
         if decl is not None:
-            note(_unquote(decl.group("name")))
+            node = _unquote(decl.group("name"))
+            note(node)
+            declared = tuple(
+                sorted(
+                    {
+                        token.strip()
+                        for token in (decl.group("attrs") or "").split(",")
+                        if token.strip() in _ROLES
+                    }
+                )
+            )
+            if declared:
+                roles[node] = declared
             continue
         raise DagittyParseError(f"unrecognised line: {stripped!r}")
 
@@ -152,6 +172,7 @@ def parse_dagitty_text(
         raw_nodes=nodes,
         raw_edges=edges,
         raw_bidirected=bidirected,
+        raw_roles=roles,
     )
 
 

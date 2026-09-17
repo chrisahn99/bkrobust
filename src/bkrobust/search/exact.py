@@ -46,12 +46,16 @@ class SearchStats:
         closures: Meek closures computed.
         validity_checks: Calls to the validity oracle.
         extensions_enumerated: DAG-extension enumerations performed.
+        depth_checked: Largest depth at which every element has been generated
+            and checked, so that a budgeted search may state
+            ``radius >= depth_checked + 1``.
     """
 
     elements_visited: int = 0
     closures: int = 0
     validity_checks: int = 0
     extensions_enumerated: int = 0
+    depth_checked: int = 0
 
     def as_dict(self) -> dict[str, int]:
         """Flatten for a results row."""
@@ -60,6 +64,7 @@ class SearchStats:
             "closures": self.closures,
             "validity_checks": self.validity_checks,
             "extensions_enumerated": self.extensions_enumerated,
+            "depth_checked": self.depth_checked,
         }
 
 
