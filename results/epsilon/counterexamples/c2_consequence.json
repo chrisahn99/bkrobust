@@ -1,0 +1,647 @@
+{
+  "n_instances_searched": 40,
+  "n_eps_probed": 644,
+  "n_mismatches": 269,
+  "mismatches": [
+    {
+      "instance": {
+        "generator": "erdos_renyi",
+        "n": 4,
+        "seed": 977014,
+        "gen_params": {
+          "edge_prob": 0.45
+        },
+        "knows_fraction": 0.3,
+        "corruption_rate": 0.75,
+        "true_dag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V0"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V3 V1->V3 V2->V0 V2->V1"
+        },
+        "cpdag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ]
+          ],
+          "undirected": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V1",
+              "V2"
+            ]
+          ],
+          "edge_string": "V0->V3 V1->V3 V0-V2 V1-V2"
+        },
+        "g0": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V2 V0->V3 V1->V3 V2->V1"
+        },
+        "treatment": "V0",
+        "outcome": "V3",
+        "z": [],
+        "k_true": [
+          [
+            "V2",
+            "V0"
+          ]
+        ],
+        "k_assumed": [
+          [
+            "V0",
+            "V2"
+          ]
+        ],
+        "n_undirected_cpdag": 2,
+        "n_knowledge_g0": 2,
+        "space_size": 6
+      },
+      "eps": 0.23976881527695393,
+      "n_draws": 200,
+      "mc_seed": [
+        13,
+        977014,
+        -1
+      ],
+      "retraction_only_radius": -1,
+      "retraction_only_witness": null,
+      "brute_force_radius": 2,
+      "brute_force_witness": "V0->V3 V1->V3 V2->V0 V2->V1",
+      "agree": false,
+      "claim": "The retraction-only search mirrors the fast machinery that is exact for B (Theorem U/Corollary R1) but is NOT licensed for mean_abs_bias, since {mean_abs_bias > eps} is not an up-set. Comparing it against a genuine brute-force BFS over the whole enumerated space with the same predicate is the check of whether that lack of a license is merely theoretical or actually produces a wrong number."
+    },
+    {
+      "instance": {
+        "generator": "erdos_renyi",
+        "n": 4,
+        "seed": 977014,
+        "gen_params": {
+          "edge_prob": 0.45
+        },
+        "knows_fraction": 0.3,
+        "corruption_rate": 0.75,
+        "true_dag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V0"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V3 V1->V3 V2->V0 V2->V1"
+        },
+        "cpdag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ]
+          ],
+          "undirected": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V1",
+              "V2"
+            ]
+          ],
+          "edge_string": "V0->V3 V1->V3 V0-V2 V1-V2"
+        },
+        "g0": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V2 V0->V3 V1->V3 V2->V1"
+        },
+        "treatment": "V0",
+        "outcome": "V3",
+        "z": [],
+        "k_true": [
+          [
+            "V2",
+            "V0"
+          ]
+        ],
+        "k_assumed": [
+          [
+            "V0",
+            "V2"
+          ]
+        ],
+        "n_undirected_cpdag": 2,
+        "n_knowledge_g0": 2,
+        "space_size": 6
+      },
+      "eps": 0.2842786144307471,
+      "n_draws": 200,
+      "mc_seed": [
+        13,
+        977014,
+        -1
+      ],
+      "retraction_only_radius": -1,
+      "retraction_only_witness": null,
+      "brute_force_radius": 2,
+      "brute_force_witness": "V0->V3 V1->V3 V2->V0 V2->V1",
+      "agree": false,
+      "claim": "The retraction-only search mirrors the fast machinery that is exact for B (Theorem U/Corollary R1) but is NOT licensed for mean_abs_bias, since {mean_abs_bias > eps} is not an up-set. Comparing it against a genuine brute-force BFS over the whole enumerated space with the same predicate is the check of whether that lack of a license is merely theoretical or actually produces a wrong number."
+    },
+    {
+      "instance": {
+        "generator": "erdos_renyi",
+        "n": 4,
+        "seed": 977014,
+        "gen_params": {
+          "edge_prob": 0.45
+        },
+        "knows_fraction": 0.3,
+        "corruption_rate": 0.75,
+        "true_dag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V0"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V3 V1->V3 V2->V0 V2->V1"
+        },
+        "cpdag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ]
+          ],
+          "undirected": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V1",
+              "V2"
+            ]
+          ],
+          "edge_string": "V0->V3 V1->V3 V0-V2 V1-V2"
+        },
+        "g0": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V2 V0->V3 V1->V3 V2->V1"
+        },
+        "treatment": "V0",
+        "outcome": "V3",
+        "z": [],
+        "k_true": [
+          [
+            "V2",
+            "V0"
+          ]
+        ],
+        "k_assumed": [
+          [
+            "V0",
+            "V2"
+          ]
+        ],
+        "n_undirected_cpdag": 2,
+        "n_knowledge_g0": 2,
+        "space_size": 6
+      },
+      "eps": 0.33411060511390384,
+      "n_draws": 200,
+      "mc_seed": [
+        13,
+        977014,
+        -1
+      ],
+      "retraction_only_radius": -1,
+      "retraction_only_witness": null,
+      "brute_force_radius": 2,
+      "brute_force_witness": "V0->V3 V1->V3 V2->V0 V2->V1",
+      "agree": false,
+      "claim": "The retraction-only search mirrors the fast machinery that is exact for B (Theorem U/Corollary R1) but is NOT licensed for mean_abs_bias, since {mean_abs_bias > eps} is not an up-set. Comparing it against a genuine brute-force BFS over the whole enumerated space with the same predicate is the check of whether that lack of a license is merely theoretical or actually produces a wrong number."
+    },
+    {
+      "instance": {
+        "generator": "erdos_renyi",
+        "n": 4,
+        "seed": 977014,
+        "gen_params": {
+          "edge_prob": 0.45
+        },
+        "knows_fraction": 0.3,
+        "corruption_rate": 1.0,
+        "true_dag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V0"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V3 V1->V3 V2->V0 V2->V1"
+        },
+        "cpdag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ]
+          ],
+          "undirected": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V1",
+              "V2"
+            ]
+          ],
+          "edge_string": "V0->V3 V1->V3 V0-V2 V1-V2"
+        },
+        "g0": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V2 V0->V3 V1->V3 V2->V1"
+        },
+        "treatment": "V0",
+        "outcome": "V3",
+        "z": [],
+        "k_true": [
+          [
+            "V2",
+            "V0"
+          ]
+        ],
+        "k_assumed": [
+          [
+            "V0",
+            "V2"
+          ]
+        ],
+        "n_undirected_cpdag": 2,
+        "n_knowledge_g0": 2,
+        "space_size": 6
+      },
+      "eps": 0.23976881527695393,
+      "n_draws": 200,
+      "mc_seed": [
+        13,
+        977014,
+        -1
+      ],
+      "retraction_only_radius": -1,
+      "retraction_only_witness": null,
+      "brute_force_radius": 2,
+      "brute_force_witness": "V0->V3 V1->V3 V2->V0 V2->V1",
+      "agree": false,
+      "claim": "The retraction-only search mirrors the fast machinery that is exact for B (Theorem U/Corollary R1) but is NOT licensed for mean_abs_bias, since {mean_abs_bias > eps} is not an up-set. Comparing it against a genuine brute-force BFS over the whole enumerated space with the same predicate is the check of whether that lack of a license is merely theoretical or actually produces a wrong number."
+    },
+    {
+      "instance": {
+        "generator": "erdos_renyi",
+        "n": 4,
+        "seed": 977014,
+        "gen_params": {
+          "edge_prob": 0.45
+        },
+        "knows_fraction": 0.3,
+        "corruption_rate": 1.0,
+        "true_dag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V0"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V3 V1->V3 V2->V0 V2->V1"
+        },
+        "cpdag": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ]
+          ],
+          "undirected": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V1",
+              "V2"
+            ]
+          ],
+          "edge_string": "V0->V3 V1->V3 V0-V2 V1-V2"
+        },
+        "g0": {
+          "nodes": [
+            "V0",
+            "V1",
+            "V2",
+            "V3"
+          ],
+          "directed": [
+            [
+              "V0",
+              "V2"
+            ],
+            [
+              "V0",
+              "V3"
+            ],
+            [
+              "V1",
+              "V3"
+            ],
+            [
+              "V2",
+              "V1"
+            ]
+          ],
+          "undirected": [],
+          "edge_string": "V0->V2 V0->V3 V1->V3 V2->V1"
+        },
+        "treatment": "V0",
+        "outcome": "V3",
+        "z": [],
+        "k_true": [
+          [
+            "V2",
+            "V0"
+          ]
+        ],
+        "k_assumed": [
+          [
+            "V0",
+            "V2"
+          ]
+        ],
+        "n_undirected_cpdag": 2,
+        "n_knowledge_g0": 2,
+        "space_size": 6
+      },
+      "eps": 0.2842786144307471,
+      "n_draws": 200,
+      "mc_seed": [
+        13,
+        977014,
+        -1
+      ],
+      "retraction_only_radius": -1,
+      "retraction_only_witness": null,
+      "brute_force_radius": 2,
+      "brute_force_witness": "V0->V3 V1->V3 V2->V0 V2->V1",
+      "agree": false,
+      "claim": "The retraction-only search mirrors the fast machinery that is exact for B (Theorem U/Corollary R1) but is NOT licensed for mean_abs_bias, since {mean_abs_bias > eps} is not an up-set. Comparing it against a genuine brute-force BFS over the whole enumerated space with the same predicate is the check of whether that lack of a license is merely theoretical or actually produces a wrong number."
+    }
+  ]
+}

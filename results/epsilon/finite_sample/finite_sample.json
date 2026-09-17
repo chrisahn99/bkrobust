@@ -1,0 +1,6544 @@
+{
+  "design": {
+    "root_seed": 20260916,
+    "sample_sizes": [
+      100,
+      500,
+      2000,
+      10000
+    ],
+    "eps_relative": [
+      0.05,
+      0.25
+    ],
+    "n_boot": 120,
+    "alpha": 0.05,
+    "target_instances": 120,
+    "n_accepted": 120,
+    "n_attempts": 1082,
+    "rejection_counts": {
+      "cpdag_too_large": 56,
+      "empty_set_trivially_valid": 603,
+      "k_inconsistent": 6,
+      "no_atomic_perturbation_changes_validity": 25,
+      "treatment_not_in_or_adjacent_to_component": 248,
+      "z_invalid_at_g0": 4,
+      "z_not_identified": 19
+    },
+    "note": "r_val is graphical and has no sampling distribution; only r_eps is estimated here. UNREACHED is ordered above every finite radius when scoring, since it is the most optimistic possible answer."
+  },
+  "summary": {
+    "n=100, eps=0.05": {
+      "plugin": {
+        "n": 120,
+        "exact": 115,
+        "too_large_OVERSTATES_ROBUSTNESS": 3,
+        "too_small_safe": 2,
+        "rate_exact": 0.9583,
+        "rate_too_large": 0.025
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 117,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 3,
+        "rate_exact": 0.975,
+        "rate_too_large": 0.0
+      }
+    },
+    "n=100, eps=0.25": {
+      "plugin": {
+        "n": 120,
+        "exact": 106,
+        "too_large_OVERSTATES_ROBUSTNESS": 6,
+        "too_small_safe": 8,
+        "rate_exact": 0.8833,
+        "rate_too_large": 0.05
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 100,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 20,
+        "rate_exact": 0.8333,
+        "rate_too_large": 0.0
+      }
+    },
+    "n=500, eps=0.05": {
+      "plugin": {
+        "n": 120,
+        "exact": 118,
+        "too_large_OVERSTATES_ROBUSTNESS": 1,
+        "too_small_safe": 1,
+        "rate_exact": 0.9833,
+        "rate_too_large": 0.0083
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 117,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 3,
+        "rate_exact": 0.975,
+        "rate_too_large": 0.0
+      }
+    },
+    "n=500, eps=0.25": {
+      "plugin": {
+        "n": 120,
+        "exact": 116,
+        "too_large_OVERSTATES_ROBUSTNESS": 3,
+        "too_small_safe": 1,
+        "rate_exact": 0.9667,
+        "rate_too_large": 0.025
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 106,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 14,
+        "rate_exact": 0.8833,
+        "rate_too_large": 0.0
+      }
+    },
+    "n=2000, eps=0.05": {
+      "plugin": {
+        "n": 120,
+        "exact": 118,
+        "too_large_OVERSTATES_ROBUSTNESS": 2,
+        "too_small_safe": 0,
+        "rate_exact": 0.9833,
+        "rate_too_large": 0.0167
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 118,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 2,
+        "rate_exact": 0.9833,
+        "rate_too_large": 0.0
+      }
+    },
+    "n=2000, eps=0.25": {
+      "plugin": {
+        "n": 120,
+        "exact": 119,
+        "too_large_OVERSTATES_ROBUSTNESS": 1,
+        "too_small_safe": 0,
+        "rate_exact": 0.9917,
+        "rate_too_large": 0.0083
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 114,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 6,
+        "rate_exact": 0.95,
+        "rate_too_large": 0.0
+      }
+    },
+    "n=10000, eps=0.05": {
+      "plugin": {
+        "n": 120,
+        "exact": 119,
+        "too_large_OVERSTATES_ROBUSTNESS": 1,
+        "too_small_safe": 0,
+        "rate_exact": 0.9917,
+        "rate_too_large": 0.0083
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 118,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 2,
+        "rate_exact": 0.9833,
+        "rate_too_large": 0.0
+      }
+    },
+    "n=10000, eps=0.25": {
+      "plugin": {
+        "n": 120,
+        "exact": 120,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 0,
+        "rate_exact": 1.0,
+        "rate_too_large": 0.0
+      },
+      "conservative": {
+        "n": 120,
+        "exact": 119,
+        "too_large_OVERSTATES_ROBUSTNESS": 0,
+        "too_small_safe": 1,
+        "rate_exact": 0.9917,
+        "rate_too_large": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "attempt": 1,
+      "n_nodes": 6,
+      "n_k0": 3,
+      "r_val": 2,
+      "theta_z": 1.3067445055330837,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 5,
+      "n_nodes": 5,
+      "n_k0": 3,
+      "r_val": 2,
+      "theta_z": -0.2725537774443913,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 12,
+      "n_nodes": 5,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.6058164859869832,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 14,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.10611256958742665,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 25,
+      "n_nodes": 5,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": -0.13316944034891215,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 46,
+      "n_nodes": 5,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": 0.2537121757552382,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 60,
+      "n_nodes": 7,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -0.6726365041626194,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 67,
+      "n_nodes": 7,
+      "n_k0": 6,
+      "r_val": 1,
+      "theta_z": 0.33125108560574373,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 71,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.43033761173066515,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 80,
+      "n_nodes": 7,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -1.0832791782297377,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 97,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.4795391020408758,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 129,
+      "n_nodes": 6,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": -0.3886905277227596,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 133,
+      "n_nodes": 5,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": -1.4340434283182357,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 135,
+      "n_nodes": 7,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.6501840826683416,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 136,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.6206629333972848,
+      "population": {
+        "0.05": -1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 145,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.653831547638958,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 148,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 2,
+      "theta_z": -0.9666250541114643,
+      "population": {
+        "0.05": 2,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 151,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.5419457348305524,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 154,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.6213796202341759,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 157,
+      "n_nodes": 5,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -0.4980981642285519,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 162,
+      "n_nodes": 6,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -2.6404304076956957,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 170,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.3275005486993611,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 178,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": -0.3921514744509242,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 180,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.288545246891429,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 183,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 1.333506031348284,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 186,
+      "n_nodes": 7,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": 1.4949172071596464,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 204,
+      "n_nodes": 7,
+      "n_k0": 6,
+      "r_val": 1,
+      "theta_z": -0.6341182679576469,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 231,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 1.1149135282630638,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 246,
+      "n_nodes": 5,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": -0.12280025723237999,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 251,
+      "n_nodes": 7,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": -1.379504079513533,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 252,
+      "n_nodes": 7,
+      "n_k0": 6,
+      "r_val": 1,
+      "theta_z": -1.8503893445739052,
+      "population": {
+        "0.05": 1,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 3,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 261,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.8650983540051185,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 269,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.6128364981236315,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 290,
+      "n_nodes": 7,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.8292976133132162,
+      "population": {
+        "0.05": 1,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 299,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.5096656640322975,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 311,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -0.8867650374044419,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 317,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 2,
+      "theta_z": -1.0853552379547147,
+      "population": {
+        "0.05": 2,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 319,
+      "n_nodes": 7,
+      "n_k0": 4,
+      "r_val": 3,
+      "theta_z": 0.8540194093500891,
+      "population": {
+        "0.05": 3,
+        "0.25": 3
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 3,
+            "conservative": 3
+          },
+          "0.25": {
+            "plugin": 3,
+            "conservative": 3
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 3,
+            "conservative": 3
+          },
+          "0.25": {
+            "plugin": 3,
+            "conservative": 3
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 3,
+            "conservative": 3
+          },
+          "0.25": {
+            "plugin": 3,
+            "conservative": 3
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 3,
+            "conservative": 3
+          },
+          "0.25": {
+            "plugin": 3,
+            "conservative": 3
+          }
+        }
+      }
+    },
+    {
+      "attempt": 323,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.7654393194405155,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 333,
+      "n_nodes": 6,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -1.4866739737512655,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 347,
+      "n_nodes": 7,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -1.028752913292989,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 351,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.43547486748052344,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 356,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": -1.4501304446661991,
+      "population": {
+        "0.05": 1,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 357,
+      "n_nodes": 5,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.2513534875682097,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 393,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 2.5437234633468004,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 414,
+      "n_nodes": 6,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -0.37368584958042583,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 429,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 1.5513216507237089,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 456,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 1.1413577560668917,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 458,
+      "n_nodes": 7,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -0.7744363351579489,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 472,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.6943643440424878,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 491,
+      "n_nodes": 5,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": 1.1165984692743744,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 503,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.9648211629312105,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 506,
+      "n_nodes": 7,
+      "n_k0": 3,
+      "r_val": 2,
+      "theta_z": 0.3264399834391507,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 513,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.5492897784792466,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 525,
+      "n_nodes": 7,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": 0.6614930861434194,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 542,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.7107662007195688,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 552,
+      "n_nodes": 7,
+      "n_k0": 3,
+      "r_val": 2,
+      "theta_z": -0.6157837254212913,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 559,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.1689487303693455,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 562,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 1.3857182671357655,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 564,
+      "n_nodes": 5,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.7635881188207686,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 566,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.43148613262205726,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 583,
+      "n_nodes": 7,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.47082770712498967,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 586,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.2703277707742037,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 591,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.48880737250437684,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 614,
+      "n_nodes": 6,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": 0.6473482097053922,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 628,
+      "n_nodes": 5,
+      "n_k0": 4,
+      "r_val": 2,
+      "theta_z": -0.5129810115519194,
+      "population": {
+        "0.05": 2,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 637,
+      "n_nodes": 5,
+      "n_k0": 6,
+      "r_val": 1,
+      "theta_z": -0.4779321956896919,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 640,
+      "n_nodes": 7,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -1.2274323737427877,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 644,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.221983347946434,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 649,
+      "n_nodes": 7,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": -0.5392355780088547,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 701,
+      "n_nodes": 7,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": 0.37894015148366317,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 729,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 1.4677468078383107,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 732,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.1183385878771437,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 743,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -0.7448985650216725,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 745,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.1765398301114158,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 747,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 2,
+      "theta_z": 0.2463809102214731,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 759,
+      "n_nodes": 7,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.4507675337312121,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 760,
+      "n_nodes": 5,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": 0.5622445877245019,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 773,
+      "n_nodes": 5,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 1.1497007781391233,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 792,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.3530132857511703,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 794,
+      "n_nodes": 5,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": 1.4565712134784463,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 796,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.2220244110685103,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 797,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -0.8074270437732651,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 798,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": -1.1251273714154386,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 806,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.127155474882715,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 808,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.0281823382814457,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 812,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 1.0643916034495244,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 816,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 2,
+      "theta_z": 1.0087911021835538,
+      "population": {
+        "0.05": -1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": -1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": -1,
+            "conservative": -1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 817,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.6186956783584708,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 818,
+      "n_nodes": 5,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -2.015664594716827,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 835,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -1.0586806428418698,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 843,
+      "n_nodes": 7,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": -0.448513007879187,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 848,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.02584733856206596,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 853,
+      "n_nodes": 5,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": -0.42153468033568015,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 854,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -3.331479676602651,
+      "population": {
+        "0.05": 1,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 862,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 2,
+      "theta_z": -0.46186942998308045,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 865,
+      "n_nodes": 7,
+      "n_k0": 6,
+      "r_val": 1,
+      "theta_z": -1.3415013180386541,
+      "population": {
+        "0.05": 1,
+        "0.25": 4
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 4,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 4,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 868,
+      "n_nodes": 6,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.8630814185613522,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 878,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 1.1672243843833228,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 886,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 1.4257462694059178,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 889,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.10061313034269226,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 905,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.38766995351075334,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 910,
+      "n_nodes": 5,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -0.9989367985832782,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 924,
+      "n_nodes": 7,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": 0.446493981831944,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 934,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.9942561173128194,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 938,
+      "n_nodes": 6,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -2.137734660429621,
+      "population": {
+        "0.05": 1,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 947,
+      "n_nodes": 7,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.8687607820166643,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 953,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": -0.6734664672824743,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 956,
+      "n_nodes": 7,
+      "n_k0": 6,
+      "r_val": 1,
+      "theta_z": 1.1525153338730885,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 959,
+      "n_nodes": 5,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.3261588828874787,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 973,
+      "n_nodes": 7,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": -0.31079727262437445,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 975,
+      "n_nodes": 5,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": -0.6779030359849278,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 980,
+      "n_nodes": 7,
+      "n_k0": 1,
+      "r_val": 1,
+      "theta_z": 0.3424375833433851,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 984,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 0.9542613285812601,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 1015,
+      "n_nodes": 7,
+      "n_k0": 2,
+      "r_val": 1,
+      "theta_z": 0.29504296234081456,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 1029,
+      "n_nodes": 6,
+      "n_k0": 3,
+      "r_val": 1,
+      "theta_z": 1.3697899419072228,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 1052,
+      "n_nodes": 7,
+      "n_k0": 5,
+      "r_val": 1,
+      "theta_z": -0.65344247512275,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 1053,
+      "n_nodes": 7,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": -1.2157719016261086,
+      "population": {
+        "0.05": 1,
+        "0.25": 1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": 1,
+            "conservative": 1
+          }
+        }
+      }
+    },
+    {
+      "attempt": 1073,
+      "n_nodes": 6,
+      "n_k0": 2,
+      "r_val": 2,
+      "theta_z": 0.5262309912981754,
+      "population": {
+        "0.05": 2,
+        "0.25": 2
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 2,
+            "conservative": 2
+          },
+          "0.25": {
+            "plugin": 2,
+            "conservative": 2
+          }
+        }
+      }
+    },
+    {
+      "attempt": 1080,
+      "n_nodes": 6,
+      "n_k0": 4,
+      "r_val": 1,
+      "theta_z": 1.1344285621103138,
+      "population": {
+        "0.05": 1,
+        "0.25": -1
+      },
+      "by_sample_size": {
+        "100": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": 1
+          }
+        },
+        "500": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "2000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        },
+        "10000": {
+          "0.05": {
+            "plugin": 1,
+            "conservative": 1
+          },
+          "0.25": {
+            "plugin": -1,
+            "conservative": -1
+          }
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "git_commit": "5b90a0cccd73a975d270952c4da0a69db7f723ba",
+    "python": "3.14.7",
+    "numpy": "2.5.3",
+    "seconds": 29.82
+  }
+}

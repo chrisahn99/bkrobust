@@ -1,0 +1,12 @@
+{
+  "seconds_total": 29.24717708300159,
+  "margin_tol": 1e-06,
+  "zero_tol": 1e-09,
+  "max_undirected_edges": 6,
+  "files": [
+    "c1_witness.json",
+    "c2_rate_sweep.json",
+    "c2_flagship.json",
+    "c2_consequence.json"
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "found": true,
+  "chosen_n": 4,
+  "n_witnesses_at_chosen_n": 355,
+  "scope": {
+    "n_values_tried": [
+      4
+    ],
+    "candidates_tried": 761,
+    "rejection_counts": {
+      "empty_set_trivially_valid": 15380,
+      "treatment_not_in_or_adjacent_to_component": 4220,
+      "z_not_identified": 744,
+      "z_invalid_at_g0": 526,
+      "k_assumed_inconsistent": 369
+    }
+  },
+  "witness": {
+    "instance": {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 20760989,
+      "gen_params": {
+        "edge_prob": 0.75
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "true_dag": {
+        "nodes": [
+          "V0",
+          "V1",
+          "V2",
+          "V3"
+        ],
+        "directed": [
+          [
+            "V0",
+            "V1"
+          ],
+          [
+            "V2",
+            "V1"
+          ],
+          [
+            "V3",
+            "V0"
+          ],
+          [
+            "V3",
+            "V1"
+          ],
+          [
+            "V3",
+            "V2"
+          ]
+        ],
+        "undirected": [],
+        "edge_string": "V0->V1 V2->V1 V3->V0 V3->V1 V3->V2"
+      },
+      "cpdag": {
+        "nodes": [
+          "V0",
+          "V1",
+          "V2",
+          "V3"
+        ],
+        "directed": [
+          [
+            "V0",
+            "V1"
+          ],
+          [
+            "V2",
+            "V1"
+          ],
+          [
+            "V3",
+            "V1"
+          ]
+        ],
+        "undirected": [
+          [
+            "V0",
+            "V3"
+          ],
+          [
+            "V2",
+            "V3"
+          ]
+        ],
+        "edge_string": "V0->V1 V2->V1 V3->V1 V0-V3 V2-V3"
+      },
+      "g0": {
+        "nodes": [
+          "V0",
+          "V1",
+          "V2",
+          "V3"
+        ],
+        "directed": [
+          [
+            "V0",
+            "V1"
+          ],
+          [
+            "V2",
+            "V1"
+          ],
+          [
+            "V3",
+            "V0"
+          ],
+          [
+            "V3",
+            "V1"
+          ],
+          [
+            "V3",
+            "V2"
+          ]
+        ],
+        "undirected": [],
+        "edge_string": "V0->V1 V2->V1 V3->V0 V3->V1 V3->V2"
+      },
+      "treatment": "V2",
+      "outcome": "V1",
+      "z": [
+        "V0",
+        "V3"
+      ],
+      "k_true": [
+        [
+          "V3",
+          "V0"
+        ],
+        [
+          "V3",
+          "V2"
+        ]
+      ],
+      "k_assumed": [
+        [
+          "V3",
+          "V0"
+        ],
+        [
+          "V3",
+          "V2"
+        ]
+      ],
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6
+    },
+    "sem": {
+      "dag": {
+        "nodes": [
+          "V0",
+          "V1",
+          "V2",
+          "V3"
+        ],
+        "directed": [
+          [
+            "V0",
+            "V1"
+          ],
+          [
+            "V2",
+            "V1"
+          ],
+          [
+            "V3",
+            "V0"
+          ],
+          [
+            "V3",
+            "V1"
+          ],
+          [
+            "V3",
+            "V2"
+          ]
+        ],
+        "undirected": [],
+        "edge_string": "V0->V1 V2->V1 V3->V0 V3->V1 V3->V2"
+      },
+      "weights": {
+        "V0|V1": 0.8733837696315362,
+        "V2|V1": 0.6598417659901991,
+        "V3|V0": 1.054397388945618,
+        "V3|V1": 1.379285231555571,
+        "V3|V2": -1.1302122934821384
+      },
+      "noise_var": {
+        "V0": 1.4040868407132452,
+        "V1": 0.8793863074382652,
+        "V2": 0.5878935521067901,
+        "V3": 0.8880695739020548
+      }
+    },
+    "state_G": {
+      "nodes": [
+        "V0",
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "directed": [
+        [
+          "V0",
+          "V1"
+        ],
+        [
+          "V2",
+          "V1"
+        ],
+        [
+          "V3",
+          "V0"
+        ],
+        [
+          "V3",
+          "V1"
+        ]
+      ],
+      "undirected": [
+        [
+          "V2",
+          "V3"
+        ]
+      ],
+      "edge_string": "V0->V1 V2->V1 V3->V0 V3->V1 V2-V3",
+      "distance_from_G0": 1,
+      "B": 1.3404817124827093
+    },
+    "state_H": {
+      "nodes": [
+        "V0",
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "directed": [
+        [
+          "V0",
+          "V1"
+        ],
+        [
+          "V0",
+          "V3"
+        ],
+        [
+          "V2",
+          "V1"
+        ],
+        [
+          "V3",
+          "V1"
+        ],
+        [
+          "V3",
+          "V2"
+        ]
+      ],
+      "undirected": [],
+      "edge_string": "V0->V1 V0->V3 V2->V1 V3->V1 V3->V2",
+      "distance_from_G0": 2,
+      "B": 0.0
+    },
+    "margin_B_G_minus_B_H": 1.3404817124827093,
+    "claim": "d(G0,G) < d(G0,H) but B(H) < B(G) - margin: individual-state bias is not monotone in raw distance from G0 (Remark 4). Only the ball-maximum beta_up(d) is monotone, which is why B must be maximised over the shell (Theorem C) rather than read off one perturbation."
+  }
+}
