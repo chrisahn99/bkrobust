@@ -1,0 +1,30 @@
+{
+ "p": 4,
+ "mode": "census",
+ "n_draws": 0,
+ "n_units": 185,
+ "elapsed_s": 2.6,
+ "counts": {
+  "cn_equal": 8572,
+  "cn_incomparable": 24,
+  "cn_subset": 168,
+  "cn_superset": 1512,
+  "escaped_in_forb_G0": 0,
+  "forb_equal": 6960,
+  "forb_superset": 3316,
+  "n": 10276,
+  "newpa_absorbed": 1128,
+  "newpa_escaped": 1512,
+  "newpa_nodes": 2640,
+  "ostar_equal": 8044,
+  "ostar_incomparable": 72,
+  "ostar_new_nodes": 1512,
+  "ostar_subset": 720,
+  "ostar_superset": 1440,
+  "pa_equal": 7852,
+  "pa_superset": 2424,
+  "trials_ostar_grew": 1512,
+  "trials_ostar_swapped": 72,
+  "trials_with_escaped_newpa": 1512
+ }
+}

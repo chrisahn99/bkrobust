@@ -1,0 +1,86 @@
+% Table 1 design dossier — breakdown-radius paper, ICLR 2027
+% Built 2026-09-16 from the paid design runs of 7–9 September and the
+% measurement runs of 11–13 September. Not a paper; an internal design document.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.1cm,bottom=2.4cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\captionsetup[table]{font=small,labelfont=bf,skip=4pt}
+\setlist{nosep,leftmargin=1.2em}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{3.5pt}
+
+\definecolor{ink}{HTML}{1B1B1F}
+\definecolor{rule}{HTML}{8A8A94}
+\definecolor{good}{HTML}{1B6B3A}
+\definecolor{warn}{HTML}{9A5B00}
+\definecolor{stop}{HTML}{9B2226}
+\definecolor{soft}{HTML}{F4F4F6}
+
+\newcommand{\rval}{r_{\mathrm{val}}}
+\newcommand{\rnul}{r_{0}}
+\newcommand{\rclaim}{r_{\mathrm{claim}}}
+\newcommand{\rhop}{r_{\mathrm{hop}}}
+\newcommand{\Lnf}{L_{95}}
+\newcommand{\Kset}{K}
+\newcommand{\Gz}{G_{0}}
+\newcommand{\Chat}{\widehat{C}}
+\newcommand{\taub}{\tau_{b}}
+\newcommand{\src}[1]{{\footnotesize\textcolor{rule}{\setlength{\emergencystretch}{3em}#1\par}}}
+\newcommand{\yes}{\textcolor{good}{$\bullet$}}
+\newcommand{\pt}{\textcolor{warn}{$\circ$}}
+\newcommand{\fitw}[1]{\resizebox{\ifdim\width>\textwidth\textwidth\else\width\fi}{!}{#1}}
+\newcommand{\no}{\textcolor{rule}{--}}
+
+\newtcolorbox{verdict}[1][]{colback=soft,colframe=rule,boxrule=0.4pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{blocking}[1][]{colback=white,colframe=stop,boxrule=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize Table 1 dossier — breakdown-radius paper}
+\fancyhead[R]{\footnotesize 2026-09-16}
+\fancyfoot[C]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Table 1, every version of it}\\[4pt]
+{\large A design dossier for the breakdown-radius paper}\\[8pt]
+{\normalsize José Lucas de Melo Costa \quad$\cdot$\quad 16 September 2026}\\[4pt]
+{\footnotesize Internal document. Author lock 18 September, paper 25 September.}
+\end{center}
+\vspace{4pt}
+\hrule
+\vspace{10pt}
+
+\input{sections/01_brief}
+\input{sections/02_claims}
+\input{sections/03_comparison}
+\input{sections/04_space}
+\input{sections/05_candidates}
+\input{sections/05b_candidates}
+\input{sections/06_scorecard}
+
+\end{document}

@@ -1,0 +1,10 @@
+0 {'n_scm': 1, 'n_abort': 6, 'n_abort_unamen': 6, 'n_same': 2, 'n_moved': 4, 'n_Dcheck': 16} 0.7
+2000 {'n_scm': 1598, 'n_abort': 8826, 'n_abort_unamen': 8826, 'n_same': 3840, 'n_moved': 4986, 'n_Dcheck': 39592} 68.1
+FINAL {
+ "n_scm": 3209,
+ "n_abort": 17235,
+ "n_abort_unamen": 17235,
+ "n_same": 7364,
+ "n_moved": 9871,
+ "n_Dcheck": 80338
+}

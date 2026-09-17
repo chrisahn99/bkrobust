@@ -1,0 +1,1 @@
+{"p": 9, "degs": [2.0, 3.0, 4.0, 5.0, 6.0], "stats": {"n_cpdag": 8400, "n_mpdag": 28737, "D_all": 918544, "N_cycle": 0, "N_vstruct": 0, "D_con": 918544, "D_am": 918544, "N_ident": 0, "cn_shrink": 38838, "forb_shrink": 0, "pa_grow": 48401, "partial_loss": 43323, "N_set": 0, "L1_fail": 6723}, "n_viol": 0, "viol": []}

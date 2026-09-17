@@ -1,0 +1,24 @@
+{
+ "conjecture": "C-FIREWALL k-statement extension",
+ "p": 4,
+ "k": 3,
+ "mode": "census",
+ "exhaustive": true,
+ "n_dag_draws": null,
+ "elapsed_s": 1.0,
+ "counts": {
+  "abort": 2520,
+  "checks": 44460,
+  "clean_trials": 36948,
+  "report": 36948,
+  "report_moved": 16940,
+  "report_same": 20008,
+  "stmt_all": 37248,
+  "stmt_coherent": 21084,
+  "stmt_rejected": 16164,
+  "trial": 39468,
+  "violating_trials": 0
+ },
+ "n_witnesses": 0,
+ "witnesses": []
+}

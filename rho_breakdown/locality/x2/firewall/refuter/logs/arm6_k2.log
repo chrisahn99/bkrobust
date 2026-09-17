@@ -1,0 +1,15 @@
+0 k2 {'n_scm': 1, 'class_size': 3, 'n_query_pos': 5, 'n_trial': 300, 'n_rejected': 140, 'n_stamped': 160, 'n_pos': 160, 'n_moved': 57, 'n_Dcheck': 171, 'n_same': 103} 37.0
+FINAL k2 {
+ "n_scm": 2390,
+ "class_size": 28292,
+ "n_query_pos": 15729,
+ "n_trial": 943740,
+ "n_rejected": 427999,
+ "n_stamped": 515741,
+ "n_pos": 496059,
+ "n_moved": 142857,
+ "n_Dcheck": 509355,
+ "n_same": 353202,
+ "n_abort": 19682
+}
+n_violation 0 of moved 142857

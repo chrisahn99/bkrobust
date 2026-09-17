@@ -1,0 +1,100 @@
+\section{What this is, and what it was built from}
+
+You asked for every Table~1 the results can support, with the claims behind them, their
+significance and their originality, and with the comparison to the literature made visible. This
+document holds thirteen candidates, all of them typeset with the numbers that exist today, plus
+the claim set they are supposed to verify and the scorecard that separates them.
+
+Almost nothing here was invented this morning. Between 7 and 9 September five workflow runs
+designed, attacked and partly measured this table and the quantity it reports: 210 agents and
+26.2\,M context tokens over about nine and a half hours. Between 11 and 13 September the
+measurement runs filled the cells those designs had left empty. This dossier reads the reports and
+the result files, keeps what survived its own adversaries, and adds the candidates that only became
+possible once the measurements existed. Where a number appears in a table below, the file it was
+read from is printed under the float; where a number was computed for this document, the query that
+computed it is named.
+
+\begin{center}\footnotesize
+\fitw{%
+\begin{tabular}{@{}llrrl@{}}
+\toprule
+date & design or measurement & agents & context & what it left for Table~1 \\
+\midrule
+07/09 & table ideation & 60 & 6.0\,M & 28 candidates, 21 kept; no discrimination table survives \\
+07/09 & table selection & 15 & 2.2\,M & the four findings F1--F4 that every later design answers \\
+07/09 & main-table design & 43 & 5.4\,M & procedures as rows, one estimator; the screen identity \\
+07--08/09 & radius redefinition & 67 & 9.1\,M & retraction is reversal; the null radius; the far control \\
+09/09 & archetype ranking & 25 & 3.4\,M & ten archetypes attacked; the repairs W1--W7 \\
+09/09 & apostila Part~IV & -- & -- & one calibrated metric; columns by number of wrong claims \\
+\midrule
+11--13/09 & the protocol run & \multicolumn{2}{l}{8 arms $\times$ 528 rows} & the certificate ledger, 27 networks \\
+13/09 & M1, the knowledge interval & \multicolumn{2}{l}{2{,}749 rows} & the price table, calibrated, with bands \\
+13/09 & M1b, the policy rows & \multicolumn{2}{l}{2{,}212 rows} & the refusal rate and the tie against the free screen \\
+\bottomrule
+\end{tabular}}
+\end{center}
+
+\subsection{The situation this table has to survive}
+
+Chris's draft arrived at 01:59 on 16 September: a complete paper of nineteen pages, eleven of them
+main text, titled \emph{A Diagnostic Radius for Knowledge-Induced Causal Effect Estimation}. His
+Table~1 is a rank-correlation table, $\taub$ between each instrument and a survival area, by
+stratum, over three million corrupted knowledge states on 1{,}978 synthetic instances. The two
+experiments his draft names as still owed are the two we ran on 11--13 September: the ranking
+evaluation on the real instances, and the elicitation arm with a frozen instance frame, a matched
+control and an audit opened after the rows were frozen.
+
+The merge recommendation on record is his skeleton with our results section. That decision changes
+what Table~1 can be, in one specific way: the table has to serve a paper whose theory section is
+his geometry and whose evaluation is our measurement, and it has to hold the baseline his table
+does not have.
+
+A full review of that draft was written earlier today and this dossier is its companion rather than
+a second opinion. Two of its findings are carried here. The first is about the theory and it is in
+C2: the order on this space is graded because the skeleton is frozen, which is consistent with the
+result in Taeb et al.\ that the general poset is not. The second is about the free baseline and it
+is in C5 and T8: the defensible claim is that the radius says which depth was needed, and the
+coverage is won there.
+
+\subsection{The three requirements, and the constraints already paid for}
+
+Your brief sets three requirements. A reviewer who has read only the abstract and the introduction
+must be able to read the table (R1); the table must verify the claims we actually make (R2); and
+it must show that we compared ourselves to the literature (R3).
+
+Six further constraints are not preferences. Each replaces something that was measured and found
+to fail, and every candidate below is scored against them.
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.6cm}p{5.2cm}p{10.1cm}@{}}
+\toprule
+& the constraint & what it replaces, and where that was measured \\
+\midrule
+R4 & One metric, not two free columns & A coverage column and a width column let any procedure
+shelter in one of them. Discarding the knowledge covers 1.000 in every regime and passes any
+coverage gate, so the argument has to happen in the width column, which was empty. The repair is to
+calibrate every procedure to 95\,\% coverage and then measure the width it needed, relative to the
+width of discarding the knowledge. \src{archetype ranking, W1} \\
+\addlinespace
+R5 & One population per panel, and every stratum printed with its $n$ & Three columns drawn from
+three non-nested populations, the defect the ideation audit found in the coverage family. A thin
+cell is printed with its count rather than suppressed. \src{ideation audit} \\
+\addlinespace
+R6 & A row that loses, in the column where it must lose & Insurance costs something when nothing is
+wrong. A table whose favoured row wins every column is a design error and reads as one.
+\src{apostila Part~IV} \\
+\addlinespace
+R7 & No discrimination column & The expected rank of a reversed claim is
+$1 + (|\Kset| - 1)(1 - \mathrm{AUC})$, so a questions-to-repair column restates an area under a
+curve that already ties. No table in which the radius competes on discrimination survived the
+ideation run. \src{main-table design, conclusion 4} \\
+\addlinespace
+R8 & No sentence whose subject is a language model & Elicited knowledge is one error process in the
+methodology, never the headline, the title or Table~1. \src{Zé, 2026-09-12} \\
+\addlinespace
+R9 & Nothing internal in the float & No script names, run identifiers or hashes in a caption. This
+document breaks that rule on purpose, because it is not the paper; the lines marked as draft
+captions are written as they would be printed. \src{paper style, I1} \\
+\bottomrule
+\end{tabular}
+\end{center}

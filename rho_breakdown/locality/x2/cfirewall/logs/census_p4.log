@@ -1,0 +1,83 @@
+[cfirewall p=4 census] 185 distinct CPDAGs
+  4/185 cpdags  0s  trials=56 viol=0
+  8/185 cpdags  0s  trials=240 viol=0
+  12/185 cpdags  0s  trials=494 viol=0
+  16/185 cpdags  0s  trials=618 viol=0
+  20/185 cpdags  0s  trials=864 viol=0
+  24/185 cpdags  0s  trials=1110 viol=0
+  28/185 cpdags  0s  trials=1317 viol=0
+  32/185 cpdags  0s  trials=1420 viol=0
+  36/185 cpdags  0s  trials=1626 viol=0
+  40/185 cpdags  0s  trials=2021 viol=0
+  44/185 cpdags  0s  trials=2283 viol=0
+  48/185 cpdags  0s  trials=2521 viol=0
+  52/185 cpdags  0s  trials=2616 viol=0
+  56/185 cpdags  0s  trials=2920 viol=0
+  60/185 cpdags  0s  trials=3021 viol=0
+  64/185 cpdags  0s  trials=3153 viol=0
+  68/185 cpdags  0s  trials=3415 viol=0
+  72/185 cpdags  0s  trials=3824 viol=0
+  76/185 cpdags  0s  trials=4233 viol=0
+  80/185 cpdags  0s  trials=4322 viol=0
+  84/185 cpdags  1s  trials=4423 viol=0
+  88/185 cpdags  1s  trials=4848 viol=0
+  92/185 cpdags  1s  trials=5088 viol=0
+  96/185 cpdags  1s  trials=5342 viol=0
+  100/185 cpdags  1s  trials=5451 viol=0
+  104/185 cpdags  1s  trials=5841 viol=0
+  108/185 cpdags  1s  trials=6368 viol=0
+  112/185 cpdags  1s  trials=6736 viol=0
+  116/185 cpdags  1s  trials=6845 viol=0
+  120/185 cpdags  1s  trials=7048 viol=0
+  124/185 cpdags  1s  trials=7402 viol=0
+  128/185 cpdags  1s  trials=7480 viol=0
+  132/185 cpdags  1s  trials=7719 viol=0
+  136/185 cpdags  1s  trials=7850 viol=0
+  140/185 cpdags  1s  trials=8245 viol=0
+  144/185 cpdags  1s  trials=8347 viol=0
+  148/185 cpdags  1s  trials=8412 viol=0
+  152/185 cpdags  1s  trials=8486 viol=0
+  156/185 cpdags  1s  trials=8583 viol=0
+  160/185 cpdags  1s  trials=8729 viol=0
+  164/185 cpdags  1s  trials=8882 viol=0
+  168/185 cpdags  1s  trials=9294 viol=0
+  172/185 cpdags  1s  trials=9704 viol=0
+  176/185 cpdags  1s  trials=10186 viol=0
+  180/185 cpdags  1s  trials=10794 viol=0
+  184/185 cpdags  1s  trials=10976 viol=0
+{
+ "abort": 720,
+ "abort_unamen": 720,
+ "checks": 13536,
+ "clean_trials": 10276,
+ "ctrl_moved": 432,
+ "ctrl_report": 3092,
+ "ctrl_trial": 3092,
+ "ctrl_violating": 312,
+ "ctrl_violating_allD": 312,
+ "ctrl_violating_moved": 312,
+ "ext_hist_1": 518,
+ "ext_hist_2": 354,
+ "ext_hist_3": 120,
+ "ext_hist_4": 12,
+ "ext_hist_6": 12,
+ "ext_max": 6,
+ "ext_total": 1706,
+ "mpdag": 1601,
+ "query_all": 16584,
+ "query_amenable": 3336,
+ "rej_conflict": 0,
+ "rej_cycle": 716,
+ "rej_notext": 716,
+ "report": 10276,
+ "report_moved": 2232,
+ "report_multiD": 2776,
+ "report_multiD_moved": 504,
+ "report_same": 8044,
+ "stmt_all": 4644,
+ "stmt_coherent": 3928,
+ "stmt_rejected": 716,
+ "trial": 10996,
+ "violating_trials": 0
+}
+VIOLATIONS: 0 trials / 0 (x,y,O*) keys   -> results/cfirewall_p4.json

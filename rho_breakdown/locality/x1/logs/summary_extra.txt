@@ -1,0 +1,9 @@
+[original] P3 primary (S-loc pure_spurious NON-query, member, rho<=4): 0.0310 k=428 n=13805 wilson[0.0282, 0.034] CLUSTER[0.0252,0.0374]
+      A26 window [0.087,0.100] overlap with CLUSTER CI: False
+[original] S1(careful tool) vs R conditional RR rho=1 reachable: RR=0.076 [0.058,0.095]  S1 rate=0.0110 (k=64 n=5815)  R rate=0.1451 (k=688 n=4741)
+[licensed] P3 primary (S-loc pure_spurious NON-query, member, rho<=4): 0.0562 k=739 n=13147 wilson[0.0524, 0.0603] CLUSTER[0.0479,0.0647]
+      A26 window [0.087,0.100] overlap with CLUSTER CI: False
+[licensed] S1(careful tool) vs R conditional RR rho=1 reachable: RR=0.062 [0.047,0.079]  S1 rate=0.0101 (k=58 n=5736)  R rate=0.1622 (k=807 n=4976)
+[large] P3 primary (S-loc pure_spurious NON-query, member, rho<=4): 0.0246 k=348 n=14168 wilson[0.0221, 0.0272] CLUSTER[0.0178,0.0318]
+      A26 window [0.087,0.100] overlap with CLUSTER CI: False
+[large] S1(careful tool) vs R conditional RR rho=1 reachable: RR=0.031 [0.007,0.066]  S1 rate=0.0011 (k=4 n=3720)  R rate=0.0343 (k=111 n=3236)

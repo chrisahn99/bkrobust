@@ -1,0 +1,10 @@
+[gate] population-PC == dag_to_cpdag: 60/60 -> PASS
+elapsed 44.9s  n_scm=400  mode=ORACLE-CI  n=[999]
+skeleton SHD(Chat,C) mean = 0.000
+BASELINE (true BK, no false statement): 0/3427 = 0.0000 invalid
+
+--- CONDITIONED ON THE BASELINE REPORT BEING VALID (the firewall test) ---
+S1     FALSE stmt: moved=  22282 newly_invalid=     0 rate=0.0000 CI95=[0.0000,0.0000]  visible_abort=1756
+S1rej  FALSE stmt: moved=   6433 newly_invalid=  2237 rate=0.3477 CI95=[0.2974,0.3987]  visible_abort=230
+--- baseline ALREADY invalid (discovery error; BK cannot be blamed) ---
+-> /home/costaj/bk-iclr2027/x2/chat/code/../results/chat_oracle_p6_7_8_9_10_n999_s20260823.json

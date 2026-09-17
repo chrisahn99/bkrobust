@@ -1,0 +1,58 @@
+{
+ "p": 6,
+ "mode": "sample",
+ "mpdag_cap": 400,
+ "n_cpdags_scanned": 639,
+ "n_cpdags_skipped": 37,
+ "n_cpdags": 676,
+ "n_mpdags": 16555,
+ "by_dmin": {
+  "0": {
+   "D_all": 1168776,
+   "D_con": 1168776,
+   "D_con_rev": 584388,
+   "N_gain": 213452,
+   "gain_orient": 213452,
+   "N_ident_rev": 142154,
+   "D_am_rev": 59984,
+   "N_set_rev": 34427,
+   "D_am": 48670
+  },
+  "1": {
+   "D_all": 711348,
+   "D_con": 711348,
+   "D_con_rev": 355674,
+   "D_am": 83378,
+   "D_am_rev": 42876,
+   "N_gain": 47691,
+   "gain_orient": 47691,
+   "N_ident_rev": 45317
+  },
+  "2": {
+   "D_all": 33184,
+   "D_con": 33184,
+   "D_con_rev": 16592,
+   "D_am": 5292,
+   "D_am_rev": 2648,
+   "N_gain": 397,
+   "gain_orient": 397,
+   "N_ident_rev": 393
+  },
+  "3": {
+   "D_all": 1232,
+   "D_con": 1232,
+   "D_con_rev": 616,
+   "D_am": 242,
+   "D_am_rev": 121
+  },
+  "disc": {
+   "D_all": 33420,
+   "D_con": 33420,
+   "D_con_rev": 16710,
+   "D_am": 6112,
+   "D_am_rev": 3056
+  }
+ },
+ "n_hits_far": 0,
+ "hits": []
+}

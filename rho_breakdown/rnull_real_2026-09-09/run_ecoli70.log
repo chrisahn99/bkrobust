@@ -1,0 +1,85 @@
+  [ 1/40] sucA->yfaD |C|=8 |K|=1 r0=None rval=None 0.04s
+  [ 2/40] sucA->lacZ |C|=8 |K|=1 r0=None rval=None 0.04s
+  [ 3/40] b1191->ftsJ |C|=5 |K|=1 r0=None rval=None 0.02s
+  [ 4/40] b1191->lacA |C|=5 |K|=1 r0=None rval=None 0.02s
+  [ 5/40] b1191->lacZ |C|=5 |K|=1 r0=None rval=None 0.02s
+  [ 6/40] fixC->ibpB |C|=5 |K|=1 r0=None rval=None 0.02s
+  [ 7/40] eutG->aceB |C|=8 |K|=1 r0=1 rval=None 0.04s
+  [ 8/40] sucA->ycgX |C|=8 |K|=1 r0=None rval=None 0.04s
+  [ 9/40] eutG->yfaD |C|=8 |K|=1 r0=None rval=None 0.04s
+  [10/40] eutG->lacY |C|=8 |K|=1 r0=None rval=None 0.04s
+  [11/40] sucA->icdA |C|=8 |K|=1 r0=None rval=None 0.04s
+  [12/40] eutG->ibpB |C|=8 |K|=1 r0=None rval=None 0.04s
+  [13/40] b1191->tnaA |C|=5 |K|=1 r0=None rval=None 0.02s
+  [14/40] eutG->ycgX |C|=8 |K|=1 r0=None rval=None 0.04s
+  [15/40] eutG->icdA |C|=8 |K|=1 r0=1 rval=None 0.04s
+  [16/40] sucA->yheI |C|=8 |K|=1 r0=None rval=None 0.04s
+  [17/40] eutG->mopB |C|=8 |K|=1 r0=1 rval=None 0.04s
+  [18/40] eutG->lacA |C|=8 |K|=1 r0=None rval=None 0.04s
+  [19/40] b1191->ycgX |C|=5 |K|=1 r0=None rval=None 0.02s
+  [20/40] eutG->lacZ |C|=8 |K|=1 r0=None rval=None 0.04s
+  [21/40] b1191->ygcE |C|=5 |K|=1 r0=None rval=None 0.02s
+  [22/40] eutG->ygcE |C|=8 |K|=1 r0=None rval=None 0.04s
+  [23/40] sucA->lacA |C|=8 |K|=1 r0=None rval=None 0.04s
+  [24/40] eutG->atpD |C|=8 |K|=1 r0=None rval=None 0.04s
+  [25/40] b1191->b1963 |C|=5 |K|=1 r0=None rval=None 0.02s
+  [26/40] b1191->nuoM |C|=5 |K|=1 r0=None rval=None 0.02s
+  [27/40] eutG->nuoM |C|=8 |K|=1 r0=None rval=None 0.04s
+  [28/40] sucA->folK |C|=8 |K|=1 r0=None rval=None 0.04s
+  [29/40] b1191->ibpB |C|=5 |K|=1 r0=None rval=None 0.02s
+  [30/40] b1191->yfaD |C|=5 |K|=1 r0=None rval=None 0.02s
+  [31/40] sucA->ygcE |C|=8 |K|=1 r0=None rval=None 0.04s
+  [32/40] eutG->asnA |C|=8 |K|=1 r0=1 rval=None 0.04s
+  [33/40] b1191->aceB |C|=5 |K|=1 r0=None rval=None 0.02s
+  [34/40] fixC->dnaG |C|=5 |K|=1 r0=1 rval=None 0.02s
+  [35/40] fixC->yceP |C|=5 |K|=1 r0=None rval=None 0.02s
+  [36/40] b1191->mopB |C|=5 |K|=1 r0=None rval=None 0.02s
+  [37/40] b1191->yceP |C|=5 |K|=1 r0=None rval=None 0.02s
+  [38/40] eutG->dnaK |C|=8 |K|=1 r0=None rval=None 0.04s
+  [39/40] fixC->b1583 |C|=5 |K|=1 r0=None rval=None 0.02s
+  [40/40] sucA->yaeM |C|=8 |K|=1 r0=None rval=None 0.04s
+
+40 instancias em ecoli70
+
+      X       Y |C| |K| r0 orac rval r0 n=500 r0 n=5000            casco (oraculo)
+----------------------------------------------------------------------------------
+   sucA    yfaD   8   1   nunca nunca    nunca     nunca           [-0.244, -0.244]
+   sucA    lacZ   8   1   nunca nunca    nunca     nunca           [+0.162, +0.162]
+  b1191    ftsJ   5   1   nunca nunca    nunca     nunca           [+1.149, +1.149]
+  b1191    lacA   5   1   nunca nunca    nunca     nunca           [+0.409, +0.409]
+  b1191    lacZ   5   1   nunca nunca    nunca     nunca           [+0.482, +0.482]
+   fixC    ibpB   5   1   nunca nunca        1     nunca           [-0.041, -0.041]
+   eutG    aceB   8   1       1 nunca        1         1           [+0.463, +0.463]
+   sucA    ycgX   8   1   nunca nunca    nunca     nunca           [+0.238, +0.238]
+   eutG    yfaD   8   1   nunca nunca    nunca     nunca           [+0.916, +0.916]
+   eutG    lacY   8   1   nunca nunca    nunca     nunca           [+0.309, +0.309]
+   sucA    icdA   8   1   nunca nunca    nunca     nunca           [-0.406, -0.406]
+   eutG    ibpB   8   1   nunca nunca    nunca     nunca           [+1.590, +1.590]
+  b1191    tnaA   5   1   nunca nunca    nunca     nunca           [-0.822, -0.822]
+   eutG    ycgX   8   1   nunca nunca        1     nunca           [-0.259, -0.259]
+   eutG    icdA   8   1       1 nunca        1         1           [+0.442, +0.442]
+   sucA    yheI   8   1   nunca nunca    nunca     nunca           [+0.191, +0.191]
+   eutG    mopB   8   1       1 nunca        1     nunca           [-0.182, -0.182]
+   eutG    lacA   8   1   nunca nunca        1         1           [-0.150, -0.150]
+  b1191    ycgX   5   1   nunca nunca    nunca     nunca           [+1.381, +1.381]
+   eutG    lacZ   8   1   nunca nunca        1     nunca           [-0.331, -0.331]
+  b1191    ygcE   5   1   nunca nunca    nunca     nunca           [+1.882, +1.882]
+   eutG    ygcE   8   1   nunca nunca        1         1           [-0.689, -0.689]
+   sucA    lacA   8   1   nunca nunca    nunca     nunca           [+0.137, +0.137]
+   eutG    atpD   8   1   nunca nunca        1     nunca           [+0.216, +0.216]
+  b1191   b1963   5   1   nunca nunca    nunca     nunca           [+1.364, +1.364]
+  b1191    nuoM   5   1   nunca nunca    nunca     nunca           [+0.050, +0.050]
+   eutG    nuoM   8   1   nunca nunca    nunca     nunca           [+0.126, +0.126]
+   sucA    folK   8   1   nunca nunca    nunca     nunca           [+0.156, +0.156]
+  b1191    ibpB   5   1   nunca nunca    nunca     nunca           [-0.038, -0.038]
+  b1191    yfaD   5   1   nunca nunca        1     nunca           [-0.098, -0.098]
+   sucA    ygcE   8   1   nunca nunca    nunca     nunca           [+0.633, +0.633]
+   eutG    asnA   8   1       1 nunca        1         1           [-0.550, -0.550]
+  b1191    aceB   5   1   nunca nunca    nunca     nunca           [-1.263, -1.263]
+   fixC    dnaG   5   1       1 nunca        1         1           [-0.163, -0.163]
+   fixC    yceP   5   1   nunca nunca    nunca     nunca           [-0.327, -0.327]
+  b1191    mopB   5   1   nunca nunca    nunca     nunca           [+1.243, +1.243]
+  b1191    yceP   5   1   nunca nunca        1     nunca           [-0.307, -0.307]
+   eutG    dnaK   8   1   nunca nunca        1     nunca           [-0.225, -0.225]
+   fixC   b1583   5   1   nunca nunca        1     nunca           [-0.079, -0.079]
+   sucA    yaeM   8   1   nunca nunca        1     nunca           [+0.018, +0.018]

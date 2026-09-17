@@ -1,0 +1,17 @@
+p=5 {
+ "Mfail": 19175,
+ "Mfail_moved": 0,
+ "U0_nonvac": 2053715,
+ "checks": 3267660,
+ "ctrl_checks": 1033420,
+ "ctrl_report": 718785,
+ "ctrl_viol": 130160,
+ "ctrl_viol_allD": 130160,
+ "ctrl_viol_moved": 130160,
+ "elapsed": 228.3,
+ "hpm_check": 655720,
+ "noamen_checks": 2980950,
+ "noamen_report": 973865,
+ "noamen_viol": 384760,
+ "report": 2053715
+}

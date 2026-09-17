@@ -1,0 +1,82 @@
+==============================================================================
+E2 ROBUSTNESS PASS -- ALL POST-HOC, written after Gate 2 returned SUPPORTED
+==============================================================================
+
+ATTACK A -- OUTCOME DECOMPOSITION with n_changed = 0 REMOVED
+  (dropped: G-flip 0, T-flip 0, T-move 9863 of 48911 = 20.2% no-op tier moves)
+arm            N   caught     loud    inert   silent chg_valid
+G-flip      2730    0.440    0.192    0.285    0.082     0.000
+T-flip      2730    0.436    0.187    0.286    0.091     0.000
+T-move     39048    0.247    0.198    0.532    0.023     0.000
+  READ THIS COLUMN-WISE: tier moves are caught free about HALF as often
+  as statement flips. Containment of damage is bought partly by the
+  free Meek check firing LESS, which is a cost the theorem must own.
+
+------------------------------------------------------------------------------
+ATTACK B -- T-move vs T-flip: SAME K, SAME SCM, only the error model differs
+  This isolates R1-closure. It is the contrast that should have been primary.
+------------------------------------------------------------------------------
+arm            n     mean   median      q90      q99      max
+G-flip      1528    1.380    1.000    2.000    3.000    5.000
+T-flip      1540    1.407    1.000    2.000    3.610    6.000
+T-move     29404    0.899    1.000    1.000    2.000    4.000
+  MWU T-move vs T-flip:  p(less) = 0.000e+00   p(greater) = 1.000e+00
+  MWU T-move vs G-flip:  p(less) = 0.000e+00   p(greater) = 1.000e+00
+  MWU T-flip vs G-flip:  p(less) = 4.914e-01   p(greater) = 5.086e-01
+
+  raw d_orient stratified by n_changed, T-move vs T-flip (same K):
+ n_chg  T-flip n   med   q90   max    T-move n   med   q90   max
+     1       790  1.00  2.00     6       15268  1.00  1.00     4
+     2       551  2.00  3.00     6       10183  2.00  2.00     5
+     3       199  3.00  4.20     8        3321  2.00  3.00     5
+     4         0     -     -     -         544  3.00  4.00     6
+     5         0     -     -     -          74  3.00  5.00     7
+     6         0     -     -     -          13  3.00  3.00     3
+
+------------------------------------------------------------------------------
+ATTACK C -- |K| ROBUSTNESS (80% of matched SCMs have |K| in {2,3})
+------------------------------------------------------------------------------
+stratum     arm            n     mean   median      q90      max
+|K|>=2 (all)G-flip      1528    1.380    1.000    2.000    5.000
+|K|>=2 (all)T-flip      1540    1.407    1.000    2.000    6.000
+|K|>=2 (all)T-move     29404    0.899    1.000    1.000    4.000
+            -> MWU T-move<G-flip p=0.00e+00 ; T-move<T-flip p=0.00e+00
+            -> GATE-1 R1-sufficiency (T-move) in stratum: 29404/29404 = 1.0000
+|K|>=3      G-flip      1144    1.281    1.000    2.000    5.000
+|K|>=3      T-flip      1148    1.301    1.000    2.000    6.000
+|K|>=3      T-move     16800    0.878    1.000    1.000    4.000
+            -> MWU T-move<G-flip p=1.12e-261 ; T-move<T-flip p=8.02e-247
+            -> GATE-1 R1-sufficiency (T-move) in stratum: 16800/16800 = 1.0000
+|K|>=4      G-flip       582    1.243    1.000    2.000    5.000
+|K|>=4      T-flip       597    1.331    1.000    2.000    6.000
+|K|>=4      T-move      6536    0.867    1.000    1.000    2.000
+            -> MWU T-move<G-flip p=1.25e-124 ; T-move<T-flip p=6.50e-141
+            -> GATE-1 R1-sufficiency (T-move) in stratum: 6536/6536 = 1.0000
+
+------------------------------------------------------------------------------
+ATTACK D -- CAPABILITY: can this instrument put an arm ABOVE the control?
+------------------------------------------------------------------------------
+  If no arm is ever ordered above G-flip, 'contained' is unfalsifiable here.
+  T-flip mean 1.407 vs G-flip 1.380 ; max 6 vs 5 ; MWU p(T-flip > G-flip) = 5.086e-01
+  GATE-1 instrument: it returns 1.0000 for T-move and 0.8416 for T-flip -> the SAME statistic separates the two arms, so a sub-0.99 value was reachable.
+
+------------------------------------------------------------------------------
+R1-ONLY vs R1-R4 CLOSURE, DIRECT: edges of U oriented under each rule set
+------------------------------------------------------------------------------
+arm            n  mean n_oriented(R1)  mean n_oriented(R1-R4)  mean deficit
+G-flip      1528                3.746    (see r1_equals_full)         0.122
+T-flip      1540                3.754    (see r1_equals_full)         0.158
+T-move     29404                2.909    (see r1_equals_full)         0.000
+  'mean deficit' = fraction of members where R1-only differs from R1-R4,
+  i.e. the fraction where R2/R3/R4 actually had to fire. It is EXACTLY 0
+  for T-move and non-zero for both flip arms.
+
+------------------------------------------------------------------------------
+DAMAGE TAIL |bias|/|tau| GIVEN O* CHANGED (n_changed>0 only)
+------------------------------------------------------------------------------
+arm            n     mean   median      q90      q99      max
+G-flip       224    1.123    0.575    2.762    6.210   15.334
+T-flip       249    1.057    0.509    2.816    5.977   15.334
+T-move       897    1.049    0.463    2.762    5.492    6.425
+  Heavy-tailed in EVERY arm -> the no-continuity-bound finding survives
+  the tiered/R1-closed restriction. A Lipschitz statement stays unavailable.

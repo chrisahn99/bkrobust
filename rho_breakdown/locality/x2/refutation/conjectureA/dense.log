@@ -1,0 +1,6 @@
+{"name": "complete-K5", "p": 5, "n_mpdag": 4231, "D_all": 24960, "N_cycle": 0, "N_vstruct": 0, "D_con": 24960, "D_am": 24960, "N_ident": 0, "forb_shrink": 0, "cn_shrink": 8760, "N_set": 0, "viol": []}
+{"name": "complete-K6", "p": 6, "n_mpdag": 130023, "D_all": 1275600, "N_cycle": 0, "N_vstruct": 0, "D_con": 1275600, "D_am": 1275600, "N_ident": 0, "forb_shrink": 0, "cn_shrink": 366000, "N_set": 0, "viol": []}
+{"name": "complete-K7", "p": 7, "ABORTED": 547877}
+{"name": "cycle-6", "p": 6, "n_mpdag": 15, "D_all": 144, "N_cycle": 0, "N_vstruct": 0, "D_con": 144, "D_am": 144, "N_ident": 0, "forb_shrink": 0, "cn_shrink": 0, "N_set": 0, "viol": []}
+{"name": "cycle-7", "p": 7, "n_mpdag": 21, "D_all": 364, "N_cycle": 0, "N_vstruct": 0, "D_con": 364, "D_am": 364, "N_ident": 0, "forb_shrink": 0, "cn_shrink": 0, "N_set": 0, "viol": []}
+{"name": "cycle-8", "p": 8, "n_mpdag": 28, "D_all": 784, "N_cycle": 0, "N_vstruct": 0, "D_con": 784, "D_am": 784, "N_ident": 0, "forb_shrink": 0, "cn_shrink": 0, "N_set": 0, "viol": []}

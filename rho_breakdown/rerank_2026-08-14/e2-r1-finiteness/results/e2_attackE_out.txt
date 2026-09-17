@@ -1,0 +1,33 @@
+==============================================================================
+ATTACK E (POST-HOC) -- is a tier move a REAL error, or just LESS knowledge?
+==============================================================================
+
+T-move perturbations with n_changed>0: 39048
+
+COMPOSITION OF A TIER MOVE (counts of statements per member):
+  n_rev    mean 0.506  median 0  max 5  frac>0 0.395
+  n_rem    mean 0.668  median 1  max 5  frac>0 0.553
+  n_add    mean 0.576  median 1  max 5  frac>0 0.510
+  n_false  mean 0.795  median 1  max 5  frac>0 0.595
+
+>>> 23228/39048 = 0.595 of tier moves assert at least one statement CONTRADICTING the true DAG.
+    (If this were near 0 the arm would be measuring nothing.)
+
+SPLIT: members that assert a FALSE statement vs those that only ADD/REMOVE true ones
+subset                          n   caught   silent  d_orient med  d_orient q90  R1-suff
+asserts >=1 FALSE stmt      23228    0.415    0.039          2.00          3.00   1.0000
+only true add/remove        15820    0.000    0.000          1.00          2.00   1.0000
+
+------------------------------------------------------------------------------
+GATE 2 RE-RUN on the FALSE-ASSERTING SUBSET ONLY (the honest comparison:
+both arms now definitely misstate the graph)
+------------------------------------------------------------------------------
+arm                               n     mean   median      q90      max
+T-move (FALSE-asserting)      13584    0.978    1.000    1.000    4.000
+T-flip (all, K=same)           1540    1.407    1.000    2.000    6.000
+G-flip (all)                   1528    1.380    1.000    2.000    5.000
+  MWU T-move(false) < T-flip : p = 6.637e-287
+  MWU T-move(false) < G-flip : p = 2.427e-296
+  MWU T-move(false) > G-flip : p = 1.000e+00
+
+  GATE 1 on the FALSE-asserting subset: 13584/13584 = 1.0000

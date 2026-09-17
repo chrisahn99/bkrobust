@@ -1,0 +1,6 @@
+T-A closure equality   : 1166 graphs        OK
+T-B alg-1 equality     : 3498 knowledge sets OK (680 matched MeekFails)
+T-C R1 subset-of-full  : 2818 MPDAGs         OK
+T-D rule firings (first-rule-wins, LOWER BOUND per rule): {'R1': 1669, 'R2': 713, 'R4': 169}
+T-D NOTE: R3 credited 0 times -- expected under first-rule-wins attribution; R3's precondition is a superset of a configuration where R1 usually also applies. Does NOT affect R1-sufficiency, which is measured by graph equality.
+ALL TESTS PASSED

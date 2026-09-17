@@ -1,0 +1,35 @@
+[kfirewall p=5 k=2 census] 8782 units
+  439/8782  24s trials=761509 viol=0
+  878/8782  53s trials=1495550 viol=0
+  1317/8782  77s trials=2091532 viol=0
+  1756/8782  95s trials=2588528 viol=0
+  2195/8782  119s trials=3272577 viol=0
+  2634/8782  140s trials=3893400 viol=0
+  3073/8782  165s trials=4456237 viol=0
+  3512/8782  173s trials=4740998 viol=0
+  3951/8782  192s trials=5295797 viol=0
+  4390/8782  214s trials=5964604 viol=0
+  4829/8782  226s trials=6550941 viol=0
+  5268/8782  239s trials=7081781 viol=0
+  5707/8782  250s trials=7648018 viol=0
+  6146/8782  264s trials=8227635 viol=0
+  6585/8782  283s trials=8956180 viol=0
+  7024/8782  288s trials=9134885 viol=0
+  7463/8782  293s trials=9425678 viol=0
+  7902/8782  296s trials=9621274 viol=0
+  8341/8782  300s trials=9893032 viol=0
+  8780/8782  303s trials=10090690 viol=0
+{
+ "abort": 737215,
+ "checks": 14364835,
+ "clean_trials": 9354015,
+ "report": 9354015,
+ "report_moved": 3194385,
+ "report_same": 6159630,
+ "stmt_all": 4087680,
+ "stmt_coherent": 2546650,
+ "stmt_rejected": 1541030,
+ "trial": 10091230,
+ "violating_trials": 0
+}
+VIOLATIONS: 0 trials / 0 keys

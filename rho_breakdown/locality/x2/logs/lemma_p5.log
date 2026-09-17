@@ -1,0 +1,6 @@
+[lemma p=5 exhaustive] 8782 distinct CPDAGs
+[lemma p=5] 8782 CPDAGs, 116992 MPDAGs, far E_set hits = 0 -> ../results/lemma_p5.json
+   dmin=   0: D_all=6475000 D_am=233280 D_am_rev=305280 D_con=6475000 D_con_rev=3237500 N_gain=1195640 N_ident_rev=818360 N_set_rev=183060 gain_orient=1195640
+   dmin=   1: D_all=2730840 D_am=252720 D_am_rev=132120 D_con=2730840 D_con_rev=1365420 N_gain=201000 N_ident_rev=189480 gain_orient=201000
+   dmin=   2: D_all=32880 D_am=7200 D_am_rev=3600 D_con=32880 D_con_rev=16440 N_gain=360 N_ident_rev=360 gain_orient=360
+   dmin=disc: D_all=11280 D_am=2640 D_am_rev=1320 D_con=11280 D_con_rev=5640

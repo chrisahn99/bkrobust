@@ -1,0 +1,29 @@
+{
+ "acc": {
+  "shd_skel": 0,
+  "n_scm": 400,
+  "bk_edges_absent_in_D": 0,
+  "base|n": 3427,
+  "S1|F|BV|sm|V": 114489,
+  "S1|F|BV|mv|V": 22282,
+  "S1rej|F|BV|mv|V": 4196,
+  "S1rej|F|BV|sm|V": 11194,
+  "S1rej|F|BV|mv|I": 2237,
+  "S1rej|F|BV|exit": 230,
+  "S1|F|BV|exit": 1756
+ },
+ "n_scm": 400,
+ "alpha": 0.01,
+ "ns": [
+  999
+ ],
+ "ps": [
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "oracle_mode": true,
+ "elapsed_s": 44.9
+}

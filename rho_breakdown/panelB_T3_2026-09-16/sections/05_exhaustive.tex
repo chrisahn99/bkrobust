@@ -1,0 +1,96 @@
+\clearpage
+\section{Why one revision and two revisions print the same interval}
+
+On 25 of the 26 rows the two interval columns are identical, in the printed band and in the
+population. The only row where they differ is \texttt{mediator}. The reason is structural, and it is the same
+fact the figure is built on seen from another angle.
+
+The interval over $r$ revisions is a union over knowledge states, so it grows with $r$ and it is
+bounded above by the interval over the whole equivalence class. The class interval is a ceiling that
+no amount of retracting can pass, because retracting all of the knowledge is exactly what the class
+already assumes. So the two columns can only differ on a row where the first revision has not yet
+reached that ceiling.
+
+\begin{center}\small
+\begin{tabular}{@{}rp{12.6cm}@{}}
+\toprule
+rows & what the second revision adds, and why \\
+\midrule
+9 & The class interval is a point. The effect is identified by the data alone, no asserted claim
+bears on it, and every budget returns the same sampling interval. Seven of these are declared
+queries whose claims all sit outside the treatment's component \\
+\addlinespace
+16 & The first revision already returns the whole class, to four decimals. The ceiling is reached at
+$r = 1$, so $r = 2$ has nothing left to add \\
+\addlinespace
+1 & mediator. The first revision covers 57\,\% of the class and the second saturates it.
+This is the only row in the table where the second column carries information \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The mechanism behind the sixteen is the breakdown radius itself. The extreme of the class is
+attained by some knowledge state, and reaching it requires retracting the smallest set of claims
+that reaches it. That set is a single claim on 141 of the 157 queries with an exact certificate, and
+on every one of those the union at $r = 1$ already contains the extreme. A second retraction can
+only add states that were already inside.
+
+\subsection{The same count on all 303 rows}
+
+The exhaustive table lets the question be asked of the whole population rather than of the
+twenty-six.
+
+\begin{center}\small
+\begin{tabular}{@{}rp{12.6cm}@{}}
+\toprule
+rows & of the 303 queries that commit to an adjustment set \\
+\midrule
+281 & print the same interval at one and at two revisions, in the band and in the population,
+which is 92.7\,\% \\
+76 & have a class interval that is a point: no asserted claim bears on the query at any budget \\
+205 & reach the whole class at the first revision \\
+22 & have a first revision strictly inside the class, and on 20 of those the second revision
+widens the interval \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+So the second column carries information on 20 queries in 303. Where those 20 sit is the part worth
+noticing: they are on insurance, Polzer 2012, Kampen 2014, sachs, Schipf 2010 and mediator. Every
+one of those networks except mediator is excluded from the printed T3 by the real-coefficient rule.
+The column looks empty in T3 because T3 drops the networks on which it is full.
+
+\begin{verdict}
+\textbf{What to do with the column.} Replace \emph{two revisions} with \emph{no knowledge at all},
+the class interval. On the sixteen saturated rows the reader then sees two identical intervals side
+by side, and that identity is the finding rather than a redundancy. On mediator they differ,
+and the difference is legible for the first time. The exhaustive table below prints all three
+columns so the substitution can be checked.
+\end{verdict}
+
+\clearpage
+\section{The exhaustive table}
+
+Both selection rules removed. Every query under the recovering set whose analyst graph commits to an
+adjustment set: 303 rows over all 27 swept networks, with the four fitted-coefficient networks and
+the 23 semi-synthetic ones in separate blocks and a provenance column, so the rule that was dropped
+is visible rather than applied. A bullet marks the 26 rows the printed T3 selects.
+
+Every cell that the printed T3 also shows was checked against it before this table was written, and
+all 26 rows agree cell by cell.
+
+Two queries appear twice, once as a declared pair and once as an independently sampled one:
+Thoemmes 2013, x on y, and mediator, X on Y. They are the same query reached by two routes, and both
+rows are kept.
+
+\input{sections/_t3_exhaustive}
+
+\clearpage
+\subsection{The 234 rows with no adjustment set}
+
+Under the same condition, 234 of the 537 rows return no set at all: on the analyst's own graph the
+outcome cannot descend from the treatment, so the effect is zero by construction and there is nothing
+for a sensitivity report to be about. They are listed here by network so that the 537 rows of the
+sweep are fully accounted for: $303 + 234 = 537$.
+
+\input{sections/_t3_noset}

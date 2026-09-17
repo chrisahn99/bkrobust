@@ -1,0 +1,427 @@
+{
+ "seed": 4,
+ "verdadeiro": {
+  "nos": [
+   "C",
+   "M",
+   "W",
+   "X",
+   "Y"
+  ],
+  "arestas": [
+   "C->W",
+   "C->X",
+   "C->Y",
+   "M->Y",
+   "X->M"
+  ],
+  "consulta": [
+   "X",
+   "Y"
+  ],
+  "efeito_verdadeiro": 0.949,
+  "pesos": {
+   "C->W": 1.4317,
+   "C->X": 1.4715,
+   "C->Y": -0.397,
+   "M->Y": 0.7518,
+   "X->M": 1.2623
+  }
+ },
+ "cpdag": {
+  "dirigidas": [
+   "C->Y",
+   "M->Y"
+  ],
+  "nao_dirigidas": [
+   "C--W",
+   "C--X",
+   "M--X"
+  ]
+ },
+ "K": [
+  "C->W",
+  "C->X",
+  "X->M"
+ ],
+ "G0": {
+  "dirigidas": [
+   "C->W",
+   "C->X",
+   "C->Y",
+   "M->Y",
+   "X->M"
+  ],
+  "nao_dirigidas": []
+ },
+ "Z": [
+  "C"
+ ],
+ "Z_valido_em_G0": true,
+ "theta_G0": [
+  {
+   "edges": [
+    "C->W",
+    "C->X",
+    "C->Y",
+    "M->Y",
+    "X->M"
+   ],
+   "pais_de_X": [
+    "C"
+   ],
+   "efeito": 0.949
+  }
+ ],
+ "casco_G0": [
+  0.949,
+  0.949
+ ],
+ "theta_blanket": [
+  {
+   "edges": [
+    "C->W",
+    "C->X",
+    "C->Y",
+    "M->Y",
+    "X->M"
+   ],
+   "pais_de_X": [
+    "C"
+   ],
+   "efeito": 0.949
+  },
+  {
+   "edges": [
+    "C->W",
+    "C->Y",
+    "M->X",
+    "M->Y",
+    "X->C"
+   ],
+   "pais_de_X": [
+    "M"
+   ],
+   "efeito": -0.203
+  },
+  {
+   "edges": [
+    "C->W",
+    "C->Y",
+    "M->Y",
+    "X->C",
+    "X->M"
+   ],
+   "pais_de_X": [],
+   "efeito": 0.746
+  },
+  {
+   "edges": [
+    "C->X",
+    "C->Y",
+    "M->Y",
+    "W->C",
+    "X->M"
+   ],
+   "pais_de_X": [
+    "C"
+   ],
+   "efeito": 0.949
+  }
+ ],
+ "casco_blanket": [
+  -0.203,
+  0.949
+ ],
+ "largura_blanket": 1.152,
+ "retracoes": [
+  {
+   "afirmacao": "C->W",
+   "resto": [
+    "C->X",
+    "X->M"
+   ],
+   "grafo": {
+    "dirigidas": [
+     "C->X",
+     "C->Y",
+     "M->Y",
+     "X->M"
+    ],
+    "nao_dirigidas": [
+     "C--W"
+    ]
+   },
+   "grafo_igual_a_G0": false,
+   "casco": [
+    0.949,
+    0.949
+   ],
+   "largura": 0.0,
+   "n_extensoes": 2,
+   "portante": false
+  },
+  {
+   "afirmacao": "C->X",
+   "resto": [
+    "C->W",
+    "X->M"
+   ],
+   "grafo": {
+    "dirigidas": [
+     "C->W",
+     "C->Y",
+     "M->Y",
+     "X->M"
+    ],
+    "nao_dirigidas": [
+     "C--X"
+    ]
+   },
+   "grafo_igual_a_G0": false,
+   "casco": [
+    0.746,
+    0.949
+   ],
+   "largura": 0.203,
+   "n_extensoes": 2,
+   "portante": true
+  },
+  {
+   "afirmacao": "X->M",
+   "resto": [
+    "C->W",
+    "C->X"
+   ],
+   "grafo": {
+    "dirigidas": [
+     "C->W",
+     "C->X",
+     "C->Y",
+     "M->Y",
+     "X->M"
+    ],
+    "nao_dirigidas": []
+   },
+   "grafo_igual_a_G0": true,
+   "casco": [
+    0.949,
+    0.949
+   ],
+   "largura": 0.0,
+   "n_extensoes": 1,
+   "portante": false
+  }
+ ],
+ "portantes": [
+  "C->X"
+ ],
+ "nao_portantes": [
+  "C->W",
+  "X->M"
+ ],
+ "reversoes": [
+  {
+   "afirmacao": "C->W",
+   "invertida": "W->C",
+   "meek_recusa": false,
+   "casco": [
+    0.949,
+    0.949
+   ],
+   "n_extensoes": 1,
+   "efeitos": [
+    0.949
+   ]
+  },
+  {
+   "afirmacao": "C->X",
+   "invertida": "X->C",
+   "meek_recusa": false,
+   "casco": [
+    0.746,
+    0.746
+   ],
+   "n_extensoes": 1,
+   "efeitos": [
+    0.746
+   ]
+  },
+  {
+   "afirmacao": "X->M",
+   "invertida": "M->X",
+   "meek_recusa": true,
+   "casco": null,
+   "n_extensoes": 0,
+   "efeitos": []
+  }
+ ],
+ "L1_no_exemplo": [
+  {
+   "afirmacao": "C->W",
+   "n_retracao": 2,
+   "n_uniao_reversoes": 2,
+   "iguais": true
+  },
+  {
+   "afirmacao": "C->X",
+   "n_retracao": 2,
+   "n_uniao_reversoes": 2,
+   "iguais": true
+  },
+  {
+   "afirmacao": "X->M",
+   "n_retracao": 1,
+   "n_uniao_reversoes": 1,
+   "iguais": true
+  }
+ ],
+ "escada_RH": [
+  {
+   "j": 0,
+   "subconjuntos": 1,
+   "casco": [
+    0.949,
+    0.949
+   ],
+   "largura": 0.0,
+   "razao_blanket": 0.0,
+   "cobre_o_verdadeiro": true
+  },
+  {
+   "j": 1,
+   "subconjuntos": 4,
+   "casco": [
+    0.746,
+    0.949
+   ],
+   "largura": 0.203,
+   "razao_blanket": 0.1762,
+   "cobre_o_verdadeiro": true
+  },
+  {
+   "j": 2,
+   "subconjuntos": 7,
+   "casco": [
+    -0.203,
+    0.949
+   ],
+   "largura": 1.152,
+   "razao_blanket": 1.0,
+   "cobre_o_verdadeiro": true
+  },
+  {
+   "j": 3,
+   "subconjuntos": 8,
+   "casco": [
+    -0.203,
+    0.949
+   ],
+   "largura": 1.152,
+   "razao_blanket": 1.0,
+   "cobre_o_verdadeiro": true
+  }
+ ],
+ "L2_no_exemplo": {
+  "casco_sobre_todas": [
+   0.746,
+   0.949
+  ],
+  "casco_sobre_portantes": [
+   0.746,
+   0.949
+  ],
+  "iguais": true,
+  "enumeracoes_todas": 4,
+  "enumeracoes_portantes": 2
+ },
+ "braco_com_erro": {
+  "afirmacao_invertida": "X->C",
+  "K": [
+   "C->W",
+   "X->C",
+   "X->M"
+  ],
+  "meek_aceita": true,
+  "G0": {
+   "dirigidas": [
+    "C->W",
+    "C->Y",
+    "M->Y",
+    "X->C",
+    "X->M"
+   ],
+   "nao_dirigidas": []
+  },
+  "Z": [],
+  "Z_valido_no_mundo_verdadeiro": false,
+  "escada": [
+   {
+    "j": 0,
+    "casco": [
+     0.746,
+     0.746
+    ],
+    "largura": 0.0,
+    "razao_blanket": 0.0,
+    "cobre_o_verdadeiro": false
+   },
+   {
+    "j": 1,
+    "casco": [
+     -0.203,
+     0.949
+    ],
+    "largura": 1.152,
+    "razao_blanket": 1.0,
+    "cobre_o_verdadeiro": true
+   },
+   {
+    "j": 2,
+    "casco": [
+     -0.203,
+     0.949
+    ],
+    "largura": 1.152,
+    "razao_blanket": 1.0,
+    "cobre_o_verdadeiro": true
+   },
+   {
+    "j": 3,
+    "casco": [
+     -0.203,
+     0.949
+    ],
+    "largura": 1.152,
+    "razao_blanket": 1.0,
+    "cobre_o_verdadeiro": true
+   }
+  ]
+ },
+ "r_val": {
+  "tamanho_do_espaco": 10,
+  "camadas": {
+   "0": {
+    "n": 1,
+    "invalidos": 0
+   },
+   "1": {
+    "n": 2,
+    "invalidos": 1
+   },
+   "2": {
+    "n": 4,
+    "invalidos": 3
+   },
+   "3": {
+    "n": 2,
+    "invalidos": 2
+   },
+   "4": {
+    "n": 1,
+    "invalidos": 1
+   }
+  },
+  "valor": 1
+ }
+}

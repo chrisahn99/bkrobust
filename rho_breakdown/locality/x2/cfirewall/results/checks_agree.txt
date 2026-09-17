@@ -1,0 +1,28 @@
+census p=3 k=1: n=84
+   conflict=False cycle=False notext=False : 78
+   conflict=False cycle=True notext=True : 6
+   cycle XOR notext (disagreements) = 0
+census p=4 k=1: n=5940
+   conflict=False cycle=False notext=False : 5172
+   conflict=False cycle=True notext=True : 768
+   cycle XOR notext (disagreements) = 0
+census p=5 k=1: n=785460
+   conflict=False cycle=False notext=False : 645340
+   conflict=False cycle=True notext=True : 140120
+   cycle XOR notext (disagreements) = 0
+sample p=6 k=1: n=51786
+   conflict=False cycle=False notext=False : 45231
+   conflict=False cycle=True notext=True : 6555
+   cycle XOR notext (disagreements) = 0
+sample p=6 k=2: n=84725
+   conflict=False cycle=False notext=False : 55614
+   conflict=False cycle=True notext=True : 29111
+   cycle XOR notext (disagreements) = 0
+sample p=6 k=3: n=80875
+   conflict=False cycle=False notext=False : 41274
+   conflict=False cycle=True notext=True : 39601
+   cycle XOR notext (disagreements) = 0
+sample p=7 k=4: n=57800
+   conflict=False cycle=False notext=False : 22816
+   conflict=False cycle=True notext=True : 34984
+   cycle XOR notext (disagreements) = 0

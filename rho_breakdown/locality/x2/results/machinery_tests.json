@@ -1,0 +1,87 @@
+[
+ {
+  "name": "T1 hop_dist_inf == brute-force min simple-path length",
+  "ok": true,
+  "detail": "0 mismatches over 2208 (node, graph) pairs"
+ },
+ {
+  "name": "T2 edge-component lemma (G7 decidable per edge)",
+  "ok": true,
+  "detail": "0 split edges over 400 graphs"
+ },
+ {
+  "name": "T3 dmin>=1 <=> statement not incident to {X,Y} (PREREG 5.4)",
+  "ok": true,
+  "detail": "0 mismatches"
+ },
+ {
+  "name": "T4a meek_closure idempotent on C and on every M(K') [gate G1]",
+  "ok": true,
+  "detail": "0 non-fixpoints over 1278 MPDAGs + 400 CPDAGs"
+ },
+ {
+  "name": "T4b skeleton(M(K')) == skeleton(C) [gate G2]",
+  "ok": true,
+  "detail": "0 skeleton changes over 1278 MPDAGs"
+ },
+ {
+  "name": "T5 ostar_and_paths == optimal_adjustment_set == brute_ostar (exhaustive, all CPDAGs+MPDAGs at p<=5, all queries)",
+  "ok": true,
+  "detail": "0 mismatches over 756740 (graph,query) triples"
+ },
+ {
+  "name": "T5a amenability agrees with adjust.is_amenable",
+  "ok": true,
+  "detail": "0 mismatches over 756740"
+ },
+ {
+  "name": "T5b pcp_capped == adjust.possibly_causal_paths",
+  "ok": true,
+  "detail": "0 mismatches over 756740"
+ },
+ {
+  "name": "T6 valid adjustment set => population OLS beta == tau",
+  "ok": true,
+  "detail": "0 violations over 3272 valid sets; 0/4286 invalid sets coincidentally equal (allowed)"
+ },
+ {
+  "name": "T7a all-true base K never MeekFails and D agrees with M(K)",
+  "ok": true,
+  "detail": "0 MeekFails, 0 disagreements over 705 bases"
+ },
+ {
+  "name": "T7b statement on a non-adjacent pair -> MeekFail (X1 boundary)",
+  "ok": true,
+  "detail": "0 accepted of 184 attempts"
+ },
+ {
+  "name": "T7c M(K) is independent of the order of K",
+  "ok": true,
+  "detail": "0 order-dependent results over 705 bases"
+ },
+ {
+  "name": "T8 classify_trial events == from-scratch library recomputation",
+  "ok": true,
+  "detail": "0 mismatches over 1782 trials; fired {'e_set': 15, 'e_ident': 47, 'e_gain': 173, 'meek_fail': 149}"
+ },
+ {
+  "name": "T9 prune_partition == brute-force filter; Cost_{-1}(k=4,rho=4)=1/16",
+  "ok": true,
+  "detail": "0 mismatches over 300 random balls x 5 radii; Cost_-1=0.0625"
+ },
+ {
+  "name": "T10 member index <-> flip bijection on the E1' archive",
+  "ok": true,
+  "detail": "0 length mismatches over 7880 amenable arms"
+ },
+ {
+  "name": "T12 [gate G10] placebo ball members_frozen gives Q_r = 0 for every r",
+  "ok": true,
+  "detail": "0 non-zero of 39400 (SCM, r) cells"
+ },
+ {
+  "name": "T11 clopper_pearson == scipy binomtest exact CI",
+  "ok": true,
+  "detail": "0 mismatches over 6 cells"
+ }
+]

@@ -1,0 +1,9 @@
+k=0 p=3 und(C)=2 consistent=True dmin=0.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2)] maxbias=0.9545246125788112
+k=1 p=4 und(C)=3 consistent=True dmin=1.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3)] maxbias=0.8478086428846056
+k=2 p=5 und(C)=4 consistent=True dmin=2.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3), (3, 4)] maxbias=0.8514652784104925
+k=3 p=6 und(C)=5 consistent=True dmin=3.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5)] maxbias=0.8583485104020195
+k=4 p=7 und(C)=6 consistent=True dmin=4.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6)] maxbias=0.9512210499284932
+k=5 p=8 und(C)=7 consistent=True dmin=5.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7)] maxbias=0.918676911090931
+k=6 p=9 und(C)=8 consistent=True dmin=6.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8)] maxbias=0.9231190131848533
+k=7 p=10 und(C)=9 consistent=True dmin=7.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)] maxbias=0.9335242515379262
+k=8 p=11 und(C)=10 consistent=True dmin=8.0 false=True R(C)=REFUSE -> R(H)=POS O*=frozenset() sound=False H_dir=[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9), (9, 10)] maxbias=0.9181551234914748

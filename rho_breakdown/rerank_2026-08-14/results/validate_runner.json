@@ -1,0 +1,16 @@
+{
+ "n_scm": 600,
+ "n_rho1_members": 2400,
+ "meek_inconsistent": 0.3504,
+ "not_amenable": 0.1704,
+ "ostar_unchanged": 0.3796,
+ "changed_still_valid": 0,
+ "silent_bias": 0.0996,
+ "PILOT_published": {
+  "meek_inconsistent": 0.33,
+  "silent_bias": 0.141,
+  "changed_still_valid": 0,
+  "ostar_untouched": 0.63,
+  "loud_non_amenable": 0.23
+ }
+}

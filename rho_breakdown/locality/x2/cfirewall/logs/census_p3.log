@@ -1,0 +1,40 @@
+[cfirewall p=3 census] 11 distinct CPDAGs
+  1/11 cpdags  1s  trials=0 viol=0
+  2/11 cpdags  1s  trials=8 viol=0
+  3/11 cpdags  1s  trials=16 viol=0
+  4/11 cpdags  1s  trials=20 viol=0
+  5/11 cpdags  1s  trials=34 viol=0
+  6/11 cpdags  1s  trials=42 viol=0
+  7/11 cpdags  1s  trials=56 viol=0
+  8/11 cpdags  1s  trials=60 viol=0
+  9/11 cpdags  1s  trials=74 viol=0
+  10/11 cpdags  1s  trials=74 viol=0
+  11/11 cpdags  1s  trials=78 viol=0
+{
+ "abort": 6,
+ "abort_unamen": 6,
+ "checks": 78,
+ "clean_trials": 72,
+ "ctrl_report": 18,
+ "ctrl_trial": 18,
+ "ext_hist_1": 18,
+ "ext_hist_2": 6,
+ "ext_max": 2,
+ "ext_total": 30,
+ "mpdag": 50,
+ "query_all": 186,
+ "query_amenable": 42,
+ "rej_conflict": 0,
+ "rej_cycle": 6,
+ "rej_notext": 6,
+ "report": 72,
+ "report_moved": 18,
+ "report_multiD": 6,
+ "report_same": 54,
+ "stmt_all": 60,
+ "stmt_coherent": 54,
+ "stmt_rejected": 6,
+ "trial": 78,
+ "violating_trials": 0
+}
+VIOLATIONS: 0 trials / 0 (x,y,O*) keys   -> results/cfirewall_p3.json

@@ -1,0 +1,12 @@
+  1097/8782 78s {'abl1_check': 113280, 'abl2_check': 42177}
+  2194/8782 110s {'abl1_check': 245088, 'abl2_check': 87397}
+  3291/8782 156s {'abl1_check': 463100, 'abl2_check': 142531}
+  4388/8782 182s {'abl1_check': 586696, 'abl2_check': 180290}
+  5485/8782 225s {'abl1_check': 810228, 'abl2_check': 233955}
+  6582/8782 287s {'abl1_check': 1280416, 'abl2_check': 332371}
+  7679/8782 306s {'abl1_check': 1433124, 'abl2_check': 344634}
+  8776/8782 315s {'abl1_check': 1485244, 'abl2_check': 353132}
+{
+ "abl1_check": 1624080,
+ "abl2_check": 353160
+}

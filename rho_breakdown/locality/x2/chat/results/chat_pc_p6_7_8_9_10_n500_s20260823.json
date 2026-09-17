@@ -1,0 +1,53 @@
+{
+ "acc": {
+  "shd_skel": 940,
+  "n_scm": 400,
+  "bk_edges_absent_in_D": 4,
+  "base|n": 2588,
+  "S1|F|BV|sm|V": 69896,
+  "S1|F|BV|mv|V": 10975,
+  "S1|T|BV|mv|V": 495,
+  "S1|T|BV|mv|I": 69,
+  "S1|T|BV|sm|V": 2727,
+  "S1rej|F|BV|sm|V": 5365,
+  "S1|F|BV|mv|I": 746,
+  "base|invalid": 746,
+  "S1|F|BI|sm|I": 22981,
+  "S1|T|BI|sm|I": 1748,
+  "S1|F|BI|mv|I": 4179,
+  "S1|F|BI|mv|V": 296,
+  "S1|T|BI|mv|V": 144,
+  "S1rej|F|BI|mv|V": 179,
+  "S1rej|F|BI|sm|I": 3579,
+  "S1|T|BI|exit": 35,
+  "S1|F|BI|exit": 257,
+  "S1rej|F|BI|mv|I": 544,
+  "S1rej|F|BV|mv|I": 186,
+  "S1|F|BV|exit": 1068,
+  "S1|T|BV|exit": 24,
+  "S1rej|F|BV|mv|V": 818,
+  "S1|T|BI|mv|I": 323,
+  "S1rej|T|BI|sm|I": 335,
+  "S1rej|T|BV|sm|V": 160,
+  "S1rej|F|BV|exit": 6,
+  "S1rej|T|BI|mv|V": 18,
+  "S1rej|T|BI|mv|I": 27,
+  "S1rej|T|BV|mv|I": 1,
+  "S1rej|T|BV|mv|V": 6,
+  "S1rej|F|BI|exit": 5
+ },
+ "n_scm": 400,
+ "alpha": 0.01,
+ "ns": [
+  500
+ ],
+ "ps": [
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "oracle_mode": false,
+ "elapsed_s": 36.0
+}

@@ -1,0 +1,168 @@
+{
+ "original": {
+  "label": "original",
+  "n_raw": 600,
+  "n_paired": 137,
+  "paired_deg_dist": {
+   "1.5": 17,
+   "2.0": 41,
+   "2.5": 79
+  },
+  "paired_p_dist": {
+   "5": 29,
+   "6": 32,
+   "7": 43,
+   "8": 33
+  },
+  "sign": {
+   "censored_K4_paired": 0.8686,
+   "censored_K6_paired": 0.8321,
+   "censored_K8_paired": 0.8102,
+   "paired_diff_K8_minus_K4": "-0.0584 [-0.1022, -0.0219]",
+   "mcnemar_b_K4cens_K8free": 8,
+   "mcnemar_c_K8cens_K4free": 0,
+   "mcnemar_p": 0.00781,
+   "censored_K4_unpaired": "0.8686 (n=137)",
+   "censored_K6_unpaired": "0.8146 (n=329)",
+   "censored_K8_unpaired": "0.7443 (n=524)"
+  },
+  "rel50": {
+   "censored_K4_paired": 0.5985,
+   "censored_K6_paired": 0.5036,
+   "censored_K8_paired": 0.4599,
+   "paired_diff_K8_minus_K4": "-0.1387 [-0.2044, -0.0730]",
+   "mcnemar_b_K4cens_K8free": 21,
+   "mcnemar_c_K8cens_K4free": 2,
+   "mcnemar_p": 7e-05,
+   "censored_K4_unpaired": "0.5985 (n=137)",
+   "censored_K6_unpaired": "0.4407 (n=329)",
+   "censored_K8_unpaired": "0.3359 (n=524)"
+  },
+  "ident": {
+   "censored_K4_paired": 0.0292,
+   "censored_K6_paired": 0.073,
+   "censored_K8_paired": 0.1533,
+   "paired_diff_K8_minus_K4": "+0.1241 [+0.0730, +0.1825]",
+   "mcnemar_b_K4cens_K8free": 0,
+   "mcnemar_c_K8cens_K4free": 17,
+   "mcnemar_p": 2e-05,
+   "censored_K4_unpaired": "0.0292 (n=137)",
+   "censored_K6_unpaired": "0.0517 (n=329)",
+   "censored_K8_unpaired": "0.1107 (n=524)"
+  }
+ },
+ "licensed": {
+  "label": "licensed",
+  "n_raw": 600,
+  "n_paired": 61,
+  "paired_deg_dist": {
+   "2.0": 5,
+   "2.5": 4,
+   "4.0": 22,
+   "6.0": 30
+  },
+  "paired_p_dist": {
+   "5": 11,
+   "6": 5,
+   "7": 5,
+   "8": 15,
+   "9": 12,
+   "10": 13
+  },
+  "sign": {
+   "censored_K4_paired": 0.8361,
+   "censored_K6_paired": 0.7705,
+   "censored_K8_paired": 0.7869,
+   "paired_diff_K8_minus_K4": "-0.0492 [-0.1148, +0.0000]",
+   "mcnemar_b_K4cens_K8free": 3,
+   "mcnemar_c_K8cens_K4free": 0,
+   "mcnemar_p": 0.25,
+   "censored_K4_unpaired": "0.8361 (n=61)",
+   "censored_K6_unpaired": "0.7168 (n=173)",
+   "censored_K8_unpaired": "0.7063 (n=303)"
+  },
+  "rel50": {
+   "censored_K4_paired": 0.5738,
+   "censored_K6_paired": 0.4754,
+   "censored_K8_paired": 0.459,
+   "paired_diff_K8_minus_K4": "-0.1148 [-0.2131, -0.0164]",
+   "mcnemar_b_K4cens_K8free": 9,
+   "mcnemar_c_K8cens_K4free": 2,
+   "mcnemar_p": 0.06543,
+   "censored_K4_unpaired": "0.5738 (n=61)",
+   "censored_K6_unpaired": "0.3410 (n=173)",
+   "censored_K8_unpaired": "0.2706 (n=303)"
+  },
+  "ident": {
+   "censored_K4_paired": 0.2131,
+   "censored_K6_paired": 0.377,
+   "censored_K8_paired": 0.5246,
+   "paired_diff_K8_minus_K4": "+0.3115 [+0.1967, +0.4262]",
+   "mcnemar_b_K4cens_K8free": 0,
+   "mcnemar_c_K8cens_K4free": 19,
+   "mcnemar_p": 0.0,
+   "censored_K4_unpaired": "0.2131 (n=61)",
+   "censored_K6_unpaired": "0.1734 (n=173)",
+   "censored_K8_unpaired": "0.1815 (n=303)"
+  }
+ },
+ "large": {
+  "label": "large",
+  "n_raw": 600,
+  "n_paired": 384,
+  "paired_deg_dist": {
+   "1.5": 120,
+   "2.0": 160,
+   "2.5": 104
+  },
+  "paired_p_dist": {
+   "15": 23,
+   "16": 14,
+   "17": 25,
+   "18": 18,
+   "19": 31,
+   "20": 35,
+   "21": 43,
+   "22": 42,
+   "23": 45,
+   "24": 54,
+   "25": 54
+  },
+  "sign": {
+   "censored_K4_paired": 0.9896,
+   "censored_K6_paired": 0.9818,
+   "censored_K8_paired": 0.9818,
+   "paired_diff_K8_minus_K4": "-0.0078 [-0.0182, +0.0000]",
+   "mcnemar_b_K4cens_K8free": 3,
+   "mcnemar_c_K8cens_K4free": 0,
+   "mcnemar_p": 0.25,
+   "censored_K4_unpaired": "0.9896 (n=384)",
+   "censored_K6_unpaired": "0.9747 (n=474)",
+   "censored_K8_unpaired": "0.9696 (n=560)"
+  },
+  "rel50": {
+   "censored_K4_paired": 0.9349,
+   "censored_K6_paired": 0.9167,
+   "censored_K8_paired": 0.9036,
+   "paired_diff_K8_minus_K4": "-0.0312 [-0.0495, -0.0156]",
+   "mcnemar_b_K4cens_K8free": 12,
+   "mcnemar_c_K8cens_K4free": 0,
+   "mcnemar_p": 0.00049,
+   "censored_K4_unpaired": "0.9349 (n=384)",
+   "censored_K6_unpaired": "0.9072 (n=474)",
+   "censored_K8_unpaired": "0.8768 (n=560)"
+  },
+  "ident": {
+   "censored_K4_paired": 0.5417,
+   "censored_K6_paired": 0.5547,
+   "censored_K8_paired": 0.5755,
+   "paired_diff_K8_minus_K4": "+0.0339 [+0.0182, +0.0521]",
+   "mcnemar_b_K4cens_K8free": 0,
+   "mcnemar_c_K8cens_K4free": 13,
+   "mcnemar_p": 0.00024,
+   "censored_K4_unpaired": "0.5417 (n=384)",
+   "censored_K6_unpaired": "0.4768 (n=474)",
+   "censored_K8_unpaired": "0.4429 (n=560)"
+  }
+ }
+}

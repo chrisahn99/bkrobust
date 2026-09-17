@@ -1,0 +1,95 @@
+[cfirewall p=6 SAMPLE] 400 blocks x 1000 (C,G0) draws = 400000
+  10/400 blocks  9s  trials=573035 viol=0
+  20/400 blocks  18s  trials=1137577 viol=0
+  30/400 blocks  23s  trials=1713234 viol=0
+  40/400 blocks  31s  trials=2291367 viol=0
+  50/400 blocks  41s  trials=2861733 viol=0
+  60/400 blocks  49s  trials=3435236 viol=0
+  70/400 blocks  61s  trials=4002867 viol=0
+  80/400 blocks  74s  trials=4573940 viol=0
+  90/400 blocks  87s  trials=5149911 viol=0
+  100/400 blocks  101s  trials=5718982 viol=0
+  110/400 blocks  115s  trials=6285238 viol=0
+  120/400 blocks  127s  trials=6858357 viol=0
+  130/400 blocks  137s  trials=7427028 viol=0
+  140/400 blocks  149s  trials=8001450 viol=0
+  150/400 blocks  162s  trials=8573522 viol=0
+  160/400 blocks  170s  trials=9143259 viol=0
+  170/400 blocks  182s  trials=9722336 viol=0
+  180/400 blocks  194s  trials=10285057 viol=0
+  190/400 blocks  202s  trials=10851595 viol=0
+  200/400 blocks  215s  trials=11420353 viol=0
+  210/400 blocks  227s  trials=11989267 viol=0
+  220/400 blocks  236s  trials=12559185 viol=0
+  230/400 blocks  248s  trials=13133247 viol=0
+  240/400 blocks  258s  trials=13701259 viol=0
+  250/400 blocks  267s  trials=14265921 viol=0
+  260/400 blocks  279s  trials=14834370 viol=0
+  270/400 blocks  290s  trials=15409135 viol=0
+  280/400 blocks  299s  trials=15975795 viol=0
+  290/400 blocks  328s  trials=16550475 viol=0
+  300/400 blocks  354s  trials=17121274 viol=0
+  310/400 blocks  372s  trials=17694333 viol=0
+  320/400 blocks  391s  trials=18271512 viol=0
+  330/400 blocks  408s  trials=18855414 viol=0
+  340/400 blocks  427s  trials=19431286 viol=0
+  350/400 blocks  450s  trials=20002190 viol=0
+  360/400 blocks  471s  trials=20567219 viol=0
+  370/400 blocks  495s  trials=21133722 viol=0
+  380/400 blocks  526s  trials=21706525 viol=0
+  390/400 blocks  548s  trials=22276219 viol=0
+  400/400 blocks  568s  trials=22851273 viol=0
+{
+ "abort": 313900,
+ "abort_unamen": 313900,
+ "checks": 31515427,
+ "clean_trials": 22537373,
+ "ctrl_abort": 19002,
+ "ctrl_moved": 1957263,
+ "ctrl_report": 6000587,
+ "ctrl_trial": 6019589,
+ "ctrl_violating": 1262685,
+ "ctrl_violating_allD": 1262685,
+ "ctrl_violating_moved": 1262685,
+ "draw": 400000,
+ "ext_hist_1": 178814,
+ "ext_hist_10": 1780,
+ "ext_hist_11": 18,
+ "ext_hist_12": 1623,
+ "ext_hist_13": 9,
+ "ext_hist_14": 29,
+ "ext_hist_15": 25,
+ "ext_hist_16": 24,
+ "ext_hist_17": 3,
+ "ext_hist_18": 8,
+ "ext_hist_2": 65569,
+ "ext_hist_20": 22,
+ "ext_hist_21": 7,
+ "ext_hist_24": 248,
+ "ext_hist_3": 28070,
+ "ext_hist_4": 16438,
+ "ext_hist_5": 2096,
+ "ext_hist_6": 7722,
+ "ext_hist_7": 941,
+ "ext_hist_8": 4195,
+ "ext_hist_9": 32,
+ "ext_max": 120,
+ "ext_total": 603360,
+ "mpdag": 400000,
+ "query_all": 10439550,
+ "query_amenable": 2295479,
+ "rej_conflict": 0,
+ "rej_cycle": 620981,
+ "rej_notext": 620981,
+ "report": 22537373,
+ "report_moved": 4400761,
+ "report_multiD": 5651918,
+ "report_multiD_moved": 1274977,
+ "report_same": 18136612,
+ "stmt_all": 4558058,
+ "stmt_coherent": 3937077,
+ "stmt_rejected": 620981,
+ "trial": 22851273,
+ "violating_trials": 0
+}
+VIOLATIONS: 0 trials / 0 (x,y,O*) keys   -> results/cfirewall_p6_sample.json

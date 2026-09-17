@@ -1,0 +1,275 @@
+\section{The claims, and what each is worth}
+
+Eleven claims are live. Three of them are the paper: the object (C1), the unit (C3) and the price
+(C4). Two are honest negatives that a reviewer will find if we do not print them (C5, C6), and one
+is a scope limit that reads badly and has to be printed anyway (C8). The rest support or bound
+them. Each is written below in the form it is licensed in, which is narrower than the form it is
+tempting to write.
+
+Every claim carries a line naming what would kill it. Where the register records that a novelty
+search was never run, the claim is marked as blocked rather than dressed as verified.
+
+\subsection*{C1 \quad The object: nobody prices a structural assumption}
+
+Sensitivity analysis in causal inference is built for unmeasured confounding and for continuous
+relaxations of identifying assumptions. The assumption that background knowledge carries is
+discrete and structural, and it is not priced the same way. An analyst who asserts orientations,
+propagates them and reads an adjustment set off the result has no number telling them how much of
+the reported effect rests on those assertions. The assertions are checked for consistency with the
+data and never for truth, so a claim that is consistent and false passes every check that current
+practice has.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & the framing, not a measurement; the measurements below are what makes it a paper \\
+significance & this is the one place where unverifiable human input enters an otherwise
+data-driven pipeline, and the estimate at the end of the pipeline inherits it silently \\
+nearest prior art & Taeb, Guo and Henckel 2025 (arXiv:2511.10625), model-oriented graph distances
+over posets with an adjustment-set robustness application. This is the foundation, not the
+competitor, and the paper says so. Guo and Perkovi\'c (arXiv:2010.08611) enumerate adjustment sets
+in an MPDAG and never perturb the knowledge. Masten and Poirier, \emph{Quantitative Economics}
+11(1):41--111, 2020, define breakdown frontiers with inference, in econometrics and not on graphs:
+prior art for reporting a breakdown value with a band, outside machine-learning venues. Rosenbaum,
+Cinelli and Hazlett, Ding and VanderWeele all price a continuous confounding parameter \\
+falsifier & a tolerance radius centred on the analyst's own graph inside Taeb et al.\ \S6, which
+nobody on this side has read in full \\
+carried by & T3, the report on named analyses, written in the Rosenbaum form \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{blocking}
+\textbf{Blocked, and it blocks the abstract.} The register entry for this claim carries
+\texttt{verified\_NOT\_RUN}: no novelty search has ever been run in this wording. The three sweeps
+on record were pointed at latent-causal representation learning and at Taeb specifically, not at
+the sensitivity-analysis lineage the claim excludes, and the framing rests on the statement that
+Guo and Perkovi\'c never perturb the knowledge, from a paper nobody has read in full. Under the
+submission rule a novelty claim verified more than thirty days ago cannot be reused, and this one
+was never verified at all. The search has to run before the abstract goes in on 18 September, and
+C1 has to be narrowed to whatever it returns.
+\end{blocking}
+
+\subsection*{C2 \quad The quantity is computable from the analyst's own inputs}
+
+The breakdown radius is the distance from the analyst's graph to the nearest knowledge state at
+which the committed adjustment set stops being valid. It is computed from the estimated CPDAG, the
+claims, the treatment, the outcome and the committed set. The data-generating graph is on no path
+of the computation; it is used to draw samples and, afterwards, to check whether the certificate
+held.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & failure is upward-closed, the space is a join-semilattice with the analyst's graph as
+its maximum, the nearest failure is reached by retracting only, and cover generation is set
+arithmetic. Our own contribution to this is the audit: 5{,}000 sampled pairs over 469 rows across
+the elicited, truthful and oracle conditions, zero violations, one-sided 95\,\% upper bound on the
+violation rate of 0.06\,\% \\
+significance & the reachability result rests on an anti-exchange property that is verified and not
+proved, with a one-sided error that overstates robustness. The audit is the direct evidence for it,
+and it is a number where the draft currently has a caveat \\
+the positioning & this morning's review of the draft found the sharpest version of the point.
+Taeb et al.\ prove in their Proposition 9 that the poset of MPDAGs is not graded for four or more
+vertices and not semimodular, with no characterisation of the covering relation; the draft's
+appendix defines a rank function and concludes that its order is graded. Both are correct, because
+their counterexample varies the skeleton and this space holds it fixed. Saying so converts the
+largest liability in the theory section into the clearest statement of what fixing the skeleton
+buys \\
+nearest prior art & the order and the distance are Taeb et al.; the specialisation to knowledge
+states and the validity predicate are ours and Chris's \\
+falsifier & one counterexample to upward closure halts the argument. None found in 5{,}000 draws \\
+carried by & T5 makes it legible, T2 makes it safe \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{C3 \quad The unit: a certificate in claims is safe, a certificate in graph revisions is not}
+
+This is the strongest thing the measurement produced and it is the one place where our results
+change what the draft reports. A certificate denominated in the analyst's own claims never
+certified a set that was invalid at the truth, on any row of any condition. The same certificate
+denominated in elementary graph revisions did.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & 3{,}014 certifiable rows under eleven knowledge conditions over 27 networks: the claim
+unit over-certifies on 0, the revision unit on 39, a free rule read off the graph on 15, and the
+two naive counts on 729 and 791 \\
+significance & it decides the unit the paper reports in. The draft reports the radius in elementary
+revisions and treats the claim count as a practitioner-facing refinement; the ledger says the
+refinement is the safe one and the revision unit is not. It is also the reason the certificate has
+to be redenominated rather than rescaled \\
+the argument & structural, and the paper must not present it as statistical. If the committed set
+is invalid at the truth and the condition asserted $w$ false claims, retracting those $w$ claims
+leaves a graph the truth extends, on which the criterion fails, so the claim radius is at most $w$
+whenever the search reaches depth $w$. The zero is what a sound criterion and an audit asking the
+same question must return, and it was returned once the audit did \\
+nearest prior art & none. No accepted paper in the record we searched computes a breakdown radius
+or a null radius, so there is no precedent for the comparison and no borrowed template; the
+comparison set is the instruments an analyst already has \\
+falsifier & one row on which the claim certificate certifies a set invalid at the truth, under a
+correct generalised adjustment criterion. Two such rows existed before the audit oracle was fixed,
+and both were the oracle \\
+carried by & T2, and it is the reason T2 is the recommendation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{C4 \quad The price: what the interval costs, and what it buys back}
+
+When the claims are right, the interval that tolerates one revision costs about twice the width of
+the report as committed. When one claim is wrong, the report as committed covers the true effect on
+six problems in ten, and the interval covers on ninety-eight of a hundred at 85\,\% of the width of
+discarding the knowledge altogether. Two wrong claims need two retractions: the interval at one
+revision fails and the interval at two pays.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & the calibrated width table, 460 informative rows over 23 networks, with a network
+cluster bootstrap; predictions P1, P2, P4 and P8 supported in four cells of four, P3 partial, P6
+falsified, P7 supported \\
+significance & this is the sentence a practitioner acts on, and the only one in the paper that
+gives a price in the currency they report in \\
+nearest prior art & the class-wide interval of Guo and Perkovi\'c is the procedure that discards
+the knowledge, and it is the denominator of every cell. The omitted-variable bound of Cinelli and
+Hazlett is the sensitivity row, and it is an oracle here \\
+falsifier & the interval at one revision failing to cover at one wrong claim, or costing more than
+discarding the knowledge. Neither happens in any cell \\
+what it must not become & a continuity bound. Damage beyond the radius is heavy-tailed, so
+``small knowledge error implies small bias'' is false and our own data falsifies it \\
+carried by & T1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{C5 \quad The tie: the validity half computes what a free screen computes}
+
+A reviewer who knows the area will ask why an analyst needs a radius when they could leave one
+claim out, close the graph again and look at whether the set changed. The answer is that at one
+revision they could not tell the difference, because the two are the same policy, and at two
+revisions they tie exactly when the screen is also run at two.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & the stop rule and the leave-one-out screen decide differently on 2 of 162 rows at one
+wrong claim, both of the class the argument predicts. At two wrong claims the stop rule beats the
+leave-one-out screen by 0.305 [0.182, 0.410] in coverage at the population and by
+0.256 [0.149, 0.346] at a sample of one thousand, and ties the leave-two-out screen at
+0.000 [0.000, 0.000]. The separation the design asked for exists only because that baseline stops
+at depth one \\
+the sentence this licenses & a screen answers yes or no at whatever depth the analyst happened to
+choose. The radius says which depth was needed, and the coverage is won there. Quote one of the two
+numbers above with its sample size attached; they are the same contrast measured twice \\
+significance & this was pre-declared on 7 September, with the sentence for the null written before
+the measurement, which is the reason it can be printed as a property rather than conceded as a
+defeat. It is also the baseline the draft's ranking table does not have, and the single most
+valuable thing our side can hand that table \\
+nearest prior art & the screen is not in the literature; it is the thing a competent reader
+invents in ten seconds, which is worse \\
+the licensed sentence & the validity half of the report computes what a leave-$k$-out re-closure
+screen computes, and the paper states this as a property of the measure. What the radius adds is
+the depth, the named witness and the certificate that no failure lies nearer \\
+carried by & T8, and one row of T1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{C6 \quad The guarantee is expensive exactly where the knowledge matters}
+
+On the problems where the knowledge carries identification, retracting a single true claim breaks
+the committed set on nine problems in ten. The refusal rate is 0.910 on the informative rows with a
+committed set, zero on the committed rows the class already identifies, and 0.639 over all
+committed rows. The denominator decides the number, so the paper states the denominator.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & 134 informative committed rows over 20 networks in the semi-synthetic panel, 7 rows over
+3 networks in the fitted panel; the prediction that the rate would stay below one half was
+falsified \\
+significance & this is the finding that stops the paper being a method paper. Knowledge buys
+identifiability rather than a better set, and the certificate mostly says the conclusion is not
+robust. That is a real diagnostic result and it reads as one only if we print it ourselves \\
+falsifier & a population on which the refusal rate is low and the certificate still detects; the
+informative stratum is not it \\
+carried by & T8 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{C7 \quad Locality holds in the unit the analyst asserts, and not in hops}
+
+Hop distance predicts the depth when the binding claim is incident to the treatment, and overstates
+it otherwise. On the primary condition's 157 exact rows the hop reading equals the claim depth on
+135, exceeds it by one on 19 and by two on 2, and falls below on 1. Reading above the claim depth
+is what over-certification is.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & the agreement counts above, computed for this document; and the matched-budget negative
+control, where retracting a claim far from the query is not inert on the semi-synthetic panel
+(coverage $+0.044$ at one wrong claim) and is inert on the fitted panel \\
+significance & locality pays in cost and in what is worth eliciting, and does not pay in width \\
+what it must not become & ``knowledge at distance at least one cannot harm''. The 0/791 figure was
+struck in August for having no provenance and is never repeated \\
+carried by & T13, or the compact locality section \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{C8 \quad Applicability, stated as a limit}
+
+Of the nine author-declared queries in the corpus that can be certified, eight are unbroken by any
+retraction down to depth three. Of the sampled population, the committed set breaks at the first
+retraction on almost every row. The mechanism is the sampling rule: a pair is admitted only when
+some retraction changes validity, so a robust query is rejected before it is measured.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.6cm}p{13.75cm}@{}}
+\toprule
+rests on & the observables-only frame, 80{,}132 candidate pairs over 33 networks, against 543 under
+a gate that reads the true graph. Eight networks yield a frame where the old gate yielded no
+instance at all \\
+significance & the measured population is close to the complement of the queries the source papers
+exist to answer. A reviewer who notices this before we state it has found our worst objection; a
+reviewer who reads it in our own funnel has read a scope statement \\
+carried by & T6, and it belongs in the funnel rather than in Table~1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{C9 \quad Scope: the graph is the oracle's}
+
+The licensed phrasing is that the radius is computable from the estimated CPDAG, the claims, the
+covariance and the sample size. It is never that the conclusion is robust under an estimated CPDAG.
+On the learned-graph panel the true graph extends the analyst's graph on none of the rows, and both
+instruments over-certify on 14 of 38.
+
+\subsection*{C10 \quad The supplier is an error process, and never the headline}
+
+Measured commission and validity by condition, with a matched chance control: the model beats
+chance in commission by 0.143 [0.006, 0.287] and is not demonstrated to beat it in validity,
+0.082 [$-$0.020, 0.176]. Scale buys claims and accuracy and not validity: the share of committed
+sets invalid at the truth is 0.298 at the largest supplier against 0.288 at the smallest. This is
+methodology. It is ruled out of the Table~1 slot.
+
+\subsection*{C11 \quad Ranking: the radius orders instances by survival better than the standard distances}
+
+The radius ranks instances by whether the committed set survives corrupted knowledge better than
+structural Hamming distance and than the number of claims, in most strata. Asserting more knowledge
+is associated with less robustness. Structural Hamming distance is a poor predictor: knowledge can
+be entirely correct and the set still break at the first subsequent error. One cell is a confirmed
+null and two are unstable at 200 draws.
+
+\begin{verdict}
+\textbf{Not claimed, in any draft.} No continuity bound. No probability reading of the radius, and
+no claim that it estimates how wrong an expert is. No ordering claim about suppliers. No use of the
+word ``first''. No claim that knowledge at distance at least one cannot harm. No claim of
+robustness under an estimated CPDAG. Retraction as a minimal correction set is cited rather than
+named as ours.
+\end{verdict}

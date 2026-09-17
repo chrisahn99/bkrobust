@@ -1,0 +1,55 @@
+[exhibit] 70 rho>=2 ALL-FAR O*-changes in the archive
+[exhibit] by p: {5: 20, 6: 14, 7: 12, 8: 14, 9: 7, 10: 2, 20: 1}
+[exhibit] by cell: {'original/K4': 15, 'licensed/K4': 7, 'large/K4': 1, 'k8/K4': 2, 'k8/K6': 14, 'k8/K8': 31}
+[exhibit] minimum p in the searched ensembles: 5
+[exhibit] exhaustive rho=2 far-pair search p=4: 0 hits of 0 amenable trials
+[exhibit] -> ../results/exhibit.json
+
+----------------------------------------------------------------------
+  k8/K8 seed=4 p=5 deg=4.0 regen_ok={'xy': True, 'tau': True, 'K': True}
+  D: 0->1 2->0 0->3 4->0 2->1 1->3 4->1 2->3 2->4 4->3
+  C: 0--1 0--2 0--3 0--4 1--2 1--3 1--4 2--3 2--4 3--4
+  X=4 Y=3 tau=0.776746  delta={0: 1.0, 1: 1.0, 2: 1.0, 3: 0.0, 4: 0.0}
+  K=[[0, 1], [2, 4], [2, 0], [4, 3], [4, 0], [1, 3], [2, 1], [0, 3]]  flipped=[[0, 1], [2, 1]] dmin=[1.0, 1.0] dmax=[1.0, 1.0]
+  O*(G0)=[2] beta=0.776746 valid=True
+  O*(G')=[1, 2] beta=0.631058 valid=False  |bias|/|tau|=0.1876
+    assert 1->0  propagated: (none)
+    assert 2->4  propagated: (none)
+    assert 2->0  propagated: (none)
+    assert 4->3  propagated: R2([4]) => 2->3
+    assert 4->0  propagated: (none)
+    assert 1->3  propagated: (none)
+    assert 1->2  propagated: R2([2]) => 1->4
+    assert 0->3  propagated: (none)
+
+----------------------------------------------------------------------
+  k8/K8 seed=59 p=5 deg=4.0 regen_ok={'xy': True, 'tau': True, 'K': True}
+  D: 0->1 2->0 3->0 4->0 2->1 3->1 4->1 2->3 2->4 3->4
+  C: 0--1 0--2 0--3 0--4 1--2 1--3 1--4 2--3 2--4 3--4
+  X=4 Y=1 tau=-0.691440  delta={0: 1.0, 1: 0.0, 2: 1.0, 3: 1.0, 4: 0.0}
+  K=[[3, 0], [0, 1], [2, 3], [4, 1], [4, 0], [2, 1], [3, 4], [2, 0]]  flipped=[[2, 3], [2, 0]] dmin=[1.0, 1.0] dmax=[1.0, 1.0]
+  O*(G0)=[2, 3] beta=-0.691440 valid=True
+  O*(G')=[3] beta=0.188297 valid=False  |bias|/|tau|=1.2723
+    assert 3->0  propagated: (none)
+    assert 0->1  propagated: R2([0]) => 3->1
+    assert 3->2  propagated: (none)
+    assert 4->1  propagated: (none)
+    assert 4->0  propagated: (none)
+    assert 2->1  propagated: (none)
+    assert 3->4  propagated: (none)
+    assert 0->2  propagated: R2([0]) => 4->2
+
+----------------------------------------------------------------------
+  k8/K6 seed=393 p=5 deg=6.0 regen_ok={'xy': True, 'tau': True, 'K': True}
+  D: 1->0 2->0 3->0 4->0 1->2 3->1 1->4 3->2 4->2 3->4
+  C: 0--1 0--2 0--3 0--4 1--2 1--3 1--4 2--3 2--4 3--4
+  X=1 Y=2 tau=-0.684396  delta={0: 1.0, 1: 0.0, 2: 0.0, 3: 1.0, 4: 1.0}
+  K=[[3, 4], [1, 4], [3, 1], [3, 0], [4, 2], [4, 0]]  flipped=[[3, 0], [4, 0]] dmin=[1.0, 1.0] dmax=[1.0, 1.0]
+  O*(G0)=[3] beta=-0.684396 valid=True
+  O*(G')=[0, 3] beta=-0.538350 valid=False  |bias|/|tau|=0.2134
+    assert 3->4  propagated: (none)
+    assert 1->4  propagated: (none)
+    assert 3->1  propagated: (none)
+    assert 0->3  propagated: R2([3]) => 0->1; R2([1]) => 0->4
+    assert 4->2  propagated: R2([4]) => 0->2; R2([4]) => 1->2; R2([1]) => 3->2
+    assert 0->4  propagated: (none)

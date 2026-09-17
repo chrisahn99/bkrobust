@@ -1,0 +1,192 @@
+[analyse] -> ../results/x2_analysis.json
+
+==============================================================================
+GATES
+==============================================================================
+  machinery tests : 17/17 pass
+  G3 replication  : PASS  (176592 archived members re-derived)
+  G4a reproduction: PASS
+      original/K4    L_set(0)=0.3701 band=[0.32, 0.42] n=2721  ok
+      licensed/K4    L_set(0)=0.4660 band=[0.42, 0.52] n=1944  ok
+      large/K4       L_set(0)=0.2027 band=[0.15, 0.25] n=1026  ok
+      k8/K4          L_set(0)=0.7582 band=[0.71, 0.81] n=91  ok
+      k8/K8          L_set(0)=0.5552 band=[0.51, 0.61] n=1077  ok
+  G4b ARM E range : FAIL
+      licensed   L_set(0)=0.1016 n=33015 floor=0.05  ok
+      large      L_set(0)=0.0363 n=10761 floor=0.05  BELOW FLOOR/UNDERPOWERED
+      k8         L_set(0)=0.0867 n=2513 floor=0.05  ok
+      deep       L_set(0)=0.0879 n=4413 floor=0.05  ok
+      deep8      L_set(0)=0.0689 n=1031 floor=0.05  ok
+  G9 aborts       : PASS  {'licensed': 0.0, 'large': 0.0, 'k8': 0.0, 'deep': 0.0, 'deep8': 0.0}
+  G10 placebo     : PASS
+  G11 null trials : {'licensed': {'n_null': 66658}, 'large': {'n_null': 24355}, 'k8': {'n_null': 29934}, 'deep': {'n_null': 17653}, 'deep8': {'n_null': 6140}}
+
+==============================================================================
+S5  rho=1, ARM E (exhaustive statement sweep), MISSTATEMENTS, FINITE dmin>=1
+==============================================================================
+ensemble    N_set     D_s5     D_am    D_con    D_all  clusters     3/D_s5     3/nSCM  verdict
+licensed        0    18327    18327    73303    84095      8643   1.64e-04   3.47e-04  SUPPORTED-WEAK
+large           0    23056    23056    31922    36479      6581   1.30e-04   4.56e-04  SUPPORTED
+k8              0     2476     2476    61141    66096       532   1.21e-03   5.64e-03  INCONCLUSIVE
+deep            0     7959     7959    17052    21365      3213   3.77e-04   9.34e-04  SUPPORTED-WEAK
+deep8           0     2261     2261    10542    13050       567   1.33e-03   5.29e-03  INCONCLUSIVE
+
+  dmax reading (M10) -- the OTHER reading of 'graph-distance >= 1':
+ensemble    N_set(dmax=0)  D_am(dmax=0)  N_set(dmax>=1)  D_am(dmax>=1)
+licensed                0          4086            3355          72119
+large                   0           995             391          59444
+k8                      0           209             218           8304
+deep                    0            18             388          23693
+deep8                   0             0              71           6916
+
+  rho>=2 (ARM B archive, ALL flips far, finite): N_set=70 N_bias=70 D_am=10615  -> S5 as written: REFUTED
+
+==============================================================================
+S8  ARM D: Q_r (interval) and Qset_r (reachable O* set)
+==============================================================================
+  original/K4
+    r=-1 n= 2637 Q=0.4907 CI=[0.47146,0.50998] cost=0.062 | Qset=0.4907 CI=[0.47146,0.50998]
+    r= 0 n= 2637 Q=0.1244 CI=[0.11202,0.13759] cost=0.453 | Qset=0.1566 CI=[0.14294,0.17106]
+    r= 1 n= 2637 Q=0.0011 CI=[0.00023,0.00332] cost=0.827 | Qset=0.0011 CI=[0.00023,0.00332]
+    r= 2 n= 2637 Q=0.0000 CI=[0.00000,0.00140] cost=0.898 | Qset=0.0000 CI=[0.00000,0.00140]
+    r= 3 n= 2637 Q=0.0000 CI=[0.00000,0.00140] cost=0.911 | Qset=0.0000 CI=[0.00000,0.00140]
+  licensed/K4
+    r=-1 n= 2087 Q=0.4854 CI=[0.46374,0.50708] cost=0.062 | Qset=0.4854 CI=[0.46374,0.50708]
+    r= 0 n= 2087 Q=0.1452 CI=[0.13034,0.16104] cost=0.356 | Qset=0.1979 CI=[0.18099,0.21564]
+    r= 1 n= 2087 Q=0.0014 CI=[0.00030,0.00420] cost=0.808 | Qset=0.0014 CI=[0.00030,0.00420]
+    r= 2 n= 2087 Q=0.0000 CI=[0.00000,0.00177] cost=0.899 | Qset=0.0000 CI=[0.00000,0.00177]
+    r= 3 n= 2087 Q=0.0000 CI=[0.00000,0.00177] cost=0.921 | Qset=0.0000 CI=[0.00000,0.00177]
+  large/K4
+    r=-1 n= 2443 Q=0.0970 CI=[0.08556,0.10944] cost=0.062 | Qset=0.0970 CI=[0.08556,0.10944]
+    r= 0 n= 2443 Q=0.0143 CI=[0.01000,0.01987] cost=0.140 | Qset=0.0156 CI=[0.01103,0.02129]
+    r= 1 n= 2443 Q=0.0000 CI=[0.00000,0.00151] cost=0.281 | Qset=0.0000 CI=[0.00000,0.00151]
+    r= 2 n= 2443 Q=0.0000 CI=[0.00000,0.00151] cost=0.490 | Qset=0.0000 CI=[0.00000,0.00151]
+    r= 3 n= 2443 Q=0.0000 CI=[0.00000,0.00151] cost=0.631 | Qset=0.0000 CI=[0.00000,0.00151]
+  k8/K4
+    r=-1 n=  127 Q=0.5118 CI=[0.42157,0.60149] cost=0.067 | Qset=0.5118 CI=[0.42157,0.60149]
+    r= 0 n=  127 Q=0.1969 CI=[0.13163,0.27672] cost=0.385 | Qset=0.2441 CI=[0.17227,0.32823]
+    r= 1 n=  127 Q=0.0000 CI=[0.00000,0.02863] cost=0.921 | Qset=0.0000 CI=[0.00000,0.02863]
+    r= 2 n=  127 Q=0.0000 CI=[0.00000,0.02863] cost=0.980 | Qset=0.0000 CI=[0.00000,0.02863]
+    r= 3 n=  127 Q=0.0000 CI=[0.00000,0.02863] cost=0.984 | Qset=0.0000 CI=[0.00000,0.02863]
+  k8/K6
+    r=-1 n=  329 Q=0.8146 CI=[0.76830,0.85511] cost=0.024 | Qset=0.8146 CI=[0.76830,0.85511]
+    r= 0 n=  329 Q=0.4043 CI=[0.35078,0.45947] cost=0.348 | Qset=0.5653 CI=[0.50988,0.61963]
+    r= 1 n=  329 Q=0.0000 CI=[0.00000,0.01115] cost=0.948 | Qset=0.0000 CI=[0.00000,0.01115]
+    r= 2 n=  329 Q=0.0000 CI=[0.00000,0.01115] cost=0.986 | Qset=0.0000 CI=[0.00000,0.01115]
+    r= 3 n=  329 Q=0.0000 CI=[0.00000,0.01115] cost=0.990 | Qset=0.0000 CI=[0.00000,0.01115]
+  k8/K8
+    r=-1 n=  585 Q=0.9009 CI=[0.87372,0.92385] cost=0.011 | Qset=0.9009 CI=[0.87372,0.92385]
+    r= 0 n=  585 Q=0.5231 CI=[0.48172,0.56420] cost=0.308 | Qset=0.7829 CI=[0.74726,0.81567]
+    r= 1 n=  585 Q=0.0000 CI=[0.00000,0.00629] cost=0.966 | Qset=0.0000 CI=[0.00000,0.00629]
+    r= 2 n=  585 Q=0.0000 CI=[0.00000,0.00629] cost=0.991 | Qset=0.0000 CI=[0.00000,0.00629]
+    r= 3 n=  585 Q=0.0000 CI=[0.00000,0.00629] cost=0.994 | Qset=0.0000 CI=[0.00000,0.00629]
+  radius -1: REFUTED  (cells used: 5)
+  radius  0: REFUTED  (cells used: 5)
+  radius  1: INCONCLUSIVE  (cells used: 5)
+  radius  2: INCONCLUSIVE  (cells used: 5)
+  radius  3: INCONCLUSIVE  (cells used: 5)
+  OVERALL S8: NOT SUPPORTED AT ANY RADIUS
+
+==============================================================================
+S9  elicitation radius
+==============================================================================
+  licensed/armA: r*_set=-1 r*_ident=-1 r*_gain=4 r*_elicit=4
+      dmin=   0 D_con= 219860 N_ident=    0 (nopath 0/unamen 0) N_gain=21408 (paths 0/orient 21408) D_gain= 215602
+      dmin=   1 D_con= 155414 N_ident=    0 (nopath 0/unamen 0) N_gain= 9298 (paths 0/orient 9298) D_gain= 136836
+      dmin=   2 D_con=  10236 N_ident=    0 (nopath 0/unamen 0) N_gain=  563 (paths 0/orient 563) D_gain=   6442
+      dmin=   3 D_con=   2122 N_ident=    0 (nopath 0/unamen 0) N_gain=   21 (paths 0/orient 21) D_gain=   1460
+      dmin= ge4 D_con=    418 N_ident=    0 (nopath 0/unamen 0) N_gain=    2 (paths 0/orient 2) D_gain=    296
+      dmin=disc D_con=   9930 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   8442
+  licensed/armE: r*_set=0 r*_ident=2 r*_gain=3 r*_elicit=3
+      dmin=   0 D_con= 207361 N_ident= 5260 (nopath 4031/unamen 1229) N_gain=18219 (paths 0/orient 18219) D_gain= 169086
+      dmin=   1 D_con= 145788 N_ident=  637 (nopath 0/unamen 637) N_gain= 6702 (paths 0/orient 6702) D_gain= 109981
+      dmin=   2 D_con=   9291 N_ident=    3 (nopath 0/unamen 3) N_gain=  130 (paths 0/orient 130) D_gain=   2803
+      dmin=   3 D_con=   1943 N_ident=    0 (nopath 0/unamen 0) N_gain=    1 (paths 0/orient 1) D_gain=    650
+      dmin= ge4 D_con=    376 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=    134
+      dmin=disc D_con=   9563 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   3483
+  large/armA: r*_set=-1 r*_ident=-1 r*_gain=4 r*_elicit=4
+      dmin=   0 D_con=  25526 N_ident=    0 (nopath 0/unamen 0) N_gain= 8670 (paths 0/orient 8670) D_gain=  20380
+      dmin=   1 D_con=  25440 N_ident=    0 (nopath 0/unamen 0) N_gain= 2356 (paths 0/orient 2356) D_gain=  11370
+      dmin=   2 D_con=  23898 N_ident=    0 (nopath 0/unamen 0) N_gain=  595 (paths 0/orient 595) D_gain=  10148
+      dmin=   3 D_con=  13796 N_ident=    0 (nopath 0/unamen 0) N_gain=   66 (paths 0/orient 66) D_gain=   6486
+      dmin= ge4 D_con=   9824 N_ident=    0 (nopath 0/unamen 0) N_gain=    2 (paths 0/orient 2) D_gain=   4940
+      dmin=disc D_con=  22620 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=  13236
+  large/armE: r*_set=0 r*_ident=2 r*_gain=3 r*_elicit=3
+      dmin=   0 D_con=  24011 N_ident= 1646 (nopath 1432/unamen 214) N_gain= 5022 (paths 0/orient 5022) D_gain=  11604
+      dmin=   1 D_con=  23619 N_ident=   68 (nopath 0/unamen 68) N_gain= 1193 (paths 0/orient 1193) D_gain=   6472
+      dmin=   2 D_con=  22518 N_ident=    3 (nopath 0/unamen 3) N_gain=  223 (paths 0/orient 223) D_gain=   5505
+      dmin=   3 D_con=  12953 N_ident=    0 (nopath 0/unamen 0) N_gain=   26 (paths 0/orient 26) D_gain=   3771
+      dmin= ge4 D_con=   9311 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   2904
+      dmin=disc D_con=  21914 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   7941
+  k8/armA: r*_set=-1 r*_ident=-1 r*_gain=4 r*_elicit=4
+      dmin=   0 D_con= 179046 N_ident=    0 (nopath 0/unamen 0) N_gain= 1124 (paths 0/orient 1124) D_gain= 178874
+      dmin=   1 D_con= 131152 N_ident=    0 (nopath 0/unamen 0) N_gain= 2590 (paths 0/orient 2590) D_gain= 128440
+      dmin=   2 D_con=    936 N_ident=    0 (nopath 0/unamen 0) N_gain=  107 (paths 0/orient 107) D_gain=    804
+      dmin=   3 D_con=     90 N_ident=    0 (nopath 0/unamen 0) N_gain=    8 (paths 0/orient 8) D_gain=     68
+      dmin= ge4 D_con=     14 N_ident=    0 (nopath 0/unamen 0) N_gain=    1 (paths 0/orient 1) D_gain=     14
+      dmin=disc D_con=    528 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=    516
+  k8/armE: r*_set=0 r*_ident=2 r*_gain=4 r*_elicit=4
+      dmin=   0 D_con= 173254 N_ident=  364 (nopath 113/unamen 251) N_gain= 5530 (paths 0/orient 5530) D_gain= 170377
+      dmin=   1 D_con= 126317 N_ident=  227 (nopath 0/unamen 227) N_gain= 3763 (paths 0/orient 3763) D_gain= 120432
+      dmin=   2 D_con=    831 N_ident=    1 (nopath 0/unamen 1) N_gain=   56 (paths 0/orient 56) D_gain=    524
+      dmin=   3 D_con=     76 N_ident=    0 (nopath 0/unamen 0) N_gain=    2 (paths 0/orient 2) D_gain=     44
+      dmin= ge4 D_con=     13 N_ident=    0 (nopath 0/unamen 0) N_gain=    1 (paths 0/orient 1) D_gain=      9
+      dmin=disc D_con=    511 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=    389
+  deep/armA: r*_set=-1 r*_ident=-1 r*_gain=2 r*_elicit=2
+      dmin=   0 D_con=  16444 N_ident=    0 (nopath 0/unamen 0) N_gain= 6517 (paths 0/orient 6517) D_gain=  16340
+      dmin=   1 D_con=  23058 N_ident=    0 (nopath 0/unamen 0) N_gain=  506 (paths 0/orient 506) D_gain=  20774
+      dmin=   2 D_con=  12118 N_ident=    0 (nopath 0/unamen 0) N_gain=   51 (paths 0/orient 51) D_gain=   9536
+      dmin=   3 D_con=   5020 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   4322
+      dmin= ge4 D_con=   2534 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   2116
+      dmin=disc D_con=  14272 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=  12290
+  deep/armE: r*_set=0 r*_ident=1 r*_gain=2 r*_elicit=2
+      dmin=   0 D_con=  15742 N_ident= 2657 (nopath 2595/unamen 62) N_gain= 3805 (paths 0/orient 3805) D_gain=   8672
+      dmin=   1 D_con=  19926 N_ident=   44 (nopath 0/unamen 44) N_gain=  401 (paths 0/orient 401) D_gain=  10936
+      dmin=   2 D_con=  11246 N_ident=    0 (nopath 0/unamen 0) N_gain=   14 (paths 0/orient 14) D_gain=   4671
+      dmin=   3 D_con=   4813 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   2319
+      dmin= ge4 D_con=   2432 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   1149
+      dmin=disc D_con=  13862 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   6726
+  deep8/armA: r*_set=-1 r*_ident=-1 r*_gain=3 r*_elicit=3
+      dmin=   0 D_con=   7536 N_ident=    0 (nopath 0/unamen 0) N_gain= 2179 (paths 0/orient 2179) D_gain=   7536
+      dmin=   1 D_con=  14532 N_ident=    0 (nopath 0/unamen 0) N_gain=  261 (paths 0/orient 261) D_gain=  14174
+      dmin=   2 D_con=   6988 N_ident=    0 (nopath 0/unamen 0) N_gain=   55 (paths 0/orient 55) D_gain=   6604
+      dmin=   3 D_con=   2936 N_ident=    0 (nopath 0/unamen 0) N_gain=    4 (paths 0/orient 4) D_gain=   2850
+      dmin= ge4 D_con=   1644 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   1622
+      dmin=disc D_con=   7792 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   7668
+  deep8/armE: r*_set=0 r*_ident=1 r*_gain=3 r*_elicit=3
+      dmin=   0 D_con=   7115 N_ident=  561 (nopath 539/unamen 22) N_gain= 1962 (paths 0/orient 1962) D_gain=   5523
+      dmin=   1 D_con=  12823 N_ident=   17 (nopath 0/unamen 17) N_gain=  341 (paths 0/orient 341) D_gain=  10084
+      dmin=   2 D_con=   6400 N_ident=    0 (nopath 0/unamen 0) N_gain=   24 (paths 0/orient 24) D_gain=   4547
+      dmin=   3 D_con=   2794 N_ident=    0 (nopath 0/unamen 0) N_gain=    1 (paths 0/orient 1) D_gain=   1959
+      dmin= ge4 D_con=   1575 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   1100
+      dmin=disc D_con=   7557 N_ident=    0 (nopath 0/unamen 0) N_gain=    0 (paths 0/orient 0) D_gain=   5404
+  r*_elicit over all ensembles = 4  -> S9: REFUTED (r*_elicit = 4)
+
+==============================================================================
+M12  S3 / S4 / S5 are ONE contingency table (ARM B archive)
+==============================================================================
+  original/K4: S3=0.6424 (6776/10548)  S4=0.1486 (1007/6776)  = P(near|cons)=0.6234 x L_bias(near)=0.2384 = 0.1486  N_bias(far)=0
+  licensed/K4: S3=0.6763 (5646/8348)  S4=0.1605 (906/5646)  = P(near|cons)=0.5177 x L_bias(near)=0.3100 = 0.1605  N_bias(far)=0
+  large/K4: S3=0.8278 (8089/9772)  S4=0.0257 (208/8089)  = P(near|cons)=0.2120 x L_bias(near)=0.1213 = 0.0257  N_bias(far)=0
+  k8/K4: S3=0.7854 (399/508)  S4=0.1729 (69/399)  = P(near|cons)=0.5063 x L_bias(near)=0.3416 = 0.1729  N_bias(far)=0
+  k8/K6: S3=0.6373 (1258/1974)  S4=0.2226 (280/1258)  = P(near|cons)=0.5882 x L_bias(near)=0.3784 = 0.2226  N_bias(far)=0
+  k8/K8: S3=0.5128 (2400/4680)  S4=0.2492 (598/2400)  = P(near|cons)=0.6067 x L_bias(near)=0.4107 = 0.2492  N_bias(far)=0
+
+==============================================================================
+LEMMA  exhaustive small-p existence search
+==============================================================================
+  p=4 (exhaustive): 185 CPDAGs, 1601 MPDAGs, far E_set hits = 0
+      dmin=   0: D_all=42480 D_am=2016 D_am_rev=2304 D_con=42480 D_con_rev=21240 N_gain=9300 N_ident_rev=6708 N_set_rev=1272 gain_orient=9300
+      dmin=   1: D_all=8400 D_am=912 D_am_rev=480 D_con=8400 D_con_rev=4200 N_gain=696 N_ident_rev=648 gain_orient=696
+      dmin=disc: D_all=96 D_am=24 D_am_rev=12 D_con=96 D_con_rev=48
+  p=5 (exhaustive): 8782 CPDAGs, 116992 MPDAGs, far E_set hits = 0
+      dmin=   0: D_all=6475000 D_am=233280 D_am_rev=305280 D_con=6475000 D_con_rev=3237500 N_gain=1195640 N_ident_rev=818360 N_set_rev=183060 gain_orient=1195640
+      dmin=   1: D_all=2730840 D_am=252720 D_am_rev=132120 D_con=2730840 D_con_rev=1365420 N_gain=201000 N_ident_rev=189480 gain_orient=201000
+      dmin=   2: D_all=32880 D_am=7200 D_am_rev=3600 D_con=32880 D_con_rev=16440 N_gain=360 N_ident_rev=360 gain_orient=360
+      dmin=disc: D_all=11280 D_am=2640 D_am_rev=1320 D_con=11280 D_con_rev=5640
+  p=6 (sample): 676 CPDAGs, 16555 MPDAGs, far E_set hits = 0
+      dmin=   0: D_all=1168776 D_am=48670 D_am_rev=59984 D_con=1168776 D_con_rev=584388 N_gain=213452 N_ident_rev=142154 N_set_rev=34427 gain_orient=213452
+      dmin=   1: D_all=711348 D_am=83378 D_am_rev=42876 D_con=711348 D_con_rev=355674 N_gain=47691 N_ident_rev=45317 gain_orient=47691
+      dmin=   2: D_all=33184 D_am=5292 D_am_rev=2648 D_con=33184 D_con_rev=16592 N_gain=397 N_ident_rev=393 gain_orient=397
+      dmin=   3: D_all=1232 D_am=242 D_am_rev=121 D_con=1232 D_con_rev=616
+      dmin=disc: D_all=33420 D_am=6112 D_am_rev=3056 D_con=33420 D_con_rev=16710

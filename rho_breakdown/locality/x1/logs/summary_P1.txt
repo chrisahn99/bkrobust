@@ -1,0 +1,75 @@
+========================================================================================================
+ENSEMBLE original   n_analysed=2000  readable=True
+  stmt/arm rho=1 = 8000 | hop>=1 reachable = 3639 | unreachable = 238
+  P(|O0|=0) = 0.6635 [0.6425,0.6839] k=1327 n=2000   mean|O0| = 0.512
+  --- P1 catchability ---
+   R meek-inconsistent rho=1   : 0.3559 [0.3455,0.3664] k=2847 n=8000
+   R meek-inconsistent rho<=4  : 0.5411 [0.5354,0.5467] k=16232 n=30000
+   Suni  S1 caught (intrinsic) rho=1 : 0.2464 [0.2371,0.2559] k=1971 n=8000
+         decomp: conflict 0.1650 [0.1570,0.1733] k=1320 n=8000 | cycle 0.0814 [0.0756,0.0876] k=651 n=8000 | nonext-acyclic 0.0000 [0.0000,0.0005] k=0 n=8000
+         vsC fires 0.4617 [0.4508,0.4727] k=3694 n=8000
+             purely shielding artefact 0.0836 [0.0778,0.0899] k=669 n=8000 | any new unshielded 0.3781 [0.3676,0.3888] k=3025 n=8000
+         mpdag_valid rho=1 0.8751 [0.8677,0.8822] k=7001 n=8000
+         mpdag_valid by rho: 1:0.8751(n=8000)  2:0.7127(n=12000)  3:0.5312(n=8000)  4:0.3640(n=2000)
+         path_blowup 0.0000 [0.0000,0.0001] k=0 n=30000
+   Sloc  S1 caught (intrinsic) rho=1 : 0.3859 [0.3753,0.3966] k=3087 n=8000
+         decomp: conflict 0.3244 [0.3142,0.3347] k=2595 n=8000 | cycle 0.0615 [0.0564,0.0670] k=492 n=8000 | nonext-acyclic 0.0000 [0.0000,0.0005] k=0 n=8000
+         vsC fires 0.3920 [0.3814,0.4027] k=3136 n=8000
+             purely shielding artefact 0.0624 [0.0573,0.0679] k=499 n=8000 | any new unshielded 0.2805 [0.2708,0.2904] k=2244 n=8000
+         mpdag_valid rho=1 0.8602 [0.8525,0.8677] k=6882 n=8000
+         mpdag_valid by rho: 1:0.8602(n=8000)  2:0.8003(n=12000)  3:0.7880(n=8000)  4:0.7830(n=2000)
+         path_blowup 0.0000 [0.0000,0.0001] k=0 n=30000
+   G3 skel-detect S-uni 1.0000 [0.9995,1.0000] k=8000 n=8000 | S-loc(MEASURED) 0.7305 [0.7207,0.7401] k=5844 n=8000
+   G8 closure-order disagreement 0.2818 [0.2782,0.2854] k=16908 n=60000
+   G12 unreachable: edge-attributable moves 0 / 318 ; raw moves 0  -> PASS
+   design effects (rho=1 silent): {"R": 1.004, "Suni": 1.176, "Sloc": 1.643, "Drop": NaN}
+========================================================================================================
+ENSEMBLE licensed   n_analysed=2000  readable=True
+  stmt/arm rho=1 = 8000 | hop>=1 reachable = 4102 | unreachable = 235
+  P(|O0|=0) = 0.4755 [0.4537,0.4974] k=951 n=2000   mean|O0| = 1.115
+  --- P1 catchability ---
+   R meek-inconsistent rho=1   : 0.3312 [0.3210,0.3416] k=2650 n=8000
+   R meek-inconsistent rho<=4  : 0.5110 [0.5053,0.5166] k=15329 n=30000
+   Suni  S1 caught (intrinsic) rho=1 : 0.2562 [0.2468,0.2659] k=2050 n=8000
+         decomp: conflict 0.1481 [0.1405,0.1561] k=1185 n=8000 | cycle 0.1081 [0.1015,0.1151] k=865 n=8000 | nonext-acyclic 0.0000 [0.0000,0.0005] k=0 n=8000
+         vsC fires 0.5799 [0.5690,0.5906] k=4639 n=8000
+             purely shielding artefact 0.1576 [0.1498,0.1658] k=1261 n=8000 | any new unshielded 0.4223 [0.4115,0.4331] k=3378 n=8000
+         mpdag_valid rho=1 0.8415 [0.8333,0.8493] k=6732 n=8000
+         mpdag_valid by rho: 1:0.8415(n=8000)  2:0.6768(n=12000)  3:0.5114(n=8000)  4:0.3575(n=2000)
+         path_blowup 0.0000 [0.0000,0.0001] k=0 n=30000
+   Sloc  S1 caught (intrinsic) rho=1 : 0.4420 [0.4311,0.4529] k=3536 n=8000
+         decomp: conflict 0.3675 [0.3570,0.3781] k=2940 n=8000 | cycle 0.0745 [0.0689,0.0805] k=596 n=8000 | nonext-acyclic 0.0000 [0.0000,0.0005] k=0 n=8000
+         vsC fires 0.5219 [0.5109,0.5328] k=4175 n=8000
+             purely shielding artefact 0.1016 [0.0952,0.1084] k=813 n=8000 | any new unshielded 0.3307 [0.3205,0.3411] k=2646 n=8000
+         mpdag_valid rho=1 0.7909 [0.7818,0.7996] k=6327 n=8000
+         mpdag_valid by rho: 1:0.7909(n=8000)  2:0.7027(n=12000)  3:0.6685(n=8000)  4:0.6520(n=2000)
+         path_blowup 0.0000 [0.0000,0.0001] k=0 n=30000
+   G3 skel-detect S-uni 1.0000 [0.9995,1.0000] k=8000 n=8000 | S-loc(MEASURED) 0.6944 [0.6842,0.7044] k=5555 n=8000
+   G8 closure-order disagreement 0.2487 [0.2453,0.2522] k=14925 n=60000
+   G12 unreachable: edge-attributable moves 0 / 351 ; raw moves 0  -> PASS
+   design effects (rho=1 silent): {"R": 1.069, "Suni": 1.291, "Sloc": 2.104, "Drop": NaN}
+========================================================================================================
+ENSEMBLE large   n_analysed=1200  readable=True
+  stmt/arm rho=1 = 4800 | hop>=1 reachable = 3403 | unreachable = 523
+  P(|O0|=0) = 0.2342 [0.2111,0.2590] k=281 n=1200   mean|O0| = 1.670
+  --- P1 catchability ---
+   R meek-inconsistent rho=1   : 0.1713 [0.1609,0.1822] k=822 n=4800
+   R meek-inconsistent rho<=4  : 0.3312 [0.3244,0.3381] k=5962 n=18000
+   Suni  S1 caught (intrinsic) rho=1 : 0.1240 [0.1149,0.1336] k=595 n=4800
+         decomp: conflict 0.0844 [0.0768,0.0926] k=405 n=4800 | cycle 0.0396 [0.0344,0.0455] k=190 n=4800 | nonext-acyclic 0.0000 [0.0000,0.0008] k=0 n=4800
+         vsC fires 0.4746 [0.4605,0.4887] k=2278 n=4800
+             purely shielding artefact 0.0467 [0.0411,0.0530] k=224 n=4800 | any new unshielded 0.4279 [0.4140,0.4420] k=2054 n=4800
+         mpdag_valid rho=1 0.9531 [0.9468,0.9588] k=4575 n=4800
+         mpdag_valid by rho: 1:0.9531(n=4800)  2:0.8897(n=7200)  3:0.8106(n=4800)  4:0.7192(n=1200)
+         path_blowup 0.0000 [0.0000,0.0002] k=0 n=18000
+   Sloc  S1 caught (intrinsic) rho=1 : 0.2300 [0.2183,0.2421] k=1104 n=4800
+         decomp: conflict 0.1571 [0.1471,0.1677] k=754 n=4800 | cycle 0.0729 [0.0659,0.0806] k=350 n=4800 | nonext-acyclic 0.0000 [0.0000,0.0008] k=0 n=4800
+         vsC fires 0.4748 [0.4607,0.4889] k=2279 n=4800
+             purely shielding artefact 0.0512 [0.0454,0.0579] k=246 n=4800 | any new unshielded 0.3817 [0.3680,0.3955] k=1832 n=4800
+         mpdag_valid rho=1 0.9033 [0.8946,0.9114] k=4336 n=4800
+         mpdag_valid by rho: 1:0.9033(n=4800)  2:0.8261(n=7200)  3:0.7592(n=4800)  4:0.6958(n=1200)
+         path_blowup 0.0000 [0.0000,0.0002] k=0 n=18000
+   G3 skel-detect S-uni 1.0000 [0.9992,1.0000] k=4800 n=4800 | S-loc(MEASURED) 0.9137 [0.9055,0.9214] k=4386 n=4800
+   G8 closure-order disagreement 0.0954 [0.0924,0.0985] k=3434 n=36000
+   G12 unreachable: edge-attributable moves 0 / 993 ; raw moves 0  -> PASS
+   design effects (rho=1 silent): {"R": 1.077, "Suni": 0.981, "Sloc": 1.759, "Drop": NaN}

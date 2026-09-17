@@ -1,0 +1,286 @@
+0 {'n_scm': 1, 'n_U0': 3, 'class_size': 6, 'n_query_pos': 5, 'n_trial': 130, 'n_stamped': 130, 'n_pos': 117, 'n_moved': 30, 'O_lost': 19, 'n_Dcheck': 180, 'O_gained': 16, 'n_abort': 13, 'n_abort_unamen': 13} 55.9
+2000 {'n_scm': 1611, 'n_U0': 6475, 'class_size': 19751, 'n_query_pos': 10752, 'n_trial': 335356, 'n_stamped': 257719, 'n_pos': 249228, 'n_moved': 39046, 'O_lost': 11898, 'n_Dcheck': 147136, 'O_gained': 29645, 'n_abort': 8491, 'n_abort_unamen': 8491, 'n_rejected': 77637} 139.4
+4000 {'n_scm': 3226, 'n_U0': 12821, 'class_size': 38934, 'n_query_pos': 21706, 'n_trial': 684662, 'n_stamped': 531174, 'n_pos': 514257, 'n_moved': 80446, 'O_lost': 24712, 'n_Dcheck': 291458, 'O_gained': 60971, 'n_abort': 16917, 'n_abort_unamen': 16917, 'n_rejected': 153488} 202.7
+6000 {'n_scm': 4837, 'n_U0': 19116, 'class_size': 57104, 'n_query_pos': 32603, 'n_trial': 1033064, 'n_stamped': 801453, 'n_pos': 775817, 'n_moved': 121736, 'O_lost': 37527, 'n_Dcheck': 438954, 'O_gained': 92051, 'n_abort': 25636, 'n_abort_unamen': 25636, 'n_rejected': 231611} 306.7
+8000 {'n_scm': 6465, 'n_U0': 25326, 'class_size': 75126, 'n_query_pos': 43768, 'n_trial': 1385444, 'n_stamped': 1076452, 'n_pos': 1042316, 'n_moved': 163478, 'O_lost': 50399, 'n_Dcheck': 589223, 'O_gained': 123702, 'n_abort': 34136, 'n_abort_unamen': 34136, 'n_rejected': 308992} 422.1
+10000 {'n_scm': 8075, 'n_U0': 31923, 'class_size': 95077, 'n_query_pos': 54527, 'n_trial': 1729436, 'n_stamped': 1342595, 'n_pos': 1300773, 'n_moved': 204170, 'O_lost': 62557, 'n_Dcheck': 737283, 'O_gained': 155057, 'n_abort': 41822, 'n_abort_unamen': 41822, 'n_rejected': 386841} 572.5
+12000 {'n_scm': 9659, 'n_U0': 38256, 'class_size': 114351, 'n_query_pos': 65088, 'n_trial': 2066716, 'n_stamped': 1603484, 'n_pos': 1553952, 'n_moved': 243583, 'O_lost': 74729, 'n_Dcheck': 869035, 'O_gained': 184760, 'n_abort': 49532, 'n_abort_unamen': 49532, 'n_rejected': 463232} 740.5
+14000 {'n_scm': 11284, 'n_U0': 44654, 'class_size': 133337, 'n_query_pos': 76061, 'n_trial': 2416950, 'n_stamped': 1874770, 'n_pos': 1816460, 'n_moved': 284437, 'O_lost': 87140, 'n_Dcheck': 1012800, 'O_gained': 215698, 'n_abort': 58310, 'n_abort_unamen': 58310, 'n_rejected': 542180} 882.3
+16000 {'n_scm': 12896, 'n_U0': 51078, 'class_size': 153521, 'n_query_pos': 87221, 'n_trial': 2781808, 'n_stamped': 2155624, 'n_pos': 2089278, 'n_moved': 325906, 'O_lost': 99704, 'n_Dcheck': 1150505, 'O_gained': 247333, 'n_abort': 66346, 'n_abort_unamen': 66346, 'n_rejected': 626184} 1031.8
+18000 {'n_scm': 14500, 'n_U0': 57441, 'class_size': 173110, 'n_query_pos': 98166, 'n_trial': 3136202, 'n_stamped': 2428277, 'n_pos': 2353292, 'n_moved': 367404, 'O_lost': 112521, 'n_Dcheck': 1300860, 'O_gained': 278802, 'n_abort': 74985, 'n_abort_unamen': 74985, 'n_rejected': 707925} 1186.0
+20000 {'n_scm': 16115, 'n_U0': 64068, 'class_size': 192655, 'n_query_pos': 108860, 'n_trial': 3480468, 'n_stamped': 2694213, 'n_pos': 2611263, 'n_moved': 408248, 'O_lost': 124991, 'n_Dcheck': 1445373, 'O_gained': 310102, 'n_abort': 82950, 'n_abort_unamen': 82950, 'n_rejected': 786255} 1337.6
+22000 {'n_scm': 17723, 'n_U0': 70270, 'class_size': 210847, 'n_query_pos': 119811, 'n_trial': 3832588, 'n_stamped': 2968571, 'n_pos': 2877049, 'n_moved': 450054, 'O_lost': 137596, 'n_Dcheck': 1595980, 'O_gained': 341952, 'n_abort': 91522, 'n_abort_unamen': 91522, 'n_rejected': 864017} 1480.3
+Process SpawnPoolWorker-2:
+Process SpawnPoolWorker-4:
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-5:
+Process SpawnPoolWorker-8:
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-7:
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-6:
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-1:
+Process SpawnPoolWorker-3:
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+/Users/josecosta/miniforge3/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

@@ -1,0 +1,36 @@
+[run_clique_chain_uniform] fam=clique_chain q=uniform kept 50328/60000 in 64s  ecc={4: 12914, 3: 15832, 2: 5008, 7: 1849, 5: 11013, 6: 3712}
+   rev dmin=0    N_set=   7546 / D_am=   21968  = 0.34350
+   rev dmin=1    N_set=      0 / D_am=   26238  = 0.00000
+   rev dmin=2    N_set=      0 / D_am=   24357  = 0.00000
+   rev dmin=3    N_set=      0 / D_am=   19366  = 0.00000
+   rev dmin=4    N_set=      0 / D_am=   16544  = 0.00000
+   add dmin=0    N_set=      0 / D_am=   28844  = 0.00000
+   add dmin=1    N_set=      0 / D_am=   52476  = 0.00000
+   add dmin=2    N_set=      0 / D_am=   48714  = 0.00000
+   add dmin=3    N_set=      0 / D_am=   38732  = 0.00000
+   add dmin=4    N_set=      0 / D_am=   33088  = 0.00000
+   HITS at dmin>=2: 0
+[run_clique_chain_argmax_delta] fam=clique_chain q=argmax_delta kept 50374/60000 in 147s  ecc={2: 11526, 3: 25834, 4: 6259, 5: 6734, 6: 16, 7: 5}
+   rev dmin=0    N_set=   4711 / D_am=   19275  = 0.24441
+   rev dmin=1    N_set=      0 / D_am=   25002  = 0.00000
+   rev dmin=2    N_set=      0 / D_am=   15848  = 0.00000
+   rev dmin=3    N_set=      0 / D_am=   13768  = 0.00000
+   rev dmin=4    N_set=      0 / D_am=    5357  = 0.00000
+   add dmin=0    N_set=      0 / D_am=   29128  = 0.00000
+   add dmin=1    N_set=      0 / D_am=   50004  = 0.00000
+   add dmin=2    N_set=      0 / D_am=   31696  = 0.00000
+   add dmin=3    N_set=      0 / D_am=   27536  = 0.00000
+   add dmin=4    N_set=      0 / D_am=   10714  = 0.00000
+   HITS at dmin>=2: 0
+[run_clique_chain_noise_uniform] fam=clique_chain_noise q=uniform kept 46558/60000 in 91s  ecc={2: 13311, 3: 23278, 4: 6985, 5: 2465, 6: 394, 1: 39, 7: 86}
+   rev dmin=0    N_set=   7652 / D_am=   18169  = 0.42116
+   rev dmin=1    N_set=      0 / D_am=   28947  = 0.00000
+   rev dmin=2    N_set=      0 / D_am=   25817  = 0.00000
+   rev dmin=3    N_set=      0 / D_am=   11173  = 0.00000
+   rev dmin=4    N_set=      0 / D_am=    3579  = 0.00000
+   add dmin=0    N_set=      0 / D_am=   20768  = 0.00000
+   add dmin=1    N_set=      0 / D_am=   57602  = 0.00000
+   add dmin=2    N_set=      0 / D_am=   51634  = 0.00000
+   add dmin=3    N_set=      0 / D_am=   22346  = 0.00000
+   add dmin=4    N_set=      0 / D_am=    7158  = 0.00000
+   HITS at dmin>=2: 0

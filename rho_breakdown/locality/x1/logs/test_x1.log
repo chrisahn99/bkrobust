@@ -1,0 +1,24 @@
+[PASS] T1 pdag_extendable == brute-force consistent extension exists  (disagreements 0/4000; extendable 2738/4000)
+[PASS] T2 bk_assert(C, true K on U(C)) == apply_background_knowledge  (mismatches 0/744)
+[PASS] T3 Meek-consistency is trivially FALSE for the spurious class  (is_consistent True 0/4616; MEC members carrying the edge 0/4616; MEC size total 1962)
+[PASS] T4 bk_assert adds exactly the asserted edge, oriented as asserted  (violations 0/334)
+       T5 MEASUREMENT  n=396  extendable=329/396=0.8308  sound=329/329=1.0000  maximally_oriented=329/329=1.0000
+[PASS] T5 the resulting object is SOUND (Meek never over-orients)  (unsound 0/329)
+       T6 MEASUREMENT  n=316  restamp_changed(prefix)=0  restamp_changed(current)=0  close-after-each != stamp-all = 101/316 = 0.3196
+[PASS] T6/G7 re-stamp is a no-op under both scopes  (prefix 0, current 0, n=316)
+       T7 MEASUREMENT  n=746  cycle=101=0.1354  non-extendable=101=0.1354  (rho=1, S-uni)
+[PASS] T7 the operator can build cyclic / non-extendable objects  (witness cycle=True; random rho=1 cycles 101/746)
+       T8 MEASUREMENT  S-loc pool label counts {'pure_spurious': 9450, 'reversal_of_true_edge': 2234}
+[PASS] T8 draw laws match their definitions  (violations 0/1143)
+[PASS] T9 hop_dist_from == E1' run_arm1.hop_dist, sentinel = 1048576  (mismatches 0/600; sentinel observed True)
+       T10 MEASUREMENT  n=335  raw(S vs G0)=67=0.2000  drop-alone(D vs G0)=67=0.2000  ADDED EDGE alone(S vs D)=0=0.0000
+[PASS] T10/G12 an UNREACHABLE added edge cannot move O* (structural zero)  (edge-attributable moves 0/335; raw replacement moves 67/335 -- the difference is the WITHDRAWN true statement, not the class)
+       T10b MEASUREMENT  n=382 (rho=1, S-uni, ALL hops)  raw=131=0.3429  drop-alone=97=0.2539  edge-alone=86=0.2251
+[PASS] T10b the withdrawal confound is present at every hop, so ARM D is required  (drop-alone O* moves 97/382)
+[PASS] T11/G9 no tau on the instrument path (x1_ops)  
+[PASS] T12/M16 possibly_causal_paths cap raises PathBlowup  
+[PASS] T13 Wilson CI and paired cluster bootstrap match their definitions  (wilson(14,100)=[0.08526,0.22137]; wilson(0,100)=[0.00000,0.03699]; null RR=0.966 [0.854,1.090])
+       T14 MEASUREMENT  vstruct_vs_C fired 238/545=0.4367; of those, PURELY the shielding artefact 47/238=0.1975
+[PASS] T14 vstruct_vs_C is contaminated by the shielding artefact  (pure-artefact firings 47)
+
+==== 15/15 machinery tests passed ====

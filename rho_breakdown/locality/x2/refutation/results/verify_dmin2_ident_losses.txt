@@ -1,0 +1,42 @@
+=== licensed seed=10442 p=7 query (3,1) k_base=3(claim 3)
+   stmt asserted (the MISSTATEMENT): 0->2 ; delta=(2,2) dmin=2 dmax=2
+   base K = [(0, 4), (2, 4), (2, 0)]  all true in D: True
+   G0 amenable=True (paths 1) O*=[4] | G1 amenable=False (paths 3)
+   >>> IDENTIFICATION DESTROYED by a single dmin=2 misstatement. offending path [3, 5, 0, 2, 4, 1]
+   >>> edges newly oriented (statement + Meek cascade): [(0, 2)]  un-oriented: [(0, 5), (2, 0), (5, 3)]
+   >>> distance of each newly-oriented edge endpoint: [((0, 2), (2, 2))]
+=== large seed=1847 p=23 query (9,21) k_base=1(claim 3)
+   stmt asserted (the MISSTATEMENT): 6->22 ; delta=(2,2) dmin=2 dmax=2
+   base K = [(22, 6)]  all true in D: True
+   G0 amenable=True (paths 1) O*=[2, 6, 20, 22] | G1 amenable=False (paths 4)
+   >>> IDENTIFICATION DESTROYED by a single dmin=2 misstatement. offending path [9, 14, 6, 8, 21]
+   >>> edges newly oriented (statement + Meek cascade): [(6, 22), (20, 7), (22, 20)]  un-oriented: [(6, 14), (14, 9), (22, 6)]
+   >>> distance of each newly-oriented edge endpoint: [((6, 22), (2, 2)), ((20, 7), (2, 3)), ((22, 20), (2, 2))]
+=== licensed seed=2650 p=9 query (4,2) k_base=2(claim 2)
+   stmt asserted (the MISSTATEMENT): 8->3 ; delta=(2,3) dmin=2 dmax=3
+   base K = [(3, 6), (3, 8)]  all true in D: True
+   G0 amenable=True (paths 2) O*=[1, 5, 6, 7] | G1 amenable=False (paths 7)
+   >>> IDENTIFICATION DESTROYED by a single dmin=2 misstatement. offending path [4, 5, 1, 0, 2]
+   >>> edges newly oriented (statement + Meek cascade): [(3, 7), (8, 3)]  un-oriented: [(1, 5), (3, 8), (5, 4), (8, 1)]
+   >>> distance of each newly-oriented edge endpoint: [((3, 7), (3, 2)), ((8, 3), (2, 3))]
+=== large seed=3610 p=20 query (15,18) k_base=1(claim 1)
+   stmt asserted (the MISSTATEMENT): 17->4 ; delta=(2,3) dmin=2 dmax=3
+   base K = [(4, 17)]  all true in D: True
+   G0 amenable=True (paths 1) O*=[13] | G1 amenable=False (paths 2)
+   >>> IDENTIFICATION DESTROYED by a single dmin=2 misstatement. offending path [15, 5, 17, 4, 16, 13, 18]
+   >>> edges newly oriented (statement + Meek cascade): [(17, 4)]  un-oriented: [(4, 17), (5, 15), (5, 19), (17, 2), (17, 5)]
+   >>> distance of each newly-oriented edge endpoint: [((17, 4), (2, 3))]
+=== large seed=4802 p=20 query (3,10) k_base=3(claim 3)
+   stmt asserted (the MISSTATEMENT): 11->6 ; delta=(2,3) dmin=2 dmax=3
+   base K = [(15, 8), (6, 11), (0, 1)]  all true in D: True
+   G0 amenable=True (paths 1) O*=[11, 15, 16] | G1 amenable=False (paths 3)
+   >>> IDENTIFICATION DESTROYED by a single dmin=2 misstatement. offending path [3, 14, 7, 10]
+   >>> edges newly oriented (statement + Meek cascade): [(11, 6)]  un-oriented: [(3, 14), (6, 11), (11, 15), (15, 3)]
+   >>> distance of each newly-oriented edge endpoint: [((11, 6), (2, 3))]
+=== licensed seed=11746 p=9 query (3,5) k_base=4(claim 4)
+   stmt asserted (the MISSTATEMENT): 2->6 ; delta=(2,3) dmin=2 dmax=3
+   base K = [(8, 0), (2, 0), (6, 2), (7, 2)]  all true in D: True
+   G0 amenable=True (paths 1) O*=[] | G1 amenable=False (paths 1)
+   >>> IDENTIFICATION DESTROYED by a single dmin=2 misstatement. offending path [3, 5]
+   >>> edges newly oriented (statement + Meek cascade): [(2, 6), (7, 6)]  un-oriented: [(2, 8), (3, 5), (6, 2), (7, 8), (8, 1), (8, 3)]
+   >>> distance of each newly-oriented edge endpoint: [((2, 6), (2, 3)), ((7, 6), (2, 3))]

@@ -1,0 +1,6 @@
+[scan/licensed] kept 28000 SCMs, 0 aborts, <= 112000 draws, 420.3s -> ../results/scan_licensed.json
+[scan/large] kept 10000 SCMs, 0 aborts, <= 40000 draws, 222.8s -> ../results/scan_large.json
+[scan/k8] kept 12000 SCMs, 0 aborts, <= 840000 draws, 288.5s -> ../results/scan_k8.json
+[scan/deep] kept 7000 SCMs, 0 aborts, <= 84000 draws, 555.2s -> ../results/scan_deep.json
+[scan/deep8] kept 2400 SCMs, 0 aborts, <= 312000 draws, 424.7s -> ../results/scan_deep8.json
+SCAN_DONE

@@ -1,0 +1,8 @@
+[lemma p=6 sample] 676 distinct CPDAGs
+[lemma p=6] 639/676 CPDAGs scanned (37 skipped by cap=400), 16555 MPDAGs, far E_set hits = 0 -> ../results/lemma_p6.json
+   dmin=   0: D_all=1168776 D_am=48670 D_am_rev=59984 D_con=1168776 D_con_rev=584388 N_gain=213452 N_ident_rev=142154 N_set_rev=34427 gain_orient=213452
+   dmin=   1: D_all=711348 D_am=83378 D_am_rev=42876 D_con=711348 D_con_rev=355674 N_gain=47691 N_ident_rev=45317 gain_orient=47691
+   dmin=   2: D_all=33184 D_am=5292 D_am_rev=2648 D_con=33184 D_con_rev=16592 N_gain=397 N_ident_rev=393 gain_orient=397
+   dmin=   3: D_all=1232 D_am=242 D_am_rev=121 D_con=1232 D_con_rev=616
+   dmin=disc: D_all=33420 D_am=6112 D_am_rev=3056 D_con=33420 D_con_rev=16710
+FINAL_DONE

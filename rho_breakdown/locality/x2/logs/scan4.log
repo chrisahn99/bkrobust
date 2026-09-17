@@ -1,0 +1,3 @@
+[scan/k8] kept 12000 SCMs, 0 aborts, <= 840000 draws, 276.3s -> ../results/scan_k8.json
+[scan/deep] kept 7000 SCMs, 0 aborts, <= 84000 draws, 514.9s -> ../results/scan_deep.json
+FINAL2_DONE

@@ -1,0 +1,34 @@
+{
+ "acc": {
+  "shd_skel": 16,
+  "n_scm": 12,
+  "bk_edges_absent_in_D": 0,
+  "base|n": 56,
+  "S1|F|sm|V": 703,
+  "S1rej|F|sm|V": 74,
+  "S1|F|exit": 34,
+  "S1|T|sm|V": 34,
+  "S1|T|exit": 4,
+  "S1rej|F|mv|I": 8,
+  "S1|F|mv|V": 129,
+  "base|invalid": 16,
+  "S1rej|F|sm|I": 50,
+  "S1|F|sm|I": 192,
+  "S1|F|mv|I": 38,
+  "S1|T|mv|V": 15,
+  "S1|T|sm|I": 38,
+  "S1|T|mv|I": 4,
+  "S1rej|F|mv|V": 17
+ },
+ "n_scm": 12,
+ "alpha": 0.01,
+ "ns": [
+  2000
+ ],
+ "ps": [
+  6,
+  7
+ ],
+ "oracle_mode": false,
+ "elapsed_s": 0.3
+}

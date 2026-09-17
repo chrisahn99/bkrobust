@@ -1,0 +1,1136 @@
+                                              Minimal Enumeration of All Possible Total Effects in a
+                                                          Markov Equivalence Class
+                                                          F. Richard Guo                          Emilija Perković
+arXiv:2010.08611v3 [math.ST] 3 Mar 2021
+
+
+
+
+                                                       Department of Statistics                 Department of Statistics
+                                                       University of Washington                 University of Washington
+                                                           ricguo@uw.edu                           perkovic@uw.edu
+
+
+                                                                                   March 4, 2021
+
+
+                                                                                       Abstract
+                                                   In observational studies, when a total causal effect of interest is not identified, the
+                                               set of all possible effects can be reported instead. This typically occurs when the un-
+                                               derlying causal DAG is only known up to a Markov equivalence class, or a refinement
+                                               thereof due to background knowledge. As such, the class of possible causal DAGs
+                                               is represented by a maximally oriented partially directed acyclic graph (MPDAG),
+                                               which contains both directed and undirected edges. We characterize the minimal
+                                               additional edge orientations required to identify a given total effect. A recursive
+                                               algorithm is then developed to enumerate subclasses of DAGs, such that the total
+                                               effect in each subclass is identified as a distinct functional of the observed distribu-
+                                               tion. This resolves an issue with existing methods, which often report possible total
+                                               effects with duplicates, namely those that are numerically distinct due to sampling
+                                               variability but are in fact causally identical.
+
+
+                                          1    Introduction
+                                          We consider identifying total causal effects (“total effects” or simply “effects” through-
+                                          out) from causal graphs that can be learned from observational data and background
+                                          knowledge, under the assumption of no latent variables. The full knowledge of the causal
+                                          system is typically represented by a directed acyclic graph (DAG) (Pearl, 2009). Fig. 1(a)
+                                          shows an example DAG D. Each node u ∈ {A, Y, V1 , V2 } in D represents a random vari-
+                                          able Xu in a random vector X = (XA , XY , XV1 , XV2 ). Each edge in D represents a direct
+                                          causal relationship between two variables.
+                                              Given a causal DAG, every total effect can be identified and hence consistently es-
+                                          timated from observational data (Robins, 1986; Pearl, 1995; Pearl and Robins, 1995;
+                                          Galles and Pearl, 1995). In general, however, one cannot learn a causal DAG from ob-
+                                          servational data. Instead, under the assumption of no latent variables, one can learn
+                                          a Markov equivalence class of DAGs that can give rise to the observed distribution. A
+                                          Markov equivalence class is uniquely represented by a completed partially directed acyclic
+
+                                                                                           1
+           V2          V1                               V2           V1
+
+
+
+           A            Y                                A           Y
+                 (a)                                           (b)
+
+
+                            Figure 1: (a) DAG D, (b) CPDAG C.
+
+
+graph (CPDAG), also known as an essential graph (Meek, 1995; Andersson et al., 1997;
+Spirtes et al., 2000; Chickering, 2002). Within the equivalence class, one DAG should
+not be preferred over another based on observational data. Fig. 1(b) shows the CPDAG
+C that represents D.
+    Often, we may have additional background knowledge on the underlying causal sys-
+tem. For example, we may know that A temporally precedes Y and therefore determine
+(or reveal) the edge orientation A → Y in CPDAG C. This results in a maximally
+oriented partially directed acyclic graph (MPDAG) G, drawn in Fig. 2(a). MPDAGs
+are a class of graphs that subsumes both CPDAGs and DAGs. They are obtained by
+(optionally) adding edge orientations to a CPDAG and completing the orientation rules
+of Meek (1995) (see Fig. 3). As such, the class of DAGs represented by an MPDAG is
+a refinement of the corresponding Markov equivalence class. For example, the class of
+DAGs represented by G is drawn in Fig. 2(b), which consists of all DAGs in the Markov
+equivalence class represented by C that have A → Y .
+    The background knowledge of pairwise causal relationships of this type can be derived
+from field expertise. Moreover, other types of background knowledge, such as tiered
+orderings (Scheines et al., 1998), non-ancestral background knowledge (Fang and He,
+2020), knowledge derived from experimental data (Hauser and Bühlmann, 2012; Wang
+et al., 2017) as well as certain model restrictions (Hoyer et al., 2008; Rothenhäusler et al.,
+2018) can also be used to obtain an MPDAG.
+    A total effect is identified given an equivalence class of DAGs if it can be expressed as a
+functional of the observed distribution, which is the same for all DAGs in the equivalence
+class; see Section 2 for the definition. Recently, Perković (2020) gave a necessary and
+sufficient graphical condition for identifying a total effect given an MPDAG (Theorem
+1). When the condition fails, the effect of interest cannot be identified, such as the
+effect of A on Y given G in Fig. 2(a). In such cases, the observational data can still be
+informative if one identifies a finite set that contains the true effect. To do so, one can
+enumerate all DAGs represented by G and estimate the total effect under each, obtaining
+a set of estimated possible total effects. For instance, for the class of DAGs in Fig. 2(b),
+7 possible total effects can be reported.
+    However, there are two drawbacks to this approach. First, enumerating all DAGs in a
+Markov equivalence class (or a refinement thereof) is computationally prohibitive unless
+one has only a few variables. For example, the complete CPDAG of p variables contains
+p! DAGs; see also Gillispie and Perlman (2002); Steinsky (2013). Second, the number of
+
+                                              2
+              V2          V1
+
+
+
+              A            Y
+                    (a)
+
+
+                                                                 (b)
+
+
+
+
+                    (c)                                          (d)
+
+Figure 2: Example 4. (a) MPDAG G, (b) all DAGs represented by G, (c) all MPDAGs
+with distinct parent sets of A represented by G, (d) all MPDAGs with distinct causal
+identification formulas for f (xY | do(xA )) represented by G.
+
+
+distinct possible effects can be much smaller than the size of the equivalence class. For
+example, the effect of A on Y is the same for the three DAGs listed in the second row of
+Fig. 2(b). That being said, depending on the estimator applied to each DAG, one may
+obtain three estimates that only look different in finite samples, which are in fact different
+estimators for the same possible effect. These statistical duplicates are undesirable as it
+undermines the interpretability of the estimated set. Hence, to save computation time
+and to deliver causally informative estimates, one should instead enumerate all possible
+effects that are distinct, or in other words, minimally.
+    Recent works on this topic include the “intervention calculus when the DAG is absent”
+(IDA) algorithms and joint-IDA algorithms of Maathuis et al. (2009), Nandy et al. (2017),
+Perković et al. (2017), Witte et al. (2020) and Fang and He (2020). Given an MPDAG
+G, these methods enumerate a set of MPDAGs in which the total effect of A on Y is
+identified, by considering all orientation configurations of the edges connected to A; see
+also Liu et al. (2020) for a more efficient algorithm for a single treatment. However, this
+is often not minimal. For instance, to estimate the total effect of A on Y given MPDAG
+G in Fig. 2(a), the IDA methods would enumerate four graphs listed in Fig. 2(c) and
+thus report four estimates. But in fact, there are only three distinct total effects, which
+
+
+                                              3
+correspond to the MPDAGs listed in Fig. 2(d).
+    In this paper, we characterize the minimal additional edge orientations needed to
+identify a given total effect. Based on this characterization, we develop a recursive algo-
+rithm that outputs the minimal set of possible total effects along with the corresponding
+MPDAGs. Our results hold nonparametrically, that is, without assuming a particu-
+lar type of data generating mechanism such as linearity. Furthermore, our results can
+be used in conjunction with recent developments on efficient effect estimators (Henckel
+et al., 2019; Rotnitzky and Smucler, 2020; Guo and Perković, 2020) to produce a set of
+informative estimates.
+
+
+2    Preliminaries
+Throughout the paper we consider a random vector X, indexed by V = {V1 , . . . , Vp },
+that is X = XV , such that each variable XVi is represented by node Vi in a graph
+G = (V, E, U ).
+
+Graphs, nodes and random variables. A partially directed graph G = (V, E, U )
+consists of a set of nodes V = {V1 , . . . , Vp } for p ≥ 1, a set of directed (→) edges E and
+a set of undirected (−) edges U .
+
+Induced subgraph. An induced subgraph GV 0 = (V 0 , E 0 , U 0 ) of G = (V, E, U ) consists
+of V 0 ⊆ V , E 0 ⊆ E, and U 0 ⊆ U where E 0 and U 0 are all edges between nodes in V 0 that
+are in E and U respectively.
+
+Paths. A path p = hV1 , . . . , Vk i, k > 1 from V1 ∈ A to Vk ∈ Y in G is a sequence of
+distinct nodes, such that Vi and Vi+1 , i ∈ {1, . . . , k − 1} are adjacent in G. A path of the
+form V1 − · · · − Vk is an undirected path and a path of the form V1 → · · · → Vk is a causal
+path. Additionally, p is a possibly causal path in G if no edge Vi ← Vj , 0 ≤ i < j ≤ k is in
+G. Otherwise, p is a non-causal path in G (see Definition 3.1 and Lemma 3.2 of Perković
+et al., 2017). A path from node set A to Y is proper with respect to A when only its
+first node is in A.
+
+Colliders, shields, and definite status paths. If a path p contains Vi → Vj ← Vk
+as a subpath, then Vj is a collider on p. A path hVi , Vj , Vk i is an unshielded triple if Vi
+and Vk are not adjacent. A path is unshielded if all successive triples on the path are
+unshielded. A node Vj is a definite non-collider on a path p if the edge Vi ← Vj , or the
+edge Vj → Vk is on p, or if Vi − Vj − Vk is a subpath of p and Vi is not adjacent to Vk . A
+node is of definite status on a path if it is a collider, a definite non-collider or an endpoint
+on the path. A path p is of definite status if every node on p is of definite status.
+
+d-connection, d-separation, and blocking. A definite status path p from node A
+to node Y is d-connecting given a node set Z (A, Y ∈/ Z) if every definite non-collider on
+p is not in Z, and every collider on p has a descendant in Z. Otherwise, Z blocks p. If
+
+
+                                               4
+Z blocks all definite status paths between A and Y in MPDAG G, then A is d-separated
+from Y given Z in G and we write A ⊥G Y |Z (Lemma C.1 of Henckel et al., 2019).
+
+Probabilistic implications of d-separation. Let f be any observational density over
+X consistent with an MPDAG G = (V, E, U ). Let A, Y and Z be pairwise disjoint node
+sets in V . If A and Y are d-separated given Z in G, then XA and XY are conditionally
+independent given XZ in the observational density f (Lauritzen et al., 1990; Pearl, 2009).
+Hence, all DAGs that encode the same d-separation relationships also encode the same
+conditional independences and are therefore Markov equivalent.
+
+Ancestral relationships. If A → Y is in G, then A is a parent of Y . If there is a causal
+path from node A to node Y , then A is an ancestor of Y , and Y is a descendant of A. If
+there is a possibly causal path from node A to node Y , then Y is a possible descendant
+of A. We use the convention that every node is a descendant, ancestor, and possible
+descendant of itself. The sets of parents, ancestors, and possible descendants of a node
+A in G are denoted by Pa(A, G), An(A, G), PossDe(A, G) respectively. For a set of nodes
+A = {A1 , . . . , Ak }, we let Pa(A, G) = (∪ki=1 Pa(Ai , G)) \ A, An(A, G) = ∪ki=1 An(Ai , G),
+and PossDe(A, G) = ∪ki=1 PossDe(Ai , G).
+
+DAGs, PDAGs. A directed graph contains only directed edges. A causal path from
+node A to node Y and Y → A form a directed cycle. A directed graph without directed
+cycles is a directed acyclic graph (DAG). A partially directed acyclic graph PDAG is a
+partially directed graph without directed cycles.
+
+Observational, interventional densities, and causal DAGs. We consider do-
+interventions do(XA = xa ) (for A ⊆ V ), or do(xa ) for shorthand, which represent outside
+interventions that set Xa to a fixed value xa . We call a density f of X under no interven-
+tion an observational density.   An observational density f (x) is consistent with a DAG
+D = (V, E, ∅) if f (x) = pi=1 f (xvi |xPa(vi ,D) ) (Pearl, 2009).
+                         Q
+    A density f (x| do(xa )) under intervention do(XA = xa ), A ⊆ V is called an in-
+terventional density. An interventional density f (x| do(xa )) is consistent with a DAG
+D = (V, E, ∅) if there is an observational density f consistent with D such that
+                                               p
+                                               Y
+                            f (x| do(xa )) =           f (xvi |xPa(vi ,D) ),              (1)
+                                                i=1
+                                               Vi ∈A
+                                                  /
+
+for values xPa(vi ,D) of XPa(Vi ,D) that are consistent with xa . Eq. (1) is known as the
+truncated factorization formula (Pearl, 2009), manipulated density formula (Spirtes et al.,
+2000) or the g-formula (Robins, 1986).
+    A DAG D = (V, E, ∅) is causal for a random vector X if the observational and all
+interventional densities over X are consistent with D.
+
+
+
+
+                                                 5
+                             R1                             R2
+                    A             A                B             B
+                             ⇒                              ⇒
+                    B       C     B     C          A      C      A     C
+
+                             R3                            R4
+                    D       C D         C          D      A D          A
+                             ⇒                             ⇒
+                    A       B     A     B          C      B      C     B
+Figure 3: The orientation rules from Meek (1995). If the graph on the left-hand side of
+a rule is an induced subgraph of a PDAG G, then orient the blue undirected edge (−)
+as shown on the right-hand side.
+
+
+CPDAGs and MPDAGs. All DAGs that encode the same set of conditional inde-
+pendences are Markov equivalent and form a Markov equivalence class of DAGs, which
+can be represented by a completed partially directed acyclic graph (CPDAG) (Meek, 1995;
+Andersson et al., 1997). A PDAG G is a maximally oriented PDAG (MPDAG) if and
+only if the edge orientations in G are complete under rules R1-R4 in Figure 3 (Meek,
+1995). An MPDAG is also known as CPDAG with background knowledge (Meek, 1995).
+As such, both a DAG and a CPDAG can be seen as special cases of an MPDAG. Any
+graph in this paper can hence be labeled an MPDAG.
+
+G and [G]. A DAG D = (V, E, ∅) is represented by MPDAG G = (V, E 0 , U 0 ) if D and G
+have the same adjacencies, same unshielded colliders and if E 0 ⊆ E (Meek, 1995). If G
+                                                                                      0
+is an MPDAG, then [G] denotes the set of all DAGs represented by G. An MPDAG G
+is said to be represented by another MPDAG G if [G 0 ] ⊆ [G].
+
+Causal MPDAGs. An observational or interventional density is consistent with MPDAG
+G if it is consistent with a DAG D in [G]. An MPDAG G = (V, E, U ) is causal if it rep-
+resents the causal DAG.
+
+Concatenation. We denote the concatenation of paths by ⊕, so that for a path p =
+hV1 , V2 , . . . , Vm i, p = p(V1 , Vr ) ⊕ p(Vr , Vm ), for 1 ≤ r ≤ m.
+
+Buckets and bucket decomposition (Perković, 2020). A node set A, A ⊆ V is
+an undirected connected set in G = (V, E, U ) if for every two distinct nodes Ai , Aj ∈ A,
+Ai − · · · − Aj is in G. If node set B, B ⊆ D ⊆ V , is a maximal undirected connected
+subset of D in G = (V, E, U ), we call B a bucket in D. Additionally, D can be partitioned
+into D = D1 ∪ · · · ∪ DK , where each Dk , k ∈ {1, . . . , K} is a bucket in D and Di ∩ Dj = ∅
+for i 6= j. We call the above partitioning of D into buckets the bucket decomposition.
+Furthermore, D1 , . . . , DK can be ordered in such a way that if D1 → D2 and D1 ∈ Di ,
+D2 ∈ Dj , then i < j; see PCO algorithm of Perković (2020).
+
+
+                                              6
+3    Main Results
+A total effect of A on Y is generally defined as some functional of the interventional
+density f (xy | do(XA = xa )) (or f (xy | do(xa )) for short), such as d E[Xy | do(xa )]/ dxa for
+continuous treatments and E[Xy | do(xa = 1)] − E[Xy | do(xa = 0)] for binary treatments;
+see, e.g., Hernán and Robins (2020, Ch. 1). For the common definitions, the total effect of
+A on Y is identified in MPDAG G if and only if f (xy | do(xa )) can be identified from any
+observational density f (x) consistent with G (Galles and Pearl, 1995; Perković, 2020). In
+this section, we show how to identify all MPDAGs represented by a given MPDAG G =
+(V, E, U ) that have distinct identification maps for f (xY | do(xA )), A, Y ⊆ V . Formally,
+the identification is a map from the space of observational densities that are consistent
+with G to the space of conditional kernels:
+
+                         f ∈ P(G) 7→ f (xY | do(xA )) ∈ K(XA , XY ),
+
+where K(XA , XY ) is the set of densities on the domain of Y indexed by A. The identifica-
+tion (see Theorem 6) is possible if and only if G meets the following graphical condition.
+
+Theorem 1 (Identifiability condition of Perković (2020)). Let G = (V, E, U ) be a causal
+MPDAG for a random vector X. Further, let A and Y be disjoint node sets in G. The
+total effect of A on Y is identified in G if and only if every proper possibly causal path
+from A to Y starts with a directed edge in G.
+
+    It follows that, if a total effect of A on Y is not identified given MPDAG G, then
+there is at least one proper possible causal path from A to Y in G that starts with an
+undirected edge A1 − V1 for A1 ∈ A and V1 ∈ V . Therefore, to identify the total effect,
+one can enumerate all the valid combinations of orientations just for the undirected edges
+of this type.
+    As an example, consider MPDAG G in Fig. 2(a). Paths A−V1 −Y and A−V2 −V1 −Y
+are two proper possibly causal paths from A to Y in G that start with an undirected
+edge. There are four ways to orient the two starting edges:
+
+                   R1 = {A ← V2 , A → V1 },        R2 = {A → V2 , A → V1 }
+                   R3 = {A → V2 , A ← V1 },        R4 = {A ← V2 , A ← V1 }.
+
+Using algorithm MPDAG(G, Ri ) for i = 1, . . . , 4 (Meek, 1995; Perković et al., 2017, see
+Algorithm 2 in the Appendix), which adds orientations Ri and then completes the rules
+of Meek (1995) in Fig. 3, we obtain the four MPDAGs listed in Fig. 2(c). Now the effect
+of A on Y can be identified and estimated under each of the four MPDAGs.
+    This procedure already improves over the current standard IDA and joint-IDA al-
+gorithms (Maathuis et al., 2009; Nandy et al., 2017; Perković et al., 2017; Witte et al.,
+2020) because orientations of fewer edges are considered — IDA and joint-IDA orient
+all undirected edges connected to A. However, we claim that it suffices to consider even
+fewer edges. The next theorem characterizes the minimal amount of edge orientation
+needed to identify a total effect. Its proof is left to the Appendix.
+
+
+                                               7
+ Algorithm 1: IDGraphs
+  input : MPDAG G, disjoint node sets A and Y
+  output: the minimal set of MPDAGs with identified effects that partition G
+ 1 if G satisfies the condition in Theorem 1 then
+ 2    return G;
+ 3 else
+ 4    Let A1 − V1 be an edge in G that satisfies Theorem 2;
+ 5    G1 = MPDAG(G, {A1 → V1 });
+ 6    G2 = MPDAG(G, {A1 ← V1 });
+ 7    return {IDGraphs(A, Y, G1 ), IDGraphs(A, Y, G2 )};
+ 8 end
+
+
+
+
+Theorem 2. Let G = (V, E, U ) be a causal MPDAG. Let A and Y be disjoint node
+sets in G such that the total effect of A on Y is not identified given G. Suppose p =
+hA1 , V1 , . . . , Y1 i for A1 ∈ A, Y1 ∈ Y is a shortest proper possibly causal path from A to
+Y such that A1 − V1 . Then the total effect of A on Y is not identified in any MPDAG
+G ∗ that is represented by G and contains the undirected edge A1 − V1 .
+
+     In the above, we say that G ∗ is represented by G if all DAGs represented by G ∗ are
+also represented by G. Implicit in Theorem 2 is the fact that when there are more than
+one paths that violate the identifiability condition (Theorem 1), the order in which we
+orient them matters. In particular, the/a shortest path should be oriented first.
+     Consider again G in Fig. 2(a). Because A − V1 − Y is shorter than A − V2 − V1 − Y ,
+edge A − V1 should be oriented first. In fact, as soon as this edge is oriented as A ← V1 ,
+the acyclicity of the underlying DAG renders both paths A ← V1 − Y and A − V2 − V1 − Y
+as non-causal from A to Y ; see the second row of Fig. 2(d).
+     This characterization naturally leads to a recursive algorithm IDGraphs (Algorithm
+1). The IDGraphs algorithm takes MPDAG G and node sets A, Y as input and outputs
+a finite set of MPDAGs {G1 , . . . , Gn } that partition G, such that (i) the total effect of A
+on Y is identified in every Gi and (ii) the effects identified from Gi and Gj are different
+for i 6= j. Property (ii), formally stated in Theorem 3, shows that the enumeration
+is minimal. Additionally, by construction, it holds that n ≤ 2m(G) , where m(G) is the
+number paths that violate the condition in Theorem 1.
+     To explain how the algorithm works, consider again the example in Fig. 2(a). As
+we have already seen, IDGraphs first orients edge A − V1 in G. We obtain G1 =
+MPDAG(G, {A1 → V1 }) and G2 = MPDAG(G, {A1 ← V1 }). Note that the effect is already
+identified in G2 (second row of Fig. 2(d)) so G2 appears in the output. The effect in G1 is
+still not identified and the algorithm proceeds to orient edge A − V2 , which leads to the
+other two graphs in the output (first row of Fig. 2(d)).
+     Note that, however, if A − V2 was oriented before A − V1 , we would arrive at four
+MPDAGs (Fig. 2(c)) instead of three!
+     The next theorem summarizes the theoretical guarantees of IDGraphs. We prove the
+minimality constructively; see the Appendix for details.
+
+                                              8
+Theorem 3. Suppose G is a causal MPDAG and A, Y are two disjoint node sets in G.
+Let L = {G1 , . . . , Gn } be the output of IDGraphs(A, Y, G). Then the following statements
+hold.
+
+  (i) The total effect of A on Y is identified in each Gi .
+
+ (ii) For any i 6= j, there exists an observational density f that is consistent with G such
+      that the effect identified from f in Gi is different from the effect identified from f
+      in Gj .
+
+(iii) L is a partition of G in terms of DAGs represented.
+
+Proof sketch. Here we sketch out the proof of (ii); see the Appendix for details. For
+two MPDAGs G1 and G2 output by IDGraphs, we construct a density f that factorizes
+according to G1 (and G2 , due to Markov equivalence) but such that E[XY |do(XA = 1)]
+has different values under G1 and G2 . There are two steps in this construction.
+    First, we establish some graphical differences between G1 and G2 that stem from the
+application of Thm 3.2 in the IDGraphs algorithm. Consider representing the recursion
+of IDGraphs as a binary tree and let G ∗ be the lowest common ancestor of G1 and G2 .
+WLOG, suppose A1 − V1 ∈ G ∗ but A1 → V1 ∈ G1 , A1 ← V1 ∈ G2 . Let p∗ be the shortest
+possibly causal path from A to Y in G ∗ that starts with A1 − V1 . Then difference in
+terms of p∗ between G1 and G2 can be categorized into two cases, depending on if p∗
+is shielded, given by Lemma B.1 in the Appendix. For each case, we parametrize two
+linear Gaussian DAGs D1 ∈ [G1 ] and D2 ∈ [G2 ] such that their observed distributions
+are identical (by matching the first two moments) but values of E[XY | do(XA = 1)] are
+different.
+
+3.1   Examples
+Suppose that a total effect of interest is not identified in an MPDAG G. In order to
+obtain a set of possible total effects, one needs to enumerate the MPDAGs represented
+by G in which the total effect is identified. In below, we consider four methods that have
+appeared in our discussion so far, listed from the most computationally demanding to
+the least.
+
+Method 1 List all DAGs represented by G. This is adopted by the global IDA algorithm
+    of Maathuis et al. (2009).
+
+Method 2 List MPDAGs corresponding to all valid orientations for undirected edges
+    attached to A. This is adopted by the local/semi-local IDA algorithms of Maathuis
+    et al. (2009); Perković et al. (2017); Witte et al. (2020) and the joint-IDA algorithm
+    of Nandy et al. (2017).
+
+Method 3 List MPDAGs corresponding to all valid combinations of edge orientations
+    for edges A1 − V1 , A1 ∈ A, V1 ∈ V , such that V1 is on a proper possibly causal path
+    from A to Y in G.
+
+
+                                             9
+Method 4 Use IDGraphs(A, Y, G).
+
+These methods are compared through two examples, one for point intervention (|A| = 1)
+and one for joint intervention (|A| = 2).
+
+Example 4 (|A| = 1). Consider again G in Fig. 2(a). Recall that Method 1 lists 7
+DAGs shown in Fig. 2(b) and Method 4 lists 3 MPDAGs shown in Fig. 2(d). And as
+discussed earlier, both Method 2 and Method 3 would orient edges A − V2 and A − V1 ,
+and hence list 4 MPDAGs shown in Fig. 2(d).
+
+
+
+
+         V1         Y
+
+
+         A1         A2
+              (a)
+
+
+
+
+                                                            (b)
+
+Figure 4: Example 5. (a) MPDAG G, (b) all MPDAGs with distinct causal identification
+formulas for f (xY | do(xA1 , xA2 )) represented by G.
+
+
+Example 5 (|A| = 2). Consider MPDAG G in Fig. 4(a) and let A = {A1 , A2 }. Method
+4 yields 9 MPDAGs listed in Fig. 4(b), which correspond to 9 distinct possible effects of
+(A1 , A2 ) on Y . Method 2 would consider all valid combinations of orientations for edges
+A1 −A2 , A1 −V1 , A1 −Y , A2 −V1 , and A2 −Y , resulting in 18 MPDAGs. Lastly, Method
+3 would consider all valid combinations of orientations for edges A1 −V1 , A1 −Y , A2 −V1 ,
+and A2 − Y , resulting in 12 MPDAGs.
+
+3.2   Computational Complexity
+The computational complexities of various algorithms are summarized in Table 1. Here
+l(G) is the number of undirected edges incident to A. For the running time of collapsible
+IDA (Liu et al., 2020), O(|V | + |E|) reflects finding the neighbors of A that are on
+a possible causal path to Y and r(G) is the size of that subset. Both local IDA and
+collapsible IDA are only applicable when |A| = 1.
+    For more general settings, our IDGraphs algorithm is asymptotically on par with semi-
+local (Maathuis et al., 2009; Perković et al., 2017), joint (Nandy et al., 2017), and optimal
+(Witte et al., 2020) variants of the IDA algorothm. The running time of these methods is
+
+                                             10
+                                                      Table 1: Computational complexity
+
+                                         local IDA                                 O(2l(G) )
+                                         collapsible IDA                           O((|V | + |E|)2r(G) )
+                                         semi-local/joint/optimal IDA              O(2l(G) )poly(|V |)
+                                         IDGraphs                                  O(2m(G) )poly(|V |)
+
+
+bounded by O(2l(G) )poly(|V |), where poly(|V |) time is used to complete the orientation
+rules of Meek (1995). Similarly, the complexity of IDGraphs is O(2m(G) )poly(|V |), where
+m(G) is the number of undirected edges incident to A on a proper possibly causal path
+from A to Y (Theorem 1). Clearly, we have m(G) ≤ l(G). The number of recursions is
+bounded by 2m(G) and the time for each recursion by poly(|V |), which includes completing
+the orientation rules, checking the condition of Theorem 1, and identifying the shortest
+path (Theorem 2) if the condition is not met.
+    In practice, from the simulations in Section 4, we find that IDGraphs roughly costs
+twice the time of IDA type algorithms; see Fig. 5.
+
+                                             |A|: 1         |A|: 2        |A|: 3         |A|: 4
+             avg. run time (secs)
+
+
+
+
+                                    30
+                                                                                                     local-IDA
+                                    20                                                               optimal-IDA
+                                                                                                     joint−IDA
+                                    10
+                                                                                                     IDGraphs
+                                     0
+                                         0 10 20 30 40 0 10 20 30 40 0 10 20 30 40 0 10 20 30 40
+                                                             average degree
+
+Figure 5: Average run time versus the average node degree of the graph (shade: 95%
+confidence band).
+
+
+3.3   Corollaries of the Main Result
+Having obtained a set of MPDAGs from the IDGraphs algorithm, the total effect can be
+estimated for each graph. Some recently developed efficient estimators can be employed,
+including the semiparametric efficient estimator of Rotnitzky and Smucler (2020) and the
+efficient least-squares estimator of Guo and Perković (2020) under linearity assumptions.
+This strategy applies to any other causal quantity that is a functional of the interventional
+density.
+
+Theorem 6 (Causal identification formula, Perković, 2020). Let G be a causal MPDAG.
+Suppose G satisfies the identifiability condition in terms of the total effect of A on Y
+(Theorem 1). Further, let B = An(Y, GV \A ) \ Y and let B1 , . . . , Bk be the bucket decom-
+position of B ∪ Y . Then for any observational density f that is consistent with G, we
+
+
+
+
+                                                                        11
+have
+                                                k
+                                              Z Y
+                         f (xy | do(xa )) =          f (xbi |xPa(bi ,G) ) dxb ,                          (2)
+                                               i=1
+
+where values of xPa(bi ,G) are consistent with xa .
+
+    Let L be the output of IDGraphs(A, Y, G).
+
+Corollary 7. Then there are no two graphs in L that share the same formula Eq. (2).
+
+    Another prominent method for identifying the interventional density is through co-
+variate adjustment. The IDA algorithms of Maathuis et al. (2009); Perković et al. (2017);
+Witte et al. (2020) are based on covariate adjustment for causal linear models. See
+Perković (2020) for the generalized adjustment criterion, which is necessary and suffi-
+cient for covariate adjustment in MPDAGs and generalizes the well-known back-door
+formula of Pearl (1993).
+
+Corollary 8. Then there are no two MPDAGs in L that share the same adjustment set
+relative to (A, Y ). Further, if |A| = |Y | = 1, then there exists an adjustment set relative
+to (A, Y ) for each MPDAG in L.
+
+
+4      NUMERICAL RESULTS
+
+Table 2: Estimates of possible effects for the example in Fig. 7. Symbol (a)b denotes
+value a with multiplicity b in the multiset. Note that IDA (local) and joint-IDA return
+more values than the number of possible effects.
+
+
+                                       A1 on Y (Fig. 7(c))              A1 , A2 on Y (Fig. 7(d))
+ true effect                           3                                (2,1)
+ true possible effects                 {3, 2, 1.8, 0}                   {(2, 1), (3, 0), (0, 2), (0, 0)}
+ our method                            {2.9, 2.1, 1.9, 0}               {(2.1, 0.9), (2.9, 0), (0, 1.9), (0, 0)}
+ IDA (optimal) (Witte et al., 2020)    {2.9, (2.1)2 , 1.9, 0}           {(2.1, 0.9)6 , (0, 0)2 , (NA, NA)2 }
+ IDA (local) (Maathuis et al., 2009)   {2.9, 2.1, 2.2, 1.9, 0}          —
+ joint-IDA (Nandy et al., 2017)        —                                {(2.1, 0.9)2 , (2.2, 0.9), (1.9, 1.1), (2.2, 1.1)2 ,
+                                                                          (0, 1.9), (2.9, 0), (0, 0)2 }
+
+
+
+   We present numerical results on estimating possible total effects under a linear causal
+model (Bollen, 1989). To fix the idea, consider the example in Fig. 7. Suppose data is
+generated from an underlying linear model
+
+                             XA1 = ε1 ,       XA2 = γ12 XA1 + ε2 ,
+                             XV = γ13 XA1 + γ23 XA2 + ε3 ,
+                             XY = γ14 XA1 + γ24 XA2 + ε4 ,
+
+
+                                                12
+Figure 6: Size of estimates vs. the number of possible effects on random instances (left:
+|A| = 1, right: |A| > 1). Both axes are in logarithmic scale. A dot on the graph
+represents either the size of the multiset (N) or the number of distinct values (•).
+
+
+associated with causal DAG D given by (a). In this case, we set γ14 = γ23 = 2 and
+γ12 = γ13 = γ24 = 1. The errors εi for i = 1, . . . , 4 are drawn independently from the
+standard normal distribution. Suppose the causal DAG is known up to its CPDAG G
+(no added background knowledge), which is shown in (b). We consider estimating the
+total effect of A1 on Y (point intervention), and the total effect of (A1 , A2 ) on Y (joint
+intervention).
+
+                        A1                                      A1
+
+                        A2                                      A2
+
+                  V            Y                          V            Y
+                        (a)                                     (b)
+
+
+
+
+                        (c)                                     (d)
+
+Figure 7: Estimating possible total effects under a linear causal model: (a) the un-
+derlying causal DAG D, (b) CPDAG G that represents D, (c) IDGraphs(A1 , Y, G), (d)
+IDGraphs({A1 , A2 }, Y, G).
+
+    Table 2 shows the estimates from 100 samples, where “our method” refers to applying
+the efficient estimator of Guo and Perković (2020) to each graph returned by IDGraphs. In
+general, the IDA algorithms enumerate possible graphs where the effect is identified and
+return the estimates as a multiset; see Method 1 and Method 2 in Section 3.1. Further,
+the distinct values of the multiset can be taken as the estimates of possible effects.
+
+                                            13
+However, as we can see, one possible effect can correspond to more than one distinct
+values due to sampling variability. Moreover, NA’s are produced when applying IDA
+(optimal) to joint interventions due to nonexistence of valid adjustment sets (Perković
+et al., 2018).
+    To examine these issues in more generality, we simulate random instances and com-
+pare the size of estimates to the true number of possible effects. Causal DAG D is
+generated by sampling from the Erdős-Rényi model and assigning a random causal or-
+dering. We consider graphs of size p = 10 and p = 50, where the average degree k is
+drawn from {2, . . . , 8} for the former and {2, . . . , 45} for the latter. We take G to be the
+CPDAG of D. Treatment variables A and outcome Y are randomly selected such that the
+total effect of A on Y is unidentified from G. The size of A varies from 1 to 4. For each
+instance, given its G and 500 independent samples generated by a corresponding linear
+causal model (with random coefficients and errors drawn from the standard normal), the
+possible effects of A on Y are estimated.
+    The result is summarized in Fig. 6 from roughly 55,000 random instances. For point
+interventions (left panel), IDA (local) produces duplicates, i.e., more distinct values than
+the actual number of possible effects, especially when the number of possible effects
+is small, whereas IDA (optimal) returns the correct number of distinct values. For
+joint interventions (right panel), the joint-IDA algorithm often suffers from an excessive
+amount of duplicates, while IDA (optimal), on the other hand, severely underreports the
+size of possible effects due to too many NA’s it produced — note the logarithmic scale of
+both axes. Therefore, our IDGraphs algorithm, in conjunction with a statistically efficient
+estimator of an identified effect, should be used in place of IDA algorithms in both cases,
+to avoid unnecessary computational overhead and deliver causally informative estimates.
+
+
+5    DISCUSSION
+We have studied the set-identification of a total effect given that the underlying causal
+DAG is known up to a Markov equivalence class or its refinement. Existing enumerative
+approaches to this problem are often not minimal, which cause unnecessary computa-
+tional overheads and undesirable statistical duplicates. To ensure minimality, there are
+two key ingredients. The first is to determine the class of DAGs that should be grouped
+together, which is given by the identifiability condition of Theorem 1. This condition
+locates the set of “problematic” undirected edges that must be oriented, while the other
+undirected edges can be left intact. The second key ingredient is to determine the or-
+der in which the “problematic” edges are oriented. This order dependency is tricky
+because orienting one edge may imply the orientation of another edge due to the orien-
+tation rules (Meek, 1995). Perhaps surprisingly, the optimal order can be determined,
+which is to orient the shortest “problematic” path first (Theorem 2). This naturally
+leads to IDGraphs, a simple recursive algorithm that guarantees minimal enumeration
+(Theorem 3). IDGraphs can be readily used in conjunction with recent developments in
+efficient estimation (Henckel et al., 2019; Rotnitzky and Smucler, 2020; Guo and Perković,
+2020) to deliver informative estimates of the true causal effect. From this perspective,
+our result can be viewed as separating two sources of uncertainty — identification and
+
+                                              14
+estimation — the two crucial steps in causal inference.
+    One may wonder whether this approach can be extended to allow latent variables.
+The latent variable IDA (LV-IDA) algorithm of Malinsky and Spirtes (2017) employs a
+strategy similar to the IDA algorithm, but instead given a partial ancestral graph (PAG).
+A PAG represents a Markov equivalence class of maximal ancestral graphs (MAGs),
+which are obtained from DAGs by marginalizing over latent variables. For one obstacle in
+this setting, it still unclear how to incorporate background knowledge of edge orientations
+into a PAG. In addition, Jaber et al. (2019) recently showed that if an effect is not
+identified given a PAG, then there is at least one MAG in the Markov equivalence class
+in which the effect is still not identified (see their Theorem 4) — the same enumeration
+strategy will no longer work.
+    We conclude with a final remark. Strictly speaking, the local versions of IDA and
+joint-IDA algorithms only require the neighborhood information of A instead of the
+whole MPDAG. Yet, it is unclear whether there are many situations where one knows
+the neighborhood without knowing more structures.
+
+Acknowledgment          FRG acknowledges the support from ONR Grant N000141912446.
+
+
+A     Additional Preliminaries
+Lemma A.1 (Rules of the do-calculus, Pearl, 2009). Let A, Y, Z and W be pairwise
+disjoint (possibly empty) node sets in causal DAG D = (V, E, ∅). Let DA denote the
+graph obtained by deleting all edges into A from D. Similarly, let DA denote the graph
+obtained by deleting all edges out of A in D and let DAZ denote the graph obtained by
+deleting all edges into A and all edges out of Z in D.
+    Rule 1. If Y ⊥DA Z|A ∪ W , then f (xy | do(xa ), xw ) = f (xy | do(xa ), xz , xw ).
+    Rule 2. If Y ⊥DAZ Z|A ∪ W , then f (xy | do(xa ), do(xz ), xw ) = f (xy | do(xa ), xz , xw ).
+    Rule 3. If Y ⊥DAZ(W ) Z|A∪W , then f (xy | do(xa ), xw ) = f (xy | do(xa ), xz , xw ), where
+Z(W ) = Z \ An(W, DA ).
+
+Lemma A.2 (Lemma 3.6 of Perković et al., 2017). Let A and Y be distinct nodes in a
+MPDAG G. If p is a possibly causal path from A to Y in G, then a subsequence p∗ of p
+forms a possibly causal unshielded path from A to Y in G.
+
+Lemma A.3 (Wright’s rule, Wright, 1921). Let X = AX +ε, where A ∈ Rp×p , X = XV ,
+|V | = p, and ε = (ε1 , . . . , εp )T is a vector of mutually independent errors with means zero
+and proper variance such that var(Xi ) = 1, for all i ∈ {1, . . . , p}. Let D = (V, E, ∅), be
+the corresponding DAG For two distinct nodes i, j ∈ V , let p1 , . . . , pPk be all paths between
+i and j in D that do not contain a collider. Then cov(Xi , Xj ) = kr=1 πr , where πr is
+the product of all edge coefficients along path pr , r ∈ {1, . . . , k}.
+
+Lemma A.4. (See, e.g., Mardia et al., 1980, Theorem 3.2.4) Let X = (X1 , X2 ) be a
+p-dimensional multivariate
+                       Gaussian
+                                random vector with mean vector µ = (µ1 , µ2 ) and
+                       Σ11 Σ12
+covariance matrix Σ =           , so that X1 is a q-dimensional multivariate Gaussian
+                       Σ21 Σ22
+
+                                               15
+ Algorithm 2: MPDAG (see also Meek, 1995 and Algorithm 1 of Perković et al.,
+ 2017)
+   input : MPDAG G, set of background knowledge edge orientations R.
+   output: MPDAG G 0 or FAIL.
+ 1 Let G 0 = G;
+ 2 while R 6= ∅ do
+ 3    Choose an edge {U → V } in R;
+ 4    R = R \ {U → V };
+ 5    if {U − V } or {U → V } is in G 0 then
+ 6        Orient {U → V } in G 0 ;
+ 7        Iterate the rules in Fig. 3 of until no more can be applied;
+ 8    else
+ 9        FAIL;
+10    end
+11 end
+12 return G 0 ;
+
+
+
+
+random vector with mean vector µ1 and covariance matrix Σ11 and X2 is a (p − q)-
+dimensional multivariate Gaussian random vector with mean vector µ2 and covariance
+matrix Σ22 . Then E[X2 |X1 = x1 ] = µ2 + Σ21 Σ−1
+                                              11 (x1 − µ1 ).
+
+
+
+
+B     Proofs Of Main Results
+Proof of Theorem 2. Let p = hA1 , V1 , . . . , Vk = Y1 i, k ≥ 1, A1 ∈ A, Y1 ∈ Y . If k = 1,
+that is, A1 − Y1 is in G, the proposition clearly holds. Hence, we will assume k > 1.
+Suppose for a contradiction that there is an MPDAG G ∗ represented by G such that
+A1 − V1 is in G ∗ and that the total effect of A on Y is identified in G ∗ . Further, let p∗ be
+the path in G ∗ that corresponds to path p in G, so that p and p∗ are both sequences of
+nodes hA1 , V1 , . . . , Vk = Y1 i, k > 1.
+    Since the total effect of A on Y is identified in G ∗ , and because p∗ is a proper path
+from A to Y that starts with an undirected edge in G ∗ , by Theorem 1, p∗ must be a
+non-causal path from A1 to Y1 in G ∗ . We show that this implies that A1 − V1 ← V2 and
+A1 → V2 are in G ∗ , which contradicts that G ∗ is an MPDAG (because orientations in G ∗
+are not complete with respect to R2 in Fig. 3).
+    We first show that any existing edge between A1 and Vi , i ∈ {2, . . . , k} in G is of the
+form A1 → Vi . Suppose that there is an edge between A1 and Vi , in G. This edge is
+cannot be of the form A1 ← Vi , since that would imply that p is a non-causal path in
+G. This edge also cannot be of the form A1 − Vi , because otherwise we can concatenate
+A1 − Vi and p(Vi , Y1 ) to construct a proper possibly causal path from A to Y in G that is
+shorter than p. Hence, any existing edge between A1 and Vi must be of the form A1 → Vi
+in G and G ∗ .
+
+
+                                              16
+     Next, we show that p∗ (V1 , Y1 ) starts with edge V1 ← V2 in G. Since p is chosen as
+a shortest proper possibly causal path from A to Y that starts with an undirected edge
+in G, p(V1 , Y1 ) is a proper possibly causal definite status path in G (Lemma A.2). Then
+p∗ (V1 , Y1 ) is also a path of definite status in G ∗ . Additionally, since p(V1 , Y1 ) is a possibly
+causal definite status path in G, there cannot be any collider on p∗ (V1 , Y1 ).
+     Furthermore, p∗ is a non-causal path, A1 − V1 is in G ∗ , and any edge between A1 and
+Vi , i ∈ {2, . . . , k} is of the form A1 → Vi , so p∗ (V1 , Y1 ) must be a non-causal path from V1
+to Y . Since p∗ (V1 , Y1 ) is a non-causal definite status path without any colliders, it must
+start with an edge into V1 , that is V1 ← V2 is on p∗ (V1 , Y1 ) in G ∗ . Then A1 − V1 ← V2 is
+in G ∗ .
+     Now, p∗ (A1 , V2 ) is of the form A1 − V1 ← V2 , so for G ∗ to be an MPDAG, hA1 , V2 i is
+in G ∗ (R1 in Fig. 3). Then A1 → V2 → V1 and A1 − V1 are in G ∗ , which by R2 in Figure
+Fig. 3 contradicts that G ∗ is an MPDAG.                                                            
+
+Proof of Theorem 3. Statement (iii) directly follows from the construction of the al-
+gorithm. Statement (i) follows from the construction of the algorithm and Theorem 1.
+    Now we prove statement (ii). The proof follows a similar reasoning as the proof of
+Theorem 2 of Shpitser and Pearl (2006), proof of Theorem 57 of Perković et al. (2018)
+and proof of Proposition 3.2. of Perković (2020).
+    Suppose for a contradiction that |L| ≥ 2 and let G1 and G2 be two different MPDAGs
+in L. Since G1 and G2 are both represented by G, any observational density f consistent
+with G is also consistent with G1 and G2 due to Markov equivalence.
+    Let [G] denote the set of DAGs represented by G. Let f1 (xY | do(xA )) denote the
+density of XY under the intervention do(XA = xA ) computed from f (x) assuming that
+the causal DAG belongs to [G1 ]. Analogously, let f2 (xY | do(xA )) denote the density of
+XY under the intervention do(XA = xA ) computed from f (x) assuming that the causal
+DAG belongs to [G2 ]. For the above interventional densities of XY to differ, it suffices
+to show that E1 [XY | do(XA = 1)] 6= E2 [XY | do(XA = 1)], where do(XA = 1) indicates
+a do intervention that sets the value of every variable indexed by A to 1, and E1 and
+E2 correspond to f1 and f2 respectively. Furthermore, it suffices to show that there is a
+node Y1 ∈ Y such that E1 [XY1 | do(XA = 1)] 6= E2 [XY1 | do(XA = 1)].
+    The stages of this proof are as follows. First, we will first establish some graphi-
+cal differences between G1 and G2 that stem from the application of Theorem 2 in the
+IDGraphs algorithm (Algorithm 1). These graphical differences will be categorized as
+cases (i) and (ii) in Lemma B.1 below. Then, for each case, we will construct a linear
+causal model with Gaussian noise that imposes an observational density f (x) consistent
+with G1 and G2 such that E1 [XY1 | do(XA = 1)] 6= E2 [XY1 | do(XA = 1)], which gives us
+the desired contradiction.
+    First, we establish the pertinent graphical differences between G1 and G2 . For this
+purpose, let R1 and R2 be the list of edge orientations that were added to G to con-
+struct G1 and G2 by the IDGraphs algorithm. That is G1 = MPDAG(G, R1 ) and G2 =
+MPDAG(G, R2 ). Without loss of generality, suppose that the edge orientations in R1
+and R2 are listed in the order that they were added by the IDGraphs algorithm.
+    By construction of R1 and R2 , there is at least one edge whose orientation differs
+
+
+                                                 17
+              A1     V1             Y1                      A1      V1            Y1
+                          (a)                                            (b)
+
+Figure B.1: DAGs (a) D11 and (b) D21 corresponding to (i) in the Proof of Theorem 3.
+
+between R1 and R2 . Without loss of generality, let A1 → V1 , A1 ∈ A, V1 ∈ V \ A be the
+first edge in R1 such that A1 ← V1 is in R2 . Also, let R∗ be the list of edge orientations
+that come before A1 → V1 in R1 and let G ∗ = MPDAG(G, R∗ ). Then by Theorem 2, the
+total effect of A on Y is not identified given G ∗ .
+     Among all the shortest proper possibly causal paths from A to Y that start with
+an undirected edge in G ∗ , choose p∗ as one that starts with A1 − V1 , p∗ = hA1 =
+V0 , V1 , . . . , Vk = Y1 i, Y1 ∈ Y . Let p1 be the path in a DAG D1 in [G1 ] that consists of
+the same sequence of nodes as p∗ in G ∗ . Analogously, let p2 be the path in a DAG D2 in
+[G2 ] that consists of the same sequence of nodes as p∗ .
+     By Lemma B.1 we have the following cases:
+  (i) if p∗ is unshielded in G ∗ , then p1 is of the form A1 → V1 → · · · → Y1 , and p2 starts
+      with edge A1 ← V1 .
+ (ii) if p∗ is a shielded path in G ∗ , then A1 → Vi , i ∈ {1, . . . , r}, 2 ≤ r ≤ k, is in G ∗ , p2
+      is of the form A1 ← V1 → · · · → Vr → · · · → Y1 , and
+       (a) p1 is of the form
+           A1 → V1 → · · · → Vr → · · · → Y1 , or
+       (b) p1 is of the form
+           A1 → V1 ← · · · ← Vl → · · · → Y1 , 2 ≤ l ≤ r.
+We will now show how to choose a linear causal model consistent with G1 and G2 in each
+of the above cases that results in E1 [XY1 | do(XA = xA )] 6= E2 [XY1 | do(XA = xA )].
+    (i) Consider a multivariate Gaussian density over X with mean zero, constructed
+using a linear causal model with Gaussian noise consistent with D1 and thus, also G1
+(due to Markov equivalence). We define the linear causal model in such a way that all
+edge coefficients except for the ones on p1 are 0, and all edge coefficients on p1 are in
+(0, 1) and small enough so that we can choose the error variances in such a way that
+var(Xi ) = 1 for every i ∈ V .
+    The density f (x) generated in this way is consistent with D1 and thus also consistent
+with G1 and G2 (Lauritzen et al., 1990). Moreover, f (x) is consistent with DAG D11
+that is obtained from D1 by removing all edges except for the ones on p1 ; see Figure
+B.1(a). Additionally, D11 is Markov equivalent to DAG D21 , which is obtained from D2
+by removing all edges except for those on p2 ; see Figure B.1(b). Hence, f (x) is also
+consistent with D21 .
+    Let f1 (xY1 | do(xA )) be an interventional density of XY1 under the intervention do(XA =
+xA ) that is consistent with D11 (and D1 ). By Rules 3 and 2 of the do-calculus (Lemma A.1),
+we have
+                      f1 (xY | do(xA )) = f1 (xY | do(xA1 )) = f (xY |xA1 ).
+
+
+                                                18
+                          ···                                                   ···
+      A1    V1      V2    ···   Vr   ···         Y1              A1   V1   V2   ···        Vr   ···   Y1
+                          (a)                                                   (b)
+
+
+                                           ···             ···
+                         A1     V1   V2               Vl              Vr              Y1
+                                                      (c)
+
+Figure B.2: DAGs (a) D22 , (b) D11 , and (c) D12 corresponding to (ii)a and (ii)b in the
+Proof of 3.
+
+                               R
+So E1 [XY1 | do(XA = 1)] = xY1 f (xY |XA1 = 1) dxY1 = cov(XY1 , XA1 ) = a by Lemma A.4.
+Additionally, by Lemma A.3, a is equal to the product of all edge coefficients along p1
+and so a ∈ (0, 1).
+     Similarly, let f2 (xY1 | do(xA )) be an interventional density of XY1 consistent with
+D21 (and D2 ). Then f2 (xY1 | do(xA )) = f (xY1 ) by Rule 3 of Lemma A.1. Hence,
+E2 [XY1 | do(XA = 1)] = E[XY1 ] = 0. Since a 6= 0, this completes the proof for case
+(i).
+     (ii) Consider a multivariate Gaussian density over X with mean zero, constructed
+using a linear causal model with Gaussian noise consistent with D2 . We define the causal
+model in a way such that all edge coefficients except for the ones on p2 and A1 → Vi ,
+i ∈ {2, . . . , r} are 0, and all edge coefficients on p2 and A1 → Vi are in (0, 1) and small
+enough so in such a way that var(Xi ) = 1 for all i ∈ V .
+     The density f (x) generated in this way is consistent with D2 and G2 (Lauritzen et al.,
+1990). Moreover, f (x) is consistent with DAG D22 that is obtained from D2 by removing
+all edges except for the ones on p2 and A1 → Vi , i ∈ {2, . . . , r}, 2 ≤ r ≤ k; see Fig. B.2(a).
+Let f2 (xY1 | do(xA )) be an interventional density of XY1 under the intervention do(XA =
+xA ) that is consistent with D22 (and also D2 ).
+     We now have
+
+                 f2 (xY1 | do(xA )) = f2 (xY1 | do(xA1 ))
+                                      Z
+                                    = f (xY1 | do(xA1 ), xV1 )f (xV1 | do(xA1 )) dxV1
+                                      Z
+                                    = f (xY1 |xA1 , xV1 )f (xV1 ) dxV1 .                                   (3)
+
+The first line follows using Rule 3 of the do-calculus, and the third line follows from an
+application of Rule 2 and Rule 3; see Lemma A.1.
+   We now compute E2 [XY1 | do(XA = 1)]. For simplicity, we will use shorthands
+cov(XY1 , XA1 ) = a, cov(XY1 , XV1 ) = b and cov(XA1 , XV1 ) = c. Now, using Lemma A.4
+
+
+
+
+                                                      19
+and Eq. (3), we have
+                                     Z
+           E2 [XY1 | do(XA = 1)] =    E[XY1 |XA1 = 1, XV1 = xV1 ]f (xV1 ) dxV1
+
+                                             1 c −1 1
+                                    Z               
+                                      
+                                  =     a b                  f (xV1 ) dxV 1
+                                               c 1      xV1
+                                    Z                        
+                                         1        1 −c          1
+                                  =           a b                      f (xV1 ) dxV 1
+                                       1−c 2         −c    1    x V1
+                                    a − bc −ac + b               a − bc
+                                  =      2
+                                           +       2
+                                                      E[XV1 ] =          .
+                                    1−c       1−c                1 − c2
+    Now, consider the cases (ii)a and (ii)b. Note that f (x) is also consistent with D1 , G1
+and a DAG that is obtained from D1 by removing all edges except for the ones on p1 and
+A1 → Vi , i ∈ {2, . . . , r} (Lauritzen et al., 1990). Depending on case (ii)a or (ii)b, this
+will be either DAG D11 in Figure B.2(b) or DAG D12 in Figure B.2(c).
+    Let f11 (xY1 | do(xA )) and f12 (xY1 | do(xA )) be the interventional densities of XY1 that
+are consistent with D11 and D12 , respectively. Note that f11 (xY1 | do(xA )) = f12 (xY1 | do(xA ))
+since
+
+                     f11 (xY1 | do(xA )) = f11 (xY1 | do(xA1 )) = f (xY1 |xA1 )
+                                         = f (xY1 |xA ) = f12 (xY1 | do(xA )).               (4)
+
+The first two equalities above follow from Rule 3 and Rule 2 of the do-calculus, while
+the third and forth follow from Rule 1 and Rule 2; see again Lemma A.1. Hence,
+f1 (xY1 | do(xA )) = f11 (xY1 | do(xA )) = f12 (xY1 | do(xA )).
+    Using Equation (4) and Lemma A.4, we have E1 [XY1 | do(XA = 1)] = E[XY1 |XA1 =
+1] = cov(XY1 , XA1 ) = a. To show that E1 [XY1 | do(XA = 1)] 6= E2 [XY1 | do(XA = 1)], we
+need only to show that a 6= (a − bc)/(1 − c2 ).
+    We will show that b > ac and c > 0, which leads to a − bc < a − ac2 , that is
+(a − bc)/(1 − c2 ) < a. To show b > ac and c > 0, we need to discuss a, b and c in terms
+of the original linear causal model.
+    By Lemma A.3, we have that c = cov(XA1 , XV1 ) is equal the edge coefficient assigned
+to A1 ← V1 in D21 , and hence c ∈ (0, 1). Let a1 be the product of edge coefficients
+on p2 (V1 , Y1 ) and let ai be the product of edge coefficients along hA1 , Vi i ⊕ p2 (Vi , Y1 ),
+i ∈ {2, . . . , r}. Then ai ∈ (0, 1) for all i ∈ {1, . . . , r}. By Lemma A.3, we now have
+
+                        a = cov(XY1 , XA1 ) = c · a1 + a2 + · · · + ar ,
+                        b = cov(XY1 , XV1 ) = a1 + c · (a2 + · · · + ar ),
+
+which yields b − ac = a1 (1 − c2 ) > 0, completing the proof.                                  
+
+Lemma B.1. Suppose that the total effect of A on Y is not identified given MPDAG
+G. Let p = hA1 = V0 , V1 , . . . , Vk = Y1 i, k ≥ 1, A1 ∈ A, Y1 ∈ Y , be a shortest proper
+possibly causal path from A to Y in G. Let G1 = MPDAG(G, {A1 → V1 }) and G2 =
+MPDAG(G, {A1 ← V1 }). Let p1 and p2 be the paths in G1 and G2 respectively, that
+consist of the same sequence of nodes as p in G.
+
+                                                 20
+  (i) If p is an unshielded path in G, then
+
+         • p1 is of the form A1 → V1 → · · · → Y1 , and
+         • p2 is of the form A1 ← V1 . . . Y1 .
+
+ (ii) If p is a shielded path in G, then
+
+         • A1 → Vi is in G for all i ∈ {2, . . . , r}, r ≤ k, k > 1,
+         • p2 is of the form A1 ← V1 → · · · → Y ,
+         • Let D1 be a DAG in [G1 ] and let p11 be the path in D1 corresponding to p1 in
+           G1 and to p in G, then
+            (a) p11 is of the form A1 → V1 → · · · → Y1 in D1 , or
+            (b) p11 is of the form A1 → V1 ← · · · ← Vl → · · · → Y1 , 1 < l ≤ r in D1 .
+
+Proof of Lemma B.1. Path p is chosen as a shortest proper possibly causal path from
+A to Y that starts with an undirected edge in G. Hence, p(V1 , Y1 ) must be an unshielded
+possibly causal path from V1 to Y1 , otherwise we can choose a shorter path than p in G.
+This implies that no node Vi , i ∈ {2, . . . k − 1} can be a collider on either p1 or p2 .
+    (i) Suppose first that p itself is unshielded. That is, no edge hVi , Vi+2 i, i ∈ {0, k − 2}
+is in G. Of course, since G2 contains edge A1 ← V1 , p2 is of the form A1 ← V1 . . . Y1 .
+Hence, we only need to show p1 is a causal path in G2 .
+    Since p is unshielded, p1 is also an unshielded path. Since A1 → V1 is in G1 , as a
+consequence of iterative application of rule R1 of Meek (1995) (Fig. 3), p1 is a causal
+path in G1 .
+    (ii) Next, we suppose that p is shielded. We first show that A1 → Vi , for all i ∈
+{2, . . . , r}, r ≤ k is in G.
+    As discussed at the beginning of this proof, p(V1 , Y1 ) is unshielded. Therefore, since
+p is shielded and p(V1 , Y1 ) is unshielded, edge hA1 , V2 i is in G. Furthermore, since p
+is chosen as a shortest proper possibly causal path from A to Y that starts with an
+undirected edge in G, hA1 , V2 i must be of the form A1 → V2 .
+    If path hA1 , V2 i ⊕ p(V2 , Y1 ) is shielded, then by the same reasoning as above, A1 → V3
+is in G. We can continue with the same reasoning, until we reach Vr , r ∈ {2, . . . , k}, so
+that A1 → Vi is in G for i ∈ {2, . . . , r} and hA1 , Vr i ⊕ p(Vr , Y1 ) is an unshielded possibly
+causal path.
+    We note that if r < k, p(Vr , Y1 ) is of the form Vr → · · · → Y1 . This is due to the fact
+that A1 → Vr is in G and that hA1 , Vr i ⊕ p(Vr , Y1 ) is an unshielded possibly causal path
+in G.
+    Next, we show that p2 is of the form A1 ← V1 → · · · → Y1 . Since A1 ← V1 and
+A1 → V2 are in G2 and since G2 is acyclic, by rule R2 of Meek (1995), the edge hV1 , V2 i
+is of the form V1 → V2 in G2 . Then since p2 (V1 , Y1 ) is an unshielded possibly causal path
+that starts with V1 → V2 , by iterative applications of rule R1 of Meek (1995), p2 (V1 , Y1 )
+must be a causal path in G2 .
+    Suppose that D1 is a DAG in [G1 ]. Based on the above, we know that A1 → V1 and
+if r < k, Vr → . . . Y1 are in G1 and therefore, in D1 as well. The subpath p(V1 , Vr ) is a
+
+
+                                               21
+possibly causal unshielded path in G and hence, no node among V2 , . . . , Vr−1 is a collider
+on p, p1 , or p11 . Therefore, either p11 (V1 , Vr ) is a causal path in D11 , in which case p11
+is of the form A1 → V1 → · · · → Y1 , or there is a node Vl , 1 < l ≤ r on p11 (V11 , Vr ), such
+that, p11 (V1 , Vr ) is of the form V1 ← · · · ← Vl → · · · → Vr .                            
+
+References
+Andersson, S. A., Madigan, D., and Perlman, M. D. (1997). A characterization of Markov
+ equivalence classes for acyclic digraphs. The Annals of Statistics, 25:505–541.
+
+Bollen, K. A. (1989). Structural Equations with Latent Variables. Wiley, New York.
+
+Chickering, D. M. (2002). Learning equivalence classes of Bayesian-network structures.
+ Journal of Machine Learning Research, 2:445–498.
+
+Fang, Z. and He, Y. (2020). IDA with background knowledge. In Proceedings of the 36th
+  Conference on Uncertainty in Artificial Intelligence (UAI), volume 124 of Proceedings
+  of Machine Learning Research, pages 270–279.
+
+Galles, D. and Pearl, J. (1995). Testing identifiability of causal effects. In Proceedings of
+ the 11th Annual Conference on Uncertainty in Artificial Intelligence (UAI-95), pages
+ 185–195.
+
+Gillispie, S. B. and Perlman, M. D. (2002). The size distribution for Markov equivalence
+  classes of acyclic digraph models. Artificial Intelligence, 141(1-2):137–155.
+
+Guo, F. R. and Perković, E. (2020). Efficient least squares for estimating total effects
+ under linearity and causal sufficiency. arXiv preprint arXiv:2008.03481.
+
+Hauser, A. and Bühlmann, P. (2012). Characterization and greedy learning of inter-
+ ventional Markov equivalence classes of directed acyclic graphs. Journal of Maching
+ Learning Research, 13:2409–2464.
+
+Henckel, L., Perković, E., and Maathuis, M. H. (2019). Graphical criteria for effi-
+  cient total effect estimation via adjustment in causal linear models. arXiv preprint
+  arXiv:1907.02435.
+
+Hernán, M. A. and Robins, J. M. (2020). Causal Inference: What if. Boca Raton:
+  Chapman & Hall/CRC.
+
+Hoyer, P. O., Hyvarinen, A., Scheines, R., Spirtes, P. L., Ramsey, J., Lacerda, G., and
+  Shimizu, S. (2008). Causal discovery of linear acyclic models with arbitrary distri-
+  butions. In Proceedings of the 24th Annual Conference on Uncertainty in Artificial
+  Intelligence (UAI-08), pages 282–289.
+
+Jaber, A., Zhang, J., and Bareinboim, E. (2019). Causal identification under Markov
+  equivalence: completeness results. In Proceedings of the International Conference on
+  Machine Learning (ICML-19), volume 97, pages 2981–2989.
+
+
+                                              22
+Lauritzen, S. L., Dawid, A. P., Larsen, B. N., and Leimer, H.-G. (1990). Independence
+  properties of directed Markov fields. Networks, 20(5):491–505.
+
+Liu, Y., Fang, Z., He, Y., and Geng, Z. (2020). Collapsible IDA: Collapsing parental sets
+  for locally estimating possible causal effects. In Proceedings of the 36th Conference
+  on Uncertainty in Artificial Intelligence (UAI), volume 124 of Proceedings of Machine
+  Learning Research, pages 290–299.
+
+Maathuis, M. H., Kalisch, M., and Bühlmann, P. (2009). Estimating high-dimensional
+ intervention effects from observational data. The Annals of Statistics, 37(6A):3133–
+ 3164.
+
+Malinsky, D. and Spirtes, P. (2017). Estimating bounds on causal effects in high-
+ dimensional and possibly confounded systems. International Journal of Approximate
+ Reasoning.
+
+Mardia, K. V., Kent, J. T., and Bibby, J. M. (1980). Multivariate Analysis (Probability
+ and Mathematical Statistics). Academic Press London.
+
+Meek, C. (1995). Causal inference and causal explanation with background knowledge.
+ In Proceedings of the 11th Annual Conference on Uncertainty in Artificial Intelligence
+ (UAI-95), pages 403–410.
+
+Nandy, P., Maathuis, M. H., and Richardson, T. S. (2017). Estimating the effect of joint
+ interventions from observational data in sparse high-dimensional settings. The Annals
+ of Statistics, 45(2):647–674.
+
+Pearl, J. (1993). Comment: Graphical models, causality and intervention. Statistical
+  Science, 8(3):266–269.
+
+Pearl, J. (1995). Causal diagrams for empirical research. Biometrika, 82(4):669–688.
+
+Pearl, J. (2009). Causality. Cambridge University Press, Cambridge, 2nd edition.
+
+Pearl, J. and Robins, J. M. (1995). Probabilistic evaluation of sequential plans from
+  causal models with hidden variables. In Proceedings of the 11th Annual Conference on
+  Uncertainty in Artificial Intelligence (UAI-95), pages 444–453.
+
+Perković, E. (2020). Identifying causal effects in maximally oriented partially directed
+  acyclic graphs. In Proceedings of the 36th Annual Conference on Uncertainty in Arti-
+  ficial Intelligence (UAI-20).
+
+Perković, E., Kalisch, M., and Maathuis, M. H. (2017). Interpreting and using CPDAGs
+  with background knowledge. In Proceedings of the 33rd Annual Conference on Uncer-
+  tainty in Artificial Intelligence (UAI-17).
+
+Perković, E., Textor, J., Kalisch, M., and Maathuis, M. H. (2018). Complete graphical
+  characterization and construction of adjustment sets in Markov equivalence classes of
+  ancestral graphs. Journal of Machine Learning Research, 18(220):1–62.
+
+                                           23
+Robins, J. M. (1986). A new approach to causal inference in mortality studies with a
+  sustained exposure period-application to control of the healthy worker survivor effect.
+  Mathematical Modelling, 7:1393–1512.
+
+Rothenhäusler, D., Ernest, J., and Bühlmann, P. (2018). Causal inference in partially
+  linear structural equation models: identifiability and estimation. Annals of Statistics,
+  46:2904–2938.
+
+Rotnitzky, A. and Smucler, E. (2020). Efficient adjustment sets for population average
+  causal treatment effect estimation in graphical models. Journal of Machine Learning
+  Research, 21(188):1–86.
+
+Scheines, R., Spirtes, P., Glymour, C., Meek, C., and Richardson, T. (1998). The
+  TETRAD project: constraint based aids to causal model specification. Multivariate
+  Behavioral Research, 33(1):65–117.
+
+Shpitser, I. and Pearl, J. (2006). Identification of joint interventional distributions in
+  recursive semi-Markovian causal models. In Proceedings of AAAI 2006, pages 1219–
+  1226.
+
+Spirtes, P., Glymour, C., and Scheines, R. (2000). Causation, Prediction, and Search.
+  MIT Press, Cambridge, MA, 2nd edition.
+
+Steinsky, B. (2013).   Enumeration of labelled essential graphs.      Ars Combinatoria,
+  111:485–494.
+
+Wang, Y., Solus, L., Yang, K. D., and Uhler, C. (2017). Permutation-based causal
+ inference algorithms with interventions. In Advances in Neural Information Processing
+ Systems 30, pages 5822–5831.
+
+Witte, J., Henckel, L., Maathuis, M. H., and Didelez, V. (2020). On efficient adjustment
+ in causal graphs. Journal of Machine Learning Research, 21(246):1–45.
+
+Wright, S. (1921). Correlation and causation. Journal of Agricultural Research, 20:557–
+ 585.
+
+
+
+
+                                           24
+

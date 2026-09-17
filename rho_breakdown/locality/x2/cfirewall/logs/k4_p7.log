@@ -1,0 +1,37 @@
+[kfirewall p=7 k=4 sample] 200 units
+  10/200  8s trials=85860 viol=0
+  20/200  12s trials=174266 viol=0
+  30/200  18s trials=262990 viol=0
+  40/200  22s trials=354040 viol=0
+  50/200  26s trials=444251 viol=0
+  60/200  30s trials=532609 viol=0
+  70/200  33s trials=622759 viol=0
+  80/200  37s trials=712209 viol=0
+  90/200  40s trials=802404 viol=0
+  100/200  44s trials=892581 viol=0
+  110/200  47s trials=983711 viol=0
+  120/200  50s trials=1071439 viol=0
+  130/200  53s trials=1158760 viol=0
+  140/200  56s trials=1248582 viol=0
+  150/200  59s trials=1335448 viol=0
+  160/200  62s trials=1428374 viol=0
+  170/200  65s trials=1518792 viol=0
+  180/200  68s trials=1606761 viol=0
+  190/200  71s trials=1698723 viol=0
+  200/200  73s trials=1788709 viol=0
+{
+ "abort": 37207,
+ "checks": 2746146,
+ "clean_trials": 1751502,
+ "draw": 24939,
+ "draw_skipped_bigclass": 61,
+ "report": 1751502,
+ "report_moved": 876268,
+ "report_same": 875234,
+ "stmt_all": 650190,
+ "stmt_coherent": 249834,
+ "stmt_rejected": 400356,
+ "trial": 1788709,
+ "violating_trials": 0
+}
+VIOLATIONS: 0 trials / 0 keys

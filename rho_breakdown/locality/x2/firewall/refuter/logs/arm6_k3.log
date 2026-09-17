@@ -1,0 +1,15 @@
+0 k3 {'n_scm': 1, 'class_size': 3, 'n_query_pos': 6, 'n_trial': 360, 'n_rejected': 198, 'n_stamped': 162, 'n_pos': 162, 'n_moved': 89, 'n_Dcheck': 267, 'n_same': 73} 39.6
+FINAL k3 {
+ "n_scm": 1995,
+ "class_size": 23655,
+ "n_query_pos": 12776,
+ "n_trial": 766560,
+ "n_rejected": 470718,
+ "n_stamped": 295842,
+ "n_pos": 281375,
+ "n_moved": 110666,
+ "n_Dcheck": 389690,
+ "n_same": 170709,
+ "n_abort": 14467
+}
+n_violation 0 of moved 110666

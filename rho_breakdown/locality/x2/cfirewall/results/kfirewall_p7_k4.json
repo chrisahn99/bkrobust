@@ -1,0 +1,26 @@
+{
+ "conjecture": "C-FIREWALL k-statement extension",
+ "p": 7,
+ "k": 4,
+ "mode": "sample",
+ "exhaustive": false,
+ "n_dag_draws": 25000,
+ "elapsed_s": 72.9,
+ "counts": {
+  "abort": 37207,
+  "checks": 2746146,
+  "clean_trials": 1751502,
+  "draw": 24939,
+  "draw_skipped_bigclass": 61,
+  "report": 1751502,
+  "report_moved": 876268,
+  "report_same": 875234,
+  "stmt_all": 650190,
+  "stmt_coherent": 249834,
+  "stmt_rejected": 400356,
+  "trial": 1788709,
+  "violating_trials": 0
+ },
+ "n_witnesses": 0,
+ "witnesses": []
+}

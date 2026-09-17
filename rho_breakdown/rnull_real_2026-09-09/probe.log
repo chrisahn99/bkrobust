@@ -1,0 +1,9 @@
+load 0.0
+cpdag 0.01
+K 10
+comps [2, 5, 8, 10]
+pairs 0.02 50 [('b1191', 'yaeM'), ('sucA', 'nuoM'), ('eutG', 'tnaA'), ('b1191', 'nuoM')]
+x,y b1191 yaeM |C| 5 |Kloc| 1
+Z ['cspG', 'eutG', 'sucA']
+theta(cpdag) 0.0 vals 2
+valid? 1839.78 True

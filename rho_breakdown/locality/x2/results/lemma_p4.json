@@ -1,0 +1,38 @@
+{
+ "p": 4,
+ "mode": "exhaustive",
+ "n_cpdags": 185,
+ "n_mpdags": 1601,
+ "by_dmin": {
+  "0": {
+   "D_all": 42480,
+   "D_con": 42480,
+   "D_con_rev": 21240,
+   "N_gain": 9300,
+   "gain_orient": 9300,
+   "N_ident_rev": 6708,
+   "D_am": 2016,
+   "D_am_rev": 2304,
+   "N_set_rev": 1272
+  },
+  "1": {
+   "D_all": 8400,
+   "D_con": 8400,
+   "D_con_rev": 4200,
+   "D_am": 912,
+   "D_am_rev": 480,
+   "N_gain": 696,
+   "gain_orient": 696,
+   "N_ident_rev": 648
+  },
+  "disc": {
+   "D_all": 96,
+   "D_con": 96,
+   "D_con_rev": 48,
+   "D_am": 24,
+   "D_am_rev": 12
+  }
+ },
+ "n_hits_far": 0,
+ "hits": []
+}

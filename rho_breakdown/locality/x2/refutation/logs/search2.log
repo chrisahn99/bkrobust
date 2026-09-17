@@ -1,0 +1,112 @@
+[rho1_two_blob] fam=two_blob q=argmax_delta kept 19955/25000 in 41s  ecc={2: 8867, 3: 5799, 1: 1960, 4: 3035, 5: 232, 6: 62}
+   rev dmin=0    N_set=   1318 / D_am=    5219  = 0.25254
+   rev dmin=1    N_set=      0 / D_am=    9163  = 0.00000
+   rev dmin=2    N_set=      0 / D_am=    7391  = 0.00000
+   rev dmin=3    N_set=      0 / D_am=    5066  = 0.00000
+   rev dmin=4    N_set=      0 / D_am=    2609  = 0.00000
+   add dmin=0    N_set=      0 / D_am=    7802  = 0.00000
+   add dmin=1    N_set=      0 / D_am=   18326  = 0.00000
+   add dmin=2    N_set=      0 / D_am=   14782  = 0.00000
+   add dmin=3    N_set=      0 / D_am=   10132  = 0.00000
+   add dmin=4    N_set=      0 / D_am=    5218  = 0.00000
+   HITS at dmin>=2: 0
+[rho1_ba] fam=ba q=argmax_delta kept 12621/25000 in 26s  ecc={2: 10051, 1: 1603, 3: 967}
+   rev dmin=0    N_set=   3485 / D_am=    4160  = 0.83774
+   rev dmin=1    N_set=      0 / D_am=    6646  = 0.00000
+   rev dmin=2    N_set=      0 / D_am=    1926  = 0.00000
+   rev dmin=3    N_set=      0 / D_am=      12  = 0.00000
+   add dmin=0    N_set=      0 / D_am=    1278  = 0.00000
+   add dmin=1    N_set=      0 / D_am=   13220  = 0.00000
+   add dmin=2    N_set=      0 / D_am=    3852  = 0.00000
+   add dmin=3    N_set=      0 / D_am=      24  = 0.00000
+   HITS at dmin>=2: 0
+[rho1_er] fam=er q=argmax_delta kept 13885/25000 in 25s  ecc={3: 1609, 2: 8147, 1: 3839, 4: 241, 5: 39, 6: 6, 7: 1, 0: 3}
+   rev dmin=0    N_set=   3355 / D_am=    4275  = 0.78480
+   rev dmin=1    N_set=      0 / D_am=    7628  = 0.00000
+   rev dmin=2    N_set=      0 / D_am=    1451  = 0.00000
+   rev dmin=3    N_set=      0 / D_am=      97  = 0.00000
+   rev dmin=4    N_set=      0 / D_am=      17  = 0.00000
+   rev dmin=disc N_set=      0 / D_am=      67  = 0.00000
+   add dmin=0    N_set=      0 / D_am=    1806  = 0.00000
+   add dmin=1    N_set=      0 / D_am=   15222  = 0.00000
+   add dmin=2    N_set=      0 / D_am=    2902  = 0.00000
+   add dmin=3    N_set=      0 / D_am=     194  = 0.00000
+   add dmin=4    N_set=      0 / D_am=      34  = 0.00000
+   add dmin=disc N_set=      0 / D_am=     134  = 0.00000
+   HITS at dmin>=2: 0
+[rho1_clique_chain_noise] fam=clique_chain_noise q=argmax_delta kept 19321/25000 in 27s  ecc={4: 678, 2: 8808, 3: 9479, 5: 302, 1: 51, 6: 3}
+   rev dmin=0    N_set=   2830 / D_am=    6432  = 0.43999
+   rev dmin=1    N_set=      0 / D_am=    9114  = 0.00000
+   rev dmin=2    N_set=      0 / D_am=    6484  = 0.00000
+   rev dmin=3    N_set=      0 / D_am=    2454  = 0.00000
+   rev dmin=4    N_set=      0 / D_am=     298  = 0.00000
+   add dmin=0    N_set=      0 / D_am=    7144  = 0.00000
+   add dmin=1    N_set=      0 / D_am=   18166  = 0.00000
+   add dmin=2    N_set=      0 / D_am=   12968  = 0.00000
+   add dmin=3    N_set=      0 / D_am=    4908  = 0.00000
+   add dmin=4    N_set=      0 / D_am=     596  = 0.00000
+   HITS at dmin>=2: 0
+[rho2_clique_chain_uniform] fam=clique_chain q=uniform kept 35412/40000 (both strata 33330) 333s
+   near rho=1  N_set=  15346 N_bias=  15346 / D_am=   73459 D_con=   88280 D_all=  133926 = 0.20891
+   near rho=2  N_set=  26593 N_bias=  26593 / D_am=   85311 D_con=  116150 D_all=  248735 = 0.31172
+   near rho=3  N_set=  20805 N_bias=  20805 / D_am=   67169 D_con=  104621 D_all=  286714 = 0.30974
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=   97965 D_con=   97972 D_all=  138149 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=  146925 D_con=  146955 D_all=  271863 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=  153061 D_con=  153117 D_all=  334934 = 0.00000
+   FAR HITS: 0
+[rho2_clique_chain_argmax_delta] fam=clique_chain q=argmax_delta kept 34877/40000 (both strata 32428) 245s
+   near rho=1  N_set=  10126 N_bias=  10126 / D_am=   85978 D_con=  110500 D_all=  168289 = 0.11777
+   near rho=2  N_set=  32141 N_bias=  32141 / D_am=  115039 D_con=  179002 D_all=  381598 = 0.27939
+   near rho=3  N_set=  37130 N_bias=  37130 / D_am=  102320 D_con=  191993 D_all=  518574 = 0.36288
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=   71187 D_con=   71187 D_all=   98127 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=   82229 D_con=   82229 D_all=  146801 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=   71935 D_con=   71935 D_all=  145590 = 0.00000
+   FAR HITS: 0
+[rho2_two_blob_uniform] fam=two_blob q=uniform kept 30932/40000 (both strata 28704) 160s
+   near rho=1  N_set=  15331 N_bias=  15331 / D_am=   62612 D_con=   77492 D_all=  121972 = 0.24486
+   near rho=2  N_set=  28187 N_bias=  28187 / D_am=   69779 D_con=  103611 D_all=  238638 = 0.40395
+   near rho=3  N_set=  23806 N_bias=  23806 / D_am=   54834 D_con=   98244 D_all=  292835 = 0.43415
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=   69139 D_con=   69140 D_all=  104431 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=   86674 D_con=   86677 D_all=  186412 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=   80533 D_con=   80536 D_all=  216707 = 0.00000
+   FAR HITS: 0
+[rho2_two_blob_argmax_delta] fam=two_blob q=argmax_delta kept 31106/40000 (both strata 25073) 166s
+   near rho=1  N_set=   6710 N_bias=   6710 / D_am=   68182 D_con=   91292 D_all=  141676 = 0.09841
+   near rho=2  N_set=  19806 N_bias=  19806 / D_am=   81833 D_con=  139896 D_all=  318438 = 0.24203
+   near rho=3  N_set=  23093 N_bias=  23093 / D_am=   69146 D_con=  145924 D_all=  437039 = 0.33397
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=   52184 D_con=   52184 D_all=   79258 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=   59181 D_con=   59181 D_all=  128262 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=   53655 D_con=   53655 D_all=  144043 = 0.00000
+   FAR HITS: 0
+[rho2_ba_uniform] fam=ba q=uniform kept 21527/40000 (both strata 5127) 41s
+   near rho=1  N_set=  11749 N_bias=  11749 / D_am=   48689 D_con=   52410 D_all=   97623 = 0.24131
+   near rho=2  N_set=  21383 N_bias=  21383 / D_am=   49770 D_con=   57675 D_all=  206512 = 0.42964
+   near rho=3  N_set=  16387 N_bias=  16387 / D_am=   29817 D_con=   37448 D_all=  265742 = 0.54959
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=    5317 D_con=    5317 D_all=    8711 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=    1789 D_con=    1789 D_all=    5537 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=     655 D_con=     655 D_all=    3368 = 0.00000
+   FAR HITS: 0
+[rho2_ba_argmax_delta] fam=ba q=argmax_delta kept 21442/40000 (both strata 5439) 44s
+   near rho=1  N_set=  13481 N_bias=  13481 / D_am=   45709 D_con=   51583 D_all=   96740 = 0.29493
+   near rho=2  N_set=  23198 N_bias=  23198 / D_am=   43351 D_con=   56632 D_all=  204204 = 0.53512
+   near rho=3  N_set=  16131 N_bias=  16131 / D_am=   23853 D_con=   36523 D_all=  262776 = 0.67627
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=    5806 D_con=    5806 D_all=    9030 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=    1788 D_con=    1788 D_all=    5411 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=     587 D_con=     587 D_all=    3072 = 0.00000
+   FAR HITS: 0
+[rho2_er_uniform] fam=er q=uniform kept 23049/40000 (both strata 6013) 46s
+   near rho=1  N_set=  12998 N_bias=  12998 / D_am=   51828 D_con=   55984 D_all=  101817 = 0.25079
+   near rho=2  N_set=  24801 N_bias=  24801 / D_am=   55349 D_con=   64072 D_all=  210639 = 0.44808
+   near rho=3  N_set=  21463 N_bias=  21463 / D_am=   37641 D_con=   47108 D_all=  266099 = 0.57020
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=    6647 D_con=    6647 D_all=   10368 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=    2585 D_con=    2585 D_all=    6726 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=    1002 D_con=    1002 D_all=    3869 = 0.00000
+   FAR HITS: 0
+[rho2_er_argmax_delta] fam=er q=argmax_delta kept 23007/40000 (both strata 5105) 50s
+   near rho=1  N_set=  15329 N_bias=  15329 / D_am=   50395 D_con=   56964 D_all=  103596 = 0.30418
+   near rho=2  N_set=  28648 N_bias=  28648 / D_am=   52466 D_con=   66401 D_all=  216288 = 0.54603
+   near rho=3  N_set=  23694 N_bias=  23694 / D_am=   34720 D_con=   48856 D_all=  274197 = 0.68243
+   far  rho=1  N_set=      0 N_bias=      0 / D_am=    5515 D_con=    5515 D_all=    8237 = 0.00000
+   far  rho=2  N_set=      0 N_bias=      0 / D_am=    1843 D_con=    1843 D_all=    4621 = 0.00000
+   far  rho=3  N_set=      0 N_bias=      0 / D_am=     652 D_con=     652 D_all=    2431 = 0.00000
+   FAR HITS: 0

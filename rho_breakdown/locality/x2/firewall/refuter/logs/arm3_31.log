@@ -1,0 +1,86 @@
+25 {'n_scm': 20, 'n_query_pos': 77, 'n_trial': 3650, 'n_rejected': 546, 'n_stamped': 3104, 'n_pos': 2944, 'n_moved': 547, 'n_Dcheck': 16564, 'n_abort': 160, 'n_abort_unamen': 160} 9.5
+50 {'n_scm': 39, 'n_query_pos': 199, 'n_trial': 8044, 'n_rejected': 1661, 'n_stamped': 6383, 'n_pos': 6091, 'n_moved': 1010, 'n_Dcheck': 26811, 'n_abort': 292, 'n_abort_unamen': 292} 18.8
+75 {'n_scm': 60, 'n_query_pos': 272, 'n_trial': 9802, 'n_rejected': 1923, 'n_stamped': 7879, 'n_pos': 7504, 'n_moved': 1250, 'n_Dcheck': 36160, 'n_abort': 375, 'n_abort_unamen': 375} 29.6
+100 {'n_scm': 82, 'n_query_pos': 428, 'n_trial': 15360, 'n_rejected': 2811, 'n_stamped': 12549, 'n_pos': 12076, 'n_moved': 1921, 'n_Dcheck': 46352, 'n_abort': 473, 'n_abort_unamen': 473} 36.1
+125 {'n_scm': 102, 'n_query_pos': 567, 'n_trial': 19358, 'n_rejected': 3501, 'n_stamped': 15857, 'n_pos': 15261, 'n_moved': 2430, 'n_Dcheck': 55539, 'n_abort': 596, 'n_abort_unamen': 596} 44.3
+175 {'n_scm': 139, 'n_query_pos': 787, 'n_trial': 25342, 'n_rejected': 4854, 'n_stamped': 20488, 'n_pos': 19757, 'n_moved': 3234, 'n_Dcheck': 68905, 'n_abort': 731, 'n_abort_unamen': 731} 53.1
+200 {'n_scm': 161, 'n_query_pos': 1004, 'n_trial': 32552, 'n_rejected': 6580, 'n_stamped': 25972, 'n_pos': 25126, 'n_moved': 4029, 'n_Dcheck': 83312, 'n_abort': 846, 'n_abort_unamen': 846} 60.5
+225 {'n_scm': 177, 'n_query_pos': 1177, 'n_trial': 38202, 'n_rejected': 8141, 'n_stamped': 30061, 'n_pos': 29157, 'n_moved': 4600, 'n_Dcheck': 90529, 'n_abort': 904, 'n_abort_unamen': 904} 65.3
+250 {'n_scm': 199, 'n_query_pos': 1289, 'n_trial': 41604, 'n_rejected': 8742, 'n_stamped': 32862, 'n_pos': 31748, 'n_moved': 5112, 'n_Dcheck': 102668, 'n_abort': 1114, 'n_abort_unamen': 1114} 82.2
+300 {'n_scm': 236, 'n_query_pos': 1512, 'n_trial': 47892, 'n_rejected': 10379, 'n_stamped': 37513, 'n_pos': 36263, 'n_moved': 5777, 'n_Dcheck': 115520, 'n_abort': 1250, 'n_abort_unamen': 1250} 93.6
+325 {'n_scm': 255, 'n_query_pos': 1589, 'n_trial': 50134, 'n_rejected': 10792, 'n_stamped': 39342, 'n_pos': 37997, 'n_moved': 6102, 'n_Dcheck': 123989, 'n_abort': 1345, 'n_abort_unamen': 1345} 101.7
+375 {'n_scm': 296, 'n_query_pos': 1869, 'n_trial': 57900, 'n_rejected': 12461, 'n_stamped': 45439, 'n_pos': 43989, 'n_moved': 6895, 'n_Dcheck': 137459, 'n_abort': 1450, 'n_abort_unamen': 1450} 109.6
+425 {'n_scm': 337, 'n_query_pos': 2124, 'n_trial': 66014, 'n_rejected': 14151, 'n_stamped': 51863, 'n_pos': 50203, 'n_moved': 7843, 'n_Dcheck': 160125, 'n_abort': 1660, 'n_abort_unamen': 1660} 126.4
+475 {'n_scm': 371, 'n_query_pos': 2378, 'n_trial': 73738, 'n_rejected': 15979, 'n_stamped': 57759, 'n_pos': 55950, 'n_moved': 8760, 'n_Dcheck': 174561, 'n_abort': 1809, 'n_abort_unamen': 1809} 141.6
+500 {'n_scm': 390, 'n_query_pos': 2520, 'n_trial': 79064, 'n_rejected': 17141, 'n_stamped': 61923, 'n_pos': 59966, 'n_moved': 9337, 'n_Dcheck': 191171, 'n_abort': 1957, 'n_abort_unamen': 1957} 153.1
+525 {'n_scm': 410, 'n_query_pos': 2704, 'n_trial': 86408, 'n_rejected': 18746, 'n_stamped': 67662, 'n_pos': 65582, 'n_moved': 10140, 'n_Dcheck': 204528, 'n_abort': 2080, 'n_abort_unamen': 2080} 160.1
+550 {'n_scm': 432, 'n_query_pos': 2817, 'n_trial': 89658, 'n_rejected': 19246, 'n_stamped': 70412, 'n_pos': 68154, 'n_moved': 10546, 'n_Dcheck': 218207, 'n_abort': 2258, 'n_abort_unamen': 2258} 173.6
+600 {'n_scm': 472, 'n_query_pos': 3104, 'n_trial': 98540, 'n_rejected': 21213, 'n_stamped': 77327, 'n_pos': 74876, 'n_moved': 11527, 'n_Dcheck': 238784, 'n_abort': 2451, 'n_abort_unamen': 2451} 185.0
+625 {'n_scm': 492, 'n_query_pos': 3257, 'n_trial': 103296, 'n_rejected': 22560, 'n_stamped': 80736, 'n_pos': 78201, 'n_moved': 11952, 'n_Dcheck': 253572, 'n_abort': 2535, 'n_abort_unamen': 2535} 193.7
+675 {'n_scm': 536, 'n_query_pos': 3516, 'n_trial': 112436, 'n_rejected': 24334, 'n_stamped': 88102, 'n_pos': 85266, 'n_moved': 12975, 'n_Dcheck': 283925, 'n_abort': 2836, 'n_abort_unamen': 2836} 204.9
+700 {'n_scm': 556, 'n_query_pos': 3582, 'n_trial': 114012, 'n_rejected': 24570, 'n_stamped': 89442, 'n_pos': 86515, 'n_moved': 13241, 'n_Dcheck': 291214, 'n_abort': 2927, 'n_abort_unamen': 2927} 211.3
+725 {'n_scm': 579, 'n_query_pos': 3741, 'n_trial': 119468, 'n_rejected': 26291, 'n_stamped': 93177, 'n_pos': 90104, 'n_moved': 13786, 'n_Dcheck': 300166, 'n_abort': 3073, 'n_abort_unamen': 3073} 217.8
+750 {'n_scm': 599, 'n_query_pos': 3874, 'n_trial': 123364, 'n_rejected': 26898, 'n_stamped': 96466, 'n_pos': 93318, 'n_moved': 14173, 'n_Dcheck': 307020, 'n_abort': 3148, 'n_abort_unamen': 3148} 225.7
+800 {'n_scm': 641, 'n_query_pos': 4169, 'n_trial': 132406, 'n_rejected': 28729, 'n_stamped': 103677, 'n_pos': 100331, 'n_moved': 15297, 'n_Dcheck': 327212, 'n_abort': 3346, 'n_abort_unamen': 3346} 240.9
+825 {'n_scm': 661, 'n_query_pos': 4279, 'n_trial': 135986, 'n_rejected': 29641, 'n_stamped': 106345, 'n_pos': 102887, 'n_moved': 15656, 'n_Dcheck': 337202, 'n_abort': 3458, 'n_abort_unamen': 3458} 245.9
+875 {'n_scm': 701, 'n_query_pos': 4588, 'n_trial': 147170, 'n_rejected': 32025, 'n_stamped': 115145, 'n_pos': 111478, 'n_moved': 16573, 'n_Dcheck': 373166, 'n_abort': 3667, 'n_abort_unamen': 3667} 269.2
+900 {'n_scm': 723, 'n_query_pos': 4751, 'n_trial': 151860, 'n_rejected': 33079, 'n_stamped': 118781, 'n_pos': 115032, 'n_moved': 17287, 'n_Dcheck': 385366, 'n_abort': 3749, 'n_abort_unamen': 3749} 277.0
+925 {'n_scm': 745, 'n_query_pos': 4962, 'n_trial': 158020, 'n_rejected': 34621, 'n_stamped': 123399, 'n_pos': 119548, 'n_moved': 17776, 'n_Dcheck': 396648, 'n_abort': 3851, 'n_abort_unamen': 3851} 283.4
+950 {'n_scm': 765, 'n_query_pos': 5108, 'n_trial': 161664, 'n_rejected': 35333, 'n_stamped': 126331, 'n_pos': 122416, 'n_moved': 18139, 'n_Dcheck': 402762, 'n_abort': 3915, 'n_abort_unamen': 3915} 288.7
+1000 {'n_scm': 805, 'n_query_pos': 5451, 'n_trial': 170824, 'n_rejected': 37272, 'n_stamped': 133552, 'n_pos': 129414, 'n_moved': 19174, 'n_Dcheck': 425134, 'n_abort': 4138, 'n_abort_unamen': 4138} 299.0
+1025 {'n_scm': 826, 'n_query_pos': 5526, 'n_trial': 173940, 'n_rejected': 37955, 'n_stamped': 135985, 'n_pos': 131812, 'n_moved': 19576, 'n_Dcheck': 432698, 'n_abort': 4173, 'n_abort_unamen': 4173} 307.8
+1050 {'n_scm': 848, 'n_query_pos': 5719, 'n_trial': 181490, 'n_rejected': 40405, 'n_stamped': 141085, 'n_pos': 136773, 'n_moved': 20445, 'n_Dcheck': 445765, 'n_abort': 4312, 'n_abort_unamen': 4312} 316.7
+1100 {'n_scm': 885, 'n_query_pos': 5888, 'n_trial': 187526, 'n_rejected': 41317, 'n_stamped': 146209, 'n_pos': 141718, 'n_moved': 21324, 'n_Dcheck': 467517, 'n_abort': 4491, 'n_abort_unamen': 4491} 324.3
+1125 {'n_scm': 905, 'n_query_pos': 6049, 'n_trial': 192524, 'n_rejected': 42981, 'n_stamped': 149543, 'n_pos': 144931, 'n_moved': 21817, 'n_Dcheck': 475815, 'n_abort': 4612, 'n_abort_unamen': 4612} 332.5
+1150 {'n_scm': 922, 'n_query_pos': 6228, 'n_trial': 196846, 'n_rejected': 44291, 'n_stamped': 152555, 'n_pos': 147869, 'n_moved': 22162, 'n_Dcheck': 482547, 'n_abort': 4686, 'n_abort_unamen': 4686} 335.8
+1175 {'n_scm': 944, 'n_query_pos': 6410, 'n_trial': 202404, 'n_rejected': 45724, 'n_stamped': 156680, 'n_pos': 151824, 'n_moved': 22647, 'n_Dcheck': 499206, 'n_abort': 4856, 'n_abort_unamen': 4856} 343.4
+1200 {'n_scm': 965, 'n_query_pos': 6578, 'n_trial': 208600, 'n_rejected': 47012, 'n_stamped': 161588, 'n_pos': 156644, 'n_moved': 23428, 'n_Dcheck': 513731, 'n_abort': 4944, 'n_abort_unamen': 4944} 349.6
+1225 {'n_scm': 986, 'n_query_pos': 6729, 'n_trial': 213574, 'n_rejected': 48100, 'n_stamped': 165474, 'n_pos': 160423, 'n_moved': 23972, 'n_Dcheck': 526274, 'n_abort': 5051, 'n_abort_unamen': 5051} 355.2
+1250 {'n_scm': 1009, 'n_query_pos': 6919, 'n_trial': 219612, 'n_rejected': 49618, 'n_stamped': 169994, 'n_pos': 164772, 'n_moved': 24646, 'n_Dcheck': 540074, 'n_abort': 5222, 'n_abort_unamen': 5222} 360.4
+1300 {'n_scm': 1049, 'n_query_pos': 7199, 'n_trial': 230020, 'n_rejected': 51836, 'n_stamped': 178184, 'n_pos': 172781, 'n_moved': 25954, 'n_Dcheck': 556652, 'n_abort': 5403, 'n_abort_unamen': 5403} 371.1
+1325 {'n_scm': 1070, 'n_query_pos': 7355, 'n_trial': 234382, 'n_rejected': 53040, 'n_stamped': 181342, 'n_pos': 175839, 'n_moved': 26486, 'n_Dcheck': 564328, 'n_abort': 5503, 'n_abort_unamen': 5503} 374.9
+1350 {'n_scm': 1092, 'n_query_pos': 7546, 'n_trial': 241452, 'n_rejected': 54813, 'n_stamped': 186639, 'n_pos': 180976, 'n_moved': 27323, 'n_Dcheck': 577604, 'n_abort': 5663, 'n_abort_unamen': 5663} 380.7
+1375 {'n_scm': 1110, 'n_query_pos': 7651, 'n_trial': 244386, 'n_rejected': 55540, 'n_stamped': 188846, 'n_pos': 183115, 'n_moved': 27732, 'n_Dcheck': 585765, 'n_abort': 5731, 'n_abort_unamen': 5731} 383.7
+1400 {'n_scm': 1133, 'n_query_pos': 7807, 'n_trial': 249738, 'n_rejected': 57077, 'n_stamped': 192661, 'n_pos': 186813, 'n_moved': 28350, 'n_Dcheck': 595650, 'n_abort': 5848, 'n_abort_unamen': 5848} 397.3
+1425 {'n_scm': 1153, 'n_query_pos': 7972, 'n_trial': 254690, 'n_rejected': 58512, 'n_stamped': 196178, 'n_pos': 190208, 'n_moved': 28806, 'n_Dcheck': 605617, 'n_abort': 5970, 'n_abort_unamen': 5970} 409.1
+1450 {'n_scm': 1173, 'n_query_pos': 8104, 'n_trial': 259332, 'n_rejected': 59732, 'n_stamped': 199600, 'n_pos': 193542, 'n_moved': 29314, 'n_Dcheck': 613673, 'n_abort': 6058, 'n_abort_unamen': 6058} 417.4
+1475 {'n_scm': 1194, 'n_query_pos': 8273, 'n_trial': 263868, 'n_rejected': 60705, 'n_stamped': 203163, 'n_pos': 197014, 'n_moved': 29903, 'n_Dcheck': 621283, 'n_abort': 6149, 'n_abort_unamen': 6149} 425.3
+1500 {'n_scm': 1217, 'n_query_pos': 8446, 'n_trial': 268304, 'n_rejected': 61536, 'n_stamped': 206768, 'n_pos': 200418, 'n_moved': 30476, 'n_Dcheck': 634867, 'n_abort': 6350, 'n_abort_unamen': 6350} 432.1
+1525 {'n_scm': 1236, 'n_query_pos': 8631, 'n_trial': 274582, 'n_rejected': 63024, 'n_stamped': 211558, 'n_pos': 205075, 'n_moved': 31141, 'n_Dcheck': 647591, 'n_abort': 6483, 'n_abort_unamen': 6483} 441.5
+1550 {'n_scm': 1254, 'n_query_pos': 8730, 'n_trial': 278040, 'n_rejected': 63745, 'n_stamped': 214295, 'n_pos': 207710, 'n_moved': 31443, 'n_Dcheck': 652991, 'n_abort': 6585, 'n_abort_unamen': 6585} 447.8
+1575 {'n_scm': 1274, 'n_query_pos': 8889, 'n_trial': 282918, 'n_rejected': 64986, 'n_stamped': 217932, 'n_pos': 211268, 'n_moved': 32039, 'n_Dcheck': 661288, 'n_abort': 6664, 'n_abort_unamen': 6664} 457.7
+1625 {'n_scm': 1310, 'n_query_pos': 9212, 'n_trial': 295670, 'n_rejected': 68773, 'n_stamped': 226897, 'n_pos': 220090, 'n_moved': 33259, 'n_Dcheck': 680320, 'n_abort': 6807, 'n_abort_unamen': 6807} 484.0
+1650 {'n_scm': 1327, 'n_query_pos': 9318, 'n_trial': 299112, 'n_rejected': 69546, 'n_stamped': 229566, 'n_pos': 222681, 'n_moved': 33669, 'n_Dcheck': 686914, 'n_abort': 6885, 'n_abort_unamen': 6885} 491.7
+1700 {'n_scm': 1367, 'n_query_pos': 9523, 'n_trial': 304654, 'n_rejected': 70483, 'n_stamped': 234171, 'n_pos': 227081, 'n_moved': 34324, 'n_Dcheck': 699405, 'n_abort': 7090, 'n_abort_unamen': 7090} 514.4
+1725 {'n_scm': 1387, 'n_query_pos': 9567, 'n_trial': 305792, 'n_rejected': 70568, 'n_stamped': 235224, 'n_pos': 228021, 'n_moved': 34494, 'n_Dcheck': 704467, 'n_abort': 7203, 'n_abort_unamen': 7203} 526.4
+1750 {'n_scm': 1407, 'n_query_pos': 9762, 'n_trial': 312002, 'n_rejected': 72150, 'n_stamped': 239852, 'n_pos': 232558, 'n_moved': 35296, 'n_Dcheck': 715953, 'n_abort': 7294, 'n_abort_unamen': 7294} 536.4
+1800 {'n_scm': 1449, 'n_query_pos': 10034, 'n_trial': 321302, 'n_rejected': 73954, 'n_stamped': 247348, 'n_pos': 239742, 'n_moved': 36453, 'n_Dcheck': 737477, 'n_abort': 7606, 'n_abort_unamen': 7606} 561.8
+1825 {'n_scm': 1470, 'n_query_pos': 10164, 'n_trial': 324770, 'n_rejected': 74570, 'n_stamped': 250200, 'n_pos': 242463, 'n_moved': 36895, 'n_Dcheck': 751307, 'n_abort': 7737, 'n_abort_unamen': 7737} 578.7
+1850 {'n_scm': 1489, 'n_query_pos': 10251, 'n_trial': 328818, 'n_rejected': 75629, 'n_stamped': 253189, 'n_pos': 245354, 'n_moved': 37413, 'n_Dcheck': 759071, 'n_abort': 7835, 'n_abort_unamen': 7835} 598.3
+1875 {'n_scm': 1512, 'n_query_pos': 10372, 'n_trial': 331678, 'n_rejected': 76108, 'n_stamped': 255570, 'n_pos': 247604, 'n_moved': 37829, 'n_Dcheck': 774103, 'n_abort': 7966, 'n_abort_unamen': 7966} 614.6
+1900 {'n_scm': 1535, 'n_query_pos': 10550, 'n_trial': 338492, 'n_rejected': 77801, 'n_stamped': 260691, 'n_pos': 252625, 'n_moved': 38676, 'n_Dcheck': 789371, 'n_abort': 8066, 'n_abort_unamen': 8066} 631.3
+1925 {'n_scm': 1556, 'n_query_pos': 10645, 'n_trial': 341800, 'n_rejected': 78310, 'n_stamped': 263490, 'n_pos': 255327, 'n_moved': 39028, 'n_Dcheck': 795984, 'n_abort': 8163, 'n_abort_unamen': 8163} 644.0
+1950 {'n_scm': 1576, 'n_query_pos': 10771, 'n_trial': 347144, 'n_rejected': 79539, 'n_stamped': 267605, 'n_pos': 259331, 'n_moved': 39811, 'n_Dcheck': 804941, 'n_abort': 8274, 'n_abort_unamen': 8274} 663.7
+2000 {'n_scm': 1617, 'n_query_pos': 10994, 'n_trial': 352630, 'n_rejected': 81171, 'n_stamped': 271459, 'n_pos': 263071, 'n_moved': 40521, 'n_Dcheck': 815859, 'n_abort': 8388, 'n_abort_unamen': 8388} 684.8
+2025 {'n_scm': 1637, 'n_query_pos': 11107, 'n_trial': 355972, 'n_rejected': 81915, 'n_stamped': 274057, 'n_pos': 265569, 'n_moved': 40969, 'n_Dcheck': 823134, 'n_abort': 8488, 'n_abort_unamen': 8488} 710.5
+2100 {'n_scm': 1695, 'n_query_pos': 11415, 'n_trial': 364964, 'n_rejected': 83668, 'n_stamped': 281296, 'n_pos': 272569, 'n_moved': 42054, 'n_Dcheck': 850569, 'n_abort': 8727, 'n_abort_unamen': 8727} 738.8
+2125 {'n_scm': 1716, 'n_query_pos': 11525, 'n_trial': 368586, 'n_rejected': 84472, 'n_stamped': 284114, 'n_pos': 275289, 'n_moved': 42562, 'n_Dcheck': 860437, 'n_abort': 8825, 'n_abort_unamen': 8825} 750.7
+2150 {'n_scm': 1735, 'n_query_pos': 11625, 'n_trial': 372392, 'n_rejected': 85287, 'n_stamped': 287105, 'n_pos': 278190, 'n_moved': 42997, 'n_Dcheck': 870394, 'n_abort': 8915, 'n_abort_unamen': 8915} 768.2
+2200 {'n_scm': 1776, 'n_query_pos': 11851, 'n_trial': 378446, 'n_rejected': 86615, 'n_stamped': 291831, 'n_pos': 282634, 'n_moved': 43779, 'n_Dcheck': 889680, 'n_abort': 9197, 'n_abort_unamen': 9197} 821.4
+2225 {'n_scm': 1796, 'n_query_pos': 11937, 'n_trial': 381208, 'n_rejected': 87060, 'n_stamped': 294148, 'n_pos': 284840, 'n_moved': 44137, 'n_Dcheck': 900877, 'n_abort': 9308, 'n_abort_unamen': 9308} 838.2
+2250 {'n_scm': 1819, 'n_query_pos': 12018, 'n_trial': 383864, 'n_rejected': 87410, 'n_stamped': 296454, 'n_pos': 286988, 'n_moved': 44553, 'n_Dcheck': 910135, 'n_abort': 9466, 'n_abort_unamen': 9466} 856.1
+2275 {'n_scm': 1840, 'n_query_pos': 12130, 'n_trial': 387376, 'n_rejected': 87945, 'n_stamped': 299431, 'n_pos': 289870, 'n_moved': 44959, 'n_Dcheck': 919820, 'n_abort': 9561, 'n_abort_unamen': 9561} 869.4
+2300 {'n_scm': 1862, 'n_query_pos': 12320, 'n_trial': 391776, 'n_rejected': 89393, 'n_stamped': 302383, 'n_pos': 292718, 'n_moved': 45464, 'n_Dcheck': 926982, 'n_abort': 9665, 'n_abort_unamen': 9665} 881.0
+2325 {'n_scm': 1881, 'n_query_pos': 12476, 'n_trial': 397460, 'n_rejected': 90759, 'n_stamped': 306701, 'n_pos': 296930, 'n_moved': 46043, 'n_Dcheck': 938318, 'n_abort': 9771, 'n_abort_unamen': 9771} 897.3
+FINAL {
+ "n_scm": 1884,
+ "n_query_pos": 12492,
+ "n_trial": 398272,
+ "n_rejected": 90810,
+ "n_stamped": 307462,
+ "n_pos": 297671,
+ "n_moved": 46166,
+ "n_Dcheck": 941532,
+ "n_abort": 9791,
+ "n_abort_unamen": 9791
+}

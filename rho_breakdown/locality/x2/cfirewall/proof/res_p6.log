@@ -1,0 +1,20 @@
+  20/200 147s check=1864799 resid=43708 VIOL=0
+  40/200 240s check=3722533 resid=87078 VIOL=0
+  60/200 303s check=5590465 resid=130254 VIOL=0
+  80/200 348s check=7439685 resid=172397 VIOL=0
+  100/200 403s check=9301700 resid=215329 VIOL=0
+  120/200 484s check=11157985 resid=257457 VIOL=0
+  140/200 543s check=13024945 resid=301628 VIOL=0
+  160/200 593s check=14889779 resid=345247 VIOL=0
+  180/200 654s check=16746259 resid=388773 VIOL=0
+  200/200 728s check=18608212 resid=431334 VIOL=0
+sample 6 {
+ "RESIDUAL_VIOL": 0,
+ "certA": 16697211,
+ "certB": 16800906,
+ "check": 18608212,
+ "covered": 18176878,
+ "draw": 200000,
+ "residual": 431334,
+ "trial": 13186068
+}

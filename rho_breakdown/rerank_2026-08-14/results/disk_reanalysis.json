@@ -1,0 +1,182 @@
+{
+ "source": "/Users/josecosta/research-pilots/latent-causal-rho-breakdown-knowledge/results/linear_raw.json",
+ "n_scm_total": 600,
+ "n_undirected_dist": {
+  "3": 258,
+  "4": 183,
+  "5": 91,
+  "6": 30,
+  "7": 29,
+  "8": 5,
+  "9": 3,
+  "10": 1
+ },
+ "generic": {
+  "n_scm": 579,
+  "n_K": {
+   "3": 258,
+   "4": 321
+  },
+  "sign": {
+   "bins_rho*_1_2_3_censored": {
+    "1": 0.057,
+    "2": 0.0276,
+    "3": 0.0121,
+    "4": 0.9033
+   },
+   "counts": {
+    "1": 33,
+    "2": 16,
+    "3": 7,
+    "4": 523
+   },
+   "censored_frac_ci": "0.903 [0.877, 0.926]",
+   "max_bin": 0.9033,
+   "n_bins_ge_5pct": 2,
+   "median": 4.0
+  },
+  "rel50": {
+   "bins_rho*_1_2_3_censored": {
+    "1": 0.1675,
+    "2": 0.0656,
+    "3": 0.0121,
+    "4": 0.7547
+   },
+   "counts": {
+    "1": 97,
+    "2": 38,
+    "3": 7,
+    "4": 437
+   },
+   "censored_frac_ci": "0.755 [0.718, 0.788]",
+   "max_bin": 0.7547,
+   "n_bins_ge_5pct": 3,
+   "median": 4.0
+  },
+  "ident": {
+   "bins_rho*_1_2_3_censored": {
+    "1": 0.5095,
+    "2": 0.1623,
+    "3": 0.0225,
+    "4": 0.3057
+   },
+   "counts": {
+    "1": 295,
+    "2": 94,
+    "3": 13,
+    "4": 177
+   },
+   "censored_frac_ci": "0.306 [0.268, 0.344]",
+   "max_bin": 0.5095,
+   "n_bins_ge_5pct": 3,
+   "median": 1.0
+  },
+  "widths": {
+   "rho1": {
+    "n": 579,
+    "mean": 0.3506,
+    "median": 0.0,
+    "q90": 0.8686,
+    "frac_zero_width": 0.7254
+   },
+   "rho2": {
+    "n": 579,
+    "mean": 0.4801,
+    "median": 0.0,
+    "q90": 1.2553,
+    "frac_zero_width": 0.6114
+   },
+   "rho3": {
+    "n": 579,
+    "mean": 0.5138,
+    "median": 0.0,
+    "q90": 1.4954,
+    "frac_zero_width": 0.5959
+   }
+  }
+ },
+ "tiered": {
+  "n_scm": 180,
+  "n_K": {
+   "3": 105,
+   "4": 75
+  },
+  "sign": {
+   "bins_rho*_1_2_3_censored": {
+    "1": 0.0722,
+    "2": 0.0222,
+    "3": 0.0056,
+    "4": 0.9
+   },
+   "counts": {
+    "1": 13,
+    "2": 4,
+    "3": 1,
+    "4": 162
+   },
+   "censored_frac_ci": "0.900 [0.856, 0.939]",
+   "max_bin": 0.9,
+   "n_bins_ge_5pct": 2,
+   "median": 4.0
+  },
+  "rel50": {
+   "bins_rho*_1_2_3_censored": {
+    "1": 0.2056,
+    "2": 0.0556,
+    "3": 0.0056,
+    "4": 0.7333
+   },
+   "counts": {
+    "1": 37,
+    "2": 10,
+    "3": 1,
+    "4": 132
+   },
+   "censored_frac_ci": "0.733 [0.667, 0.794]",
+   "max_bin": 0.7333,
+   "n_bins_ge_5pct": 3,
+   "median": 4.0
+  },
+  "ident": {
+   "bins_rho*_1_2_3_censored": {
+    "1": 0.5889,
+    "2": 0.1556,
+    "3": 0.0167,
+    "4": 0.2389
+   },
+   "counts": {
+    "1": 106,
+    "2": 28,
+    "3": 3,
+    "4": 43
+   },
+   "censored_frac_ci": "0.239 [0.178, 0.306]",
+   "max_bin": 0.5889,
+   "n_bins_ge_5pct": 3,
+   "median": 1.0
+  },
+  "widths": {
+   "rho1": {
+    "n": 180,
+    "mean": 0.5724,
+    "median": 0.0,
+    "q90": 1.195,
+    "frac_zero_width": 0.6444
+   },
+   "rho2": {
+    "n": 180,
+    "mean": 0.6607,
+    "median": 0.0,
+    "q90": 1.612,
+    "frac_zero_width": 0.5667
+   },
+   "rho3": {
+    "n": 180,
+    "mean": 0.6835,
+    "median": 0.0,
+    "q90": 1.758,
+    "frac_zero_width": 0.5611
+   }
+  }
+ }
+}

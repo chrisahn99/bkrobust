@@ -1,0 +1,7 @@
+[G3] original/K4: 2637 SCMs, 39555 members, mismatches=0
+[G3] licensed/K4: 2087 SCMs, 31305 members, mismatches=0
+[G3] large/K4: 2443 SCMs, 36645 members, mismatches=0
+[G3] k8/K4: 127 SCMs, 1778 members, mismatches=0
+[G3] k8/K6: 329 SCMs, 13489 members, mismatches=0
+[G3] k8/K8: 585 SCMs, 53820 members, mismatches=0
+[G3] -> ../results/verify_armB.json

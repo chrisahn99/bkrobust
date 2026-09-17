@@ -1,0 +1,12 @@
+{
+ "rejeicoes_518": {
+  "total": 518,
+  "nao_amenavel": 518
+ },
+ "artefato_do_desbaste": {
+  "existe_subconjunto_amenavel": 29,
+  "_subconjuntos": 1238,
+  "nenhum_subconjunto_amenavel": 11,
+  "degenerado": 61
+ }
+}

@@ -1,0 +1,32 @@
+0 {} 0.7
+2000 {'n_scm': 198, 'n_U0': 2319, 'class_size': 9631, 'n_query_pos': 72, 'n_trial': 2028, 'n_stamped': 1248, 'n_pos': 1248, 'n_moved': 391, 'O_gained': 389, 'n_Dcheck': 17193, 'n_rejected': 780, 'O_lost': 51} 31.8
+4000 {'n_scm': 391, 'n_U0': 4602, 'class_size': 20082, 'n_query_pos': 136, 'n_trial': 3738, 'n_stamped': 2288, 'n_pos': 2288, 'n_moved': 710, 'O_gained': 706, 'n_Dcheck': 31976, 'n_rejected': 1450, 'O_lost': 89} 62.6
+6000 {'n_scm': 582, 'n_U0': 6858, 'class_size': 30297, 'n_query_pos': 173, 'n_trial': 4686, 'n_stamped': 2848, 'n_pos': 2848, 'n_moved': 887, 'O_gained': 883, 'n_Dcheck': 40769, 'n_rejected': 1838, 'O_lost': 105} 92.6
+8000 {'n_scm': 797, 'n_U0': 9405, 'class_size': 42746, 'n_query_pos': 251, 'n_trial': 6408, 'n_stamped': 3888, 'n_pos': 3888, 'n_moved': 1221, 'O_gained': 1203, 'n_Dcheck': 56580, 'n_rejected': 2520, 'O_lost': 151} 128.1
+10000 {'n_scm': 1015, 'n_U0': 11938, 'class_size': 54789, 'n_query_pos': 329, 'n_trial': 8476, 'n_stamped': 5203, 'n_pos': 5203, 'n_moved': 1615, 'O_gained': 1590, 'n_Dcheck': 74622, 'n_rejected': 3273, 'O_lost': 200} 163.3
+12000 {'n_scm': 1214, 'n_U0': 14302, 'class_size': 65634, 'n_query_pos': 393, 'n_trial': 10138, 'n_stamped': 6199, 'n_pos': 6199, 'n_moved': 1911, 'O_gained': 1885, 'n_Dcheck': 88875, 'n_rejected': 3939, 'O_lost': 230} 194.9
+14000 {'n_scm': 1409, 'n_U0': 16641, 'class_size': 77223, 'n_query_pos': 445, 'n_trial': 11456, 'n_stamped': 6978, 'n_pos': 6978, 'n_moved': 2153, 'O_gained': 2125, 'n_Dcheck': 99937, 'n_rejected': 4478, 'O_lost': 250} 220.1
+16000 {'n_scm': 1625, 'n_U0': 19315, 'class_size': 90759, 'n_query_pos': 493, 'n_trial': 12688, 'n_stamped': 7708, 'n_pos': 7708, 'n_moved': 2387, 'O_gained': 2359, 'n_Dcheck': 112333, 'n_rejected': 4980, 'O_lost': 279} 257.2
+18000 {'n_scm': 1822, 'n_U0': 21688, 'class_size': 102472, 'n_query_pos': 556, 'n_trial': 14358, 'n_stamped': 8702, 'n_pos': 8702, 'n_moved': 2692, 'O_gained': 2663, 'n_Dcheck': 126058, 'n_rejected': 5656, 'O_lost': 312} 289.4
+20000 {'n_scm': 2046, 'n_U0': 24329, 'class_size': 114506, 'n_query_pos': 653, 'n_trial': 16344, 'n_stamped': 9925, 'n_pos': 9919, 'n_moved': 3068, 'O_gained': 3004, 'n_Dcheck': 141744, 'n_rejected': 6419, 'O_lost': 382, 'n_abort': 6, 'n_abort_unamen': 6} 319.4
+22000 {'n_scm': 2254, 'n_U0': 26789, 'class_size': 125435, 'n_query_pos': 711, 'n_trial': 17570, 'n_stamped': 10682, 'n_pos': 10672, 'n_moved': 3293, 'O_gained': 3219, 'n_Dcheck': 152446, 'n_rejected': 6888, 'O_lost': 410, 'n_abort': 10, 'n_abort_unamen': 10} 347.9
+24000 {'n_scm': 2462, 'n_U0': 29280, 'class_size': 136499, 'n_query_pos': 755, 'n_trial': 18906, 'n_stamped': 11494, 'n_pos': 11469, 'n_moved': 3533, 'O_gained': 3450, 'n_Dcheck': 162822, 'n_rejected': 7412, 'O_lost': 449, 'n_abort': 25, 'n_abort_unamen': 25} 385.7
+26000 {'n_scm': 2670, 'n_U0': 31746, 'class_size': 148736, 'n_query_pos': 823, 'n_trial': 20810, 'n_stamped': 12661, 'n_pos': 12636, 'n_moved': 3890, 'O_gained': 3806, 'n_Dcheck': 178427, 'n_rejected': 8149, 'O_lost': 494, 'n_abort': 25, 'n_abort_unamen': 25} 416.2
+28000 {'n_scm': 2867, 'n_U0': 34110, 'class_size': 159894, 'n_query_pos': 894, 'n_trial': 22634, 'n_stamped': 13737, 'n_pos': 13712, 'n_moved': 4230, 'O_gained': 4146, 'n_Dcheck': 193713, 'n_rejected': 8897, 'O_lost': 532, 'n_abort': 25, 'n_abort_unamen': 25} 450.4
+FINAL {
+ "n_scm": 3062,
+ "n_U0": 36397,
+ "class_size": 170012,
+ "n_query_pos": 954,
+ "n_trial": 24310,
+ "n_stamped": 14749,
+ "n_pos": 14724,
+ "n_moved": 4534,
+ "O_gained": 4441,
+ "n_Dcheck": 206145,
+ "n_rejected": 9561,
+ "O_lost": 565,
+ "n_abort": 25,
+ "n_abort_unamen": 25
+}
+n_violation_hits 0

@@ -1,0 +1,21 @@
+MPDAGs on 4 nodes: 1601
+  160/1601 1s check=21948 VIOL=0
+  320/1601 2s check=37590 VIOL=0
+  480/1601 2s check=49737 VIOL=0
+  640/1601 3s check=62051 VIOL=0
+  800/1601 3s check=69145 VIOL=0
+  960/1601 4s check=82426 VIOL=0
+  1120/1601 4s check=89688 VIOL=0
+  1280/1601 4s check=98508 VIOL=0
+  1440/1601 5s check=108464 VIOL=0
+  1600/1601 5s check=114792 VIOL=0
+{
+ "VIOL": 0,
+ "check": 114792,
+ "moved": 18204,
+ "trial": 65904,
+ "trial_add0": 7296,
+ "trial_add1": 19596,
+ "trial_add2": 22812,
+ "trial_add3": 16200
+}

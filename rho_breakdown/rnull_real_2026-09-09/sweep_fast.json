@@ -1,0 +1,15370 @@
+[
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "yfaD",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.33101936125409026,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "folK",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "asnA",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "dnaG",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.6653345369377348e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "ycgX",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "asnA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.5496875455500002,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "aceB",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "yheI",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.3877787807814457e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "lacZ",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "ftsJ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.1765892584808677,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "lacA",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 5.551115123125783e-17,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "fixC",
+  "y": "ibpB",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 5.551115123125783e-17,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   null,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "b1583",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.11284629649090443,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   1,
+   1,
+   1,
+   0
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "b1963",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.1102230246251565e-16,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "icdA",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "mopB",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "icdA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.44220863891646006,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "lacA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 8.326672684688674e-17,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "nuoM",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 6.938893903907228e-18,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "asnA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "tnaA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.12048763999999998,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   0,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "lacY",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.18007613987869303,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "yceP",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "fixC",
+  "y": "yfaD",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.7755575615628914e-17,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "aceB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.4627271197621838,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "ygcE",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "dnaK",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.1102230246251565e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "dnaK",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "nuoM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.07352508791247035,
+  "pt_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   0,
+   0,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "atpD",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "lacZ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.17656688259520023,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "lacZ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.07880131881091607,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   0,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "yheI",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.20834539769344085,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "folK",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.3877787807814457e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "icdA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "yheI",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "dnaK",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.22495052588960815,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "lacA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.1497348874078199,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "fixC",
+  "y": "b1583",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.02212064276999725,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   0,
+   1,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "ygcE",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "atpD",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 8.326672684688674e-17,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "b1583",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.023631325387976188,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   1,
+   null,
+   0,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "fixC",
+  "y": "dnaG",
+  "comp": 5,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.4243078921162393,
+  "pt_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   1,
+   0,
+   1,
+   1,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "yaeM",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   1,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "yfaD",
+  "comp": 5,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.09765803955599998,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "nuoM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.018176037918829574,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   1,
+   1,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "fixC",
+  "y": "yceP",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.1102230246251565e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "yaeM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.05676847007138397,
+  "pt_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "yaeM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.019793947483952898,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   null,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "lacY",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.04451637991386126,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "aceB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "lacY",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "yfaD",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.26548678000000003,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "mopB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.004649277809844143,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "tnaA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.942890293094024e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   0,
+   null,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "b1963",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.21617918464671437,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   null,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "mopB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.1910932350187942,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "eutG",
+  "y": "dnaG",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.19613305719750562,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   null,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "b1191",
+  "y": "tnaA",
+  "comp": 5,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.22969452,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 1.0,
+  "x": "sucA",
+  "y": "ftsJ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.004296397624076936,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2208",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.046559829921507756,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1217",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0005689456702071966,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G418",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.15377395400399999,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   null,
+   1,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1294",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.009792153184432963,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   null,
+   null,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1217",
+  "y": "MIL",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.007924034403999997,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   null,
+   1,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1853",
+  "y": "FUS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1217",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.03752341227497522,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   1,
+   null,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1217",
+  "y": "G1800",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.033995599999999994,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1853",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0022637908480000004,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G257",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.008882992512684401,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   0,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G418",
+  "y": "FUS",
+  "comp": 3,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.00328582782,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G257",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.04703577596672201,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   1,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   1,
+   null,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1294",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.04372171890483022,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1217",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.054753313360000014,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   null,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G418",
+  "y": "G1800",
+  "comp": 3,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.00544434,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   1,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   1,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   0,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G418",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G257",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0025141243989538044,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G418",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.003736707082297175,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1853",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.01607806,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   0,
+   1,
+   1,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2835",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.06406882208134165,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   0,
+   0,
+   0,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G257",
+  "y": "G1800",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.02920388424607103,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G311",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2208",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.004793090455750267,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2835",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.019923464149600056,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2835",
+  "y": "G1800",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2835",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.07324549652700257,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   1,
+   0,
+   0,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2835",
+  "y": "FUS",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2208",
+  "y": "MIL",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.02984795439346849,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1217",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0027520692423331737,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G418",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.008801367275395204,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   null,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   0,
+   0,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2835",
+  "y": "HT",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1294",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0023659932285985397,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G311",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   1,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G311",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G257",
+  "y": "MIL",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.05187532070025777,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G257",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.03415816950376306,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G1853",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.004361977678,
+  "pt_n200": [
+   1,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G418",
+  "y": "HT",
+  "comp": 3,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0611886,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   1,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   0,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 1.0,
+  "x": "G2208",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.019653883036285912,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3106",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0019334781002090403,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3105",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0020767756178400004,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3106",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.003609255367199995,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "YLD",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.004032238962913229,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   2,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   null,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3486",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0013593068758500004,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "AMY",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.00591002125682589,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "HT",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.08864785760896082,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "FT",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.16646757152985808,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3862",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 9.542334268467001e-05,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3102",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4109",
+  "y": "CHALK",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.07238011530903421,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3102",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.002408237845439997,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   1,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "GTEMP",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3862",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3486",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   1,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "GTEMP",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.10935873103675105,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   1,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   0,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "CHALK",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.32441881430877584,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   null,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3105",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0038767511999999956,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   null,
+   2,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "YLD",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.002545016401354883,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3209",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.019078499999999998,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   1,
+   1,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   0,
+   1,
+   0,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3098",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0007391244423892562,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3098",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0013797357520799985,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3486",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0025374404999999995,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3209",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.01022035245,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3106",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "GTEMP",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.05858347221638758,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   0,
+   1,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   0,
+   null,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "FT",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.04683898433663959,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   1,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "HT",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.1773116165054271,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   null,
+   1,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3222",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.020009349099999987,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   1,
+   0,
+   0,
+   1,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "GW",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.00027339682759187765,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   2
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "FT",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0003522465375060402,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "HT",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.2601444492202084,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3105",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "YLD",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.00696331565792943,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   0,
+   0,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   null,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3102",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.001290093013802208,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3209",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   null,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3222",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "G3222",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.010719008312869998,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   0,
+   1,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4145",
+  "y": "G3862",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.00017812832309999993,
+  "pt_n200": [
+   null,
+   null,
+   2,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   2,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "GW",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "AMY",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0031659983872816327,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "G3098",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   null,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "CHALK",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.062315146996213766,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "GW",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0001464586805409689,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G3212",
+  "y": "AMY",
+  "comp": 4,
+  "kloc": 2,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   null,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 1.0,
+  "x": "G4156",
+  "y": "CHALK",
+  "comp": 4,
+  "kloc": 2,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.40370831004188945,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   1,
+   0,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "yfaD",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.33101936125409026,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "dnaG",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.6653345369377348e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "ycgX",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "asnA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.5496875455500002,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "yheI",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.3877787807814457e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "ftsJ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.1765892584808677,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "b1583",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.11284629649090443,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   0,
+   1,
+   1,
+   1,
+   0
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "b1963",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.1102230246251565e-16,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "icdA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.44220863891646006,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "lacA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 8.326672684688674e-17,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "asnA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "tnaA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.12048763999999998,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   0,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "lacY",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.18007613987869303,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "yceP",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "aceB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.4627271197621838,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "ygcE",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "dnaK",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.1102230246251565e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "nuoM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.07352508791247035,
+  "pt_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   0,
+   0,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "lacZ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.17656688259520023,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   1,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   null,
+   null,
+   1,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "lacZ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.07880131881091607,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   0,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "yheI",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.20834539769344085,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "folK",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.3877787807814457e-16,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "icdA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "dnaK",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.22495052588960815,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "lacA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.1497348874078199,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "atpD",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 8.326672684688674e-17,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "b1583",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.023631325387976188,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   1,
+   null,
+   0,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "nuoM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.018176037918829574,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   1,
+   1,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "yaeM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.05676847007138397,
+  "pt_n200": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "yaeM",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.019793947483952898,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   null,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "lacY",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.04451637991386126,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "aceB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 2.220446049250313e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "yfaD",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.26548678000000003,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "mopB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.004649277809844143,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "tnaA",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 1.942890293094024e-16,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   0,
+   null,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "b1963",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.21617918464671437,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   null,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "mopB",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": false,
+  "w1": 0.1910932350187942,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "eutG",
+  "y": "dnaG",
+  "comp": 8,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.19613305719750562,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   null,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "ecoli70",
+  "coverage": 0.5,
+  "x": "sucA",
+  "y": "ftsJ",
+  "comp": 8,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.004296397624076936,
+  "pt_n200": [
+   1,
+   null,
+   1,
+   null,
+   1
+  ],
+  "bd_n200": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   1,
+   null,
+   1,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G2208",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.046559829921507756,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1217",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0005689456702071966,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1294",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.009792153184432963,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   null,
+   null,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1217",
+  "y": "MIL",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.007924034403999997,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   null,
+   1,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1853",
+  "y": "FUS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1217",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.03752341227497522,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   1,
+   null,
+   1
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   1,
+   null,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1217",
+  "y": "G1800",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.033995599999999994,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1853",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.0022637908480000004,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G257",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.008882992512684401,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   0,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G257",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.04703577596672201,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   1,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   1,
+   null,
+   1,
+   1
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1294",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.04372171890483022,
+  "pt_n200": [
+   null,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   null,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1217",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.054753313360000014,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   null,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G418",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G257",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0025141243989538044,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1853",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.01607806,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   1,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   1,
+   0,
+   1,
+   1,
+   0
+  ],
+  "pt_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ],
+  "bd_n20000": [
+   1,
+   1,
+   null,
+   1,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G257",
+  "y": "G1800",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.02920388424607103,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   1,
+   null,
+   null,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G311",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   1,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G2208",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.004793090455750267,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   1
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G2835",
+  "y": "G1800",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G2835",
+  "y": "FUS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G2208",
+  "y": "MIL",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.02984795439346849,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1217",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0027520692423331737,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   null,
+   1,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   1
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G2835",
+  "y": "HT",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1294",
+  "y": "FT",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0023659932285985397,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G311",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   null,
+   1,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G311",
+  "y": "YLD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G257",
+  "y": "MIL",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.05187532070025777,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   0,
+   null
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G257",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.03415816950376306,
+  "pt_n200": [
+   null,
+   null,
+   1,
+   1,
+   1
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   1,
+   1,
+   1,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   1,
+   1,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G1853",
+  "y": "YR.FIELD",
+  "comp": 3,
+  "kloc": 1,
+  "r0": 1,
+  "neff0": 1,
+  "structural": true,
+  "w1": 0.004361977678,
+  "pt_n200": [
+   1,
+   1,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   1
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   1,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-niab",
+  "coverage": 0.5,
+  "x": "G2208",
+  "y": "YR.GLASS",
+  "comp": 3,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.019653883036285912,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   1,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3102",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G4109",
+  "y": "CHALK",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.07238011530903421,
+  "pt_n200": [
+   1,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "GTEMP",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3862",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3486",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   null,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3106",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   0,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3105",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3209",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   null,
+   null,
+   0,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3222",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   null,
+   0,
+   null,
+   null,
+   null
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "GW",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   null,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   0,
+   null,
+   0,
+   null,
+   null
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "G3098",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   0,
+   0,
+   null,
+   0,
+   null
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   0
+  ]
+ },
+ {
+  "network": "magic-irri",
+  "coverage": 0.5,
+  "x": "G3212",
+  "y": "AMY",
+  "comp": 4,
+  "kloc": 1,
+  "r0": null,
+  "neff0": 1,
+  "structural": null,
+  "w1": 0.0,
+  "pt_n200": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n200": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n1000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n1000": [
+   0,
+   0,
+   null,
+   null,
+   0
+  ],
+  "pt_n5000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n5000": [
+   null,
+   0,
+   0,
+   0,
+   0
+  ],
+  "pt_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "bd_n20000": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ }
+]

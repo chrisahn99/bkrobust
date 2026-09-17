@@ -1,0 +1,16 @@
+0 control {'n_scm': 1, 'class_size': 2, 'n_query_pos': 14, 'n_trial': 308, 'n_stamped': 98, 'n_pos': 98, 'n_same': 95, 'n_rejected': 210, 'n_moved': 3, 'n_Dcheck': 6, 'n_violation': 3} 53.4
+FINAL control {
+ "n_scm": 2427,
+ "class_size": 29479,
+ "n_query_pos": 16146,
+ "n_trial": 513656,
+ "n_stamped": 116859,
+ "n_pos": 115977,
+ "n_same": 85879,
+ "n_rejected": 396797,
+ "n_moved": 30098,
+ "n_Dcheck": 98693,
+ "n_violation": 20642,
+ "n_abort": 882
+}
+n_violation 20642 of moved 30098

@@ -1,0 +1,19 @@
+  878/8782 5s check=309254 resid=2926 VIOL=0
+  1756/8782 9s check=602854 resid=7520 VIOL=0
+  2634/8782 14s check=973473 resid=12587 VIOL=0
+  3512/8782 20s check=1297524 resid=18017 VIOL=0
+  4390/8782 24s check=1623408 resid=22859 VIOL=0
+  5268/8782 31s check=2023006 resid=29360 VIOL=0
+  6146/8782 38s check=2452362 resid=35785 VIOL=0
+  7024/8782 48s check=2956773 resid=41918 VIOL=0
+  7902/8782 50s check=3106664 resid=45146 VIOL=0
+  8780/8782 53s check=3267272 resid=50296 VIOL=0
+census 5 {
+ "RESIDUAL_VIOL": 0,
+ "certA": 2771440,
+ "certB": 3047580,
+ "check": 3267660,
+ "covered": 3217340,
+ "residual": 50320,
+ "trial": 2053715
+}

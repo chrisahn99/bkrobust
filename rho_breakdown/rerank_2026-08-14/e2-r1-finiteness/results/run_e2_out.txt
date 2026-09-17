@@ -1,0 +1,3 @@
+replaying 600 pilot SCMs
+kept 523 SCMs; worst |tau - tau_pilot| = 3.331e-16
+-> ../results/e2_raw.json

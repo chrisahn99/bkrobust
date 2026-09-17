@@ -1,0 +1,6 @@
+[x1/original] analysed 2000 SCMs from <= 12000 draws in 26.9s -> ../results/x1_original.json
+[x1/original] drops: {"prefilter": 7218, "drop_ineligible": {"n": 213, "mean_p": 5.037558685446009, "mean_deg": 2.272300469483568, "mean_nN": 2.7183098591549295, "mean_locpool": 4.643192488262911, "mean_nO0": 0.6056338028169014}, "drop_nonamenable": {"n": 620, "mean_p": 6.346774193548387, "mean_deg": 2.175, "mean_nN": 9.420967741935485, "mean_locpool": 7.382258064516129, "mean_nO0": null}}
+[x1/licensed] analysed 2000 SCMs from <= 16000 draws in 75.6s -> ../results/x1_licensed.json
+[x1/licensed] drops: {"prefilter": 4921, "drop_nonamenable": {"n": 2028, "mean_p": 6.595660749506903, "mean_deg": 4.872041420118343, "mean_nN": 4.357495069033531, "mean_locpool": 6.393491124260355, "mean_nO0": null}, "drop_ineligible": {"n": 222, "mean_p": 5.792792792792793, "mean_deg": 3.774774774774775, "mean_nN": 2.1126126126126126, "mean_locpool": 5.04054054054054, "mean_nO0": 1.0225225225225225}}
+[x1/large] analysed 1200 SCMs from <= 4800 draws in 64.7s -> ../results/x1_large.json
+[x1/large] drops: {"prefilter": 377, "drop_nonamenable": {"n": 260, "mean_p": 20.857692307692307, "mean_deg": 1.9596153846153845, "mean_nN": 192.22692307692307, "mean_locpool": 36.75, "mean_nO0": null}}

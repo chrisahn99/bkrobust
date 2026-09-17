@@ -1,0 +1,12 @@
+{
+ "counts": {
+  "coh_n": 10276,
+  "coh_fb_ne": 3316,
+  "coh_cn1_notsub_fb0": 1392,
+  "ctl_n": 3092,
+  "ctl_fb_ne": 1412,
+  "coh_abort": 720,
+  "ctl_cn1_notsub_fb0": 192
+ },
+ "wit": []
+}

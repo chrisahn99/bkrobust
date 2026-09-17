@@ -1,0 +1,63 @@
+% Panel B explained, T3 in full, and the figure for T3.
+% 2026-09-16. Companion to output/2026-09-16_table1-dossier/.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.1cm,bottom=2.4cm]{geometry}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{quoting}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\captionsetup{font=small,labelfont=bf,skip=5pt}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\quotingsetup{leftmargin=1.4em,rightmargin=1.4em,vskip=5pt}
+
+\definecolor{rule}{HTML}{8A8A94}
+\definecolor{soft}{HTML}{F4F4F6}
+\newtcolorbox{verdict}[1][]{colback=soft,colframe=rule,boxrule=0.4pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}[runin]{\normalsize\bfseries}{}{0pt}{}[.]
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize Panel B, T3, and the figure}
+\fancyhead[R]{\footnotesize 2026-09-16}
+\fancyfoot[C]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries What Panel B measures, T3 in full,}\\[2pt]
+{\LARGE\bfseries and the figure that should carry it}\\[8pt]
+{\normalsize José Lucas de Melo Costa \quad$\cdot$\quad 16 September 2026}\\[4pt]
+{\footnotesize Companion to the Table 1 dossier. Every number is read from the stored results at
+build time; the script that draws the figures reproduces all 27 published cells of the source table.}
+\end{center}
+\vspace{4pt}
+\hrule
+\vspace{10pt}
+
+\input{sections/01_panelB}
+\input{sections/02_t3}
+\input{sections/03_figure}
+\input{sections/04_why26}
+\input{sections/05_exhaustive}
+
+\end{document}

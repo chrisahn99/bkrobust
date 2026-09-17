@@ -1,0 +1,79 @@
+ens       arm    p   rho   ecc  dens    nU xy_adj maxdmin    deg
+k8        K8     5     2     1  1.00    10   True   1.0    4.0
+k8        K8     5     2     1  1.00    10   True   1.0    4.0
+k8        K6     5     2     1  1.00    10   True   1.0    6.0
+k8        K8     5     2     1  1.00    10   True   1.0    6.0
+k8        K8     5     2     1  1.00    10   True   1.0    4.0
+k8        K6     5     2     1  1.00    10   True   1.0    6.0
+k8        K8     5     2     1  1.00    10   True   1.0    6.0
+k8        K6     5     2     1  1.00    10   True   1.0    4.0
+k8        K8     5     2     1  1.00    10   True   1.0    4.0
+k8        K8     5     2     1  1.00    10   True   1.0    4.0
+k8        K8     5     2     1  1.00    10   True   1.0    6.0
+k8        K8     5     2     1  1.00    10   True   1.0    4.0
+k8        K8     5     2     1  1.00    10   True   1.0    4.0
+k8        K8     5     2     1  1.00    10   True   1.0    6.0
+k8        K8     5     2     1  1.00    10   True   1.0    6.0
+original  K4     5     2     2  0.60     6  False   1.0    2.5
+k8        K8     5     2     1  1.00    10   True   1.0    6.0
+k8        K6     5     2     1  1.00    10   True   1.0    4.0
+original  K4     5     2     2  0.70     7   True   1.0    2.0
+original  K4     5     2     2  0.60     6  False   1.0    2.5
+k8        K6     6     2     1  1.00    15   True   1.0    6.0
+k8        K6     6     2     1  1.00    15   True   1.0    6.0
+licensed  K4     6     2   inf  0.33     5  False   1.0    2.5
+original  K4     6     2   inf  0.33     5  False   1.0    2.0
+k8        K8     6     2     1  1.00    15   True   1.0    6.0
+licensed  K4     6     2     1  0.53     5   True   1.0    2.5
+original  K4     6     2     2  0.40     6  False   1.0    2.0
+k8        K6     6     2     1  0.93     9   True   1.0    4.0
+licensed  K4     6     2     1  0.87     8   True   1.0    4.0
+k8        K4     6     2     1  0.87     8   True   1.0    4.0
+k8        K8     6     2     1  1.00    15   True   1.0    6.0
+licensed  K4     6     2     2  0.40     6  False   1.0    1.5
+k8        K8     6     3     1  1.00    15   True   1.0    6.0
+k8        K8     6     3     1  1.00    15   True   1.0    6.0
+licensed  K4     7     2     2  0.48    10   True   1.0    2.5
+k8        K4     7     2     2  0.48    10   True   1.0    2.5
+k8        K6     7     2     2  0.48    10   True   1.0    2.5
+k8        K8     7     2     1  0.86     9   True   1.0    4.0
+original  K4     7     2     1  0.52     5  False   1.0    2.0
+k8        K8     7     2     1  0.67     9   True   1.0    4.0
+k8        K8     7     2     1  1.00    21   True   1.0    6.0
+original  K4     7     2     2  0.52     5  False   1.0    2.5
+original  K4     7     2     2  0.43     7   True   1.0    2.5
+original  K4     7     2   inf  0.38     8   True   1.0    2.0
+k8        K8     7     3     1  0.67     9   True   1.0    4.0
+original  K4     7     3     2  0.52     5  False   1.0    2.5
+k8        K8     8     2     1  0.93    14   True   1.0    6.0
+licensed  K4     8     2     2  0.57     6  False   1.0    4.0
+k8        K6     8     2     2  0.57    10   True   1.0    4.0
+k8        K8     8     2     1  0.93    11   True   1.0    6.0
+licensed  K4     8     2     2  0.39     5  False   1.0    2.5
+original  K4     8     2   inf  0.29     5  False   1.0    2.0
+original  K4     8     2     1  0.57     5  False   1.0    2.5
+original  K4     8     2     1  0.57     5  False   1.0    2.5
+k8        K6     8     2     2  0.71    10   True   1.0    6.0
+k8        K8     8     2     1  0.68    11  False   1.0    4.0
+k8        K8     8     2     2  0.50     9  False   1.0    4.0
+original  K4     8     2   inf  0.25     7   True   1.0    2.0
+original  K4     8     2   inf  0.25     7   True   1.0    2.0
+k8        K8     8     3     1  0.93    11   True   1.0    6.0
+k8        K6     9     2     1  0.94    10   True   1.0    6.0
+k8        K6     9     2     1  0.86     9   True   1.0    6.0
+k8        K8     9     2     2  0.81    12   True   1.0    6.0
+k8        K8     9     2     2  0.81    12   True   1.0    6.0
+k8        K6     9     3     2  0.72     8  False   1.0    6.0
+k8        K6     9     3     1  0.94    10   True   1.0    6.0
+k8        K8     9     3     2  0.81    12   True   1.0    6.0
+k8        K8    10     2     2  0.42    10   True   1.0    4.0
+k8        K8    10     3     2  0.42    10   True   1.0    4.0
+large     K4    20     2     4  0.13     8   True   1.0    2.0
+
+eccentricity of {X,Y} over the 70: Counter({1: 41, 2: 22, inf: 6, 4: 1})
+max dmin over flipped, over the 70: Counter({1.0: 70})
+X adjacent to Y: Counter({True: 53, False: 17})
+density: ['1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '0.60', '1.00', '1.00', '0.70', '0.60', '1.00', '1.00', '0.33', '0.33', '1.00', '0.53', '0.40', '0.93', '0.87', '0.87', '1.00', '0.40', '1.00', '1.00', '0.48', '0.48', '0.48', '0.86', '0.52', '0.67', '1.00', '0.52', '0.43', '0.38', '0.67', '0.52', '0.93', '0.57', '0.57', '0.93', '0.39', '0.29', '0.57', '0.57', '0.71', '0.68', '0.50', '0.25', '0.25', '0.93', '0.94', '0.86', '0.81', '0.81', '0.72', '0.94', '0.81', '0.42', '0.42', '0.13']
+mean density 0.737  min 0.126  max 1.000
+p distribution: Counter({5: 20, 6: 14, 8: 14, 7: 12, 9: 7, 10: 2, 20: 1})
+ecc==1 count: 41 of 70

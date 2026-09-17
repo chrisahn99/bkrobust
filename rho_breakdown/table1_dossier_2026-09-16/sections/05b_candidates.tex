@@ -1,0 +1,377 @@
+\vspace{6pt}
+\hrule
+\subsection*{T6 \quad The applicability funnel}
+
+\emph{Rows are tiers of the substrate. Columns say what survives from a parsed network file to a
+query the method can certify.}
+
+\begin{center}\footnotesize
+\fitw{%
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+tier & networks parsed / framed / swept & open edges & candidate pairs & sampled & certifiable & effective $n$ \\
+\midrule
+textbook diagrams & 3 / 2 / 2 & 19 & 252 & 32 & 13 & 32.0 \\
+published applied graphs & 24 / 19 / 13 & 615 & 76{,}565 & 380 & 91 & 51.0 \\
+benchmark networks & 8 / 8 / 8 & 41 & 482 & 156 & 99 & 41.6 \\
+large gene networks & 4 / 4 / 4 & 92 & 2{,}833 & 80 & 26 & 19.5 \\
+\midrule
+total & 39 / 33 / 27 & 767 & 80{,}132 & 648 & 229 & \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\vspace{-4pt}
+\src{results/ledger/TABLE0\_FUNNEL.md and funnel.json, primary knowledge condition. The 80{,}132
+candidate pairs are built from observables alone; a gate that reads the true graph admitted 543
+pairs over 25 networks, and eight of the networks with a frame yielded no instance at all under it.}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+presents & where the method applies, and how much of the corpus it reaches \\
+verifies & C8 \\
+satisfies & R1 \yes\ R2 \pt\ R3 \no\ R4 \no\ R5 \yes\ R6 \no\ R7 \yes\ R8 \yes \\
+the objection & none. It is the answer to an objection \\
+verdict & a funnel as Table~1 sells a scope limit as the headline. This belongs early in the
+evaluation section, where it disarms the applicability attack before a reviewer assembles it \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\subsection*{T7 \quad The scope panel: what happens when the graph is estimated too}
+
+\emph{The same instruments, on four networks whose CPDAG was learned from data the true graph
+generated rather than read from the true graph.}
+
+\begin{center}\footnotesize
+\fitw{%
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+& \multicolumn{2}{c}{graph from the truth} & \multicolumn{3}{c}{graph learned from data} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-6}
+knowledge condition & certifiable & set invalid at truth & certifiable & set invalid at truth & over-certifies \\
+\midrule
+language model, real names & 26 & .269 & 38 & .737 & 14 \\
+chance, matched on the same edges & 66 & .409 & 116 & .733 & 43 \\
+no knowledge asserted & 11 & .000 & 19 & .737 & 14 \\
+truthful orientations & 18 & .000 & 34 & .676 & 23 \\
+truthful orientation of every open edge & 37 & .000 & 37 & .595 & 22 \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\vspace{-4pt}
+\src{results/pest/TABLE7.md, blocks 3 to 5. Four networks; the true graph extends the analyst's
+graph on 0 of the 244 certifiable rows, which is the premise the certificate's argument needs.}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+presents & the boundary of the licensed claim, with a number on it \\
+verifies & C9 \\
+the finding to read & even truthful knowledge over-certifies once the graph itself is wrong, on 23
+of 34 rows. Discovery error is not a knowledge error and no retraction of the claims repairs it \\
+satisfies & R1 \yes\ R2 \yes\ (of the scope claim) R3 \no\ R4 \no\ R5 \yes\ R6 \yes\ R7 \yes\ R8 \yes \\
+verdict & a results paragraph and a limitation. Printing it as Table~1 would be an unusual act of
+self-harm, and not printing it at all would be the defect the draft's discussion already admits it
+has \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\subsection*{T8 \quad The policy table: what the certificate is worth against a free screen}
+
+\emph{Rows are decision rules an analyst could follow. The first column is what the rule costs when
+the knowledge is entirely correct; the rest is what it buys when it is not.}
+
+\begin{center}\footnotesize
+\fitw{%
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+policy & refuses when nothing is wrong & \multicolumn{2}{c}{one wrong claim} & \multicolumn{2}{c}{two wrong claims} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+ & & coverage & width & coverage & width \\
+\midrule
+report as committed & .000 & .597 & 5.123 & .554 & 4.082 \\
+leave one claim out, re-close, widen if the set changes & .910 & .954 & 0.691 & .753 & 5.967 \\
+certify at depth one, widen if refused & .910 & .979 & 0.715 & .776 & 4.640 \\
+certify at depth two, widen if refused & .955 & .984 & 0.980 & \textbf{.986} & \textbf{0.791} \\
+leave one or two out, re-close, widen if the set changes & .963 & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\vspace{-4pt}
+\src{results/interval/PREREGISTRATION.md Appendix B and TABLE1\_L95.md, semi-synthetic panel,
+$n = 1000$. Two denominators, and they are not the same: the refusal column is over the 134
+informative problems with a committed set on 20 networks, and the coverage and width columns are
+over the 359 and 131 informative problems of the price table. The depth-two screen has no cell in
+the second population, so its row is left empty there rather than filled from the first; the
+comparison against it is in the box below, on its own population.}
+
+\begin{verdict}\footnotesize
+The two comparisons this table exists to make, both fixed before they were computed.
+Certifying at depth two beats the leave-one-out screen by 0.305 [0.182, 0.410] in coverage at the
+population and by 0.256 [0.149, 0.346] at a sample of one thousand. It ties
+the leave-one-or-two-out screen at 0.000 [0.000, 0.000] in coverage and $-$0.002 in width, and the
+two rules decide differently on 5 of 754 rows. The separation the design asked for exists because
+the baseline it named stops at depth one; matched on depth, the free screen costs the same kind of
+graph operation and returns the same answer.
+\end{verdict}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+presents & the honest position of the method against the baseline a reviewer invents \\
+verifies & C5 and C6 \\
+prior work inside the float & the screen. It is absent from the literature and it is the
+comparison that matters most \\
+satisfies & R1 \yes\ R2 \yes\ R3 \pt\ R4 \yes\ R5 \yes\ R6 \yes\ (the refusal column is a defeat
+and it is the first column) R7 \yes\ R8 \yes \\
+the objection & printing this invites the reader to conclude that the radius is unnecessary. The
+answer is the depth, the named witness and the certificate that no failure lies nearer, none of
+which a screen returns. The screen itself is safe, and the audit says so: on all 2{,}212 rows, a
+refusal at depth $r$ is matched by a screen that triggers at depth at most $r$, with no exception.
+What the ladder of T2 shows to be unsafe is the graph-revision unit, which is a different object \\
+status & measured \\
+verdict & a strong and unusual Table~1: it leads with what the method does not buy. As a second
+table it is the paper's credibility \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\subsection*{T9 \quad The distribution of the quantity}
+
+\emph{Rows are knowledge conditions, columns are the value the certificate returned.}
+
+\begin{center}\footnotesize
+\fitw{%
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+knowledge condition & certifiable & $r = 1$ & $r = 2$ & $r = 3$ & beyond 3 & no retraction breaks it \\
+\midrule
+language model, real names & 229 & 141 & 8 & 8 & 44 & 27 \\
+same family, larger model & 285 & 190 & 15 & 0 & 50 & 16 \\
+chance, matched on the same edges & 649 & 395 & 32 & 12 & 129 & 81 \\
+truthful orientations & 209 & 128 & 7 & 1 & 45 & 27 \\
+truthful orientation of every open edge & 294 & 226 & 0 & 0 & 46 & 19 \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\vspace{-4pt}
+\src{computed for this document from results/ledger/rows.csv. Rows censored at the search depth are
+counted in the ``beyond 3'' column with their floor; the primary condition has one such row and the
+larger model fourteen.}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+presents & what the quantity actually looks like on real structure \\
+verifies & nothing by itself; it disarms the degeneracy objection by printing it \\
+the finding to read & the conclusion rests on a single claim on 62\,\% of certifiable queries under
+the primary condition, and on 77\,\% under a fully oriented graph. The certificate's measured range
+on real structure is one, two or three, and every sentence about a larger radius is a sentence
+about a hop count \\
+satisfies & R1 \yes\ R2 \no\ R3 \no\ R4 \no\ R5 \yes\ R6 \yes\ R7 \yes\ R8 \pt \\
+verdict & an appendix table, or a bar in a figure. It is the honest answer to ``your quantity is
+degenerate'' and it cannot be Table~1 because it verifies no claim \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\subsection*{T10 \quad The supplier ledger \textnormal{(listed for completeness; ruled out)}}
+
+\emph{Rows are knowledge conditions, columns are what the audit found once the truth was revealed.}
+
+\begin{center}\footnotesize
+\fitw{%
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+condition & certifiable & claims false & set invalid at truth & radius over-certifies & hop over-certifies \\
+\midrule
+7B, real names & 229 & .329 [.184, .494] & .288 [.155, .435] & 0 & 4 \\
+7B, second presentation order & 206 & .323 [.190, .483] & .277 [.149, .426] & 0 & 3 \\
+second family, 8B & 243 & .285 [.165, .420] & .230 [.130, .344] & 0 & 5 \\
+7B, scrambled names & 197 & .394 [.296, .484] & .340 [.211, .467] & 0 & 7 \\
+same family, 72B & 285 & .278 [.163, .405] & .298 [.171, .431] & 0 & 1 \\
+chance, matched on the model's edges & 649 & .479 [.398, .559] & .378 [.295, .460] & 0 & 10 \\
+truthful orientations & 209 & .000 & .000 & 0 & 0 \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\vspace{-4pt}
+\src{results/ledger/TABLE4.md, blocks 1 and 2 and the ladder. Paired on 24 shared networks, the
+model beats chance in false claims by 0.143 [0.006, 0.287] and is not shown to beat it in validity,
+0.082 [$-$0.020, 0.176].}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+verifies & C10 \\
+why it is ruled out & the ruling of 12 September. Elicited knowledge is one error process in the
+methodology and never the headline, the title or Table~1. It is listed here because the brief asked
+for every possible Table~1, and because it is the most quotable table we have, which is exactly the
+risk \\
+where it goes & the evaluation section as one paragraph and two rows, and the appendix in full \\
+the finding worth keeping & a larger model asserts more claims and gets more of them right, and the
+share of committed sets that are invalid at the truth does not move: 0.298 against 0.288. Accuracy
+and validity are not the same purchase \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\subsection*{T11 \quad Two panels: is it safe, and what does it cost \textnormal{(recommended)}}
+
+\emph{One float, two panels, two populations named separately and never pooled. Panel A is the
+certificate ladder; Panel B is the price table with the screen row added.}
+
+\begin{center}\footnotesize
+\textbf{Panel A. Over-certification, 3{,}014 queries on 27 published structures, eleven knowledge conditions}\\[3pt]
+\fitw{%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+instrument & certifies an invalid set & share & detection & false alarm \\
+\midrule
+number of claims asserted & 729 & .242 & .192 & .065 \\
+separation of treatment and set & 15 & .005 & .983 & .505 \\
+radius in elementary graph revisions & 39 & .013 & .957 & .203 \\
+radius in the analyst's own claims & \textbf{0} & \textbf{.000} & \textbf{1.000} & .277 \\
+\bottomrule
+\end{tabular}}
+
+\vspace{9pt}
+\textbf{Panel B. Calibrated width and coverage, 391 problems on 23 of the same structures, $n = 1000$}\\[3pt]
+\fitw{%
+\begin{tabular}{@{}lccc@{}}
+\toprule
+procedure & no wrong claim & one wrong claim & two wrong claims \\
+\midrule
+report the estimate as committed & \textbf{0.464} / .967 & 5.123 / .597 & 4.082 / .554 \\
+leave one claim out, re-close, widen if it changes & 0.932 / .981 & 0.691 / .954 & 5.967 / .753 \\
+interval over one revision of the claims & 0.957 / .982 & \textbf{0.851} / .980 & 4.234 / .781 \\
+interval over two revisions of the claims & 0.984 / .984 & 0.980 / .984 & \textbf{0.847} / .984 \\
+discard the knowledge, interval over the whole class & 1.000 / .984 & 1.000 / .985 & 1.000 / .988 \\
+\midrule
+informative problems (networks) & 391 (23) & 359 (23) & 131 (9) \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\vspace{-2pt}
+\src{Panel A computed from results/ledger/rows.csv; Panel B from results/interval/TABLE1\_L95.md.
+One number sits outside both panels and belongs under the float: where the knowledge carries
+identification and nothing is wrong, the certificate declines to report the committed estimate on
+0.910 of 134 problems over 20 networks.}
+
+\vspace{4pt}
+\noindent\emph{Draft caption.} Panel A: an instrument over-certifies when it declares an adjustment
+set safe at a depth at which the set is invalid in the data-generating graph. Over 3{,}014 queries
+on 27 published structures, under knowledge ranging from chance orientations to truthful ones, a
+certificate counting elementary graph revisions over-certifies on 39 queries and one counting the
+analyst's own claims on none. Panel B: width at 95\,\% calibrated coverage relative to the interval
+over the whole equivalence class, with raw coverage beside it, over the problems on which the class
+leaves the effect open. The insurance costs about twice the
+committed width when nothing is wrong, and one wrong claim is bought back at 85\,\% of the price of
+discarding the knowledge; the leave-one-out screen reaches the same decision as the certificate at
+this depth.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+presents & the two questions a reader has after the abstract, in the order they have them: can I
+trust the certificate, and what does acting on it cost \\
+verifies & C3 and C4 in full; C5 through the screen row, which sits beside the interval it matches;
+C6 through the refusal number printed under the float \\
+prior work inside the float & the model-oriented distance as the revision-unit instrument, the
+claim count, the whole-class interval of Guo and Perkovi\'c, and the screen. Four named comparisons
+with numbers \\
+satisfies & R1 \yes\ R2 \yes\ R3 \yes\ R4 \yes\ R5 \yes\ (two populations, separately named)
+R6 \yes\ (the method loses the first column of Panel B and has the second-worst false-alarm rate in
+Panel A) R7 \yes\ R8 \yes \\
+the objection & two panels is a lot for one float on a nine-page limit, and the two populations
+have different denominators, so the eye wants to read across and must not. The caption has to say
+so \\
+status & every cell measured \\
+cost to finish & none. The optional sensitivity row is a further half day \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\subsection*{T12 \quad Three panels, for the merged paper}
+
+\emph{T11 with the ranking panel above it, so the draft's own result leads and ours supports it.}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{3.2cm}p{13.15cm}@{}}
+\toprule
+panel & content \\
+\midrule
+A, does it rank & four strata of the corruption design, the rank correlation of the radius against
+structural Hamming distance, the claim count, and the screen depth. Three columns exist; the fourth
+is unrun \\
+B, is it safe & the certificate ladder, five instruments, 3{,}014 queries \\
+C, what does it cost & the price table, five procedures, three columns \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+presents & the whole argument in one float: the quantity orders instances, the unit is safe, and
+the report has a price \\
+verifies & C3, C4, C11 \\
+satisfies & R1 \pt\ R2 \yes\ R3 \yes\ R4 \no\ (three metrics) R5 \yes\ R6 \yes\ R7 \no\ R8 \yes \\
+the objection & three panels on three populations with three metrics is a results section wearing a
+float. At a nine-page limit it eats most of a page and a reviewer reads none of it carefully \\
+verdict & the honest merge, and the wrong shape. Panels B and C are T11; panel A is the ranking
+section's own table \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\subsection*{T13 \quad The unit disagreement}
+
+\emph{Rows are instruments, columns are how their reading compares with the depth measured in the
+analyst's claims.}
+
+\begin{center}\footnotesize
+\fitw{%
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+instrument & reads below & agrees & reads one above & reads two above & largest gap \\
+\midrule
+separation of treatment and set & 14 & 136 & 7 & 0 & 2 \\
+radius in elementary graph revisions & 1 & 135 & 19 & 2 & 2 \\
+\bottomrule
+\end{tabular}}
+\end{center}
+\vspace{-4pt}
+\src{computed for this document from results/ledger/rows.csv, the 157 rows of the primary knowledge
+condition whose certificate is exact. Reading above the claim depth is what over-certification is;
+reading below is a refusal to certify something safe.}
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{2.5cm}p{13.85cm}@{}}
+\toprule
+presents & the unit mismatch as an agreement table rather than a safety table \\
+verifies & C3 and C7 \\
+satisfies & R1 \yes\ R2 \pt\ R3 \pt\ R4 \yes\ R5 \yes\ R6 \no\ R7 \yes\ R8 \yes \\
+the objection & agreement is not safety, and 21 rows above out of 157 reads as a small disagreement
+until the reader is told that every one of them is a query certified safe at a depth at which it is
+not \\
+verdict & a panel of T2, or a sentence in the locality section \\
+\bottomrule
+\end{tabular}
+\end{center}

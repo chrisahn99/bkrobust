@@ -1,0 +1,72 @@
+\section{What we compare ourselves to, and where it enters the float}
+
+Requirement R3 is the one most easily faked. A related-work paragraph naming eight papers is not a
+comparison; a table in which a named prior procedure occupies a row and gets a number is. The list
+below is every piece of prior work that can occupy a row or a column of a Table~1 on this object,
+what it becomes when it does, and whether we have run it.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{3.3cm}p{3.6cm}p{3.9cm}p{5.2cm}@{}}
+\toprule
+prior work & what it is & where it enters a Table~1 & measured? \\
+\midrule
+Perkovi\'c et al., generalised adjustment criterion; Henckel et al., optimal set &
+the construction that turns a graph into the committed set &
+the estimator, identical in every row of every candidate; also the audit oracle &
+\yes\ and it is a shared defect to fix: both sides' validity checks must use this criterion
+rather than the back-door one, and the two disagree on a handful of committed sets \\
+\addlinespace
+Guo and Perkovi\'c, enumeration in an MPDAG (arXiv:2010.08611) &
+the interval over every adjustment set the class admits &
+the row that discards the knowledge, and the denominator of the calibrated width &
+\yes\ every cell \\
+\addlinespace
+Taeb, Guo and Henckel, model-oriented graph distances (arXiv:2511.10625) &
+the order and the distance the whole object is built on &
+the instrument that counts elementary graph revisions, one rung below ours &
+\yes\ 3{,}014 rows \\
+\addlinespace
+structural Hamming distance &
+the standard graph-distance baseline &
+a column of the ranking table &
+\yes\ synthetic arm only \\
+\addlinespace
+number of asserted claims $|\Kset|$ &
+the naive instrument an analyst already has &
+a rung of the certificate ladder and a column of the ranking table &
+\yes\ both arms \\
+\addlinespace
+treatment-to-set separation &
+a free structural rule read off the analyst's graph &
+the cheapest rung of the certificate ladder &
+\yes\ 3{,}014 rows \\
+\addlinespace
+leave-one-out and leave-two-out re-closure screen &
+not in the literature, and the first thing a competent reviewer proposes &
+a row of the price table and of the policy table &
+\yes\ in the policy panel; \no\ missing from the ranking table, and owed \\
+\addlinespace
+Cinelli and Hazlett, omitted-variable bound &
+the sensitivity analysis the field actually runs &
+one row at its own oracle parameter, with the count of rows where it is defined &
+\pt\ defined on 666 of 808 rows; covers 0.964 at 0.445 of the class width against 0.632 for
+ours on the same rows; on the 101 rows where the committed set contains a descendant of the
+treatment it covers 0.134 \\
+\addlinespace
+Rosenbaum; Masten and Poirier, breakdown frontiers &
+the conceptual analogue and the reporting form &
+the shape of the report table, not a computable baseline on this object &
+\no\ by construction \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two things follow. The first is that a candidate satisfies R3 only if a named prior procedure gets
+a number in the same float, not a mention in the caption; by that test the price table and the
+certificate ladder pass, the report table and the funnel do not. The second is that the Cinelli and
+Hazlett row is the only comparison against a sensitivity analysis the field runs, and it is
+favourable to them, because at their own oracle parameter their bound is narrower than our interval.
+Printing it is what makes the table an argument rather than an advertisement, and the honest reading
+is that it covers by assuming a model that a reversed orientation sits outside: on the rows where
+the committed set contains a descendant of the treatment, the same formula at the same oracle covers
+about one row in seven.

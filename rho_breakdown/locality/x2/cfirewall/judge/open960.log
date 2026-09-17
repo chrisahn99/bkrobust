@@ -1,0 +1,11 @@
+{
+ "O1_sub_O0": 480,
+ "cnD_sub_cnH": 960,
+ "cnH_sub_cnD": 0,
+ "dropped_in_cnH": 960,
+ "fbD_sub_fbH": 960,
+ "misorients": 960,
+ "open": 960,
+ "valid": 960,
+ "why_cycle": 960
+}

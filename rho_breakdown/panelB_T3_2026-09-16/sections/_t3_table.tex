@@ -1,0 +1,44 @@
+\begin{landscape}
+\begin{table}[p]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption*{\textbf{T3.} Sensitivity reports on twenty-six named analyses. $|K|$ is the number of claims the analyst asserts, with the number inside the treatment's own component in parentheses. The two interval columns are the union of the estimate over every knowledge state within one and two elementary revisions of those claims. $r_0$ is the null radius, the number of revisions after which the interval contains zero, from the population, from the band at the first seed, and as the range over twenty seeds. $r_{\mathrm{val}}$ is the breakdown radius, the number of revisions after which the committed adjustment set stops being valid. The last column names the claims whose retraction first opens the interval to zero, in the source's own variable names. Knowledge: the recovering set; estimates at $n = 20\,000$, first seed.}
+\begin{tabular}{@{}llccl cc l c l@{}}
+\toprule
+network & query & $|K|$ & true & estimate [95\,\%] & one revision & two revisions
+ & $r_0$ pop / seed / range & $r_{\mathrm{val}}$ & first breaking claims \\
+\midrule
+\multicolumn{10}{@{}l}{\itshape Published analyses: the treatment and the outcome are the ones the source paper declares.}\\[1pt]
+Acid\_1996 & x3 $\to$ x15 & 1 (0) & $-2.169$ & $-2.176$ [$-2.203$, $-2.149$] & [$-2.226$, $-2.147$] & [$-2.226$, $-2.147$] & never / $>$3 / $>$3 & never & -- \\
+Didelez\_2010 & HRT $\to$ TCI & 1 (0) & $-0.586$ & $-0.586$ [$-0.599$, $-0.572$] & [$-0.604$, $-0.568$] & [$-0.604$, $-0.568$] & never / $>$3 / $>$3 & never & -- \\
+Kampen\_2014 & SUS $\to$ EGC & 3 (0) & $-0.643$ & $-0.647$ [$-0.663$, $-0.630$] & [$-0.663$, $-0.630$] & [$-0.663$, $-0.630$] & never / $>$3 / $>$3 & never & -- \\
+Polzer\_2012 & ToothLoss $\to$ Mortality & 5 (0) & $\phantom{-}1.193$ & $\phantom{-}1.190$ [$\phantom{-}1.183$, $\phantom{-}1.197$] & [$\phantom{-}1.128$, $\phantom{-}1.208$] & [$\phantom{-}1.128$, $\phantom{-}1.208$] & never / $>$3 / $>$3 & $>$3 & -- \\
+Sebastiani\_2005 & EDN1.3 $\to$ EDNI1.7 & 7 (0) & $-1.212$ & $-1.209$ [$-1.219$, $-1.199$] & [$-1.234$, $-1.179$] & [$-1.234$, $-1.179$] & never / $>$3 / $>$3 & $>$3 & -- \\
+Shrier\_2008 & WarmUpExercises $\to$ Injury & 2 (0) & $-1.351$ & $-1.348$ [$-1.358$, $-1.339$] & [$-1.431$, $-1.228$] & [$-1.431$, $-1.228$] & never / $>$3 / $>$3 & never & -- \\
+Thoemmes\_2013 & x $\to$ y & 1 (1) & $-0.923$ & $-0.913$ [$-0.928$, $-0.898$] & [$-1.002$, $-0.871$] & [$-1.002$, $-0.871$] & never / $>$3 / $>$3 & never & -- \\
+mediator & X $\to$ Y & 3 (3) & $-2.603$ & $-2.600$ [$-2.623$, $-2.576$] & [$-2.623$, $-1.109$] & [$-2.623$, $\phantom{-}0.000$] & 2 / 2 / 2 & 1 & Z$\to$I \,/\, Z$\to$X \\
+paths & E $\to$ D & 1 (0) & $\phantom{-}1.194$ & $\phantom{-}1.193$ [$\phantom{-}1.188$, $\phantom{-}1.197$] & [$\phantom{-}1.169$, $\phantom{-}1.216$] & [$\phantom{-}1.169$, $\phantom{-}1.216$] & never / $>$3 / $>$3 & never & -- \\
+\addlinespace
+\multicolumn{10}{@{}l}{\itshape Networks with coefficients fitted to real data: the frame rows whose analyst graph commits to a set.}\\[1pt]
+ecoli70 & asnA $\to$ aceB & 10 (1) & $\phantom{-}0.547$ & $\phantom{-}0.542$ [$\phantom{-}0.511$, $\phantom{-}0.572$] & [$-0.011$, $\phantom{-}0.572$] & [$-0.011$, $\phantom{-}0.572$] & 1 / 1 / 1..$>$3 & 1 & asnA$\to$icdA \\
+ecoli70 & b1191 $\to$ yfaD & 10 (1) & $-0.098$ & $-0.097$ [$-0.105$, $-0.089$] & [$-0.114$, $\phantom{-}0.029$] & [$-0.114$, $\phantom{-}0.029$] & 1 / 1 / 1 & 1 & b1191$\to$fixC \\
+ecoli70 & cspG $\to$ hupB & 10 (7) & $\phantom{-}0.257$ & $\phantom{-}0.265$ [$\phantom{-}0.246$, $\phantom{-}0.283$] & [$\phantom{-}0.003$, $\phantom{-}0.308$] & [$\phantom{-}0.003$, $\phantom{-}0.308$] & 1 / $>$3 / 1..$>$3 & 1 & -- \\
+ecoli70 & pspB $\to$ nmpC & 10 (7) & $-0.108$ & $-0.100$ [$-0.118$, $-0.082$] & [$-0.531$, $\phantom{-}0.026$] & [$-0.531$, $\phantom{-}0.026$] & 1 / 1 / 1..3 & 1 & pspB$\to$pspA \\
+ecoli70 & eutG $\to$ lacY & 10 (1) & $\phantom{-}0.309$ & $\phantom{-}0.309$ [$\phantom{-}0.279$, $\phantom{-}0.338$] & [$\phantom{-}0.277$, $\phantom{-}0.377$] & [$\phantom{-}0.277$, $\phantom{-}0.377$] & never / $>$3 / $>$3 & 1 & -- \\
+arth150 & 100 $\to$ 245 & 29 (3) & $\phantom{-}1.535$ & $\phantom{-}1.534$ [$\phantom{-}1.527$, $\phantom{-}1.542$] & [$\phantom{-}0.000$, $\phantom{-}1.545$] & [$\phantom{-}0.000$, $\phantom{-}1.545$] & 1 / 1 / 1 & 1 & 100$\to$245 \\
+arth150 & 81 $\to$ 464 & 29 (10) & $\phantom{-}0.256$ & $\phantom{-}0.184$ [$\phantom{-}0.118$, $\phantom{-}0.250$] & [$\phantom{-}0.097$, $\phantom{-}0.265$] & [$\phantom{-}0.097$, $\phantom{-}0.265$] & $>$3 / $>$3 / $>$3 & $\geq$2 & -- \\
+magic-niab & G1853 $\to$ G43 & 8 (1) & $-0.039$ & $-0.028$ [$-0.038$, $-0.017$] & [$-0.038$, $\phantom{-}0.020$] & [$-0.038$, $\phantom{-}0.020$] & 1 / 1 / 1..$>$3 & 1 & G1853$\to$G311 \\
+magic-niab & G311 $\to$ G43 & 8 (1) & $-0.255$ & $-0.251$ [$-0.259$, $-0.244$] & [$-0.260$, $\phantom{-}0.000$] & [$-0.260$, $\phantom{-}0.000$] & 1 / 1 / 1 & 1 & G1853$\to$G311 \\
+magic-niab & G418 $\to$ FUS & 8 (2) & $\phantom{-}0.003$ & $-0.003$ [$-0.015$, $\phantom{-}0.010$] & [$-0.022$, $\phantom{-}0.011$] & [$-0.022$, $\phantom{-}0.011$] & 1 / 0 / 0..1 & 1 & -- \\
+magic-niab & G1217 $\to$ FT & 8 (1) & $\phantom{-}0.068$ & $\phantom{-}0.015$ [$-0.029$, $\phantom{-}0.060$] & [$-0.031$, $\phantom{-}0.131$] & [$-0.031$, $\phantom{-}0.131$] & never / 0 / 0..$>$3 & 1 & -- \\
+magic-niab & G1217 $\to$ YLD & 8 (1) & $\phantom{-}0.009$ & $\phantom{-}0.011$ [$\phantom{-}0.003$, $\phantom{-}0.018$] & [$\phantom{-}0.004$, $\phantom{-}0.021$] & [$\phantom{-}0.004$, $\phantom{-}0.021$] & never / $>$3 / 0..$>$3 & 1 & -- \\
+magic-irri & G1378 $\to$ SUB & 10 (1) & $-0.035$ & $-0.031$ [$-0.044$, $-0.017$] & [$-0.048$, $\phantom{-}0.021$] & [$-0.048$, $\phantom{-}0.021$] & 1 / 1 / 1 & 1 & G1378$\to$G1311 \\
+magic-irri & G3212 $\to$ FT & 10 (2) & $\phantom{-}0.004$ & $-0.025$ [$-0.070$, $\phantom{-}0.020$] & [$-0.143$, $\phantom{-}0.008$] & [$-0.143$, $\phantom{-}0.008$] & 1 / 0 / 0..1 & 1 & -- \\
+magic-irri & G3925 $\to$ GTEMP & 10 (1) & $\phantom{-}0.000$ & $\phantom{-}0.001$ [$-0.034$, $\phantom{-}0.036$] & [$-0.131$, $\phantom{-}0.038$] & [$-0.131$, $\phantom{-}0.038$] & 1 / 0 / 0 & 1 & -- \\
+magic-irri & G4145 $\to$ G3222 & 10 (2) & $-0.020$ & $-0.015$ [$-0.025$, $-0.004$] & [$-0.026$, $\phantom{-}0.026$] & [$-0.026$, $\phantom{-}0.026$] & 1 / 0 / 0..1 & 1 & -- \\
+magic-irri & G4156 $\to$ CHALK & 10 (2) & $\phantom{-}0.404$ & $\phantom{-}0.501$ [$\phantom{-}0.361$, $\phantom{-}0.641$] & [$-0.154$, $\phantom{-}0.664$] & [$-0.154$, $\phantom{-}0.664$] & 1 / 1 / 1..$>$3 & 1 & G4156$\to$G4145 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}

@@ -1,0 +1,6 @@
+original/K4  n= 2637  Q0(interval differs)=0.1244  P(some far-flip member changed O*)=0.3007  P(both)=0.1244  identical=False
+licensed/K4  n= 2087  Q0(interval differs)=0.1452  P(some far-flip member changed O*)=0.3493  P(both)=0.1452  identical=False
+large/K4  n= 2443  Q0(interval differs)=0.0143  P(some far-flip member changed O*)=0.0876  P(both)=0.0143  identical=False
+k8/K4  n=  127  Q0(interval differs)=0.1969  P(some far-flip member changed O*)=0.2913  P(both)=0.1969  identical=False
+k8/K6  n=  329  Q0(interval differs)=0.4043  P(some far-flip member changed O*)=0.7021  P(both)=0.4043  identical=False
+k8/K8  n=  586  Q0(interval differs)=0.5239  P(some far-flip member changed O*)=0.8857  P(both)=0.5239  identical=False

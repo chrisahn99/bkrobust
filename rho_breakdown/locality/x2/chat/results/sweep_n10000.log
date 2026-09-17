@@ -1,0 +1,14 @@
+[gate] population-PC == dag_to_cpdag: 60/60 -> PASS
+elapsed 39.3s  n_scm=400  mode=PC alpha=0.01  n=[10000]
+skeleton SHD(Chat,C) mean = 1.195
+BASELINE (true BK, no false statement): 694/3032 = 0.2289 invalid
+
+--- CONDITIONED ON THE BASELINE REPORT BEING VALID (the firewall test) ---
+S1     FALSE stmt: moved=  14296 newly_invalid=   447 rate=0.0313 CI95=[0.0230,0.0404]  visible_abort=1396
+S1     TRUE stmt: moved=    277 newly_invalid=    46 rate=0.1661 CI95=[0.1078,0.2319]  visible_abort=13
+S1rej  FALSE stmt: moved=   2389 newly_invalid=   590 rate=0.2470 CI95=[0.1956,0.3055]  visible_abort=29
+S1rej  TRUE stmt: moved=     23 newly_invalid=    13 rate=0.5652 CI95=[0.0000,1.0000]  visible_abort=0
+--- baseline ALREADY invalid (discovery error; BK cannot be blamed) ---
+S1     FALSE stmt: moved=   2920 still_invalid=  2686 rate=0.9199
+S1rej  FALSE stmt: moved=   1979 still_invalid=  1668 rate=0.8428
+-> /home/costaj/bk-iclr2027/x2/chat/code/../results/chat_pc_p6_7_8_9_10_n10000_s20260823.json

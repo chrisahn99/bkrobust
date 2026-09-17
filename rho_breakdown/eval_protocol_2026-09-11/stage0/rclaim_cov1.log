@@ -1,0 +1,43 @@
+loaded Acid_1996 |k_true| 1 0.0 s
+loaded Didelez_2010 |k_true| 1 0.0 s
+loaded Kampen_2014 |k_true| 3 0.0 s
+loaded Polzer_2012 |k_true| 5 0.0 s
+loaded Schipf_2010 |k_true| 3 0.0 s
+loaded Sebastiani_2005 |k_true| 7 0.0 s
+loaded Shrier_2008 |k_true| 2 0.0 s
+loaded arth150 |k_true| 29 1.6 s
+loaded asia |k_true| 3 0.0 s
+loaded barley |k_true| 7 0.1 s
+loaded child |k_true| 2 0.0 s
+loaded diabetes |k_true| 26 2.8 s
+loaded ecoli70 |k_true| 10 0.1 s
+loaded hailfinder |k_true| 1 0.0 s
+loaded hepar2 |k_true| 9 0.1 s
+loaded insurance |k_true| 3 0.0 s
+loaded magic-irri |k_true| 10 0.0 s
+loaded magic-niab |k_true| 8 0.0 s
+loaded mediator |k_true| 3 0.0 s
+loaded munin1 |k_true| 6 0.2 s
+loaded paths |k_true| 1 0.0 s
+loaded sachs |k_true| 8 0.0 s
+loaded water |k_true| 2 0.0 s
+loaded win95pts |k_true| 9 0.0 s
+NESTING: {'n': 24, 'K.25<=K.5': 20, 'K.5<=K1': 24} violators: [('diabetes', 26, 13, 6), ('ecoli70', 10, 5, 2), ('magic-irri', 10, 5, 2), ('munin1', 6, 3, 2)]
+   0 / 540 0.0 s
+   50 / 540 0.2 s
+   100 / 540 0.4 s
+   150 / 540 0.6 s
+   200 / 540 1.0 s
+   250 / 540 1.6 s
+   300 / 540 2.1 s
+   350 / 540 5.4 s
+   400 / 540 6.1 s
+   450 / 540 24.2 s
+   500 / 540 143.1 s
+coverage-1.0 instances (pathfinder excluded): 540
+r_claim = 1: 540  no single retraction invalidates: 0
+r_hop among r_claim=1: [(1, 377), (2, 102), (3, 43), (4, 2), (5, 1), (6, 1), (7, 1), (8, 1), (9, 2), (10, 2), (11, 2), (12, 2), (13, 2), (14, 2)]
+r_hop among r_claim>1: []
+phi_1: min 0.034 median 0.3 max 1.0
+median |K| asserted 5 median k_g0 12
+DONE

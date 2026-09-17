@@ -1,0 +1,48 @@
+{
+ "p": 5,
+ "mode": "exhaustive",
+ "n_cpdags": 8782,
+ "n_mpdags": 116992,
+ "by_dmin": {
+  "0": {
+   "D_all": 6475000,
+   "D_con": 6475000,
+   "D_con_rev": 3237500,
+   "N_gain": 1195640,
+   "gain_orient": 1195640,
+   "N_ident_rev": 818360,
+   "D_am": 233280,
+   "D_am_rev": 305280,
+   "N_set_rev": 183060
+  },
+  "1": {
+   "D_all": 2730840,
+   "D_con": 2730840,
+   "D_con_rev": 1365420,
+   "D_am": 252720,
+   "D_am_rev": 132120,
+   "N_gain": 201000,
+   "gain_orient": 201000,
+   "N_ident_rev": 189480
+  },
+  "2": {
+   "D_all": 32880,
+   "D_con": 32880,
+   "D_con_rev": 16440,
+   "D_am": 7200,
+   "D_am_rev": 3600,
+   "N_gain": 360,
+   "gain_orient": 360,
+   "N_ident_rev": 360
+  },
+  "disc": {
+   "D_all": 11280,
+   "D_con": 11280,
+   "D_con_rev": 5640,
+   "D_am": 2640,
+   "D_am_rev": 1320
+  }
+ },
+ "n_hits_far": 0,
+ "hits": []
+}

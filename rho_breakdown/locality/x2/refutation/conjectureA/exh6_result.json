@@ -1,0 +1,21 @@
+{
+ "p": 6,
+ "n_cpdags": 1067825,
+ "stats": {
+  "n_mpdag": 18552258,
+  "D_all": 149123280,
+  "N_cycle": 0,
+  "N_vstruct": 0,
+  "D_con": 149123280,
+  "D_am": 149123280,
+  "N_ident": 0,
+  "cn_shrink": 20950200,
+  "forb_shrink": 0,
+  "pa_grow": 19770960,
+  "total_loss": 0,
+  "partial_loss": 3791520,
+  "N_set": 0
+ },
+ "n_viol": 0,
+ "viol": []
+}

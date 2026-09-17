@@ -1,0 +1,33 @@
+p 5 n_cpdag 8782 t 1.7
+0 {'n_G0': 1, 'sum_class_size': 1} 2.2
+500 {'n_G0': 3729, 'sum_class_size': 9079, 'n_query_pos': 11795, 'n_trial': 128976, 'n_stamped': 111392, 'n_pos': 107444, 'n_Dcheck': 156564, 'n_moved': 22172, 'n_rejected': 17584, 'n_abort': 3948, 'n_abort_unamen': 3948} 4.2
+1000 {'n_G0': 7990, 'sum_class_size': 21443, 'n_query_pos': 27446, 'n_trial': 281494, 'n_stamped': 232092, 'n_pos': 221316, 'n_Dcheck': 333727, 'n_moved': 44792, 'n_rejected': 49402, 'n_abort': 10776, 'n_abort_unamen': 10776} 7.1
+1500 {'n_G0': 12858, 'sum_class_size': 34939, 'n_query_pos': 47473, 'n_trial': 451278, 'n_stamped': 357395, 'n_pos': 339663, 'n_Dcheck': 517083, 'n_moved': 68521, 'n_rejected': 93883, 'n_abort': 17732, 'n_abort_unamen': 17732} 11.6
+2000 {'n_G0': 17930, 'sum_class_size': 50426, 'n_query_pos': 65126, 'n_trial': 618090, 'n_stamped': 490464, 'n_pos': 465727, 'n_Dcheck': 714603, 'n_moved': 94030, 'n_rejected': 127626, 'n_abort': 24737, 'n_abort_unamen': 24737} 15.6
+2500 {'n_G0': 23617, 'sum_class_size': 67901, 'n_query_pos': 86554, 'n_trial': 794930, 'n_stamped': 622553, 'n_pos': 590856, 'n_Dcheck': 909517, 'n_moved': 119444, 'n_rejected': 172377, 'n_abort': 31697, 'n_abort_unamen': 31697} 20.1
+3000 {'n_G0': 32693, 'sum_class_size': 98747, 'n_query_pos': 119107, 'n_trial': 1026150, 'n_stamped': 791114, 'n_pos': 749577, 'n_Dcheck': 1172571, 'n_moved': 148953, 'n_rejected': 235036, 'n_abort': 41537, 'n_abort_unamen': 41537} 27.0
+3500 {'n_G0': 37746, 'sum_class_size': 119057, 'n_query_pos': 136642, 'n_trial': 1146070, 'n_stamped': 876440, 'n_pos': 831853, 'n_Dcheck': 1297480, 'n_moved': 165854, 'n_rejected': 269630, 'n_abort': 44587, 'n_abort_unamen': 44587} 30.0
+4000 {'n_G0': 41096, 'sum_class_size': 126530, 'n_query_pos': 151226, 'n_trial': 1275390, 'n_stamped': 976868, 'n_pos': 927953, 'n_Dcheck': 1436750, 'n_moved': 186816, 'n_rejected': 298522, 'n_abort': 48915, 'n_abort_unamen': 48915} 33.4
+4500 {'n_G0': 46187, 'sum_class_size': 140994, 'n_query_pos': 171166, 'n_trial': 1447846, 'n_stamped': 1108405, 'n_pos': 1052218, 'n_Dcheck': 1632015, 'n_moved': 211794, 'n_rejected': 339441, 'n_abort': 56187, 'n_abort_unamen': 56187} 38.5
+5000 {'n_G0': 53701, 'sum_class_size': 166224, 'n_query_pos': 197061, 'n_trial': 1656008, 'n_stamped': 1265234, 'n_pos': 1200285, 'n_Dcheck': 1870644, 'n_moved': 240053, 'n_rejected': 390774, 'n_abort': 64949, 'n_abort_unamen': 64949} 44.1
+5500 {'n_G0': 61423, 'sum_class_size': 192726, 'n_query_pos': 225440, 'n_trial': 1851484, 'n_stamped': 1404729, 'n_pos': 1332442, 'n_Dcheck': 2084841, 'n_moved': 265852, 'n_rejected': 446755, 'n_abort': 72287, 'n_abort_unamen': 72287} 50.8
+6000 {'n_G0': 71194, 'sum_class_size': 228108, 'n_query_pos': 258049, 'n_trial': 2083474, 'n_stamped': 1575061, 'n_pos': 1493472, 'n_Dcheck': 2350448, 'n_moved': 295525, 'n_rejected': 508413, 'n_abort': 81589, 'n_abort_unamen': 81589} 58.4
+6500 {'n_G0': 87270, 'sum_class_size': 296520, 'n_query_pos': 306070, 'n_trial': 2375348, 'n_stamped': 1788674, 'n_pos': 1693742, 'n_Dcheck': 2711957, 'n_moved': 328835, 'n_rejected': 586674, 'n_abort': 94932, 'n_abort_unamen': 94932} 69.1
+7000 {'n_G0': 98966, 'sum_class_size': 353268, 'n_query_pos': 338858, 'n_trial': 2539284, 'n_stamped': 1906304, 'n_pos': 1805849, 'n_Dcheck': 2912735, 'n_moved': 346973, 'n_rejected': 632980, 'n_abort': 100455, 'n_abort_unamen': 100455} 77.1
+7500 {'n_G0': 102309, 'sum_class_size': 364367, 'n_query_pos': 352606, 'n_trial': 2640648, 'n_stamped': 1981012, 'n_pos': 1878112, 'n_Dcheck': 3016885, 'n_moved': 363096, 'n_rejected': 659636, 'n_abort': 102900, 'n_abort_unamen': 102900} 82.0
+8000 {'n_G0': 104532, 'sum_class_size': 368681, 'n_query_pos': 364899, 'n_trial': 2725486, 'n_stamped': 2043482, 'n_pos': 1939109, 'n_Dcheck': 3098494, 'n_moved': 377692, 'n_rejected': 682004, 'n_abort': 104373, 'n_abort_unamen': 104373} 88.0
+8500 {'n_G0': 110572, 'sum_class_size': 397752, 'n_query_pos': 384032, 'n_trial': 2829562, 'n_stamped': 2120528, 'n_pos': 2014400, 'n_Dcheck': 3212970, 'n_moved': 393928, 'n_rejected': 709034, 'n_abort': 106128, 'n_abort_unamen': 106128} 94.2
+FINAL p=5 {
+ "n_G0": 112761,
+ "sum_class_size": 402756,
+ "n_query_pos": 394440,
+ "n_trial": 2882840,
+ "n_stamped": 2161055,
+ "n_pos": 2053715,
+ "n_Dcheck": 3267660,
+ "n_moved": 402840,
+ "n_rejected": 721785,
+ "n_abort": 107340,
+ "n_abort_unamen": 107340
+}
+elapsed 98.0 n_hits 0

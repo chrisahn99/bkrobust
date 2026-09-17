@@ -1,0 +1,33 @@
+{
+ "p": 6,
+ "mode": "sample",
+ "n_draws": 120000,
+ "n_units": 200,
+ "elapsed_s": 75.5,
+ "counts": {
+  "cn_equal": 5885692,
+  "cn_incomparable": 3915,
+  "cn_subset": 33469,
+  "cn_superset": 818132,
+  "escaped_in_forb_G0": 0,
+  "forb_equal": 5253205,
+  "forb_subset": 62,
+  "forb_superset": 1487941,
+  "n": 6741208,
+  "newpa_absorbed": 487065,
+  "newpa_escaped": 856457,
+  "newpa_nodes": 1343522,
+  "ostar_equal": 5425087,
+  "ostar_incomparable": 61321,
+  "ostar_new_nodes": 856457,
+  "ostar_subset": 473640,
+  "ostar_superset": 781160,
+  "pa_equal": 5567246,
+  "pa_incomparable": 503,
+  "pa_subset": 937,
+  "pa_superset": 1172522,
+  "trials_ostar_grew": 842481,
+  "trials_ostar_swapped": 61321,
+  "trials_with_escaped_newpa": 842481
+ }
+}

@@ -1,0 +1,40 @@
+[cfirewall p=5 census] 8782 distinct CPDAGs
+  500/8782 cpdags  2s  trials=111695 viol=0
+  1000/8782 cpdags  2s  trials=231500 viol=0
+  1500/8782 cpdags  4s  trials=358811 viol=0
+  2000/8782 cpdags  5s  trials=485301 viol=0
+  2500/8782 cpdags  6s  trials=618941 viol=0
+  3000/8782 cpdags  8s  trials=791611 viol=0
+  3500/8782 cpdags  8s  trials=874626 viol=0
+  4000/8782 cpdags  9s  trials=975249 viol=0
+  4500/8782 cpdags  10s  trials=1110568 viol=0
+  5000/8782 cpdags  12s  trials=1266546 viol=0
+  5500/8782 cpdags  13s  trials=1406899 viol=0
+  6000/8782 cpdags  15s  trials=1576755 viol=0
+  6500/8782 cpdags  18s  trials=1785701 viol=0
+  7000/8782 cpdags  20s  trials=1903374 viol=0
+  7500/8782 cpdags  21s  trials=1981494 viol=0
+  8000/8782 cpdags  21s  trials=2050316 viol=0
+  8500/8782 cpdags  22s  trials=2120117 viol=0
+{
+ "abort": 107340,
+ "abort_unamen": 107340,
+ "checks": 3267660,
+ "clean_trials": 2053715,
+ "ext_total": 190180,
+ "mpdag": 116992,
+ "query_all": 2255220,
+ "query_amenable": 394440,
+ "rej_conflict": 0,
+ "rej_cycle": 123705,
+ "rej_notext": 123705,
+ "report": 2053715,
+ "report_moved": 402840,
+ "report_same": 1650875,
+ "stmt_all": 620300,
+ "stmt_coherent": 496595,
+ "stmt_rejected": 123705,
+ "trial": 2161055,
+ "violating_trials": 0
+}
+VIOLATIONS: 0 trials / 0 (x,y,O*) keys   -> results/cfirewall_p5.json

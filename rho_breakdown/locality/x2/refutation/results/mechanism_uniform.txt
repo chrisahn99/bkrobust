@@ -1,0 +1,11 @@
+graphs kept                             : 1484
+mean |cn|                               : 1.738
+mean max skeleton distance of a cn node : 0.509
+mean undirected edges incident to cn    : 0.1334
+P(>=1 undirected edge incident to cn)   : 0.1098
+far trials (dmin>=2)                    : 4976
+  of which Meek cascaded (>1 new edge)  : 1247 (0.251)
+  cascade oriented an edge INCIDENT to cn: 4 (0.00080)
+  cn(X,Y) itself changed                 : 2 (0.00040)
+  still amenable                         : 4976
+  O* changed                             : 0

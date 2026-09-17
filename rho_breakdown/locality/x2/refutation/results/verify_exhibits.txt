@@ -1,0 +1,60 @@
+=== dossier 0 ens k8 K8 seed 4 p 5
+ D regen matches claim: True
+ C (mine): ['0--1', '0--2', '0--3', '0--4', '1--2', '1--3', '1--4', '2--3', '2--4', '3--4']
+ C matches claim: True
+ delta (mine): {0: 1, 1: 1, 2: 1, 3: 0, 4: 0} claimed {'0': 1.0, '1': 1.0, '2': 1.0, '3': 0.0, '4': 0.0}
+ all base K true in D: True
+ flipped: [(0, 1), (2, 1)]  dmin each: [1, 1]  dmax each: [1, 1]
+ G0 (mine): ['0->1', '0->3', '1->3', '2->0', '2->1', '2->3', '2->4', '4->0', '4->1', '4->3']
+ G0 matches claim: True
+ G1 (mine): ['0->3', '1->0', '1->2', '1->3', '1->4', '2->0', '2->3', '2->4', '4->0', '4->3']
+ G1 matches claim: True
+ amenable G0/G1: True True
+ O*(G0)= [2] claim [2]
+ O*(G1)= [1, 2] claim [1, 2]
+ O* CHANGED: True
+ regen query (x,y)= (4, 3) claimed (4, 3)  match: True
+ tau mine 0.776746 claimed 0.776746
+ beta0 mine 0.776746 claimed 0.776746 | beta1 mine 0.631058 claimed 0.631058
+ |beta1-tau|/|tau| = 0.1876  (claimed rel_bias 0.1876)
+ O0 recovers tau: True  O1 recovers tau: False
+=== dossier 1 ens k8 K8 seed 59 p 5
+ D regen matches claim: True
+ C (mine): ['0--1', '0--2', '0--3', '0--4', '1--2', '1--3', '1--4', '2--3', '2--4', '3--4']
+ C matches claim: True
+ delta (mine): {0: 1, 1: 0, 2: 1, 3: 1, 4: 0} claimed {'0': 1.0, '1': 0.0, '2': 1.0, '3': 1.0, '4': 0.0}
+ all base K true in D: True
+ flipped: [(2, 3), (2, 0)]  dmin each: [1, 1]  dmax each: [1, 1]
+ G0 (mine): ['0->1', '2->0', '2->1', '2->3', '2->4', '3->0', '3->1', '3->4', '4->0', '4->1']
+ G0 matches claim: True
+ G1 (mine): ['0->1', '0->2', '2->1', '3->0', '3->1', '3->2', '3->4', '4->0', '4->1', '4->2']
+ G1 matches claim: True
+ amenable G0/G1: True True
+ O*(G0)= [2, 3] claim [2, 3]
+ O*(G1)= [3] claim [3]
+ O* CHANGED: True
+ regen query (x,y)= (4, 1) claimed (4, 1)  match: True
+ tau mine -0.691440 claimed -0.691440
+ beta0 mine -0.691440 claimed -0.691440 | beta1 mine 0.188297 claimed 0.188297
+ |beta1-tau|/|tau| = 1.2723  (claimed rel_bias 1.2723)
+ O0 recovers tau: True  O1 recovers tau: False
+=== dossier 2 ens k8 K6 seed 393 p 5
+ D regen matches claim: True
+ C (mine): ['0--1', '0--2', '0--3', '0--4', '1--2', '1--3', '1--4', '2--3', '2--4', '3--4']
+ C matches claim: True
+ delta (mine): {0: 1, 1: 0, 2: 0, 3: 1, 4: 1} claimed {'0': 1.0, '1': 0.0, '2': 0.0, '3': 1.0, '4': 1.0}
+ all base K true in D: True
+ flipped: [(3, 0), (4, 0)]  dmin each: [1, 1]  dmax each: [1, 1]
+ G0 (mine): ['0--2', '1->0', '1->2', '1->4', '3->0', '3->1', '3->2', '3->4', '4->0', '4->2']
+ G0 matches claim: True
+ G1 (mine): ['0->1', '0->2', '0->3', '0->4', '1->2', '1->4', '3->1', '3->2', '3->4', '4->2']
+ G1 matches claim: True
+ amenable G0/G1: True True
+ O*(G0)= [3] claim [3]
+ O*(G1)= [0, 3] claim [0, 3]
+ O* CHANGED: True
+ regen query (x,y)= (1, 2) claimed (1, 2)  match: True
+ tau mine -0.684396 claimed -0.684396
+ beta0 mine -0.684396 claimed -0.684396 | beta1 mine -0.538350 claimed -0.538350
+ |beta1-tau|/|tau| = 0.2134  (claimed rel_bias 0.2134)
+ O0 recovers tau: True  O1 recovers tau: False
