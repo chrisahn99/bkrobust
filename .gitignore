@@ -76,6 +76,17 @@ coverage.xml
 # paper/sections/epsilon-radius.tex traces to a file here, and the
 # counterexample witnesses carry the SEMs needed to replay them. 936 KB total.
 !/results/epsilon/
+# The LLM background-knowledge elicitation (ported from ze/experiments): the
+# frozen frame, questionnaire, per-condition answers and the knowledge sets K
+# that the final table is computed at. The answer cache under
+# results/elicit/cache/ stays untracked -- it regenerates in seconds from the
+# committed remote answers via elicit_import.py.
+!/results/frame/
+!/results/elicit/
+/results/elicit/cache/
+# The final table: r_val and r_eps for every real network at its LLM-elicited
+# K, per-instance rows plus the aggregate cited in the paper's results table.
+!/results/final_table/
 /data/
 /checkpoints/
 *.pt
