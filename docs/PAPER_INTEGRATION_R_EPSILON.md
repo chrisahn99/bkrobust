@@ -260,8 +260,14 @@ there is something to say about them.
   satisfies both. Linearity only makes `B` a closed-form evaluation. **Nothing
   beyond linear-Gaussian was measured**, so do not claim empirical support there.
 - **Scope of the sweep**: n ≤ 12, `|undirected| ≤ 10`, synthetic generators
-  only. **The real-graph corpus was not touched** — `r_ε` on the 85-vertex
-  component is untested, and §6.2's scalability claim does not transfer to it.
+  only. The real-graph corpus **has since been evaluated**, at LLM-elicited
+  knowledge (`D_LLM`): 32 networks, 5 queries each, 21 of which yield at
+  least one informative query (`results/final_table/`). What remains
+  untested is the other nine elicitation conditions the corpus supports, and
+  on those `r_ε` would again be SEM-conditional — it reads a seeded
+  linear-Gaussian structural equation model attached to the ground-truth
+  DAG, not a parameter the network ships — so §6.2's scalability claim still
+  does not transfer to them.
 - **`Z` is the optimal adjustment set throughout.** The robust-selection
   analysis §C runs for `r_val` across all valid sets; nothing equivalent was
   done for `r_ε`.

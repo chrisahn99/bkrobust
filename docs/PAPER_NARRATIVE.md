@@ -239,6 +239,12 @@ N = 200 and **must not be quoted alone** (`[RE-12]`). One stratum
 reviewer who finds it themselves will discard the paper; a reviewer who is told
 will read it as calibration.
 
+A real-network radius panel now exists, at LLM-elicited knowledge
+(`results/final_table/`), but it does **not** close `[RE-11]`: that item is
+the worst-case radius measured *against average-case survival* on real
+instances, and the final table computes no survival AUC — only the radius
+distribution itself.
+
 ### Result C — knowledge buys identifiability, then only risk
 Under truthful knowledge, **statistical efficiency is an invariant of `(Ĉ, X, Y)`** —
 not a function of what the analyst asserts. Every identifying truthful proposal
@@ -422,6 +428,8 @@ Every number in the paper must resolve here.
 | Theory status, proved vs verified | `THEOREMS.md` |
 | Real-network corpus, 831 admissible rows, funnel | `results/axisa3/instances.jsonl` |
 | Corpus manifest, checksums, limit semantics | `results/axisa3/manifest.json` |
+| Real-network radius panel at LLM-elicited knowledge (`D_LLM`), 32 networks / 160 instances, per-instance outcome and `r_val`/`r_eps` | `results/final_table/instances.jsonl` |
+| Per-network aggregates and medians, the ε grid, and the seeded linear-Gaussian SEM assumption block for `r_eps` on real graphs | `results/final_table/summary.json` |
 | Claim radius, `φ₁`, nesting, amenability | `results/stage0/claim_radius_*.{csv,json}` |
 | τ anchor table (**use this one**) | `table_tau_comparisons.md`; `results/axis_robustness/table_tau_source.csv` |
 | Survival curves, AUC endpoints | `results/axis_robustness/survival_*.csv` |
