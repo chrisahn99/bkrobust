@@ -121,9 +121,15 @@ sampled mean, in the direction of reporting nothing reachable when something is.
 
 This study deliberately did **not** test that: it enumerates the retraction up-set exhaustively,
 which is the right object for characterising the curve but says nothing about the full space.
-**Settling it is the gate on adopting this design**, and it needs a brute-force comparison
-against the whole enumerated space on small instances — the `Space` machinery in
-`bkrobust.epsilon.counterexamples` is the natural starting point.
+
+> **RESOLVED — see `docs/RESULT_MEAN_SOUNDNESS_GATE.md`.** The brute-force comparison against
+> the whole enumerated space was run over 79 instances. The mean-based radius is **unsound**,
+> not merely unproven: it overstates robustness on 29% of instances, with real-network
+> witnesses. It is not conservative in either direction, and the full-space mean it aims at is
+> itself non-monotone on 43% of instances, so there is no well-defined radius to compute. The
+> retraction-computed curve is monotone everywhere and hides all of it. The max design passed
+> every control exactly. **Do not adopt the mean-based radius**; the §7 recommendation below
+> stands.
 
 ## 6. The mean does not fix the ceiling
 

@@ -95,6 +95,10 @@ coverage.xml
 # every retraction state of 15 instances, with the full distribution of B per
 # shell. Evidence for the shell-aggregation design decision.
 !/results/mean_vs_max/
+# The soundness gate for that design decision (docs/RESULT_MEAN_SOUNDNESS_GATE.md):
+# the whole enumerated space per instance, with max and mean compared over the
+# full sphere, the full ball and the retraction shell.
+!/results/mean_fullspace/
 /data/
 /checkpoints/
 *.pt
