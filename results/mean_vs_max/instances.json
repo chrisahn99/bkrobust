@@ -1,0 +1,191 @@
+{
+  "args": {
+    "condition": "D_LLM",
+    "instances": "asia:bronc:dysp,asia:asia:either,mediator:I:Y,Sebastiani_2005:ANXA2.5:ANXA2.11,Didelez_2010:Age:HRT,magic-niab:G1217:YLD,water:CKNI_12_15:CBODN_12_45,Schipf_2010:A:TT,barley:dg25:s2225,magic-irri:G3212:FT,child:CO2:DuctFlow,Kampen_2014:AFF:SAN,andes:HORIZ53:SNode_118,ecoli70:cspG:hupB,paths:11:14",
+    "seed": 20260917,
+    "max_subsets": 32768,
+    "out": "results/mean_vs_max"
+  },
+  "instances": [
+    {
+      "network": "asia",
+      "x": "bronc",
+      "y": "dysp",
+      "status": "ok",
+      "n_knowledge": 3,
+      "n_subsets_total": 8,
+      "n_distinct_states": 8,
+      "theta_z": -0.8502353817859656,
+      "beta_top": 1.2562142186082963,
+      "seconds": 0.001
+    },
+    {
+      "network": "asia",
+      "x": "asia",
+      "y": "either",
+      "status": "ok",
+      "n_knowledge": 3,
+      "n_subsets_total": 8,
+      "n_distinct_states": 8,
+      "theta_z": -1.7523702764191622,
+      "beta_top": 1.0000000000000002,
+      "seconds": 0.001
+    },
+    {
+      "network": "mediator",
+      "x": "I",
+      "y": "Y",
+      "status": "ok",
+      "n_knowledge": 4,
+      "n_subsets_total": 16,
+      "n_distinct_states": 14,
+      "theta_z": 0.10134086698354307,
+      "beta_top": 4.966700471411602,
+      "seconds": 0.002
+    },
+    {
+      "network": "Sebastiani_2005",
+      "x": "ANXA2.5",
+      "y": "ANXA2.11",
+      "status": "ok",
+      "n_knowledge": 4,
+      "n_subsets_total": 16,
+      "n_distinct_states": 16,
+      "theta_z": -0.46683026062898386,
+      "beta_top": 1.0000000000000042,
+      "seconds": 0.007
+    },
+    {
+      "network": "Didelez_2010",
+      "x": "Age",
+      "y": "HRT",
+      "status": "ok",
+      "n_knowledge": 3,
+      "n_subsets_total": 8,
+      "n_distinct_states": 5,
+      "theta_z": 0.6090514146027346,
+      "beta_top": 3.452529651567911,
+      "seconds": 0.001
+    },
+    {
+      "network": "magic-niab",
+      "x": "G1217",
+      "y": "YLD",
+      "status": "ok",
+      "n_knowledge": 5,
+      "n_subsets_total": 32,
+      "n_distinct_states": 18,
+      "theta_z": 0.6270675411243217,
+      "beta_top": 1.1274754379533183,
+      "seconds": 0.026
+    },
+    {
+      "network": "water",
+      "x": "CKNI_12_15",
+      "y": "CBODN_12_45",
+      "status": "ok",
+      "n_knowledge": 6,
+      "n_subsets_total": 64,
+      "n_distinct_states": 16,
+      "theta_z": -0.39235542189382694,
+      "beta_top": 2.245186288905477,
+      "seconds": 0.025
+    },
+    {
+      "network": "Schipf_2010",
+      "x": "A",
+      "y": "TT",
+      "status": "ok",
+      "n_knowledge": 6,
+      "n_subsets_total": 64,
+      "n_distinct_states": 34,
+      "theta_z": -0.371725597502033,
+      "beta_top": 1.4220072728116002,
+      "seconds": 0.018
+    },
+    {
+      "network": "barley",
+      "x": "dg25",
+      "y": "s2225",
+      "status": "ok",
+      "n_knowledge": 7,
+      "n_subsets_total": 128,
+      "n_distinct_states": 64,
+      "theta_z": -0.19865398309511995,
+      "beta_top": 1.5248557518679706,
+      "seconds": 0.089
+    },
+    {
+      "network": "magic-irri",
+      "x": "G3212",
+      "y": "FT",
+      "status": "ok",
+      "n_knowledge": 8,
+      "n_subsets_total": 256,
+      "n_distinct_states": 192,
+      "theta_z": 0.6025279405719464,
+      "beta_top": 1.2245721701198315,
+      "seconds": 0.316
+    },
+    {
+      "network": "child",
+      "x": "CO2",
+      "y": "DuctFlow",
+      "status": "ok",
+      "n_knowledge": 10,
+      "n_subsets_total": 1024,
+      "n_distinct_states": 194,
+      "theta_z": -0.14913773501854966,
+      "beta_top": 1.0000000000000002,
+      "seconds": 0.768
+    },
+    {
+      "network": "Kampen_2014",
+      "x": "AFF",
+      "y": "SAN",
+      "status": "ok",
+      "n_knowledge": 10,
+      "n_subsets_total": 1024,
+      "n_distinct_states": 177,
+      "theta_z": 0.01219556427034873,
+      "beta_top": 58.15299587204854,
+      "seconds": 0.766
+    },
+    {
+      "network": "andes",
+      "x": "HORIZ53",
+      "y": "SNode_118",
+      "status": "ok",
+      "n_knowledge": 10,
+      "n_subsets_total": 1024,
+      "n_distinct_states": 270,
+      "theta_z": -0.16218051676792083,
+      "beta_top": 1.0000000000000002,
+      "seconds": 4.141
+    },
+    {
+      "network": "ecoli70",
+      "x": "cspG",
+      "y": "hupB",
+      "status": "ok",
+      "n_knowledge": 13,
+      "n_subsets_total": 8192,
+      "n_distinct_states": 504,
+      "theta_z": 1.560865901364503,
+      "beta_top": 1.0000000000000002,
+      "seconds": 36.133
+    },
+    {
+      "network": "paths",
+      "x": "11",
+      "y": "14",
+      "status": "ok",
+      "n_knowledge": 14,
+      "n_subsets_total": 16384,
+      "n_distinct_states": 15,
+      "theta_z": -0.15642100441497636,
+      "beta_top": 1.0000000000000002,
+      "seconds": 7.661
+    }
+  ]
+}
