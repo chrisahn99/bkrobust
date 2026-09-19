@@ -1,0 +1,206 @@
+{
+  "ceiling_B_Chat": {
+    "source": "results/final_table_eps_gt1/instances.jsonl, D_LLM, status=ok, r_val != 0",
+    "n_informative": 66,
+    "n_finite_r_val": 53,
+    "n_unreached_r_val": 13,
+    "quantiles_informative": {
+      "0": 0.0,
+      "10": 0.0,
+      "25": 0.3982546822049334,
+      "50": 1.0,
+      "75": 1.0000000000000002,
+      "90": 1.571802851088714,
+      "100": 58.15299587204854
+    },
+    "mass_points_informative": {
+      "0.0": {
+        "count": 13,
+        "frac": 0.19696969696969696
+      },
+      "0.01": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.05": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.1": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.25": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.5": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.75": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "1.0": {
+        "count": 33,
+        "frac": 0.5
+      },
+      "1.25": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "1.5": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "2.0": {
+        "count": 0,
+        "frac": 0.0
+      }
+    },
+    "mass_points_finite_only": {
+      "0.0": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.01": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.05": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.1": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.25": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.5": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.75": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "1.0": {
+        "count": 33,
+        "frac": 0.6226415094339622
+      },
+      "1.25": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "1.5": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "2.0": {
+        "count": 0,
+        "frac": 0.0
+      }
+    }
+  },
+  "shell_means_mu_d": {
+    "source_exhaustive_15": "results/mean_vs_max/shells.jsonl",
+    "source_79": "results/mean_fullspace/shells.jsonl",
+    "n_pooled_exhaustive_15": 88,
+    "n_pooled_79": 330,
+    "quantiles_pooled_79": {
+      "0": 0.005001109407669186,
+      "10": 0.17007962557946835,
+      "25": 0.35905941170950584,
+      "50": 0.7375374370140199,
+      "75": 1.0000000000000004,
+      "90": 2.018376256197559,
+      "95": 3.0750151741146827,
+      "99": 39.927991174603044,
+      "100": 338.6461598309323
+    },
+    "quantiles_pooled_exhaustive_15": {
+      "0": 0.0013986013986013988,
+      "10": 0.09937062937062939,
+      "25": 0.29842657342657347,
+      "50": 0.6961538461538462,
+      "75": 1.227631859102654,
+      "90": 6.356740425029661,
+      "100": 58.15299587204854
+    },
+    "mass_points_pooled_79": {
+      "0.0": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.01": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.05": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.1": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "0.25": {
+        "count": 1,
+        "frac": 0.0030303030303030303
+      },
+      "0.5": {
+        "count": 3,
+        "frac": 0.00909090909090909
+      },
+      "0.75": {
+        "count": 1,
+        "frac": 0.0030303030303030303
+      },
+      "1.0": {
+        "count": 33,
+        "frac": 0.1
+      },
+      "1.25": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "1.5": {
+        "count": 0,
+        "frac": 0.0
+      },
+      "2.0": {
+        "count": 0,
+        "frac": 0.0
+      }
+    }
+  },
+  "individual_state_B_proxy": {
+    "note": "No raw per-state B list is stored anywhere on disk; these are shell-level min/median/max/frac_nonzero fields from the 15 exhaustive real instances (results/mean_vs_max/shells.jsonl), pooled over every shell with at least one state.",
+    "n_shells_pooled": 121,
+    "median_states_quantiles": {
+      "0": 0.0,
+      "25": 0.0,
+      "50": 0.0,
+      "75": 1.1225931444527384,
+      "100": 58.15299587204854
+    },
+    "max_quantiles": {
+      "0": 0.0,
+      "25": 0.0,
+      "50": 1.0000000000000002,
+      "75": 1.4220072728116002,
+      "100": 58.15299587204854
+    },
+    "frac_nonzero_quantiles": {
+      "0": 0.0,
+      "25": 0.0,
+      "50": 0.46511627906976744,
+      "75": 0.9,
+      "100": 1.0
+    }
+  }
+}

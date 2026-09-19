@@ -1,0 +1,40 @@
+{
+  "args": {
+    "condition": "D_LLM",
+    "panel": "results/final_table_eps_gt1/instances.jsonl",
+    "epsilons": "0.02,0.10,0.25,0.40,0.60,0.90",
+    "seed": 20260917,
+    "rng_seed": 424242,
+    "shell_cap": 20000,
+    "out": "results/mean_table"
+  },
+  "epsilons": [
+    0.02,
+    0.1,
+    0.25,
+    0.4,
+    0.6,
+    0.9
+  ],
+  "n_records": 66,
+  "n_ok": 66,
+  "n_zero_everywhere": 13,
+  "n_non_monotone": 0,
+  "subsets_evaluated": 49427,
+  "subsets_skipped_below_r_val": 16435,
+  "all_exhaustive": true,
+  "seconds": 127.41,
+  "assumptions": {
+    "covariance": "The example_models corpus ships graph structure only (no continuous observational data), but r_eps needs a covariance matrix to evaluate bias. We attach a seeded linear-Gaussian SEM to the ground-truth DAG via bkrobust.demo.evaluate.random_sem(dag, rng) and pass it to certify(..., sem=sem); certify derives the covariance, and the reported estimate theta_z, from that SEM. The seed for each (network, x, y) instance is derived deterministically from --seed (sha256 of f'{seed}:{network}:{x}:{y}'), so the sweep is exactly reproducible from the CLI arguments alone. The SEM is a synthetic stand-in for a data-generating process these benchmark networks do not ship -- it is never treated as the network's real parameters.",
+    "random_sem_defaults": {
+      "weight_range": [
+        0.3,
+        1.5
+      ],
+      "noise_range": [
+        0.5,
+        1.5
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "grids": {
+    "legacy_max_grid": [
+      0.01,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "log_spaced": [
+      0.02,
+      0.05024,
+      0.1262,
+      0.317,
+      0.7962,
+      2.0
+    ],
+    "quantile_derived_79": [
+      0.1701,
+      0.3591,
+      0.7375,
+      1.0,
+      2.0184,
+      3.9597
+    ],
+    "round_number_proposal": [
+      0.02,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.25,
+      2.0
+    ]
+  },
+  "confirmed_mass_points": [
+    1.0
+  ],
+  "median_n_knowledge_mean_fullspace": 5.0,
+  "corpus_sizes": {
+    "mean_fullspace_all_79": 79,
+    "mean_fullspace_real_10": 10,
+    "mean_fullspace_synthetic_69": 69,
+    "mean_fullspace_small_K": 64,
+    "mean_fullspace_large_K": 15,
+    "mean_vs_max_exhaustive_real_15": 15
+  },
+  "recommendation": {
+    "grid_name": "round_number_proposal",
+    "values": [
+      0.02,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.25,
+      2.0
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "args": {
+    "condition": "D_LLM",
+    "instances": "asia:bronc:dysp,asia:asia:either,mediator:I:Y,Sebastiani_2005:ANXA2.5:ANXA2.11,Didelez_2010:Age:HRT,magic-niab:G1217:YLD,water:CKNI_12_15:CBODN_12_45,Schipf_2010:A:TT,barley:dg25:s2225,magic-irri:G3212:FT,child:CO2:DuctFlow,Kampen_2014:AFF:SAN,andes:HORIZ53:SNode_118,ecoli70:cspG:hupB,paths:11:14",
+    "seed": 20260917,
+    "shells_path": "results/mean_vs_max/shells.jsonl",
+    "rval_path": "results/final_table_eps_gt1/instances.jsonl",
+    "out": "results/mean_sampling",
+    "fractions": [
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.25,
+      0.5
+    ],
+    "budgets": [
+      25,
+      50,
+      100,
+      250,
+      500,
+      1000
+    ],
+    "reps_shell": 200,
+    "cap_draws_shell": 35000,
+    "min_reps": 30,
+    "reps_profile": 100,
+    "cap_draws_profile": 70000,
+    "min_reps_profile": 20,
+    "min_pop": 20,
+    "max_shells_per_instance": 2,
+    "boot_b": 1000,
+    "fpc_max_pop": 2000,
+    "fpc_reps": 500,
+    "verify_keys": "asia:bronc:dysp,Schipf_2010:A:TT,barley:dg25:s2225,child:CO2:DuctFlow",
+    "adaptive_eps_quantiles": "1,2,3",
+    "adaptive_reps": 60,
+    "adaptive_step": 25,
+    "adaptive_cap": 500,
+    "adaptive_keys": "barley:dg25:s2225,magic-irri:G3212:FT,child:CO2:DuctFlow,ecoli70:cspG:hupB,paths:11:14",
+    "jobs": 0
+  },
+  "n_instances": 15,
+  "instances": [
+    "asia:bronc:dysp",
+    "asia:asia:either",
+    "mediator:I:Y",
+    "Sebastiani_2005:ANXA2.5:ANXA2.11",
+    "Didelez_2010:Age:HRT",
+    "magic-niab:G1217:YLD",
+    "water:CKNI_12_15:CBODN_12_45",
+    "Schipf_2010:A:TT",
+    "barley:dg25:s2225",
+    "magic-irri:G3212:FT",
+    "child:CO2:DuctFlow",
+    "Kampen_2014:AFF:SAN",
+    "andes:HORIZ53:SNode_118",
+    "ecoli70:cspG:hupB",
+    "paths:11:14"
+  ],
+  "wall_seconds": 3586.9,
+  "n_verification_checks": 8,
+  "n_verification_mismatches": 0,
+  "shell_study": {
+    "n_cells": 129,
+    "coverage_normal_by_fraction": {
+      "0.01": 0.3871875,
+      "0.02": 0.4284375,
+      "0.05": 0.4753125,
+      "0.1": 0.5746875,
+      "0.25": 0.7570987654320988,
+      "0.5": 0.8468619791666667
+    },
+    "coverage_boot_by_fraction": {
+      "0.01": 0.38625,
+      "0.02": 0.4275,
+      "0.05": 0.4753125,
+      "0.1": 0.578125,
+      "0.25": 0.7672067901234567,
+      "0.5": 0.8865494791666666
+    },
+    "coverage_normal_by_budget": {
+      "25": 0.8296153846153846,
+      "50": 0.8512500000000001,
+      "100": 0.8019999999999999,
+      "250": 0.9242857142857144,
+      "500": 0.9285714285714286,
+      "1000": 0.8857142857142857
+    },
+    "coverage_boot_by_budget": {
+      "25": 0.8484615384615384,
+      "50": 0.8668750000000001,
+      "100": 0.8390000000000001,
+      "250": 0.9271428571428573,
+      "500": 0.9857142857142858,
+      "1000": 1.0
+    }
+  },
+  "radius_study": {
+    "n_cells": 2700,
+    "rate_dangerous_by_fraction_use": {
+      "mean": {
+        "0.01": 0.20573333333333332,
+        "0.02": 0.22093333333333334,
+        "0.05": 0.21680000000000002,
+        "0.1": 0.2102936329588015,
+        "0.25": 0.19428571428571428,
+        "0.5": 0.17
+      },
+      "ci_lo": {
+        "0.01": 0.5021333333333333,
+        "0.02": 0.5154666666666666,
+        "0.05": 0.5364000000000001,
+        "0.1": 0.5497662921348314,
+        "0.25": 0.5512190476190476,
+        "0.5": 0.5444
+      },
+      "ci_hi": {
+        "0.01": 0.14826666666666669,
+        "0.02": 0.15680000000000002,
+        "0.05": 0.14413333333333334,
+        "0.1": 0.12828314606741573,
+        "0.25": 0.10066666666666668,
+        "0.5": 0.08093333333333334
+      }
+    },
+    "rate_exact_by_fraction_use": {
+      "mean": {
+        "0.01": 0.4153333333333333,
+        "0.02": 0.4150666666666667,
+        "0.05": 0.4450666666666666,
+        "0.1": 0.48585917602996254,
+        "0.25": 0.5439238095238095,
+        "0.5": 0.6392
+      },
+      "ci_lo": {
+        "0.01": 0.2781333333333333,
+        "0.02": 0.2798666666666667,
+        "0.05": 0.3002666666666667,
+        "0.1": 0.31230112359550555,
+        "0.25": 0.3414095238095238,
+        "0.5": 0.39320000000000005
+      },
+      "ci_hi": {
+        "0.01": 0.23279999999999995,
+        "0.02": 0.22386666666666666,
+        "0.05": 0.23426666666666668,
+        "0.1": 0.23922397003745322,
+        "0.25": 0.2625333333333334,
+        "0.5": 0.3492
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "network": "asia",
+    "x": "bronc",
+    "y": "dysp",
+    "d": 1,
+    "m": 2,
+    "official_mean": 0.6281071093041481,
+    "replica_mean": 0.6281071093041481,
+    "official_se": 0.36263780863666767,
+    "replica_se": 0.36263780863666767,
+    "match": true
+  },
+  {
+    "fpc_check": {
+      "network": "asia",
+      "x": "bronc",
+      "y": "dysp",
+      "d": 1,
+      "n_subsets_total": 3,
+      "pop_mean": 0.4187380728694321,
+      "pop_var": 0.5260247210112174,
+      "reps": 500,
+      "sample_sizes": []
+    }
+  },
+  {
+    "network": "Schipf_2010",
+    "x": "A",
+    "y": "TT",
+    "d": 3,
+    "m": 19,
+    "official_mean": 1.0111425550097828,
+    "replica_mean": 1.0111425550097828,
+    "official_se": 0.025585863559525447,
+    "replica_se": 0.025585863559525447,
+    "match": true
+  },
+  {
+    "fpc_check": {
+      "network": "Schipf_2010",
+      "x": "A",
+      "y": "TT",
+      "d": 3,
+      "n_subsets_total": 20,
+      "pop_mean": 0.9874153788371999,
+      "pop_var": 0.24692868685369018,
+      "reps": 500,
+      "sample_sizes": [
+        {
+          "m": 5,
+          "predicted_se": 0.19245597685718552,
+          "empirical_se": 0.200896211514797,
+          "ratio": 1.0438554042095283,
+          "empirical_bias": -0.007766509398961063
+        },
+        {
+          "m": 10,
+          "predicted_se": 0.11111451004564844,
+          "empirical_se": 0.10622639262104845,
+          "ratio": 0.956008288903116,
+          "empirical_bias": -0.005305307508142176
+        }
+      ]
+    }
+  },
+  {
+    "network": "barley",
+    "x": "dg25",
+    "y": "s2225",
+    "d": 3,
+    "m": 34,
+    "official_mean": 0.04484869858435208,
+    "replica_mean": 0.04484869858435208,
+    "official_se": 0.0075808136855203935,
+    "replica_se": 0.0075808136855203935,
+    "match": true
+  },
+  {
+    "fpc_check": {
+      "network": "barley",
+      "x": "dg25",
+      "y": "s2225",
+      "d": 3,
+      "n_subsets_total": 35,
+      "pop_mean": 0.043567307196227735,
+      "pop_var": 0.06643385897156667,
+      "reps": 500,
+      "sample_sizes": [
+        {
+          "m": 5,
+          "predicted_se": 0.10671767209784357,
+          "empirical_se": 0.11018919980951652,
+          "ratio": 1.0325300172261076,
+          "empirical_bias": 0.003398249961305763
+        },
+        {
+          "m": 10,
+          "predicted_se": 0.068885961130162,
+          "empirical_se": 0.06883022239962,
+          "ratio": 0.9991908550069196,
+          "empirical_bias": -0.00026140384317736853
+        },
+        {
+          "m": 17,
+          "predicted_se": 0.044830389255732586,
+          "empirical_se": 0.04489361466830262,
+          "ratio": 1.001410324862659,
+          "empirical_bias": 0.001281391388124345
+        },
+        {
+          "m": 25,
+          "predicted_se": 0.027554384452064803,
+          "empirical_se": 0.02848084881780542,
+          "ratio": 1.0336231196654873,
+          "empirical_bias": -0.0020912307454189344
+        }
+      ]
+    }
+  },
+  {
+    "network": "child",
+    "x": "CO2",
+    "y": "DuctFlow",
+    "d": 5,
+    "m": 50,
+    "official_mean": 0.5000000000000001,
+    "replica_mean": 0.5000000000000001,
+    "official_se": 0.06395100570395636,
+    "replica_se": 0.06395100570395636,
+    "match": true
+  },
+  {
+    "fpc_check": {
+      "network": "child",
+      "x": "CO2",
+      "y": "DuctFlow",
+      "d": 5,
+      "n_subsets_total": 252,
+      "pop_mean": 0.5000000000000001,
+      "pop_var": 0.25099601593625503,
+      "reps": 500,
+      "sample_sizes": [
+        {
+          "m": 5,
+          "predicted_se": 0.22181791463043743,
+          "empirical_se": 0.21912524214130832,
+          "ratio": 0.9878608880909584,
+          "empirical_bias": -0.00039999999999995595
+        },
+        {
+          "m": 10,
+          "predicted_se": 0.1552532951578501,
+          "empirical_se": 0.15205789425877514,
+          "ratio": 0.9794181444211788,
+          "empirical_bias": 0.009199999999999986
+        },
+        {
+          "m": 25,
+          "predicted_se": 0.09509902576364923,
+          "empirical_se": 0.0978321821883959,
+          "ratio": 1.028740109615207,
+          "empirical_bias": -7.999999999991347e-05
+        },
+        {
+          "m": 50,
+          "predicted_se": 0.06343425243880566,
+          "empirical_se": 0.06600995856125436,
+          "ratio": 1.04060434266067,
+          "empirical_bias": -0.002999999999999947
+        },
+        {
+          "m": 126,
+          "predicted_se": 0.03155972015489016,
+          "empirical_se": 0.03146283969441716,
+          "ratio": 0.9969302496981112,
+          "empirical_bias": 0.002349206349206323
+        }
+      ]
+    }
+  }
+]

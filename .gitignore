@@ -99,6 +99,19 @@ coverage.xml
 # the whole enumerated space per instance, with max and mean compared over the
 # full sphere, the full ball and the retraction shell.
 !/results/mean_fullspace/
+# The mean bias profile mu(d) and everything that supports reporting it
+# (docs/MEAN_REPORTING.md): the per-query table over the real corpus, the
+# epsilon-grid selection, the bounding-statistic study, and the monotonicity
+# search. results/mean_sampling/ is NOT tracked: its per-repetition draws run to
+# 65 MB and every number cited is in its summary files, which are.
+!/results/mean_table/
+!/results/mean_epsilon/
+!/results/mean_bounds/
+!/results/mean_monotonicity/
+!/results/mean_sampling/
+/results/mean_sampling/radius_reps.jsonl
+/results/mean_sampling/shell_reps.jsonl
+/results/mean_sampling/profile_audit.jsonl
 /data/
 /checkpoints/
 *.pt
