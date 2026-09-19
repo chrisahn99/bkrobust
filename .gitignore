@@ -108,6 +108,7 @@ coverage.xml
 !/results/mean_epsilon/
 !/results/mean_bounds/
 !/results/mean_monotonicity/
+!/results/mean_adaptive/
 !/results/mean_sampling/
 /results/mean_sampling/radius_reps.jsonl
 /results/mean_sampling/shell_reps.jsonl

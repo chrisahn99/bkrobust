@@ -337,6 +337,60 @@ the budget alongside the radius, and report the interval, not just the point.
 Sampled radii must be labelled as such. An exhaustive `r_mu` is a fact about the instance; a
 sampled one is an estimate with a stated budget and a 1-in-1000 chance of being too generous.
 
+### Adaptive stopping: cheaper, and safe only with an anytime-valid bound
+
+A fixed budget spends the same draws whether `mu(d)` is far from `eps` or right on it. Since the
+walk only needs to know *which side of `eps`* each shell falls on, a sequential rule can stop as
+soon as the answer is clear. It is much cheaper and, done naively, it is not safe
+(`results/mean_adaptive/`, 5 instances spanning `|K_G0|` 3 to 14, 11 tolerances including one
+placed adversarially at a true crossing, 60 repetitions per cell, 6,300 profile walks).
+
+| rule | overstating | exact | median draws / profile | p90 |
+|---|--:|--:|--:|--:|
+| naive sequential | **3.43%** | 96.5% | 35 | 78 |
+| asymmetric, single look (`ci_hi` only) | **3.10%** | 88.8% | 30 | 65 |
+| **anytime-valid empirical-Bernstein** | **0.00%** | 89.5% | 35 | 88 |
+| fixed 250/shell, `ci_hi` (section 8) | 0.00% | 99.5% | 500 | 1000 |
+
+The last row is the same walks costed at 250 draws for each of the shells actually visited
+(median 2, p90 4), so the columns are comparable: **the anytime-valid rule is 14.3x cheaper at the
+median** than the fixed budget it matches on safety, and 5.7x cheaper than a 100/shell budget
+which is *not* as safe (0.067% overstating).
+
+**Where the naive leak comes from is not only peeking.** Two mechanisms were separated:
+
+- *Peeking*, measured independently on a two-point population mimicking a real shell: at matched
+  total draws, a single fixed-size test errs 1-4% while sequential peeking errs 11-31%, and the
+  gap widens as the cap grows (worse at 400 draws than at 200) -- the signature of optional
+  stopping. This dominates when a rule takes many looks.
+- *The unsafe fallback and the plain miss rate*, which dominate when it takes few. In the run
+  above the cap allowed only about two looks per shell, and naive's overstating rate (3.43%)
+  almost exactly equals its rate of hitting the cap unresolved (3.57%) -- at which point it guessed
+  from the point estimate. The asymmetric single-look rule, where peeking is impossible by
+  construction, still leaks 3.10%, because one nominal-95% interval simply misses about that often.
+
+So removing peeking is necessary and not sufficient. The rule that reaches zero does three things
+at once: an **anytime-valid** interval (empirical-Bernstein with a per-look budget
+`alpha_k = alpha * 6 / (pi^2 k^2)`, which sums to `alpha` over unboundedly many looks and is
+therefore valid at any stopping time); the **asymmetric** decision (advance to `d+1` only when the
+upper bound is below `eps`); and a **conservative fallback** -- on reaching the cap unresolved it
+declares "crosses", which can only shrink the radius. That last piece is where all of its
+inexactness lives: its 10.5% understating rate equals its 10.48% cap-hit rate exactly, so every
+error it makes is in the safe direction, by construction rather than by luck.
+
+**Recommended when a shell cannot be enumerated:** the anytime-valid Bernstein rule above. Prefer
+the fixed 250/shell budget when its cost is affordable -- it is far more often exact (99.5% vs
+89.5%) at the same zero overstating rate, and it needs no range parameter.
+
+**Caveats on this sub-study, all disclosed rather than smoothed over.** It ran at a cap of 50
+draws per shell, not the 500 originally planned, on 5 instances at 60 repetitions -- scope cut for
+time, so the frontier is established at small cap and modest replication. The alpha budget is
+spent *within* each shell, not across the whole profile walk, so the across-shell multiplicity of
+a long walk is not corrected. And the Bernstein range parameter uses `b = beta_top`, which
+requires `beta_up(d) <= beta_top` for every `d`; that is true on all 256 shells of the committed
+corpus and on all 2,100 repetitions here, but it is an empirical fact in this codebase, not a
+proved one.
+
 ## 9. Limitations
 
 - **`mu` is average-case under a uniform prior** over which `d` of the analyst's claims are wrong.
@@ -370,9 +424,11 @@ Report, per query, alongside the existing `r_val`:
 
 Compute exhaustively from `r_val` upward wherever the shells allow it, which on this corpus is
 everywhere. Where they do not, sample **250 subsets per shell and threshold `ci_hi`** (section 8):
-98.8% exact, 0.0% of cells overstating the radius. Label sampled radii as estimates and report the
-budget with them. Never specify the sample as a percentage of the shell -- the knob is the
-absolute draw count.
+98.8% exact, 0.0% of cells overstating the radius. If that is too expensive, the anytime-valid
+Bernstein rule is 14.3x cheaper at the median with the same 0.0% overstating rate, trading
+exactness (89.5%) for cost, and erring only in the safe direction. Label sampled radii as
+estimates and report the budget with them. Never specify the sample as a percentage of the shell
+-- the knob is the absolute draw count.
 
 Keep `r_eps` in the paper as the certified worst-case statement. The honest framing of the pair:
 `r_val` and `r_eps` say **whether and when** the analysis breaks; `mu` says **how much it costs on
@@ -393,6 +449,8 @@ PYTHONPATH=src .venv/bin/python experiments/mean_table.py --out results/mean_tab
 PYTHONPATH=src .venv/bin/python experiments/mean_bounds_study.py
 PYTHONPATH=src .venv/bin/python experiments/mean_epsilon_grid.py
 PYTHONPATH=src .venv/bin/python experiments/mean_sampling_study.py
+PYTHONPATH=src .venv/bin/python experiments/mean_adaptive_study.py
+PYTHONPATH=src .venv/bin/python experiments/mean_monotonicity_hunt.py
 ```
 
 The shared implementation is `src/bkrobust/epsilon/meanprofile.py`

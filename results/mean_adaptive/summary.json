@@ -1,0 +1,92 @@
+{
+  "args": {
+    "condition": "D_LLM",
+    "instances": "asia:bronc:dysp,magic-niab:G1217:YLD,water:CKNI_12_15:CBODN_12_45,barley:dg25:s2225,paths:11:14",
+    "seed": 20260917,
+    "shells_path": "results/mean_vs_max/shells.jsonl",
+    "rval_path": "results/final_table_eps_gt1/instances.jsonl",
+    "out": "results/mean_adaptive",
+    "reps": 60,
+    "naive_reps": null,
+    "rules": "all",
+    "n_hard": 1,
+    "pair_reps": 0,
+    "coverage_reps": 0,
+    "coverage_sizes": "2,3,5,10,25,50,100",
+    "jobs": 5
+  },
+  "n_instances": 5,
+  "instances": [
+    "asia:bronc:dysp",
+    "magic-niab:G1217:YLD",
+    "water:CKNI_12_15:CBODN_12_45",
+    "barley:dg25:s2225",
+    "paths:11:14"
+  ],
+  "wall_seconds": 90.7,
+  "naive_reproduction": {
+    "n_reps": 2100,
+    "n_instances": 5,
+    "rate_dangerous": 0.03428571428571429,
+    "n_dangerous": 72,
+    "median_draws": 35.0,
+    "p90_draws": 78.0,
+    "task_reference_rate": 0.021111111111111112,
+    "task_reference_n": 900
+  },
+  "frontier": [
+    {
+      "rule": "always_valid_bernstein",
+      "n_reps": 2100,
+      "rate_exact": 0.8952380952380953,
+      "rate_dangerous": 0.0,
+      "rate_understate": 0.10476190476190476,
+      "n_dangerous": 0,
+      "median_draws": 35.0,
+      "p90_draws": 88.0,
+      "mean_draws": 38.385714285714286,
+      "frac_any_capped": 0.10476190476190476
+    },
+    {
+      "rule": "asymmetric_conservative",
+      "n_reps": 2100,
+      "rate_exact": 0.8876190476190476,
+      "rate_dangerous": 0.030952380952380953,
+      "rate_understate": 0.08142857142857143,
+      "n_dangerous": 65,
+      "median_draws": 30.0,
+      "p90_draws": 65.0,
+      "mean_draws": 33.430952380952384,
+      "frac_any_capped": 0.0
+    },
+    {
+      "rule": "naive",
+      "n_reps": 2100,
+      "rate_exact": 0.9647619047619047,
+      "rate_dangerous": 0.03428571428571429,
+      "rate_understate": 0.0009523809523809524,
+      "n_dangerous": 72,
+      "median_draws": 35.0,
+      "p90_draws": 78.0,
+      "mean_draws": 38.086666666666666,
+      "frac_any_capped": 0.03571428571428571
+    }
+  ],
+  "committed_fixed_budget_baseline_250": {
+    "budget": 250,
+    "n_cells": 75,
+    "total_reps": 6710,
+    "rate_exact": 0.9947839046199702,
+    "rate_dangerous": 0.0,
+    "cost_per_shell": 250
+  },
+  "committed_fixed_budget_baseline_100": {
+    "budget": 100,
+    "n_cells": 75,
+    "total_reps": 7440,
+    "rate_exact": 0.9555107526881721,
+    "rate_dangerous": 0.0006720430107526882,
+    "cost_per_shell": 100
+  },
+  "peeking_pair": {}
+}
