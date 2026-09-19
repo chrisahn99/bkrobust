@@ -87,6 +87,14 @@ coverage.xml
 # The final table: r_val and r_eps for every real network at its LLM-elicited
 # K, per-instance rows plus the aggregate cited in the paper's results table.
 !/results/final_table/
+# The epsilon > 1 re-run of the final table (docs/RESULT_EPSILON_ABOVE_ONE.md):
+# same schema as final_table, plus the per-instance staircase beta_up(d) and
+# ceiling B(Chat) that make any future epsilon a lookup rather than a re-run.
+!/results/final_table_eps_gt1/
+# The exhaustive mean-vs-max shell study (docs/EXPERIMENT_MEAN_VS_MAX.md):
+# every retraction state of 15 instances, with the full distribution of B per
+# shell. Evidence for the shell-aggregation design decision.
+!/results/mean_vs_max/
 /data/
 /checkpoints/
 *.pt

@@ -261,6 +261,8 @@ def run_instance(
         "r_val": None,
         "r_eps": None,
         "theta_z": None,
+        "beta_top": None,
+        "staircase": None,
         "status": None,
         "seconds": None,
         "error": None,
@@ -286,6 +288,16 @@ def run_instance(
         record["r_val"] = cert.r_val
         record["r_eps"] = {str(eps): radius for eps, radius in cert.r_eps.items()}
         record["theta_z"] = cert.theta_z
+        # The staircase beta_up(d) and its ceiling B(Chat), both in the
+        # certificate's reporting units, so that any future epsilon is a lookup
+        # rather than a re-run: r_eps(eps) is the first d with staircase[d] >
+        # eps, and eps >= beta_top is UNREACHED outright. The profile is stored
+        # in effect units, so it is converted here exactly as worst_case_at
+        # does. It covers only the shells the traversal touched; beta_top is
+        # over the whole space and is always exact.
+        record["beta_top"] = cert.beta_top
+        scale = cert.eps_scale or 1.0
+        record["staircase"] = {str(step.d): step.beta_up / scale for step in cert.profile}
         record["status"] = "ok"
     except InstanceTimeout as exc:
         record["status"] = "timeout"
