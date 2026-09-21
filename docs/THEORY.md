@@ -1,8 +1,34 @@
 # Theory
 
-Definitions, notation, and the three theorem targets. Everything here is a
-target, not a result: nothing in this document has been proved yet, and the
-statements are written to be falsifiable rather than to be true.
+Definitions, notation, and the three theorem targets. This document is the
+**project's original planning note**; it states targets, not results.
+
+> **Status and precedence (updated).** Since this note was written, the
+> order-theoretic programme has been settled and now lives in
+> [`THEOREMS.md`](../THEOREMS.md), with the bias radius in
+> [`R_EPSILON_THEORY.md`](R_EPSILON_THEORY.md). Where the two disagree,
+> **`THEOREMS.md` wins**: it carries the Main Theorem hierarchy (`THEOREMS.md`
+> §0b), the proof-structure diagram, and the parametric assumption the bias
+> results require (`THEOREMS.md` §16b). This file is retained for the targets
+> that remain genuinely open — T1 and T3 — and for the framing in §2, §5 and §6.
+
+**Notation is standardised as follows.** Early drafts wrote radii as `δ`; the
+settled notation is `r`, and the two are the same objects:
+
+| This file (old) | Standard (use this) | Meaning |
+|---|---|---|
+| `δ_valid` | `r_val` | validity / breakdown radius |
+| `δ_opt` | `r_opt` | optimality radius |
+| — | `r_ε` | ε-bias radius (`R_EPSILON_THEORY.md`) |
+| `M = M(C, K)` | `G`, with `G₀` the analyst's state | a knowledge state (MPDAG) |
+| `C` | `Ĉ` | the estimated CPDAG |
+| `d(·,·)` | `d(·,·)` on the covering graph of `⪯` | the poset distance; `shd` is a baseline, not the metric |
+
+The radius convention is the one fixed in `THEOREMS.md` §0:
+`r = min{ d(G₀,G) : the property fails at G }`, so the closed ball of radius
+`r − 1` is certified clean and the practitioner's safe-move count is `r − 1`.
+A **ball** is `{G : d ≤ k}`; a **sphere** (loosely, a "shell") is `{G : d = k}`.
+Guarantees are stated on balls, never on shells.
 
 ---
 
@@ -81,7 +107,7 @@ no signal that they are doing so.
 
 ## 4. Theorem targets
 
-### T1 — Ordering of the radii — **TODO**
+### T1 — Ordering of the radii — **OPEN**
 
 > For any `C`, `G` in its equivalence class, target pair `(X, Y)`, and SCM `θ`:
 > `δ_opt ≤ δ_valid`.
@@ -105,7 +131,24 @@ checks it on the canonical graphs. An exact-method violation is a counterexample
 and is more valuable than a proof of the conjecture; the sweeps persist the full
 witness for any such case.
 
-### T2 — Bias bound beyond `δ_valid` — **TODO**
+### T2 — Bias bound beyond `r_val` — **SUPERSEDED (settled in a different form)**
+
+> **Resolved, but not as stated.** The programme this target describes was
+> carried out in `R_EPSILON_THEORY.md`, which supplies an *exact* worst-case
+> bias functional `B(G)` and the radius `r_ε` at which it first exceeds a
+> tolerance, together with an attained band on the realised error
+> (`THEOREMS.md` §17–§21b). It does **not** take the Cinelli–Hazlett partial-`R²`
+> form below; the certificate is an exact supremum over the ambiguity the
+> knowledge state leaves open, not a two-parameter bound.
+>
+> **It carries a parametric assumption that this target left implicit**: a
+> nonsingular jointly Gaussian observational law from a linear-Gaussian SCM
+> (`THEOREMS.md` §16b). The original phrasing "in the linear-Gaussian case" was
+> right to name the class; later write-ups dropped it and claimed the bias
+> results needed no assumption beyond `r_val`'s. That claim is withdrawn.
+>
+> The partial-`R²` reparameterisation remains an open and worthwhile target, for
+> the reason given below — analyst-readable units. Original statement:
 
 > For `δ ≥ δ_valid` in the linear-Gaussian case, the bias of the `O*(M(C,K))`-adjusted
 > estimator is bounded by a function of two partial `R²` quantities — the
@@ -123,9 +166,10 @@ collider, or a descendant of the treatment — not only by omission, and the OVB
 factoring is derived for the omission case. The inclusion case may need its own
 bound, in which case T2 splits.
 
-**Status.** Unproved. See `theory/bias_bound.py`.
+**Status.** Superseded as above; the partial-`R²` form is unproved. See
+`theory/bias_bound.py`.
 
-### T3 — Efficiency gap within the band — **TODO**
+### T3 — Efficiency gap within the band — **OPEN**
 
 > For `δ_opt ≤ δ < δ_valid`, the variance ratio
 > `asVar(O*(M(C,K))) / asVar(O*(M(C,K_true)))` is bounded above by a function of

@@ -48,6 +48,106 @@ so shells `0 … r−1` are certified clean and the practitioner's safe-move cou
 
 ---
 
+## 0b. Result hierarchy — what is a Main Theorem and what supports it
+
+This file accumulated results session by session, and by Session 8 it presented
+a flat list in which a headline result and a two-line technical step carried the
+same weight. The hierarchy below is the reading order for the paper: **at most
+two Main Theorems per topic**, everything else demoted to a Proposition or a
+Lemma whose only job is to reach one of them. Numbering in this file is
+unchanged — the table maps each existing section to its rank.
+
+**Topic I — the search is exact (paper §5).**
+
+| Rank | Statement | Here | Role |
+|---|---|---|---|
+| **Main Theorem I** | Monotone reachability: `r_val` = least number of retractions inducing failure | §6 | the result the algorithm rests on |
+| Lemma | Failure is upward-closed | §2 | supplies the up-set |
+| Lemma | `𝔊_Ĉ` is a join-semilattice, `G ∨ H = Meek(Ĉ, K_G ∩ K_H)` | §3 | supplies the join |
+| Lemma | Order identification (`[G] ⊆ [H] ⟺ dir(H) ⊆ dir(G)`) | §13 | makes covers computable |
+| Proposition | Anti-Exchange | §4, §24 | ⇒ convex geometry |
+| Lemma | Lemma R — covers add exactly one orientation | §4b | ⇒ gradedness |
+| Property | Upper semimodularity | §4c | ⇒ Jordan–Dedekind |
+| Lemma | Lemma L — the join is no farther | §5 | the non-expansion step |
+| Proposition | Theorem U — any up-set is retraction-reachable | §19 | Main Theorem I, stated for an arbitrary up-set |
+
+**Topic II — the bias radius (paper §6).**
+
+| Rank | Statement | Here | Role |
+|---|---|---|---|
+| **Main Theorem II** | Zero bias on the closed ball of radius `r_val − 1` | §17 | the identification statement |
+| **Main Theorem III** | The practitioner's certificate — the band on realised error | §21 | the statement an analyst uses |
+| Assumption | Nonsingular linear-Gaussian observational law (§16b) | §16b | **required**; see §16b |
+| Lemma | Worst-case bias is monotone under `⪯` | §18 | makes `F_ε` an up-set |
+| Lemma | The staircase `β↑` | §20 | makes the search one-pass |
+| Proposition | The band is attained | §21b | tightness |
+| Lemma | The ambiguity set is semi-local | §22 | cost only, not validity |
+
+Everything not named a Main Theorem belongs in an appendix.
+
+### Proof-structure diagram
+
+Edges read "is used in the proof of". Boxed nodes are external results taken as
+input; `[LG]` marks the one place a parametric assumption enters.
+
+```
+  Meek (1995)          Chickering–Meek strong form        Edelman–Jamison (1985)
+        │                         │                                │
+        │                    Lemma AE-B.1                           │
+        │                 (touches only differing edges)            │
+        │                         │                                │
+        │                    Lemma AE-B.2                           │
+        │                 (reversal path stays in [G])              │
+        │                         │                                │
+        │                         ▼                                │
+        ├──────────────────► Anti-Exchange (§4, §24) ◄─────────────┘
+        │                         │
+        │                         ▼
+        │                   Lemma R (§4b)  ── covers add one ──┐
+        │                         │                            │
+        ▼                         ▼                            ▼
+  Lemma: join-semilattice ──► Property S (§4c) ────────► gradedness
+        (§3)                      │                    (Jordan–Dedekind)
+        │                         ▼                            │
+        │                   Lemma L (§5)                       │
+        │                         │                            │
+        │                         ▼                            │
+        │                 Theorem U (§19)  ◄───────────────────┘
+        │                         │
+  Lemma: upward-closed ───────────┤
+        (§2)                      ▼
+                        ★ MAIN THEOREM I ★
+                      Monotone reachability (§6)
+                                  │
+             ┌────────────────────┴────────────────────┐
+             │                                         │
+             ▼                                         ▼
+   Lemma: order identification (§13)        [LG] Assumption (§16b)
+        (cover generation)                            │
+                                       ┌──────────────┴──────────────┐
+                                       ▼                             ▼
+                          ★ MAIN THEOREM II ★              Lemma: monotone B (§18)
+                        Zero bias on the ball (§17)                  │
+                                       │                             ▼
+                                       │                    F_ε is an up-set
+                                       │                             │
+                                       └──────────┬──────────────────┘
+                                                  ▼
+                                        Lemma: staircase β↑ (§20)
+                                                  │
+                                                  ▼
+                                       ★ MAIN THEOREM III ★
+                                     The certificate (§21)
+                                                  │
+                                                  ▼
+                                    Proposition: band attained (§21b)
+
+  Lemma: semi-local ambiguity set (§22) ── enters the *cost* of evaluating B,
+                                           not the proof of any statement above.
+```
+
+---
+
 ## 1. Task 0 — the space membership and fixpoint definition  *(settled)*
 
 **Statement.** `𝔊_Ĉ` as defined above is *strictly larger* than the set produced
@@ -630,7 +730,10 @@ their status in the format of the rest of this file.
 
 ## 16. Setting — the bias functional
 
-The analyst holds one observational law with population covariance `Σ` and
+Throughout this topic **Assumption LG of §16b is in force**; it is stated
+separately because it is a genuine restriction that `r_val` does not carry.
+
+The analyst holds one observational law with population covariance `Σ ≻ 0` and
 reports one number, `θ_Z = β(Z;Σ)`, the coefficient on `X` in the population
 regression of `Y` on `{X} ∪ Z`. It does not depend on which DAG is the truth.
 Each candidate truth `D ∈ [Ĉ]` assigns the effect its own value
@@ -646,16 +749,71 @@ redraws a SEM per extension and averages. That quantity is **not monotone** unde
 `⪯` — a mean over a larger set can be smaller — so `{mean > ε}` is not an up-set,
 nothing in this file applies to it, and the upward search is not exact for it.
 
-## 17. Theorem A — exact zero bias inside the certified shell  *(PROVED)*
+## 16b. The parametric assumption this topic requires  *(corrected)*
+
+Earlier drafts of this file and of `docs/R_EPSILON_THEORY.md` asserted that the
+bias radius "adds no assumption to `r_val`". **That is false as stated, and the
+error is load-bearing.** It is corrected here.
+
+**Assumption LG (nonsingular linear-Gaussian).** The observational law `P` is a
+nonsingular jointly Gaussian distribution over `V`, compatible with `Ĉ`, and is
+generated by a linear-Gaussian SCM whose DAG lies in `[Ĉ]`:
+
+```
+V_j  =  Σ_{i ∈ pa(j)} a_{ij} V_i  +  ε_j ,      ε ~ N(0, diag(σ²)),  σ²_j > 0,
+```
+
+with population covariance `Σ = Cov(V)` satisfying `Σ ≻ 0`.
+
+**Why it is needed, and where exactly.** Both clauses do work:
+
+1. *Linearity + Gaussianity* is what makes the population least-squares
+   coefficient `β(S;Σ)` the causal effect when `S` is a valid adjustment set.
+   In a general SCM a valid adjustment set identifies the effect through the
+   **g-formula**, `E[Y | do(X)] = Σ_s E[Y | X, S=s] P(S=s)`, which is *not* the
+   coefficient on `X` in a regression of `Y` on `{X} ∪ S` unless the outcome
+   regression is linear in `X` with no `X`–`S` interaction. Define `θ_Z` and
+   `τ_D` by OLS coefficients, as §16 does, and linearity is being used in the
+   *definition of the estimand*, not merely in its computation.
+2. *Nonsingularity* (`Σ ≻ 0`) is what makes `β(S;Σ)` well defined at all: the
+   normal equations `Σ_{[{X}∪S]} b = Σ_{[{X}∪S], Y}` have a unique solution
+   only when the leading submatrix is invertible, and every submatrix of a
+   positive-definite matrix is positive definite. Without it `β(S;Σ)` is a
+   solution set, `T(G)` is not a finite set of reals, and `B(G)` is undefined.
+
+**What this does and does not cost.** Assumption LG is confined to Topic II. It
+is *not* used anywhere in Topic I: §1–§15, §19 and §24 are purely
+order-theoretic and statements about `r_val` hold for any observational law
+compatible with `Ĉ`. Within Topic II it is used in the proofs of §17 (via
+"valid adjustment ⇒ identification by OLS") and in the well-definedness of
+§16, §18, §20–§22; the *order-theoretic* content of §18–§21 — upward-closure of
+`F_ε`, the staircase, retraction-reachability — uses only that `B` is a maximum
+over a set indexed by `[·]`, and survives any redefinition of `τ_D` that keeps
+that shape.
+
+**The honest generalisation.** Replacing `β(·;Σ)` by the g-formula functional
+`τ_D = E[Y | do(X)]` adjusted for `pa_D(X)` does carry §18–§22 verbatim to a
+general SCM with positivity — but it *changes the estimand*, so §17 then
+certifies the g-formula estimand and not an OLS coefficient, and the
+closed-form cost claims of §22 no longer apply. The previous wording conflated
+"the proofs do not mention linearity" with "the objects are the same without
+it". They are not the same objects.
+
+---
+
+## 17. Theorem A — exact zero bias on the certified ball  *(PROVED)*
 
 **Statement.** If `d(G₀,G) ≤ r_val − 1` then `T(G) = {θ_Z}` and `B(G) = 0`.
 
-**Proof.** No element inside the shell fails, so `Z` is valid in every `D ∈ [G]`;
-a valid adjustment set identifies the total effect in a linear SCM, so
+**Proof.** No element inside the ball fails, so `Z` is valid in every `D ∈ [G]`.
+Under **Assumption LG** (§16b) a valid adjustment set identifies the total
+effect through the population least-squares coefficient — this is the step that
+consumes linearity, and `Σ ≻ 0` is what makes the coefficient unique — so
 `τ_D = β(Z;Σ) = θ_Z` for every such `D`. ∎
 
-The claim is *exactly zero at the population level*, for every law compatible
-with `Ĉ`, not "no significant bias". Inside the shell the only error is sampling
+The claim is *exactly zero at the population level*, for every law satisfying
+Assumption LG and compatible with `Ĉ`, not "no significant bias". On the closed
+ball of radius `r_val − 1` about `G₀` the only remaining error is sampling
 error — which is the operational content: there is nothing to recompute there.
 
 **Converse fails, in the safe direction.** At distance `r_val` some extension has
@@ -766,8 +924,9 @@ differential test only.
 
 | # | Statement | Status | Rests on |
 |---|---|---|---|
-| A | `B ≡ 0` on the ball of radius `r_val − 1` | **PROVED** | definition of `r_val` |
-| B | `G ⪯ H ⟹ B(G) ≤ B(H)`; `F_ε` upward-closed | **PROVED** | the order alone |
+| **LG** | nonsingular jointly Gaussian law from a linear-Gaussian SCM | **ASSUMED** | §16b — *required for Topic II, not inherited from `r_val`* |
+| A | `B ≡ 0` on the ball of radius `r_val − 1` | **PROVED** | definition of `r_val`; **LG** |
+| B | `G ⪯ H ⟹ B(G) ≤ B(H)`; `F_ε` upward-closed | **PROVED** | the order alone (**LG** for well-definedness of `B`) |
 | U | nearest state of **any** up-set is reachable by retraction | **PROVED** | Lemma L |
 | R | `↑G₀ = {Meek(Ĉ,K₀\S)}`; `d = ρ(G₀) − ρ(G)` | **PROVED** | Lemma O, R, Property S |
 | C | monotone staircase; sphere sufficiency; direct shells; one pass, all `ε` | **PROVED** | A, B, U, R |
@@ -777,10 +936,17 @@ differential test only.
 | AE-B.1 | Chickering's sequence touches only *differing* edges | **PROVED** | Chickering strong form (counts the reversals) |
 | AE-B.2 | the reversal path between two extensions stays inside `[G]` | **PROVED** | AE-B.1; closes the §4 gap, see §24.2 |
 
-**`r_ε` adds no assumption to `r_val`.** Everything above rests on Lemma L,
-Lemma R, Property S and Lemma O exactly as the existing radius does, and the
-one-sided error direction is unchanged: an upward search can return a radius
-that is too large — overstating robustness — never one that is too small.
+**`r_ε` adds no *order-theoretic* assumption to `r_val`, but it does add a
+parametric one.** The order-theoretic content above rests on Lemma L, Lemma R,
+Property S and Lemma O exactly as the existing radius does, and the one-sided
+error direction is unchanged: an upward search can return a radius that is too
+large — overstating robustness — never one that is too small. What is *not*
+inherited is the model class. `r_val` is defined by validity, a graphical
+property, and holds for any observational law compatible with `Ĉ`. `r_ε` is
+defined through OLS coefficients and therefore requires **Assumption LG**
+(§16b): a nonsingular jointly Gaussian law generated by a linear-Gaussian SCM.
+The earlier blanket claim that `r_ε` "adds no assumption" was wrong and is
+withdrawn.
 
 ## 24. §4's Case B — the gap in the supplied argument, and its repair
 
