@@ -109,6 +109,9 @@ coverage.xml
 !/results/mean_bounds/
 !/results/mean_monotonicity/
 !/results/mean_adaptive/
+# The reporting table on the paper's own geometry (docs/MEAN_TABLE_FULLSPACE.md):
+# mu over the full space G_Chat with BFS distance, per query, exhaustive.
+!/results/mean_table_fullspace/
 !/results/mean_sampling/
 /results/mean_sampling/radius_reps.jsonl
 /results/mean_sampling/shell_reps.jsonl

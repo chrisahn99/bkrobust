@@ -1,5 +1,14 @@
 # The mean bias profile: a reportable companion to `r_val`
 
+> **SUPERSEDED FOR REPORTING — see `docs/MEAN_TABLE_FULLSPACE.md`.** The statistic below averages
+> over the **retraction up-set**, which is not the space the paper's geometry is defined on. The
+> up-set is licensed for the worst case by a proved theorem, but no such equivalence holds for a
+> mean, so reporting a mean on it silently changes the geometry that is the paper's contribution.
+> The reporting table now computes `mu` on the full space `G_Chat` with BFS distance, the same
+> space `r_val` uses. This document is retained for its methodology and its negative results —
+> the bounding study (section 6), the monotonicity search (section 7) and the sampling and
+> adaptive-stopping studies (section 8) — all of which concern the up-set formulation.
+
 Answers the question this investigation was opened on: `r_eps`, though well founded, adds nothing
 to `r_val` on real data. This report develops a companion statistic that does, says exactly what
 it means and does not mean, and reports it per query over the whole corpus.
