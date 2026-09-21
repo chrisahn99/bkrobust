@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__insurance__cov025__bw025__r0",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "insurance",
+    "coverage": 0.25,
+    "base_wrongness": 0.25,
+    "bw_abs": null,
+    "replicate": 0
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 32,
+  "n_scored": 32,
+  "n_cells": 32,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": true,
+  "cache": {
+    "graph_hits": 999,
+    "graph_misses": 1,
+    "verdict_hits": 31968,
+    "verdict_misses": 32
+  },
+  "elapsed_s": 0.827,
+  "instances_path": "results/axis_robustness_real/shards/flip__insurance__cov025__bw025__r0.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__insurance__cov025__bw025__r0.cells.jsonl",
+  "instances_sha256": "0642686b0806415afd8708b317ff5bc877b38ad653cd0fd1320420c69188a0e9",
+  "cells_sha256": "9de408c82e6b18bf06d912fd1d0e5855dfcd7bdb697ab53dd12953d708fca32e",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:17Z"
+}

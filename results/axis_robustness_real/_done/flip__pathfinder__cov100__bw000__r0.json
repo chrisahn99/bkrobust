@@ -1,0 +1,34 @@
+{
+  "shard_id": "flip__pathfinder__cov100__bw000__r0",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "pathfinder",
+    "coverage": 1.0,
+    "base_wrongness": 0.0,
+    "bw_abs": null,
+    "replicate": 0
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 3,
+  "n_cells": 30,
+  "g0_status": "ok",
+  "n_k": 79,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 999,
+    "graph_misses": 9001,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 10835.971,
+  "instances_path": "results/axis_robustness_real/shards/flip__pathfinder__cov100__bw000__r0.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__pathfinder__cov100__bw000__r0.cells.jsonl",
+  "instances_sha256": "f3d0fc8b45a9917c96699ead5c54d47f3fc67ca22c1b0c6fcae89996fd41649c",
+  "cells_sha256": "86057e964efa8d4cd8dc1ab1d60f32eb652b8f32c668a4771a06cfbdc134cbbe",
+  "git_sha": "408feb79ab879457e558d68241e6e9b1fc828687",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T02:33:36Z"
+}

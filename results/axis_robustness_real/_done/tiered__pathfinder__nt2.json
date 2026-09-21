@@ -1,0 +1,29 @@
+{
+  "shard_id": "tiered__pathfinder__nt2",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "pathfinder",
+    "n_tiers": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 0,
+  "n_cells": 0,
+  "g0_status": "o_g0_extensions_intractable",
+  "n_k": 52,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.0,
+  "instances_path": "results/axis_robustness_real/shards/tiered__pathfinder__nt2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__pathfinder__nt2.cells.jsonl",
+  "instances_sha256": "fa36c7da622b6694795430c41be4faef58b026201d664fad2c77eed94e89e69f",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "5729709e85c78b18aaf42358a25ed78e64b89eef",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:31:26Z"
+}

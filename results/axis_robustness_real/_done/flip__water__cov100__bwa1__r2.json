@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__water__cov100__bwa1__r2",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "water",
+    "coverage": 1.0,
+    "base_wrongness": null,
+    "bw_abs": 1,
+    "replicate": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 14,
+  "n_scored": 12,
+  "n_cells": 24,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 23964,
+    "verdict_misses": 36
+  },
+  "elapsed_s": 0.085,
+  "instances_path": "results/axis_robustness_real/shards/flip__water__cov100__bwa1__r2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__water__cov100__bwa1__r2.cells.jsonl",
+  "instances_sha256": "d8016e7fd7819f8c148aba6eb5c822c3ddd6033eeec8c73dc7008ad050bc33f7",
+  "cells_sha256": "c282c1099e757312850145a6581ce4dba79011784ded21c95f94250a86396e1f",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:26Z"
+}

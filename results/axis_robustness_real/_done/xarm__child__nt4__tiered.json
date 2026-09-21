@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__child__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "child",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 18,
+  "n_scored": 11,
+  "n_cells": 110,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "cache": {
+    "graph_hits": 6878,
+    "graph_misses": 3122,
+    "verdict_hits": 41866,
+    "verdict_misses": 8063
+  },
+  "elapsed_s": 4.868,
+  "instances_path": "results/axis_robustness_real/shards/xarm__child__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__child__nt4__tiered.cells.jsonl",
+  "instances_sha256": "8da5c72888ab477537ed1de2ff3fce8f64fe476d07b1f8c2037d3c7093572d4f",
+  "cells_sha256": "5a4a7897660a95f8ae89af780bac51eb8a52630fb93aa1163dac267935123689",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:02Z"
+}

@@ -1,0 +1,15 @@
+EXHAUSTIVE single-claim reversal, truthful K, all 50 (network, coverage) cells
+network            cov    |K| contradictory    rate
+mediator           1.0      3             1   0.333
+sachs              1.0      8             1   0.125
+ecoli70            1.0     10             1   0.100
+pathfinder         1.0     79             2   0.025
+... and 46 of 50 cells have ZERO contradictory single reversals
+
+POOLED over all single reversals: 5/298 = 0.0168
+Cell-weighted mean rate: 0.0117
+Network-weighted mean rate over 25 networks: 0.0150
+
+[exited with code 0]
+
+[exited with code 0]

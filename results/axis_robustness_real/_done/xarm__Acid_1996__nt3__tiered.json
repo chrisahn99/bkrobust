@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Acid_1996__nt3__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Acid_1996",
+    "n_tiers": 3,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 10,
+  "n_scored": 0,
+  "n_cells": 0,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "n_k_zero",
+  "n_k": 0,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.0,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Acid_1996__nt3__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Acid_1996__nt3__tiered.cells.jsonl",
+  "instances_sha256": "c7aac365389c18b53bd1bcfe439f68838132905ba785c0c03dfe5c7bed1a4790",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:33:28Z"
+}

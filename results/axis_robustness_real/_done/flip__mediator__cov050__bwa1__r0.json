@@ -1,0 +1,34 @@
+{
+  "shard_id": "flip__mediator__cov050__bwa1__r0",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "mediator",
+    "coverage": 0.5,
+    "base_wrongness": null,
+    "bw_abs": 1,
+    "replicate": 0
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 1,
+  "n_scored": 0,
+  "n_cells": 0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.0,
+  "instances_path": "results/axis_robustness_real/shards/flip__mediator__cov050__bwa1__r0.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__mediator__cov050__bwa1__r0.cells.jsonl",
+  "instances_sha256": "02acb3a20e139b91e8016a6fb81fd3cbca79db231c106d4c59e39f1a2dd6ec64",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:18Z"
+}

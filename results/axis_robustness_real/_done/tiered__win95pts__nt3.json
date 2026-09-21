@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__win95pts__nt3",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "win95pts",
+    "n_tiers": 3
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 1,
+  "n_cells": 11,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 9,
+  "cache": {
+    "graph_hits": 5784,
+    "graph_misses": 5216,
+    "verdict_hits": 5333,
+    "verdict_misses": 3605
+  },
+  "elapsed_s": 22.353,
+  "instances_path": "results/axis_robustness_real/shards/tiered__win95pts__nt3.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__win95pts__nt3.cells.jsonl",
+  "instances_sha256": "6458b4ba51929fb1a29d218466694e84614e594591a9d72bbc9103ce02a9e2dd",
+  "cells_sha256": "9aa51cc7a04dcba221f2aa35ec43187b987c71a06cde94427d55db66b5642506",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:34:27Z"
+}

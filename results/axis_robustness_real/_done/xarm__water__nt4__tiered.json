@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__water__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "water",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 14,
+  "n_scored": 14,
+  "n_cells": 140,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "cache": {
+    "graph_hits": 9480,
+    "graph_misses": 520,
+    "verdict_hits": 72660,
+    "verdict_misses": 3318
+  },
+  "elapsed_s": 2.456,
+  "instances_path": "results/axis_robustness_real/shards/xarm__water__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__water__nt4__tiered.cells.jsonl",
+  "instances_sha256": "c50b06bb91384b90cf6c6e6721244afc2819d292dc20d2292d86440c3db0fa10",
+  "cells_sha256": "a5e95da7bbe58eb7a2752581f447063c0b3432bd5d2304cf0972251ae8e434f1",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:54Z"
+}

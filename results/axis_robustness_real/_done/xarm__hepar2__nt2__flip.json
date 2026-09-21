@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__hepar2__nt2__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "hepar2",
+    "n_tiers": 2,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 8,
+  "n_scored": 0,
+  "n_cells": 0,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "n_k_zero",
+  "n_k": 0,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.0,
+  "instances_path": "results/axis_robustness_real/shards/xarm__hepar2__nt2__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__hepar2__nt2__flip.cells.jsonl",
+  "instances_sha256": "0a035c100f335eadcd318fbbdc43bdabc92558f1e3f0569bcdbc5d87fa7b018c",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:33:29Z"
+}

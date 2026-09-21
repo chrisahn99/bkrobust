@@ -1,0 +1,55 @@
+xarm cells read: 8031
+instances whose two arms disagree on instance_sha256: 0 of 501
+
+achieved intensity coverage ((instance, bin) cells per arm)
+   bin  xarm_tiered  xarm_flip
+  0.00          476        250
+  0.05          447        285
+  0.10          216        286
+  0.15           98        117
+  0.20           70        132
+  0.25           35         93
+  0.30           19         73
+  0.35           19        108
+  0.40           25         16
+  0.45           23         34
+  0.50           13         42
+  0.55            1          2
+  0.60           28         29
+  0.65           12         14
+  0.70            0          3
+  0.75           15          6
+  0.80            2         11
+  0.85            0         20
+  1.00            4          6
+  1.05            0          6
+  1.10            0         18
+  1.20            0         11
+  1.25            0          1
+  1.30            2          0
+  1.35            0         12
+  1.45            0          6
+  1.50            0         39
+  1.60            0          3
+  1.75            0          1
+  1.80            0          2
+  1.90            0          2
+  2.00            0          4
+  2.25            0          1
+
+T5: matched instances per intensity bin (both arms, n_eval >= 30)
+   bin  matched  networks   mean S_t - S_f
+  0.00      250         8          +0.0365  <-- >=15 matched
+  0.05      271         8          +0.0174  <-- >=15 matched
+  0.10       57         3          -0.1270  <-- >=15 matched
+  0.15        3         1          -0.1317
+  0.20        7         1          -0.0766
+  0.25        2         1          +0.0144
+  0.30        5         1          +0.1392
+  0.50       11         1          -0.1576
+  0.60        5         1          -0.0066
+  0.80        2         1          -0.3062
+  1.00        1         1          +0.0000
+
+bins with >= 15 matched instances in both arms: 3
+T5 verdict: pairing workable (>=3 bins)

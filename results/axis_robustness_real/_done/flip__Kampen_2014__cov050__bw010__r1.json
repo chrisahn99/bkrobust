@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__Kampen_2014__cov050__bw010__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "Kampen_2014",
+    "coverage": 0.5,
+    "base_wrongness": 0.1,
+    "bw_abs": null,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 8,
+  "n_scored": 8,
+  "n_cells": 16,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": true,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 15976,
+    "verdict_misses": 24
+  },
+  "elapsed_s": 0.193,
+  "instances_path": "results/axis_robustness_real/shards/flip__Kampen_2014__cov050__bw010__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__Kampen_2014__cov050__bw010__r1.cells.jsonl",
+  "instances_sha256": "171c280df358bc26b9df628f93888e2a23ad49916158b7c5ce891a7b66843f71",
+  "cells_sha256": "5e3f37fe8ee13a56784fdc6455154e54ae80934ee917868b841211692e14d8af",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:53Z"
+}

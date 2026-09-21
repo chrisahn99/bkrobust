@@ -1,0 +1,18 @@
+cells=714  instances=278
+arms: Counter({'flip': 310, 'tiered': 187, 'xarm_tiered': 170, 'xarm_flip': 47})
+instance statuses: Counter({'ok': 202, 'optimal_set_undefined': 73, 'k_contradictory': 3})
+cell statuses: Counter({'ok': 712, 'unresolved_all_contradictory': 2})
+
+[T4] tiered rate-0 cells: 17;  S != 1.000 exactly: 0  -> PASS
+[T6] decomposition identity on 698 cells: max |lhs-rhs| = 1.110e-16  -> PASS
+[N]  n_draws per cell: {1000: 714}  -> PASS
+[T7] flip bw=0 instances: 17;  radius != frame: 0  -> PASS
+[S1] any row with a 'seconds' key: 0  -> PASS if 0
+[S2] rows with radius == -1 (UNREACHED): 0
+[S3] censored rows: 0
+[S4] S is None only when n_eval == 0: True
+
+[ORACLE] polynomial GAC vs enumeration over extensions
+  comparisons: 254;  agree: 254;  DISAGREE: 0
+  max |extensions(g)| seen: 4;  states skipped (empty or >2000 extensions): 0
+  -> PASS

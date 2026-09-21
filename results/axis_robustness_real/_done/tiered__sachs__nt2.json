@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__sachs__nt2",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "sachs",
+    "n_tiers": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 12,
+  "n_scored": 2,
+  "n_cells": 22,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 8,
+  "cache": {
+    "graph_hits": 9766,
+    "graph_misses": 1234,
+    "verdict_hits": 9232,
+    "verdict_misses": 616
+  },
+  "elapsed_s": 1.925,
+  "instances_path": "results/axis_robustness_real/shards/tiered__sachs__nt2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__sachs__nt2.cells.jsonl",
+  "instances_sha256": "6b12328fd852bf57face2fa249d451e15544dfd4c041637d0d662ec947115d2d",
+  "cells_sha256": "d85c30fb7dc8367caa04b94b666beaf121a487920fe699d56ded4f5c67e5056b",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:40Z"
+}

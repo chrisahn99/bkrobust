@@ -116,6 +116,11 @@ coverage.xml
 /results/mean_sampling/radius_reps.jsonl
 /results/mean_sampling/shell_reps.jsonl
 /results/mean_sampling/profile_audit.jsonl
+# [RE-11]: survival and the paired cross-arm on the 831 real rows. The
+# pre-registration, the frozen frame, the per-grid-point curve rows and the
+# manifests are deliverables cited by report_real_survival.md and
+# table_tau_real.md.
+!/results/axis_robustness_real/
 /data/
 /checkpoints/
 *.pt

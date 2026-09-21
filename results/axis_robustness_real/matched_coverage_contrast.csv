@@ -1,0 +1,4 @@
+coverage,n_triples,n_networks,median_n_k,median_k_g0,median_leverage,median_radius,share_radius_1,max_radius,median_AUC_frac_usable,median_AUC_frac_usable_network_weighted,share_separation_measured,median_separation
+0.25,105,8,2.0,4.0,2.0,2.0,0.3333333333333333,4,0.3472,0.3486,0.5523809523809524,2.0
+0.5,105,8,4.0,6.0,1.5,2.0,0.3333333333333333,4,0.4282,0.42735,0.5523809523809524,2.0
+1.0,105,8,7.0,10.0,1.2857142857142858,2.0,0.3333333333333333,4,0.569167434715822,0.5762395950584304,0.5523809523809524,2.0

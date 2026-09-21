@@ -1,0 +1,29 @@
+{
+  "shard_id": "tiered__mediator__nt3",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "mediator",
+    "n_tiers": 3
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 1,
+  "n_cells": 11,
+  "g0_status": "ok",
+  "n_k": 4,
+  "cache": {
+    "graph_hits": 10976,
+    "graph_misses": 24,
+    "verdict_hits": 9748,
+    "verdict_misses": 19
+  },
+  "elapsed_s": 0.248,
+  "instances_path": "results/axis_robustness_real/shards/tiered__mediator__nt3.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__mediator__nt3.cells.jsonl",
+  "instances_sha256": "1aa585f93c4799d64065acb956423c8d2cc7307fe12c9cb6c57d5f9201cfb745",
+  "cells_sha256": "8f764aa13f4496659e23339750b89bd1c26780bf83eaf2c3bc88d36ed8b69a5d",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:20Z"
+}

@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__ecoli70__cov100__bw000__r0",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "ecoli70",
+    "coverage": 1.0,
+    "base_wrongness": 0.0,
+    "bw_abs": null,
+    "replicate": 0
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 22,
+  "n_scored": 22,
+  "n_cells": 220,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 10,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 8986,
+    "graph_misses": 1014,
+    "verdict_hits": 67210,
+    "verdict_misses": 7634
+  },
+  "elapsed_s": 12.449,
+  "instances_path": "results/axis_robustness_real/shards/flip__ecoli70__cov100__bw000__r0.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__ecoli70__cov100__bw000__r0.cells.jsonl",
+  "instances_sha256": "53aff91e571a402a85707b40cda6af6d734a9abb01cf4e0f0e96bb0229f09d69",
+  "cells_sha256": "46905168dc3f1cbe6e2a5a5b6559566a3a4a7eedc6a5c4aa6f8a8d69ca5e00b9",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:25:28Z"
+}

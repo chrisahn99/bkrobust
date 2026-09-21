@@ -1,0 +1,46 @@
+complete shards=715  cells=47075  instance rows=13167
+
+[P5] flip-arm contradiction rate at depth d=1 (pooled draws, not a mean of rates)
+  bw=0.0       networks-cells= 47  draws=  47000  contradiction=0.013
+  bw=0.1       networks-cells=141  draws= 141000  contradiction=0.040
+  bw=0.25      networks-cells=136  draws= 136000  contradiction=0.082
+  bw_abs=1     networks-cells=106  draws= 106000  contradiction=0.096
+
+[P5b] flip-arm contradiction rate by depth, bw=0.00 only (pooled)
+  d=  1  draws=  47000  contradiction=0.013
+  d=  2  draws=  37000  contradiction=0.163
+  d=  3  draws=  25000  contradiction=0.406
+  d=  4  draws=  17000  contradiction=0.544
+  d=  5  draws=  12000  contradiction=0.690
+  d=  6  draws=  10000  contradiction=0.800
+  d=  7  draws=   8000  contradiction=0.823
+  d=  8  draws=   7000  contradiction=0.723
+  d=  9  draws=   5000  contradiction=0.800
+  d= 10  draws=   3000  contradiction=0.377
+  d= 12  draws=   1000  contradiction=1.000
+  d= 13  draws=   1000  contradiction=0.209
+  d= 14  draws=   1000  contradiction=1.000
+  d= 16  draws=   1000  contradiction=0.385
+
+[tiered] by corruption_rate, pooled over all n_tiers
+  rate=0.0   draws=   48000 contra=0.000  S=1.000
+  rate=0.05  draws=   48000 contra=0.140  S=0.953
+  rate=0.1   draws=   48000 contra=0.228  S=0.905
+  rate=0.15  draws=   48000 contra=0.310  S=0.843
+  rate=0.2   draws=   48000 contra=0.350  S=0.800
+  rate=0.25  draws=   48000 contra=0.410  S=0.738
+  rate=0.3   draws=   48000 contra=0.441  S=0.701
+  rate=0.35  draws=   48000 contra=0.471  S=0.652
+  rate=0.4   draws=   48000 contra=0.506  S=0.592
+  rate=0.45  draws=   48000 contra=0.521  S=0.554
+  rate=0.5   draws=   48000 contra=0.544  S=0.515
+
+[T4] tiered rate-0 cells=501  S!=1.000 exactly: 0
+[T6] decomposition identity on 41431 cells: max dev 1.110e-16
+
+[status] instance: [('ok', 8561), ('optimal_set_undefined', 2489), ('n_k_zero', 1083), ('o_g0_extensions_intractable', 956), ('k_contradictory', 78)]
+[status] cell    : [('ok', 45991), ('unresolved_all_contradictory', 1084)]
+[N] n_draws values on non-censored cells: Counter({1000: 45991})
+[sentinel] rows with a 'seconds' key: 0
+[sentinel] UNREACHED instances: 0
+[sentinel] censored radii: 0

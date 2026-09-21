@@ -1,0 +1,29 @@
+{
+  "shard_id": "tiered__asia__nt4",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "asia",
+    "n_tiers": 4
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 2,
+  "n_scored": 2,
+  "n_cells": 22,
+  "g0_status": "ok",
+  "n_k": 3,
+  "cache": {
+    "graph_hits": 10973,
+    "graph_misses": 27,
+    "verdict_hits": 19184,
+    "verdict_misses": 48
+  },
+  "elapsed_s": 0.313,
+  "instances_path": "results/axis_robustness_real/shards/tiered__asia__nt4.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__asia__nt4.cells.jsonl",
+  "instances_sha256": "a8b585ede2e690022998ad60d52a6fea52281ad76ffa44fb46ab48668b9b67b4",
+  "cells_sha256": "32262756fc1167c2b167da4545a4903105059c17c360ceb484b2fad180da1f7d",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:20Z"
+}

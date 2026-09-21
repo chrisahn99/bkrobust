@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__magic-irri__cov100__bw025__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "magic-irri",
+    "coverage": 1.0,
+    "base_wrongness": 0.25,
+    "bw_abs": null,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 11,
+  "n_cells": 110,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 10,
+  "n_claims_actually_wrong": 2,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 8982,
+    "graph_misses": 1018,
+    "verdict_hits": 98802,
+    "verdict_misses": 11198
+  },
+  "elapsed_s": 4.771,
+  "instances_path": "results/axis_robustness_real/shards/flip__magic-irri__cov100__bw025__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__magic-irri__cov100__bw025__r1.cells.jsonl",
+  "instances_sha256": "7dc9d5cca35e8582c11edaf8c7c27212d946555a706eba62df214bae6bb7e950",
+  "cells_sha256": "2214fcef3245798dfe3ad5d8ca503c54e64a6f966e2778a7be313aa60336b679",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:28Z"
+}

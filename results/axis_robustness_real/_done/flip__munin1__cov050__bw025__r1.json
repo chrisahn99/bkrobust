@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__munin1__cov050__bw025__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "munin1",
+    "coverage": 0.5,
+    "base_wrongness": 0.25,
+    "bw_abs": null,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 1,
+  "n_scored": 1,
+  "n_cells": 3,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 3,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 2993,
+    "graph_misses": 7,
+    "verdict_hits": 2327,
+    "verdict_misses": 5
+  },
+  "elapsed_s": 0.115,
+  "instances_path": "results/axis_robustness_real/shards/flip__munin1__cov050__bw025__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__munin1__cov050__bw025__r1.cells.jsonl",
+  "instances_sha256": "92b23fc4fabd52de34fe442e86a972b8047ca836273fa62906fc926ef03c5d7e",
+  "cells_sha256": "a1545aa837e417a08d18829cfe7e4022b857967dd54039f6b4829a50d8a883cd",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:28Z"
+}

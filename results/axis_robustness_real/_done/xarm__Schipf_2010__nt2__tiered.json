@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Schipf_2010__nt2__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Schipf_2010",
+    "n_tiers": 2,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 2,
+  "n_cells": 20,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 9970,
+    "graph_misses": 30,
+    "verdict_hits": 15110,
+    "verdict_misses": 38
+  },
+  "elapsed_s": 0.354,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Schipf_2010__nt2__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Schipf_2010__nt2__tiered.cells.jsonl",
+  "instances_sha256": "d990e6da8fc3215bed3bbbd9d8f5e7626d6c6504b3fca30915e090c9c348f883",
+  "cells_sha256": "297b8e1ac1dc10e66a351b92af662ac6f39e7a83372a5624cba1daa2121c2ddd",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:33:05Z"
+}

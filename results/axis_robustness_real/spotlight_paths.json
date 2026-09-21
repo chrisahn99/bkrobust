@@ -1,0 +1,33 @@
+{
+  "network": "paths",
+  "n_instances": 20,
+  "n_grid_point_rows": 20,
+  "min_n_eval_over_all_contributing_grid_points": 1000,
+  "min_n_eval_required": 30,
+  "spotlight_survives_draw_count_check": true,
+  "n_k": 1,
+  "k_g0": 14,
+  "leverage": 14.0,
+  "shd_truth": 0,
+  "radius_values": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "survival_values": [
+    0.0
+  ],
+  "total_contradictory_draws": 0,
+  "assumes": "Conjecture 2 (hence Anti-Exchange Case B, verified not proved)"
+}

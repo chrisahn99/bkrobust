@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__insurance__nt4",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "insurance",
+    "n_tiers": 4
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 95,
+  "n_scored": 48,
+  "n_cells": 528,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 10,
+  "cache": {
+    "graph_hits": 7499,
+    "graph_misses": 3501,
+    "verdict_hits": 221280,
+    "verdict_misses": 11856
+  },
+  "elapsed_s": 20.599,
+  "instances_path": "results/axis_robustness_real/shards/tiered__insurance__nt4.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__insurance__nt4.cells.jsonl",
+  "instances_sha256": "f8b6d3dd9f9f99aa7a84dee115ed7bc892bca8a88748365a7e10a21ba8301a67",
+  "cells_sha256": "fd418c4176cf26e64abce5e6f16e2975ac206ff0548e4df71ad80743716b84c0",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:06:03Z"
+}

@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__hepar2__cov100__bwa1__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "hepar2",
+    "coverage": 1.0,
+    "base_wrongness": null,
+    "bw_abs": 1,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 8,
+  "n_scored": 8,
+  "n_cells": 72,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 9,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 8489,
+    "graph_misses": 511,
+    "verdict_hits": 17992,
+    "verdict_misses": 760
+  },
+  "elapsed_s": 1.409,
+  "instances_path": "results/axis_robustness_real/shards/flip__hepar2__cov100__bwa1__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__hepar2__cov100__bwa1__r1.cells.jsonl",
+  "instances_sha256": "0b3e3248c1926beae941038589b5521ca7f407c31fce7852d9b0ee757dbe9352",
+  "cells_sha256": "e7f0997f7f079463543e1f1aada5337b5f0c53c5c59626d9689c5ec4b33a6d56",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:34:00Z"
+}

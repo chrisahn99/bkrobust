@@ -1,0 +1,30 @@
+     claim                                                                               
+--------------------------------------------------------------------------------------------
+I1   the source corpus is unchanged                                                PASS
+I2   frame.jsonl matches its recorded hash                                         PASS
+I3   every shard file matches its marker's digest                                  PASS
+I4   the sweep is complete                                                         PASS
+I5   frame shape: rows, networks, pairs, and rows per coverage                     PASS
+F1   every recomputed radius equals the committed one (trigger T7)                 PASS
+F2   [RE-5b]: the committed column is a default, and 288 rows are really non-zero  PASS
+F3   rows with undefined separation                                                PASS
+S1   no row uses the key a censored run must never share                           PASS
+S2   every scored cell ran at N = 1000                                             PASS
+S3   decomposition identity S_contra_as_fail = (1-c)*S (trigger T6)                PASS
+S4   S is undefined exactly when no draw was evaluable                             PASS
+S5   tiered survival is exactly 1.000 at rate 0, per instance (trigger T4)         PASS
+S6   no UNREACHED radius in this data                                              PASS
+S7   no cell censored, and no shard over the 18,000 s cap                          PASS
+H1   exhaustive single-claim reversal, truthful knowledge, all 50 cells            PASS
+H2   same graphs, two knowledge models: minimal generator vs all edges             PASS
+H3   the paths spotlight                                                           PASS
+H4   flip shards that enumerated their whole corruption space                      PASS
+H5   tau(r_hop) positive, and interval excludes zero, over the nine                PASS
+H6   tau(r_hop) exceeds tau(|K|) over the nine                                     PASS
+H7   shd_truth is predictor-constant in exactly one of the nine                    PASS
+H8   raw and conservative endpoints never disagree on a verdict (trigger T3)       PASS
+H9   cross-arm instance identity, and bins carrying the comparison                 PASS
+H10  matched-coverage contrast: 105 triples on 8 networks, survival rising         PASS
+H11  tiered strata surviving removal of any single network                         PASS
+--------------------------------------------------------------------------------------------
+26 of 26 checks passed
