@@ -1,0 +1,2722 @@
+[
+  {
+    "network": "Acid_1996",
+    "x": "x1",
+    "y": "x10",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Acid_1996",
+    "x": "x1",
+    "y": "x11",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Acid_1996",
+    "x": "x1",
+    "y": "x12",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Acid_1996",
+    "x": "x1",
+    "y": "x13",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Acid_1996",
+    "x": "x1",
+    "y": "x14",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Didelez_2010",
+    "x": "Age",
+    "y": "HRT",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "Didelez_2010",
+    "x": "Age",
+    "y": "Occ",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "Didelez_2010",
+    "x": "Age",
+    "y": "S",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "Didelez_2010",
+    "x": "Age",
+    "y": "Smo",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "Didelez_2010",
+    "x": "Age",
+    "y": "TCI",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "Kampen_2014",
+    "x": "AFF",
+    "y": "AIS",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 9
+    }
+  },
+  {
+    "network": "Kampen_2014",
+    "x": "AFF",
+    "y": "CDR",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 9
+    }
+  },
+  {
+    "network": "Kampen_2014",
+    "x": "AFF",
+    "y": "FTW",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 9
+    }
+  },
+  {
+    "network": "Kampen_2014",
+    "x": "AFF",
+    "y": "SAN",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 9
+    }
+  },
+  {
+    "network": "Kampen_2014",
+    "x": "AIS",
+    "y": "ALN",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 9
+    }
+  },
+  {
+    "network": "Polzer_2012",
+    "x": "Alcohol",
+    "y": "Caries",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Polzer_2012",
+    "x": "Alcohol",
+    "y": "Lipids",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Polzer_2012",
+    "x": "Alcohol",
+    "y": "Periodontitis",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Polzer_2012",
+    "x": "Alcohol",
+    "y": "Sport",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Polzer_2012",
+    "x": "Caries",
+    "y": "Diabetes",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Schipf_2010",
+    "x": "A",
+    "y": "PA",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "Schipf_2010",
+    "x": "A",
+    "y": "S",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "Schipf_2010",
+    "x": "A",
+    "y": "T2DM",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "Schipf_2010",
+    "x": "A",
+    "y": "TT",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "Schipf_2010",
+    "x": "A",
+    "y": "U",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "Sebastiani_2005",
+    "x": "ANXA2.5",
+    "y": "ANXA2.11",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Sebastiani_2005",
+    "x": "ANXA2.8",
+    "y": "ANXA2.7",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Sebastiani_2005",
+    "x": "ANXA2.8",
+    "y": "CSF2.4",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Sebastiani_2005",
+    "x": "ANXA2.8",
+    "y": "SELP.12",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Sebastiani_2005",
+    "x": "BMP6",
+    "y": "ANXA2.11",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "Shrier_2008",
+    "x": "Coach",
+    "y": "FitnessLevel",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "Shrier_2008",
+    "x": "Coach",
+    "y": "IntraGameProprioception",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "Shrier_2008",
+    "x": "Coach",
+    "y": "PreGameProprioception",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "Shrier_2008",
+    "x": "Coach",
+    "y": "TeamMotivation",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "Shrier_2008",
+    "x": "ConnectiveTissueDisorder",
+    "y": "FitnessLevel",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "Thoemmes_2013",
+    "x": "e0",
+    "y": "s1",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Thoemmes_2013",
+    "x": "e0",
+    "y": "s2",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Thoemmes_2013",
+    "x": "e0",
+    "y": "s3",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Thoemmes_2013",
+    "x": "e0",
+    "y": "x",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "Thoemmes_2013",
+    "x": "e0",
+    "y": "y",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 0
+    }
+  },
+  {
+    "network": "alarm",
+    "x": "ANAPHYLAXIS",
+    "y": "BP",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "alarm",
+    "x": "ANAPHYLAXIS",
+    "y": "HRBP",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "alarm",
+    "x": "HISTORY",
+    "y": "BP",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "alarm",
+    "x": "HISTORY",
+    "y": "LVFAILURE",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "alarm",
+    "x": "LVFAILURE",
+    "y": "CO",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "andes",
+    "x": "BUGGY54",
+    "y": "HORIZ53",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "andes",
+    "x": "GIVEN_1",
+    "y": "SNode_100",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "andes",
+    "x": "HORIZ53",
+    "y": "SNode_118",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "andes",
+    "x": "RApp2",
+    "y": "GOAL_153",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "andes",
+    "x": "RApp2",
+    "y": "SNode_43",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "arth150",
+    "x": "100",
+    "y": "245",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 14
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "arth150",
+    "x": "144",
+    "y": "677",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 14
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "arth150",
+    "x": "187",
+    "y": "226",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 14
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "arth150",
+    "x": "198",
+    "y": "93",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 14
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "arth150",
+    "x": "211",
+    "y": "565",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 14
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "asia",
+    "x": "asia",
+    "y": "dysp",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "asia",
+    "x": "asia",
+    "y": "either",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "asia",
+    "x": "asia",
+    "y": "tub",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "asia",
+    "x": "asia",
+    "y": "xray",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "asia",
+    "x": "bronc",
+    "y": "dysp",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "barley",
+    "x": "dg25",
+    "y": "aks_m2",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 3,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "barley",
+    "x": "dg25",
+    "y": "s2225",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 3,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "barley",
+    "x": "dgv5980",
+    "y": "jordn",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "barley",
+    "x": "dgv5980",
+    "y": "potnmin",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "barley",
+    "x": "frspdag",
+    "y": "dg25",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    }
+  },
+  {
+    "network": "child",
+    "x": "Age",
+    "y": "BirthAsphyxia",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "child",
+    "x": "Age",
+    "y": "LVH",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "child",
+    "x": "BirthAsphyxia",
+    "y": "CardiacMixing",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "child",
+    "x": "BirthAsphyxia",
+    "y": "LungFlow",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "child",
+    "x": "CO2",
+    "y": "DuctFlow",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "diabetes",
+    "x": "bg_0",
+    "y": "basal_bal_0",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "diabetes",
+    "x": "cho_bal_0",
+    "y": "ins_dep_10",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "diabetes",
+    "x": "cho_bal_1",
+    "y": "tot_bal_1",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "diabetes",
+    "x": "cho_bal_12",
+    "y": "endo_bal_14",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "diabetes",
+    "x": "cho_bal_15",
+    "y": "glu_prod_22",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "ecoli70",
+    "x": "asnA",
+    "y": "aceB",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 13
+    }
+  },
+  {
+    "network": "ecoli70",
+    "x": "atpG",
+    "y": "sucD",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 13
+    }
+  },
+  {
+    "network": "ecoli70",
+    "x": "b1191",
+    "y": "yfaD",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 13
+    }
+  },
+  {
+    "network": "ecoli70",
+    "x": "cchB",
+    "y": "yjbO",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 13
+    }
+  },
+  {
+    "network": "ecoli70",
+    "x": "cspG",
+    "y": "hupB",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 4,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 3,
+      "len_k": 13
+    }
+  },
+  {
+    "network": "hailfinder",
+    "x": "Date",
+    "y": "AMCINInScen",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 13
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "hailfinder",
+    "x": "Date",
+    "y": "WindAloft",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 13
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "hailfinder",
+    "x": "Dewpoints",
+    "y": "SfcWndShfDis",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 13
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "hailfinder",
+    "x": "LowLLapse",
+    "y": "ScenRelAMIns",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 13
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "hailfinder",
+    "x": "MeanRH",
+    "y": "RHRatio",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 13
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    }
+  },
+  {
+    "network": "hepar2",
+    "x": "RHepatitis",
+    "y": "THepatitis",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "hepar2",
+    "x": "amylase",
+    "y": "alcohol",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "hepar2",
+    "x": "amylase",
+    "y": "gallstones",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "hepar2",
+    "x": "amylase",
+    "y": "spiders",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "hepar2",
+    "x": "choledocholithotomy",
+    "y": "consciousness",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "insurance",
+    "x": "Age",
+    "y": "Accident",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "insurance",
+    "x": "Age",
+    "y": "MedCost",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "insurance",
+    "x": "AntiTheft",
+    "y": "Age",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "insurance",
+    "x": "AntiTheft",
+    "y": "OtherCar",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "insurance",
+    "x": "DrivingSkill",
+    "y": "Airbag",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "link",
+    "x": "Z_10_a_f",
+    "y": "D0_10_d_p",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 17
+    }
+  },
+  {
+    "network": "link",
+    "x": "Z_17_d_m",
+    "y": "D0_27_a_f",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 17
+    }
+  },
+  {
+    "network": "link",
+    "x": "Z_1_a_f",
+    "y": "D0_56_a_m",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 17
+    }
+  },
+  {
+    "network": "link",
+    "x": "Z_1_a_m",
+    "y": "N46_a_f",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 17
+    }
+  },
+  {
+    "network": "link",
+    "x": "Z_1_d_m",
+    "y": "D0_40_d_p",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 17
+    }
+  },
+  {
+    "network": "magic-irri",
+    "x": "G1311",
+    "y": "CHALK",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "magic-irri",
+    "x": "G1378",
+    "y": "SUB",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "magic-irri",
+    "x": "G2670",
+    "y": "YLD",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "magic-irri",
+    "x": "G3209",
+    "y": "G3106",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "magic-irri",
+    "x": "G3212",
+    "y": "FT",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "magic-niab",
+    "x": "G1217",
+    "y": "FT",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "magic-niab",
+    "x": "G1217",
+    "y": "YLD",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "magic-niab",
+    "x": "G1276",
+    "y": "G1789",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "magic-niab",
+    "x": "G1276",
+    "y": "YR.FIELD",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "magic-niab",
+    "x": "G1294",
+    "y": "G418",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "mediator",
+    "x": "I",
+    "y": "X",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "mediator",
+    "x": "I",
+    "y": "Y",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "mediator",
+    "x": "I",
+    "y": "Z",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "mediator",
+    "x": "X",
+    "y": "I",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "mediator",
+    "x": "X",
+    "y": "Y",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "munin",
+    "x": "L_AXIL_RD_ED",
+    "y": "L_AXIL_AMP_E",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin",
+    "x": "L_LNLE_ULND5_DIFSLOW",
+    "y": "L_LNLE_ADM_MUDENS",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin",
+    "x": "L_LNLE_ULND5_RD_E",
+    "y": "L_LNLE_ADM_MALOSS",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin",
+    "x": "L_LNLE_ULN_DIFSLOW",
+    "y": "L_LNLE_ADM_DE_REGEN",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin",
+    "x": "L_LNLE_ULN_PATHO",
+    "y": "L_LNLE_ADM_DENERV",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 4
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin1",
+    "x": "R_LNLBE_MEDD2_DIFSLOW_WD",
+    "y": "R_APB_ALLAMP_WA",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "munin1",
+    "x": "R_LNLBE_MEDD2_DIFSLOW_WD",
+    "y": "R_LNLBE_MEDD2_SALOSS_EW",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "munin1",
+    "x": "R_LNLBE_MEDD2_DIFSLOW_WD",
+    "y": "R_MED_RD_EW",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "munin1",
+    "x": "R_LNLBE_MEDD2_RD_EW",
+    "y": "R_LNLBE_MEDD2_DIFSLOW_WD",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "munin1",
+    "x": "R_LNLBE_MEDD2_RD_EW",
+    "y": "R_MED_LAT_WA",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 2
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "munin2",
+    "x": "L_APB_MYOT",
+    "y": "L_ADM_ALLAMP_WA",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 9
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "munin2",
+    "x": "L_LNLE_ULN_PATHO",
+    "y": "L_ULN_CV_E",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 9
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "munin2",
+    "x": "L_MYAS_APB_MUDENS",
+    "y": "R_ULN_AMP_WA",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 9
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "munin2",
+    "x": "L_MYDY_ADM_DE_REGEN",
+    "y": "R_APB_QUAL_MUPPOLY",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 9
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "munin2",
+    "x": "L_MYDY_APB_DENERV",
+    "y": "L_MYOP_MYDY_ADM_DENERV",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 9
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 2
+    }
+  },
+  {
+    "network": "munin3",
+    "x": "L_APB_MYOT",
+    "y": "L_ADM_ALLAMP_WA",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin3",
+    "x": "L_MYAS_ADM_NMT",
+    "y": "R_DELT_QUAN_MUPDUR",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin3",
+    "x": "L_MYDY_ADM_DENERV",
+    "y": "L_MYOP_MYDY_DELT_MUSIZE",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin3",
+    "x": "L_MYDY_ADM_MUSIZE",
+    "y": "R_MUSCLE_APB_DENERV",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin3",
+    "x": "L_MYDY_APB_MUDENS",
+    "y": "L_DELT_MUPDUR",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin4",
+    "x": "L_AXIL_RD_ED",
+    "y": "L_AXIL_AMP_E",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin4",
+    "x": "L_LNLE_ULND5_DIFSLOW",
+    "y": "L_LNLE_ADM_MUDENS",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin4",
+    "x": "L_LNLE_ULND5_RD_E",
+    "y": "L_LNLE_ADM_MALOSS",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin4",
+    "x": "L_LNLE_ULN_DIFSLOW",
+    "y": "L_LNLE_ADM_DE_REGEN",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "munin4",
+    "x": "L_LNLE_ULN_PATHO",
+    "y": "L_LNLE_ADM_DENERV",
+    "D_LLM": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 7
+    },
+    "D_SCRAMBLED": {
+      "status": "timeout",
+      "class": "timeout",
+      "r_val": null,
+      "len_k": 6
+    }
+  },
+  {
+    "network": "paths",
+    "x": "1",
+    "y": "10",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "paths",
+    "x": "1",
+    "y": "8",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "paths",
+    "x": "10",
+    "y": "4",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 3,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "paths",
+    "x": "11",
+    "y": "14",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 11,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "paths",
+    "x": "12",
+    "y": "1",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 10
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 1,
+      "len_k": 4
+    }
+  },
+  {
+    "network": "sachs",
+    "x": "Akt",
+    "y": "Erk",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "sachs",
+    "x": "Akt",
+    "y": "P38",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "sachs",
+    "x": "Akt",
+    "y": "Raf",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "sachs",
+    "x": "Erk",
+    "y": "Mek",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "sachs",
+    "x": "Erk",
+    "y": "PKC",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 1
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 8
+    }
+  },
+  {
+    "network": "water",
+    "x": "CKNI_12_00",
+    "y": "CBODD_12_15",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "water",
+    "x": "CKNI_12_00",
+    "y": "CKND_12_15",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "water",
+    "x": "CKNI_12_00",
+    "y": "CKNI_12_45",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "water",
+    "x": "CKNI_12_00",
+    "y": "CNON_12_45",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "water",
+    "x": "CKNI_12_15",
+    "y": "CBODN_12_45",
+    "D_LLM": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 3,
+      "len_k": 5
+    },
+    "D_SCRAMBLED": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 3
+    }
+  },
+  {
+    "network": "win95pts",
+    "x": "AppDtGnTm",
+    "y": "DeskPrntSpd",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 6
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "informative",
+      "r_val": 2,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "win95pts",
+    "x": "AppDtGnTm",
+    "y": "Problem1",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 6
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "win95pts",
+    "x": "AvlblVrtlMmry",
+    "y": "IncmpltPS",
+    "D_LLM": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 6
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "unreached",
+      "r_val": -1,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "win95pts",
+    "x": "HrglssDrtnAftrPrnt",
+    "y": "AppDtGnTm",
+    "D_LLM": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 6
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 7
+    }
+  },
+  {
+    "network": "win95pts",
+    "x": "HrglssDrtnAftrPrnt",
+    "y": "Problem1",
+    "D_LLM": {
+      "status": "error",
+      "class": "error",
+      "r_val": null,
+      "len_k": 6
+    },
+    "D_SCRAMBLED": {
+      "status": "ok",
+      "class": "degenerate",
+      "r_val": 0,
+      "len_k": 7
+    }
+  }
+]

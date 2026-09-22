@@ -1,0 +1,1 @@
+[2026-09-22 01:24:55] launching (unmodified final_table.py, shimmed subprocess): /usr/bin/python3 /Users/ahn/Documents/Research/iclr27/bkrobust/experiments/final_table.py --condition D_SCRAMBLED --seed 20260917 --queries-per-network 5 --skip pathfinder --time-limit 120.0 --out results/matched_control/arms/D_SCRAMBLED

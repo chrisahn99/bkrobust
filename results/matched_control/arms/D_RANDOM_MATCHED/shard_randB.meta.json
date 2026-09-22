@@ -1,0 +1,27 @@
+{
+  "shard_tag": "randB",
+  "networks": [
+    "ecoli70",
+    "hailfinder",
+    "hepar2",
+    "insurance",
+    "magic-irri",
+    "magic-niab",
+    "mediator",
+    "munin1",
+    "munin4",
+    "paths",
+    "sachs",
+    "water",
+    "win95pts"
+  ],
+  "seeds": 20,
+  "max_attempts": 200,
+  "time_limit": 120.0,
+  "interpreter_versions": {
+    "python": "3.14.7",
+    "python_executable": "/Users/ahn/Documents/Research/iclr27/bkrobust/.venv/bin/python",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  }
+}

@@ -676,11 +676,14 @@ def cmd_compare(args: argparse.Namespace) -> None:
             "D_SCRAMBLED": {"status": rs["status"], "class": cs, "r_val": rs["r_val"], "len_k": rs["len_k"]},
         }
         rows.append(row)
-        if cl == "informative":
+        if cl == "informative" and cs == "informative":
+            # Both arms informative on this query, so the pair is defined. An
+            # arm that is informative but not at radius 1 contributes 0.0, not
+            # NaN: NaN here would propagate through the mean and void the whole
+            # paired statistic, which is exactly what it did before this fix.
             at1_llm = 1.0 if rl["r_val"] == 1 else 0.0
-            at1_scr = 1.0 if (cs == "informative" and rs["r_val"] == 1) else float("nan")
-            if cs == "informative":
-                diffs_at1_by_net[net].append(at1_llm - at1_scr)
+            at1_scr = 1.0 if rs["r_val"] == 1 else 0.0
+            diffs_at1_by_net[net].append(at1_llm - at1_scr)
     (COMPARISON_DIR / "matched_queries_llm_vs_scrambled.json").write_text(
         json.dumps(rows, indent=2)
     )
@@ -737,13 +740,25 @@ def cmd_compare(args: argparse.Namespace) -> None:
 
     def control_accuracy(cond: str) -> dict[str, Any]:
         nets = knowledge_raw[cond]["networks"]
-        right = sum(v["compelled_control"]["right"] for v in nets.values())
-        wrong = sum(v["compelled_control"]["wrong"] for v in nets.values())
-        declined = sum(v["compelled_control"]["declined"] for v in nets.values())
-        not_reached = sum(v["compelled_control"]["not_reached"] for v in nets.values())
+        # compelled_control is absent (None) for networks where no compelled
+        # question was reached, e.g. the large graphs the elicitation never got
+        # through. Those contribute nothing to the tally and are counted
+        # separately rather than treated as zeros, which would silently deflate
+        # the accuracy denominator.
+        blocks = [v.get("compelled_control") for v in nets.values()]
+        present = [b for b in blocks if isinstance(b, dict)]
+        n_networks_without_block = len(blocks) - len(present)
+
+        def total(field: str) -> int:
+            return sum(int(b.get(field) or 0) for b in present)
+
+        right, wrong = total("right"), total("wrong")
         n = right + wrong
         return {
-            "right": right, "wrong": wrong, "declined": declined, "not_reached": not_reached,
+            "right": right, "wrong": wrong,
+            "declined": total("declined"), "not_reached": total("not_reached"),
+            "n_networks_with_compelled_control": len(present),
+            "n_networks_without_compelled_control": n_networks_without_block,
             "accuracy_of_answered": (right / n) if n else None,
             "true_dag_on_path": knowledge_raw[cond].get("true_dag_on_path"),
         }
@@ -759,11 +774,17 @@ def cmd_compare(args: argparse.Namespace) -> None:
         nets_b = knowledge_raw[cond_b]["networks"]
         out: dict[str, list[float]] = {}
         for net in sorted(set(nets_a) & set(nets_b)):
-            ca, cb = nets_a[net]["compelled_control"], nets_b[net]["compelled_control"]
-            na, nb = ca["right"] + ca["wrong"], cb["right"] + cb["wrong"]
+            ca, cb = nets_a[net].get("compelled_control"), nets_b[net].get("compelled_control")
+            # A network whose elicitation never reached a compelled question
+            # carries no block under that condition; the pair is undefined there
+            # and the network is skipped, never imputed as agreement.
+            if not isinstance(ca, dict) or not isinstance(cb, dict):
+                continue
+            na = int(ca.get("right") or 0) + int(ca.get("wrong") or 0)
+            nb = int(cb.get("right") or 0) + int(cb.get("wrong") or 0)
             if na == 0 or nb == 0:
                 continue
-            out[net] = [(ca["right"] / na) - (cb["right"] / nb)]
+            out[net] = [(int(ca["right"]) / na) - (int(cb["right"]) / nb)]
         return out
 
     acc_diffs = per_network_accuracy_diffs("D_LLM", "D_SCRAMBLED")
