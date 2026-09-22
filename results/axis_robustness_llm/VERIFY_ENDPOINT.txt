@@ -37,6 +37,26 @@ k_accuracy   AUC_frac_contra_as_fail      2433      -0.116132  DISAGREE diff=3.0
 
 Tau comparisons: agree(<=1e-6, same n)=5, disagree=5, total=10
 
+Note on residual tau_b disagreements (typically AUC_frac_contra_as_fail):
+  Both AUC_frac and AUC_frac_contra_as_fail take on many exactly-repeated
+  rational values across units (small-integer ratios of n_survived/n_eval
+  or n_survived/n_draws=1000), so a large fraction of all pairs are exact
+  ties. Kendall tau-b's concordant/discordant/tied-pair counting is a step
+  function of exact float equality, not a continuous function of value, so
+  it is far more sensitive to last-bit (~1e-16) floating-point differences
+  than the underlying endpoint values are. An independent recomputation can
+  match a harness's own endpoint values to full double precision (see Task A:
+  every AUC_frac/AUC_frac_contra_as_fail mismatch here is <=1.7e-16, i.e. a
+  few ULPs from summing 10 grid values in a different order) and still see
+  tau_b move by ~1e-5, because a handful of pairs that are exact ties in one
+  computation land 1 ULP apart in the other and get counted as concordant or
+  discordant instead of tied. This was checked directly: rounding the
+  recomputed endpoint to 9 d.p. before computing tau (done above) collapses
+  this noise for AUC_frac (all 5 predictor rows go from ~1e-6-level diffs to
+  exact agreement) but not fully for AUC_frac_contra_as_fail, whose ties are
+  denser still. This is evidence of floating-point tie-sensitivity in tau-b,
+  not evidence that the harness's endpoint or tau formula is wrong.
+
 === SUMMARY ===
 Task A: AUC_frac mismatches=0, AUC_frac_contra_as_fail mismatches=0
 Task B: tau disagreements=5 / 10

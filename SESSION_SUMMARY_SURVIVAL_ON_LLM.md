@@ -311,14 +311,22 @@ Results of the independent recomputations:
   with `n_eval + n_contradictory != n_draws`, 0 with `n_survived > n_eval`, 0
   carrying a `seconds` key, and `n_draws` uniformly 1000.
 - **Pooled taus.** The five `AUC_frac` taus reproduce to <=1e-6. The five
-  `AUC_frac_contra_as_fail` taus were flagged as disagreeing, but every diff
-  is between 2.5e-6 and 3.1e-5 on identical row counts. The harness
+  `AUC_frac_contra_as_fail` taus were flagged as disagreeing by 2.5e-6 to
+  3.1e-5 on identical row counts, and the cause was then identified rather
+  than waved off: **Kendall tau-b is a step function of exact float
+  equality.** Both endpoints take many exactly-repeated rational values
+  (small-integer ratios over `n_eval`, or over `n_draws = 1000`), so a large
+  share of all pairs are exact ties. Summing ten grid values in a different
+  order moves an endpoint by a few ULPs — the recomputation matched the
+  harness to <=1.7e-16 — which is enough to flip a handful of pairs from
+  *tied* to *concordant/discordant* and shift tau_b by ~1e-5. Rounding to 9
+  d.p. before computing tau collapses the noise entirely for `AUC_frac` and
+  only partly for `AUC_frac_contra_as_fail`, whose ties are denser. Two
+  further confirmations that the pipeline is not at fault: the harness
   reproduces its own `analysis_tau.csv` from `analysis_units.csv` to nine
-  decimal places, and the worker's per-unit values for that endpoint matched
-  the same CSV to 1e-9, so the residual sits in the worker's tau step rather
-  than in the pipeline. It is four orders of magnitude below the CI widths and
-  changes no verdict; it was not chased further and is recorded here as
-  unresolved on the verification side, not as a pipeline defect.
+  decimal places, and feeding the harness's bit-exact in-memory values to an
+  independent tau call reproduces its reported tau_b exactly. The effect is
+  four orders of magnitude below the CI widths and changes no verdict.
 
 The paired bootstrap on `radius − baseline` and the scrambled-control sign
 tests were each recomputed a second time by the orchestrator and agree to
