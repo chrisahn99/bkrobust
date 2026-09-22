@@ -1,0 +1,38 @@
+{
+  "frame_dir": "results/axis_robustness_real",
+  "baselines_dir": "results/axis_robustness_real_p6",
+  "n_boot": 10000,
+  "seed": 0,
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "n_strata": 15,
+  "strata": [
+    "flip_cov025_bw000",
+    "flip_cov025_bw010",
+    "flip_cov025_bw025",
+    "flip_cov025_bwa1",
+    "flip_cov050_bw000",
+    "flip_cov050_bw010",
+    "flip_cov050_bw025",
+    "flip_cov050_bwa1",
+    "flip_cov100_bw000",
+    "flip_cov100_bw010",
+    "flip_cov100_bw025",
+    "flip_cov100_bwa1",
+    "tiered_nt2",
+    "tiered_nt3",
+    "tiered_nt4"
+  ],
+  "predictor_a": "radius",
+  "baseline_predictors": [
+    "shd_truth",
+    "n_k",
+    "k_g0",
+    "separation",
+    "phi_1",
+    "r_claim"
+  ],
+  "phi1_rclaim_scoped_to": "flip arm, base_wrongness == 0.0",
+  "n_shards_read": 725,
+  "n_shards_skipped": 0,
+  "total_seconds": 190.8
+}

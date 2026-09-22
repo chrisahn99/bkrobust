@@ -1,0 +1,39 @@
+{
+  "shard_name": "flip_c06",
+  "elapsed_seconds": 556.949544458,
+  "cell_counts": {
+    "flip:c6_s1_cov0.5_b0.0": 40,
+    "flip:c6_s1_cov0.5_b0.1": 40,
+    "flip:c6_s1_cov0.5_b0.25": 40,
+    "flip:c6_s1_cov1.0_b0.0": 40,
+    "flip:c6_s1_cov1.0_b0.1": 40,
+    "flip:c6_s1_cov1.0_b0.25": 40,
+    "flip:c6_s3_cov0.5_b0.0": 40,
+    "flip:c6_s3_cov0.5_b0.1": 40,
+    "flip:c6_s3_cov0.5_b0.25": 40,
+    "flip:c6_s3_cov1.0_b0.0": 40,
+    "flip:c6_s3_cov1.0_b0.1": 40,
+    "flip:c6_s3_cov1.0_b0.25": 40,
+    "flip:c6_s5_cov0.5_b0.0": 40,
+    "flip:c6_s5_cov0.5_b0.1": 40,
+    "flip:c6_s5_cov0.5_b0.25": 40,
+    "flip:c6_s5_cov1.0_b0.0": 40,
+    "flip:c6_s5_cov1.0_b0.1": 40,
+    "flip:c6_s5_cov1.0_b0.25": 40
+  },
+  "exclusions": {
+    "k_contradictory": 512
+  },
+  "n_s0_failures": 0,
+  "s0_failures": [],
+  "fraction_non_monotonic": 0.0955137481910275,
+  "n_instances_checked_for_monotonicity": 691,
+  "corruption_denominator_totals": {
+    "n_claims_attempted": 8206000,
+    "n_claims_reversed": 8206000,
+    "corruption_rejected": 1967313,
+    "corruption_accepted": 918687,
+    "closure_inert": 0,
+    "n_rows": 2886000
+  }
+}

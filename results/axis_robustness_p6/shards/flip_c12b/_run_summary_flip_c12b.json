@@ -1,0 +1,28 @@
+{
+  "shard_name": "flip_c12b",
+  "elapsed_seconds": 2114.622469334,
+  "cell_counts": {
+    "flip:c12_s1_cov0.5_b0.25": 40,
+    "flip:c12_s1_cov1.0_b0.25": 14,
+    "flip:c12_s6_cov0.5_b0.25": 40,
+    "flip:c12_s6_cov1.0_b0.25": 8,
+    "flip:c12_s11_cov0.5_b0.25": 36,
+    "flip:c12_s11_cov1.0_b0.25": 3
+  },
+  "exclusions": {
+    "k_contradictory": 2993,
+    "optimal_set_undefined": 3
+  },
+  "n_s0_failures": 0,
+  "s0_failures": [],
+  "fraction_non_monotonic": 0.19148936170212766,
+  "n_instances_checked_for_monotonicity": 141,
+  "corruption_denominator_totals": {
+    "n_claims_attempted": 4970000,
+    "n_claims_reversed": 4970000,
+    "corruption_rejected": 970340,
+    "corruption_accepted": 88660,
+    "closure_inert": 0,
+    "n_rows": 1059000
+  }
+}

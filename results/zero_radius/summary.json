@@ -1,0 +1,694 @@
+{
+  "generated_by": "experiments/zero_radius_audit.py",
+  "condition": "D_LLM",
+  "interpreter_note": "This script imports only bkrobust.demo.* and bkrobust.mpdag_criterion.* (graph/GAC recomputation at G0) -- never bkrobust.epsilon.certify, which uses zip(..., strict=True) (Python 3.10+ only) and cannot import under the PYTHONPATH=src /usr/bin/python3 (3.9.6) interpreter this script is run with. results/axisa3/instances.jsonl (the 831-row real-corpus baseline re-verified below) was also produced under 3.9.6-compatible code. results/final_table/ and results/final_table_eps_gt1/ (read-only inputs here, not recomputed) were produced by experiments/final_table.py under .venv/bin/python (3.10+), since that script does call certify(). This script never calls certify() and never needs the venv.",
+  "real_corpus_baseline_check": {
+    "n_admissible": 831,
+    "n_zero_radius": 0,
+    "n_empty_z": 0,
+    "min_finite_radius": 1,
+    "matches_orchestrator_claim": true
+  },
+  "unreached_sentinel": {
+    "note": "r_val == -1 is the UNREACHED sentinel (bkrobust.core.conventions.UNREACHED), never a radius and never averaged. It occurs only inside the 'informative' bucket (status=='ok' and r_val != 0), alongside finite-radius rows, and is orthogonal to this script's VALID_EMPTY/NO_SET_EXISTS/INVALID_RETURNED three-way split, whose scope is exactly the 33 degenerate (r_val==0) and 27 error ('no adjustment set identified') rows -- neither can be -1 by construction, so no UNREACHED row is or could be folded into any of the three classes.",
+    "n_informative_total": 66,
+    "n_informative_unreached_sentinel": 13,
+    "n_informative_finite_radius": 53,
+    "unreached_rows": [
+      {
+        "network": "Acid_1996",
+        "x": "x1",
+        "y": "x14"
+      },
+      {
+        "network": "Sebastiani_2005",
+        "x": "ANXA2.8",
+        "y": "ANXA2.7"
+      },
+      {
+        "network": "Shrier_2008",
+        "x": "Coach",
+        "y": "FitnessLevel"
+      },
+      {
+        "network": "Shrier_2008",
+        "x": "Coach",
+        "y": "PreGameProprioception"
+      },
+      {
+        "network": "alarm",
+        "x": "LVFAILURE",
+        "y": "CO"
+      },
+      {
+        "network": "hepar2",
+        "x": "choledocholithotomy",
+        "y": "consciousness"
+      },
+      {
+        "network": "magic-irri",
+        "x": "G2670",
+        "y": "YLD"
+      },
+      {
+        "network": "magic-irri",
+        "x": "G3209",
+        "y": "G3106"
+      },
+      {
+        "network": "magic-niab",
+        "x": "G1276",
+        "y": "G1789"
+      },
+      {
+        "network": "water",
+        "x": "CKNI_12_00",
+        "y": "CBODD_12_15"
+      },
+      {
+        "network": "water",
+        "x": "CKNI_12_00",
+        "y": "CKND_12_15"
+      },
+      {
+        "network": "water",
+        "x": "CKNI_12_00",
+        "y": "CNON_12_45"
+      },
+      {
+        "network": "win95pts",
+        "x": "AvlblVrtlMmry",
+        "y": "IncmpltPS"
+      }
+    ]
+  },
+  "final_table_eps_gt1_consistency_check": {
+    "checked": true,
+    "same_schema": true,
+    "same_instance_keys": true,
+    "n_rows": 160,
+    "n_status_or_rval_diffs": 2,
+    "diffs": [
+      {
+        "network": "munin4",
+        "x": "L_LNLE_ULND5_RD_E",
+        "y": "L_LNLE_ADM_MALOSS",
+        "final_table": {
+          "status": "ok",
+          "r_val": 0
+        },
+        "final_table_eps_gt1": {
+          "status": "timeout",
+          "r_val": null
+        }
+      },
+      {
+        "network": "munin4",
+        "x": "L_LNLE_ULN_DIFSLOW",
+        "y": "L_LNLE_ADM_DE_REGEN",
+        "final_table": {
+          "status": "ok",
+          "r_val": 0
+        },
+        "final_table_eps_gt1": {
+          "status": "timeout",
+          "r_val": null
+        }
+      }
+    ]
+  },
+  "reconciliation_against_committed_counts": {
+    "committed_counts": {
+      "degenerate": 33,
+      "no_identified_z": 27,
+      "timeout": 34,
+      "informative": 66,
+      "total": 160
+    },
+    "recomputed_degenerate_rows_in_final_table": 33,
+    "recomputed_error_rows_in_final_table": 27,
+    "recomputed_timeout_rows_in_final_table": 34,
+    "recomputed_informative_rows_in_final_table": 66,
+    "recomputed_informative_unreached_sentinel_rows": 13,
+    "recomputed_informative_finite_radius_rows": 53,
+    "recomputed_total_rows": 160,
+    "matches_committed_counts": true
+  },
+  "three_way_class_counts": {
+    "VALID_EMPTY": 0,
+    "NO_SET_EXISTS": 27,
+    "INVALID_RETURNED": 33
+  },
+  "other_recomputed_classes": {},
+  "crosstab_committed_label_vs_recomputed_class": {
+    "degenerate": {
+      "INVALID_RETURNED": 33
+    },
+    "no_identified_z": {
+      "NO_SET_EXISTS": 27
+    }
+  },
+  "n_invalid_returned": 33,
+  "any_genuine_precondition_violation": true,
+  "invalid_returned_why_breakdown": {
+    "open_noncausal_path": 25,
+    "not_amenable": 8
+  },
+  "invalid_returned_no_causal_path_x_to_y_count": 25,
+  "invalid_returned_detail": [
+    {
+      "network": "Kampen_2014",
+      "x": "AIS",
+      "y": "ALN",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "Polzer_2012",
+      "x": "Alcohol",
+      "y": "Caries",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "Shrier_2008",
+      "x": "ConnectiveTissueDisorder",
+      "y": "FitnessLevel",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "alarm",
+      "x": "HISTORY",
+      "y": "LVFAILURE",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "andes",
+      "x": "BUGGY54",
+      "y": "HORIZ53",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "child",
+      "x": "Age",
+      "y": "BirthAsphyxia",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "child",
+      "x": "Age",
+      "y": "LVH",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "child",
+      "x": "BirthAsphyxia",
+      "y": "CardiacMixing",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "child",
+      "x": "BirthAsphyxia",
+      "y": "LungFlow",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "ecoli70",
+      "x": "atpG",
+      "y": "sucD",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "ecoli70",
+      "x": "cchB",
+      "y": "yjbO",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "hailfinder",
+      "x": "Date",
+      "y": "AMCINInScen",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "hailfinder",
+      "x": "Date",
+      "y": "WindAloft",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "hailfinder",
+      "x": "Dewpoints",
+      "y": "SfcWndShfDis",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "hailfinder",
+      "x": "LowLLapse",
+      "y": "ScenRelAMIns",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "hailfinder",
+      "x": "MeanRH",
+      "y": "RHRatio",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "hepar2",
+      "x": "amylase",
+      "y": "gallstones",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "insurance",
+      "x": "DrivingSkill",
+      "y": "Airbag",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "magic-niab",
+      "x": "G1294",
+      "y": "G418",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "mediator",
+      "x": "X",
+      "y": "I",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "munin1",
+      "x": "R_LNLBE_MEDD2_DIFSLOW_WD",
+      "y": "R_MED_RD_EW",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "munin1",
+      "x": "R_LNLBE_MEDD2_RD_EW",
+      "y": "R_LNLBE_MEDD2_DIFSLOW_WD",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "munin4",
+      "x": "L_LNLE_ULND5_RD_E",
+      "y": "L_LNLE_ADM_MALOSS",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "munin4",
+      "x": "L_LNLE_ULN_DIFSLOW",
+      "y": "L_LNLE_ADM_DE_REGEN",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "paths",
+      "x": "10",
+      "y": "4",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "paths",
+      "x": "12",
+      "y": "1",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "sachs",
+      "x": "Akt",
+      "y": "Erk",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "sachs",
+      "x": "Akt",
+      "y": "P38",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "sachs",
+      "x": "Akt",
+      "y": "Raf",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "sachs",
+      "x": "Erk",
+      "y": "Mek",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "sachs",
+      "x": "Erk",
+      "y": "PKC",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "water",
+      "x": "CKNI_12_00",
+      "y": "CKNI_12_45",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "open_noncausal_path",
+      "has_possibly_causal_path_x_to_y": false,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    },
+    {
+      "network": "win95pts",
+      "x": "HrglssDrtnAftrPrnt",
+      "y": "AppDtGnTm",
+      "z": [],
+      "z_size": 0,
+      "why_invalid": "not_amenable",
+      "has_possibly_causal_path_x_to_y": null,
+      "committed_label": "degenerate",
+      "committed_r_val": 0
+    }
+  ],
+  "unexpected_valid_nonempty_detail": [],
+  "informative_rows_with_empty_committed_z": {
+    "n": 27,
+    "of_informative": 66,
+    "rows": [
+      {
+        "network": "Didelez_2010",
+        "x": "Age",
+        "y": "HRT",
+        "r_val": 1
+      },
+      {
+        "network": "Didelez_2010",
+        "x": "Age",
+        "y": "Occ",
+        "r_val": 1
+      },
+      {
+        "network": "Didelez_2010",
+        "x": "Age",
+        "y": "S",
+        "r_val": 1
+      },
+      {
+        "network": "Didelez_2010",
+        "x": "Age",
+        "y": "Smo",
+        "r_val": 1
+      },
+      {
+        "network": "Didelez_2010",
+        "x": "Age",
+        "y": "TCI",
+        "r_val": 1
+      },
+      {
+        "network": "Kampen_2014",
+        "x": "AFF",
+        "y": "AIS",
+        "r_val": 1
+      },
+      {
+        "network": "Kampen_2014",
+        "x": "AFF",
+        "y": "CDR",
+        "r_val": 1
+      },
+      {
+        "network": "Kampen_2014",
+        "x": "AFF",
+        "y": "FTW",
+        "r_val": 1
+      },
+      {
+        "network": "Kampen_2014",
+        "x": "AFF",
+        "y": "SAN",
+        "r_val": 1
+      },
+      {
+        "network": "Schipf_2010",
+        "x": "A",
+        "y": "PA",
+        "r_val": 1
+      },
+      {
+        "network": "Schipf_2010",
+        "x": "A",
+        "y": "S",
+        "r_val": 1
+      },
+      {
+        "network": "Schipf_2010",
+        "x": "A",
+        "y": "T2DM",
+        "r_val": 1
+      },
+      {
+        "network": "Schipf_2010",
+        "x": "A",
+        "y": "TT",
+        "r_val": 1
+      },
+      {
+        "network": "Schipf_2010",
+        "x": "A",
+        "y": "U",
+        "r_val": 1
+      },
+      {
+        "network": "Shrier_2008",
+        "x": "Coach",
+        "y": "TeamMotivation",
+        "r_val": 1
+      },
+      {
+        "network": "Thoemmes_2013",
+        "x": "e0",
+        "y": "x",
+        "r_val": 1
+      },
+      {
+        "network": "asia",
+        "x": "asia",
+        "y": "tub",
+        "r_val": 1
+      },
+      {
+        "network": "barley",
+        "x": "frspdag",
+        "y": "dg25",
+        "r_val": 2
+      },
+      {
+        "network": "child",
+        "x": "CO2",
+        "y": "DuctFlow",
+        "r_val": 1
+      },
+      {
+        "network": "ecoli70",
+        "x": "cspG",
+        "y": "hupB",
+        "r_val": 4
+      },
+      {
+        "network": "magic-irri",
+        "x": "G3209",
+        "y": "G3106",
+        "r_val": -1
+      },
+      {
+        "network": "mediator",
+        "x": "I",
+        "y": "X",
+        "r_val": 1
+      },
+      {
+        "network": "mediator",
+        "x": "I",
+        "y": "Y",
+        "r_val": 1
+      },
+      {
+        "network": "mediator",
+        "x": "I",
+        "y": "Z",
+        "r_val": 1
+      },
+      {
+        "network": "paths",
+        "x": "1",
+        "y": "10",
+        "r_val": 1
+      },
+      {
+        "network": "paths",
+        "x": "1",
+        "y": "8",
+        "r_val": 1
+      },
+      {
+        "network": "paths",
+        "x": "11",
+        "y": "14",
+        "r_val": 11
+      }
+    ]
+  },
+  "n_audited": 60,
+  "seconds_total": 438.51
+}
