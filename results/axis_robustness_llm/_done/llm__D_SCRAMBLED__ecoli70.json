@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_SCRAMBLED__ecoli70",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_SCRAMBLED",
+    "network": "ecoli70"
+  },
+  "n_draws": 1000,
+  "condition": "D_SCRAMBLED",
+  "network": "ecoli70",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "scrambled",
+  "n_frame_rows": 22,
+  "n_scored": 17,
+  "n_cells": 170,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 13,
+  "n_asked": 25,
+  "assert_rate": 0.52,
+  "k_accuracy": 0.46153846153846156,
+  "n_k_correct": 6,
+  "n_k_wrong": 7,
+  "n_off_skeleton": 0,
+  "k_g0": 23,
+  "shd_truth": 20,
+  "instance_status_counts": {
+    "ok": 17,
+    "optimal_set_undefined": 5
+  },
+  "radius_median_ok": 2,
+  "n_radius_ok": 17,
+  "cache": {
+    "graph_hits": 6203,
+    "graph_misses": 3797,
+    "verdict_hits": 16728,
+    "verdict_misses": 7174
+  },
+  "elapsed_s": 24.392,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED__ecoli70.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED__ecoli70.cells.jsonl",
+  "instances_sha256": "b89d1c6fb6c1d943a11d36ff80629b1f86125357169d4c417b27f4388a27e7d0",
+  "cells_sha256": "d0728b0bd8125ddc146de09065b87e5a3c4653d2551915a2332a6c14eb57a8ea",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:51:40Z"
+}

@@ -1,0 +1,50 @@
+{
+  "shard_id": "llm__D_LLM_INSTR__Schipf_2010",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_INSTR",
+    "network": "Schipf_2010"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_INSTR",
+  "network": "Schipf_2010",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 11,
+  "n_scored": 11,
+  "n_cells": 44,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 4,
+  "n_asked": 6,
+  "assert_rate": 0.6666666666666666,
+  "k_accuracy": 1.0,
+  "n_k_correct": 4,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 6,
+  "shd_truth": 0,
+  "instance_status_counts": {
+    "ok": 11
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 11,
+  "cache": {
+    "graph_hits": 3985,
+    "graph_misses": 15,
+    "verdict_hits": 16478,
+    "verdict_misses": 77
+  },
+  "elapsed_s": 0.099,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_INSTR__Schipf_2010.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_INSTR__Schipf_2010.cells.jsonl",
+  "instances_sha256": "3bd76aade05a20f16122548f06077cdac84b7db8436150c53139a9ed3c561fde",
+  "cells_sha256": "836ae0a8940c7808af33845ba5f99620a560f4e3ee36310cffe8e873823c9f85",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:02Z"
+}

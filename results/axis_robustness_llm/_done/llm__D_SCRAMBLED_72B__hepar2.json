@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_SCRAMBLED_72B__hepar2",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_SCRAMBLED_72B",
+    "network": "hepar2"
+  },
+  "n_draws": 1000,
+  "condition": "D_SCRAMBLED_72B",
+  "network": "hepar2",
+  "model": "Qwen2.5-72B-Instruct",
+  "family": "qwen2",
+  "naming": "scrambled",
+  "n_frame_rows": 8,
+  "n_scored": 2,
+  "n_cells": 10,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 5,
+  "n_asked": 7,
+  "assert_rate": 0.7142857142857143,
+  "k_accuracy": 1.0,
+  "n_k_correct": 5,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 5,
+  "shd_truth": 4,
+  "instance_status_counts": {
+    "ok": 2,
+    "optimal_set_undefined": 6
+  },
+  "radius_median_ok": 1.0,
+  "n_radius_ok": 2,
+  "cache": {
+    "graph_hits": 4969,
+    "graph_misses": 31,
+    "verdict_hits": 1990,
+    "verdict_misses": 10
+  },
+  "elapsed_s": 0.173,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED_72B__hepar2.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED_72B__hepar2.cells.jsonl",
+  "instances_sha256": "0e8b442c934e569df8a51893b2697c8a1bf7c257522af491dfbd4ef827cd0c04",
+  "cells_sha256": "6549c47eec9e2c14acd525d69299075472414fd241b5e430a5bc1917addd2341",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:01Z"
+}

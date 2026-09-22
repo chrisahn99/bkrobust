@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_72B_INSTR__paths",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_72B_INSTR",
+    "network": "paths"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_72B_INSTR",
+  "network": "paths",
+  "model": "Qwen2.5-72B-Instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 18,
+  "n_cells": 180,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 14,
+  "n_asked": 14,
+  "assert_rate": 1.0,
+  "k_accuracy": 0.0,
+  "n_k_correct": 0,
+  "n_k_wrong": 14,
+  "n_off_skeleton": 0,
+  "k_g0": 14,
+  "shd_truth": 28,
+  "instance_status_counts": {
+    "optimal_set_undefined": 2,
+    "ok": 18
+  },
+  "radius_median_ok": 5.0,
+  "n_radius_ok": 18,
+  "cache": {
+    "graph_hits": 5451,
+    "graph_misses": 4549,
+    "verdict_hits": 20610,
+    "verdict_misses": 126
+  },
+  "elapsed_s": 5.461,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_72B_INSTR__paths.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_72B_INSTR__paths.cells.jsonl",
+  "instances_sha256": "310c0b9ffd6af131fa3776a85a2b41fb4406ac8ffff07dbdd77b1c8983a2fe8b",
+  "cells_sha256": "aab4fe90ae2e41e2bcad0b5e6bccdee31cf236f852706b65c65a1a26a77868da",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:52:12Z"
+}

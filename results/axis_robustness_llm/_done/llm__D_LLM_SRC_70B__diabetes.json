@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__diabetes",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "diabetes"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "diabetes",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 89,
+  "n_scored": 63,
+  "n_cells": 630,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 14,
+  "n_asked": 14,
+  "assert_rate": 1.0,
+  "k_accuracy": 0.9285714285714286,
+  "n_k_correct": 13,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 14,
+  "shd_truth": 14,
+  "instance_status_counts": {
+    "ok": 63,
+    "optimal_set_undefined": 26
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 63,
+  "cache": {
+    "graph_hits": 5467,
+    "graph_misses": 4533,
+    "verdict_hits": 301518,
+    "verdict_misses": 217224
+  },
+  "elapsed_s": 2278.899,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__diabetes.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__diabetes.cells.jsonl",
+  "instances_sha256": "8d7215077946fd1b8a26647de5a555e6862f8f5a293aab06e6d6e26378d16027",
+  "cells_sha256": "e70bd432b6213cb2f53f5bca0dfff419384567e4915813005949752ac9b699c8",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T13:27:53Z"
+}
