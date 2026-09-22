@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__water__nt2",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "water",
+    "n_tiers": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 14,
+  "n_scored": 3,
+  "n_cells": 33,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 10775,
+    "graph_misses": 225,
+    "verdict_hits": 21123,
+    "verdict_misses": 300
+  },
+  "elapsed_s": 2.28,
+  "instances_path": "results/axis_robustness_real/shards/tiered__water__nt2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__water__nt2.cells.jsonl",
+  "instances_sha256": "424fe0cc61de30a5158b1068128afda10f9aaa31a77dd6d87d70963967ee2b34",
+  "cells_sha256": "2a692c0f178da87c8b920847f7d407c3d63cea569222265fa69cd798a65375c8",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:09Z"
+}

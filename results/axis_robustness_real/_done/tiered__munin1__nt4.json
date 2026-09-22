@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__munin1__nt4",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "munin1",
+    "n_tiers": 4
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 1,
+  "n_cells": 11,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 5,
+  "cache": {
+    "graph_hits": 9649,
+    "graph_misses": 1351,
+    "verdict_hits": 5300,
+    "verdict_misses": 357
+  },
+  "elapsed_s": 39.044,
+  "instances_path": "results/axis_robustness_real/shards/tiered__munin1__nt4.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__munin1__nt4.cells.jsonl",
+  "instances_sha256": "1d8e9b292e3ca1b6454aaea3cacb30595d3f382add96866b37ec5fe1a84ffd1d",
+  "cells_sha256": "06e5c363a2d02ecbea4d735498ab004c25ef1dfb23158193ee8007104e20caa5",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:33:48Z"
+}

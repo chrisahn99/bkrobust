@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__munin1__nt3__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "munin1",
+    "n_tiers": 3,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 1,
+  "n_cells": 10,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 4,
+  "cache": {
+    "graph_hits": 8559,
+    "graph_misses": 1441,
+    "verdict_hits": 4486,
+    "verdict_misses": 435
+  },
+  "elapsed_s": 36.576,
+  "instances_path": "results/axis_robustness_real/shards/xarm__munin1__nt3__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__munin1__nt3__tiered.cells.jsonl",
+  "instances_sha256": "bee5942576e509da55006cf32fcf5c1d760df980f62b16922a24c45f256c0a0c",
+  "cells_sha256": "3a8b177658bce26e439c4ff4e1f1ebc6e4d9d90bf73010a2ddd3c1fe226a9197",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:34:14Z"
+}

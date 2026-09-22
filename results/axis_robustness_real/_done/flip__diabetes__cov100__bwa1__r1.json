@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__diabetes__cov100__bwa1__r1",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "diabetes",
+    "coverage": 1.0,
+    "base_wrongness": null,
+    "bw_abs": 1,
+    "replicate": 1
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 89,
+  "n_scored": 89,
+  "n_cells": 890,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 26,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 1364,
+    "graph_misses": 8636,
+    "verdict_hits": 19847,
+    "verdict_misses": 534445
+  },
+  "elapsed_s": 908.812,
+  "instances_path": "results/axis_robustness_real/shards/flip__diabetes__cov100__bwa1__r1.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__diabetes__cov100__bwa1__r1.cells.jsonl",
+  "instances_sha256": "3d9e5c4e190cd6d91562a5bfc945c12e081a8ff06d34be4a1f7c813431c62720",
+  "cells_sha256": "9cbfdfc116780ffbbd46b6e008c7ed10ca2b5aa0314cccd21ff8b1f0567e7f7f",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:19:51Z"
+}

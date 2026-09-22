@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__win95pts__nt3__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "win95pts",
+    "n_tiers": 3,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 1,
+  "n_cells": 10,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 9,
+  "cache": {
+    "graph_hits": 4727,
+    "graph_misses": 5273,
+    "verdict_hits": 4251,
+    "verdict_misses": 3619
+  },
+  "elapsed_s": 21.75,
+  "instances_path": "results/axis_robustness_real/shards/xarm__win95pts__nt3__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__win95pts__nt3__tiered.cells.jsonl",
+  "instances_sha256": "54ec239cef65640f47897b56984544660f74fcd581c46060e1f7b1c36cd77fc3",
+  "cells_sha256": "05e4b4a9cbf196b74390ee04aef3444a3c51b606a342efa7ca6a603c86218d5f",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:34:45Z"
+}

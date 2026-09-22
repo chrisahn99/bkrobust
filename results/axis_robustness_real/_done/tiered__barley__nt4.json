@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__barley__nt4",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "barley",
+    "n_tiers": 4
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 85,
+  "n_scored": 74,
+  "n_cells": 814,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "cache": {
+    "graph_hits": 8298,
+    "graph_misses": 2702,
+    "verdict_hits": 361046,
+    "verdict_misses": 69486
+  },
+  "elapsed_s": 14.933,
+  "instances_path": "results/axis_robustness_real/shards/tiered__barley__nt4.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__barley__nt4.cells.jsonl",
+  "instances_sha256": "4eba637cb14cf774667635c899aebd9b492bac050a9154cf95c0d51aa503a01a",
+  "cells_sha256": "156d1fefd4a16fdc1eeee518a795a265817fc5151bf462bbd7116334d88b0299",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:24:37Z"
+}

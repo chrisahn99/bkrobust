@@ -1,0 +1,30 @@
+{
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "source_instances_sha256": "fc10ad9707fe122919159623b61649fd4c4e86dd51271c474baa1c3af4afd419",
+  "n_rows": 831,
+  "n_networks": 25,
+  "n_distinct_pairs": 543,
+  "rows_by_coverage": {
+    "1.0": 543,
+    "0.25": 106,
+    "0.5": 182
+  },
+  "built_utc": "2026-09-15T23:26:54.119223+00:00",
+  "git_sha": "374cfaa968ac0f934045d186d53bba8aba4df35d",
+  "git_dirty": false,
+  "python": "3.9.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "checks": {
+    "n_radius_matches_committed": 831,
+    "n_radius_mismatches": 0,
+    "mismatch_examples": [],
+    "n_k_g0_mismatches": 0,
+    "n_z_invalid_at_g0": 0,
+    "n_optimal_set_undefined": 0,
+    "n_g0_none": 0,
+    "n_censored": 0,
+    "n_unreached": 0,
+    "g0_undirected_committed_all_zero": true,
+    "g0_undirected_recomputed_nonzero_count": 288
+  }
+}

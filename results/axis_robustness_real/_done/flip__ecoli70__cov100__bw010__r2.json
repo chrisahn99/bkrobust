@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__ecoli70__cov100__bw010__r2",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "ecoli70",
+    "coverage": 1.0,
+    "base_wrongness": 0.1,
+    "bw_abs": null,
+    "replicate": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 22,
+  "n_scored": 17,
+  "n_cells": 170,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 10,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 8990,
+    "graph_misses": 1010,
+    "verdict_hits": 53924,
+    "verdict_misses": 5882
+  },
+  "elapsed_s": 12.851,
+  "instances_path": "results/axis_robustness_real/shards/flip__ecoli70__cov100__bw010__r2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__ecoli70__cov100__bw010__r2.cells.jsonl",
+  "instances_sha256": "9df87d338bf841d72cda7d6892331de8c5eee1e8373ffaba1d30c50d9ad184bf",
+  "cells_sha256": "185c9013cfde22a68783331f4fa35abd4adfd6e03fb3d20db39c49625f2d51a0",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:26:10Z"
+}

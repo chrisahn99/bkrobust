@@ -1,0 +1,30 @@
+{
+  "shard_id": "xarm__mediator__nt3__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "mediator",
+    "n_tiers": 3,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 1,
+  "n_cells": 4,
+  "g0_status": "ok",
+  "n_k": 4,
+  "cache": {
+    "graph_hits": 3985,
+    "graph_misses": 15,
+    "verdict_hits": 2318,
+    "verdict_misses": 7
+  },
+  "elapsed_s": 0.054,
+  "instances_path": "results/axis_robustness_real/shards/xarm__mediator__nt3__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__mediator__nt3__flip.cells.jsonl",
+  "instances_sha256": "3d71e7a408d10d1f6c0a65b2fb7c6540eb64b180aa82118c0fa026bb69ea582d",
+  "cells_sha256": "64a51a210714d9826a29865a053d18df6485185192791f1146c20d9eecd5c0e2",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:22Z"
+}

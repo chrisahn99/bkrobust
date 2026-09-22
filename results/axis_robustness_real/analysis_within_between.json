@@ -1,0 +1,33 @@
+{
+  "note": "POST-HOC. The pre-registered primary result is the pooled tau in analysis_tau.csv.",
+  "n_rows": 17,
+  "radius_primary9_within_excludes_zero": [
+    "flip_cov100_bw000",
+    "flip_cov100_bw010",
+    "flip_cov100_bw025",
+    "tiered_nt2",
+    "tiered_nt3",
+    "tiered_nt4"
+  ],
+  "radius_primary9_with_a_within_estimate": [
+    "flip_cov050_bw000",
+    "flip_cov050_bw010",
+    "flip_cov050_bw025",
+    "flip_cov100_bw000",
+    "flip_cov100_bw010",
+    "flip_cov100_bw025",
+    "tiered_nt2",
+    "tiered_nt3",
+    "tiered_nt4"
+  ],
+  "radius_all_strata_within_excludes_zero": [
+    "flip_cov050_bwa1",
+    "flip_cov100_bw000",
+    "flip_cov100_bw010",
+    "flip_cov100_bw025",
+    "flip_cov100_bwa1",
+    "tiered_nt2",
+    "tiered_nt3",
+    "tiered_nt4"
+  ]
+}

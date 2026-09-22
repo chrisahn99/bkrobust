@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__barley__nt3__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "barley",
+    "n_tiers": 3,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 85,
+  "n_scored": 44,
+  "n_cells": 220,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 5,
+  "cache": {
+    "graph_hits": 4969,
+    "graph_misses": 31,
+    "verdict_hits": 87956,
+    "verdict_misses": 660
+  },
+  "elapsed_s": 0.692,
+  "instances_path": "results/axis_robustness_real/shards/xarm__barley__nt3__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__barley__nt3__flip.cells.jsonl",
+  "instances_sha256": "ed8a9259b2dff243739e6e964d5a1975dc03c969c5b727e9ab54bcb977617bf9",
+  "cells_sha256": "5fb03285fafa890bfb7611ed938c5fef9298dcd382feef7b6a730210e9a58603",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:24:33Z"
+}

@@ -1,0 +1,28 @@
+MATCHED-POPULATION COVERAGE CONTRAST ([RE-6]) -- 105 triples on 8 networks
+Conditioning on a fixed instance set removes the composition effect that makes
+the unmatched 543 -> 182 -> 106 comparison meaningless. It does NOT remove the
+non-nesting of the coverage sweep ([RE-4]), which is reported, not fixed.
+
+radius identical at all three coverages: 73 of 105 triples
+radius changes: 32; patterns (r@0.25, r@0.5, r@1.0): [((2, 2, 3), 32)]
+coverage 0.25: median AUC 0.3472  mean 0.1983
+coverage 0.5: median AUC 0.4282  mean 0.4872
+coverage 1.0: median AUC 0.5692  mean 0.5231
+
+per-triple AUC 1.0 vs 0.25: higher 84, lower 21 (n=105)
+  triple-level sign test p=4.16e-10, Wilcoxon p=4.1e-16
+  NOTE: the triples come from only 8 networks, so a triple-level test is
+  anti-conservative. The network-level test below is the honest one.
+
+network               n  medAUC@0.25  medAUC@1.0  rises  medR@0.25  medR@1.0
+Kampen_2014           7        0.000       0.736    yes        2.0       2.0
+Polzer_2012           7        0.000       0.612    yes        2.0       2.0
+Sebastiani_2005       2        0.350       0.529    yes        1.0       1.0
+barley               42        0.347       0.583    yes        1.0       1.0
+insurance            32        0.000       0.569    yes        2.0       3.0
+magic-niab           13        0.354       0.406    yes        1.0       1.0
+munin1                1        0.499       0.754    yes        1.0       1.0
+win95pts              1        0.352       0.382    yes        1.0       1.0
+
+networks whose median survival rises with coverage: 8 of 8  (sign test p=0.00781)
+networks whose median radius rises with coverage:   1 of 8

@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__child__nt4",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "child",
+    "n_tiers": 4
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 18,
+  "n_scored": 11,
+  "n_cells": 121,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "cache": {
+    "graph_hits": 7854,
+    "graph_misses": 3146,
+    "verdict_hits": 54021,
+    "verdict_misses": 8239
+  },
+  "elapsed_s": 4.919,
+  "instances_path": "results/axis_robustness_real/shards/tiered__child__nt4.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__child__nt4.cells.jsonl",
+  "instances_sha256": "d088711d22d83bbf4b505ed910fbbf9f9afaa9bba2bf0502d66909962ed69bd4",
+  "cells_sha256": "5e19ef58fa7343f296980ecb3040acfb8ed6d0cef7da18250405fd311bffdf75",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:31:57Z"
+}

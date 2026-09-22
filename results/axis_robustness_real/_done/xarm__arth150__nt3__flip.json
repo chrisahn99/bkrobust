@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__arth150__nt3__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "arth150",
+    "n_tiers": 3,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 6,
+  "n_scored": 0,
+  "n_cells": 0,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "o_g0_extensions_intractable",
+  "n_k": 19,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.001,
+  "instances_path": "results/axis_robustness_real/shards/xarm__arth150__nt3__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__arth150__nt3__flip.cells.jsonl",
+  "instances_sha256": "52014a65f05affc2b314dfeedc81bbdf6e3a4c1f9986aa1e228a4820f45f24f8",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:23:28Z"
+}

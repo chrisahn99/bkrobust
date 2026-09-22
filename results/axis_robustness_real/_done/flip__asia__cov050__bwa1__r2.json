@@ -1,0 +1,34 @@
+{
+  "shard_id": "flip__asia__cov050__bwa1__r2",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "asia",
+    "coverage": 0.5,
+    "base_wrongness": null,
+    "bw_abs": 1,
+    "replicate": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 1,
+  "n_scored": 1,
+  "n_cells": 2,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_claims_actually_wrong": 1,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 1997,
+    "verdict_misses": 3
+  },
+  "elapsed_s": 0.035,
+  "instances_path": "results/axis_robustness_real/shards/flip__asia__cov050__bwa1__r2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__asia__cov050__bwa1__r2.cells.jsonl",
+  "instances_sha256": "f7c551933c99b510a5f1954a1aab1d0b19b4df2613e698fef5aa7a8f381bc011",
+  "cells_sha256": "6f3db349bae114285b0d9f22616cf98aa981bc1110cc087fc16bb8f1905222e5",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:17Z"
+}

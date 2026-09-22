@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__magic-irri__nt2",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "magic-irri",
+    "n_tiers": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 5,
+  "n_cells": 55,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 9,
+  "cache": {
+    "graph_hits": 4981,
+    "graph_misses": 6019,
+    "verdict_hits": 23140,
+    "verdict_misses": 24645
+  },
+  "elapsed_s": 25.897,
+  "instances_path": "results/axis_robustness_real/shards/tiered__magic-irri__nt2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__magic-irri__nt2.cells.jsonl",
+  "instances_sha256": "639003d98a9102a89c583b47baec67367e73c70bb388258a00b63ab399ebd729",
+  "cells_sha256": "989b7f8d1b1a58eec369db798845f8fc8049394415aedc0e8cd162b358c8270e",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:31Z"
+}

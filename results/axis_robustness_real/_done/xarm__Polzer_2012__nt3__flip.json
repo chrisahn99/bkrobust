@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Polzer_2012__nt3__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Polzer_2012",
+    "n_tiers": 3,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 49,
+  "n_scored": 15,
+  "n_cells": 45,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 3,
+  "cache": {
+    "graph_hits": 2993,
+    "graph_misses": 7,
+    "verdict_hits": 34755,
+    "verdict_misses": 75
+  },
+  "elapsed_s": 0.33,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Polzer_2012__nt3__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Polzer_2012__nt3__flip.cells.jsonl",
+  "instances_sha256": "dffb5671351633124ed560e0af66ae8885d4ce49cb2a8006a55489b34e167860",
+  "cells_sha256": "cc70d9b3910ca779b5b6e563694637819d8bdcb23c97ba1813ca86dd0550a6f3",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:25:08Z"
+}

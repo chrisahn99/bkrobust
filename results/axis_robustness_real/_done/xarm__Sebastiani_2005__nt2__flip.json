@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Sebastiani_2005__nt2__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Sebastiani_2005",
+    "n_tiers": 2,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 5,
+  "n_scored": 1,
+  "n_cells": 1,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "cache": {
+    "graph_hits": 999,
+    "graph_misses": 1,
+    "verdict_hits": 999,
+    "verdict_misses": 1
+  },
+  "elapsed_s": 0.073,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Sebastiani_2005__nt2__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Sebastiani_2005__nt2__flip.cells.jsonl",
+  "instances_sha256": "df303a4c2647fcf94a09eb06adc14e558f09514515a4fd4a213cbb277d43a12c",
+  "cells_sha256": "d70b80aee77a4308fc87a85f499e696102515e04ae1f5fff70cebc4459d36387",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:35:02Z"
+}

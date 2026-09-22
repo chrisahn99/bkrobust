@@ -1,0 +1,86 @@
+{
+  "description": "Combined manifest for results/axis_robustness_real_p6 (reviewer Point 6: SHD-baseline gap and paired network-level resampling).",
+  "git_branch": "revision/experiments_points67",
+  "python": "3.9.6 (/usr/bin/python3)",
+  "stage_1_baselines": {
+    "script": "src/bkrobust/robustness/real_baselines_p6.py",
+    "frame_dir": "results/axis_robustness_real",
+    "networks_dir": "results/axisa3/networks/example_models",
+    "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+    "n_frame_rows": 831,
+    "n_baseline_rows": 831,
+    "small_k_exhaustive_max": 12,
+    "depth_budget_seconds": 180.0,
+    "n_boot": 10000,
+    "seed": 0,
+    "extended_predictors": [
+      "radius",
+      "shd_truth",
+      "n_k",
+      "k_g0",
+      "separation",
+      "phi_1",
+      "r_claim"
+    ],
+    "degeneracy_check_coverage_1": {
+      "n_coverage_1_rows": 543,
+      "n_resolved_at_depth_1": 543,
+      "all_resolved_at_depth_1": true,
+      "phi_1_positive_count": 543
+    },
+    "n_strata_in_extended_tau_table": 15,
+    "total_seconds": 666.7,
+    "per_cell_log": "see baselines_manifest.json:cell_log for full per-(network,coverage) timing/depth detail"
+  },
+  "stage_2_paired_resample": {
+    "script": "src/bkrobust/robustness/paired_resample.py",
+    "frame_dir": "results/axis_robustness_real",
+    "baselines_dir": "results/axis_robustness_real_p6",
+    "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+    "n_boot": 10000,
+    "seed": 0,
+    "n_strata": 15,
+    "strata": [
+      "flip_cov025_bw000",
+      "flip_cov025_bw010",
+      "flip_cov025_bw025",
+      "flip_cov025_bwa1",
+      "flip_cov050_bw000",
+      "flip_cov050_bw010",
+      "flip_cov050_bw025",
+      "flip_cov050_bwa1",
+      "flip_cov100_bw000",
+      "flip_cov100_bw010",
+      "flip_cov100_bw025",
+      "flip_cov100_bwa1",
+      "tiered_nt2",
+      "tiered_nt3",
+      "tiered_nt4"
+    ],
+    "predictor_a": "radius",
+    "baseline_predictors": [
+      "shd_truth",
+      "n_k",
+      "k_g0",
+      "separation",
+      "phi_1",
+      "r_claim"
+    ],
+    "phi1_rclaim_scoped_to": "flip arm, base_wrongness == 0.0",
+    "n_shards_read": 725,
+    "n_shards_skipped": 0,
+    "total_seconds": 190.8,
+    "cluster_column": "network",
+    "endpoint_choice": "*_usable endpoint per arm (AUC_frac_usable for flip, AUC_rate_usable for tiered), per PREREGISTRATION.md Sec 5.1 / Appendix E"
+  },
+  "outputs": [
+    "baselines_per_instance.csv",
+    "analysis_tau_extended.csv",
+    "baselines_manifest.json",
+    "paired_diff_real.csv",
+    "paired_diff_loo_detail.json",
+    "paired_diff_manifest.json",
+    "manifest.json (this file)",
+    "NOTES.md"
+  ]
+}

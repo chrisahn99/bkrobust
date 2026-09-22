@@ -116,6 +116,33 @@ coverage.xml
 /results/mean_sampling/radius_reps.jsonl
 /results/mean_sampling/shell_reps.jsonl
 /results/mean_sampling/profile_audit.jsonl
+# [RE-11]: survival and the paired cross-arm on the 831 real rows. The
+# pre-registration, the frozen frame, the per-grid-point curve rows and the
+# manifests are deliverables cited by report_real_survival.md and
+# table_tau_real.md.
+!/results/axis_robustness_real/
+# Reviewer point 6: the N=1000 synthetic survival rerun (40 instances/cell, the
+# originally pre-registered quota) carrying the corruption denominators and the
+# new baseline predictors. The per-grid-point curves and the per-instance rows
+# are the deliverables -- every reported number derives from them. The raw
+# per-draw samples run to several GB and regenerate exactly from the seeded
+# driver, so they stay untracked (precedent: results/mean_sampling/*_reps.jsonl).
+!/results/axis_robustness_p6/
+/results/axis_robustness_p6/shards/*/survival_samples.csv
+/results/axis_robustness_p6/survival_samples.csv
+/results/axis_robustness_p6/survival_samples.csv.gz
+# Reviewer point 7: the three-way classification of every non-informative row in
+# the final table (valid-empty vs no-set-exists vs invalid-returned).
+!/results/zero_radius/
+# Reviewer point 7: the matched-control elicitation arms -- scrambled-name
+# semantic controls and the random-at-matched-|K| quantity control.
+!/results/matched_control/
+/results/matched_control/_shim/
+# Reviewer point 6: the new baselines and the paired network-level resampling on
+# the committed 831 real rows.
+!/results/axis_robustness_real_p6/
+# Reviewer point 6: the paired resampling applied to the synthetic N=1000 rerun.
+!/results/axis_robustness_p6_paired/
 /data/
 /checkpoints/
 *.pt
