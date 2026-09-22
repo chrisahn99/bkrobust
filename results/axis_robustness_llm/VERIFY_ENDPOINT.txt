@@ -1,0 +1,44 @@
+Found 240 completion markers in /Users/ahn/Documents/Research/iclr27/bkrobust/results/axis_robustness_llm/_done
+
+=== TASK C: digest verification ===
+Shards checked: 240
+All instances_sha256 and cells_sha256 match recomputed sha256. PASS.
+
+Total instance rows (units) loaded: 5400
+Total cell rows loaded: 19870
+
+=== TASK D: sanity checks ===
+(i) cells with S is not None but n_eval == 0: 0
+(ii) cells with n_eval + n_contradictory != n_draws: 0
+(iii) cells with n_survived > n_eval: 0
+(iv) instance rows carrying a key literally named 'seconds': 0
+(v) distribution of n_draws across cells: {1000: 19870}
+    -> uniformly 1000. PASS.
+
+=== TASK A: recompute AUC_frac / AUC_frac_contra_as_fail per unit ===
+analysis_units.csv rows: 5400; matched to a recomputed unit: 5400
+AUC_frac: exact matches (<=1e-9) = 2883, both-None matches = 2517, mismatches = 0
+AUC_frac_contra_as_fail: exact matches (<=1e-9) = 2905, both-None matches = 2495, mismatches = 0
+No mismatches found. PASS.
+
+=== TASK B: recompute Kendall tau-b (panel_pooled, real naming, status==ok) ===
+Units with naming=='real' and status=='ok': 2433
+predictor    endpoint                        n   tau_b (mine)  status
+radius       AUC_frac                     2422       0.319070  AGREE
+radius       AUC_frac_contra_as_fail      2433      -0.120136  DISAGREE diff=9.736e-06 n_diff=0 (mine n=2433 excl_unreached=0 excl_nan=0; harness n=2433 excl_unreached=0 excl_nan=1887)
+shd_truth    AUC_frac                     2422       0.053836  AGREE
+shd_truth    AUC_frac_contra_as_fail      2433       0.141844  DISAGREE diff=3.129e-05 n_diff=0 (mine n=2433 excl_unreached=0 excl_nan=0; harness n=2433 excl_unreached=0 excl_nan=1887)
+n_k          AUC_frac                     2422       0.184806  AGREE
+n_k          AUC_frac_contra_as_fail      2433      -0.176852  DISAGREE diff=5.848e-06 n_diff=0 (mine n=2433 excl_unreached=0 excl_nan=0; harness n=2433 excl_unreached=0 excl_nan=1887)
+k_g0         AUC_frac                     2422       0.214038  AGREE
+k_g0         AUC_frac_contra_as_fail      2433      -0.193692  DISAGREE diff=2.521e-06 n_diff=0 (mine n=2433 excl_unreached=0 excl_nan=0; harness n=2433 excl_unreached=0 excl_nan=1887)
+k_accuracy   AUC_frac                     2422       0.001134  AGREE
+k_accuracy   AUC_frac_contra_as_fail      2433      -0.116132  DISAGREE diff=3.024e-05 n_diff=0 (mine n=2433 excl_unreached=0 excl_nan=0; harness n=2433 excl_unreached=0 excl_nan=1887)
+
+Tau comparisons: agree(<=1e-6, same n)=5, disagree=5, total=10
+
+=== SUMMARY ===
+Task A: AUC_frac mismatches=0, AUC_frac_contra_as_fail mismatches=0
+Task B: tau disagreements=5 / 10
+Task C: digest mismatches=0
+Task D: (i)=0 (ii)=0 (iii)=0 (iv)=0 n_draws_uniform_1000=True

@@ -1,0 +1,50 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__Acid_1996",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "Acid_1996"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "Acid_1996",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 10,
+  "n_scored": 10,
+  "n_cells": 10,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "n_asked": 1,
+  "assert_rate": 1.0,
+  "k_accuracy": 1.0,
+  "n_k_correct": 1,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 1,
+  "shd_truth": 0,
+  "instance_status_counts": {
+    "ok": 10
+  },
+  "radius_median_ok": 1.0,
+  "n_radius_ok": 10,
+  "cache": {
+    "graph_hits": 999,
+    "graph_misses": 1,
+    "verdict_hits": 9990,
+    "verdict_misses": 10
+  },
+  "elapsed_s": 0.019,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Acid_1996.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Acid_1996.cells.jsonl",
+  "instances_sha256": "951770bacaad236c4843b353fd35725885814aa1e745d8ef82da504c4950d38d",
+  "cells_sha256": "7b365164fff0355991fa538373c6d4781c14d3218531c6da0851b40b6e56f00b",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:20Z"
+}

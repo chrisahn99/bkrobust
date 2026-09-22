@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_GEMMA_27B__child",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_GEMMA_27B",
+    "network": "child"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_GEMMA_27B",
+  "network": "child",
+  "model": "gemma-3-27b-it",
+  "family": "gemma",
+  "naming": "real",
+  "n_frame_rows": 18,
+  "n_scored": 17,
+  "n_cells": 170,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 10,
+  "n_asked": 12,
+  "assert_rate": 0.8333333333333334,
+  "k_accuracy": 0.9,
+  "n_k_correct": 9,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 12,
+  "shd_truth": 2,
+  "instance_status_counts": {
+    "ok": 17,
+    "optimal_set_undefined": 1
+  },
+  "radius_median_ok": 2,
+  "n_radius_ok": 17,
+  "cache": {
+    "graph_hits": 8983,
+    "graph_misses": 1017,
+    "verdict_hits": 6885,
+    "verdict_misses": 323
+  },
+  "elapsed_s": 1.481,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_GEMMA_27B__child.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_GEMMA_27B__child.cells.jsonl",
+  "instances_sha256": "c059d2aee22557c1429b9e590c9718b3ab67b390e7c957b9699467bb3d43da4f",
+  "cells_sha256": "24a9aa2358c718d5ec3e4542b226ece34e4acf8cc91a43d5a288a925dd3c5619",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:52:23Z"
+}

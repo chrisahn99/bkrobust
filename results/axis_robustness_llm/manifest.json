@@ -1,0 +1,180 @@
+{
+  "campaign": "axis_robustness_llm",
+  "k_source": "results/elicit/knowledge.json",
+  "k_source_note": "benchmarks.measure.select_knowledge is never called on this arm; K is the model's own asserted orientations.",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame": "results/axis_robustness_real/frame.jsonl",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "n_frame_rows": 831,
+  "n_frame_networks": 25,
+  "n_distinct_pairs": 543,
+  "conditions": [
+    {
+      "condition": "D_LLM",
+      "model": "qwen2.5:7b-instruct",
+      "family": "qwen2",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_LLM_32B",
+      "model": "Qwen2.5-32B-Instruct",
+      "family": "qwen2",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_LLM_72B",
+      "model": "Qwen2.5-72B-Instruct",
+      "family": "qwen2",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_LLM_72B_INSTR",
+      "model": "Qwen2.5-72B-Instruct",
+      "family": "qwen2",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 1,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_LLM_GEMMA_27B",
+      "model": "gemma-3-27b-it",
+      "family": "gemma",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_LLM_INSTR",
+      "model": "qwen2.5:7b-instruct",
+      "family": "qwen2",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 1,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_LLM_SRC",
+      "model": "llama3.1:8b",
+      "family": "llama",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_LLM_SRC_70B",
+      "model": "Llama-3.3-70B-Instruct",
+      "family": "llama",
+      "naming": "real",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_SCRAMBLED",
+      "model": "qwen2.5:7b-instruct",
+      "family": "qwen2",
+      "naming": "scrambled",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    },
+    {
+      "condition": "D_SCRAMBLED_72B",
+      "model": "Qwen2.5-72B-Instruct",
+      "family": "qwen2",
+      "naming": "scrambled",
+      "elicit_arm": "deployment",
+      "order_seed": 0,
+      "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+      "true_dag_on_path": "false"
+    }
+  ],
+  "n_conditions": 10,
+  "panel_real_naming": [
+    "D_LLM",
+    "D_LLM_32B",
+    "D_LLM_72B",
+    "D_LLM_72B_INSTR",
+    "D_LLM_GEMMA_27B",
+    "D_LLM_INSTR",
+    "D_LLM_SRC",
+    "D_LLM_SRC_70B"
+  ],
+  "control_scrambled_naming": [
+    "D_SCRAMBLED",
+    "D_SCRAMBLED_72B"
+  ],
+  "networks_absent_from_bundle": [
+    "pathfinder"
+  ],
+  "cells_not_elicited": [
+    [
+      "D_LLM",
+      "pathfinder"
+    ],
+    [
+      "D_LLM_32B",
+      "pathfinder"
+    ],
+    [
+      "D_LLM_72B",
+      "pathfinder"
+    ],
+    [
+      "D_LLM_72B_INSTR",
+      "pathfinder"
+    ],
+    [
+      "D_LLM_GEMMA_27B",
+      "pathfinder"
+    ],
+    [
+      "D_LLM_INSTR",
+      "pathfinder"
+    ],
+    [
+      "D_LLM_SRC",
+      "pathfinder"
+    ],
+    [
+      "D_LLM_SRC_70B",
+      "pathfinder"
+    ],
+    [
+      "D_SCRAMBLED",
+      "pathfinder"
+    ],
+    [
+      "D_SCRAMBLED_72B",
+      "pathfinder"
+    ]
+  ],
+  "n_shards": 240,
+  "n_draws": 1000,
+  "wall_cap_s": 18000.0,
+  "grid": "rs.depth_grid(|K|) -- frac10, identical to the committed real arm",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "built_utc": "2026-09-22T12:49:53Z"
+}

@@ -121,6 +121,20 @@ coverage.xml
 # manifests are deliverables cited by report_real_survival.md and
 # table_tau_real.md.
 !/results/axis_robustness_real/
+# The elicited-knowledge survival panel: the same survival/ranking design run
+# with K read from results/elicit/knowledge.json instead of built by
+# benchmarks.measure.select_knowledge, swept over all ten elicitation
+# conditions. One shard per (condition, network). The per-grid-point curve
+# rows, the per-instance rows and the manifest are the deliverables -- every
+# reported number derives from them, and they are far smaller than the real
+# arm's because there is no coverage x base-wrongness x replicate cross.
+!/results/axis_robustness_llm/
+# The repo-wide `*.log` rule (added for LaTeX) also catches this sweep's logs.
+# The 240 per-shard logs are regenerable and their durable content -- elapsed
+# time, cache hit counts, status counts, both file digests, the git sha and the
+# knowledge.json digest -- is already in _done/<shard>.json. The panel-level log
+# is the session's own timeline, so that one is kept.
+!/results/axis_robustness_llm/_logs/panel_*.log
 # Reviewer point 6: the N=1000 synthetic survival rerun (40 instances/cell, the
 # originally pre-registered quota) carrying the corruption denominators and the
 # new baseline predictors. The per-grid-point curves and the per-instance rows

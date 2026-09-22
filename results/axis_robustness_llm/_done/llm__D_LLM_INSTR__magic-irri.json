@@ -1,0 +1,50 @@
+{
+  "shard_id": "llm__D_LLM_INSTR__magic-irri",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_INSTR",
+    "network": "magic-irri"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_INSTR",
+  "network": "magic-irri",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 11,
+  "n_scored": 11,
+  "n_cells": 77,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 7,
+  "n_asked": 11,
+  "assert_rate": 0.6363636363636364,
+  "k_accuracy": 0.2857142857142857,
+  "n_k_correct": 2,
+  "n_k_wrong": 5,
+  "n_off_skeleton": 0,
+  "k_g0": 8,
+  "shd_truth": 14,
+  "instance_status_counts": {
+    "ok": 11
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 11,
+  "cache": {
+    "graph_hits": 6873,
+    "graph_misses": 127,
+    "verdict_hits": 60940,
+    "verdict_misses": 1045
+  },
+  "elapsed_s": 0.518,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_INSTR__magic-irri.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_INSTR__magic-irri.cells.jsonl",
+  "instances_sha256": "dbe88d8fb3bde6b42b2520d3661ceb6854c7d8f76370c27aa733d8ba07aae9c9",
+  "cells_sha256": "fbacaa7721f75d80367a6f2c76d0fd08f1acead9e4d3d7d6d98195726b077b24",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:52:36Z"
+}

@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__Schipf_2010",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "Schipf_2010"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "Schipf_2010",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 11,
+  "n_scored": 1,
+  "n_cells": 1,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "n_asked": 6,
+  "assert_rate": 0.16666666666666666,
+  "k_accuracy": 0.0,
+  "n_k_correct": 0,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 3,
+  "shd_truth": 7,
+  "instance_status_counts": {
+    "optimal_set_undefined": 10,
+    "ok": 1
+  },
+  "radius_median_ok": 2,
+  "n_radius_ok": 1,
+  "cache": {
+    "graph_hits": 999,
+    "graph_misses": 1,
+    "verdict_hits": 999,
+    "verdict_misses": 1
+  },
+  "elapsed_s": 0.034,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Schipf_2010.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Schipf_2010.cells.jsonl",
+  "instances_sha256": "f0521027575246d370709aaf1a9b038f0a732e585540ac278426c5dc2b4d2c0c",
+  "cells_sha256": "b456f3b6896e8a82e9e77f3bf27b83cd4a7d70755c426a3a30ceacc66e00c98d",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:18Z"
+}

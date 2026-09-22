@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__barley",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "barley"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "barley",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 85,
+  "n_scored": 33,
+  "n_cells": 132,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 4,
+  "n_asked": 9,
+  "assert_rate": 0.4444444444444444,
+  "k_accuracy": 1.0,
+  "n_k_correct": 4,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 5,
+  "shd_truth": 4,
+  "instance_status_counts": {
+    "ok": 33,
+    "optimal_set_undefined": 52
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 33,
+  "cache": {
+    "graph_hits": 3985,
+    "graph_misses": 15,
+    "verdict_hits": 49104,
+    "verdict_misses": 231
+  },
+  "elapsed_s": 0.49,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__barley.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__barley.cells.jsonl",
+  "instances_sha256": "c80fe1f0122a2bcdabdf9319d820ea4cbef1fae66ad9e3f130bf381985b0b1cb",
+  "cells_sha256": "3bd59e20dc510d9a620de5fc123aec34296fab79333f93367f86e0722defec1b",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:51:17Z"
+}
