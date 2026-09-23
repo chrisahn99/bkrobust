@@ -109,7 +109,8 @@ def radius_local_up_fast(
         fails: Predicate that is ``True`` where the property fails.
         max_depth: Stop after this many retractions; on exhaustion the result is
             the anytime statement ``radius >= max_depth + 1``, with
-            ``exact=False``.
+            ``exact=False``. If the up-set is exhausted within the budget, the
+            result is exact even though the budget was reached.
         stats: Optional counters.
 
     Returns:
@@ -128,7 +129,14 @@ def radius_local_up_fast(
         cur, d = frontier.popleft()
         st.elements_visited += 1
         if max_depth is not None and d >= max_depth:
-            budget_hit = True
+            # Only a state with an unseen cover leaves anything unexplored. A
+            # state at the budget with none (e.g. the top of the up-set) means
+            # the search was exhaustive, and reporting it as budget-limited would
+            # send the hybrid to the ladder for nothing.
+            if not budget_hit and any(
+                h.edge_string() not in seen for h in local_up_covers_fast(cpdag, cur, st)
+            ):
+                budget_hit = True
             continue
         for h in local_up_covers_fast(cpdag, cur, st):
             key = h.edge_string()
