@@ -18,7 +18,7 @@ import re
 import statistics as st
 import sys
 
-TXT = pathlib.Path("report_saturation_gac.md").read_text()
+TXT = pathlib.Path("reports/sessions/report_saturation_gac.md").read_text()
 RES = pathlib.Path("results/axisa2")
 UNREACHED = -1
 fails: list[str] = []
@@ -266,7 +266,7 @@ check("reps un", _un, "UNREACHED in 26")
 check("reps max rval", max(r["r_val"] for r in re_acc), "radii out to 8")
 
 for fig in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", TXT):
-    if not pathlib.Path(fig).exists():
+    if not pathlib.Path("reports/sessions", fig).exists():
         fails.append(f"figure missing on disk: {fig}")
 
 print(f"anchors checked; {len(fails)} problem(s)")

@@ -186,7 +186,7 @@ median radius is **diagonal in `s` and flat in `c`**:
 threshold was "fewer than 50% at `r = 1` for `s ≥ 3`"; the measured value is
 zero.
 
-![radius vs separation](figures/s5_f1_radius_vs_separation.png)
+![radius vs separation](../../figures/s5_f1_radius_vs_separation.png)
 
 ### 4.2 H8 — component size. Refuted as an independent effect.
 
@@ -195,7 +195,7 @@ rather than on marginals, because `c` and `s` are correlated by construction.
 The table settles it: **at fixed `s`, the median radius is identical across every
 `c` from 2 to 12.** Component size matters only by permitting larger separation.
 
-![two-way table](figures/s5_f2_two_way_table.png)
+![two-way table](../../figures/s5_f2_two_way_table.png)
 
 The counter-mechanism I pre-registered — a larger component admits more
 extensions per release, giving any single release more chances to produce a
@@ -316,9 +316,9 @@ because random instances have other routes to failure:
 | 3 | 29 | 27.6% | 2 |
 | 4 | 4 | 50.0% | 2 |
 
-![natural separation](figures/s5_f3_natural_separation.png)
+![natural separation](../../figures/s5_f3_natural_separation.png)
 
-![designed vs random](figures/s5_f4_designed_vs_random.png)
+![designed vs random](../../figures/s5_f4_designed_vs_random.png)
 
 ### 5.4 Corroboration from a generator I did not write
 
@@ -355,7 +355,7 @@ It does not stay open.
 | back-door pool | 27,552 | **0** | 0 / 420 |
 | GAC pool | 40,740 | **0** | 0 / 420 |
 
-![frontier](figures/s5_f5_frontier.png)
+![frontier](../../figures/s5_f5_frontier.png)
 
 **32.4% of the GAC pool — 13,188 candidate sets — never existed under
 back-door**, and the pool is strictly larger on 256 of the 420 instances. `O*`

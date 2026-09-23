@@ -49,7 +49,7 @@ def _j(rel: str) -> dict[str, Any]:
     return json.loads(p.read_text()) if p.exists() else {}
 
 
-def build(out_path: str | Path = "REPORT_AXISB_DEEP.pdf") -> Path:
+def build(out_path: str | Path = "reports/sessions/REPORT_AXISB_DEEP.pdf") -> Path:
     """Assemble the session-2 PDF."""
     st = styles()
     t0 = _j("task0_space_membership.json")

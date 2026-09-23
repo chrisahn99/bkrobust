@@ -144,7 +144,7 @@ down-leg in all 1,044.
 On the worked example of session 1, all three encodings return the published
 **3 / 3 / 2**, in about 10 ms, without ever building the 48-element space.
 
-![agreement](figures/s3_f4_agreement.png)
+![agreement](../../figures/s3_f4_agreement.png)
 
 ### An honesty fix found during validation
 
@@ -194,7 +194,7 @@ plainly — the SAT solver is barely searching, so these timings measure *encodi
 size*, not search difficulty, and they should not be extrapolated to regimes
 where the solver actually has to work.
 
-![cost by n](figures/s3_f1_cost_by_n.png)
+![cost by n](../../figures/s3_f1_cost_by_n.png)
 
 ### 3.2 Against building the space: crossover at m = 5, then no contest
 
@@ -213,7 +213,7 @@ the binding cost, consistent with session 2's measured `3.97^k` for BFS
 construction. This is the clean, uncontroversial win: **anything that needs only
 a radius, not the whole space, should not be building the space.**
 
-![crossover vs BFS](figures/s3_f2_crossover_vs_bfs.png)
+![crossover vs BFS](../../figures/s3_f2_crossover_vs_bfs.png)
 
 ### 3.3 Against `local_up`: the encoding loses, and the reason is instructive
 
@@ -270,7 +270,7 @@ case**, and the worst case is realised precisely on the degenerate instances.
 Its *observed* cost is dominated by how fast it stumbles onto a failure, which is
 why `k` alone does not predict the crossover and the radius does.
 
-![crossover vs local_up](figures/s3_f3_crossover_vs_local_up.png)
+![crossover vs local_up](../../figures/s3_f3_crossover_vs_local_up.png)
 
 **This is the practically useful half.** Finding a nearby failure is the easy
 question; *certifying that no failure exists within the space* is the one that
@@ -306,7 +306,7 @@ instances E1 wins on, and any aggregate that averages them together with the
 radius-1 cases is measuring a mixture of two very different problems. The
 `UNREACHED` sentinel is never averaged and never plotted as a number.
 
-![degeneracy](figures/s3_f6_degeneracy.png)
+![degeneracy](../../figures/s3_f6_degeneracy.png)
 
 ---
 
@@ -353,7 +353,7 @@ nothing is much stronger evidence than an undirected one.
    as session 2 left it. Nothing here closes it, and this session did not try —
    it was explicitly parked.
 
-![Conjecture 2 margins](figures/s3_f5_c2_margin.png)
+![Conjecture 2 margins](../../figures/s3_f5_c2_margin.png)
 
 **What it does add.** Session 2's evidence for Conjecture 2 was ~2M comparisons
 inside enumerated spaces at n ≤ 5. This adds instances an order of magnitude

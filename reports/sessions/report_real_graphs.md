@@ -143,9 +143,9 @@ discovery generally, not just of this method.
 | largest chain component | **85** (pathfinder) |
 | networks with max component > 6 | **11 of 39** |
 
-![undirected fraction](figures/s6_f1_undirected_fraction.png)
+![undirected fraction](../../figures/s6_f1_undirected_fraction.png)
 
-![component sizes](figures/s6_f2_component_sizes.png)
+![component sizes](../../figures/s6_f2_component_sizes.png)
 
 The shape is a low median with a heavy tail. Most real networks are largely
 compelled by their own v-structures — **pigs has 441 nodes, 592 edges and not one
@@ -237,7 +237,7 @@ so it can never be read as a structural rejection.
 - separation undefined (no `O(G₀)` member in `X`'s component):
   **368 of 831** (44.3%) — a status, never a number
 
-![separation](figures/s6_f3_separation.png)
+![separation](../../figures/s6_f3_separation.png)
 
 Both weightings are given because they differ, and the difference is the point:
 pair-weighting lets a few large networks dominate, network-weighting lets a

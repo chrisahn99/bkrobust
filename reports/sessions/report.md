@@ -52,7 +52,7 @@ BMI-Chol   BMI-Smoke   CRP-Chol   CRP-Statin   Chol-Statin
 
 Those five form a single chordal component on `{Smoke, BMI, Chol, CRP, Statin}`.
 
-![The example](figures/fig1_example.png)
+![The example](../../figures/fig1_example.png)
 
 *Figure 1. Ground-truth DAG, the CPDAG the analyst actually estimates, and the
 MPDAG `G0` each scenario ends up with. Take from this: the treatment `Statin`
@@ -188,7 +188,7 @@ identity of indiscernibles, symmetry and the triangle inequality all hold, with
 This is the core of the demonstration. We do scenario **B** — the analyst who
 believes statins lower CRP — explicitly, then summarise A and C.
 
-![The layered space](figures/fig2_layered_space_B.png)
+![The layered space](../../figures/fig2_layered_space_B.png)
 
 *Figure 2. The perturbation space for scenario B, laid out by shell index around
 `G0`. Blue circles: the adjustment set is valid. Orange crosses: it is not. Take
@@ -229,7 +229,7 @@ four. Note that the flip of `CRP−Statin` here returns the analyst to the *trut
 un-orient BMI-Chol ; un-orient BMI-Smoke ; un-orient Chol-Statin
 ```
 
-![Witness](figures/fig4_witness_B.png)
+![Witness](../../figures/fig4_witness_B.png)
 
 *Figure 4. `G0` beside the first failing graph, differing edges highlighted.
 Take from this: the failure is reached by retracting three claims, not by
@@ -238,7 +238,7 @@ asserting anything false.*
 **Beyond shell 3**, failures accumulate monotonically and mean bias rises
 steadily to 0.62 at shell 10.
 
-![Shell profile](figures/fig3_shell_profile.png)
+![Shell profile](../../figures/fig3_shell_profile.png)
 
 *Figure 3. Shell index against graph counts and bias, all three scenarios. Take
 from this: bias is exactly zero while Z remains valid and rises only once
@@ -375,7 +375,7 @@ orientation of the entire confounder block and Meek propagation chains them
 into eight covering steps. An analyst reasoning in assertion counts would badly
 underestimate how different that world is from theirs.
 
-![Baseline scatter](figures/fig5_baseline_scatter.png)
+![Baseline scatter](../../figures/fig5_baseline_scatter.png)
 
 *Figure 5. Model-oriented radius against naive K-count radius. Take from this:
 the relationship is monotone but loose, and the naive count sits below the
@@ -428,7 +428,7 @@ action: the certificate declined to vouch for a case that was in fact fine.
 We computed `r_val` for *every* valid adjustment set of `G0`, not just the
 optimal one.
 
-![Robustness frontier](figures/fig6_robustness_frontier.png)
+![Robustness frontier](../../figures/fig6_robustness_frontier.png)
 
 *Figure 6. Breakdown radius against asymptotic variance across all valid
 adjustment sets. Take from this: the frontier is flat — there is no

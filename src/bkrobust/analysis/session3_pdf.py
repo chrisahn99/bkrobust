@@ -749,7 +749,7 @@ def _next(st: dict[str, Any], f: dict[str, Any]) -> list[Any]:
     ]
 
 
-def build(out_path: str | Path = "REPORT_AXISB_SAT.pdf") -> Path:
+def build(out_path: str | Path = "reports/sessions/REPORT_AXISB_SAT.pdf") -> Path:
     """Assemble the session-3 PDF. Returns the path written."""
     st = styles()
     f = _facts()

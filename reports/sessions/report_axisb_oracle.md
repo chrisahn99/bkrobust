@@ -61,7 +61,7 @@ side totals 0.69 s across 62 instances while the UNSAT side totals 22.74 s acros
 53, so the "all" column is essentially the UNSAT column. The SAT-side
 percentages rest on a very small total and should not be leaned on.
 
-![profile](figures/s4_f1_profile_split.png)
+![profile](../../figures/s4_f1_profile_split.png)
 
 ### 1.1 What that implies, by Amdahl
 
@@ -78,7 +78,7 @@ The criterion **cannot** be the substantial ceiling-mover the plan hoped for, on
 its own. That was worth knowing before building it rather than after, which is
 what the front-loaded measurement bought.
 
-![amdahl](figures/s4_f2_amdahl.png)
+![amdahl](../../figures/s4_f2_amdahl.png)
 
 ---
 
@@ -139,7 +139,7 @@ cover-minimality share.
 **What it does not do.** This is a constant factor. `fast` still timed out on 6
 of 144 instances. Lemma O changes the coefficient, not the exponent.
 
-![fast vs frozen](figures/s4_f3_fast_vs_frozen.png)
+![fast vs frozen](../../figures/s4_f3_fast_vs_frozen.png)
 
 ---
 
@@ -344,7 +344,7 @@ one of them fits the dispatch's design exactly — all nine are **UNSAT**
 Dispatch over the whole run: 148 instances answered by the search, 108 by the
 ladder. Neither leg is redundant.
 
-![envelope](figures/s4_f5_hybrid_envelope.png)
+![envelope](../../figures/s4_f5_hybrid_envelope.png)
 
 ---
 

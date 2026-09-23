@@ -213,8 +213,8 @@ graph space and in prompt position. Report invariance under scrambled names.
 ### [RE-11] Survival and cross-arm on the 831 real rows — **DONE (2026-09-16)**
 
 Run on branch `experiments/todo_1`. Results: `results/axis_robustness_real/`.
-Report: [`report_real_survival.md`](../report_real_survival.md). Anchor table:
-[`table_tau_real.md`](../table_tau_real.md). Pre-registration, with directional
+Report: [`report_real_survival.md`](../reports/sessions/report_real_survival.md). Anchor table:
+[`table_tau_real.md`](../reports/tables/table_tau_real.md). Pre-registration, with directional
 predictions recorded before any curve existed and every correction in a dated
 appendix: `results/axis_robustness_real/PREREGISTRATION.md`.
 

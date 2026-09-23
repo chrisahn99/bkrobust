@@ -20,7 +20,7 @@ verified not proved)*; the error is one-sided, so radii can only be too **large*
 
 ## 1. The headline, in the order a reviewer should read it
 
-**Anchor table: [`table_tau_real.md`](table_tau_real.md).**
+**Anchor table: [`table_tau_real.md`](../tables/table_tau_real.md).**
 
 | | result |
 |---|---|
@@ -547,7 +547,7 @@ keeps the two apart.
 
 ## 14. What the paper can now say
 
-See [`docs/PAPER_NOTE_RE11.md`](docs/PAPER_NOTE_RE11.md) for the sentences and the
+See [`docs/PAPER_NOTE_RE11.md`](../../docs/PAPER_NOTE_RE11.md) for the sentences and the
 TODO this discharges.
 
 ## 15. Reproducing this

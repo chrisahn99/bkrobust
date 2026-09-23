@@ -844,7 +844,7 @@ def _limits_and_direction(st: dict[str, Any], f: dict[str, Any]) -> list[Any]:
     ]
 
 
-def build(out_path: str | Path = "REPORT_SATURATION_GAC.pdf") -> Path:
+def build(out_path: str | Path = "reports/sessions/REPORT_SATURATION_GAC.pdf") -> Path:
     """Assemble the session-5 PDF. Returns the path written."""
     st = styles()
     f = _facts()

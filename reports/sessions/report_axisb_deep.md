@@ -56,7 +56,7 @@ state : Meek-closed ✓  5 DAG extensions ✓  maximally oriented ✓  → exclu
 **The scale was understated.** The previous session reported 0.09%, measured *per
 Meek closure*. Per element of the space it is far larger and grows with density:
 
-![Task 0](figures/s2_f1_task0_exclusion.png)
+![Task 0](../../figures/s2_f1_task0_exclusion.png)
 
 *Figure 1. Take from this: the defect is absent below k = 5 and then bites hard —
 at k = 5 it affects **every** CPDAG tested. The shaded band is the density range
@@ -187,7 +187,7 @@ Conjecture 2 by brute force, and that distinction is deliberate and stated.
 So the previous report's most pointed caveat — *"all CPDAGs on ≤ 5 nodes with
 ≤ 6 undirected edges"* rather than *"all CPDAGs on ≤ 5 nodes"* — is retired.
 
-![Lemma L slack](figures/s2_f2_lemmaL_slack.png)
+![Lemma L slack](../../figures/s2_f2_lemmaL_slack.png)
 
 *Figure 2. Take from this: Lemma L is not balancing on the boundary. Only ~9–10%
 of pairs are tight at zero slack, so the inequality holds with room to spare, and
@@ -197,7 +197,7 @@ the margin does not shrink from n ≤ 4 to n = 5.*
 
 ## 3. Speedup at scale
 
-![Scaling](figures/s2_f3_scaling.png)
+![Scaling](../../figures/s2_f3_scaling.png)
 
 *Figure 3. Take from this: the single-query advantage keeps growing — 32,667× at
 k = 10 — while the amortised curve sits **below 1**, meaning the space-free
@@ -222,7 +222,7 @@ behaviour rather than `3^k`.
 further differential test, and — since `local_up` is upward BFS — simultaneously
 a further test of Conjecture 2 at sizes the conjecture sweep never reached.
 
-![Crossover](figures/s2_f4_crossover.png)
+![Crossover](../../figures/s2_f4_crossover.png)
 
 *Figure 4. Take from this, as a practitioner rule: building the space pays off
 only if you will ask **many** queries of the same CPDAG — about 175 at k = 7 and
@@ -242,7 +242,7 @@ components*, not memory or depth.
 The previous session's lower bound `L` covered only one failure mode — a member
 of `Z` becoming a descendant of `X` — and was undefined in 7.6% of instances.
 
-![Bounds](figures/s2_f5_bounds.png)
+![Bounds](../../figures/s2_f5_bounds.png)
 
 *Figure 5. Take from this: the back-door bound is what carries coverage. On its
 own the descendant mode supplies a bound in a small minority of instances; adding

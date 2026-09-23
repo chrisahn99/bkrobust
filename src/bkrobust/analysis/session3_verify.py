@@ -20,7 +20,7 @@ import re
 import statistics as st
 import sys
 
-TXT = pathlib.Path("report_axisb_sat.md").read_text()
+TXT = pathlib.Path("reports/sessions/report_axisb_sat.md").read_text()
 
 
 def _jsonl(name: str) -> list[dict]:
@@ -163,7 +163,7 @@ for m, rows_n, size, b, e, ratio in (
 
 # --- figures referenced exist ----------------------------------------------
 for fig in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", TXT):
-    if not pathlib.Path(fig).exists():
+    if not pathlib.Path("reports/sessions", fig).exists():
         fails.append(f"figure missing on disk: {fig}")
 
 print(f"anchors checked; {len(fails)} problem(s)")

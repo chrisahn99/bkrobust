@@ -21,7 +21,7 @@ import re
 import statistics as st
 import sys
 
-TXT = pathlib.Path("report_axisb_oracle.md").read_text()
+TXT = pathlib.Path("reports/sessions/report_axisb_oracle.md").read_text()
 RES = pathlib.Path("results/axisb4")
 
 
@@ -234,7 +234,7 @@ for comp, rows_n, kmed, kmax, m, w in (
 
 # --- figures referenced exist ----------------------------------------------
 for fig in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", TXT):
-    if not pathlib.Path(fig).exists():
+    if not pathlib.Path("reports/sessions", fig).exists():
         fails.append(f"figure missing on disk: {fig}")
 
 print(f"anchors checked; {len(fails)} problem(s)")

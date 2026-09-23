@@ -17,11 +17,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).parent / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 from bkrobust.robustness import analyse as an  # noqa: E402
 
-RESULTS_DIR = Path(__file__).parent / "results" / "axis_robustness"
+RESULTS_DIR = Path(__file__).resolve().parent.parent / "results" / "axis_robustness"
 
 
 def purity_grep() -> str:

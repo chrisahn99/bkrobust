@@ -33,7 +33,7 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_DIR = Path("results/axis_robustness_real")
-DEFAULT_TABLE = Path("table_tau_real.md")
+DEFAULT_TABLE = Path("reports/tables/table_tau_real.md")
 
 #: The nine pre-registered strata, keyed by the tag ``real_analyse`` writes, in
 #: the order their synthetic counterparts appear in

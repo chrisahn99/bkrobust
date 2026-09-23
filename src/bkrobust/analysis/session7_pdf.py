@@ -704,7 +704,7 @@ def _appendix(st: dict[str, Any]) -> list[Any]:
     return story
 
 
-def build(out_path: str | Path = "REPORT_FRAGILITY_AND_PARETO.pdf") -> Path:
+def build(out_path: str | Path = "reports/sessions/REPORT_FRAGILITY_AND_PARETO.pdf") -> Path:
     """Assemble the session-7 PDF. Returns the path written."""
     st = styles()
     doc = SimpleDocTemplate(

@@ -1473,7 +1473,7 @@ def _appendix(st: dict[str, ParagraphStyle]) -> list[Any]:
     return story
 
 
-def build(out_path: str | Path = "SESSION_REPORT.pdf") -> Path:
+def build(out_path: str | Path = "reports/sessions/SESSION_REPORT.pdf") -> Path:
     """Assemble the PDF. Returns the path written."""
     st = styles()
     doc = SimpleDocTemplate(

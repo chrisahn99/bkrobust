@@ -19,7 +19,7 @@ import re
 import statistics as st
 import sys
 
-TXT = pathlib.Path("report_real_graphs.md").read_text()
+TXT = pathlib.Path("reports/sessions/report_real_graphs.md").read_text()
 RES = pathlib.Path("results/axisa3")
 fails: list[str] = []
 
@@ -164,7 +164,7 @@ if max(r["radius"] for r in wkr) != 14:
 check("wk direction", None, "**Wrong knowledge makes radii larger, not smaller.**")
 
 for fig in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", TXT):
-    if not pathlib.Path(fig).exists():
+    if not pathlib.Path("reports/sessions", fig).exists():
         fails.append(f"figure missing on disk: {fig}")
 
 print(f"anchors checked; {len(fails)} problem(s)")

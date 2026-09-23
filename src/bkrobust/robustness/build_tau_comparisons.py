@@ -570,7 +570,7 @@ def main(results_dir: str, repo_root: str) -> None:
     import os
 
     annotated, doc = build(results_dir)
-    md_path = f"{repo_root}/table_tau_comparisons.md"
+    md_path = f"{repo_root}/reports/tables/table_tau_comparisons.md"
     csv_path = f"{results_dir}/table_tau_source.csv"
     if os.path.exists(csv_path):
         raise FileExistsError(f"refusing to overwrite existing file: {csv_path}")

@@ -78,8 +78,8 @@ order of magnitude when it is not. See
 Start with [docs/PAPER_NARRATIVE.md](docs/PAPER_NARRATIVE.md) -- the argument,
 the results that serve it, and the results to set aside. What is still unmeasured
 is in [docs/REMAINING_EXPERIMENTS.md](docs/REMAINING_EXPERIMENTS.md). The
-session reports at the root are sources for numbers, not drafts: several of their
-headlines are superseded.
+session reports in [reports/](reports/README.md) are sources for numbers, not
+drafts: several of their headlines are superseded.
 
 ---
 
@@ -141,13 +141,31 @@ src/bkrobust/
                   compound/tiered), sweep runners
   benchmarks/     benchmark-network acquisition, parsers, and the real-network
                   measurement driver (measure.py)
+  robustness/     survival under corrupted knowledge (flip and tiered arms,
+                  synthetic and real structure, LLM-elicited knowledge),
+                  baselines, bootstrap analyses, anchor-table builders
+  epsilon/        the bias functional B, the eps-bias radius and its mean
+                  profile, verification sweeps and counterexample search
   analysis/       per-session figures, PDF builders, and the verifiers that
                   re-assert every reported number against committed files
-results/          axisa*/ and axisb*/, each with a manifest recording git SHA,
-                  environment, solver seed, and a determinism block
+experiments/      sweep drivers for the committed results (final_table.py,
+                  e2e_speedup.py, matched_control.py, run_r_epsilon*.py,
+                  mean_*.py, elicit_*.py, run_analyse.py, ...), next to the
+                  Hydra scaffold entry points listed below
+scripts/          make_paper_figures.py (Figures 1, 2 and 4 of the paper, into
+                  figures/paper/), run_llm_survival_panel.sh
+results/          one directory per sweep, each with a manifest recording git
+                  SHA, environment, solver seed, and a determinism block
+                  (index in results/README.md)
 tests/            canonical graphs and the contracts everything depends on
-docs/             theory, experiment protocols, data and checkpoint provenance
-paper/            references and generated figures
+THEOREMS.md       formal statements, proofs and their status
+docs/             theory, protocols, result notes and paper briefs (index in
+                  docs/README.md)
+reports/          session reports, hand-offs, plans and anchor tables (index in
+                  reports/README.md)
+figures/          figures written by bkrobust.demo and bkrobust.analysis;
+                  paper/ holds the paper's own figures
+paper/            early drafts of two paper sections, and references
 ```
 
 **Scaffold — not implemented.** Every function in these packages raises
@@ -168,7 +186,9 @@ src/bkrobust/
   metrics/        effect metrics and structural metrics
   utils/          seeding, results IO, logging, shared plotting style
 configs/          Hydra configs for the scaffold entrypoints
-experiments/      thin Hydra entrypoints -- these drive the scaffold tree
+experiments/      the Hydra entrypoints tabled under "Running an experiment"
+                  (run_synthetic_sweep.py, ..., make_figures.py) -- these
+                  drive the scaffold tree
 ```
 
 Note the collisions: `graphs/mpdag.py` and `demo/graph.py` both define an
@@ -229,7 +249,7 @@ versions. Protocols, control arms, and reporting rules:
 ## Worked example: the breakdown radius
 
 A fully enumerated, exactly computed demonstration of the breakdown radius on a
-small clinical example lives in [`report.md`](report.md). It walks through what
+small clinical example lives in [`report.md`](reports/sessions/report.md). It walks through what
 one unit of perturbation is, builds the whole perturbation space layer by layer,
 and reports where an adjustment set first fails and what that means for a
 practitioner.
@@ -260,7 +280,7 @@ print(result.radius, result.method, result.assumes)
 
 `result.assumes` records the assumption chain the number inherits: every upward
 search is exact **iff Conjecture 2 holds**, which rests on Anti-Exchange Case B
-(verified, not proved -- [THEOREMS.md](THEOREMS.md) sections 4c and 6). The error
+(proved -- [THEOREMS.md](THEOREMS.md) section 4). The error
 is one-sided, so a radius can be too large but never too small. Do not drop that
 string when a number is copied into a table.
 
@@ -271,9 +291,10 @@ admissibility gates, and the gates are not equivalent** --
 cases, all one direction). Always record which one produced a number.
 
 Each `results/` subtree carries a `manifest.json` with the git SHA, environment,
-solver parameters and a determinism block, and the session reports are checked by
-`analysis/session*_verify.py`, which re-asserts every quoted number against the
-committed files.
+solver parameters and a determinism block, and the session reports in
+`reports/sessions/` are checked by `analysis/session*_verify.py`, which
+re-asserts every quoted number against the committed files. Run the verifiers
+from the repository root.
 
 ## Development
 
