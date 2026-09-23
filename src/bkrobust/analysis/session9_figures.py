@@ -80,8 +80,7 @@ N_EVAL_MIN = 30  # never plot a point backed by fewer evaluable draws than this.
 N_MATCHED_MIN = 15  # xarm bin floor for "carries the comparison" (F6).
 
 RADIUS_NOTE = (
-    "r_hop assumes Conjecture 2 (hence Anti-Exchange Case B, verified not proved); "
-    "the error is one-sided, so radii can only be too large."
+    "r_hop assumes Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4); radii are exact."
 )
 
 

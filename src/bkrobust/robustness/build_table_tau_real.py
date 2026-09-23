@@ -91,7 +91,7 @@ PREDICTORS: tuple[tuple[str, str], ...] = (
     ("k_g0", "k_g0"),
 )
 
-ASSUMPTION = "Conjecture 2 (hence Anti-Exchange Case B, verified not proved)"
+ASSUMPTION = "Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4)"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:

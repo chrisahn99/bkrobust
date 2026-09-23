@@ -281,7 +281,7 @@ def run_full_mode(out_dir: Path) -> int:
     print(f"    sampling phase complete in {sampling_elapsed:.1f}s")
 
     print("[5/5] computing the three tau_b comparisons and writing outputs ...")
-    r_assumes = "Conjecture 2 (hence Anti-Exchange Case B, verified not proved)"
+    r_assumes = "Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4)"
     tau_out_rows = []
     endpoint_names = {
         "check1_n200_reproduction": "AUC_frac (first 200 of 1000 draws)",

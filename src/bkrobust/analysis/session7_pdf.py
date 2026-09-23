@@ -65,8 +65,7 @@ from bkrobust.analysis.session_pdf import (
 FIGS = Path("figures")
 
 RADIUS_NOTE = (
-    "Conjecture 2 (hence Anti-Exchange Case B, verified not proved); the error "
-    "is one-sided, so radii can only be too large."
+    "Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4); radii are exact."
 )
 
 

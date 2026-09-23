@@ -70,8 +70,7 @@ FLIP_STRATA = [(cov, bw) for cov in (0.5, 1.0) for bw in (0.00, 0.10, 0.25)]
 TIERED_STRATA = [2, 3, 4]
 
 R_ASSUMES_FOOTNOTE = (
-    "Conjecture 2 (hence Anti-Exchange Case B, verified not proved); the error "
-    "is one-sided, so radii can only be too large."
+    "Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4); radii are exact."
 )
 GATE_FOOTNOTE = "benchmarks.measure.fast_gate exclusively."
 SHD_UNDEFINED_NOTE = "shd_truth ≡ 0 by construction there"

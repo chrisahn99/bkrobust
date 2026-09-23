@@ -115,8 +115,8 @@ class Certificate:
     seconds_r_val: float = 0.0
     seconds_r_eps: float = 0.0
     assumes: str = (
-        "Lemma L of THEOREMS.md (hence Anti-Exchange Case B, verified not proved), "
-        "exactly as r_val does; error is one-sided towards larger radii"
+        "Lemma L of THEOREMS.md (Anti-Exchange Case B, proved in THEOREMS.md "
+        "section 4), exactly as r_val does"
     )
     status: str = "ok"
     eps_scale: float = 1.0

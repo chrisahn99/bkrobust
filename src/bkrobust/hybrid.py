@@ -30,12 +30,11 @@ the E1 ladder, whose UNSAT rungs certify the clean shells directly.
   than by enumerating ``[G]`` and checking every extension.
 
 **What the answer assumes.** Both search methods are upward searches, so both
-are exact *iff Conjecture 2 holds*, which rests on Anti-Exchange Case B --
-verified, not proved (``THEOREMS.md`` sections 4c and 6). The error is
-one-sided: they can only ever return a radius that is too **large**, never too
-small, i.e. they can overstate robustness but never understate it. Every result
-carries this in :attr:`HybridResult.assumes`; do not drop it when the number is
-copied into a table.
+are exact *iff Conjecture 2 holds*. Conjecture 2 rests on Anti-Exchange Case B,
+which is now proved via the counting form of the Chickering--Meek theorem
+(``THEOREMS.md`` section 4), so both methods are exact. Every result carries
+this in :attr:`HybridResult.assumes`; do not drop it when the number is copied
+into a table.
 """
 
 from __future__ import annotations
@@ -87,7 +86,7 @@ class HybridResult:
     method: str
     oracle: str
     exact: bool = True
-    assumes: str = "Conjecture 2 (hence Anti-Exchange Case B, verified not proved)"
+    assumes: str = "Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4)"
     witness: str | None = None
     search_seconds: float = 0.0
     ladder_seconds: float = 0.0

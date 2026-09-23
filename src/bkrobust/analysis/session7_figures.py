@@ -84,8 +84,7 @@ C_GREY = "#888888"
 
 N_EVAL_MIN = 30  # never plot a point backed by fewer draws than this.
 RADIUS_NOTE = (
-    "r_val carries Conjecture 2 (hence Anti-Exchange Case B, verified not proved); "
-    "the error is one-sided, so radii can only be too large."
+    "r_val carries Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4); radii are exact."
 )
 
 
