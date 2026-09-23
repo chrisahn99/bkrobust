@@ -351,8 +351,8 @@ class EpsilonResult:
     states_evaluated: int = 0
     seconds: float = 0.0
     assumes: str = (
-        "Lemma L of THEOREMS.md (hence Anti-Exchange Case B, verified not proved), "
-        "exactly as r_val does; error is one-sided towards larger radii"
+        "Lemma L of THEOREMS.md (Anti-Exchange Case B, proved in THEOREMS.md "
+        "section 4), exactly as r_val does"
     )
     profile: list[ShellBias] = field(default_factory=list)
 
