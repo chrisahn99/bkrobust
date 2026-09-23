@@ -1,0 +1,79 @@
+{
+  "label": "C",
+  "relation_to_k_true": "K_true with CRP->Statin flipped and Smoke->BMI omitted",
+  "description": "As B, and the analyst also declines to commit on whether smoking raises BMI. The realistic messy case: one false belief and one gap. Strictly B plus ambiguity.",
+  "g0": "Age->BP Age->CVD BMI->Chol BP->CVD Chol->CRP Chol->Statin Smoke->CVD Statin->BP Statin->CRP Statin->CVD BMI-Smoke",
+  "cpdag": "Age->BP Age->CVD BP->CVD Smoke->CVD Statin->BP Statin->CVD BMI-Chol BMI-Smoke CRP-Chol CRP-Statin Chol-Statin",
+  "truth": "Age->BP Age->CVD BMI->Chol BP->CVD CRP->Statin Chol->CRP Chol->Statin Smoke->BMI Smoke->CVD Statin->BP Statin->CVD",
+  "adjustment_set_Z": [
+    "Age",
+    "Smoke"
+  ],
+  "space_size": 48,
+  "n_covering_pairs": 96,
+  "max_shell": 9,
+  "radii": {
+    "r_val": 2,
+    "r_opt": 2,
+    "r_eps_se": 2,
+    "r_eps_small": 2,
+    "r_eps_medium": 3
+  },
+  "witnesses": {
+    "r_val": {
+      "edge_string": "Age->BP Age->CVD BP->CVD Chol->CRP Smoke->CVD Statin->BP Statin->CRP Statin->CVD BMI-Chol BMI-Smoke Chol-Statin",
+      "shell": 2,
+      "moves": [
+        "un-orient BMI-Chol",
+        "un-orient Chol-Statin"
+      ]
+    },
+    "r_opt": {
+      "edge_string": "Age->BP Age->CVD BP->CVD Chol->CRP Smoke->CVD Statin->BP Statin->CRP Statin->CVD BMI-Chol BMI-Smoke Chol-Statin",
+      "shell": 2,
+      "moves": [
+        "un-orient BMI-Chol",
+        "un-orient Chol-Statin"
+      ]
+    },
+    "r_eps_se": {
+      "edge_string": "Age->BP Age->CVD BP->CVD Chol->CRP Smoke->CVD Statin->BP Statin->CRP Statin->CVD BMI-Chol BMI-Smoke Chol-Statin",
+      "shell": 2,
+      "moves": [
+        "un-orient BMI-Chol",
+        "un-orient Chol-Statin"
+      ]
+    },
+    "r_eps_small": {
+      "edge_string": "Age->BP Age->CVD BP->CVD Chol->CRP Smoke->CVD Statin->BP Statin->CRP Statin->CVD BMI-Chol BMI-Smoke Chol-Statin",
+      "shell": 2,
+      "moves": [
+        "un-orient BMI-Chol",
+        "un-orient Chol-Statin"
+      ]
+    },
+    "r_eps_medium": {
+      "edge_string": "Age->BP Age->CVD BP->CVD Smoke->CVD Statin->BP Statin->CRP Statin->CVD BMI-Chol BMI-Smoke CRP-Chol Chol-Statin",
+      "shell": 3,
+      "moves": [
+        "un-orient BMI-Chol",
+        "un-orient CRP-Chol",
+        "un-orient Chol-Statin"
+      ]
+    }
+  },
+  "eps_grid": {
+    "eps_se": 0.04866536738830173,
+    "eps_small": 0.057509921994757345,
+    "eps_medium": 0.2875496099737867
+  },
+  "standard_error_n1000": 0.024332683694150866,
+  "mean_abs_effect": 1.1501984398951468,
+  "metric_check": {
+    "identity_of_indiscernibles": true,
+    "symmetry": true,
+    "triangle_inequality": true,
+    "n_triples_checked": 110592
+  },
+  "metric_violations": []
+}

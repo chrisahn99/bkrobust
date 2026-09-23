@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__magic-irri__nt2__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "magic-irri",
+    "n_tiers": 2,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 5,
+  "n_cells": 45,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 9,
+  "cache": {
+    "graph_hits": 8489,
+    "graph_misses": 511,
+    "verdict_hits": 42445,
+    "verdict_misses": 2555
+  },
+  "elapsed_s": 2.354,
+  "instances_path": "results/axis_robustness_real/shards/xarm__magic-irri__nt2__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__magic-irri__nt2__flip.cells.jsonl",
+  "instances_sha256": "91e7e3e669123a38afd9315f6a0bd10cd80fb89de72a108e179031244aabd7a8",
+  "cells_sha256": "13fca8574e6cdfb751648ac7f5820346f6ea720dd1bf3d9b757605df774e7266",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:36Z"
+}

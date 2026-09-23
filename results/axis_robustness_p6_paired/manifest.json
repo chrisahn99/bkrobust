@@ -1,0 +1,22 @@
+{
+ "source": "results/axis_robustness_p6/survival_instances.csv",
+ "n_instances": 4104,
+ "n_strata": 9,
+ "cluster_col": "instance_id",
+ "n_boot": 10000,
+ "seed": 0,
+ "baselines": [
+  "shd_truth",
+  "n_k",
+  "k_g0",
+  "separation",
+  "phi_1",
+  "r_claim"
+ ],
+ "endpoint_by_arm": {
+  "flip": "AUC_frac",
+  "tiered": "AUC_frac"
+ },
+ "elapsed_seconds": 166.046218209,
+ "degeneracies_note": "measured per stratum from the rows themselves; see degeneracy_note column"
+}

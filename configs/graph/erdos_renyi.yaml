@@ -1,0 +1,30 @@
+# @package graph
+# Erdos-Renyi random DAG: uniform random topological order, each forward pair
+# included independently with probability `edge_prob`.
+name: erdos_renyi
+generator: erdos_renyi
+
+n_nodes: 10
+edge_prob: 0.3          # expected degree = edge_prob * (n_nodes - 1)
+max_in_degree: null     # optional cap, null = unbounded
+
+# Structural causal model attached to the sampled DAG.
+scm:
+  family: linear_gaussian     # linear_gaussian | anm | post_nonlinear
+  weight_range: [0.5, 2.0]    # |coefficient| sampled uniformly from this range
+  weight_sign: random         # random | positive
+  noise: gaussian             # gaussian | uniform | exponential
+  noise_scale: [0.5, 1.5]     # heteroscedastic across nodes; equal variances
+                              # would make varsortability trivial -- see
+                              # bkrobust.data.leakage
+  standardize: false          # see docs/DATA.md on why this is off by default
+
+# Treatment/outcome selection for the adjustment-set experiments.
+target:
+  selection: random_pair      # random_pair | max_path_count | fixed
+  treatment: null             # used when selection == fixed
+  outcome: null
+  require_causal_path: true   # reject (X, Y) pairs with no directed path X -> Y
+
+n_graphs: 50            # graphs drawn per configuration
+n_samples: 2000         # observations drawn per SCM

@@ -1,0 +1,21 @@
+{
+  "n_nodes": 5,
+  "n_cpdags_total": 8782,
+  "n_cpdags_used": 5895,
+  "n_instances": 134140,
+  "r_val_hist": {
+    "1": 71840,
+    "2": 14100,
+    "3": 2760
+  },
+  "r_val_unreached": 45440,
+  "n_frontier_checked": 134140,
+  "n_frontier_strict": 0,
+  "frontier_gap_hist": {
+    "0": 134140
+  },
+  "skipped_no_optimal": 179880,
+  "skipped_z_invalid_at_g0": 0,
+  "skipped_empty_z": 913380,
+  "runtime_seconds": 106.6
+}

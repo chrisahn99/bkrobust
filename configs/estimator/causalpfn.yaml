@@ -1,0 +1,23 @@
+# @package estimator
+# CausalPFN checkpoint, wrapped as an Estimator. Requires the [cfm] extra and
+# a downloaded checkpoint; see docs/CHECKPOINTS.md.
+name: causalpfn
+target: bkrobust.cfm.adapters.causalpfn.CausalPFNAdapter
+
+checkpoint: null            # registry key or local path; null = registry default
+revision: null              # pin a revision before any reported number
+device: ${compute.device}
+dtype: float32
+batch_size: 64
+
+estimand: ate
+requires_scm: false
+
+# How background knowledge reaches the model. See cfm/conditioning.py and
+# docs/CHECKPOINTS.md; not every checkpoint supports every mode.
+conditioning:
+  mode: attention_bias      # none | attention_bias | ancestral_matrix | prompt
+  bias_scale: 1.0           # magnitude added to attention logits for asserted
+                            # relations; 0.0 must reproduce mode=none exactly
+  encode_forbidden: true    # negative bias for forbidden relations
+  symmetrize: false

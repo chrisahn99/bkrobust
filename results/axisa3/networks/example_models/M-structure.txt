@@ -1,0 +1,26 @@
+# M-structure.txt: the explicit five-node latent expansion of M-bias.txt.
+# Derived 2026-09-12 from M-bias.txt in this directory (pgmpy 1.0.0 sdist,
+# pgmpy/utils/example_models/, file sha256
+# 54e23d916898f7334b1fca3fe43e3da44304378ad0faabce9e70fe198a6297f6), which is the
+# dagitty example ADMG: E -> D with E <-> Z and Z <-> D. Each bidirected edge is
+# replaced by a fresh parent of both endpoints, the canonical DAG of the ADMG:
+# U1 -> E, U1 -> Z stands for E <-> Z and U2 -> Z, U2 -> D stands for Z <-> D.
+# D, E and Z keep their original positions; U1 and U2 take the control points
+# dagitty attached to the two bidirected edges. With U1 and U2 as ordinary
+# (measured) nodes the graph is causally sufficient by construction and is the
+# M-structure of Greenland (2003), not the M-bias object: see
+# results/substrate/DECISIONS.md. Not part of the pgmpy acquisition manifest and
+# not in the frozen frame of results/frame.
+dag {
+bb="-3,-1.5,2,1.2"
+D [outcome,pos="1.000,1.000"]
+E [exposure,pos="-2.000,1.000"]
+U1 [pos="-2.000,-1.000"]
+U2 [pos="1.000,-1.000"]
+Z [pos="-0.500,0.500"]
+E -> D
+U1 -> E
+U1 -> Z
+U2 -> D
+U2 -> Z
+}

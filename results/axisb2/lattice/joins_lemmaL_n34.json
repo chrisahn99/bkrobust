@@ -1,0 +1,28 @@
+{
+  "scope": "all CPDAGs on 3 and 4 nodes with >=1 undirected edge, corrected space",
+  "n_spaces": 133,
+  "joins": {
+    "n_pairs": 40240,
+    "n_join_exists": 40240,
+    "n_candidate_is_join": 40240,
+    "n_candidate_not_upper": 0,
+    "n_candidate_outside_space": 0,
+    "failures": []
+  },
+  "lemma_L": {
+    "n_tested": 80480,
+    "n_violations": 0,
+    "n_join_missing": 0,
+    "slack_hist": {
+      "0": 8445,
+      "1": 19740,
+      "2": 21207,
+      "3": 16862,
+      "4": 9462,
+      "5": 3804,
+      "6": 960
+    },
+    "frac_zero_slack": 0.10493290258449305,
+    "violations": []
+  }
+}

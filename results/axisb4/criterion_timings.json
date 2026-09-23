@@ -1,0 +1,283 @@
+{
+  "baseline_before_the_change": {
+    "note": "Same harness, same seeds, against the path-enumerating decision. Recorded here because the point of the change is the gap. n >= 16 was not attempted: n = 14 already blew the cap.",
+    "worst_ms": {
+      "n=10,p=0.70": 172.2,
+      "n=10,p=0.85": 520.1,
+      "n=12,p=0.70": 12852.4,
+      "n=12,p=0.85": 48285.0,
+      "n=14,p=0.70": ">60000 (cap hit, run abandoned)",
+      "n=8,p=0.70": 4.7,
+      "n=8,p=0.85": 11.5
+    }
+  },
+  "how": "G0 = apply_orientations(dag_to_cpdag(erdos_renyi_dag(n, rng, p)), sorted(knowledge_to_recover(dag, cpdag))), mirroring bkrobust.hybrid. Seeds 0-2 per (n, p); 18 (x, y, z) queries per graph spread over 6 treatments and |z| in {0, 2, 4}. 'cold_cache' calls clear_cache() before every single call, so each one pays for its own Meek closure, adjacency tables and possible-descendant sets -- the pessimistic figure, and the relevant one when a search walks distinct graphs. 'warm_cache' reuses the memos across a graph's queries. 'condition_c_search_only' times the state search alone, with the closure already warm.",
+  "platform": {
+    "machine": "arm64",
+    "python": "3.9.6",
+    "system": "Darwin"
+  },
+  "rows": [
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0371,
+        "median_ms": 0.0316,
+        "p95_ms": 0.0597,
+        "worst_ms": 0.124
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0089,
+        "median_ms": 0.0049,
+        "p95_ms": 0.0529,
+        "worst_ms": 0.0584
+      },
+      "edge_prob": 0.7,
+      "mean_edges": 47.0,
+      "n": 12,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.007,
+        "median_ms": 0.002,
+        "p95_ms": 0.0233,
+        "worst_ms": 0.096
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0423,
+        "median_ms": 0.0342,
+        "p95_ms": 0.0948,
+        "worst_ms": 0.1723
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0064,
+        "median_ms": 0.0039,
+        "p95_ms": 0.0207,
+        "worst_ms": 0.0745
+      },
+      "edge_prob": 0.85,
+      "mean_edges": 56.0,
+      "n": 12,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0061,
+        "median_ms": 0.0015,
+        "p95_ms": 0.0305,
+        "worst_ms": 0.1149
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.057,
+        "median_ms": 0.0495,
+        "p95_ms": 0.0861,
+        "worst_ms": 0.2605
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0133,
+        "median_ms": 0.0033,
+        "p95_ms": 0.0872,
+        "worst_ms": 0.1284
+      },
+      "edge_prob": 0.7,
+      "mean_edges": 83.0,
+      "n": 16,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0106,
+        "median_ms": 0.0016,
+        "p95_ms": 0.0348,
+        "worst_ms": 0.1985
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0671,
+        "median_ms": 0.0552,
+        "p95_ms": 0.1409,
+        "worst_ms": 0.33
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.016,
+        "median_ms": 0.0045,
+        "p95_ms": 0.1,
+        "worst_ms": 0.2147
+      },
+      "edge_prob": 0.85,
+      "mean_edges": 101.0,
+      "n": 16,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0139,
+        "median_ms": 0.002,
+        "p95_ms": 0.0451,
+        "worst_ms": 0.3035
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0912,
+        "median_ms": 0.0701,
+        "p95_ms": 0.1259,
+        "worst_ms": 0.5593
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0173,
+        "median_ms": 0.0065,
+        "p95_ms": 0.0314,
+        "worst_ms": 0.2816
+      },
+      "edge_prob": 0.7,
+      "mean_edges": 130.0,
+      "n": 20,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0216,
+        "median_ms": 0.0015,
+        "p95_ms": 0.0635,
+        "worst_ms": 0.4918
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.106,
+        "median_ms": 0.0787,
+        "p95_ms": 0.1294,
+        "worst_ms": 0.8672
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0213,
+        "median_ms": 0.0021,
+        "p95_ms": 0.0426,
+        "worst_ms": 0.4381
+      },
+      "edge_prob": 0.85,
+      "mean_edges": 158.3,
+      "n": 20,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0252,
+        "median_ms": 0.0015,
+        "p95_ms": 0.0619,
+        "worst_ms": 0.6135
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.1276,
+        "median_ms": 0.0929,
+        "p95_ms": 0.1807,
+        "worst_ms": 1.1908
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0366,
+        "median_ms": 0.0069,
+        "p95_ms": 0.3893,
+        "worst_ms": 0.5105
+      },
+      "edge_prob": 0.7,
+      "mean_edges": 190.0,
+      "n": 24,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0296,
+        "median_ms": 0.0015,
+        "p95_ms": 0.0671,
+        "worst_ms": 1.0637
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.1409,
+        "median_ms": 0.1072,
+        "p95_ms": 0.1757,
+        "worst_ms": 1.2522
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0368,
+        "median_ms": 0.0024,
+        "p95_ms": 0.3409,
+        "worst_ms": 0.7635
+      },
+      "edge_prob": 0.85,
+      "mean_edges": 232.3,
+      "n": 24,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0293,
+        "median_ms": 0.0015,
+        "p95_ms": 0.0694,
+        "worst_ms": 1.0697
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.2034,
+        "median_ms": 0.149,
+        "p95_ms": 0.3171,
+        "worst_ms": 2.1811
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.035,
+        "median_ms": 0.0048,
+        "p95_ms": 0.2172,
+        "worst_ms": 0.832
+      },
+      "edge_prob": 0.7,
+      "mean_edges": 301.7,
+      "n": 30,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0489,
+        "median_ms": 0.0023,
+        "p95_ms": 0.0754,
+        "worst_ms": 2.0689
+      }
+    },
+    {
+      "cold_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.2236,
+        "median_ms": 0.1631,
+        "p95_ms": 0.3001,
+        "worst_ms": 2.5844
+      },
+      "condition_c_search_only": {
+        "calls": 54,
+        "mean_ms": 0.0362,
+        "median_ms": 0.0025,
+        "p95_ms": 0.0652,
+        "worst_ms": 1.3348
+      },
+      "edge_prob": 0.85,
+      "mean_edges": 370.0,
+      "n": 30,
+      "warm_cache_why_invalid": {
+        "calls": 54,
+        "mean_ms": 0.0481,
+        "median_ms": 0.0015,
+        "p95_ms": 0.052,
+        "worst_ms": 2.1517
+      }
+    }
+  ],
+  "what": "Per-call wall time of bkrobust.mpdag_criterion.why_invalid on dense Erdos-Renyi instances, after replacing the exponential path enumeration in condition (c) and in possible_descendants with polynomial edge-state searches."
+}

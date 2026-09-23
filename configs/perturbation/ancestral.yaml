@@ -1,0 +1,26 @@
+# @package perturbation
+# Misspecification by ancestral constraint: assert `a` is (not) an ancestor of
+# `b` contrary to the truth. Weaker than an orientation claim -- one ancestral
+# constraint can force an orientation cascade far from the asserted pair.
+name: ancestral
+kind: ancestral
+
+delta_grid: [0, 1, 2, 3, 4, 5]
+
+scope:
+  polarity: both            # ancestor | non_ancestor | both
+  undirected_only: true     # only pairs whose ancestral relation is not already
+                            # determined by the CPDAG
+  restrict_to: all
+  radius_from_target: null
+  exclude_target_pair: true # never assert about (treatment, outcome) directly;
+                            # that is a different (trivial) failure mode
+
+distance: orientation_flips  # ancestral constraints are compared in the metric
+                             # induced on the closure, not on the raw assertion
+
+sampling:
+  n_draws: 100
+  max_rejections: 10000
+  require_false: true
+  exact_radius: true

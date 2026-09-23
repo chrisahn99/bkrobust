@@ -1,0 +1,50 @@
+{
+  "shard_id": "llm__D_LLM__Shrier_2008",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM",
+    "network": "Shrier_2008"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM",
+  "network": "Shrier_2008",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 7,
+  "n_scored": 7,
+  "n_cells": 14,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_asked": 3,
+  "assert_rate": 0.6666666666666666,
+  "k_accuracy": 1.0,
+  "n_k_correct": 2,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 3,
+  "shd_truth": 0,
+  "instance_status_counts": {
+    "ok": 7
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 7,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 13979,
+    "verdict_misses": 21
+  },
+  "elapsed_s": 0.04,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM__Shrier_2008.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM__Shrier_2008.cells.jsonl",
+  "instances_sha256": "54b31c41afa7210a5e450ed3a79863f2c62ffe56b6106e7bc48a26a6f37ba258",
+  "cells_sha256": "4931304738d3ea1efe9a4e6af9e3d95001d1815fd104391b265c6c4f394189c0",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:16Z"
+}

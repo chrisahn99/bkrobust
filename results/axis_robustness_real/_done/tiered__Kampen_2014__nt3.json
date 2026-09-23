@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__Kampen_2014__nt3",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "Kampen_2014",
+    "n_tiers": 3
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 27,
+  "n_scored": 2,
+  "n_cells": 22,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "cache": {
+    "graph_hits": 10392,
+    "graph_misses": 608,
+    "verdict_hits": 12056,
+    "verdict_misses": 324
+  },
+  "elapsed_s": 1.171,
+  "instances_path": "results/axis_robustness_real/shards/tiered__Kampen_2014__nt3.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__Kampen_2014__nt3.cells.jsonl",
+  "instances_sha256": "d342f153f253c2b57fe280f0fb276d9bd0dc15abb83c0a59c560e29ff66c0cab",
+  "cells_sha256": "a5e740f298adf0ede7c525f04514832e5b2b8ef99636363f9aa4ed672390eb3b",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:27:27Z"
+}

@@ -1,0 +1,15 @@
+{
+  "args": {
+    "nodes": "4,5,6,7",
+    "densities": "0.3,0.45,0.6,0.75",
+    "seeds": 400,
+    "sem_draws": 3,
+    "max_knowledge": 12,
+    "time_limit": 1500.0,
+    "out": "results/mean_monotonicity"
+  },
+  "profiles_checked": 93030,
+  "n_violations": 0,
+  "violations": [],
+  "seconds": 1553.8
+}

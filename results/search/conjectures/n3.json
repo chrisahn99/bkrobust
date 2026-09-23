@@ -1,0 +1,20 @@
+{
+  "n": 3,
+  "scope": "all CPDAGs on 3 nodes (exhaustive)",
+  "totals": {
+    "n_dags": 25,
+    "n_cpdags": 11,
+    "n_spaces": 7,
+    "n_combos": 150,
+    "n_radius_comparisons": 150,
+    "c1_violations": 0,
+    "c2_violations": 0,
+    "empty_extension_spaces": 0,
+    "skipped_no_valid_z": 162,
+    "skipped_z_fails_at_g0": 0,
+    "skipped_cpdag_too_many_undirected": 0,
+    "skipped_cpdag_space_too_big": 0,
+    "skipped_cpdag_no_undirected": 4
+  },
+  "counterexamples": []
+}

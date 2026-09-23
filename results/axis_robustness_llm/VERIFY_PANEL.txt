@@ -1,0 +1,488 @@
+VERIFY_PANEL -- independent audit of results/axis_robustness_llm/
+Repo: <repo>
+Frame: <repo>/results/axis_robustness_real/frame.jsonl
+Bundle: <repo>/results/elicit/knowledge.json
+
+====================================================================================================
+TASK 1: is benchmarks.measure.select_knowledge reachable from run_llm_survival.run_shard?
+====================================================================================================
+
+Method: for each of the three new/imported modules, list every TOP-LEVEL
+def/class whose body contains a literal call `select_knowledge(`, and
+separately list any occurrence at module scope (which would fire at import
+time, before any shard runs). Then check whether run_shard's own call graph
+(traced by hand below, function names given explicitly) ever reaches one of
+the flagged functions.
+
+
+-------------------------------------------
+run_llm_survival.py's own import statements
+-------------------------------------------
+  from __future__ import annotations
+  from pathlib import Path
+  from typing import Any
+  from bkrobust.core.resultsio import git_sha is_dirty
+  from bkrobust.robustness import llm_survival as ls
+  from bkrobust.robustness import real_survival as rs
+  from bkrobust.robustness.run_real_survival import 
+
+-----------------------------------------------------------------------------------
+Literal `select_knowledge(` occurrences, per module (call sites, not just the word)
+-----------------------------------------------------------------------------------
+  run_llm_survival.py: calls inside (none); module-scope calls (none)
+  llm_survival.py: calls inside (none); module-scope calls [6]
+  real_survival.py: calls inside (none); module-scope calls (none)
+  run_real_survival.py: calls inside [('run_flip_shard', 305)]; module-scope calls (none)
+
+Finding: `select_knowledge(` as an actual call (not just the bare word in a
+docstring/comment/import list) appears exactly once across these four files:
+inside `run_flip_shard` in run_real_survival.py (see hit above). It is a
+function `run_llm_survival.py` never imports and never calls.
+
+
+--------------------------------------------------------------------
+What run_llm_survival.py imports FROM run_real_survival.py, verbatim
+--------------------------------------------------------------------
+  imported names: ['JsonlWriter', '_censored_cell', 'load_frame', 'sha_file']
+    JsonlWriter: select_knowledge called inside its own body? no
+    _censored_cell: select_knowledge called inside its own body? no
+    load_frame: select_knowledge called inside its own body? no
+    sha_file: select_knowledge called inside its own body? no
+
+----------------------------------------------------------------
+run_shard's own call graph (traced from source, function : line)
+----------------------------------------------------------------
+  run_llm_survival.run_shard             calls llm_survival.distinct_pairs(frame, net)
+  run_llm_survival.run_shard             calls real_survival.load_network(net)  [NOT select_knowledge]
+  run_llm_survival.run_shard             calls llm_survival.build_state(bundle, cond, net, dag, cpdag)
+  llm_survival.build_state               calls llm_survival.elicited_k(bundle, condition, network)  -- reads K from the JSON bundle, no DAG argument used to build K
+  llm_survival.build_state               calls real_survival.build_g0(cpdag, k)
+  real_survival.build_g0                 calls demo.meek.apply_orientations(cpdag, list(k)) only
+  llm_survival.build_state               calls llm_survival.k_diagnostics -> k_accuracy/off_skeleton (diagnostic only, reads dag.directed_edges, never writes K)
+  run_llm_survival.run_shard             calls llm_survival.panel_family(cond, net)
+  run_llm_survival.run_shard             calls real_survival.commit_z_star(g0, x, y)
+  run_llm_survival.run_shard             calls real_survival.radius_columns(...)
+  run_llm_survival.run_shard             calls real_survival.ClosureCache(cpdag), real_survival.depth_grid(len(k)), real_survival.flip_draw(k, d, rep, family=family), real_survival.cell_statistics, real_survival.directed_symdiff
+
+None of these functions is select_knowledge, and none of their own bodies
+(checked above) calls it either. The only import from run_real_survival.py
+used by run_llm_survival.py is {JsonlWriter, _censored_cell, load_frame,
+sha_file} -- pure I/O/hashing utilities with no reference to
+select_knowledge in their bodies (confirmed above: 'no' for all four).
+
+Caveat correctly anticipated in the brief: `llm_survival.py` imports
+`real_survival as rs` at module scope, and `real_survival.py` in turn does
+`from bkrobust.benchmarks.measure import (MAX_G0_UNDIRECTED_FOR_EXTENSIONS,
+O_INTRACTABLE, select_knowledge)` at ITS OWN module scope (real_survival.py,
+see its import block). So `select_knowledge` the *function object* is bound
+into `real_survival`'s and hence transitively reachable namespace the moment
+either module is imported -- a grep for the bare identifier will find it in
+several files. But binding a name into a namespace is not calling it: the
+Python import machinery does not execute select_knowledge's body just
+because the name is imported. The only *call sites* in the whole
+"select_knowledge" grep across the repo that live inside a function
+run_llm_survival.py can reach are: none. The nearest call site,
+run_flip_shard in run_real_survival.py, is a sibling function in the same
+module as the four names run_llm_survival.py imports, but Python imports
+bind names, not sibling functions -- importing `load_frame` from a module
+does not call any other function defined in that module.
+
+VERDICT (task 1): PASS -- select_knowledge is reachable-by-name-binding but never CALLED anywhere on run_llm_survival.run_shard's actual call path.
+
+Loaded bundle sha256=45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb, 10 conditions.
+Loaded 240 completion markers from _done/.
+
+====================================================================================================
+TASK 2: per-(condition, network) K fidelity -- shard K == bundle K, exactly
+====================================================================================================
+Shards audited: 240
+Instance rows checked: 5400
+Shards where EVERY row's k_b_sha256 == recomputed digest from knowledge.json: 240
+Shards with a length-only match (n_k equal, digest differs): 0
+Shards with any mismatch (digest or length or missing data): 0
+Individual rows whose k_b_sha256 differs from the shard's own expected digest: 0
+VERDICT (task 2): PASS: exact match on all shards
+
+====================================================================================================
+TASK 3: describe the panel accurately, from the data
+====================================================================================================
+Frame networks (frame.jsonl): 25 -- ['Acid_1996', 'Didelez_2010', 'Kampen_2014', 'Polzer_2012', 'Schipf_2010', 'Sebastiani_2005', 'Shrier_2008', 'arth150', 'asia', 'barley', 'child', 'diabetes', 'ecoli70', 'hailfinder', 'hepar2', 'insurance', 'magic-irri', 'magic-niab', 'mediator', 'munin1', 'pathfinder', 'paths', 'sachs', 'water', 'win95pts']
+'pathfinder' present in frame: True
+  pathfinder in D_LLM's bundle networks? False
+  pathfinder in D_LLM_32B's bundle networks? False
+  pathfinder in D_LLM_72B's bundle networks? False
+  pathfinder in D_LLM_72B_INSTR's bundle networks? False
+  pathfinder in D_LLM_GEMMA_27B's bundle networks? False
+  pathfinder in D_LLM_INSTR's bundle networks? False
+  pathfinder in D_LLM_SRC's bundle networks? False
+  pathfinder in D_LLM_SRC_70B's bundle networks? False
+  pathfinder in D_SCRAMBLED's bundle networks? False
+  pathfinder in D_SCRAMBLED_72B's bundle networks? False
+Networks counted below (frame minus pathfinder): 24 -- ['Acid_1996', 'Didelez_2010', 'Kampen_2014', 'Polzer_2012', 'Schipf_2010', 'Sebastiani_2005', 'Shrier_2008', 'arth150', 'asia', 'barley', 'child', 'diabetes', 'ecoli70', 'hailfinder', 'hepar2', 'insurance', 'magic-irri', 'magic-niab', 'mediator', 'munin1', 'paths', 'sachs', 'water', 'win95pts']
+
+------------------------------------------------------------------
+Per-condition panel table (24 frame networks, pathfinder excluded)
+------------------------------------------------------------------
+Note on assert_rate_pooled and accuracy_pooled: BOTH are pooled (numerator summed / denominator summed across all 24 networks), not an average of 24 per-network ratios. Pooling weights networks by how many pairs they asked, which an unweighted mean-of-ratios would not; this is the more defensible choice and is stated explicitly rather than left implicit.
+condition          model                  naming     n_net  sum|K|  min  med   max  assert_rate accuracy 
+---------------------------------------------------------------------------------------------------------
+D_LLM              qwen2.5:7b-instruct    real       24     130     1    5.0   14   0.487       0.677    
+D_LLM_32B          Qwen2.5-32B-Instruct   real       24     158     0    6.0   23   0.592       0.715    
+D_LLM_72B          Qwen2.5-72B-Instruct   real       24     191     0    7.0   21   0.715       0.660    
+D_LLM_72B_INSTR    Qwen2.5-72B-Instruct   real       24     174     0    6.0   18   0.652       0.655    
+D_LLM_GEMMA_27B    gemma-3-27b-it         real       24     146     0    6.0   15   0.547       0.651    
+D_LLM_INSTR        qwen2.5:7b-instruct    real       24     109     1    3.0   17   0.408       0.606    
+D_LLM_SRC          llama3.1:8b            real       24     160     1    4.5   24   0.599       0.675    
+D_LLM_SRC_70B      Llama-3.3-70B-Instruct real       24     185     1    7.5   17   0.693       0.697    
+D_SCRAMBLED        qwen2.5:7b-instruct    scrambled  24     108     0    4.0   13   0.404       0.630    
+D_SCRAMBLED_72B    Qwen2.5-72B-Instruct   scrambled  24     140     0    4.5   19   0.524       0.743    
+
+====================================================================================================
+TASK 4: is model scale actually the axis? (paired per-network, not pooled means)
+====================================================================================================
+
+Qwen ladder: qwen2.5:7b-instruct (D_LLM, D_LLM_INSTR) -> Qwen2.5-32B-Instruct
+(D_LLM_32B) -> Qwen2.5-72B-Instruct (D_LLM_72B, D_LLM_72B_INSTR)
+Llama ladder: llama3.1:8b (D_LLM_SRC) -> Llama-3.3-70B-Instruct (D_LLM_SRC_70B)
+
+
+-----------------------------------------
+Qwen 7b(D_LLM) -> 32B: D_LLM -> D_LLM_32B
+-----------------------------------------
+  networks in common: 24
+  |K| per-network diff (D_LLM_32B - D_LLM):
+    mean=1.17 median=1.00 n_increase=16 n_decrease=6 n_tie=2
+    sign test: n_nonzero=22 n_pos=16 p_two_sided=0.052478790283203125
+    wilcoxon signed-rank: {'n_nonzero': 22, 'statistic': 78.5, 'p_value': 0.11656680349033853}
+  accuracy: networks with a defined accuracy on BOTH sides: 21/24
+    accuracy per-network diff (D_LLM_32B - D_LLM): mean=0.030 median=0.000 n_increase=8 n_decrease=5 n_tie=8
+    sign test: n_nonzero=13 n_pos=8 p_two_sided=0.5810546875
+    wilcoxon signed-rank: {'n_nonzero': 13, 'statistic': 38.5, 'p_value': 0.650634765625}
+
+-----------------------------------------------------
+Qwen 7b(D_LLM_INSTR) -> 32B: D_LLM_INSTR -> D_LLM_32B
+-----------------------------------------------------
+  networks in common: 24
+  |K| per-network diff (D_LLM_32B - D_LLM_INSTR):
+    mean=2.04 median=2.00 n_increase=16 n_decrease=6 n_tie=2
+    sign test: n_nonzero=22 n_pos=16 p_two_sided=0.052478790283203125
+    wilcoxon signed-rank: {'n_nonzero': 22, 'statistic': 69.0, 'p_value': 0.06105755314113548}
+  accuracy: networks with a defined accuracy on BOTH sides: 21/24
+    accuracy per-network diff (D_LLM_32B - D_LLM_INSTR): mean=0.051 median=0.000 n_increase=8 n_decrease=6 n_tie=7
+    sign test: n_nonzero=14 n_pos=8 p_two_sided=0.79052734375
+    wilcoxon signed-rank: {'n_nonzero': 14, 'statistic': 42.0, 'p_value': 0.5096932074128251}
+
+--------------------------------------------------
+Qwen 32B -> 72B(D_LLM_72B): D_LLM_32B -> D_LLM_72B
+--------------------------------------------------
+  networks in common: 24
+  |K| per-network diff (D_LLM_72B - D_LLM_32B):
+    mean=1.38 median=0.00 n_increase=10 n_decrease=4 n_tie=10
+    sign test: n_nonzero=14 n_pos=10 p_two_sided=0.1795654296875
+    wilcoxon signed-rank: {'n_nonzero': 14, 'statistic': 24.0, 'p_value': 0.07160872458180975}
+  accuracy: networks with a defined accuracy on BOTH sides: 21/24
+    accuracy per-network diff (D_LLM_72B - D_LLM_32B): mean=0.020 median=0.000 n_increase=3 n_decrease=7 n_tie=11
+    sign test: n_nonzero=10 n_pos=3 p_two_sided=0.34375
+    wilcoxon signed-rank: {'n_nonzero': 10, 'statistic': 24.0, 'p_value': 0.76953125}
+
+--------------------------------------------------------------
+Qwen 32B -> 72B(D_LLM_72B_INSTR): D_LLM_32B -> D_LLM_72B_INSTR
+--------------------------------------------------------------
+  networks in common: 24
+  |K| per-network diff (D_LLM_72B_INSTR - D_LLM_32B):
+    mean=0.67 median=0.00 n_increase=10 n_decrease=4 n_tie=10
+    sign test: n_nonzero=14 n_pos=10 p_two_sided=0.1795654296875
+    wilcoxon signed-rank: {'n_nonzero': 14, 'statistic': 25.5, 'p_value': 0.0884183294148085}
+  accuracy: networks with a defined accuracy on BOTH sides: 21/24
+    accuracy per-network diff (D_LLM_72B_INSTR - D_LLM_32B): mean=0.034 median=0.000 n_increase=4 n_decrease=7 n_tie=10
+    sign test: n_nonzero=11 n_pos=4 p_two_sided=0.548828125
+    wilcoxon signed-rank: {'n_nonzero': 11, 'statistic': 32.0, 'p_value': 0.9658203125}
+
+----------------------------------------------------
+Qwen 7b(D_LLM) -> 72B(D_LLM_72B): D_LLM -> D_LLM_72B
+----------------------------------------------------
+  networks in common: 24
+  |K| per-network diff (D_LLM_72B - D_LLM):
+    mean=2.54 median=2.00 n_increase=18 n_decrease=2 n_tie=4
+    sign test: n_nonzero=20 n_pos=18 p_two_sided=0.0004024505615234375
+    wilcoxon signed-rank: {'n_nonzero': 20, 'statistic': 22.5, 'p_value': 0.002007586070761685}
+  accuracy: networks with a defined accuracy on BOTH sides: 23/24
+    accuracy per-network diff (D_LLM_72B - D_LLM): mean=0.090 median=0.000 n_increase=9 n_decrease=6 n_tie=8
+    sign test: n_nonzero=15 n_pos=9 p_two_sided=0.60723876953125
+    wilcoxon signed-rank: {'n_nonzero': 15, 'statistic': 38.5, 'p_value': 0.22176163553996375}
+
+----------------------------------------------------------------------------
+Qwen 7b(D_LLM_INSTR) -> 72B(D_LLM_72B_INSTR): D_LLM_INSTR -> D_LLM_72B_INSTR
+----------------------------------------------------------------------------
+  networks in common: 24
+  |K| per-network diff (D_LLM_72B_INSTR - D_LLM_INSTR):
+    mean=2.71 median=2.00 n_increase=21 n_decrease=2 n_tie=1
+    sign test: n_nonzero=23 n_pos=21 p_two_sided=6.604194641113281e-05
+    wilcoxon signed-rank: {'n_nonzero': 23, 'statistic': 31.0, 'p_value': 0.0010786102025289227}
+  accuracy: networks with a defined accuracy on BOTH sides: 23/24
+    accuracy per-network diff (D_LLM_72B_INSTR - D_LLM_INSTR): mean=0.107 median=0.000 n_increase=11 n_decrease=5 n_tie=7
+    sign test: n_nonzero=16 n_pos=11 p_two_sided=0.210113525390625
+    wilcoxon signed-rank: {'n_nonzero': 16, 'statistic': 36.0, 'p_value': 0.104583740234375}
+
+-------------------------------------------
+Llama 8b -> 70B: D_LLM_SRC -> D_LLM_SRC_70B
+-------------------------------------------
+  networks in common: 24
+  |K| per-network diff (D_LLM_SRC_70B - D_LLM_SRC):
+    mean=1.04 median=1.00 n_increase=13 n_decrease=5 n_tie=6
+    sign test: n_nonzero=18 n_pos=13 p_two_sided=0.09625244140625
+    wilcoxon signed-rank: {'n_nonzero': 18, 'statistic': 46.5, 'p_value': 0.08866075126478185}
+  accuracy: networks with a defined accuracy on BOTH sides: 24/24
+    accuracy per-network diff (D_LLM_SRC_70B - D_LLM_SRC): mean=0.014 median=0.000 n_increase=10 n_decrease=6 n_tie=8
+    sign test: n_nonzero=16 n_pos=10 p_two_sided=0.454498291015625
+    wilcoxon signed-rank: {'n_nonzero': 16, 'statistic': 52.5, 'p_value': 0.42246246407650256}
+
+VERDICT (task 4): read the per-pair sign counts and p-values above directly --
+"bigger asserts more and more accurately" HOLDS for a pair only if |K| n_increase
+is large with a small p, AND the accuracy diff is systematically positive with a
+small p. Do not average across pairs; report each ladder step on its own, since
+the two Qwen families (D_LLM vs D_LLM_INSTR; D_LLM_72B vs D_LLM_72B_INSTR) are
+not guaranteed to agree with each other.
+
+
+====================================================================================================
+TASK 5: the scrambled-naming control -- does accuracy collapse to a semantic floor?
+====================================================================================================
+
+--------------------------------------------
+D_SCRAMBLED vs its real-naming sibling D_LLM
+--------------------------------------------
+  networks in common: 24
+  networks with defined accuracy on both sides: 23/24
+  accuracy(real) - accuracy(scrambled) per network: mean=-0.028 median=-0.067
+    n_real_higher=7 n_scrambled_higher_or_equal=16
+    Didelez_2010       real=1.000 scrambled=0.500 diff=+0.500
+    Kampen_2014        real=0.500 scrambled=0.778 diff=-0.278
+    Polzer_2012        real=0.750 scrambled=0.600 diff=+0.150
+    Schipf_2010        real=1.000 scrambled=1.000 diff=+0.000
+    Sebastiani_2005    real=0.500 scrambled=0.800 diff=-0.300
+    Shrier_2008        real=1.000 scrambled=1.000 diff=+0.000
+    arth150            real=1.000 scrambled=0.500 diff=+0.500
+    asia               real=1.000 scrambled=1.000 diff=+0.000
+    barley             real=0.714 scrambled=1.000 diff=-0.286
+    child              real=0.000 scrambled=0.750 diff=-0.750
+    diabetes           real=1.000 scrambled=0.375 diff=+0.625
+    ecoli70            real=0.300 scrambled=0.462 diff=-0.162
+    hailfinder         real=0.923 scrambled=1.000 diff=-0.077
+    hepar2             real=0.600 scrambled=0.667 diff=-0.067
+    insurance          real=1.000 scrambled=0.833 diff=+0.167
+    magic-irri         real=0.429 scrambled=0.429 diff=+0.000
+    magic-niab         real=0.500 scrambled=0.667 diff=-0.167
+    mediator           real=0.500 scrambled=0.667 diff=-0.167
+    munin1             real=1.000 scrambled=0.750 diff=+0.250
+    paths              real=0.000 scrambled=0.250 diff=-0.250
+    sachs              real=0.000 scrambled=0.500 diff=-0.500
+    water              real=0.600 scrambled=1.000 diff=-0.400
+    win95pts           real=1.000 scrambled=0.429 diff=+0.571
+  sign test on (real-scrambled): n_nonzero=19 n_pos=7 p_two_sided=0.359283447265625
+  wilcoxon signed-rank: {'n_nonzero': 19, 'statistic': 82.5, 'p_value': 0.6146225343327252}
+
+--------------------------
+D_SCRAMBLED vs D_LLM_INSTR
+--------------------------
+  networks in common: 24
+  networks with defined accuracy on both sides: 23/24
+  accuracy(real) - accuracy(scrambled) per network: mean=-0.068 median=0.000
+    n_real_higher=6 n_scrambled_higher_or_equal=17
+    Didelez_2010       real=0.000 scrambled=0.500 diff=-0.500
+    Kampen_2014        real=0.778 scrambled=0.778 diff=+0.000
+    Polzer_2012        real=0.500 scrambled=0.600 diff=-0.100
+    Schipf_2010        real=1.000 scrambled=1.000 diff=+0.000
+    Sebastiani_2005    real=0.333 scrambled=0.800 diff=-0.467
+    Shrier_2008        real=1.000 scrambled=1.000 diff=+0.000
+    arth150            real=0.667 scrambled=0.500 diff=+0.167
+    asia               real=1.000 scrambled=1.000 diff=+0.000
+    barley             real=0.667 scrambled=1.000 diff=-0.333
+    child              real=1.000 scrambled=0.750 diff=+0.250
+    diabetes           real=1.000 scrambled=0.375 diff=+0.625
+    ecoli70            real=0.200 scrambled=0.462 diff=-0.262
+    hailfinder         real=0.941 scrambled=1.000 diff=-0.059
+    hepar2             real=0.667 scrambled=0.667 diff=+0.000
+    insurance          real=0.800 scrambled=0.833 diff=-0.033
+    magic-irri         real=0.286 scrambled=0.429 diff=-0.143
+    magic-niab         real=0.000 scrambled=0.667 diff=-0.667
+    mediator           real=0.000 scrambled=0.667 diff=-0.667
+    munin1             real=1.000 scrambled=0.750 diff=+0.250
+    paths              real=0.000 scrambled=0.250 diff=-0.250
+    sachs              real=0.556 scrambled=0.500 diff=+0.056
+    water              real=1.000 scrambled=1.000 diff=+0.000
+    win95pts           real=1.000 scrambled=0.429 diff=+0.571
+  sign test on (real-scrambled): n_nonzero=17 n_pos=6 p_two_sided=0.332305908203125
+  wilcoxon signed-rank: {'n_nonzero': 17, 'statistic': 53.0, 'p_value': 0.26561165647836693}
+
+----------------------------
+D_SCRAMBLED_72B vs D_LLM_72B
+----------------------------
+  networks in common: 24
+  networks with defined accuracy on both sides: 22/24
+  accuracy(real) - accuracy(scrambled) per network: mean=-0.008 median=0.018
+    n_real_higher=11 n_scrambled_higher_or_equal=11
+    Didelez_2010       real=1.000 scrambled=1.000 diff=+0.000
+    Kampen_2014        real=0.500 scrambled=0.636 diff=-0.136
+    Polzer_2012        real=0.875 scrambled=0.750 diff=+0.125
+    Schipf_2010        real=1.000 scrambled=0.800 diff=+0.200
+    Sebastiani_2005    real=0.571 scrambled=1.000 diff=-0.429
+    Shrier_2008        real=1.000 scrambled=0.500 diff=+0.500
+    arth150            real=0.889 scrambled=1.000 diff=-0.111
+    asia               real=1.000 scrambled=0.500 diff=+0.500
+    barley             real=0.833 scrambled=1.000 diff=-0.167
+    child              real=1.000 scrambled=0.800 diff=+0.200
+    diabetes           real=0.143 scrambled=1.000 diff=-0.857
+    ecoli70            real=0.667 scrambled=0.632 diff=+0.035
+    hepar2             real=0.714 scrambled=1.000 diff=-0.286
+    insurance          real=0.929 scrambled=0.889 diff=+0.040
+    magic-irri         real=0.286 scrambled=0.000 diff=+0.286
+    magic-niab         real=0.500 scrambled=0.750 diff=-0.250
+    mediator           real=0.400 scrambled=1.000 diff=-0.600
+    munin1             real=1.000 scrambled=0.750 diff=+0.250
+    paths              real=0.000 scrambled=0.200 diff=-0.200
+    sachs              real=0.400 scrambled=0.500 diff=-0.100
+    water              real=1.000 scrambled=0.333 diff=+0.667
+    win95pts           real=0.750 scrambled=0.600 diff=+0.150
+  sign test on (real-scrambled): n_nonzero=21 n_pos=11 p_two_sided=1.0
+  wilcoxon signed-rank: {'n_nonzero': 21, 'statistic': 115.0, 'p_value': 0.9861302126063227}
+
+----------------------------------
+D_SCRAMBLED_72B vs D_LLM_72B_INSTR
+----------------------------------
+  networks in common: 24
+  networks with defined accuracy on both sides: 22/24
+  accuracy(real) - accuracy(scrambled) per network: mean=0.012 median=0.018
+    n_real_higher=11 n_scrambled_higher_or_equal=11
+    Didelez_2010       real=1.000 scrambled=1.000 diff=+0.000
+    Kampen_2014        real=0.636 scrambled=0.636 diff=+0.000
+    Polzer_2012        real=1.000 scrambled=0.750 diff=+0.250
+    Schipf_2010        real=1.000 scrambled=0.800 diff=+0.200
+    Sebastiani_2005    real=0.500 scrambled=1.000 diff=-0.500
+    Shrier_2008        real=1.000 scrambled=0.500 diff=+0.500
+    arth150            real=0.889 scrambled=1.000 diff=-0.111
+    asia               real=1.000 scrambled=0.500 diff=+0.500
+    barley             real=1.000 scrambled=1.000 diff=+0.000
+    child              real=0.900 scrambled=0.800 diff=+0.100
+    diabetes           real=0.077 scrambled=1.000 diff=-0.923
+    ecoli70            real=0.667 scrambled=0.632 diff=+0.035
+    hepar2             real=0.571 scrambled=1.000 diff=-0.429
+    insurance          real=0.833 scrambled=0.889 diff=-0.056
+    magic-irri         real=0.444 scrambled=0.000 diff=+0.444
+    magic-niab         real=0.667 scrambled=0.750 diff=-0.083
+    mediator           real=0.400 scrambled=1.000 diff=-0.600
+    munin1             real=1.000 scrambled=0.750 diff=+0.250
+    paths              real=0.000 scrambled=0.200 diff=-0.200
+    sachs              real=0.571 scrambled=0.500 diff=+0.071
+    water              real=1.000 scrambled=0.333 diff=+0.667
+    win95pts           real=0.750 scrambled=0.600 diff=+0.150
+  sign test on (real-scrambled): n_nonzero=19 n_pos=11 p_two_sided=0.6476058959960938
+  wilcoxon signed-rank: {'n_nonzero': 19, 'statistic': 84.0, 'p_value': 0.657846609715137}
+
+VERDICT (task 5): read the paired sign counts above. If accuracy(real) is NOT
+systematically and significantly higher than accuracy(scrambled) per network,
+the "the model is really using domain semantics" story fails its control --
+consistent with the earlier session's finding, if it reproduces here.
+
+
+====================================================================================================
+TASK 6: degenerate-case census
+====================================================================================================
+
+--------------------------------------------------------------------------------
+Status totals by condition (summed instance_status_counts across all its shards)
+--------------------------------------------------------------------------------
+condition                        n_k_zero o_g0_extensions_intractable                     ok  optimal_set_undefined
+D_LLM                                   0                     95                    216                    229
+D_LLM_32B                              42                     95                    223                    180
+D_LLM_72B                              11                      6                    446                     77
+D_LLM_72B_INSTR                        11                    117                    315                     97
+D_LLM_GEMMA_27B                       126                     95                    239                     80
+D_LLM_INSTR                             0                    117                    283                    140
+D_LLM_SRC                               0                     22                    343                    175
+D_LLM_SRC_70B                           0                      6                    368                    166
+D_SCRAMBLED                            10                     95                    223                    212
+D_SCRAMBLED_72B                        10                     95                    249                    186
+
+-----------------------------------------------------------------------
+Status totals by network (summed across all conditions that covered it)
+-----------------------------------------------------------------------
+network                          n_k_zero o_g0_extensions_intractable                     ok  optimal_set_undefined
+Acid_1996                              30                      0                     70                      0
+Didelez_2010                            0                      0                     69                     11
+Kampen_2014                             0                      0                    106                    164
+Polzer_2012                             0                      0                    310                    180
+Schipf_2010                             0                      0                     82                     28
+Sebastiani_2005                         0                      0                     33                     17
+Shrier_2008                             0                      0                     53                     17
+arth150                                 0                     54                      3                      3
+asia                                    0                      0                     15                      5
+barley                                  0                      0                    519                    331
+child                                   0                      0                    149                     31
+diabetes                                0                    623                    179                     88
+ecoli70                                 0                     66                     81                     73
+hailfinder                             44                      0                     52                     14
+hepar2                                  0                      0                     59                     21
+insurance                              95                      0                    516                    339
+magic-irri                              0                      0                     87                     23
+magic-niab                             21                      0                    138                     51
+mediator                                0                      0                      8                     22
+munin1                                  0                      0                     25                      5
+paths                                  20                      0                    163                     17
+sachs                                   0                      0                     44                     76
+water                                   0                      0                    122                     18
+win95pts                                0                      0                     22                      8
+
+---------------------------------------------------------------------------
+(condition, network) cells where EVERY pair failed (n_ok == 0, n_total > 0)
+---------------------------------------------------------------------------
+  D_LLM_32B / Acid_1996: n_k_zero=10
+  D_LLM_32B / arth150: o_g0_extensions_intractable=6
+  D_LLM_32B / diabetes: o_g0_extensions_intractable=89
+  D_LLM_32B / hailfinder: n_k_zero=11
+  D_LLM_32B / insurance: optimal_set_undefined=95
+  D_LLM_32B / magic-niab: n_k_zero=21
+  D_LLM_72B_INSTR / arth150: o_g0_extensions_intractable=6
+  D_LLM_72B_INSTR / diabetes: o_g0_extensions_intractable=89
+  D_LLM_72B_INSTR / ecoli70: o_g0_extensions_intractable=22
+  D_LLM_72B_INSTR / hailfinder: n_k_zero=11
+  D_LLM_72B / arth150: o_g0_extensions_intractable=6
+  D_LLM_72B / hailfinder: n_k_zero=11
+  D_LLM_GEMMA_27B / arth150: o_g0_extensions_intractable=6
+  D_LLM_GEMMA_27B / diabetes: o_g0_extensions_intractable=89
+  D_LLM_GEMMA_27B / hailfinder: n_k_zero=11
+  D_LLM_GEMMA_27B / insurance: n_k_zero=95
+  D_LLM_GEMMA_27B / paths: n_k_zero=20
+  D_LLM_INSTR / Didelez_2010: optimal_set_undefined=8
+  D_LLM_INSTR / arth150: o_g0_extensions_intractable=6
+  D_LLM_INSTR / asia: optimal_set_undefined=2
+  D_LLM_INSTR / diabetes: o_g0_extensions_intractable=89
+  D_LLM_INSTR / ecoli70: o_g0_extensions_intractable=22
+  D_LLM_INSTR / mediator: optimal_set_undefined=3
+  D_LLM_INSTR / win95pts: optimal_set_undefined=3
+  D_LLM_SRC_70B / arth150: o_g0_extensions_intractable=6
+  D_LLM_SRC / ecoli70: o_g0_extensions_intractable=22
+  D_LLM / arth150: o_g0_extensions_intractable=6
+  D_LLM / diabetes: o_g0_extensions_intractable=89
+  D_LLM / sachs: optimal_set_undefined=12
+  D_LLM / win95pts: optimal_set_undefined=3
+  D_SCRAMBLED_72B / Acid_1996: n_k_zero=10
+  D_SCRAMBLED_72B / arth150: o_g0_extensions_intractable=6
+  D_SCRAMBLED_72B / diabetes: o_g0_extensions_intractable=89
+  D_SCRAMBLED_72B / mediator: optimal_set_undefined=3
+  D_SCRAMBLED / Acid_1996: n_k_zero=10
+  D_SCRAMBLED / arth150: o_g0_extensions_intractable=6
+  D_SCRAMBLED / asia: optimal_set_undefined=2
+  D_SCRAMBLED / diabetes: o_g0_extensions_intractable=89
+Total all-fail cells: 38
+
+---------------------------------------------------------------------------------
+Cross-check: do n_k_zero cells correspond exactly to bundle records with empty k?
+---------------------------------------------------------------------------------
+  bundle records with empty k (restricted to scored/shardable cells): 10
+  shards whose g0_status == 'n_k_zero': 10
+  in bundle-empty but NOT flagged n_k_zero by a shard: (none)
+  flagged n_k_zero by a shard but bundle k is NOT empty: (none)
+  VERDICT (n_k_zero correspondence): PASS: exact correspondence
+
+DONE.

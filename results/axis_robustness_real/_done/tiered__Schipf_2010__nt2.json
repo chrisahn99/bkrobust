@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__Schipf_2010__nt2",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "Schipf_2010",
+    "n_tiers": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 2,
+  "n_cells": 22,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 10970,
+    "graph_misses": 30,
+    "verdict_hits": 17132,
+    "verdict_misses": 38
+  },
+  "elapsed_s": 0.423,
+  "instances_path": "results/axis_robustness_real/shards/tiered__Schipf_2010__nt2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__Schipf_2010__nt2.cells.jsonl",
+  "instances_sha256": "2707ed31ec7d21c6f6e29814f30479fb2ad9793ea45ee72ef11683c0a4e07e07",
+  "cells_sha256": "350a50837a828928b5ca8f25348a7daee8c1eccbdd226a9466d809f4c0ca236f",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:54Z"
+}

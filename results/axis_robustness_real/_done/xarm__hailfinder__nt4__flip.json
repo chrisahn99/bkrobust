@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__hailfinder__nt4__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "hailfinder",
+    "n_tiers": 4,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 11,
+  "n_cells": 110,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 12,
+  "cache": {
+    "graph_hits": 7206,
+    "graph_misses": 2794,
+    "verdict_hits": 2563,
+    "verdict_misses": 132
+  },
+  "elapsed_s": 22.233,
+  "instances_path": "results/axis_robustness_real/shards/xarm__hailfinder__nt4__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__hailfinder__nt4__flip.cells.jsonl",
+  "instances_sha256": "8dfed80148a5a9de2da11f8997f04543e3ca900d21f3f5d4ea3721917c31ffec",
+  "cells_sha256": "c55c7ddc24194ccceffb399d6770517854f5afd206210c0460d4ff6382371fac",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:30:52Z"
+}

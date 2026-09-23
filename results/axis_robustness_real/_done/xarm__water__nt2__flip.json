@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__water__nt2__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "water",
+    "n_tiers": 2,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 14,
+  "n_scored": 3,
+  "n_cells": 6,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 5991,
+    "verdict_misses": 9
+  },
+  "elapsed_s": 0.062,
+  "instances_path": "results/axis_robustness_real/shards/xarm__water__nt2__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__water__nt2__flip.cells.jsonl",
+  "instances_sha256": "6fa53f913a0df44981451fc29efbb412bda134764f9ccf006888293a8d49ba8a",
+  "cells_sha256": "c67275a17bd13dd8d61563cc523b1601dfdd8e1f9840e02f84c4be79efd43c5c",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:32:46Z"
+}

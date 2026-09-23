@@ -1,0 +1,29 @@
+{
+  "shard_id": "tiered__Shrier_2008__nt3",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "Shrier_2008",
+    "n_tiers": 3
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 7,
+  "n_scored": 4,
+  "n_cells": 44,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 10973,
+    "graph_misses": 27,
+    "verdict_hits": 41928,
+    "verdict_misses": 96
+  },
+  "elapsed_s": 0.498,
+  "instances_path": "results/axis_robustness_real/shards/tiered__Shrier_2008__nt3.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__Shrier_2008__nt3.cells.jsonl",
+  "instances_sha256": "4cdc7f18f621a12097a5047b31a5ac69e45a39350ccbb32de3117c67c98e94f6",
+  "cells_sha256": "7c21e92dbcf55103eb62257332de5af6f64575c567a69fb19c46b7abb8e496db",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:20Z"
+}

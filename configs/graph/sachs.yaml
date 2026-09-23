@@ -1,0 +1,29 @@
+# @package graph
+# Sachs et al. (2005) protein-signalling network: 11 nodes, consensus DAG,
+# widely used as a real-data benchmark. Provenance and licence in docs/DATA.md.
+name: sachs
+generator: fixed
+
+source: sachs
+n_nodes: 11
+ground_truth: consensus      # consensus | reported | none
+                             # `none` means the true DAG is treated as unknown,
+                             # so delta_valid / delta_opt are not identifiable
+                             # and only the certificate path is exercised.
+
+# Observational data only by default; the interventional regimes are a separate
+# study, see docs/EXPERIMENTS.md.
+data:
+  regime: observational      # observational | interventional | pooled
+  log_transform: true
+  standardize: false
+  n_samples: null            # null = use all available rows
+
+target:
+  selection: fixed
+  treatment: null            # TODO: pin a (treatment, outcome) pair with a
+  outcome: null              #       non-trivial O* once the DAG is loaded
+  require_causal_path: true
+
+scm:
+  family: empirical          # resample rows rather than simulate

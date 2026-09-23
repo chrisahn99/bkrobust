@@ -1,0 +1,1380 @@
+{
+  "args": {
+    "condition": "D_LLM",
+    "epsilons": "1,2,5,10,20",
+    "queries_per_network": 5,
+    "networks": "",
+    "skip": "pathfinder",
+    "seed": 20260917,
+    "time_limit": 120.0,
+    "max_nodes": 0,
+    "out": "results/final_table_eps_gt1",
+    "report_only": false
+  },
+  "epsilons": [
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    20.0
+  ],
+  "assumptions": {
+    "covariance": "The example_models corpus ships graph structure only (no continuous observational data), but r_eps needs a covariance matrix to evaluate bias. We attach a seeded linear-Gaussian SEM to the ground-truth DAG via bkrobust.demo.evaluate.random_sem(dag, rng) and pass it to certify(..., sem=sem); certify derives the covariance, and the reported estimate theta_z, from that SEM. The seed for each (network, x, y) instance is derived deterministically from --seed (sha256 of f'{seed}:{network}:{x}:{y}'), so the sweep is exactly reproducible from the CLI arguments alone. The SEM is a synthetic stand-in for a data-generating process these benchmark networks do not ship -- it is never treated as the network's real parameters.",
+    "random_sem_defaults": {
+      "weight_range": [
+        0.3,
+        1.5
+      ],
+      "noise_range": [
+        0.5,
+        1.5
+      ]
+    }
+  },
+  "networks": {
+    "Acid_1996": {
+      "n_nodes": 18,
+      "len_k": 1,
+      "n_knowledge": 1,
+      "n_queries": 5,
+      "n_ok": 5,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1.0,
+        "n_resolved": 5,
+        "n_unreached": 1
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1.0,
+          "n_resolved": 5,
+          "n_unreached": 3
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        }
+      }
+    },
+    "Didelez_2010": {
+      "n_nodes": 7,
+      "len_k": 1,
+      "n_knowledge": 3,
+      "n_queries": 5,
+      "n_ok": 5,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 5,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1,
+          "n_resolved": 5,
+          "n_unreached": 2
+        },
+        "2.0": {
+          "value": 1,
+          "n_resolved": 5,
+          "n_unreached": 4
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        }
+      }
+    },
+    "Kampen_2014": {
+      "n_nodes": 12,
+      "len_k": 8,
+      "n_knowledge": 10,
+      "n_queries": 5,
+      "n_ok": 4,
+      "n_degenerate": 1,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1.0,
+        "n_resolved": 4,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1.0,
+          "n_resolved": 4,
+          "n_unreached": 2
+        },
+        "2.0": {
+          "value": 1,
+          "n_resolved": 4,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": 1,
+          "n_resolved": 4,
+          "n_unreached": 3
+        },
+        "10.0": {
+          "value": 1,
+          "n_resolved": 4,
+          "n_unreached": 3
+        },
+        "20.0": {
+          "value": 1,
+          "n_resolved": 4,
+          "n_unreached": 3
+        }
+      }
+    },
+    "Polzer_2012": {
+      "n_nodes": 14,
+      "len_k": 4,
+      "n_knowledge": 5,
+      "n_queries": 5,
+      "n_ok": 1,
+      "n_degenerate": 1,
+      "n_error": 3,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 1,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        }
+      }
+    },
+    "Schipf_2010": {
+      "n_nodes": 7,
+      "len_k": 5,
+      "n_knowledge": 6,
+      "n_queries": 5,
+      "n_ok": 5,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 5,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1,
+          "n_resolved": 5,
+          "n_unreached": 4
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        }
+      }
+    },
+    "Sebastiani_2005": {
+      "n_nodes": 36,
+      "len_k": 4,
+      "n_knowledge": 4,
+      "n_queries": 5,
+      "n_ok": 2,
+      "n_degenerate": 0,
+      "n_error": 3,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 2,
+        "n_unreached": 1
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1,
+          "n_resolved": 2,
+          "n_unreached": 1
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        }
+      }
+    },
+    "Shrier_2008": {
+      "n_nodes": 13,
+      "len_k": 2,
+      "n_knowledge": 3,
+      "n_queries": 5,
+      "n_ok": 4,
+      "n_degenerate": 1,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1.0,
+        "n_resolved": 4,
+        "n_unreached": 2
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        }
+      }
+    },
+    "Thoemmes_2013": {
+      "n_nodes": 13,
+      "len_k": 1,
+      "n_knowledge": 1,
+      "n_queries": 5,
+      "n_ok": 5,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 5,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1.0,
+          "n_resolved": 5,
+          "n_unreached": 3
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        }
+      }
+    },
+    "alarm": {
+      "n_nodes": 37,
+      "len_k": 1,
+      "n_knowledge": 1,
+      "n_queries": 5,
+      "n_ok": 3,
+      "n_degenerate": 1,
+      "n_error": 1,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1.0,
+        "n_resolved": 3,
+        "n_unreached": 1
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        }
+      }
+    },
+    "andes": {
+      "n_nodes": 223,
+      "len_k": 7,
+      "n_knowledge": 10,
+      "n_queries": 5,
+      "n_ok": 2,
+      "n_degenerate": 1,
+      "n_error": 0,
+      "n_timeout": 2,
+      "r_val": {
+        "value": 1.0,
+        "n_resolved": 2,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1,
+          "n_resolved": 2,
+          "n_unreached": 1
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        }
+      }
+    },
+    "arth150": {
+      "n_nodes": 107,
+      "len_k": 14,
+      "n_knowledge": null,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 5,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "asia": {
+      "n_nodes": 8,
+      "len_k": 3,
+      "n_knowledge": 3,
+      "n_queries": 5,
+      "n_ok": 5,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 5,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1.0,
+          "n_resolved": 5,
+          "n_unreached": 3
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 5,
+          "n_unreached": 5
+        }
+      }
+    },
+    "barley": {
+      "n_nodes": 48,
+      "len_k": 7,
+      "n_knowledge": 7,
+      "n_queries": 5,
+      "n_ok": 3,
+      "n_degenerate": 0,
+      "n_error": 2,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 3,
+        "n_resolved": 3,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 3,
+          "n_resolved": 3,
+          "n_unreached": 2
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        }
+      }
+    },
+    "child": {
+      "n_nodes": 20,
+      "len_k": 1,
+      "n_knowledge": 10,
+      "n_queries": 5,
+      "n_ok": 1,
+      "n_degenerate": 4,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 1,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1,
+          "n_resolved": 1,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        }
+      }
+    },
+    "diabetes": {
+      "n_nodes": 413,
+      "len_k": 8,
+      "n_knowledge": null,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 5,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "ecoli70": {
+      "n_nodes": 46,
+      "len_k": 10,
+      "n_knowledge": 13,
+      "n_queries": 5,
+      "n_ok": 1,
+      "n_degenerate": 2,
+      "n_error": 2,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 4,
+        "n_resolved": 1,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 4,
+          "n_resolved": 1,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        }
+      }
+    },
+    "hailfinder": {
+      "n_nodes": 56,
+      "len_k": 13,
+      "n_knowledge": 13,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 5,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "hepar2": {
+      "n_nodes": 70,
+      "len_k": 5,
+      "n_knowledge": 5,
+      "n_queries": 5,
+      "n_ok": 2,
+      "n_degenerate": 1,
+      "n_error": 2,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 2,
+        "n_unreached": 1
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 2,
+          "n_unreached": 2
+        }
+      }
+    },
+    "insurance": {
+      "n_nodes": 27,
+      "len_k": 5,
+      "n_knowledge": 7,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 1,
+      "n_error": 4,
+      "n_timeout": 0,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "link": {
+      "n_nodes": 724,
+      "len_k": 2,
+      "n_knowledge": null,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 5,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "magic-irri": {
+      "n_nodes": 64,
+      "len_k": 7,
+      "n_knowledge": 8,
+      "n_queries": 5,
+      "n_ok": 3,
+      "n_degenerate": 0,
+      "n_error": 2,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 2,
+        "n_resolved": 3,
+        "n_unreached": 2
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 2,
+          "n_resolved": 3,
+          "n_unreached": 2
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        }
+      }
+    },
+    "magic-niab": {
+      "n_nodes": 44,
+      "len_k": 4,
+      "n_knowledge": 5,
+      "n_queries": 5,
+      "n_ok": 3,
+      "n_degenerate": 1,
+      "n_error": 1,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1.0,
+        "n_resolved": 3,
+        "n_unreached": 1
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1,
+          "n_resolved": 3,
+          "n_unreached": 2
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        }
+      }
+    },
+    "mediator": {
+      "n_nodes": 4,
+      "len_k": 4,
+      "n_knowledge": 4,
+      "n_queries": 5,
+      "n_ok": 4,
+      "n_degenerate": 1,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1.0,
+        "n_resolved": 4,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 1,
+          "n_resolved": 4,
+          "n_unreached": 3
+        },
+        "2.0": {
+          "value": 1,
+          "n_resolved": 4,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        }
+      }
+    },
+    "munin": {
+      "n_nodes": 1041,
+      "len_k": 4,
+      "n_knowledge": null,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 5,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "munin1": {
+      "n_nodes": 186,
+      "len_k": 2,
+      "n_knowledge": 2,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 2,
+      "n_error": 3,
+      "n_timeout": 0,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "munin2": {
+      "n_nodes": 1003,
+      "len_k": 9,
+      "n_knowledge": null,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 5,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "munin3": {
+      "n_nodes": 1041,
+      "len_k": 10,
+      "n_knowledge": null,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 0,
+      "n_error": 0,
+      "n_timeout": 5,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "munin4": {
+      "n_nodes": 1038,
+      "len_k": 7,
+      "n_knowledge": null,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 0,
+      "n_error": 1,
+      "n_timeout": 4,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "paths": {
+      "n_nodes": 17,
+      "len_k": 10,
+      "n_knowledge": 14,
+      "n_queries": 5,
+      "n_ok": 3,
+      "n_degenerate": 2,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 1,
+        "n_resolved": 3,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 11,
+          "n_resolved": 3,
+          "n_unreached": 2
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 3,
+          "n_unreached": 3
+        }
+      }
+    },
+    "sachs": {
+      "n_nodes": 11,
+      "len_k": 1,
+      "n_knowledge": 9,
+      "n_queries": 5,
+      "n_ok": 0,
+      "n_degenerate": 5,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": null,
+        "n_resolved": 0,
+        "n_unreached": 0
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 0,
+          "n_unreached": 0
+        }
+      }
+    },
+    "water": {
+      "n_nodes": 32,
+      "len_k": 5,
+      "n_knowledge": 6,
+      "n_queries": 5,
+      "n_ok": 4,
+      "n_degenerate": 1,
+      "n_error": 0,
+      "n_timeout": 0,
+      "r_val": {
+        "value": 3,
+        "n_resolved": 4,
+        "n_unreached": 3
+      },
+      "r_eps": {
+        "1.0": {
+          "value": 3,
+          "n_resolved": 4,
+          "n_unreached": 3
+        },
+        "2.0": {
+          "value": 3,
+          "n_resolved": 4,
+          "n_unreached": 3
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 4,
+          "n_unreached": 4
+        }
+      }
+    },
+    "win95pts": {
+      "n_nodes": 76,
+      "len_k": 6,
+      "n_knowledge": 6,
+      "n_queries": 5,
+      "n_ok": 1,
+      "n_degenerate": 1,
+      "n_error": 3,
+      "n_timeout": 0,
+      "r_val": {
+        "value": null,
+        "n_resolved": 1,
+        "n_unreached": 1
+      },
+      "r_eps": {
+        "1.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "2.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "5.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "10.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        },
+        "20.0": {
+          "value": null,
+          "n_resolved": 1,
+          "n_unreached": 1
+        }
+      }
+    }
+  }
+}

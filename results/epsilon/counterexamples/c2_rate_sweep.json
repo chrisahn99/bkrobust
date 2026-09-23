@@ -1,0 +1,651 @@
+{
+  "n_instances": 40,
+  "n_pairs_total": 2980,
+  "n_pairs_violating_mean_abs_bias": 1465,
+  "n_pairs_violating_B": 0,
+  "violation_rate_mean_abs_bias": 0.49161073825503354,
+  "violation_rate_B": 0.0,
+  "n_draws_per_state": 80,
+  "per_instance": [
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 5,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 6,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 5,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 5,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 6,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 5,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 977014,
+      "gen_params": {
+        "edge_prob": 0.45
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 5,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1077016,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 28,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1077016,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 31,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1077016,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 2,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 29,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1077016,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 31,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1077016,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 30,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1077016,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 2,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 28,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1077016,
+      "gen_params": {
+        "edge_prob": 0.55
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 31,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 29,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 31,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 2,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 29,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 30,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 30,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 2,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 30,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 31,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 30,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177017,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 3,
+      "n_knowledge_g0": 3,
+      "space_size": 19,
+      "n_pairs": 60,
+      "n_violations_mean_abs_bias": 30,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.3,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.75,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 1.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1177020,
+      "gen_params": {
+        "edge_prob": 0.65
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 2,
+      "n_knowledge_g0": 2,
+      "space_size": 6,
+      "n_pairs": 9,
+      "n_violations_mean_abs_bias": 3,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1277023,
+      "gen_params": {
+        "edge_prob": 0.75
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 5,
+      "n_knowledge_g0": 4,
+      "space_size": 52,
+      "n_pairs": 385,
+      "n_violations_mean_abs_bias": 182,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1277023,
+      "gen_params": {
+        "edge_prob": 0.75
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.25,
+      "n_undirected_cpdag": 5,
+      "n_knowledge_g0": 5,
+      "space_size": 52,
+      "n_pairs": 385,
+      "n_violations_mean_abs_bias": 194,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1277023,
+      "gen_params": {
+        "edge_prob": 0.75
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 5,
+      "n_knowledge_g0": 4,
+      "space_size": 52,
+      "n_pairs": 385,
+      "n_violations_mean_abs_bias": 195,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "erdos_renyi",
+      "n": 4,
+      "seed": 1277023,
+      "gen_params": {
+        "edge_prob": 0.75
+      },
+      "knows_fraction": 1.0,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 5,
+      "n_knowledge_g0": 5,
+      "space_size": 52,
+      "n_pairs": 385,
+      "n_violations_mean_abs_bias": 184,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "scale_free",
+      "n": 4,
+      "seed": 1477026,
+      "gen_params": {
+        "m_attach": 2
+      },
+      "knows_fraction": 0.5,
+      "corruption_rate": 0.5,
+      "n_undirected_cpdag": 4,
+      "n_knowledge_g0": 4,
+      "space_size": 32,
+      "n_pairs": 159,
+      "n_violations_mean_abs_bias": 88,
+      "n_violations_B": 0
+    },
+    {
+      "generator": "scale_free",
+      "n": 4,
+      "seed": 1477026,
+      "gen_params": {
+        "m_attach": 2
+      },
+      "knows_fraction": 0.7,
+      "corruption_rate": 0.0,
+      "n_undirected_cpdag": 4,
+      "n_knowledge_g0": 3,
+      "space_size": 32,
+      "n_pairs": 159,
+      "n_violations_mean_abs_bias": 74,
+      "n_violations_B": 0
+    }
+  ]
+}

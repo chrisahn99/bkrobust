@@ -1,0 +1,41 @@
+{
+  "n_flip_shards_scored": 450,
+  "n_exhaustive_shards": 409,
+  "n_sampled_shards": 41,
+  "exhaustive_networks": [
+    "Acid_1996",
+    "Didelez_2010",
+    "Kampen_2014",
+    "Polzer_2012",
+    "Schipf_2010",
+    "Sebastiani_2005",
+    "Shrier_2008",
+    "asia",
+    "barley",
+    "child",
+    "ecoli70",
+    "hailfinder",
+    "hepar2",
+    "insurance",
+    "magic-niab",
+    "mediator",
+    "munin1",
+    "paths",
+    "sachs",
+    "water",
+    "win95pts"
+  ],
+  "sampled_networks": [
+    "arth150",
+    "diabetes",
+    "ecoli70",
+    "hepar2",
+    "magic-irri",
+    "pathfinder",
+    "win95pts"
+  ],
+  "max_n_k_that_is_exhaustive": 9,
+  "min_n_k_that_is_sampled": 9,
+  "min_space_coverage_among_sampled": 1.1212975592151434e-19,
+  "note": "An exhaustive shard enumerated its entire corruption space, so its survival numbers carry no Monte-Carlo error at all. A sampled shard drew n_draws per grid point from a larger space."
+}

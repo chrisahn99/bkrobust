@@ -1,0 +1,27 @@
+{
+  "checked": 50758,
+  "elapsed_s": 2.0902211666107178,
+  "n_violations": 0,
+  "name": "L1_equivalence_preservation",
+  "scope": {
+    "3": {
+      "n_covered_edge_reversals_checked": 30,
+      "n_dags": 25,
+      "n_violations_this_n": 0,
+      "note": "exhaustive (all_dags)"
+    },
+    "4": {
+      "n_covered_edge_reversals_checked": 828,
+      "n_dags": 543,
+      "n_violations_this_n": 0,
+      "note": "exhaustive (all_dags)"
+    },
+    "5": {
+      "n_covered_edge_reversals_checked": 49900,
+      "n_dags": 29281,
+      "n_violations_this_n": 0,
+      "note": "exhaustive (all_dags)"
+    }
+  },
+  "violations": []
+}

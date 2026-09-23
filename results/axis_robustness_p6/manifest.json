@@ -1,0 +1,559 @@
+{
+  "merged_from_shards": [
+    "results/axis_robustness_p6/shards/flip_c06",
+    "results/axis_robustness_p6/shards/flip_c08",
+    "results/axis_robustness_p6/shards/flip_c10",
+    "results/axis_robustness_p6/shards/flip_c12a",
+    "results/axis_robustness_p6/shards/flip_c12b",
+    "results/axis_robustness_p6/shards/tiered_c06",
+    "results/axis_robustness_p6/shards/tiered_c08",
+    "results/axis_robustness_p6/shards/tiered_c10",
+    "results/axis_robustness_p6/shards/tiered_c12"
+  ],
+  "shard_manifests": [
+    {
+      "created_utc": "2026-09-21T23:30:52.486959+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": false,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          6
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1,
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "flip_c06",
+        "skip_flip": false,
+        "skip_tiered": true
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-21T23:46:28.399523+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          8
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1,
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "flip_c08",
+        "skip_flip": false,
+        "skip_tiered": true
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-22T00:08:02.000808+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          10
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1,
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "flip_c10",
+        "skip_flip": false,
+        "skip_tiered": true
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-22T00:20:42.593788+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          12
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "flip_c12a",
+        "skip_flip": false,
+        "skip_tiered": true
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-21T23:56:50.111742+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          12
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "flip_c12b",
+        "skip_flip": false,
+        "skip_tiered": true
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-21T23:44:25.963936+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          6
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1,
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "tiered_c06",
+        "skip_flip": true,
+        "skip_tiered": false
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-22T00:04:42.830386+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          8
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1,
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "tiered_c08",
+        "skip_flip": true,
+        "skip_tiered": false
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-22T00:13:44.722201+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          10
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1,
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "tiered_c10",
+        "skip_flip": true,
+        "skip_tiered": false
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    },
+    {
+      "created_utc": "2026-09-22T00:38:31.805337+00:00",
+      "git_sha": "59655976d289a05757cd5ecfe7751616a75e0b75",
+      "git_dirty": true,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          12
+        ],
+        "coverages": [
+          0.5,
+          1.0
+        ],
+        "base_wrongness": [
+          0.0,
+          0.1,
+          0.25
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 600,
+        "time_limit_s": 60.0,
+        "mode": "full",
+        "shard_name": "tiered_c12",
+        "skip_flip": true,
+        "skip_tiered": false
+      },
+      "environment": {
+        "python": "3.9.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit",
+        "numpy": "2.0.2",
+        "networkx": "3.2.1",
+        "pandas": "2.3.3",
+        "scipy": "1.13.1",
+        "matplotlib": "3.9.4"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3
+    }
+  ],
+  "shard_summaries_elapsed_seconds": {
+    "flip_c06": 556.949544458,
+    "flip_c08": 1492.8923695,
+    "flip_c10": 2786.505585167,
+    "flip_c12a": 3547.096089125,
+    "flip_c12b": 2114.622469334,
+    "tiered_c06": 806.938378375,
+    "tiered_c08": 1210.06301875,
+    "tiered_c10": 1631.684952417,
+    "tiered_c12": 2497.703093291
+  },
+  "sum_of_shard_elapsed_seconds_cpu": 16644.455500417003,
+  "total_s0_failures": 0,
+  "s0_failures": [],
+  "corruption_denominator_totals": {
+    "n_claims_attempted": 113681211,
+    "n_claims_reversed": 113681211,
+    "corruption_rejected": 23904615,
+    "corruption_accepted": 8889385,
+    "closure_inert": 3191579,
+    "n_rows": 32794000
+  },
+  "n_samples_rows": 32794000,
+  "n_curves_rows": 29872,
+  "n_instances_rows": 4104
+}

@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-09-03T19:59:49.517346+00:00",
+  "git_sha": "b86a899d98328846ad77e963fb7e8cc16245a367",
+  "git_dirty": false,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 20260919,
+  "grid": {
+    "n": [
+      3,
+      4
+    ],
+    "max_undirected": 6,
+    "method": "local_up_exact vs bfs_exact"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "networkx": "3.2.1",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "elapsed_seconds": 173.506057,
+  "cell_counts": {
+    "c10_s1_nt2": 11,
+    "c10_s2_nt2": 20,
+    "c10_s3_nt2": 20,
+    "c10_s4_nt2": 20,
+    "c10_s5_nt2": 20,
+    "c10_s6_nt2": 20,
+    "c10_s7_nt2": 20,
+    "c10_s8_nt2": 20,
+    "c10_s9_nt2": 20
+  },
+  "exclusions": {
+    "optimal_set_undefined": 406
+  },
+  "n_s0_failures": 0,
+  "s0_failures": []
+}

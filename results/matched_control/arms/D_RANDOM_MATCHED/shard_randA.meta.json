@@ -1,0 +1,27 @@
+{
+  "shard_tag": "randA",
+  "networks": [
+    "Acid_1996",
+    "Didelez_2010",
+    "Kampen_2014",
+    "Polzer_2012",
+    "Schipf_2010",
+    "Sebastiani_2005",
+    "Shrier_2008",
+    "Thoemmes_2013",
+    "alarm",
+    "andes",
+    "asia",
+    "barley",
+    "child"
+  ],
+  "seeds": 20,
+  "max_attempts": 200,
+  "time_limit": 120.0,
+  "interpreter_versions": {
+    "python": "3.14.7",
+    "python_executable": "<repo>/.venv/bin/python",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  }
+}

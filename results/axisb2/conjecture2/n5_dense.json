@@ -1,0 +1,36 @@
+{
+  "counterexamples": [],
+  "infeasible": [
+    {
+      "cpdag": "V0-V1 V0-V2 V0-V3 V0-V4 V1-V2 V1-V3 V1-V4 V2-V3 V2-V4 V3-V4",
+      "k_undirected": 10,
+      "reason": "INFEASIBLE: corrected space has 4231 elements; the covering relation is built by brute-force enumeration of represented-DAG subset comparisons, O(N^3) = 7.574e+10 comparisons, which exceeds this session's practical time budget (max_space_dense=2000). Left unexamined; see 'infeasible' in the n5_dense.json summary.",
+      "space_size_new": 4231
+    }
+  ],
+  "n": 5,
+  "n_cpdags_attempted": 136,
+  "n_cpdags_completed": 135,
+  "n_cpdags_infeasible": 1,
+  "runtime_seconds": 1453.6210758686066,
+  "scope": "the density gap: every CPDAG the main corrected sweep skipped for size (>6 undirected edges, or corrected space >200 elements), run to completion with a generous per-CPDAG size budget; CPDAGs still too large to complete are listed under 'infeasible' rather than silently dropped",
+  "totals": {
+    "c1_checks_run": 5990,
+    "c1_checks_skipped": 293530,
+    "c1_violations": 0,
+    "c2_violations": 0,
+    "empty_extension_spaces": 0,
+    "n_combos": 299520,
+    "n_combos_new": 14320,
+    "n_cpdags": 136,
+    "n_dags": 29281,
+    "n_radius_comparisons": 299520,
+    "n_spaces": 135,
+    "n_states_added_vs_old": 3920,
+    "skipped_cpdag_no_undirected": 0,
+    "skipped_cpdag_space_too_big": 0,
+    "skipped_cpdag_too_many_undirected": 0,
+    "skipped_no_valid_z": 582000,
+    "skipped_z_fails_at_g0": 0
+  }
+}

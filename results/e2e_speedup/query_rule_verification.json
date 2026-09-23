@@ -1,0 +1,8 @@
+{
+  "checked": true,
+  "n_committed_rows": 256,
+  "n_match_own_query_rule": 0,
+  "n_match_fallback_zsize_only": 6,
+  "n_rows_checked_for_zsize_fallback": 256,
+  "conclusion": "dense_instance(n, seed, edge_prob) with the committed fields does not reproduce the committed envelope's instances or queries; this driver uses its own self-consistent grid and query rule instead (see manifest.json)."
+}

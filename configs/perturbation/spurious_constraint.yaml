@@ -1,0 +1,32 @@
+# @package perturbation
+# Misspecification by *adding* a constraint that is not entailed by the true
+# DAG (spurious), as opposed to omitting one that is (missing). Both arms live
+# here so the taxonomy in knowledge/taxonomy.py is exercised end to end.
+name: spurious_constraint
+kind: spurious
+
+delta_grid: [0, 1, 2, 3, 4, 5]
+
+arm: spurious               # spurious | missing | both
+                            # spurious: assert something the true DAG does not
+                            #   entail (over-confident expert)
+                            # missing : withhold something the true DAG does
+                            #   entail (under-informative expert; consistent
+                            #   and TRUE, so a control arm, not a violation)
+
+constraint_types:           # what a spurious constraint may be drawn from
+  - required_edge
+  - forbidden_edge
+
+scope:
+  undirected_only: true
+  restrict_to: all
+  exclude_target_pair: true
+
+distance: orientation_flips
+
+sampling:
+  n_draws: 100
+  max_rejections: 10000
+  require_false: true
+  exact_radius: true

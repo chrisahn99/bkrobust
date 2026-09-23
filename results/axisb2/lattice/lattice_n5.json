@@ -1,0 +1,89 @@
+{
+  "scope": "n=5, sampled by k (densest first), corrected space",
+  "by_k": [
+    {
+      "k": 7,
+      "spaces": 8,
+      "triples": 891092,
+      "holds": 891092,
+      "violations": 0,
+      "seconds": 110.3
+    },
+    {
+      "k": 6,
+      "spaces": 8,
+      "triples": 240104,
+      "holds": 240104,
+      "violations": 0,
+      "seconds": 22.5
+    },
+    {
+      "k": 5,
+      "spaces": 8,
+      "triples": 44096,
+      "holds": 44096,
+      "violations": 0,
+      "seconds": 3.6
+    },
+    {
+      "k": 4,
+      "spaces": 8,
+      "triples": 15104,
+      "holds": 15104,
+      "violations": 0,
+      "seconds": 0.9
+    },
+    {
+      "k": 3,
+      "spaces": 8,
+      "triples": 4410,
+      "holds": 4410,
+      "violations": 0,
+      "seconds": 0.2
+    },
+    {
+      "k": 2,
+      "spaces": 8,
+      "triples": 288,
+      "holds": 288,
+      "violations": 0,
+      "seconds": 0.0
+    },
+    {
+      "k": 1,
+      "spaces": 8,
+      "triples": 48,
+      "holds": 48,
+      "violations": 0,
+      "seconds": 0.0
+    }
+  ],
+  "semimodularity_total": {
+    "tested": 1195142,
+    "holds": 1195142,
+    "violations": 0,
+    "violation_examples": []
+  },
+  "joins_total": {
+    "n_pairs": 220476,
+    "n_candidate_is_join": 220476,
+    "n_join_exists": 220476
+  },
+  "lemma_L": {
+    "n_tested": 440952,
+    "n_violations": 0,
+    "n_join_missing": 0,
+    "slack_hist": {
+      "0": 39637,
+      "1": 94498,
+      "2": 108655,
+      "3": 92864,
+      "4": 61076,
+      "5": 31048,
+      "6": 11058,
+      "7": 2116
+    },
+    "frac_zero_slack": 0.08988960249641684,
+    "violations": []
+  }
+}

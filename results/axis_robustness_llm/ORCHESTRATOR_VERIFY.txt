@@ -1,0 +1,90 @@
+complete shards=240  cells=19870  instance rows=5400
+
+[V1] every shard's K equals knowledge.json's K for its (condition, network)
+  shards checked=240  |K| mismatches=0
+
+[V2] k_accuracy recomputed against the true DAG (independent of the pipeline)
+  shards with non-empty K=230  accuracy mismatches=0
+  per-condition mean accuracy over networks (recomputed):
+    D_LLM              n_nets= 24 mean=0.638 median=0.657
+    D_LLM_32B          n_nets= 21 mean=0.692 median=0.750
+    D_LLM_72B          n_nets= 23 mean=0.716 median=0.833
+    D_LLM_72B_INSTR    n_nets= 23 mean=0.735 median=0.833
+    D_LLM_GEMMA_27B    n_nets= 21 mean=0.669 median=0.733
+    D_LLM_INSTR        n_nets= 24 mean=0.641 median=0.722
+    D_LLM_SRC          n_nets= 24 mean=0.684 median=0.804
+    D_LLM_SRC_70B      n_nets= 24 mean=0.699 median=0.812
+    D_SCRAMBLED        n_nets= 23 mean=0.694 median=0.667
+    D_SCRAMBLED_72B    n_nets= 23 mean=0.721 median=0.750
+
+[V3] within-network spread across conditions (the design's premise)
+  Acid_1996        conds= 10 |K| min=  0 max=  1 distinct=2
+  Didelez_2010     conds= 10 |K| min=  1 max=  3 distinct=3
+  Kampen_2014      conds= 10 |K| min=  1 max= 11 distinct=5
+  Polzer_2012      conds= 10 |K| min=  2 max=  9 distinct=5
+  Schipf_2010      conds= 10 |K| min=  1 max=  6 distinct=4
+  Sebastiani_2005  conds= 10 |K| min=  3 max=  7 distinct=5
+  Shrier_2008      conds= 10 |K| min=  1 max=  3 distinct=3
+  arth150          conds= 10 |K| min=  2 max= 24 distinct=7
+  asia             conds= 10 |K| min=  1 max=  3 distinct=3
+  barley           conds= 10 |K| min=  1 max=  8 distinct=7
+  child            conds= 10 |K| min=  1 max= 11 distinct=7
+  diabetes         conds= 10 |K| min=  2 max= 14 distinct=6
+  ecoli70          conds= 10 |K| min=  3 max= 23 distinct=10
+  hailfinder       conds= 10 |K| min=  0 max= 17 distinct=5
+  hepar2           conds= 10 |K| min=  3 max=  7 distinct=3
+  insurance        conds= 10 |K| min=  0 max= 14 distinct=7
+  magic-irri       conds= 10 |K| min=  3 max= 11 distinct=4
+  magic-niab       conds= 10 |K| min=  0 max=  9 distinct=8
+  mediator         conds= 10 |K| min=  1 max=  5 distinct=4
+  munin1           conds= 10 |K| min=  2 max=  8 distinct=5
+  paths            conds= 10 |K| min=  0 max= 14 distinct=7
+  sachs            conds= 10 |K| min=  1 max= 14 distinct=8
+  water            conds= 10 |K| min=  3 max=  6 distinct=3
+  win95pts         conds= 10 |K| min=  1 max= 12 distinct=7
+  networks with >1 distinct |K|: 24/24
+
+[V4] instance status mix (a declined elicitation is an outcome, not a drop)
+  ok                                   2905  (0.538)
+  optimal_set_undefined                1542  (0.286)
+  o_g0_extensions_intractable           743  (0.138)
+  n_k_zero                              210  (0.039)
+
+[V5] contradiction rate by depth fraction, pooled over shards
+  d/|K|=0.1  draws=   84000  contradiction=0.462
+  d/|K|=0.2  draws=  126000  contradiction=0.543
+  d/|K|=0.3  draws=  117000  contradiction=0.594
+  d/|K|=0.4  draws=  107000  contradiction=0.743
+  d/|K|=0.5  draws=  108000  contradiction=0.686
+  d/|K|=0.6  draws=  107000  contradiction=0.805
+  d/|K|=0.7  draws=  117000  contradiction=0.707
+  d/|K|=0.8  draws=  126000  contradiction=0.831
+  d/|K|=0.9  draws=   84000  contradiction=0.837
+  d/|K|=1.0  draws=  202000  contradiction=0.594
+
+[V6] sentinel discipline: S defined iff n_eval > 0
+  cells violating 'S is None iff n_eval==0': 0
+  cells carrying the forbidden 'seconds' key: 0
+  instance rows with UNREACHED radius: 0 (all carry r_status='unreached': True)
+
+[V7] r_val on elicited G0, per condition (UNREACHED excluded, never averaged)
+  D_LLM              n=  216 median=  1.0 max= 13 share(r=1)=0.579
+  D_LLM_32B          n=  223 median=  1.0 max= 13 share(r=1)=0.682
+  D_LLM_72B          n=  446 median=  1.0 max= 13 share(r=1)=0.715
+  D_LLM_72B_INSTR    n=  315 median=  1.0 max= 13 share(r=1)=0.556
+  D_LLM_GEMMA_27B    n=  239 median=  1.0 max=  4 share(r=1)=0.603
+  D_LLM_INSTR        n=  283 median=  1.0 max= 13 share(r=1)=0.671
+  D_LLM_SRC          n=  343 median=  1.0 max= 13 share(r=1)=0.615
+  D_LLM_SRC_70B      n=  368 median=  1.0 max= 13 share(r=1)=0.579
+  D_SCRAMBLED        n=  223 median=  2.0 max= 11 share(r=1)=0.453
+  D_SCRAMBLED_72B    n=  249 median=  1.0 max=  9 share(r=1)=0.639
+
+[V8] provenance: k_source on every instance row
+   Counter({'knowledge.json': 5400})
+  knowledge.json sha256 on markers: Counter({'45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb': 240})
+
+[V9] shards with claims outside the CPDAG skeleton: 0 (any non-zero means the answers were parsed against a different graph)
+
+[V10] wall-cap censored cells: 0
+      shards reporting a censored tail: 0
+      slowest shards: [(2278.899, 'llm__D_LLM_SRC_70B__diabetes'), (2252.963, 'llm__D_LLM_SRC__diabetes'), (2224.76, 'llm__D_LLM_72B__diabetes'), (200.733, 'llm__D_LLM_SRC__arth150'), (52.706, 'llm__D_LLM_32B__ecoli70')]

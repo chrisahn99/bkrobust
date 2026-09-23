@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Didelez_2010__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Didelez_2010",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 8,
+  "n_scored": 5,
+  "n_cells": 50,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 9973,
+    "graph_misses": 27,
+    "verdict_hits": 40545,
+    "verdict_misses": 100
+  },
+  "elapsed_s": 0.36,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Didelez_2010__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Didelez_2010__nt4__tiered.cells.jsonl",
+  "instances_sha256": "9ae023062ad615f6d0c198461e5c261c3b4200e3c8f9cad7b79daf632ddec04a",
+  "cells_sha256": "500ddf1b1847cd61110cda9cc2f50ba53c2ba28ae8db499d005688fb50c74c6b",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:34:04Z"
+}

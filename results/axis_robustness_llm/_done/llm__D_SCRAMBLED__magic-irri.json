@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_SCRAMBLED__magic-irri",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_SCRAMBLED",
+    "network": "magic-irri"
+  },
+  "n_draws": 1000,
+  "condition": "D_SCRAMBLED",
+  "network": "magic-irri",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "scrambled",
+  "n_frame_rows": 11,
+  "n_scored": 5,
+  "n_cells": 35,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 7,
+  "n_asked": 11,
+  "assert_rate": 0.6363636363636364,
+  "k_accuracy": 0.42857142857142855,
+  "n_k_correct": 3,
+  "n_k_wrong": 4,
+  "n_off_skeleton": 0,
+  "k_g0": 7,
+  "shd_truth": 13,
+  "instance_status_counts": {
+    "ok": 5,
+    "optimal_set_undefined": 6
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 5,
+  "cache": {
+    "graph_hits": 6873,
+    "graph_misses": 127,
+    "verdict_hits": 34365,
+    "verdict_misses": 635
+  },
+  "elapsed_s": 0.453,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED__magic-irri.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED__magic-irri.cells.jsonl",
+  "instances_sha256": "3dc6dfb4500da8d27ebb1df83c13b13b3c3e58da5b79e1ea27d6dd80cc38a999",
+  "cells_sha256": "60900c5e92b460935efbb94ece70e43667a4637f4db026220188604e798d034e",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:52:37Z"
+}

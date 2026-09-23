@@ -1,0 +1,23 @@
+{
+  "n_shards": 3,
+  "n_networks": 32,
+  "n_draws": 532,
+  "n_draws_exhausted": 15,
+  "n_instances": 2585,
+  "rejection_rate": 0.9181962025316456,
+  "n_rejected_draws_total": 5803,
+  "n_attempts_total": 6320,
+  "status_counts": {
+    "informative": 700,
+    "unreached": 260,
+    "degenerate": 865,
+    "error": 539,
+    "timeout": 221
+  },
+  "interpreter_versions": {
+    "python": "3.14.7",
+    "python_executable": "<repo>/.venv/bin/python",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  }
+}

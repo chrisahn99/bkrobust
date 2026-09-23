@@ -1,0 +1,15 @@
+z,size,r_val,asymptotic_variance,is_optimal_at_g0
+['BMI'],1,3,1.3475655912705358,False
+['Chol'],1,3,2.006738982626888,False
+['Smoke'],1,3,0.7612340119478559,False
+"['Age', 'BMI']",2,3,0.9739218731250219,False
+"['Age', 'Chol']",2,3,1.868515951699243,False
+"['Age', 'Smoke']",2,3,0.5267949192010314,True
+"['BMI', 'Chol']",2,3,2.930555891227059,False
+"['BMI', 'Smoke']",2,3,1.2598990142912538,False
+"['Chol', 'Smoke']",2,3,2.6145278846889948,False
+"['Age', 'BMI', 'Chol']",3,3,1.7491399181932274,False
+"['Age', 'BMI', 'Smoke']",3,3,0.8559676971386462,False
+"['Age', 'Chol', 'Smoke']",3,3,1.3045991144135982,False
+"['BMI', 'Chol', 'Smoke']",3,3,2.436271396032326,False
+"['Age', 'BMI', 'Chol', 'Smoke']",4,3,1.2327655978574938,False

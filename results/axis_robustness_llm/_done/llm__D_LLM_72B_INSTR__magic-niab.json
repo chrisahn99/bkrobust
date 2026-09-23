@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_72B_INSTR__magic-niab",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_72B_INSTR",
+    "network": "magic-niab"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_72B_INSTR",
+  "network": "magic-niab",
+  "model": "Qwen2.5-72B-Instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 21,
+  "n_scored": 16,
+  "n_cells": 96,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "n_asked": 10,
+  "assert_rate": 0.6,
+  "k_accuracy": 0.6666666666666666,
+  "n_k_correct": 4,
+  "n_k_wrong": 2,
+  "n_off_skeleton": 0,
+  "k_g0": 6,
+  "shd_truth": 8,
+  "instance_status_counts": {
+    "ok": 16,
+    "optimal_set_undefined": 5
+  },
+  "radius_median_ok": 1.0,
+  "n_radius_ok": 16,
+  "cache": {
+    "graph_hits": 5937,
+    "graph_misses": 63,
+    "verdict_hits": 34592,
+    "verdict_misses": 416
+  },
+  "elapsed_s": 0.3,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_72B_INSTR__magic-niab.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_72B_INSTR__magic-niab.cells.jsonl",
+  "instances_sha256": "63ad5d64891ddd103f4366e5ca6a63f76fd065a4528d06c2e3dc13fd2ecc3ad3",
+  "cells_sha256": "2a5b655b830e8481bdcca55b1d5b54b6f5fec71a2ce32406c16943c4b0c457bc",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:52:31Z"
+}

@@ -1,0 +1,30 @@
+{
+  "shard_id": "xarm__asia__nt3__flip",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "asia",
+    "n_tiers": 3,
+    "xarm": "flip"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 2,
+  "n_scored": 1,
+  "n_cells": 2,
+  "g0_status": "ok",
+  "n_k": 2,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 1997,
+    "verdict_misses": 3
+  },
+  "elapsed_s": 0.033,
+  "instances_path": "results/axis_robustness_real/shards/xarm__asia__nt3__flip.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__asia__nt3__flip.cells.jsonl",
+  "instances_sha256": "6a269b9d1f62eb64ccebbb833fb31ff7519525838ced5af991e501a7f8e8d5dc",
+  "cells_sha256": "6f7f6176b94610a627a34113a066d45fd0a9012760a66e4d12565c2a643e7d7e",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:21Z"
+}

@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_SCRAMBLED_72B__Sebastiani_2005",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_SCRAMBLED_72B",
+    "network": "Sebastiani_2005"
+  },
+  "n_draws": 1000,
+  "condition": "D_SCRAMBLED_72B",
+  "network": "Sebastiani_2005",
+  "model": "Qwen2.5-72B-Instruct",
+  "family": "qwen2",
+  "naming": "scrambled",
+  "n_frame_rows": 5,
+  "n_scored": 1,
+  "n_cells": 3,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 3,
+  "n_asked": 7,
+  "assert_rate": 0.42857142857142855,
+  "k_accuracy": 1.0,
+  "n_k_correct": 3,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 3,
+  "shd_truth": 4,
+  "instance_status_counts": {
+    "optimal_set_undefined": 4,
+    "ok": 1
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 1,
+  "cache": {
+    "graph_hits": 2993,
+    "graph_misses": 7,
+    "verdict_hits": 997,
+    "verdict_misses": 3
+  },
+  "elapsed_s": 0.068,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED_72B__Sebastiani_2005.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED_72B__Sebastiani_2005.cells.jsonl",
+  "instances_sha256": "6d54bad4bd3ebf871ad5077c0efe2c7bfd33944f60902d20223e2bdc76270309",
+  "cells_sha256": "ce16233fe895f1bead8f445e61e2a63f58324ab904fbea520e91a27d26716759",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:17Z"
+}

@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__Sebastiani_2005__nt3",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "Sebastiani_2005",
+    "n_tiers": 3
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 5,
+  "n_scored": 1,
+  "n_cells": 11,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "cache": {
+    "graph_hits": 9688,
+    "graph_misses": 1312,
+    "verdict_hits": 7897,
+    "verdict_misses": 889
+  },
+  "elapsed_s": 3.063,
+  "instances_path": "results/axis_robustness_real/shards/tiered__Sebastiani_2005__nt3.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__Sebastiani_2005__nt3.cells.jsonl",
+  "instances_sha256": "20637ff26c283c0ee6fa68cbca93012a48967b2367b0f214e6d0e9f9b9c330dd",
+  "cells_sha256": "2fad946c0305f46fd9fe8115d8f2f83caf77510834f07ef5425c9a7bd5304da3",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:34:59Z"
+}

@@ -1,0 +1,71 @@
+{
+  "session": 6,
+  "branch": "experiments/synth_graphs_and_heuristics",
+  "git_sha": "65919374c1509424da611a387a351dd0a0183ec6",
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "ortools": "9.15.6755",
+    "numpy": "2.0.2",
+    "matplotlib": "3.9.4"
+  },
+  "network_sources": {
+    "route": "pgmpy sdist from PyPI, read directly; pgmpy itself is NOT installed",
+    "why_not_the_obvious_route": "bnlearn.com fails TLS negotiation (TLSV1_ALERT_PROTOCOL_VERSION) from this machine, so pgmpy.utils.get_example_model and the canonical .bif/.dsc downloads are unavailable; guessed GitHub raw URLs 404",
+    "sdist_sha256": "aef361e0858bbb1de839c54b940b203170609e1822aff37fc6853e715478255a",
+    "per_file_checksums": "results/axisa3/networks/acquisition_manifest.json",
+    "n_files_extracted": 40
+  },
+  "solver_parameters": {
+    "num_workers": 1,
+    "random_seed": 0
+  },
+  "determinism": {
+    "no_global_rng": true,
+    "sorted_iteration_everywhere": true,
+    "knowledge_selection": "deterministic evenly spaced stride over the sorted true orientations; no RNG, so a network and coverage always give the same K",
+    "pair_sampling": "deterministic stride over the sorted pair list; never adaptive, never a function of any computed radius"
+  },
+  "censored_and_limit_representation": {
+    "censored_run": "wall_until_timeout_s on a _meta row; never the key a measurement uses",
+    "undefined_separation": "separation is null with separation_status giving the reason; never encoded as a number such as 0 or -1",
+    "unreached_radius": "-1 is a sentinel, never averaged or plotted numerically (there are none in this data)",
+    "measurement_limit": "o_g0_extensions_intractable is a MEASUREMENT limit and is kept distinct from every structural rejection reason"
+  },
+  "sampling_budgets": {
+    "main_sweep": {
+      "target_pairs": 2500,
+      "cap_per_instance_s": 300,
+      "cap_per_network_run_s": 1200
+    },
+    "largest_five_rerun": {
+      "networks": [
+        "link",
+        "munin2",
+        "munin4",
+        "munin",
+        "munin3"
+      ],
+      "target_pairs": 400,
+      "cap_per_network_run_s": 900,
+      "reason": "the full budget was projected to spend about five hours producing mostly censored records; real data at a smaller sample is worth more"
+    }
+  },
+  "files": {
+    "prediction_before_looking.md": "directional predictions, committed before the descriptive table existed",
+    "preregistration.md": "network list and (X, Y) selection policy, before any radius",
+    "descriptive_structure.csv": "Phase 2, committed before any radius",
+    "instances.jsonl": "per-instance rows, tagged with network/coverage/method/oracle",
+    "per_network.csv": "per-network aggregates",
+    "analysis_summary.json": "the aggregate numbers the report quotes",
+    "gate_predicate_swap.json": "verification that the GAC gate predicate is verdict-identical",
+    "instances_enumgate_partial.jsonl": "first partial run, kept not pooled",
+    "instances_run2_partial.jsonl": "second partial run, kept not pooled"
+  },
+  "assumption_status": {
+    "separation_distribution": "BFS on the CPDAG. Depends on NEITHER Conjecture 2 NOR session 5 law. This is the session headline.",
+    "radii": "exact under Conjecture 2, hence Anti-Exchange Case B (verified, not proved). Error direction inflates radii, favourable to the hypothesis -- caveat kept visible.",
+    "cpdags": "computed from the true DAG: the oracle-CI idealisation. Real discovery on finite data returns a sparser skeleton. This is the largest scope limit."
+  }
+}

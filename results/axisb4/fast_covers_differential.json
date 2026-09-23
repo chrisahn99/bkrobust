@@ -1,0 +1,11 @@
+{
+  "scope": "all CPDAGs on 3 and 4 nodes with >=1 undirected edge; covers at every space element; radii at n=4 with Z = optimal adjustment set",
+  "cover_sets_compared": 1588,
+  "cover_sets_identical": 1588,
+  "radii_compared": 1044,
+  "radii_agree_with_frozen_local_up": 1044,
+  "radii_agree_with_bfs": 1044,
+  "cover_disagreements": [],
+  "radius_disagreements": [],
+  "verdict": "PASS"
+}

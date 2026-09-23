@@ -1,0 +1,10 @@
+{
+  "n": 4,
+  "n_cases": 792,
+  "L_admissible": 732,
+  "L_violations": [],
+  "n_L_violations": 0,
+  "L_tight": 660,
+  "U_valid": 792,
+  "LU_equal_and_exact": 660
+}

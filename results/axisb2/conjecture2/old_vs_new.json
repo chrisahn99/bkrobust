@@ -1,0 +1,210 @@
+{
+  "per_n": {
+    "3": {
+      "dense_closure": null,
+      "n": 3,
+      "new": {
+        "n_counterexamples": 0,
+        "runtime_seconds": 0.023933887481689453,
+        "scope": "all CPDAGs on 3 nodes with <=6 undirected edges and corrected space <=200 elements",
+        "totals": {
+          "c1_checks_run": 3,
+          "c1_checks_skipped": 147,
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 150,
+          "n_combos_new": 0,
+          "n_cpdags": 11,
+          "n_dags": 25,
+          "n_radius_comparisons": 150,
+          "n_spaces": 7,
+          "n_states_added_vs_old": 0,
+          "skipped_cpdag_no_undirected": 4,
+          "skipped_cpdag_space_too_big": 0,
+          "skipped_cpdag_too_many_undirected": 0,
+          "skipped_no_valid_z": 162,
+          "skipped_z_fails_at_g0": 0
+        }
+      },
+      "old": {
+        "n_counterexamples": 0,
+        "runtime_seconds": null,
+        "scope": "all CPDAGs on 3 nodes (exhaustive)",
+        "totals": {
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 150,
+          "n_cpdags": 11,
+          "n_dags": 25,
+          "n_radius_comparisons": 150,
+          "n_spaces": 7,
+          "skipped_cpdag_no_undirected": 4,
+          "skipped_cpdag_space_too_big": 0,
+          "skipped_cpdag_too_many_undirected": 0,
+          "skipped_no_valid_z": 162,
+          "skipped_z_fails_at_g0": 0
+        }
+      }
+    },
+    "4": {
+      "dense_closure": {
+        "infeasible": [],
+        "n_counterexamples": 0,
+        "n_cpdags_attempted": 1,
+        "n_cpdags_completed": 1,
+        "n_cpdags_infeasible": 0,
+        "scope": "the density gap: every CPDAG the main corrected sweep skipped for size (>6 undirected edges, or corrected space >200 elements), run to completion with a generous per-CPDAG size budget; CPDAGs still too large to complete are listed under 'infeasible' rather than silently dropped",
+        "totals": {
+          "c1_checks_run": 6,
+          "c1_checks_skipped": 330,
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 336,
+          "n_combos_new": 0,
+          "n_cpdags": 1,
+          "n_dags": 543,
+          "n_radius_comparisons": 336,
+          "n_spaces": 1,
+          "n_states_added_vs_old": 12,
+          "skipped_cpdag_no_undirected": 0,
+          "skipped_cpdag_space_too_big": 0,
+          "skipped_cpdag_too_many_undirected": 0,
+          "skipped_no_valid_z": 2292,
+          "skipped_z_fails_at_g0": 0
+        }
+      },
+      "n": 4,
+      "new": {
+        "n_counterexamples": 0,
+        "runtime_seconds": 3.7169580459594727,
+        "scope": "all CPDAGs on 4 nodes with <=6 undirected edges and corrected space <=200 elements",
+        "totals": {
+          "c1_checks_run": 260,
+          "c1_checks_skipped": 12748,
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 13008,
+          "n_combos_new": 0,
+          "n_cpdags": 185,
+          "n_dags": 543,
+          "n_radius_comparisons": 13008,
+          "n_spaces": 125,
+          "n_states_added_vs_old": 12,
+          "skipped_cpdag_no_undirected": 59,
+          "skipped_cpdag_space_too_big": 1,
+          "skipped_cpdag_too_many_undirected": 0,
+          "skipped_no_valid_z": 9096,
+          "skipped_z_fails_at_g0": 0
+        }
+      },
+      "old": {
+        "n_counterexamples": 0,
+        "runtime_seconds": null,
+        "scope": "all CPDAGs on 4 nodes, <=6 undirected, space<=400",
+        "totals": {
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 13344,
+          "n_cpdags": 185,
+          "n_dags": 543,
+          "n_radius_comparisons": 13344,
+          "n_spaces": 126,
+          "skipped_cpdag_no_undirected": 59,
+          "skipped_cpdag_space_too_big": 0,
+          "skipped_cpdag_too_many_undirected": 0,
+          "skipped_no_valid_z": 11100,
+          "skipped_z_fails_at_g0": 0
+        }
+      }
+    },
+    "5": {
+      "dense_closure": {
+        "infeasible": [
+          {
+            "cpdag": "V0-V1 V0-V2 V0-V3 V0-V4 V1-V2 V1-V3 V1-V4 V2-V3 V2-V4 V3-V4",
+            "k_undirected": 10,
+            "reason": "INFEASIBLE: corrected space has 4231 elements; the covering relation is built by brute-force enumeration of represented-DAG subset comparisons, O(N^3) = 7.574e+10 comparisons, which exceeds this session's practical time budget (max_space_dense=2000). Left unexamined; see 'infeasible' in the n5_dense.json summary.",
+            "space_size_new": 4231
+          }
+        ],
+        "n_counterexamples": 0,
+        "n_cpdags_attempted": 136,
+        "n_cpdags_completed": 135,
+        "n_cpdags_infeasible": 1,
+        "scope": "the density gap: every CPDAG the main corrected sweep skipped for size (>6 undirected edges, or corrected space >200 elements), run to completion with a generous per-CPDAG size budget; CPDAGs still too large to complete are listed under 'infeasible' rather than silently dropped",
+        "totals": {
+          "c1_checks_run": 5990,
+          "c1_checks_skipped": 293530,
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 299520,
+          "n_combos_new": 14320,
+          "n_cpdags": 136,
+          "n_dags": 29281,
+          "n_radius_comparisons": 299520,
+          "n_spaces": 135,
+          "n_states_added_vs_old": 3920,
+          "skipped_cpdag_no_undirected": 0,
+          "skipped_cpdag_space_too_big": 0,
+          "skipped_cpdag_too_many_undirected": 0,
+          "skipped_no_valid_z": 582000,
+          "skipped_z_fails_at_g0": 0
+        }
+      },
+      "n": 5,
+      "new": {
+        "n_counterexamples": 0,
+        "runtime_seconds": 983.1713230609894,
+        "scope": "all CPDAGs on 5 nodes with <=6 undirected edges and corrected space <=200 elements",
+        "totals": {
+          "c1_checks_run": 39556,
+          "c1_checks_skipped": 1938264,
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 1977820,
+          "n_combos_new": 13860,
+          "n_cpdags": 8782,
+          "n_dags": 29281,
+          "n_radius_comparisons": 1977820,
+          "n_spaces": 6030,
+          "n_states_added_vs_old": 720,
+          "skipped_cpdag_no_undirected": 2616,
+          "skipped_cpdag_space_too_big": 5,
+          "skipped_cpdag_too_many_undirected": 131,
+          "skipped_no_valid_z": 789420,
+          "skipped_z_fails_at_g0": 0
+        }
+      },
+      "old": {
+        "n_counterexamples": 0,
+        "runtime_seconds": 928.1,
+        "scope": "all CPDAGs on 5 nodes with <=6 undirected edges and space <=200 elements",
+        "totals": {
+          "c1_checks_run": 9859,
+          "c1_checks_skipped": 1961961,
+          "c1_violations": 0,
+          "c2_violations": 0,
+          "empty_extension_spaces": 0,
+          "n_combos": 1971820,
+          "n_cpdags": 8782,
+          "n_dags": 29281,
+          "n_radius_comparisons": 1971820,
+          "n_spaces": 6030,
+          "skipped_cpdag_no_undirected": 2616,
+          "skipped_cpdag_space_too_big": 5,
+          "skipped_cpdag_too_many_undirected": 131,
+          "skipped_no_valid_z": 776820,
+          "skipped_z_fails_at_g0": 0
+        }
+      }
+    }
+  },
+  "verdict": "No counterexample found on the corrected space either, across every n=3,4,5 combination examined (including the closed n=5 density gap where completed). Conjecture 2's status is UNCHANGED: still an empirically-supported conjecture, not a theorem, and the scope of that support is stated exactly (see any 'infeasible' entries above for what remains unexamined)."
+}

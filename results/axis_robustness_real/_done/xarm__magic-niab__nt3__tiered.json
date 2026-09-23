@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__magic-niab__nt3__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "magic-niab",
+    "n_tiers": 3,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 21,
+  "n_scored": 20,
+  "n_cells": 200,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 8,
+  "cache": {
+    "graph_hits": 5305,
+    "graph_misses": 4695,
+    "verdict_hits": 79700,
+    "verdict_misses": 55680
+  },
+  "elapsed_s": 13.234,
+  "instances_path": "results/axis_robustness_real/shards/xarm__magic-niab__nt3__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__magic-niab__nt3__tiered.cells.jsonl",
+  "instances_sha256": "1724293647fe9608355f2c74e819a9d0195bade28d669fe646bb12021d2d8f83",
+  "cells_sha256": "b7005c6efa32a6cbf6ff8aa155c269c298f9545537d042c23dee074d24f09000",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:31:44Z"
+}

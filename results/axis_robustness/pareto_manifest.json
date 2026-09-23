@@ -1,0 +1,229 @@
+{
+  "created_utc": "2026-09-09T18:08:50.750737+00:00",
+  "git_sha": "d3cd71f0fe36852cf37944942f47669ae8cecfea",
+  "git_dirty": true,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 0,
+  "grid": {
+    "component_sizes": [
+      6,
+      8,
+      10
+    ],
+    "seps_per_size": 4,
+    "accepted_per_cell": 2,
+    "n_bases": 24,
+    "proposal_cap": 60,
+    "n_sem_draws": 20,
+    "n_bias_reps": 50,
+    "bias_flip_rate": 0.1,
+    "radius_time_limit_s": 60.0
+  },
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "networkx": "3.2.1",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "gate": "fast_gate",
+  "n_proposal_rows": 1087,
+  "n_sem_rows": 17680,
+  "total_elapsed_s": 32.286653333,
+  "per_base": [
+    {
+      "base_id": "c06_s01_cov100_seed152819226",
+      "n_undirected": 9,
+      "n_proposals": 49,
+      "b2_max_abs_bias": 1.1102230246251565e-15,
+      "b2_ok": true,
+      "elapsed_s": 0.45829470900000013
+    },
+    {
+      "base_id": "c06_s01_cov100_seed1450336244",
+      "n_undirected": 5,
+      "n_proposals": 31,
+      "b2_max_abs_bias": 8.881784197001252e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.15551329199999997
+    },
+    {
+      "base_id": "c06_s02_cov100_seed280397440",
+      "n_undirected": 6,
+      "n_proposals": 43,
+      "b2_max_abs_bias": 6.661338147750939e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.41459650000000003
+    },
+    {
+      "base_id": "c06_s02_cov100_seed898325659",
+      "n_undirected": 7,
+      "n_proposals": 47,
+      "b2_max_abs_bias": 6.661338147750939e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.5195588340000001
+    },
+    {
+      "base_id": "c06_s04_cov100_seed337731232",
+      "n_undirected": 5,
+      "n_proposals": 31,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.4595736669999999
+    },
+    {
+      "base_id": "c06_s04_cov100_seed566415042",
+      "n_undirected": 5,
+      "n_proposals": 31,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.4737623750000002
+    },
+    {
+      "base_id": "c06_s05_cov100_seed1304932256",
+      "n_undirected": 5,
+      "n_proposals": 31,
+      "b2_max_abs_bias": 4.440892098500626e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.5849648329999999
+    },
+    {
+      "base_id": "c06_s05_cov100_seed1390762948",
+      "n_undirected": 5,
+      "n_proposals": 31,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.5839177499999999
+    },
+    {
+      "base_id": "c08_s01_cov100_seed416099593",
+      "n_undirected": 8,
+      "n_proposals": 50,
+      "b2_max_abs_bias": 6.661338147750939e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.5070717920000005
+    },
+    {
+      "base_id": "c08_s01_cov100_seed1773969257",
+      "n_undirected": 8,
+      "n_proposals": 50,
+      "b2_max_abs_bias": 4.996003610813204e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.36894558300000035
+    },
+    {
+      "base_id": "c08_s03_cov100_seed573833528",
+      "n_undirected": 7,
+      "n_proposals": 47,
+      "b2_max_abs_bias": 4.440892098500626e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.6470114579999997
+    },
+    {
+      "base_id": "c08_s03_cov100_seed1286616110",
+      "n_undirected": 9,
+      "n_proposals": 49,
+      "b2_max_abs_bias": 3.3306690738754696e-16,
+      "b2_ok": true,
+      "elapsed_s": 1.0184526250000001
+    },
+    {
+      "base_id": "c08_s05_cov100_seed1705891827",
+      "n_undirected": 8,
+      "n_proposals": 50,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 1.661166917000001
+    },
+    {
+      "base_id": "c08_s05_cov100_seed1076453569",
+      "n_undirected": 7,
+      "n_proposals": 47,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 1.2973795409999997
+    },
+    {
+      "base_id": "c08_s07_cov100_seed1131793155",
+      "n_undirected": 7,
+      "n_proposals": 47,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 1.5856925420000003
+    },
+    {
+      "base_id": "c08_s07_cov100_seed2054962599",
+      "n_undirected": 7,
+      "n_proposals": 47,
+      "b2_max_abs_bias": 4.440892098500626e-16,
+      "b2_ok": true,
+      "elapsed_s": 1.5896537089999985
+    },
+    {
+      "base_id": "c10_s01_cov100_seed779026817",
+      "n_undirected": 13,
+      "n_proposals": 49,
+      "b2_max_abs_bias": 1.3322676295501878e-15,
+      "b2_ok": true,
+      "elapsed_s": 1.3953873340000005
+    },
+    {
+      "base_id": "c10_s01_cov100_seed2052139661",
+      "n_undirected": 11,
+      "n_proposals": 51,
+      "b2_max_abs_bias": 4.440892098500626e-16,
+      "b2_ok": true,
+      "elapsed_s": 0.9588055830000002
+    },
+    {
+      "base_id": "c10_s04_cov100_seed677972131",
+      "n_undirected": 10,
+      "n_proposals": 55,
+      "b2_max_abs_bias": 3.3306690738754696e-16,
+      "b2_ok": true,
+      "elapsed_s": 2.3204734159999987
+    },
+    {
+      "base_id": "c10_s04_cov100_seed23742401",
+      "n_undirected": 9,
+      "n_proposals": 49,
+      "b2_max_abs_bias": 6.661338147750939e-16,
+      "b2_ok": true,
+      "elapsed_s": 1.9848742090000009
+    },
+    {
+      "base_id": "c10_s06_cov100_seed2008114018",
+      "n_undirected": 9,
+      "n_proposals": 49,
+      "b2_max_abs_bias": 4.440892098500626e-16,
+      "b2_ok": true,
+      "elapsed_s": 2.740530917000001
+    },
+    {
+      "base_id": "c10_s06_cov100_seed195996535",
+      "n_undirected": 10,
+      "n_proposals": 55,
+      "b2_max_abs_bias": 4.440892098500626e-16,
+      "b2_ok": true,
+      "elapsed_s": 3.750336666999999
+    },
+    {
+      "base_id": "c10_s09_cov100_seed1923618803",
+      "n_undirected": 9,
+      "n_proposals": 49,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 2.994938000000001
+    },
+    {
+      "base_id": "c10_s09_cov100_seed1648170629",
+      "n_undirected": 9,
+      "n_proposals": 49,
+      "b2_max_abs_bias": 2.220446049250313e-16,
+      "b2_ok": true,
+      "elapsed_s": 3.0959530000000015
+    }
+  ]
+}

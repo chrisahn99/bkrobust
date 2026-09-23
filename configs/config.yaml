@@ -1,0 +1,55 @@
+# Hydra root config for bkrobust.
+#
+# Every experiment entrypoint composes from here. Nothing in the codebase may
+# read a hardcoded constant that belongs in a config -- if an experiment needs
+# a number, it comes through this tree.
+#
+# Usage:
+#   python experiments/run_synthetic_sweep.py
+#   python experiments/run_synthetic_sweep.py seed=7 graph=scale_free
+#   python experiments/run_synthetic_sweep.py -m seed=1,2,3 perturbation=tier,ancestral
+
+defaults:
+  - _self_
+  - experiment: synthetic_sweep
+  - graph: erdos_renyi
+  - perturbation: orientation_flip
+  - estimator: ols_adjustment
+  - override hydra/job_logging: default
+
+# --- Reproducibility -------------------------------------------------------
+# `seed` seeds every RNG stream (numpy, python, torch if present). Experiments
+# that need several independent streams derive them from this via
+# bkrobust.utils.seeding.spawn.
+seed: 0
+n_seeds: 1          # >1 replicates the whole experiment over seed, seed+1, ...
+
+# --- Output ----------------------------------------------------------------
+# Results land in results/<experiment.name>/<timestamp>_<git-sha>/ .
+# `run_id` overrides the generated directory name when set.
+output:
+  root: results
+  run_id: null
+  save_raw: true      # per-replicate records, not just aggregates
+  save_manifest: true # config + git sha + env versions, for reproducibility
+  overwrite: false
+
+# --- Logging ---------------------------------------------------------------
+logging:
+  level: INFO
+  rich: false
+
+# --- Compute ---------------------------------------------------------------
+compute:
+  n_jobs: 1           # -1 uses all cores
+  device: cpu         # cpu | cuda | mps ; only consulted by the [cfm] path
+  progress: true
+
+hydra:
+  run:
+    dir: outputs/${experiment.name}/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: multirun/${experiment.name}/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.num}
+  job:
+    chdir: false

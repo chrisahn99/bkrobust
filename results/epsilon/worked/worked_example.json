@@ -1,0 +1,599 @@
+{
+  "epsilons_relative": [
+    0.01,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "headline_sem_seed": 20260916,
+  "tables": [
+    {
+      "scenario": "A",
+      "knowledge": [
+        [
+          "Smoke",
+          "BMI"
+        ],
+        [
+          "BMI",
+          "Chol"
+        ],
+        [
+          "Chol",
+          "CRP"
+        ]
+      ],
+      "g0": "Age->BP Age->CVD BMI->Chol BP->CVD Chol->CRP Chol->Statin Smoke->BMI Smoke->CVD Statin->BP Statin->CVD CRP-Statin",
+      "z": [
+        "Age",
+        "Smoke"
+      ],
+      "n_knowledge": 4,
+      "r_val": 3,
+      "r_val_method": "local_up_fast",
+      "theta_z": 0.326211,
+      "tau_true": 0.326211,
+      "realised_error_relative": 0.0,
+      "shells": [
+        {
+          "shell": 0,
+          "states": 1,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 1,
+          "states": 3,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 2,
+          "states": 4,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 3,
+          "states": 7,
+          "z_invalid": 1,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 4,
+          "states": 8,
+          "z_invalid": 3,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 5,
+          "states": 9,
+          "z_invalid": 5,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 6,
+          "states": 5,
+          "z_invalid": 4,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 7,
+          "states": 6,
+          "z_invalid": 5,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 8,
+          "states": 3,
+          "z_invalid": 3,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 9,
+          "states": 2,
+          "z_invalid": 2,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        }
+      ],
+      "r_eps_upset": {
+        "0.01": 3,
+        "0.05": 3,
+        "0.1": 3,
+        "0.25": 3,
+        "0.5": -1,
+        "1": -1
+      },
+      "r_eps_bruteforce": {
+        "0.00326211": 3,
+        "0.0163105": 3,
+        "0.0326211": 3,
+        "0.0815527": 3,
+        "0.163105": -1,
+        "0.326211": -1
+      },
+      "cross_check_agree": true,
+      "sem_seed": 20260916,
+      "sem_weights": {
+        "Age->BP": 0.477845,
+        "Age->CVD": -0.903185,
+        "BMI->Chol": -0.692964,
+        "BP->CVD": -1.099468,
+        "CRP->Statin": 0.503472,
+        "Chol->CRP": -0.922395,
+        "Chol->Statin": 1.120539,
+        "Smoke->BMI": -1.007953,
+        "Smoke->CVD": -1.407326,
+        "Statin->BP": 0.567617,
+        "Statin->CVD": 0.950287
+      },
+      "sem_noise_var": {
+        "Age": 1.1576,
+        "BMI": 1.202936,
+        "BP": 0.670092,
+        "CRP": 1.18698,
+        "CVD": 0.961086,
+        "Chol": 0.697492,
+        "Smoke": 0.554007,
+        "Statin": 1.227587
+      }
+    },
+    {
+      "scenario": "B",
+      "knowledge": [
+        [
+          "Smoke",
+          "BMI"
+        ],
+        [
+          "BMI",
+          "Chol"
+        ],
+        [
+          "Chol",
+          "CRP"
+        ],
+        [
+          "Statin",
+          "CRP"
+        ]
+      ],
+      "g0": "Age->BP Age->CVD BMI->Chol BP->CVD Chol->CRP Chol->Statin Smoke->BMI Smoke->CVD Statin->BP Statin->CRP Statin->CVD",
+      "z": [
+        "Age",
+        "Smoke"
+      ],
+      "n_knowledge": 5,
+      "r_val": 3,
+      "r_val_method": "local_up_fast",
+      "theta_z": 0.326211,
+      "tau_true": 0.326211,
+      "realised_error_relative": 0.0,
+      "shells": [
+        {
+          "shell": 0,
+          "states": 1,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 1,
+          "states": 2,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 2,
+          "states": 4,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 3,
+          "states": 5,
+          "z_invalid": 1,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 4,
+          "states": 8,
+          "z_invalid": 3,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 5,
+          "states": 8,
+          "z_invalid": 4,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 6,
+          "states": 8,
+          "z_invalid": 5,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 7,
+          "states": 4,
+          "z_invalid": 3,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 8,
+          "states": 5,
+          "z_invalid": 4,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 9,
+          "states": 2,
+          "z_invalid": 2,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 10,
+          "states": 1,
+          "z_invalid": 1,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        }
+      ],
+      "r_eps_upset": {
+        "0.01": 3,
+        "0.05": 3,
+        "0.1": 3,
+        "0.25": 3,
+        "0.5": -1,
+        "1": -1
+      },
+      "r_eps_bruteforce": {
+        "0.00326211": 3,
+        "0.0163105": 3,
+        "0.0326211": 3,
+        "0.0815527": 3,
+        "0.163105": -1,
+        "0.326211": -1
+      },
+      "cross_check_agree": true,
+      "sem_seed": 20260916,
+      "sem_weights": {
+        "Age->BP": 0.477845,
+        "Age->CVD": -0.903185,
+        "BMI->Chol": -0.692964,
+        "BP->CVD": -1.099468,
+        "CRP->Statin": 0.503472,
+        "Chol->CRP": -0.922395,
+        "Chol->Statin": 1.120539,
+        "Smoke->BMI": -1.007953,
+        "Smoke->CVD": -1.407326,
+        "Statin->BP": 0.567617,
+        "Statin->CVD": 0.950287
+      },
+      "sem_noise_var": {
+        "Age": 1.1576,
+        "BMI": 1.202936,
+        "BP": 0.670092,
+        "CRP": 1.18698,
+        "CVD": 0.961086,
+        "Chol": 0.697492,
+        "Smoke": 0.554007,
+        "Statin": 1.227587
+      }
+    },
+    {
+      "scenario": "C",
+      "knowledge": [
+        [
+          "BMI",
+          "Chol"
+        ],
+        [
+          "Chol",
+          "CRP"
+        ],
+        [
+          "Statin",
+          "CRP"
+        ]
+      ],
+      "g0": "Age->BP Age->CVD BMI->Chol BP->CVD Chol->CRP Chol->Statin Smoke->CVD Statin->BP Statin->CRP Statin->CVD BMI-Smoke",
+      "z": [
+        "Age",
+        "Smoke"
+      ],
+      "n_knowledge": 4,
+      "r_val": 2,
+      "r_val_method": "local_up_fast",
+      "theta_z": 0.326211,
+      "tau_true": 0.326211,
+      "realised_error_relative": 0.0,
+      "shells": [
+        {
+          "shell": 0,
+          "states": 1,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 1,
+          "states": 4,
+          "z_invalid": 0,
+          "beta_up_effect": 0.0,
+          "beta_up_relative": 0.0
+        },
+        {
+          "shell": 2,
+          "states": 6,
+          "z_invalid": 1,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 3,
+          "states": 9,
+          "z_invalid": 3,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 4,
+          "states": 8,
+          "z_invalid": 4,
+          "beta_up_effect": 0.162877,
+          "beta_up_relative": 0.499299
+        },
+        {
+          "shell": 5,
+          "states": 8,
+          "z_invalid": 5,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 6,
+          "states": 4,
+          "z_invalid": 3,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 7,
+          "states": 5,
+          "z_invalid": 4,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 8,
+          "states": 2,
+          "z_invalid": 2,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        },
+        {
+          "shell": 9,
+          "states": 1,
+          "z_invalid": 1,
+          "beta_up_effect": null,
+          "beta_up_relative": null
+        }
+      ],
+      "r_eps_upset": {
+        "0.01": 2,
+        "0.05": 2,
+        "0.1": 2,
+        "0.25": 2,
+        "0.5": -1,
+        "1": -1
+      },
+      "r_eps_bruteforce": {
+        "0.00326211": 2,
+        "0.0163105": 2,
+        "0.0326211": 2,
+        "0.0815527": 2,
+        "0.163105": -1,
+        "0.326211": -1
+      },
+      "cross_check_agree": true,
+      "sem_seed": 20260916,
+      "sem_weights": {
+        "Age->BP": 0.477845,
+        "Age->CVD": -0.903185,
+        "BMI->Chol": -0.692964,
+        "BP->CVD": -1.099468,
+        "CRP->Statin": 0.503472,
+        "Chol->CRP": -0.922395,
+        "Chol->Statin": 1.120539,
+        "Smoke->BMI": -1.007953,
+        "Smoke->CVD": -1.407326,
+        "Statin->BP": 0.567617,
+        "Statin->CVD": 0.950287
+      },
+      "sem_noise_var": {
+        "Age": 1.1576,
+        "BMI": 1.202936,
+        "BP": 0.670092,
+        "CRP": 1.18698,
+        "CVD": 0.961086,
+        "Chol": 0.697492,
+        "Smoke": 0.554007,
+        "Statin": 1.227587
+      }
+    }
+  ],
+  "parameter_dependence": [
+    {
+      "scenario": "A",
+      "r_val": 3,
+      "r_val_constant_across_draws": true,
+      "n_draws": 400,
+      "r_eps_distribution": {
+        "0.01": {
+          "-1": 6,
+          "3": 378,
+          "4": 16
+        },
+        "0.05": {
+          "-1": 92,
+          "3": 268,
+          "4": 40
+        },
+        "0.1": {
+          "-1": 183,
+          "3": 179,
+          "4": 38
+        },
+        "0.25": {
+          "-1": 290,
+          "3": 93,
+          "4": 17
+        },
+        "0.5": {
+          "-1": 334,
+          "3": 56,
+          "4": 10
+        },
+        "1": {
+          "-1": 370,
+          "3": 26,
+          "4": 4
+        }
+      },
+      "staircase_shape": {
+        "flat": 221,
+        "step": 179
+      },
+      "relative_rise": {
+        "mean": 0.062241,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 3.086348
+      }
+    },
+    {
+      "scenario": "B",
+      "r_val": 3,
+      "r_val_constant_across_draws": true,
+      "n_draws": 400,
+      "r_eps_distribution": {
+        "0.01": {
+          "-1": 6,
+          "3": 378,
+          "5": 16
+        },
+        "0.05": {
+          "-1": 92,
+          "3": 268,
+          "5": 40
+        },
+        "0.1": {
+          "-1": 183,
+          "3": 179,
+          "5": 38
+        },
+        "0.25": {
+          "-1": 290,
+          "3": 93,
+          "5": 17
+        },
+        "0.5": {
+          "-1": 334,
+          "3": 56,
+          "5": 10
+        },
+        "1": {
+          "-1": 370,
+          "3": 26,
+          "5": 4
+        }
+      },
+      "staircase_shape": {
+        "flat": 221,
+        "step": 179
+      },
+      "relative_rise": {
+        "mean": 0.062241,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 3.086348
+      }
+    },
+    {
+      "scenario": "C",
+      "r_val": 2,
+      "r_val_constant_across_draws": true,
+      "n_draws": 400,
+      "r_eps_distribution": {
+        "0.01": {
+          "-1": 6,
+          "2": 378,
+          "4": 16
+        },
+        "0.05": {
+          "-1": 92,
+          "2": 268,
+          "4": 40
+        },
+        "0.1": {
+          "-1": 183,
+          "2": 179,
+          "4": 38
+        },
+        "0.25": {
+          "-1": 290,
+          "2": 93,
+          "4": 17
+        },
+        "0.5": {
+          "-1": 334,
+          "2": 56,
+          "4": 10
+        },
+        "1": {
+          "-1": 370,
+          "2": 26,
+          "4": 4
+        }
+      },
+      "staircase_shape": {
+        "flat": 221,
+        "step": 179
+      },
+      "relative_rise": {
+        "mean": 0.062241,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 3.086348
+      }
+    }
+  ],
+  "provenance": {
+    "git_commit": "5b90a0cccd73a975d270952c4da0a69db7f723ba",
+    "python": "3.14.7",
+    "numpy": "2.5.3",
+    "seconds": 2.308
+  }
+}

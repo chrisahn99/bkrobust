@@ -1,0 +1,50 @@
+{
+  "shard_id": "llm__D_LLM_72B_INSTR__asia",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_72B_INSTR",
+    "network": "asia"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_72B_INSTR",
+  "network": "asia",
+  "model": "Qwen2.5-72B-Instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 2,
+  "n_scored": 2,
+  "n_cells": 6,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 3,
+  "n_asked": 3,
+  "assert_rate": 1.0,
+  "k_accuracy": 1.0,
+  "n_k_correct": 3,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 3,
+  "shd_truth": 0,
+  "instance_status_counts": {
+    "ok": 2
+  },
+  "radius_median_ok": 1.0,
+  "n_radius_ok": 2,
+  "cache": {
+    "graph_hits": 2993,
+    "graph_misses": 7,
+    "verdict_hits": 3288,
+    "verdict_misses": 10
+  },
+  "elapsed_s": 0.064,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_72B_INSTR__asia.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_72B_INSTR__asia.cells.jsonl",
+  "instances_sha256": "54f6354a7582c7397b23003c635b7599571c1e555563c7f8d137c259c8e63877",
+  "cells_sha256": "61a7d2b22e9edbf65d80be7db16d3a314a38d86bfce6623cb5b9933c518b52d7",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:18Z"
+}

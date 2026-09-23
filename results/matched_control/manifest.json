@@ -1,0 +1,393 @@
+{
+  "arms": {
+    "D_LLM": {
+      "interpreter_versions": "not re-run; provenance established by git history (see environment_note) and by the interpreter_provenance_check above, run on THIS process's interpreter",
+      "role": "treatment",
+      "source": "results/final_table/ (committed; reused verbatim, not re-run)"
+    },
+    "D_RANDOM_MATCHED": {
+      "interpreter_versions": {
+        "numpy": "2.5.3",
+        "python": "3.14.7",
+        "python_executable": "<repo>/.venv/bin/python",
+        "scipy": "1.18.1"
+      },
+      "role": "quantity control (|K| matched to D_LLM per network)",
+      "source": "results/matched_control/arms/D_RANDOM_MATCHED/ (this module, custom loop)"
+    },
+    "D_SCRAMBLED": {
+      "interpreter_versions": {
+        "numpy": "2.5.3",
+        "python": "3.14.7",
+        "python_executable": "<repo>/.venv/bin/python",
+        "scipy": "1.18.1"
+      },
+      "role": "semantic control",
+      "source": "results/matched_control/arms/D_SCRAMBLED/ (this module, via final_table.py subprocess)"
+    },
+    "D_SCRAMBLED_72B": {
+      "interpreter_versions": {
+        "numpy": "2.5.3",
+        "python": "3.14.7",
+        "python_executable": "<repo>/.venv/bin/python",
+        "scipy": "1.18.1"
+      },
+      "role": "semantic control (larger model)",
+      "source": "results/matched_control/arms/D_SCRAMBLED_72B/ (this module, via final_table.py subprocess)"
+    }
+  },
+  "base_seed": 20260917,
+  "environment_note": "The repo's usual pinned interpreter, /usr/bin/python3 3.9.6, cannot run src/bkrobust/epsilon/certify.py as committed to this tree (zip(..., strict=True) is Python 3.10+). Git history shows certify.py's strict=True line (commit 4276d15c, 2026-09-17 11:38:10+02:00) predates the commit of results/final_table/instances.jsonl (b546cedd, 2026-09-17 22:35:36+02:00), so the committed D_LLM run necessarily executed on a 3.10+ interpreter, not 3.9.6. All arms in this study -- D_LLM's re-verification, D_SCRAMBLED, D_SCRAMBLED_72B and D_RANDOM_MATCHED -- therefore run on PYTHONPATH=src .venv/bin/python (see interpreter_versions below), with no shim of any kind. Re-verified on this process before writing this manifest: the committed D_LLM instance (Acid_1996, x1, x10; seed 20260917) reproduces r_val=1, n_knowledge=1, theta_z=0.11769815101763414 and the full r_eps grid exactly under this interpreter.",
+  "frame_jsonl_sha256": "6f05f044b13117d731aa345d4d549eebfa0586d7da11ceff953502003c7843fc",
+  "generated_at": "2026-09-22T00:01:03Z",
+  "insufficient_edges_for_quantity_control": [],
+  "interpreter_versions": {
+    "numpy": "2.5.3",
+    "python": "3.14.7",
+    "python_executable": "<repo>/.venv/bin/python",
+    "scipy": "1.18.1"
+  },
+  "k_counts": {
+    "D_LLM": {
+      "Acid_1996": 1,
+      "Didelez_2010": 1,
+      "Kampen_2014": 8,
+      "Polzer_2012": 4,
+      "Schipf_2010": 5,
+      "Sebastiani_2005": 4,
+      "Shrier_2008": 2,
+      "Thoemmes_2013": 1,
+      "alarm": 1,
+      "andes": 7,
+      "arth150": 14,
+      "asia": 3,
+      "barley": 7,
+      "child": 1,
+      "diabetes": 8,
+      "ecoli70": 10,
+      "hailfinder": 13,
+      "hepar2": 5,
+      "insurance": 5,
+      "link": 2,
+      "magic-irri": 7,
+      "magic-niab": 4,
+      "mediator": 4,
+      "munin": 4,
+      "munin1": 2,
+      "munin2": 9,
+      "munin3": 10,
+      "munin4": 7,
+      "paths": 10,
+      "sachs": 1,
+      "water": 5,
+      "win95pts": 6
+    },
+    "D_SCRAMBLED": {
+      "Acid_1996": 0,
+      "Didelez_2010": 2,
+      "Kampen_2014": 9,
+      "Polzer_2012": 5,
+      "Schipf_2010": 4,
+      "Sebastiani_2005": 5,
+      "Shrier_2008": 1,
+      "Thoemmes_2013": 0,
+      "alarm": 3,
+      "andes": 3,
+      "arth150": 2,
+      "asia": 1,
+      "barley": 1,
+      "child": 4,
+      "diabetes": 8,
+      "ecoli70": 13,
+      "hailfinder": 5,
+      "hepar2": 3,
+      "insurance": 6,
+      "link": 17,
+      "magic-irri": 7,
+      "magic-niab": 3,
+      "mediator": 3,
+      "munin": 6,
+      "munin1": 4,
+      "munin2": 2,
+      "munin3": 6,
+      "munin4": 6,
+      "paths": 4,
+      "sachs": 8,
+      "water": 3,
+      "win95pts": 7
+    },
+    "D_SCRAMBLED_72B": {
+      "Acid_1996": 0,
+      "Didelez_2010": 3,
+      "Kampen_2014": 11,
+      "Polzer_2012": 8,
+      "Schipf_2010": 5,
+      "Sebastiani_2005": 3,
+      "Shrier_2008": 2,
+      "Thoemmes_2013": 0,
+      "alarm": 0,
+      "andes": 7,
+      "arth150": 8,
+      "asia": 2,
+      "barley": 4,
+      "child": 10,
+      "diabetes": 2,
+      "ecoli70": 19,
+      "hailfinder": 17,
+      "hepar2": 5,
+      "insurance": 9,
+      "link": 0,
+      "magic-irri": 3,
+      "magic-niab": 4,
+      "mediator": 3,
+      "munin": 2,
+      "munin1": 4,
+      "munin2": 3,
+      "munin3": 1,
+      "munin4": 17,
+      "paths": 5,
+      "sachs": 2,
+      "water": 6,
+      "win95pts": 5
+    }
+  },
+  "k_totals": {
+    "D_LLM": 171,
+    "D_SCRAMBLED": 151,
+    "D_SCRAMBLED_72B": 170
+  },
+  "n_networks": 32,
+  "queries_per_network": 5,
+  "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+  "search_budget": 3,
+  "skip": "pathfinder",
+  "time_limit_s": 120.0,
+  "undirected_edge_audit": {
+    "Acid_1996": {
+      "n_nodes": 18,
+      "n_undirected": 1,
+      "sufficient": true,
+      "target_k_D_LLM": 1
+    },
+    "Didelez_2010": {
+      "n_nodes": 7,
+      "n_undirected": 3,
+      "sufficient": true,
+      "target_k_D_LLM": 1
+    },
+    "Kampen_2014": {
+      "n_nodes": 12,
+      "n_undirected": 11,
+      "sufficient": true,
+      "target_k_D_LLM": 8
+    },
+    "Polzer_2012": {
+      "n_nodes": 14,
+      "n_undirected": 9,
+      "sufficient": true,
+      "target_k_D_LLM": 4
+    },
+    "Schipf_2010": {
+      "n_nodes": 7,
+      "n_undirected": 6,
+      "sufficient": true,
+      "target_k_D_LLM": 5
+    },
+    "Sebastiani_2005": {
+      "n_nodes": 36,
+      "n_undirected": 7,
+      "sufficient": true,
+      "target_k_D_LLM": 4
+    },
+    "Shrier_2008": {
+      "n_nodes": 13,
+      "n_undirected": 3,
+      "sufficient": true,
+      "target_k_D_LLM": 2
+    },
+    "Thoemmes_2013": {
+      "n_nodes": 13,
+      "n_undirected": 1,
+      "sufficient": true,
+      "target_k_D_LLM": 1
+    },
+    "alarm": {
+      "n_nodes": 37,
+      "n_undirected": 4,
+      "sufficient": true,
+      "target_k_D_LLM": 1
+    },
+    "andes": {
+      "n_nodes": 223,
+      "n_undirected": 10,
+      "sufficient": true,
+      "target_k_D_LLM": 7
+    },
+    "arth150": {
+      "n_nodes": 107,
+      "n_undirected": 45,
+      "sufficient": true,
+      "target_k_D_LLM": 14
+    },
+    "asia": {
+      "n_nodes": 8,
+      "n_undirected": 3,
+      "sufficient": true,
+      "target_k_D_LLM": 3
+    },
+    "barley": {
+      "n_nodes": 48,
+      "n_undirected": 9,
+      "sufficient": true,
+      "target_k_D_LLM": 7
+    },
+    "child": {
+      "n_nodes": 20,
+      "n_undirected": 12,
+      "sufficient": true,
+      "target_k_D_LLM": 1
+    },
+    "diabetes": {
+      "n_nodes": 413,
+      "n_undirected": 26,
+      "sufficient": true,
+      "target_k_D_LLM": 8
+    },
+    "ecoli70": {
+      "n_nodes": 46,
+      "n_undirected": 25,
+      "sufficient": true,
+      "target_k_D_LLM": 10
+    },
+    "hailfinder": {
+      "n_nodes": 56,
+      "n_undirected": 17,
+      "sufficient": true,
+      "target_k_D_LLM": 13
+    },
+    "hepar2": {
+      "n_nodes": 70,
+      "n_undirected": 9,
+      "sufficient": true,
+      "target_k_D_LLM": 5
+    },
+    "insurance": {
+      "n_nodes": 27,
+      "n_undirected": 18,
+      "sufficient": true,
+      "target_k_D_LLM": 5
+    },
+    "link": {
+      "n_nodes": 724,
+      "n_undirected": 118,
+      "sufficient": true,
+      "target_k_D_LLM": 2
+    },
+    "magic-irri": {
+      "n_nodes": 64,
+      "n_undirected": 12,
+      "sufficient": true,
+      "target_k_D_LLM": 7
+    },
+    "magic-niab": {
+      "n_nodes": 44,
+      "n_undirected": 10,
+      "sufficient": true,
+      "target_k_D_LLM": 4
+    },
+    "mediator": {
+      "n_nodes": 4,
+      "n_undirected": 5,
+      "sufficient": true,
+      "target_k_D_LLM": 4
+    },
+    "munin": {
+      "n_nodes": 1041,
+      "n_undirected": 22,
+      "sufficient": true,
+      "target_k_D_LLM": 4
+    },
+    "munin1": {
+      "n_nodes": 186,
+      "n_undirected": 8,
+      "sufficient": true,
+      "target_k_D_LLM": 2
+    },
+    "munin2": {
+      "n_nodes": 1003,
+      "n_undirected": 102,
+      "sufficient": true,
+      "target_k_D_LLM": 9
+    },
+    "munin3": {
+      "n_nodes": 1041,
+      "n_undirected": 78,
+      "sufficient": true,
+      "target_k_D_LLM": 10
+    },
+    "munin4": {
+      "n_nodes": 1038,
+      "n_undirected": 22,
+      "sufficient": true,
+      "target_k_D_LLM": 7
+    },
+    "paths": {
+      "n_nodes": 17,
+      "n_undirected": 14,
+      "sufficient": true,
+      "target_k_D_LLM": 10
+    },
+    "sachs": {
+      "n_nodes": 11,
+      "n_undirected": 17,
+      "sufficient": true,
+      "target_k_D_LLM": 1
+    },
+    "water": {
+      "n_nodes": 32,
+      "n_undirected": 6,
+      "sufficient": true,
+      "target_k_D_LLM": 5
+    },
+    "win95pts": {
+      "n_nodes": 76,
+      "n_undirected": 12,
+      "sufficient": true,
+      "target_k_D_LLM": 6
+    }
+  },
+  "universe": [
+    "Acid_1996",
+    "Didelez_2010",
+    "Kampen_2014",
+    "Polzer_2012",
+    "Schipf_2010",
+    "Sebastiani_2005",
+    "Shrier_2008",
+    "Thoemmes_2013",
+    "alarm",
+    "andes",
+    "arth150",
+    "asia",
+    "barley",
+    "child",
+    "diabetes",
+    "ecoli70",
+    "hailfinder",
+    "hepar2",
+    "insurance",
+    "link",
+    "magic-irri",
+    "magic-niab",
+    "mediator",
+    "munin",
+    "munin1",
+    "munin2",
+    "munin3",
+    "munin4",
+    "paths",
+    "sachs",
+    "water",
+    "win95pts"
+  ]
+}

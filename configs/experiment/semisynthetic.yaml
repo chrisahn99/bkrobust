@@ -1,0 +1,41 @@
+# @package experiment
+# EXPERIMENT 3 -- semi-synthetic.
+# Real covariate structure, simulated outcomes, so that the true DAG (and hence
+# delta_valid) is known while the data look like something a practitioner would
+# actually hand to a discovery algorithm.
+name: semisynthetic
+entrypoint: experiments/run_semisynthetic.py
+
+generator: dream              # dream | realcause
+dataset: null                 # e.g. dream4_size10_1 ; null = every dataset in
+                              # the generator's manifest
+
+measure:
+  validity_flip_rate: true
+  optimality_loss: true
+  variance_ratio: true
+  absolute_bias: true
+  coverage: true              # CI coverage of the true effect
+
+radius:
+  method: search              # graphs here are usually too large for `exact`
+  exact_max_nodes: 12
+  compute_delta_opt: true
+  compute_delta_valid: true
+  verify_ordering: true
+
+arms:
+  no_knowledge: true
+  true_knowledge: true
+  false_knowledge: true
+
+# Semi-synthetic data leaks structure through marginal variances; report the
+# diagnostics alongside every number. See bkrobust.data.leakage.
+leakage_diagnostics:
+  varsortability: true
+  r2_sortability: true
+  report_only: true           # true = report, do not gate; set false to abort
+                              # a run whose varsortability exceeds `threshold`
+  threshold: 0.8
+
+n_replicates: 10

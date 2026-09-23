@@ -1,0 +1,32 @@
+{
+  "anti_exchange": {
+    "n34_exhaustive": {
+      "applicable_triples": 2178,
+      "holds": 2178,
+      "violations": 0,
+      "examples": [],
+      "seconds": 0.6
+    },
+    "n5_sampled": {
+      "applicable_triples": 3076,
+      "holds": 3076,
+      "violations": 0,
+      "examples": [],
+      "seconds": 2.4
+    }
+  },
+  "lemma_R": {
+    "n34_exhaustive": {
+      "covers": 2658,
+      "add_exactly_one": 2658,
+      "violations": 0,
+      "examples": []
+    },
+    "n5_sampled": {
+      "covers": 2690,
+      "add_exactly_one": 2690,
+      "violations": 0,
+      "examples": []
+    }
+  }
+}

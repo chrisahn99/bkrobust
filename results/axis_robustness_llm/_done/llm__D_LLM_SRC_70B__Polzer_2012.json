@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__Polzer_2012",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "Polzer_2012"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "Polzer_2012",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 49,
+  "n_scored": 43,
+  "n_cells": 344,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 8,
+  "n_asked": 9,
+  "assert_rate": 0.8888888888888888,
+  "k_accuracy": 0.875,
+  "n_k_correct": 7,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 8,
+  "shd_truth": 3,
+  "instance_status_counts": {
+    "ok": 43,
+    "optimal_set_undefined": 6
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 43,
+  "cache": {
+    "graph_hits": 7745,
+    "graph_misses": 255,
+    "verdict_hits": 74691,
+    "verdict_misses": 2537
+  },
+  "elapsed_s": 0.614,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Polzer_2012.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Polzer_2012.cells.jsonl",
+  "instances_sha256": "bef5899920f85543d7e4048a8671db14eba9dd7a3a892736ca389c6cf5bfc5b6",
+  "cells_sha256": "6ba923f1fdcbbc31adde90fcaa663a14a243e5a25f7a2259a372d35512a2daff",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:50:20Z"
+}

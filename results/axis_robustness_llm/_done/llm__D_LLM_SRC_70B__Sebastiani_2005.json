@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__Sebastiani_2005",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "Sebastiani_2005"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "Sebastiani_2005",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 5,
+  "n_scored": 4,
+  "n_cells": 24,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "n_asked": 7,
+  "assert_rate": 0.8571428571428571,
+  "k_accuracy": 0.6666666666666666,
+  "n_k_correct": 4,
+  "n_k_wrong": 2,
+  "n_off_skeleton": 0,
+  "k_g0": 6,
+  "shd_truth": 5,
+  "instance_status_counts": {
+    "optimal_set_undefined": 1,
+    "ok": 4
+  },
+  "radius_median_ok": 1.0,
+  "n_radius_ok": 4,
+  "cache": {
+    "graph_hits": 5937,
+    "graph_misses": 63,
+    "verdict_hits": 9840,
+    "verdict_misses": 124
+  },
+  "elapsed_s": 0.2,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Sebastiani_2005.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_SRC_70B__Sebastiani_2005.cells.jsonl",
+  "instances_sha256": "1411a55ac77cbd557c566c8d91035b624eee19023aaef1d7da7b3f3fac03c7cd",
+  "cells_sha256": "93e00f580637c929a4cbbcb3bd7f37f7c0ecd37b13814c7ad499d4d43f0c7c14",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:07Z"
+}

@@ -1,0 +1,187 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+/build/
+/develop-eggs/
+/dist/
+/downloads/
+/eggs/
+/.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Environments ---
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# --- Testing / typing / linting ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- Hydra / experiment output ---
+/outputs/
+/multirun/
+.hydra/
+
+# --- Project artefacts (regenerated, never tracked) ---
+# Root-anchored: a bare `data/` would also match src/bkrobust/data/.
+/results/*
+!/results/.gitkeep
+!/results/README.md
+# The breakdown-radius demonstration's outputs ARE deliverables: report.md
+# cites them and they are small CSV/JSON. Everything else under results/ is
+# regenerated experiment output and stays untracked.
+!/results/breakdown_radius_demo/
+# Axis A / Axis B session outputs are deliverables too: the pre-registration,
+# per-instance rows and manifests are cited by report_synth_and_search.md.
+!/results/synth/
+!/results/search/
+# Session 2 (Axis B deep) outputs are deliverables cited by
+# report_axisb_deep.md and THEOREMS.md.
+!/results/axisb2/
+!/results/axisb3/
+!/results/axisb4/
+!/results/axisa2/
+!/results/axisa3/
+# Axis Robustness (survival curves + Pareto frontier) outputs are deliverables
+# cited by report_fragility_and_pareto.md; the pre-registration lives here too.
+!/results/axis_robustness/
+# Stage 0 of the evaluation plan: the claim-unit radius audit of the committed
+# axisa3 rows, cited by docs/EVALUATION_PLAN.md and docs/PAPER_NARRATIVE.md.
+!/results/stage0/
+# Session 8 (the epsilon-bias radius) outputs are deliverables: every number in
+# report_r_epsilon.md, docs/PAPER_INTEGRATION_R_EPSILON.md and
+# paper/sections/epsilon-radius.tex traces to a file here, and the
+# counterexample witnesses carry the SEMs needed to replay them. 936 KB total.
+!/results/epsilon/
+# The LLM background-knowledge elicitation (ported from ze/experiments): the
+# frozen frame, questionnaire, per-condition answers and the knowledge sets K
+# that the final table is computed at. The answer cache under
+# results/elicit/cache/ stays untracked -- it regenerates in seconds from the
+# committed remote answers via elicit_import.py.
+!/results/frame/
+!/results/elicit/
+/results/elicit/cache/
+# The final table: r_val and r_eps for every real network at its LLM-elicited
+# K, per-instance rows plus the aggregate cited in the paper's results table.
+!/results/final_table/
+# The epsilon > 1 re-run of the final table (docs/RESULT_EPSILON_ABOVE_ONE.md):
+# same schema as final_table, plus the per-instance staircase beta_up(d) and
+# ceiling B(Chat) that make any future epsilon a lookup rather than a re-run.
+!/results/final_table_eps_gt1/
+# The exhaustive mean-vs-max shell study (docs/EXPERIMENT_MEAN_VS_MAX.md):
+# every retraction state of 15 instances, with the full distribution of B per
+# shell. Evidence for the shell-aggregation design decision.
+!/results/mean_vs_max/
+# The soundness gate for that design decision (docs/RESULT_MEAN_SOUNDNESS_GATE.md):
+# the whole enumerated space per instance, with max and mean compared over the
+# full sphere, the full ball and the retraction shell.
+!/results/mean_fullspace/
+# The mean bias profile mu(d) and everything that supports reporting it
+# (docs/MEAN_REPORTING.md): the per-query table over the real corpus, the
+# epsilon-grid selection, the bounding-statistic study, and the monotonicity
+# search. results/mean_sampling/ is NOT tracked: its per-repetition draws run to
+# 65 MB and every number cited is in its summary files, which are.
+!/results/mean_table/
+!/results/mean_epsilon/
+!/results/mean_bounds/
+!/results/mean_monotonicity/
+!/results/mean_adaptive/
+# The reporting table on the paper's own geometry (docs/MEAN_TABLE_FULLSPACE.md):
+# mu over the full space G_Chat with BFS distance, per query, exhaustive.
+!/results/mean_table_fullspace/
+!/results/mean_sampling/
+/results/mean_sampling/radius_reps.jsonl
+/results/mean_sampling/shell_reps.jsonl
+/results/mean_sampling/profile_audit.jsonl
+# [RE-11]: survival and the paired cross-arm on the 831 real rows. The
+# pre-registration, the frozen frame, the per-grid-point curve rows and the
+# manifests are deliverables cited by report_real_survival.md and
+# table_tau_real.md.
+!/results/axis_robustness_real/
+# The elicited-knowledge survival panel: the same survival/ranking design run
+# with K read from results/elicit/knowledge.json instead of built by
+# benchmarks.measure.select_knowledge, swept over all ten elicitation
+# conditions. One shard per (condition, network). The per-grid-point curve
+# rows, the per-instance rows and the manifest are the deliverables -- every
+# reported number derives from them, and they are far smaller than the real
+# arm's because there is no coverage x base-wrongness x replicate cross.
+!/results/axis_robustness_llm/
+# The repo-wide `*.log` rule (added for LaTeX) also catches this sweep's logs.
+# The 240 per-shard logs are regenerable and their durable content -- elapsed
+# time, cache hit counts, status counts, both file digests, the git sha and the
+# knowledge.json digest -- is already in _done/<shard>.json. The panel-level log
+# is the session's own timeline, so that one is kept.
+!/results/axis_robustness_llm/_logs/panel_*.log
+# Reviewer point 6: the N=1000 synthetic survival rerun (40 instances/cell, the
+# originally pre-registered quota) carrying the corruption denominators and the
+# new baseline predictors. The per-grid-point curves and the per-instance rows
+# are the deliverables -- every reported number derives from them. The raw
+# per-draw samples run to several GB and regenerate exactly from the seeded
+# driver, so they stay untracked (precedent: results/mean_sampling/*_reps.jsonl).
+!/results/axis_robustness_p6/
+/results/axis_robustness_p6/shards/*/survival_samples.csv
+/results/axis_robustness_p6/survival_samples.csv
+/results/axis_robustness_p6/survival_samples.csv.gz
+# Reviewer point 7: the three-way classification of every non-informative row in
+# the final table (valid-empty vs no-set-exists vs invalid-returned).
+!/results/zero_radius/
+# Reviewer point 7: the matched-control elicitation arms -- scrambled-name
+# semantic controls and the random-at-matched-|K| quantity control.
+!/results/matched_control/
+/results/matched_control/_shim/
+# Reviewer point 6: the new baselines and the paired network-level resampling on
+# the committed 831 real rows.
+!/results/axis_robustness_real_p6/
+# Reviewer point 6: the paired resampling applied to the synthetic N=1000 rerun.
+!/results/axis_robustness_p6_paired/
+/data/
+/checkpoints/
+*.pt
+*.ckpt
+*.pth
+*.safetensors
+*.npz
+*.h5
+
+# --- Paper build ---
+/paper/figures/*
+!/paper/figures/.gitkeep
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

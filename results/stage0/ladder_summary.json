@@ -1,0 +1,112 @@
+{
+ "rows": 831,
+ "distinct_pairs": 543,
+ "pairs_admissible_at_all_three_coverages": 105,
+ "paired_radius_across_coverage": {
+  "unchanged": 73,
+  "lower_at_lower_coverage": 32,
+  "higher_at_lower_coverage": 0
+ },
+ "free_rule": {
+  "exact": 636,
+  "within_one": 813,
+  "over_certifies": 16,
+  "over_certifies_by_network": {
+   "Schipf_2010": 2,
+   "asia": 1,
+   "magic-niab": 2,
+   "barley": 7,
+   "win95pts": 4
+  },
+  "under_certifies": 179,
+  "under_certifies_by_network": {
+   "barley": 60,
+   "insurance": 55,
+   "Polzer_2012": 22,
+   "paths": 13,
+   "Kampen_2014": 7,
+   "water": 5,
+   "Schipf_2010": 4,
+   "magic-niab": 3,
+   "hailfinder": 3,
+   "magic-irri": 3,
+   "sachs": 2,
+   "Shrier_2008": 1,
+   "pathfinder": 1
+  },
+  "under_certifies_in_undefined_stratum": 69,
+  "abs_diff_ge_2": {
+   "Kampen_2014": 3,
+   "paths": 13,
+   "insurance": 2
+  }
+ },
+ "undefined_stratum": {
+  "rows": 368,
+  "radius_distribution": {
+   "1": 299,
+   "2": 69
+  }
+ },
+ "law_on_measurable_rows": {
+  "rows": 463,
+  "radius_equal_min": 337,
+  "radius_greater_than_min": 110,
+  "radius_less_than_min": 16,
+  "radius_greater_than_k_g0_anywhere": 0,
+  "radius_equal_k_g0": 15
+ },
+ "outside_illustration": {
+  "rows": 807,
+  "max_radius": 4,
+  "free_rule_exact": 625,
+  "free_rule_over_certifies": 16
+ },
+ "method_by_radius": {
+  "e1_ladder:4": 4,
+  "e1_ladder:5": 1,
+  "e1_ladder:6": 1,
+  "e1_ladder:7": 1,
+  "e1_ladder:8": 1,
+  "e1_ladder:9": 2,
+  "e1_ladder:10": 2,
+  "e1_ladder:11": 2,
+  "e1_ladder:12": 2,
+  "e1_ladder:13": 2,
+  "e1_ladder:14": 2,
+  "local_up_fast:1": 508,
+  "local_up_fast:2": 260,
+  "local_up_fast:3": 43
+ },
+ "by_coverage": {
+  "1.0": {
+   "rows": 543,
+   "radius_1": 379,
+   "free_rule_exact": 411,
+   "free_rule_over_certifies": 13,
+   "undefined": 235,
+   "median_k_g0": 12
+  },
+  "0.5": {
+   "rows": 182,
+   "radius_1": 93,
+   "free_rule_exact": 148,
+   "free_rule_over_certifies": 3,
+   "undefined": 85,
+   "median_k_g0": 6
+  },
+  "0.25": {
+   "rows": 106,
+   "radius_1": 36,
+   "free_rule_exact": 77,
+   "free_rule_over_certifies": 0,
+   "undefined": 48,
+   "median_k_g0": 4
+  }
+ },
+ "icc_radius_is_one": {
+  "icc": 0.3978,
+  "networks": 25,
+  "m0": 30.51
+ }
+}

@@ -1,0 +1,47 @@
+=== inst_000012 ===
+generator=erdos_renyi n=7 x=V6 y=V2 z=V1 r_val=2 theta_z=0.5081799451394056
+staircase (d, beta_up effect units): [[0, 0.0], [1, 0.0], [2, 0.2886803605358434]]
+r_eps (relative): {"0.01": "2", "0.02": "2", "0.05": "2", "0.1": "2", "0.25": "2", "0.5": "2", "1.0": "-1"}
+k_false=0 realised=1.1102230246251565e-16 beta_up(k_false)=0.0 holds=True conservativeness=nan
+
+=== inst_000023 ===
+generator=erdos_renyi n=7 x=V4 y=V6 z=V2|V5 r_val=1 theta_z=0.4497927256684563
+staircase (d, beta_up effect units): [[0, 0.0], [1, 0.12496175036670032]]
+r_eps (relative): {"0.01": "1", "0.02": "1", "0.05": "1", "0.1": "1", "0.25": "1", "0.5": "-1", "1.0": "-1"}
+k_false=0 realised=5.551115123125783e-17 beta_up(k_false)=0.0 holds=True conservativeness=nan
+
+=== inst_000036 ===
+generator=erdos_renyi n=10 x=V8 y=V6 z=V9 r_val=1 theta_z=-0.16482711637766534
+staircase (d, beta_up effect units): [[0, 0.0], [1, 0.061877027523566636]]
+r_eps (relative): {"0.01": "1", "0.02": "1", "0.05": "1", "0.1": "1", "0.25": "1", "0.5": "-1", "1.0": "-1"}
+k_false=0 realised=0.0 beta_up(k_false)=0.0 holds=True conservativeness=nan
+
+=== inst_000037 ===
+generator=erdos_renyi n=10 x=V3 y=V0 z=V6 r_val=1 theta_z=0.49057197533722474
+staircase (d, beta_up effect units): [[0, 0.0], [1, 0.09255573631611891], [2, 0.5126012308451978]]
+r_eps (relative): {"0.01": "1", "0.02": "1", "0.05": "1", "0.1": "1", "0.25": "2", "0.5": "2", "1.0": "2"}
+k_false=0 realised=1.1102230246251565e-16 beta_up(k_false)=0.0 holds=True conservativeness=nan
+
+=== inst_000048 ===
+generator=erdos_renyi n=12 x=V02 y=V06 z=V00|V03|V04 r_val=1 theta_z=1.5568081122225899
+staircase (d, beta_up effect units): [[0, 0.0], [1, 1.5568081122225907]]
+r_eps (relative): {"0.01": "1", "0.02": "1", "0.05": "1", "0.1": "1", "0.25": "1", "0.5": "1", "1.0": "1"}
+k_false=0 realised=2.220446049250313e-16 beta_up(k_false)=0.0 holds=True conservativeness=nan
+
+=== inst_000052 ===
+generator=erdos_renyi n=12 x=V09 y=V05 z=V06|V07 r_val=1 theta_z=-0.968603433789209
+staircase (d, beta_up effect units): [[0, 0.0], [1, 0.34230702292661164], [2, 0.34230702292661164], [3, 0.34230702292661164]]
+r_eps (relative): {"0.01": "1", "0.02": "1", "0.05": "1", "0.1": "1", "0.25": "1", "0.5": "-1", "1.0": "-1"}
+k_false=0 realised=0.0 beta_up(k_false)=0.0 holds=True conservativeness=nan
+
+=== inst_000056 ===
+generator=erdos_renyi n=12 x=V02 y=V09 z=V04|V06 r_val=1 theta_z=-1.1194637928428428
+staircase (d, beta_up effect units): [[0, 0.0], [1, 0.23472885580630942], [2, 0.23472885580630942], [3, 0.23472885580630942], [4, 0.23472885580630942]]
+r_eps (relative): {"0.01": "1", "0.02": "1", "0.05": "1", "0.1": "1", "0.25": "-1", "0.5": "-1", "1.0": "-1"}
+k_false=0 realised=0.0 beta_up(k_false)=0.0 holds=True conservativeness=nan
+
+=== inst_000057 ===
+generator=erdos_renyi n=12 x=V10 y=V07 z=V01|V05|V08 r_val=1 theta_z=1.147047302620864
+staircase (d, beta_up effect units): [[0, 0.0], [1, 0.25903161773686545]]
+r_eps (relative): {"0.01": "1", "0.02": "1", "0.05": "1", "0.1": "1", "0.25": "-1", "0.5": "-1", "1.0": "-1"}
+k_false=0 realised=2.220446049250313e-16 beta_up(k_false)=0.0 holds=True conservativeness=nan

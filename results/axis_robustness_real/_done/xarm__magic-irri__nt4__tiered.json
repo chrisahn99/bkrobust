@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__magic-irri__nt4__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "magic-irri",
+    "n_tiers": 4,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 11,
+  "n_scored": 10,
+  "n_cells": 100,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 10,
+  "cache": {
+    "graph_hits": 4600,
+    "graph_misses": 5400,
+    "verdict_hits": 40260,
+    "verdict_misses": 41310
+  },
+  "elapsed_s": 24.657,
+  "instances_path": "results/axis_robustness_real/shards/xarm__magic-irri__nt4__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__magic-irri__nt4__tiered.cells.jsonl",
+  "instances_sha256": "b789ea56b6ce206f722ede067e90b56b20313d14911264fe1bf8245e84799654",
+  "cells_sha256": "343e62a31d1252b23b9d4e3a9d22a5b72f737f89333d48f6030a7ecd4f4d9662",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:33:02Z"
+}

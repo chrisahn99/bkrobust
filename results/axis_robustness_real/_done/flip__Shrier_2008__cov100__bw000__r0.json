@@ -1,0 +1,34 @@
+{
+  "shard_id": "flip__Shrier_2008__cov100__bw000__r0",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "Shrier_2008",
+    "coverage": 1.0,
+    "base_wrongness": 0.0,
+    "bw_abs": null,
+    "replicate": 0
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 7,
+  "n_scored": 7,
+  "n_cells": 14,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": false,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 13979,
+    "verdict_misses": 21
+  },
+  "elapsed_s": 0.031,
+  "instances_path": "results/axis_robustness_real/shards/flip__Shrier_2008__cov100__bw000__r0.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__Shrier_2008__cov100__bw000__r0.cells.jsonl",
+  "instances_sha256": "3835da70dac1f847c83be653c4fcde601a82fdb5d9e9fbb8cffdd66ff9a12947",
+  "cells_sha256": "317bd3ad2121a69d256286b0e39fc37984203bbc5d5675506c134050c29cc503",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:16Z"
+}

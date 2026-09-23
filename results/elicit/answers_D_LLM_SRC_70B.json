@@ -1,0 +1,5823 @@
+{
+ "condition": "D_LLM_SRC_70B",
+ "model": "Llama-3.3-70B-Instruct",
+ "naming": "real",
+ "order_seed": 0,
+ "family": "llama",
+ "questionnaire_sha256": "a62896791a7bd187f5e47adb8efef535a53027d4bf24450512513d77ad9705fe",
+ "cache_hits": 150,
+ "items": [
+  {
+   "network": "Acid_1996",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e63d8a9900e81c02a6fb1fb774110567b3026f6c30622028a67ec90b7c56b7ef",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "cb1261ed7e536151a44a471beca947ce319214f4f5d673a6d2499cdfdbf03db0",
+   "orientations": {
+    "x1|x4": [
+     "x1",
+     "x4"
+    ]
+   },
+   "confidence": {
+    "x1|x4": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "Acid_1996",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "978627aec0bacfe60efb33e311fabebeb1c4b09af4672193e5518abcaabaed12",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "d6107caf602db0eff0348d53306d6d0861816f4ed9e67edc4aed9da874e46781",
+   "orientations": {
+    "x1|x3": [
+     "x1",
+     "x3"
+    ],
+    "x4|x5": [
+     "x4",
+     "x5"
+    ]
+   },
+   "confidence": {
+    "x1|x3": 1.0,
+    "x4|x5": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "Didelez_2010",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "a5837a124ca88c618ac0d3c42bf60461ed8cd678826fff2495104b9fac53a842",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "dd120ba4a1fa25c2c25bafa11195adc1b1377e095528d61882a96c6a05f6af14",
+   "orientations": {
+    "Age|Occ": [
+     "Age",
+     "Occ"
+    ],
+    "Occ|Smo": [
+     "Occ",
+     "Smo"
+    ]
+   },
+   "confidence": {
+    "Age|Occ": 0.8,
+    "Occ|Smo": 0.7
+   },
+   "declined": [
+    "Occ|Thist"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "Didelez_2010",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "476370f39015aaa197137fab1676d5a023241441d8f4d66c1046b3d00b3ca007",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "2d487b33d380e52acd19b30634e60e321fca5f04348db872c848c138ab69e140",
+   "orientations": {
+    "Age|HRT": [
+     "Age",
+     "HRT"
+    ],
+    "Age|S": [
+     "Age",
+     "S"
+    ],
+    "Age|TCI": [
+     "Age",
+     "TCI"
+    ],
+    "HRT|Smo": [
+     "Smo",
+     "HRT"
+    ],
+    "Smo|TCI": [
+     "Smo",
+     "TCI"
+    ]
+   },
+   "confidence": {
+    "Age|HRT": 1.0,
+    "Age|S": 1.0,
+    "Age|TCI": 1.0,
+    "HRT|Smo": 1.0,
+    "Smo|TCI": 1.0
+   },
+   "declined": [
+    "TCI|Thist"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "Kampen_2014",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "372cf06aff7eae334f6783200490f85a0384221e6dd51c810d9282a8a5a41335",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "589544688c221ce9581fb0deccd78a20cfefce52cc1f74549b980192ee3e611a",
+   "orientations": {
+    "AFF|AIS": [
+     "AFF",
+     "AIS"
+    ],
+    "AFF|ALN": [
+     "ALN",
+     "AFF"
+    ],
+    "AFF|APA": [
+     "APA",
+     "AFF"
+    ],
+    "AFF|CDR": [
+     "AFF",
+     "CDR"
+    ],
+    "AFF|SAN": [
+     "AFF",
+     "SAN"
+    ],
+    "AIS|SAN": [
+     "SAN",
+     "AIS"
+    ],
+    "ALN|APA": [
+     "ALN",
+     "APA"
+    ],
+    "ALN|PER": [
+     "PER",
+     "ALN"
+    ],
+    "ALN|SAN": [
+     "ALN",
+     "SAN"
+    ],
+    "APA|SAN": [
+     "APA",
+     "SAN"
+    ],
+    "CDR|SAN": [
+     "SAN",
+     "CDR"
+    ]
+   },
+   "confidence": {
+    "AFF|AIS": 1.0,
+    "AFF|ALN": 1.0,
+    "AFF|APA": 1.0,
+    "AFF|CDR": 1.0,
+    "AFF|SAN": 1.0,
+    "AIS|SAN": 1.0,
+    "ALN|APA": 1.0,
+    "ALN|PER": 1.0,
+    "ALN|SAN": 1.0,
+    "APA|SAN": 1.0,
+    "CDR|SAN": 0.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 4,
+   "parse_ok": true,
+   "order_len": 7
+  },
+  {
+   "network": "Kampen_2014",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "6a6ac0657bc2c0b95cbef502db45ea8d8f58c2e2fc5f4ed23f53d8660381f6c8",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "0d19d7c4759286609d9766ec033e8595558dc7971ffc492bba890f144aea9e42",
+   "orientations": {
+    "AIS|EGC": [
+     "AIS",
+     "EGC"
+    ],
+    "AIS|SUS": [
+     "AIS",
+     "SUS"
+    ],
+    "ALN|DET": [
+     "ALN",
+     "DET"
+    ],
+    "ALN|FTW": [
+     "ALN",
+     "FTW"
+    ],
+    "ALN|SUS": [
+     "ALN",
+     "SUS"
+    ],
+    "CDR|DET": [
+     "DET",
+     "CDR"
+    ],
+    "DET|PER": [
+     "DET",
+     "PER"
+    ]
+   },
+   "confidence": {
+    "AIS|EGC": 1.0,
+    "AIS|SUS": 1.0,
+    "ALN|DET": 1.0,
+    "ALN|FTW": 1.0,
+    "ALN|SUS": 1.0,
+    "CDR|DET": 1.0,
+    "DET|PER": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 8
+  },
+  {
+   "network": "Polzer_2012",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ff7092aaf56b0cf66fbc3226bca62028a7a709f0951165c3c886a267bee1711c",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "87583deda5036d742ff0f487d0f5203ea5b3edda7f5a5141e5ddf8a437d0072d",
+   "orientations": {
+    "Alcohol|Psychosocial": [
+     "Psychosocial",
+     "Alcohol"
+    ],
+    "Alcohol|Smoking": [
+     "Alcohol",
+     "Smoking"
+    ],
+    "Psychosocial|Smoking": [
+     "Psychosocial",
+     "Smoking"
+    ],
+    "Psychosocial|Sport": [
+     "Psychosocial",
+     "Sport"
+    ],
+    "Smoking|Sport": [
+     "Smoking",
+     "Sport"
+    ]
+   },
+   "confidence": {
+    "Alcohol|Psychosocial": 0.5,
+    "Alcohol|Smoking": 0.5,
+    "Psychosocial|Smoking": 0.5,
+    "Psychosocial|Sport": 0.5,
+    "Smoking|Sport": 0.5
+   },
+   "declined": [
+    "Caries|Psychosocial"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "Polzer_2012",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2d4eec6cdfa98278d98b1513b50fb38e0ade7bf4c4e7636473974d7b16456b02",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "c7d33f35a554d5e97b25c167be432ecf8608ca18a79b8c42d03d760a87491aef",
+   "orientations": {
+    "Diabetes|Hypertension": [
+     "Hypertension",
+     "Diabetes"
+    ],
+    "Diabetes|Obesity": [
+     "Obesity",
+     "Diabetes"
+    ],
+    "Hypertension|Obesity": [
+     "Obesity",
+     "Hypertension"
+    ]
+   },
+   "confidence": {
+    "Diabetes|Hypertension": 0.6,
+    "Diabetes|Obesity": 0.7,
+    "Hypertension|Obesity": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "Polzer_2012",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "1640e4c02cf35ac367b6fe86a0855ba8e9c4159d26ba5576ed96ab0b736a3efd",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "4b65079561603bf3bcfc838c57516327a55f849f0099fdf1017852ade4de9ff9",
+   "orientations": {
+    "Age|Alcohol": [
+     "Age",
+     "Alcohol"
+    ],
+    "Age|Smoking": [
+     "Age",
+     "Smoking"
+    ],
+    "Age|Sport": [
+     "Age",
+     "Sport"
+    ],
+    "Alcohol|Lipids": [
+     "Alcohol",
+     "Lipids"
+    ],
+    "Obesity|Periodontitis": [
+     "Obesity",
+     "Periodontitis"
+    ],
+    "Obesity|Sport": [
+     "Sport",
+     "Obesity"
+    ],
+    "Periodontitis|Sport": [
+     "Sport",
+     "Periodontitis"
+    ]
+   },
+   "confidence": {
+    "Age|Alcohol": 0.7,
+    "Age|Smoking": 0.8,
+    "Age|Sport": 0.9,
+    "Alcohol|Lipids": 0.8,
+    "Obesity|Periodontitis": 0.7,
+    "Obesity|Sport": 0.6,
+    "Periodontitis|Sport": 0.5
+   },
+   "declined": [
+    "Psychosocial|ToothLoss"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 8
+  },
+  {
+   "network": "Schipf_2010",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "375e36f4cb9442c6057f02c117cf0f70746acfa96e6f9bbc5dc5a28b8b18d5a6",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "33bbe43b4701b442fc5d4eaccb01e1f1cf2bff4f4f332228e757b813445f463c",
+   "orientations": {
+    "A|PA": [
+     "A",
+     "PA"
+    ],
+    "A|S": [
+     "A",
+     "S"
+    ],
+    "A|U": [
+     "A",
+     "U"
+    ],
+    "A|WC": [
+     "A",
+     "WC"
+    ],
+    "PA|WC": [
+     "PA",
+     "WC"
+    ],
+    "U|WC": [
+     "U",
+     "WC"
+    ]
+   },
+   "confidence": {
+    "A|PA": 0.5,
+    "A|S": 0.5,
+    "A|U": 0.5,
+    "A|WC": 0.5,
+    "PA|WC": 0.5,
+    "U|WC": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "Schipf_2010",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3c880b415133287de205011603f8978da3af26ab4c9df74ced207950eb4d44b7",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "2938b4b1c203f4407a8430690e8d5a30bf2464d074a83bcad6e682c345473ce5",
+   "orientations": {
+    "A|TT": [
+     "A",
+     "TT"
+    ],
+    "PA|T2DM": [
+     "PA",
+     "T2DM"
+    ],
+    "S|T2DM": [
+     "S",
+     "T2DM"
+    ],
+    "S|TT": [
+     "S",
+     "TT"
+    ],
+    "T2DM|U": [
+     "U",
+     "T2DM"
+    ],
+    "TT|U": [
+     "TT",
+     "U"
+    ],
+    "T2DM|WC": [
+     "WC",
+     "T2DM"
+    ],
+    "TT|WC": [
+     "TT",
+     "WC"
+    ]
+   },
+   "confidence": {
+    "A|TT": 0.5,
+    "PA|T2DM": 0.5,
+    "S|T2DM": 0.5,
+    "S|TT": 0.5,
+    "T2DM|U": 0.5,
+    "TT|U": 0.5,
+    "T2DM|WC": 0.5,
+    "TT|WC": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 2,
+   "parse_ok": true,
+   "order_len": 7
+  },
+  {
+   "network": "Sebastiani_2005",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "f48bdc053cea5b465b022e777fbb73ba4d2d69d848c0bd9341a24ea1cd172123",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "cf0217e3d0e711393a3dcd2700694a176bc4ff64eb4aa383e269b9511af38eae",
+   "orientations": {
+    "ANXA2.5|ANXA2.7": [
+     "ANXA2.5",
+     "ANXA2.7"
+    ]
+   },
+   "confidence": {
+    "ANXA2.5|ANXA2.7": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "Sebastiani_2005",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0a1b19594b31d9e5076d78a3e6712e0fffd9548966bd87dbdacef3e696f180d1",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "75a13b83458c4ef7e02763718b548ad5506da0500e5f20b134e97eecd456a2f1",
+   "orientations": {
+    "ANXA2.8|BMP6": [
+     "ANXA2.8",
+     "BMP6"
+    ],
+    "ANXA2.8|CAT": [
+     "ANXA2.8",
+     "CAT"
+    ],
+    "ANXA2.8|EDNI1.6": [
+     "ANXA2.8",
+     "EDNI1.6"
+    ]
+   },
+   "confidence": {
+    "ANXA2.8|BMP6": 1.0,
+    "ANXA2.8|CAT": 1.0,
+    "ANXA2.8|EDNI1.6": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "Sebastiani_2005",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "486ad572d71711f7c1b6c4ca329b4570f0fd2c0c2f8b195aa6fc802a9e8f01b3",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "06edf84ab2e6a8bee50101d1ce8cfbc9ca59cd9ab96c09e81bfdb665b437830d",
+   "orientations": {},
+   "confidence": {},
+   "declined": [
+    "BMP6.14|EDN1.9"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "Sebastiani_2005",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "899f66d2508c0601b43f6bae41ae4f01ebc0ff1c024b071183d8ef926d953679",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "1e28c6ee2390f4cf866c0a2d9b391afbd2617e30d1e22962f33c69c5f07773f0",
+   "orientations": {
+    "Stroke|TGFBR3.8": [
+     "TGFBR3.8",
+     "Stroke"
+    ]
+   },
+   "confidence": {
+    "Stroke|TGFBR3.8": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "Sebastiani_2005",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "81cd3065128ce4a50ffc1ee94bc914776ec2256740f42e0025e4ca991a4703b2",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "e04fa36b7d98a0f50584435176929546d26fd5dd3d7b0f005ae8d94251215316",
+   "orientations": {
+    "TGFBR3.2|TGFBR3.9": [
+     "TGFBR3.2",
+     "TGFBR3.9"
+    ]
+   },
+   "confidence": {
+    "TGFBR3.2|TGFBR3.9": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "Sebastiani_2005",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "47ab04e91e787bbbb2a80a41cb8ff4499a00b78fe0672306a6be56963285f9cf",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "05861c3fd3dff98835520907c0f49328fbb4593eee1ddf02c63946bc5808028b",
+   "orientations": {
+    "ANXA2.12|ANXA2.7": [
+     "ANXA2.12",
+     "ANXA2.7"
+    ],
+    "ANXA2.11|ANXA2.7": [
+     "ANXA2.11",
+     "ANXA2.7"
+    ],
+    "BMP6.12|BMP6.14": [
+     "BMP6.12",
+     "BMP6.14"
+    ],
+    "EDNI1.6|EDNI1.7": [
+     "EDNI1.6",
+     "EDNI1.7"
+    ],
+    "BMP6.10|Stroke": [
+     "BMP6.10",
+     "Stroke"
+    ],
+    "SELP.22|Stroke": [
+     "SELP.22",
+     "Stroke"
+    ],
+    "TGFBR3.10|TGFBR3.9": [
+     "TGFBR3.10",
+     "TGFBR3.9"
+    ],
+    "TGFBR3.8|TGFBR3.9": [
+     "TGFBR3.8",
+     "TGFBR3.9"
+    ]
+   },
+   "confidence": {
+    "ANXA2.12|ANXA2.7": 1.0,
+    "ANXA2.11|ANXA2.7": 1.0,
+    "BMP6.12|BMP6.14": 1.0,
+    "EDNI1.6|EDNI1.7": 1.0,
+    "BMP6.10|Stroke": 1.0,
+    "SELP.22|Stroke": 1.0,
+    "TGFBR3.10|TGFBR3.9": 1.0,
+    "TGFBR3.8|TGFBR3.9": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 13
+  },
+  {
+   "network": "Shrier_2008",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3dc728ce06b0dcd00e586950c5edf26c322f58355eedca5cdf6f0f48b6e86d58",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "c6646952ad0772b6f1a4293173844581ec4b825ab6a318f41f0148b290369ba7",
+   "orientations": {
+    "Coach|TeamMotivation": [
+     "Coach",
+     "TeamMotivation"
+    ]
+   },
+   "confidence": {
+    "Coach|TeamMotivation": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "Shrier_2008",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "292242d598f12e81af80a7278b458bcf3b1170466e8ad9874b69e58566d6ddf9",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "ea616f972765862ac464a6ddaa1d23d9d21cd11a7a6672ea8a57690903835a4e",
+   "orientations": {
+    "ConnectiveTissueDisorder|Genetics": [
+     "Genetics",
+     "ConnectiveTissueDisorder"
+    ],
+    "ConnectiveTissueDisorder|TissueWeakness": [
+     "ConnectiveTissueDisorder",
+     "TissueWeakness"
+    ]
+   },
+   "confidence": {
+    "ConnectiveTissueDisorder|Genetics": 1.0,
+    "ConnectiveTissueDisorder|TissueWeakness": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "Shrier_2008",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "eae7224413b9c8682270fd40f86d25b1dee8703a1c1b8ec6eded8f20ddc38633",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9cc83ee2e9c1a3c5774a34ec90d2de2d98a0f5252372064026200f839725fba4",
+   "orientations": {
+    "Coach|FitnessLevel": [
+     "Coach",
+     "FitnessLevel"
+    ],
+    "ConnectiveTissueDisorder|NeuromuscularFatigue": [
+     "ConnectiveTissueDisorder",
+     "NeuromuscularFatigue"
+    ],
+    "FitnessLevel|Genetics": [
+     "Genetics",
+     "FitnessLevel"
+    ],
+    "Genetics|NeuromuscularFatigue": [
+     "Genetics",
+     "NeuromuscularFatigue"
+    ],
+    "TeamMotivation|WarmUpExercises": [
+     "TeamMotivation",
+     "WarmUpExercises"
+    ],
+    "Injury|TissueWeakness": [
+     "TissueWeakness",
+     "Injury"
+    ]
+   },
+   "confidence": {
+    "Coach|FitnessLevel": 0.5,
+    "ConnectiveTissueDisorder|NeuromuscularFatigue": 0.5,
+    "FitnessLevel|Genetics": 0.5,
+    "Genetics|NeuromuscularFatigue": 0.5,
+    "TeamMotivation|WarmUpExercises": 0.5,
+    "Injury|TissueWeakness": 0.5
+   },
+   "declined": [
+    "PreviousInjury|TeamMotivation"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 9
+  },
+  {
+   "network": "Thoemmes_2013",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0d793d385fadd419c8a337ca6c1b5fe174274c644122229cb49f89bcecb887e2",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f8667c9e5c091a8c8e45d10f71b24d067e1e8e9cadcf0b8341ed73bcccf7ae3b",
+   "orientations": {
+    "e0|x": [
+     "e0",
+     "x"
+    ]
+   },
+   "confidence": {
+    "e0|x": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "Thoemmes_2013",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c996e3484fd8d0835b64ffdc30e06aa28f1c14892c898a446d0414da52c52d14",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "4879caa67a0f67be4972c018a4dd69b01e1a6dfaf048566072ddcfca56f82e7f",
+   "orientations": {
+    "s1|x": [
+     "s1",
+     "x"
+    ],
+    "x|y": [
+     "x",
+     "y"
+    ]
+   },
+   "confidence": {
+    "s1|x": 1.0,
+    "x|y": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "alarm",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "77db6229def75da35d8fc16e816444c51e78532c14ea3a55bbf20d4a68f6b260",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "b7f1bb80e944da54731b9bdafafbbce5208cd5541510f3b2c2d0bde22557e56c",
+   "orientations": {
+    "ANAPHYLAXIS|TPR": [
+     "ANAPHYLAXIS",
+     "TPR"
+    ]
+   },
+   "confidence": {
+    "ANAPHYLAXIS|TPR": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "alarm",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "fc324f2874223566b1e54428267ea7466e5379b89f09593c37d7a76eb80551bf",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "1eb345964f8613f01abb8aa0fbaa3ede472ebb8b6a7595e15ce9787f2bf699a0",
+   "orientations": {
+    "HISTORY|LVFAILURE": [
+     "HISTORY",
+     "LVFAILURE"
+    ]
+   },
+   "confidence": {
+    "HISTORY|LVFAILURE": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "alarm",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "7529cf70141fce5e03c21c5c7c8e18c7f03ac4f352fcd9363ba172e9c2f08e62",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "c7319e730ec03a494c0ac7ac72eea034de558358836766f87a2b695a77cafff5",
+   "orientations": {
+    "MINVOLSET|VENTMACH": [
+     "MINVOLSET",
+     "VENTMACH"
+    ]
+   },
+   "confidence": {
+    "MINVOLSET|VENTMACH": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "alarm",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "943cc41e446ad1db370f9b75b2c7d0601fa0b56b9025a408c529ffe6bf96e0e9",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "b88dc5e5d8548fc400e919eb0fb354f6e2b68159402595b88a46e229d42b5c5a",
+   "orientations": {
+    "PAP|PULMEMBOLUS": [
+     "PAP",
+     "PULMEMBOLUS"
+    ]
+   },
+   "confidence": {
+    "PAP|PULMEMBOLUS": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "alarm",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "d13df2e34ce6de1a2f824b6e504d8e9507615ce76940561aacd6d2d5c4624eb5",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "5a0bc8c7403c63fada44cdb77271a6ebaca7f5ed5638e1a0977c5eec4be45976",
+   "orientations": {
+    "LVEDVOLUME|LVFAILURE": [
+     "LVEDVOLUME",
+     "LVFAILURE"
+    ],
+    "LVFAILURE|STROKEVOLUME": [
+     "LVFAILURE",
+     "STROKEVOLUME"
+    ],
+    "PULMEMBOLUS|SHUNT": [
+     "PULMEMBOLUS",
+     "SHUNT"
+    ],
+    "BP|TPR": [
+     "BP",
+     "TPR"
+    ],
+    "CATECHOL|TPR": [
+     "TPR",
+     "CATECHOL"
+    ],
+    "VENTMACH|VENTTUBE": [
+     "VENTMACH",
+     "VENTTUBE"
+    ]
+   },
+   "confidence": {
+    "LVEDVOLUME|LVFAILURE": 1.0,
+    "LVFAILURE|STROKEVOLUME": 1.0,
+    "PULMEMBOLUS|SHUNT": 1.0,
+    "BP|TPR": 1.0,
+    "CATECHOL|TPR": 1.0,
+    "VENTMACH|VENTTUBE": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 10
+  },
+  {
+   "network": "andes",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "de8a1af58a5fda4f8de56946edcd0d15e843cd130c4853283aa4af7c1f5d1a96",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "6cdd254187d6a7342cf5e240a98e6b1bfa834c9ac796c6730865bd40fa327f52",
+   "orientations": {
+    "HORIZ53|NORMAL52": [
+     "HORIZ53",
+     "NORMAL52"
+    ],
+    "INCLINE51|NORMAL52": [
+     "INCLINE51",
+     "NORMAL52"
+    ]
+   },
+   "confidence": {
+    "HORIZ53|NORMAL52": 1.0,
+    "INCLINE51|NORMAL52": 1.0
+   },
+   "declined": [
+    "BUGGY54|NORMAL52"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "andes",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "daea55ca35d6f2b81b0706e5da9e402022fccf4b202fd2019fe35c4a1692ccc6",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "a799641a86e57ca127746bf59eeba1a765efd7085684f7b56ad5120caea24245",
+   "orientations": {
+    "GIVEN_1|RApp2": [
+     "GIVEN_1",
+     "RApp2"
+    ]
+   },
+   "confidence": {
+    "GIVEN_1|RApp2": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "andes",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "df3667ff56147060e0cb36530d252d8686b6d1ff49909a839a95e5581417e0dd",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "046d00d66500750f5f8851225609398986e8f660a45e2232f903f06b0643022b",
+   "orientations": {
+    "TRY11|TRY12": [
+     "TRY11",
+     "TRY12"
+    ],
+    "TRY12|TRY13": [
+     "TRY12",
+     "TRY13"
+    ],
+    "TRY12|TRY14": [
+     "TRY12",
+     "TRY14"
+    ],
+    "TRY12|TRY15": [
+     "TRY12",
+     "TRY15"
+    ]
+   },
+   "confidence": {
+    "TRY11|TRY12": 1.0,
+    "TRY12|TRY13": 1.0,
+    "TRY12|TRY14": 1.0,
+    "TRY12|TRY15": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "andes",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "37862cc15156bc16a9346db13faf9151b037c08b9e3f28661129375b0e904233",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "d4164b538ab3372726b4d58bef0eac548bc3a016b3b2130e935bdd4b0c439ab6",
+   "orientations": {
+    "TRY24|TRY25": [
+     "TRY24",
+     "TRY25"
+    ],
+    "TRY25|TRY26": [
+     "TRY25",
+     "TRY26"
+    ]
+   },
+   "confidence": {
+    "TRY24|TRY25": 1.0,
+    "TRY25|TRY26": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "andes",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c204fee9dbb02b5f7a476d62de9e4756a947b6ee95c34c5480d3249c321e1309",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9495ca4b9f738b138b8cde60f36d3c4c1ee196b49d16220586cf7e7975f6af8e",
+   "orientations": {
+    "BUGGY54|SNode_92": [
+     "BUGGY54",
+     "SNode_92"
+    ],
+    "INCLINE51|SNode_91": [
+     "INCLINE51",
+     "SNode_91"
+    ],
+    "RApp2|SNode_8": [
+     "RApp2",
+     "SNode_8"
+    ],
+    "GOAL_49|TRY11": [
+     "GOAL_49",
+     "TRY11"
+    ]
+   },
+   "confidence": {
+    "BUGGY54|SNode_92": 1.0,
+    "INCLINE51|SNode_91": 1.0,
+    "RApp2|SNode_8": 1.0,
+    "GOAL_49|TRY11": 1.0
+   },
+   "declined": [
+    "GOAL_83|TRY24"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "arth150",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e089bc153c9baf180f236a89e24705ad229c9331b1f383e8f5bd0cc3c0d39b42",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "27afca7252563e540905b01afd8c8d22c4280572f07472986dc660fe8d3e293a",
+   "orientations": {
+    "100|245": [
+     "100",
+     "245"
+    ],
+    "100|296": [
+     "100",
+     "296"
+    ],
+    "100|412": [
+     "100",
+     "412"
+    ]
+   },
+   "confidence": {
+    "100|245": 1.0,
+    "100|296": 1.0,
+    "100|412": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "arth150",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "859d42167c3f6da532550280de6ed984f598a8889b704f47ca22d70bbed76492",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "6e521ba4d39744e8e48544f0f3aee30e8c57bbeb00a45707857cd51cefca3657",
+   "orientations": {
+    "111|61": [
+     "111",
+     "61"
+    ]
+   },
+   "confidence": {
+    "111|61": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "arth150",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "9e7a5e908d7f79c4b2b110eba95815edb9f3445e29fee8e35aeff4f929e763db",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "d22572981524f93238326e0a35daf4ef467de9409c41cf4eee0d3799a97bb7df",
+   "orientations": {
+    "126|558": [
+     "126",
+     "558"
+    ],
+    "126|783": [
+     "126",
+     "783"
+    ],
+    "155|679": [
+     "155",
+     "679"
+    ],
+    "161|558": [
+     "161",
+     "558"
+    ],
+    "187|783": [
+     "187",
+     "783"
+    ],
+    "20|781": [
+     "781",
+     "20"
+    ],
+    "26|781": [
+     "781",
+     "26"
+    ],
+    "269|558": [
+     "269",
+     "558"
+    ],
+    "269|783": [
+     "269",
+     "783"
+    ],
+    "342|558": [
+     "342",
+     "558"
+    ],
+    "363|558": [
+     "558",
+     "363"
+    ],
+    "454|783": [
+     "454",
+     "783"
+    ],
+    "547|783": [
+     "547",
+     "783"
+    ],
+    "558|739": [
+     "739",
+     "558"
+    ],
+    "558|783": [
+     "783",
+     "558"
+    ],
+    "558|96": [
+     "96",
+     "558"
+    ],
+    "603|781": [
+     "781",
+     "603"
+    ],
+    "640|783": [
+     "640",
+     "783"
+    ],
+    "679|783": [
+     "679",
+     "783"
+    ],
+    "781|783": [
+     "781",
+     "783"
+    ]
+   },
+   "confidence": {
+    "126|558": 1.0,
+    "126|783": 1.0,
+    "155|679": 1.0,
+    "161|558": 1.0,
+    "187|783": 1.0,
+    "20|781": 1.0,
+    "26|781": 1.0,
+    "269|558": 1.0,
+    "269|783": 1.0,
+    "342|558": 1.0,
+    "363|558": 1.0,
+    "454|783": 1.0,
+    "547|783": 1.0,
+    "558|739": 1.0,
+    "558|783": 1.0,
+    "558|96": 1.0,
+    "603|781": 1.0,
+    "640|783": 1.0,
+    "679|783": 1.0,
+    "781|783": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 4,
+   "parse_ok": true,
+   "order_len": 19
+  },
+  {
+   "network": "arth150",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ff1b6bceb39db24b12588b7d95111b331b81100b888c83a4fd936912a5a16b1c",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "18aded6fe7d8ef35b46e4b3a56908604a9ecbe34edeb781f91f8c6d00bc6ce19",
+   "orientations": {
+    "144|81": [
+     "81",
+     "144"
+    ],
+    "198|686": [
+     "198",
+     "686"
+    ],
+    "198|779": [
+     "198",
+     "779"
+    ],
+    "198|81": [
+     "81",
+     "198"
+    ],
+    "211|81": [
+     "81",
+     "211"
+    ],
+    "248|81": [
+     "81",
+     "248"
+    ],
+    "368|81": [
+     "81",
+     "368"
+    ],
+    "377|81": [
+     "81",
+     "377"
+    ],
+    "622|81": [
+     "81",
+     "622"
+    ],
+    "665|81": [
+     "81",
+     "665"
+    ],
+    "666|81": [
+     "81",
+     "666"
+    ],
+    "712|81": [
+     "81",
+     "712"
+    ],
+    "779|798": [
+     "779",
+     "798"
+    ]
+   },
+   "confidence": {
+    "144|81": 0.0,
+    "198|686": 0.0,
+    "198|779": 0.0,
+    "198|81": 0.0,
+    "211|81": 0.0,
+    "248|81": 0.0,
+    "368|81": 0.0,
+    "377|81": 0.0,
+    "622|81": 0.0,
+    "665|81": 0.0,
+    "666|81": 0.0,
+    "712|81": 0.0,
+    "779|798": 0.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 14
+  },
+  {
+   "network": "arth150",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "8a3acf76df361a76adbff2e3e458cc17c57d4dbe341dcdf56eacdd28665a0f08",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "66e73cfb4ce3b17a55f30d18ea5ac66359839189e95f71fb33edf9587ec1a577",
+   "orientations": {
+    "414|726": [
+     "414",
+     "726"
+    ],
+    "726|78": [
+     "726",
+     "78"
+    ]
+   },
+   "confidence": {
+    "414|726": 1.0,
+    "726|78": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "arth150",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0f21b7cb6aef6d9f68a19335aa766579ce74c0654440234f2d7457e87b45fbb9",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "7547db5861065aeaef5092a311cc38e85f2b7424053c220b4e8fd65ab04bd554",
+   "orientations": {
+    "272|414": [
+     "414",
+     "272"
+    ],
+    "289|414": [
+     "289",
+     "414"
+    ],
+    "331|414": [
+     "414",
+     "331"
+    ],
+    "414|452": [
+     "414",
+     "452"
+    ],
+    "289|726": [
+     "289",
+     "726"
+    ],
+    "726|786": [
+     "726",
+     "786"
+    ],
+    "181|783": [
+     "181",
+     "783"
+    ]
+   },
+   "confidence": {
+    "272|414": 1.0,
+    "289|414": 1.0,
+    "331|414": 1.0,
+    "414|452": 1.0,
+    "289|726": 1.0,
+    "726|786": 1.0,
+    "181|783": 1.0
+   },
+   "declined": [
+    "793|81"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 11
+  },
+  {
+   "network": "asia",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ea316bec0241c6372b769133e34f66678bb80e5f1a453a5e24e799297bd0dc72",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "873e60ab43c47ff86724322a5b884e32ab7673ad8768347482bde88d2cc46ddd",
+   "orientations": {
+    "asia|tub": [
+     "asia",
+     "tub"
+    ]
+   },
+   "confidence": {
+    "asia|tub": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "asia",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "063e578839d22a4a91b5067324481036be9325fdb4288654edec359516d1b7f9",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "3d74e5b09653af713fa5c7337b58b44b445e2f17995deb2acd77fbcef8874b32",
+   "orientations": {
+    "bronc|smoke": [
+     "smoke",
+     "bronc"
+    ],
+    "lung|smoke": [
+     "smoke",
+     "lung"
+    ]
+   },
+   "confidence": {
+    "bronc|smoke": 1.0,
+    "lung|smoke": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "asia",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "6b7eb38925da7f2d2913c6ac1256d8ddc55cfba2fca3cdeeb17363f79ad4776b",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "43dce5b5e8de57a3e2848e6d1794f8aa0e230d5f9becb0357090b071966afc64",
+   "orientations": {
+    "bronc|dysp": [
+     "bronc",
+     "dysp"
+    ],
+    "either|lung": [
+     "either",
+     "lung"
+    ],
+    "either|tub": [
+     "either",
+     "tub"
+    ]
+   },
+   "confidence": {
+    "bronc|dysp": 1.0,
+    "either|lung": 1.0,
+    "either|tub": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "barley",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "d3cf368d9ebfe610b8334f682ebe0385347b309cf869b54b1fa77feaaa0a8bb4",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9b7c9ee95834cfcf3b04e6355b1abbdace6d24422d86cb5156b9cb46bc54eb7c",
+   "orientations": {
+    "dg25|saatid": [
+     "saatid",
+     "dg25"
+    ],
+    "frspdag|jordinf": [
+     "jordinf",
+     "frspdag"
+    ],
+    "frspdag|saatid": [
+     "frspdag",
+     "saatid"
+    ]
+   },
+   "confidence": {
+    "dg25|saatid": 1.0,
+    "frspdag|jordinf": 1.0,
+    "frspdag|saatid": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "barley",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "830e32c9186653714efed567995a6fe4383fe3e411a95aff9c1558e30a3017a5",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "ce01374807eba95538f65cf0401addf66ad6ca9114bec4ea73110a6cf786d211",
+   "orientations": {
+    "dgv5980|rokap": [
+     "dgv5980",
+     "rokap"
+    ],
+    "jordtype|rokap": [
+     "jordtype",
+     "rokap"
+    ]
+   },
+   "confidence": {
+    "dgv5980|rokap": 1.0,
+    "jordtype|rokap": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "barley",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "490d792f879379593296196cb53157db0ebbfcbf70f915ce52f87edc42aa3a0d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "a87b6d748aae1cec1e106d209558b039acd9dc81e4e173eb45b2af9cdaa300f9",
+   "orientations": {
+    "komm|nedbarea": [
+     "komm",
+     "nedbarea"
+    ]
+   },
+   "confidence": {
+    "komm|nedbarea": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "barley",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "950e91c7d2aea4264f9b8fa495b2781313e825f0a3e9b97ba756a6a8051c390d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "3c3eb83a25ce51a8173cc65f02ed160b2b36e73e0361ca513b4061debaad730c",
+   "orientations": {
+    "sort|sorttkv": [
+     "sort",
+     "sorttkv"
+    ],
+    "sort|srtprot": [
+     "sort",
+     "srtprot"
+    ],
+    "sort|srtsize": [
+     "sort",
+     "srtsize"
+    ]
+   },
+   "confidence": {
+    "sort|sorttkv": 1.0,
+    "sort|srtprot": 1.0,
+    "sort|srtsize": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "barley",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "08b07e4d91766d766b31495a78d51ef47426f149c9c3c3503f8a535a08a4d04d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "2ec5d5c7ebde283bcb76ba251362d939b6cc8da6b3934da4be3849618362dc20",
+   "orientations": {
+    "aks_vgt|dgv5980": [
+     "aks_vgt",
+     "dgv5980"
+    ],
+    "aar_mod|jordtype": [
+     "jordtype",
+     "aar_mod"
+    ],
+    "exptgens|jordtype": [
+     "jordtype",
+     "exptgens"
+    ],
+    "nedbarea|nmin": [
+     "nedbarea",
+     "nmin"
+    ],
+    "aks_m2|sorttkv": [
+     "sorttkv",
+     "aks_m2"
+    ],
+    "protein|srtprot": [
+     "srtprot",
+     "protein"
+    ],
+    "s2225|srtsize": [
+     "srtsize",
+     "s2225"
+    ],
+    "slt22|srtsize": [
+     "slt22",
+     "srtsize"
+    ]
+   },
+   "confidence": {
+    "aks_vgt|dgv5980": 0.0,
+    "aar_mod|jordtype": 1.0,
+    "exptgens|jordtype": 1.0,
+    "nedbarea|nmin": 1.0,
+    "aks_m2|sorttkv": 1.0,
+    "protein|srtprot": 1.0,
+    "s2225|srtsize": 1.0,
+    "slt22|srtsize": 0.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 2,
+   "parse_ok": true,
+   "order_len": 14
+  },
+  {
+   "network": "child",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "4d2d6eeadc1a3987ee303c227e5e343f1956424a97fce0f076989ff530caabbb",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9c13400a945da456dce28ad4a8acd4cf30ce6fbc7ccba6fc3b90b787b83eb8a6",
+   "orientations": {
+    "Age|Disease": [
+     "Age",
+     "Disease"
+    ],
+    "Age|Sick": [
+     "Age",
+     "Sick"
+    ],
+    "BirthAsphyxia|Disease": [
+     "BirthAsphyxia",
+     "Disease"
+    ],
+    "CO2|CO2Report": [
+     "CO2",
+     "CO2Report"
+    ],
+    "CO2|LungParench": [
+     "LungParench",
+     "CO2"
+    ],
+    "CardiacMixing|Disease": [
+     "Disease",
+     "CardiacMixing"
+    ],
+    "Disease|DuctFlow": [
+     "Disease",
+     "DuctFlow"
+    ],
+    "Disease|LVH": [
+     "Disease",
+     "LVH"
+    ],
+    "Disease|LungFlow": [
+     "Disease",
+     "LungFlow"
+    ],
+    "Disease|LungParench": [
+     "Disease",
+     "LungParench"
+    ],
+    "Disease|Sick": [
+     "Disease",
+     "Sick"
+    ],
+    "LVH|LVHreport": [
+     "LVH",
+     "LVHreport"
+    ]
+   },
+   "confidence": {
+    "Age|Disease": 0.6,
+    "Age|Sick": 0.6,
+    "BirthAsphyxia|Disease": 0.7,
+    "CO2|CO2Report": 0.8,
+    "CO2|LungParench": 0.7,
+    "CardiacMixing|Disease": 0.9,
+    "Disease|DuctFlow": 0.9,
+    "Disease|LVH": 0.9,
+    "Disease|LungFlow": 0.9,
+    "Disease|LungParench": 0.9,
+    "Disease|Sick": 0.9,
+    "LVH|LVHreport": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 12
+  },
+  {
+   "network": "child",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "fb0d71b3fba4aa2ce173973c8b8f4ce8f386e73d4996f5c9ae8c466b8502a27d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "a330207017946ec76d26c911cb6ef9fa8f8b272770d1e1389225b3036a111bf5",
+   "orientations": {
+    "CardiacMixing|HypDistrib": [
+     "CardiacMixing",
+     "HypDistrib"
+    ],
+    "CardiacMixing|HypoxiaInO2": [
+     "CardiacMixing",
+     "HypoxiaInO2"
+    ],
+    "DuctFlow|HypDistrib": [
+     "DuctFlow",
+     "HypDistrib"
+    ],
+    "ChestXray|LungFlow": [
+     "LungFlow",
+     "ChestXray"
+    ],
+    "ChestXray|LungParench": [
+     "LungParench",
+     "ChestXray"
+    ],
+    "Grunting|LungParench": [
+     "LungParench",
+     "Grunting"
+    ],
+    "HypoxiaInO2|LungParench": [
+     "HypoxiaInO2",
+     "LungParench"
+    ],
+    "Grunting|Sick": [
+     "Grunting",
+     "Sick"
+    ]
+   },
+   "confidence": {
+    "CardiacMixing|HypDistrib": 0.9,
+    "CardiacMixing|HypoxiaInO2": 0.8,
+    "DuctFlow|HypDistrib": 0.9,
+    "ChestXray|LungFlow": 0.6,
+    "ChestXray|LungParench": 0.6,
+    "Grunting|LungParench": 0.7,
+    "HypoxiaInO2|LungParench": 0.8,
+    "Grunting|Sick": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 2,
+   "parse_ok": true,
+   "order_len": 9
+  },
+  {
+   "network": "diabetes",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0683e941cf9acc3bf936bfa99ebe6cee226249cb96ef58868435a19d2ae44546",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "70b617ec39136d12bf9259d949bea21f8b1d347d4a309071d938a1b687656bfc",
+   "orientations": {
+    "bg_0|ins_indep_util_0": [
+     "ins_indep_util_0",
+     "bg_0"
+    ],
+    "bg_0|renal_cl_0": [
+     "bg_0",
+     "renal_cl_0"
+    ]
+   },
+   "confidence": {
+    "bg_0|ins_indep_util_0": 0.7,
+    "bg_0|renal_cl_0": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "diabetes",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "4b899ca66c91693626bdc9e104fdf4e96dc625607a15966df993b3f82455f850",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9e64cb3a956334bb86c4624d90d350a35817d26f7472b2df78f68f0344be2964",
+   "orientations": {
+    "cho_bal_0|gut_abs_0": [
+     "gut_abs_0",
+     "cho_bal_0"
+    ]
+   },
+   "confidence": {
+    "cho_bal_0|gut_abs_0": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ea8f2245e16d0b3b47945eef5fd91f48ef093917bbb68f94f62d42ad7070f98a",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "6d2fefd16f902ebeecdc202a8bff823af9c7852ce1f4cdb7b1e8b2dc952ae517",
+   "orientations": {
+    "cho_bal_1|gut_abs_1": [
+     "gut_abs_1",
+     "cho_bal_1"
+    ]
+   },
+   "confidence": {
+    "cho_bal_1|gut_abs_1": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "da7e0afc9ab6d4e5a191eedc3d1fd47b0e051048a438ab5020a2039689ad6783",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "37b48ef99536663ad4e43f56bf64d9444162a6d890eaaa289027b47065a40a31",
+   "orientations": {
+    "cho_bal_11|gut_abs_11": [
+     "gut_abs_11",
+     "cho_bal_11"
+    ]
+   },
+   "confidence": {
+    "cho_bal_11|gut_abs_11": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "6f16d603d05384448947c968da84472872de76e4856b3a119a4efe76656f6edd",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "5473fb3fd50daa1c3885c2102df4a0782a9a321530adade26dee3988145bcecf",
+   "orientations": {
+    "cho_bal_12|gut_abs_12": [
+     "gut_abs_12",
+     "cho_bal_12"
+    ]
+   },
+   "confidence": {
+    "cho_bal_12|gut_abs_12": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 5,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ae3a2ae652e704398a1b8f869414c4e328e52a95dc8c60e4adcb1f28dfde159d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "cb4b25cf16fdd0fa0c73c256acf4d75bee645a5cfdeaf510f4c3f7f10e0ab229",
+   "orientations": {
+    "cho_bal_14|gut_abs_14": [
+     "gut_abs_14",
+     "cho_bal_14"
+    ]
+   },
+   "confidence": {
+    "cho_bal_14|gut_abs_14": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 6,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "dd7a660ba2255622b85ebe3e635052e42b767d25e5eea15cfb4db0636984b11c",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "ba9233fd31e06ee0f49f8409a72cf9c3aaf42a7f7539a7f764bd7f32a754803d",
+   "orientations": {
+    "cho_bal_15|gut_abs_15": [
+     "gut_abs_15",
+     "cho_bal_15"
+    ]
+   },
+   "confidence": {
+    "cho_bal_15|gut_abs_15": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 7,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "79bf847c70ed8746b715c1af5821341191319e0c8759aebce627c72edd2c482a",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f343640917f8d3adc42c62a68f5565175f7a37171582774f05f12540b3cf85e1",
+   "orientations": {
+    "cho_bal_19|gut_abs_19": [
+     "gut_abs_19",
+     "cho_bal_19"
+    ]
+   },
+   "confidence": {
+    "cho_bal_19|gut_abs_19": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 8,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "18f5bd245a2c26d2617df950899c47de4d619f3ed70d8338be6346fd8c86b1e2",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "7bfdae3b28a9146e66e2c28ec5f8764079dd0bb9059321e6fdbe34eddedf40d6",
+   "orientations": {
+    "cho_bal_2|gut_abs_2": [
+     "gut_abs_2",
+     "cho_bal_2"
+    ]
+   },
+   "confidence": {
+    "cho_bal_2|gut_abs_2": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 9,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "97f34730aefc00ae194b0972044cea57996e4a84ac0979e9dd47a15e641a4f6f",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "885bfc18c4a1f9370f1726e6afb50b7c2bfc92b59e4788f75ade40ee4966fa35",
+   "orientations": {
+    "cho_bal_3|gut_abs_3": [
+     "gut_abs_3",
+     "cho_bal_3"
+    ]
+   },
+   "confidence": {
+    "cho_bal_3|gut_abs_3": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 10,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "9a05b3909e42c98668057103609a61275eee42218b36c3235061286d817c2204",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "5c25acc4ef1750f4841ffd78c11453ba44cf6ac16ad2aa6d4025191c1dca5cbb",
+   "orientations": {
+    "cho_bal_4|gut_abs_4": [
+     "gut_abs_4",
+     "cho_bal_4"
+    ]
+   },
+   "confidence": {
+    "cho_bal_4|gut_abs_4": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 11,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "871e8e61fc74e952f6ab606faa3d96651cb0fb7b80eddd57a43f54f5919cc4d9",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "4295254e7eaafc4cbc32d9e0105cd184879802b534f9a42f7fd725c93b65f5d4",
+   "orientations": {
+    "cho_bal_6|gut_abs_6": [
+     "gut_abs_6",
+     "cho_bal_6"
+    ]
+   },
+   "confidence": {
+    "cho_bal_6|gut_abs_6": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": 12,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0f6d4f086a00e47a63c1d2ce83e5ca5d05e3da44605038ae9e179369e7e1e01e",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "0fdf85ba48902d6897599a6d6b1c516cc6cfe839e94fe53af153cab2389440cb",
+   "orientations": {
+    "cho_bal_8|gut_abs_8": [
+     "gut_abs_8",
+     "cho_bal_8"
+    ]
+   },
+   "confidence": {
+    "cho_bal_8|gut_abs_8": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "diabetes",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "9b19dc4e3e0017b3c11af6bf29d5e2942ce0628a9e27c3a96294642764e296b0",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "32e8b85e25f6276f3cb34ea839734976294c633d4ccb783b2690aeea23f227e3",
+   "orientations": {
+    "cho_0|cho_bal_0": [
+     "cho_0",
+     "cho_bal_0"
+    ],
+    "cho_11|gut_abs_11": [
+     "gut_abs_11",
+     "cho_11"
+    ],
+    "cho_14|cho_bal_14": [
+     "cho_14",
+     "cho_bal_14"
+    ],
+    "cho_3|cho_bal_3": [
+     "cho_3",
+     "cho_bal_3"
+    ],
+    "cho_6|gut_abs_6": [
+     "gut_abs_6",
+     "cho_6"
+    ],
+    "cho_15|cho_bal_14": [
+     "cho_15",
+     "cho_bal_14"
+    ],
+    "cho_4|cho_bal_3": [
+     "cho_4",
+     "cho_bal_3"
+    ],
+    "basal_bal_14|gut_abs_14": [
+     "gut_abs_14",
+     "basal_bal_14"
+    ]
+   },
+   "confidence": {
+    "cho_0|cho_bal_0": 1.0,
+    "cho_11|gut_abs_11": 0.0,
+    "cho_14|cho_bal_14": 1.0,
+    "cho_3|cho_bal_3": 1.0,
+    "cho_6|gut_abs_6": 0.0,
+    "cho_15|cho_bal_14": 1.0,
+    "cho_4|cho_bal_3": 1.0,
+    "basal_bal_14|gut_abs_14": 0.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 14
+  },
+  {
+   "network": "ecoli70",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3f7e1203d4d8dd106f1dd27caac7d6a81ff2b4eacd1bcf6f7cc2893de3942341",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "419446602fe969d20c24db139a4a970a457bc637ffccc291fd0916323c16cf53",
+   "orientations": {
+    "asnA|icdA": [
+     "icdA",
+     "asnA"
+    ]
+   },
+   "confidence": {
+    "asnA|icdA": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "ecoli70",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "305210e470fd8af14d06aa87ea529f8c5390899c0b55f301a2da17741833efbb",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "b587fe1b789a3b8ce2984493b6bfd32ec2857505254b5d3cde740d72e4055977",
+   "orientations": {
+    "atpG|sucA": [
+     "atpG",
+     "sucA"
+    ],
+    "dnaJ|sucA": [
+     "dnaJ",
+     "sucA"
+    ],
+    "eutG|sucA": [
+     "eutG",
+     "sucA"
+    ],
+    "flgD|sucA": [
+     "flgD",
+     "sucA"
+    ],
+    "gltA|sucA": [
+     "sucA",
+     "gltA"
+    ],
+    "sucA|sucD": [
+     "sucA",
+     "sucD"
+    ],
+    "sucA|yhdM": [
+     "sucA",
+     "yhdM"
+    ]
+   },
+   "confidence": {
+    "atpG|sucA": 0.5,
+    "dnaJ|sucA": 0.5,
+    "eutG|sucA": 0.5,
+    "flgD|sucA": 0.5,
+    "gltA|sucA": 0.5,
+    "sucA|sucD": 0.5,
+    "sucA|yhdM": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 8
+  },
+  {
+   "network": "ecoli70",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "00e8c04e0d813cb80568128b9835125351e9a6f487a49163c02a6750e38c8b89",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "4550319eb47bf313f5facea09e558f34ad5c2bcf50b23ba7d6af07b9ce3a3290",
+   "orientations": {
+    "b1191|fixC": [
+     "b1191",
+     "fixC"
+    ],
+    "cchB|fixC": [
+     "cchB",
+     "fixC"
+    ],
+    "fixC|ygbD": [
+     "fixC",
+     "ygbD"
+    ],
+    "fixC|yjbO": [
+     "fixC",
+     "yjbO"
+    ]
+   },
+   "confidence": {
+    "b1191|fixC": 1.0,
+    "cchB|fixC": 1.0,
+    "fixC|ygbD": 1.0,
+    "fixC|yjbO": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "ecoli70",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e5482edfb684cb18bbc4a4a8e0f7a6d7356387c2f0def5084fbb426a2bc5cb53",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "875e1389358a7752b6dafbc73727535f693760a87654442d1216d32235367a1f",
+   "orientations": {
+    "cspA|cspG": [
+     "cspA",
+     "cspG"
+    ],
+    "cspA|hupB": [
+     "cspA",
+     "hupB"
+    ],
+    "cspA|yfiA": [
+     "cspA",
+     "yfiA"
+    ],
+    "cspG|pspA": [
+     "cspG",
+     "pspA"
+    ],
+    "cspG|pspB": [
+     "cspG",
+     "pspB"
+    ],
+    "cspG|yecO": [
+     "cspG",
+     "yecO"
+    ],
+    "cspG|yedE": [
+     "cspG",
+     "yedE"
+    ],
+    "hupB|yfiA": [
+     "hupB",
+     "yfiA"
+    ],
+    "lpdA|yedE": [
+     "yedE",
+     "lpdA"
+    ],
+    "nmpC|pspA": [
+     "pspA",
+     "nmpC"
+    ],
+    "pspA|pspB": [
+     "pspA",
+     "pspB"
+    ],
+    "pspA|yedE": [
+     "pspA",
+     "yedE"
+    ],
+    "pspB|yedE": [
+     "pspB",
+     "yedE"
+    ]
+   },
+   "confidence": {
+    "cspA|cspG": 1.0,
+    "cspA|hupB": 1.0,
+    "cspA|yfiA": 1.0,
+    "cspG|pspA": 1.0,
+    "cspG|pspB": 1.0,
+    "cspG|yecO": 1.0,
+    "cspG|yedE": 1.0,
+    "hupB|yfiA": 1.0,
+    "lpdA|yedE": 1.0,
+    "nmpC|pspA": 1.0,
+    "pspA|pspB": 1.0,
+    "pspA|yedE": 1.0,
+    "pspB|yedE": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 2,
+   "parse_ok": true,
+   "order_len": 10
+  },
+  {
+   "network": "ecoli70",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e66c721c099ececce3acfe620369163d03d4468cff7e259c47d02a48c1190af2",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "e5e292c1856f24ba3b4ab0f6caeec39fc60af3f359a8afafecd2b0899fa8b26d",
+   "orientations": {
+    "asnA|lacA": [
+     "asnA",
+     "lacA"
+    ],
+    "cspG|yaeM": [
+     "cspG",
+     "yaeM"
+    ],
+    "eutG|lacY": [
+     "eutG",
+     "lacY"
+    ],
+    "fixC|tnaA": [
+     "fixC",
+     "tnaA"
+    ],
+    "fixC|yceP": [
+     "fixC",
+     "yceP"
+    ],
+    "aceB|icdA": [
+     "aceB",
+     "icdA"
+    ],
+    "sucA|tnaA": [
+     "sucA",
+     "tnaA"
+    ],
+    "sucA|yfaD": [
+     "sucA",
+     "yfaD"
+    ]
+   },
+   "confidence": {
+    "asnA|lacA": 1.0,
+    "cspG|yaeM": 1.0,
+    "eutG|lacY": 1.0,
+    "fixC|tnaA": 1.0,
+    "fixC|yceP": 1.0,
+    "aceB|icdA": 1.0,
+    "sucA|tnaA": 1.0,
+    "sucA|yfaD": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 13
+  },
+  {
+   "network": "hailfinder",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "b136e2555c34bdebd72cdfaf873a4f3926170c5b83da1d86d05b73e14bc458ef",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "bc5beaccf3a79dbad1a6f24fa3a6949ac93e5bdb5965f1c6ebbcded080387dd8",
+   "orientations": {
+    "Date|Scenario": [
+     "Date",
+     "Scenario"
+    ],
+    "Dewpoints|Scenario": [
+     "Scenario",
+     "Dewpoints"
+    ],
+    "LowLLapse|Scenario": [
+     "Scenario",
+     "LowLLapse"
+    ],
+    "MeanRH|Scenario": [
+     "Scenario",
+     "MeanRH"
+    ],
+    "MidLLapse|Scenario": [
+     "Scenario",
+     "MidLLapse"
+    ],
+    "MvmtFeatures|Scenario": [
+     "Scenario",
+     "MvmtFeatures"
+    ],
+    "RHRatio|Scenario": [
+     "Scenario",
+     "RHRatio"
+    ],
+    "ScenRel3_4|Scenario": [
+     "Scenario",
+     "ScenRel3_4"
+    ],
+    "ScenRelAMCIN|Scenario": [
+     "Scenario",
+     "ScenRelAMCIN"
+    ],
+    "ScenRelAMIns|Scenario": [
+     "Scenario",
+     "ScenRelAMIns"
+    ],
+    "Scenario|ScnRelPlFcst": [
+     "Scenario",
+     "ScnRelPlFcst"
+    ],
+    "Scenario|SfcWndShfDis": [
+     "Scenario",
+     "SfcWndShfDis"
+    ],
+    "Scenario|SynForcng": [
+     "Scenario",
+     "SynForcng"
+    ],
+    "Scenario|TempDis": [
+     "Scenario",
+     "TempDis"
+    ],
+    "Scenario|WindAloft": [
+     "Scenario",
+     "WindAloft"
+    ],
+    "Scenario|WindFieldMt": [
+     "Scenario",
+     "WindFieldMt"
+    ],
+    "Scenario|WindFieldPln": [
+     "Scenario",
+     "WindFieldPln"
+    ]
+   },
+   "confidence": {
+    "Date|Scenario": 1.0,
+    "Dewpoints|Scenario": 1.0,
+    "LowLLapse|Scenario": 1.0,
+    "MeanRH|Scenario": 1.0,
+    "MidLLapse|Scenario": 1.0,
+    "MvmtFeatures|Scenario": 1.0,
+    "RHRatio|Scenario": 1.0,
+    "ScenRel3_4|Scenario": 1.0,
+    "ScenRelAMCIN|Scenario": 1.0,
+    "ScenRelAMIns|Scenario": 1.0,
+    "Scenario|ScnRelPlFcst": 1.0,
+    "Scenario|SfcWndShfDis": 1.0,
+    "Scenario|SynForcng": 1.0,
+    "Scenario|TempDis": 1.0,
+    "Scenario|WindAloft": 1.0,
+    "Scenario|WindFieldMt": 1.0,
+    "Scenario|WindFieldPln": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 18
+  },
+  {
+   "network": "hailfinder",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "35124ada27328a688d9bd13724da6f937434d1d006ddaed4af40d4afa4ac8742",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "14b4d194ef86e57678022fe689e2c9b93f13530124a64bab8c76a4c75554e26b",
+   "orientations": {
+    "N34StarFcst|ScenRel3_4": [
+     "N34StarFcst",
+     "ScenRel3_4"
+    ],
+    "AMCINInScen|ScenRelAMCIN": [
+     "AMCINInScen",
+     "ScenRelAMCIN"
+    ],
+    "AMInsWliScen|ScenRelAMIns": [
+     "AMInsWliScen",
+     "ScenRelAMIns"
+    ],
+    "PlainsFcst|ScnRelPlFcst": [
+     "PlainsFcst",
+     "ScnRelPlFcst"
+    ]
+   },
+   "confidence": {
+    "N34StarFcst|ScenRel3_4": 1.0,
+    "AMCINInScen|ScenRelAMCIN": 1.0,
+    "AMInsWliScen|ScenRelAMIns": 1.0,
+    "PlainsFcst|ScnRelPlFcst": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 8
+  },
+  {
+   "network": "hepar2",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "92233ed610865a36f3e7e788c7330c5664941c79477482d370b0df98b23df849",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "e7da13be9874bb4eca84d430326d585c1d15de5164f0e31cac0310fbacfe3f49",
+   "orientations": {
+    "RHepatitis|hepatotoxic": [
+     "hepatotoxic",
+     "RHepatitis"
+    ]
+   },
+   "confidence": {
+    "RHepatitis|hepatotoxic": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "hepar2",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "25de9b77a955d9d0dc35546488ce427cdc8c815646e8e8d1205a400635fcce4f",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "1ce0238f9a71ede8e62d4a92279e63f3e643b509973ae71a21cf93bcf68b3aa1",
+   "orientations": {
+    "amylase|gallstones": [
+     "gallstones",
+     "amylase"
+    ],
+    "choledocholithotomy|gallstones": [
+     "gallstones",
+     "choledocholithotomy"
+    ],
+    "fat|gallstones": [
+     "fat",
+     "gallstones"
+    ],
+    "flatulence|gallstones": [
+     "gallstones",
+     "flatulence"
+    ],
+    "gallstones|upper_pain": [
+     "gallstones",
+     "upper_pain"
+    ]
+   },
+   "confidence": {
+    "amylase|gallstones": 1.0,
+    "choledocholithotomy|gallstones": 1.0,
+    "fat|gallstones": 1.0,
+    "flatulence|gallstones": 1.0,
+    "gallstones|upper_pain": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 6
+  },
+  {
+   "network": "hepar2",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "9ffa39f5d83f129215b1f268bf9a4d43abfd6c917153426cbc345199455e3e73",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "846a5ea3726d1f82e4432dc2974f917b58162f75e20a09c9d0ae770aa458f2da",
+   "orientations": {
+    "diabetes|obesity": [
+     "obesity",
+     "diabetes"
+    ]
+   },
+   "confidence": {
+    "diabetes|obesity": 0.7
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "hepar2",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "be10e411f775a8aa1c9adb29baa63d31679937dbd78b9d565c17a25e075f59bf",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "b4ff7dc49882225176fa886e2a103d40d3fa3440b54155e42817944d7f417018",
+   "orientations": {
+    "RHepatitis|alt": [
+     "RHepatitis",
+     "alt"
+    ],
+    "RHepatitis|fatigue": [
+     "RHepatitis",
+     "fatigue"
+    ],
+    "RHepatitis|ggtp": [
+     "RHepatitis",
+     "ggtp"
+    ],
+    "RHepatitis|hepatomegaly": [
+     "RHepatitis",
+     "hepatomegaly"
+    ],
+    "RHepatitis|nausea": [
+     "RHepatitis",
+     "nausea"
+    ],
+    "choledocholithotomy|injections": [
+     "injections",
+     "choledocholithotomy"
+    ],
+    "THepatitis|hepatotoxic": [
+     "hepatotoxic",
+     "THepatitis"
+    ],
+    "Steatosis|obesity": [
+     "obesity",
+     "Steatosis"
+    ]
+   },
+   "confidence": {
+    "RHepatitis|alt": 0.5,
+    "RHepatitis|fatigue": 0.5,
+    "RHepatitis|ggtp": 0.5,
+    "RHepatitis|hepatomegaly": 0.5,
+    "RHepatitis|nausea": 0.5,
+    "choledocholithotomy|injections": 0.5,
+    "THepatitis|hepatotoxic": 0.5,
+    "Steatosis|obesity": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 7
+  },
+  {
+   "network": "insurance",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "39b138b147ab79b7e64606f6a288c69ef412e67a505c51c8790384a62d53660f",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "12813827c244dbc0d2c1832d6bcbb6eb44ebb06c2ea82d2c1f97a39c0f1823da",
+   "orientations": {
+    "Age|DrivingSkill": [
+     "Age",
+     "DrivingSkill"
+    ],
+    "Age|GoodStudent": [
+     "Age",
+     "GoodStudent"
+    ],
+    "Age|RiskAversion": [
+     "Age",
+     "RiskAversion"
+    ],
+    "Age|SeniorTrain": [
+     "Age",
+     "SeniorTrain"
+    ],
+    "Age|SocioEcon": [
+     "Age",
+     "SocioEcon"
+    ],
+    "AntiTheft|SocioEcon": [
+     "SocioEcon",
+     "AntiTheft"
+    ],
+    "DrivingSkill|SeniorTrain": [
+     "DrivingSkill",
+     "SeniorTrain"
+    ],
+    "GoodStudent|SocioEcon": [
+     "SocioEcon",
+     "GoodStudent"
+    ],
+    "HomeBase|RiskAversion": [
+     "HomeBase",
+     "RiskAversion"
+    ],
+    "HomeBase|SocioEcon": [
+     "HomeBase",
+     "SocioEcon"
+    ],
+    "MakeModel|RiskAversion": [
+     "RiskAversion",
+     "MakeModel"
+    ],
+    "MakeModel|SocioEcon": [
+     "SocioEcon",
+     "MakeModel"
+    ],
+    "OtherCar|SocioEcon": [
+     "SocioEcon",
+     "OtherCar"
+    ],
+    "RiskAversion|SocioEcon": [
+     "SocioEcon",
+     "RiskAversion"
+    ],
+    "SocioEcon|VehicleYear": [
+     "SocioEcon",
+     "VehicleYear"
+    ]
+   },
+   "confidence": {
+    "Age|DrivingSkill": 0.9,
+    "Age|GoodStudent": 0.8,
+    "Age|RiskAversion": 0.8,
+    "Age|SeniorTrain": 0.9,
+    "Age|SocioEcon": 0.7,
+    "AntiTheft|SocioEcon": 0.8,
+    "DrivingSkill|SeniorTrain": 0.7,
+    "GoodStudent|SocioEcon": 0.6,
+    "HomeBase|RiskAversion": 0.6,
+    "HomeBase|SocioEcon": 0.7,
+    "MakeModel|RiskAversion": 0.6,
+    "MakeModel|SocioEcon": 0.8,
+    "OtherCar|SocioEcon": 0.7,
+    "RiskAversion|SocioEcon": 0.7,
+    "SocioEcon|VehicleYear": 0.8
+   },
+   "declined": [
+    "AntiTheft|RiskAversion",
+    "RiskAversion|SeniorTrain",
+    "RiskAversion|VehicleYear"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 11
+  },
+  {
+   "network": "insurance",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "b63972c88dab8fe72a36d0bd11fe60d424f7e8d77ca31821cb6e0fbff3862dc1",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "19d4751a355f0d9863ada343701e9ea1147c580157e7b148b9a89a4488e5e153",
+   "orientations": {
+    "DrivHist|DrivingSkill": [
+     "DrivingSkill",
+     "DrivHist"
+    ],
+    "DrivQuality|DrivingSkill": [
+     "DrivQuality",
+     "DrivingSkill"
+    ],
+    "HomeBase|Theft": [
+     "HomeBase",
+     "Theft"
+    ],
+    "CarValue|MakeModel": [
+     "MakeModel",
+     "CarValue"
+    ],
+    "MakeModel|RuggedAuto": [
+     "MakeModel",
+     "RuggedAuto"
+    ],
+    "DrivQuality|RiskAversion": [
+     "RiskAversion",
+     "DrivQuality"
+    ],
+    "Airbag|VehicleYear": [
+     "VehicleYear",
+     "Airbag"
+    ]
+   },
+   "confidence": {
+    "DrivHist|DrivingSkill": 0.7,
+    "DrivQuality|DrivingSkill": 0.8,
+    "HomeBase|Theft": 0.7,
+    "CarValue|MakeModel": 0.9,
+    "MakeModel|RuggedAuto": 0.8,
+    "DrivQuality|RiskAversion": 0.6,
+    "Airbag|VehicleYear": 0.9
+   },
+   "declined": [
+    "DrivHist|RiskAversion"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 11
+  },
+  {
+   "network": "link",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "fb19c15366657e967e618837137a41fbd7f99a421fa9e81e267ead0579d7c56b",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "0a2c2b188075622061d504522fcdebd368b95908832bb2d528a32f1ec513bc4a",
+   "orientations": {
+    "Z_10_a_f|Z_10_d_f": [
+     "Z_10_a_f",
+     "Z_10_d_f"
+    ]
+   },
+   "confidence": {
+    "Z_10_a_f|Z_10_d_f": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ff5c3c84b6b8c077f2028c61cb8c576c5fdc525faa2c40defaebea9286abdc53",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "489bd554093dbfbccc54dc9ddc53d42fd1ae9aea2beea1938e4517e663972032",
+   "orientations": {
+    "Z_17_a_m|Z_17_d_m": [
+     "Z_17_a_m",
+     "Z_17_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_17_a_m|Z_17_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "f69dc4a0ad94b4817e013c0ca11a7db354cba3427154f8d3cd31c48f23d1a20b",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "b0bc2833d0ea0651c370f2344bd9dd28b18f4a3a9d783d4005c55c100dd3f451",
+   "orientations": {},
+   "confidence": {},
+   "declined": [
+    "Z_1_a_f|Z_1_d_f"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "94a81b1d6549fd4bade3a060e3d4528022b78f13f148977f19cf1d4a2dda9ad4",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9ef7d79a2b11bd69f995c626a47992ad0d1f301fd8991c27e10d383f7f456a35",
+   "orientations": {
+    "Z_1_a_m|Z_1_d_m": [
+     "Z_1_a_m",
+     "Z_1_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_1_a_m|Z_1_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "6f9383c50c5379d6e8308e1ddf617e90d944033bb02176d656f8f6e9d7750d09",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "d5ca819af71417386c65738a91dd353bf109e60050f64711024c0cd1add4de7e",
+   "orientations": {
+    "Z_21_a_m|Z_21_d_m": [
+     "Z_21_a_m",
+     "Z_21_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_21_a_m|Z_21_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 5,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0a55dc13f42efc743db239c95e688b8cea4ec04dabada900e75cf11d0bd30e16",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "e977716b6f1f833ee45894425d9275a08a896ce18eeecf833f3d662a695c252a",
+   "orientations": {
+    "Z_23_a_m|Z_23_d_m": [
+     "Z_23_a_m",
+     "Z_23_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_23_a_m|Z_23_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 6,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3ea8f8593f72d5d6142f9bfe7e07661094a36525d0888d7f42f27bbe80979533",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "1d56c53c8e2987b1d57ce147a689abbb681e08d011bad962673da464e230d2fc",
+   "orientations": {
+    "Z_28_a_f|Z_28_d_f": [
+     "Z_28_a_f",
+     "Z_28_d_f"
+    ]
+   },
+   "confidence": {
+    "Z_28_a_f|Z_28_d_f": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 7,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ec369e34e92bb4f209a8c2f3fa7ab1dd6b0e6bbbadf21347e40b80972a3fbdff",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "2e974de0225f42da7869ac4be001154c9591884e5637c91e58988d9eb9221428",
+   "orientations": {
+    "Z_2_a_f|Z_2_d_f": [
+     "Z_2_a_f",
+     "Z_2_d_f"
+    ]
+   },
+   "confidence": {
+    "Z_2_a_f|Z_2_d_f": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 8,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "5714e49c0536bd3205e1a39d4f240c98a3411ce74d94aa06bb03a491e8521f8d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "24ac7fd5e8f15beb678204d665558e9bc20c3e6b71564580d4fb9f6dce5410f6",
+   "orientations": {
+    "Z_2_a_m|Z_2_d_m": [
+     "Z_2_a_m",
+     "Z_2_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_2_a_m|Z_2_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 9,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "4e6493b71d4b19e8ea97eac01ae357d33465f0b283210a3090b2cc83ff462804",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "5165c90998d8f0e4b7dfcb292b04bcae54df4e3448ff1f1a882e994b455da3b0",
+   "orientations": {
+    "Z_33_a_f|Z_33_d_f": [
+     "Z_33_a_f",
+     "Z_33_d_f"
+    ]
+   },
+   "confidence": {
+    "Z_33_a_f|Z_33_d_f": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 10,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "a64690f73661d4a8e74531b21a789293ef8df84e54a106d9d4284df348e32e41",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "d9a5288ca2d2880caf6e49533f9a5767485097ebc66b04970f0d33c2390c0564",
+   "orientations": {
+    "Z_3_a_m|Z_3_d_m": [
+     "Z_3_a_m",
+     "Z_3_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_3_a_m|Z_3_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 11,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "afa10ff4b99c7c247f92ce950f5e835554c01ab0e6e40d8f445a945a25b138da",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "07c63b48f553be4890db45f68773d6acd4ff237028d9933ceeac478fff4ed18a",
+   "orientations": {
+    "Z_40_a_f|Z_40_d_f": [
+     "Z_40_a_f",
+     "Z_40_d_f"
+    ]
+   },
+   "confidence": {
+    "Z_40_a_f|Z_40_d_f": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 12,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "1cb934105c4ae1f4c004dc770bf6cba850015fc6ef41169ef06315b241db23d6",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "c828b963258c6223ce8fb717bfaf2ee8ad160f0bb2dc7f1bfadf9250dbfcbb26",
+   "orientations": {
+    "Z_4_a_m|Z_4_d_m": [
+     "Z_4_a_m",
+     "Z_4_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_4_a_m|Z_4_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 13,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "13e85afef08f791fc8885277807296be913126e6a1cca420f5d3c19acc3b21fe",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "ac5d36e981602de70b008a7900276b6f153c8bf2dec84d4b8f014ea4b4926c76",
+   "orientations": {
+    "Z_57_a_m|Z_57_d_m": [
+     "Z_57_a_m",
+     "Z_57_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_57_a_m|Z_57_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 14,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0f5fe451cc75ea5ab64f2c27bb6cbd4354edd6898151855ee46c9a3d3db98b60",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "1d7c7d5cb0312320dfa2f75c35a0bc9cf5d501d689004b05ad5b00a31c5b142f",
+   "orientations": {
+    "Z_67_a_m|Z_67_d_m": [
+     "Z_67_a_m",
+     "Z_67_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_67_a_m|Z_67_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 15,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "bffaebef73b4cd56eafb5dbd43ee92bb275a903dd079f53e09d476468425046c",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "a6e97b125e72ebd1b839721eb86be8d025c4d7727d3d210bca540eb972f5331a",
+   "orientations": {},
+   "confidence": {},
+   "declined": [
+    "Z_71_a_f|Z_71_d_f"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 16,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "cbd29f3fb9c278acc12e2f921e3e98bf59a017556ca31e96f87048b7e9b3b931",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "35ad6370bbd92f66de119f36158245b5c09c71a8c5cf532ce6d43f0033cc2c15",
+   "orientations": {
+    "Z_7_a_m|Z_7_d_m": [
+     "Z_7_a_m",
+     "Z_7_d_m"
+    ]
+   },
+   "confidence": {
+    "Z_7_a_m|Z_7_d_m": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": 17,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "4bdda2febb6b34f3e6577bc4b94ac9a6bc9a3e25e25396a7ef31863a4e4019d6",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "68b3ca70a73d30af1acad235824428ad0d560fe967331ca85345d8306dc49651",
+   "orientations": {
+    "Z_9_a_f|Z_9_d_f": [
+     "Z_9_a_f",
+     "Z_9_d_f"
+    ]
+   },
+   "confidence": {
+    "Z_9_a_f|Z_9_d_f": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "link",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "4d9dc3ae8085d7e884eb9b851e70b4b7deb70f82647f8ff8fda6c900fa6c8d98",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9c475d43bbe24deddfc813306acd91d48d5e82eb3b22df80dfd577cdf7ba1291",
+   "orientations": {
+    "N10_a_f|Z_10_a_f": [
+     "N10_a_f",
+     "Z_10_a_f"
+    ],
+    "N10_d_f|Z_10_d_f": [
+     "N10_d_f",
+     "Z_10_d_f"
+    ],
+    "N1_a_m|Z_1_a_m": [
+     "N1_a_m",
+     "Z_1_a_m"
+    ],
+    "N21_a_m|Z_21_a_m": [
+     "N21_a_m",
+     "Z_21_a_m"
+    ],
+    "N23_d_m|Z_23_d_m": [
+     "N23_d_m",
+     "Z_23_d_m"
+    ],
+    "N2_d_m|Z_2_d_m": [
+     "N2_d_m",
+     "Z_2_d_m"
+    ],
+    "N71_a_f|Z_71_a_f": [
+     "N71_a_f",
+     "Z_71_a_f"
+    ],
+    "N7_d_m|Z_7_d_m": [
+     "N7_d_m",
+     "Z_7_d_m"
+    ]
+   },
+   "confidence": {
+    "N10_a_f|Z_10_a_f": 1.0,
+    "N10_d_f|Z_10_d_f": 1.0,
+    "N1_a_m|Z_1_a_m": 1.0,
+    "N21_a_m|Z_21_a_m": 1.0,
+    "N23_d_m|Z_23_d_m": 1.0,
+    "N2_d_m|Z_2_d_m": 1.0,
+    "N71_a_f|Z_71_a_f": 1.0,
+    "N7_d_m|Z_7_d_m": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 16
+  },
+  {
+   "network": "magic-irri",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "58d469ccbe599fc6968483a51c3f9c4afae412596e798040214dee95960d5cfd",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "6328559a24a603340dc9f3e762035b2b887068fcaa283ded7c9f8edc9a0967ae",
+   "orientations": {
+    "G1311|G1378": [
+     "G1311",
+     "G1378"
+    ]
+   },
+   "confidence": {
+    "G1311|G1378": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-irri",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "cc453bf915ad29b5f825ad8bd23075b24347f57ef6adb7aec4f1f13950c93b16",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "2ee38343e4f0d8977202bfb087c350dedec79c98b7655e883980136bd5d3fd0f",
+   "orientations": {
+    "G2670|G2815": [
+     "G2670",
+     "G2815"
+    ]
+   },
+   "confidence": {
+    "G2670|G2815": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-irri",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "95d237967bd895d8f9fdead44d1a8174ffbd0dfcd31cf7f1a1a131050f994acf",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f5256f5caa3bb35b14d909d58401f04fe410b7c69559fbedceca5c2f1a03058c",
+   "orientations": {
+    "G3209|G3222": [
+     "G3209",
+     "G3222"
+    ]
+   },
+   "confidence": {
+    "G3209|G3222": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-irri",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c809bb425b9424abf42a05f7908b39699594fb7418f49ace7093697d319f8f1e",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "c6f4d14fe84dae50c5c37342a2480863979ac65632e2b1dad71ae60e2254c1b0",
+   "orientations": {
+    "G3212|G4145": [
+     "G3212",
+     "G4145"
+    ],
+    "G4109|G4145": [
+     "G4109",
+     "G4145"
+    ],
+    "G4109|G4156": [
+     "G4109",
+     "G4156"
+    ],
+    "G4145|G4156": [
+     "G4145",
+     "G4156"
+    ]
+   },
+   "confidence": {
+    "G3212|G4145": 1.0,
+    "G4109|G4145": 1.0,
+    "G4109|G4156": 1.0,
+    "G4145|G4156": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "magic-irri",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "41c3848bb45a09485133979a7e5f0862a4c9fcd3192f4dac8819096d551cdbcf",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "06e35f09048c0db448de022c2a728677c95442f87ac7552251c0e59d49e0faa1",
+   "orientations": {
+    "G3219|G4382": [
+     "G3219",
+     "G4382"
+    ]
+   },
+   "confidence": {
+    "G3219|G4382": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-irri",
+   "component": 5,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "1399068638a3f6ca9f49c3afe8544a2de670ed2210527083e326ccf9ab6cd841",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "c69d2eda91d75c2f088492b186a144079bb4cd1f601526ae3bc353e473c23e3c",
+   "orientations": {
+    "G3823|G457": [
+     "G3823",
+     "G457"
+    ]
+   },
+   "confidence": {
+    "G3823|G457": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-irri",
+   "component": 6,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "cb94a672a7c5b1828d95b33c4ca09d6486378ef21cfe89cccb02b31b46b3ae0e",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "25031de0e0c524615a6316956705bb776c52f67196da074b08954c3d2010e8c0",
+   "orientations": {
+    "G3925|G5794": [
+     "G3925",
+     "G5794"
+    ]
+   },
+   "confidence": {
+    "G3925|G5794": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-irri",
+   "component": 7,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3444dd1ccf3f7f9385d6f2d28cf63ddad17c5b0cb7515c595fd79e757cb285c4",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "4fdfc41b3223d4364d361c1f21a64be3b85f01fbc7ad24f3d97f753fdf1fe727",
+   "orientations": {
+    "G4529|G4573": [
+     "G4529",
+     "G4573"
+    ]
+   },
+   "confidence": {
+    "G4529|G4573": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-irri",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "a98061cf6f1a5ab2546e0c865b83fcfae72d8441664ffc82caefeee482fea4a8",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "880e5b2e83073328a3b5c36fbf237f441cc2f91c03d1e8e73b225d091ab98d12",
+   "orientations": {
+    "G3105|G3209": [
+     "G3105",
+     "G3209"
+    ],
+    "G3209|G3486": [
+     "G3209",
+     "G3486"
+    ],
+    "G3209|GTEMP": [
+     "G3209",
+     "GTEMP"
+    ],
+    "G3209|G3219": [
+     "G3209",
+     "G3219"
+    ],
+    "G3219|G3222": [
+     "G3219",
+     "G3222"
+    ],
+    "G3219|GTEMP": [
+     "G3219",
+     "GTEMP"
+    ],
+    "G4382|HT": [
+     "G4382",
+     "HT"
+    ]
+   },
+   "confidence": {
+    "G3105|G3209": 1.0,
+    "G3209|G3486": 1.0,
+    "G3209|GTEMP": 1.0,
+    "G3209|G3219": 1.0,
+    "G3219|G3222": 1.0,
+    "G3219|GTEMP": 1.0,
+    "G4382|HT": 1.0
+   },
+   "declined": [
+    "G2670|YLD"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 10
+  },
+  {
+   "network": "magic-niab",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ad7fa1d1e016710fb6c04eb265e78516c58cb50ab2881319abb26ecdd7d5f602",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "656f5cfece8e057445d242bb08b76cd885eabb952baab430d36e688603824ca2",
+   "orientations": {
+    "G1217|G257": [
+     "G1217",
+     "G257"
+    ],
+    "G2208|G257": [
+     "G257",
+     "G2208"
+    ]
+   },
+   "confidence": {
+    "G1217|G257": 1.0,
+    "G2208|G257": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "magic-niab",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c823c4e09dae557881b7d7024405069341fa5e20753c2095090d3f9f5baba107",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9fddefe323955ce611864db065332b1707d21cd3981f4d581f1b9e223fde68b1",
+   "orientations": {
+    "G1276|G599": [
+     "G1276",
+     "G599"
+    ]
+   },
+   "confidence": {
+    "G1276|G599": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-niab",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c88d4debf23b2c565155d90b739de92bc8f53db29ab2b080e525eb37e7a34cd8",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "8cb91042f07482bdde1a23f56469e5e2129ce78601cbbdb2694bae5e7e236ddf",
+   "orientations": {
+    "G1294|G418": [
+     "G1294",
+     "G418"
+    ],
+    "G2835|G418": [
+     "G2835",
+     "G418"
+    ]
+   },
+   "confidence": {
+    "G1294|G418": 0.5,
+    "G2835|G418": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "magic-niab",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "8c8d7276e56c30f0efc9da9caec9431b74225ecda18cbceba44cccada8c9794d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "9d42080eab80b7e66885c7855c67e1f409d85a9606db2dfbb0f0a4b18432955e",
+   "orientations": {
+    "G1373|G1750": [
+     "G1373",
+     "G1750"
+    ]
+   },
+   "confidence": {
+    "G1373|G1750": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-niab",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c370ba601f57b492716832b424e007a489f54858313bf7da03d4b27888aa01a6",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "3a070903eec4fdd63685613aabc3db87c90c828cf8614f7964386bf92104af7b",
+   "orientations": {
+    "G1853|G311": [
+     "G311",
+     "G1853"
+    ],
+    "G311|G43": [
+     "G43",
+     "G311"
+    ]
+   },
+   "confidence": {
+    "G1853|G311": 1.0,
+    "G311|G43": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "magic-niab",
+   "component": 5,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2e845e0e2d06e967a82d956a0bd836f184fb5ca7ca1a0ff4bd180bc2247a91d2",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "338753284c897f83d4d412528c249c0cff5ae549ad54ae6c7f28bc1e95914d25",
+   "orientations": {
+    "G1896|G2953": [
+     "G1896",
+     "G2953"
+    ]
+   },
+   "confidence": {
+    "G1896|G2953": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-niab",
+   "component": 6,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "f93af3ff1bd322345ed473e0ed99a919fb9c8f411c52279be1541044a6b7eda4",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "815dc7626ff8b94ffe85f0adaebf588ed6563b23e593dbdb46c76a8d5992e592",
+   "orientations": {
+    "G383|G800": [
+     "G383",
+     "G800"
+    ]
+   },
+   "confidence": {
+    "G383|G800": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "magic-niab",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "8ec44a3f1ac33c5f7b74ff38a766c6f9043da13ef0578a2528d14af37d5e5af5",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "5f4fc504af4b95856829932ab6d052f0c619b2ab141aa6e63614facc15e805db",
+   "orientations": {
+    "G1217|YR.GLASS": [
+     "G1217",
+     "YR.GLASS"
+    ],
+    "FT|G1276": [
+     "G1276",
+     "FT"
+    ],
+    "FUS|G1896": [
+     "FUS",
+     "G1896"
+    ],
+    "G2208|YR.FIELD": [
+     "G2208",
+     "YR.FIELD"
+    ],
+    "G2835|HT": [
+     "G2835",
+     "HT"
+    ],
+    "G311|YR.GLASS": [
+     "G311",
+     "YR.GLASS"
+    ],
+    "FUS|G383": [
+     "G383",
+     "FUS"
+    ],
+    "G599|YR.FIELD": [
+     "G599",
+     "YR.FIELD"
+    ]
+   },
+   "confidence": {
+    "G1217|YR.GLASS": 1.0,
+    "FT|G1276": 1.0,
+    "FUS|G1896": 1.0,
+    "G2208|YR.FIELD": 1.0,
+    "G2835|HT": 1.0,
+    "G311|YR.GLASS": 1.0,
+    "FUS|G383": 1.0,
+    "G599|YR.FIELD": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 2,
+   "parse_ok": true,
+   "order_len": 13
+  },
+  {
+   "network": "mediator",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "bc954c22afe529e6b938655edc13a811876bfa3e1c3100ad4ce4bc87d97628bd",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "daaf96a0c2a293a25dde9243adf8a28fd1382c26c7354a726f83e270d8200b45",
+   "orientations": {
+    "I|X": [
+     "I",
+     "X"
+    ],
+    "I|Y": [
+     "I",
+     "Y"
+    ],
+    "I|Z": [
+     "I",
+     "Z"
+    ],
+    "X|Y": [
+     "X",
+     "Y"
+    ],
+    "X|Z": [
+     "X",
+     "Z"
+    ]
+   },
+   "confidence": {
+    "I|X": 1.0,
+    "I|Y": 1.0,
+    "I|Z": 1.0,
+    "X|Y": 1.0,
+    "X|Z": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "munin",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ab07bbbd31b6c5ff14e80ce30be292ae36ed7c4553854ff1d578804d92585b24",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "7ea3a0621eeca4382c3d865aa74c5125e4c28a16067f5128fc82ef4e251b8c25",
+   "orientations": {
+    "L_AXIL_RD_ED|L_LNLPC5_AXIL_PATHO": [
+     "L_LNLPC5_AXIL_PATHO",
+     "L_AXIL_RD_ED"
+    ],
+    "L_LNLPC5_AXIL_DIFSLOW|L_LNLPC5_AXIL_PATHO": [
+     "L_LNLPC5_AXIL_PATHO",
+     "L_LNLPC5_AXIL_DIFSLOW"
+    ]
+   },
+   "confidence": {
+    "L_AXIL_RD_ED|L_LNLPC5_AXIL_PATHO": 0.5,
+    "L_LNLPC5_AXIL_DIFSLOW|L_LNLPC5_AXIL_PATHO": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "munin",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "52c62f3ac62bbfc07ad621ae5123ceb2533a608c355dc0f5d009755ee988fe64",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "41a3fbcf3721e6d4fd4820ab2de32841fdfd85dcb127a2d348814582fd9794e5",
+   "orientations": {
+    "L_LNLE_ULND5_DIFSLOW|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_DIFSLOW"
+    ],
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_RD_E"
+    ],
+    "L_LNLE_ULN_DIFSLOW|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULN_DIFSLOW"
+    ],
+    "L_LNLE_ULN_PATHO|L_ULN_RD_EW": [
+     "L_LNLE_ULN_PATHO",
+     "L_ULN_RD_EW"
+    ]
+   },
+   "confidence": {
+    "L_LNLE_ULND5_DIFSLOW|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULN_DIFSLOW|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULN_PATHO|L_ULN_RD_EW": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "munin",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "ea25d50940545daa0bd22389f968743f22d67fd9bd658305a878fafea1f1c2f9",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "c856aa3837f954ecb511f493dfc9ac0f60eb746848f9da931efcebe14fc1ae01",
+   "orientations": {
+    "L_LNLW_MEDD2_RD_WD|L_LNLW_MED_PATHO": [
+     "L_LNLW_MED_PATHO",
+     "L_LNLW_MEDD2_RD_WD"
+    ],
+    "L_LNLW_MEDD2_RD_WD|L_MEDD2_RD_WD": [
+     "L_LNLW_MEDD2_RD_WD",
+     "L_MEDD2_RD_WD"
+    ],
+    "L_LNLW_MED_PATHO|L_MED_RD_WA": [
+     "L_LNLW_MED_PATHO",
+     "L_MED_RD_WA"
+    ]
+   },
+   "confidence": {
+    "L_LNLW_MEDD2_RD_WD|L_LNLW_MED_PATHO": 0.5,
+    "L_LNLW_MEDD2_RD_WD|L_MEDD2_RD_WD": 0.5,
+    "L_LNLW_MED_PATHO|L_MED_RD_WA": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "munin",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c682a16685fd8a5dcb443315d63291d4d0b708f09503b921ac33353ca749ca1b",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "17be0bafaf5030331d1dc17377b83cb48d3bc9d482b597097be30ad651e4c3b3",
+   "orientations": {
+    "R_AXIL_RD_ED|R_LNLPC5_AXIL_PATHO": [
+     "R_AXIL_RD_ED",
+     "R_LNLPC5_AXIL_PATHO"
+    ],
+    "R_LNLPC5_AXIL_DIFSLOW|R_LNLPC5_AXIL_PATHO": [
+     "R_LNLPC5_AXIL_PATHO",
+     "R_LNLPC5_AXIL_DIFSLOW"
+    ]
+   },
+   "confidence": {
+    "R_AXIL_RD_ED|R_LNLPC5_AXIL_PATHO": 1.0,
+    "R_LNLPC5_AXIL_DIFSLOW|R_LNLPC5_AXIL_PATHO": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "munin",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "d5b4d2d1544c160bacf4f2e52189d0201c84084f82be7c123496d95632d550f0",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "79afba260f7f7fd413db088a64db8d905ab6350d351a0e090e44b73fb052cfe9",
+   "orientations": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_DIFSLOW"
+    ],
+    "R_LNLE_ULND5_RD_E|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_RD_E"
+    ],
+    "R_LNLE_ULN_DIFSLOW|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULN_DIFSLOW"
+    ],
+    "R_LNLE_ULN_PATHO|R_ULN_RD_EW": [
+     "R_LNLE_ULN_PATHO",
+     "R_ULN_RD_EW"
+    ]
+   },
+   "confidence": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_PATHO": 0.8,
+    "R_LNLE_ULND5_RD_E|R_LNLE_ULN_PATHO": 0.8,
+    "R_LNLE_ULN_DIFSLOW|R_LNLE_ULN_PATHO": 0.8,
+    "R_LNLE_ULN_PATHO|R_ULN_RD_EW": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "munin",
+   "component": 5,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e5b685190030086fa3d553486f071c1bf014cf21c945e651034646cf38d94f13",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "cf235713ba2b803fe438bbdff31fe08897d238c147a89080343dabb317e96671",
+   "orientations": {
+    "R_LNLW_MEDD2_RD_WD|R_LNLW_MED_PATHO": [
+     "R_LNLW_MED_PATHO",
+     "R_LNLW_MEDD2_RD_WD"
+    ],
+    "R_LNLW_MEDD2_RD_WD|R_MEDD2_RD_WD": [
+     "R_LNLW_MEDD2_RD_WD",
+     "R_MEDD2_RD_WD"
+    ],
+    "R_LNLW_MED_PATHO|R_MED_RD_WA": [
+     "R_LNLW_MED_PATHO",
+     "R_MED_RD_WA"
+    ]
+   },
+   "confidence": {
+    "R_LNLW_MEDD2_RD_WD|R_LNLW_MED_PATHO": 1.0,
+    "R_LNLW_MEDD2_RD_WD|R_MEDD2_RD_WD": 1.0,
+    "R_LNLW_MED_PATHO|R_MED_RD_WA": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "munin",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "b3f5d52019359e6a4be1b546658f903b48beeb7c6ad201e00c73f2295a0a53c4",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "e5ffc9433726f33dbfd833bb74e71c22d162eafc11eb3e87b4d0884156635eda",
+   "orientations": {
+    "L_LNLE_ULN_DIFSLOW|L_ULN_DIFSLOW_E": [
+     "L_ULN_DIFSLOW_E",
+     "L_LNLE_ULN_DIFSLOW"
+    ],
+    "L_LNLE_ADM_MUSIZE|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ADM_MUSIZE"
+    ],
+    "L_LNLE_ULND5_DISP_E|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_DISP_E"
+    ],
+    "L_LNLE_ULND5_LD_E|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_LD_E"
+    ],
+    "R_LNLE_ULND5_RD_E|R_ULND5_RD_E": [
+     "R_LNLE_ULND5_RD_E",
+     "R_ULND5_RD_E"
+    ],
+    "R_LNLE_ADM_DENERV|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ADM_DENERV"
+    ],
+    "R_LNLE_ULND5_SALOSS|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_SALOSS"
+    ],
+    "R_LNLW_APB_DE_REGEN|R_LNLW_MED_PATHO": [
+     "R_LNLW_MED_PATHO",
+     "R_LNLW_APB_DE_REGEN"
+    ]
+   },
+   "confidence": {
+    "L_LNLE_ULN_DIFSLOW|L_ULN_DIFSLOW_E": 0.7,
+    "L_LNLE_ADM_MUSIZE|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULND5_DISP_E|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULND5_LD_E|L_LNLE_ULN_PATHO": 0.8,
+    "R_LNLE_ULND5_RD_E|R_ULND5_RD_E": 0.7,
+    "R_LNLE_ADM_DENERV|R_LNLE_ULN_PATHO": 0.8,
+    "R_LNLE_ULND5_SALOSS|R_LNLE_ULN_PATHO": 0.8,
+    "R_LNLW_APB_DE_REGEN|R_LNLW_MED_PATHO": 0.9
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 11
+  },
+  {
+   "network": "munin1",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "38ef820e1eac860a4dd00aeca61a05b5877cab50fc70f5d0ee7b87512c9eb545",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "efaf0409c58a91817e155040b0737419fa0c96d32c1830f912ea41dd059bd893",
+   "orientations": {
+    "R_LNLBE_MEDD2_DIFSLOW_WD|R_LNLBE_MED_PATHO": [
+     "R_LNLBE_MED_PATHO",
+     "R_LNLBE_MEDD2_DIFSLOW_WD"
+    ],
+    "R_LNLBE_MEDD2_RD_EW|R_LNLBE_MED_PATHO": [
+     "R_LNLBE_MED_PATHO",
+     "R_LNLBE_MEDD2_RD_EW"
+    ],
+    "R_LNLBE_MEDD2_RD_EW|R_MEDD2_RD_EW": [
+     "R_LNLBE_MEDD2_RD_EW",
+     "R_MEDD2_RD_EW"
+    ],
+    "R_LNLBE_MED_DIFSLOW|R_LNLBE_MED_PATHO": [
+     "R_LNLBE_MED_PATHO",
+     "R_LNLBE_MED_DIFSLOW"
+    ],
+    "R_LNLBE_MED_PATHO|R_MED_RD_EW": [
+     "R_LNLBE_MED_PATHO",
+     "R_MED_RD_EW"
+    ]
+   },
+   "confidence": {
+    "R_LNLBE_MEDD2_DIFSLOW_WD|R_LNLBE_MED_PATHO": 0.8,
+    "R_LNLBE_MEDD2_RD_EW|R_LNLBE_MED_PATHO": 0.8,
+    "R_LNLBE_MEDD2_RD_EW|R_MEDD2_RD_EW": 0.5,
+    "R_LNLBE_MED_DIFSLOW|R_LNLBE_MED_PATHO": 0.8,
+    "R_LNLBE_MED_PATHO|R_MED_RD_EW": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "munin1",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "19406188efb9395b056bde4ea5ce998f68ae4122417049cdb928b24846a3d70a",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "af894fbd6e130df4f33041df859a900f33499e02c976d148f6d89595debda7f9",
+   "orientations": {
+    "R_LNLW_MEDD2_RD_WD|R_LNLW_MED_PATHO": [
+     "R_LNLW_MED_PATHO",
+     "R_LNLW_MEDD2_RD_WD"
+    ],
+    "R_LNLW_MEDD2_RD_WD|R_MEDD2_RD_WD": [
+     "R_LNLW_MEDD2_RD_WD",
+     "R_MEDD2_RD_WD"
+    ],
+    "R_LNLW_MED_PATHO|R_MED_RD_WA": [
+     "R_LNLW_MED_PATHO",
+     "R_MED_RD_WA"
+    ]
+   },
+   "confidence": {
+    "R_LNLW_MEDD2_RD_WD|R_LNLW_MED_PATHO": 1.0,
+    "R_LNLW_MEDD2_RD_WD|R_MEDD2_RD_WD": 1.0,
+    "R_LNLW_MED_PATHO|R_MED_RD_WA": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "munin1",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "e5b5ab6edd6a2e6522550a31c0061bbef60332f85b0c357366bfdd3e99d76d00",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "55f6df22a5fc571294864cb3b651d207aa29e43b2b94ec27da26cbebbbdc2bdd",
+   "orientations": {
+    "R_LNLBE_MEDD2_LD_EW|R_LNLBE_MED_PATHO": [
+     "R_LNLBE_MED_PATHO",
+     "R_LNLBE_MEDD2_LD_EW"
+    ],
+    "R_LNLBE_MEDD2_SALOSS_EW|R_LNLBE_MED_PATHO": [
+     "R_LNLBE_MED_PATHO",
+     "R_LNLBE_MEDD2_SALOSS_EW"
+    ],
+    "R_LNLBE_MED_BLOCK|R_LNLBE_MED_PATHO": [
+     "R_LNLBE_MED_PATHO",
+     "R_LNLBE_MED_BLOCK"
+    ],
+    "R_LNLW_APB_MUDENS|R_LNLW_MED_PATHO": [
+     "R_LNLW_APB_MUDENS",
+     "R_LNLW_MED_PATHO"
+    ],
+    "R_LNLW_APB_MUSIZE|R_LNLW_MED_PATHO": [
+     "R_LNLW_APB_MUSIZE",
+     "R_LNLW_MED_PATHO"
+    ],
+    "R_MEDD2_LSLOW_EW|R_MEDD2_RD_EW": [
+     "R_MEDD2_LSLOW_EW",
+     "R_MEDD2_RD_EW"
+    ],
+    "R_MEDD2_LSLOW_WD|R_MEDD2_RD_WD": [
+     "R_MEDD2_LSLOW_WD",
+     "R_MEDD2_RD_WD"
+    ],
+    "R_MED_RDLDDEL|R_MED_RD_WA": [
+     "R_MED_RDLDDEL",
+     "R_MED_RD_WA"
+    ]
+   },
+   "confidence": {
+    "R_LNLBE_MEDD2_LD_EW|R_LNLBE_MED_PATHO": 0.9,
+    "R_LNLBE_MEDD2_SALOSS_EW|R_LNLBE_MED_PATHO": 0.8,
+    "R_LNLBE_MED_BLOCK|R_LNLBE_MED_PATHO": 0.7,
+    "R_LNLW_APB_MUDENS|R_LNLW_MED_PATHO": 0.6,
+    "R_LNLW_APB_MUSIZE|R_LNLW_MED_PATHO": 0.8,
+    "R_MEDD2_LSLOW_EW|R_MEDD2_RD_EW": 0.8,
+    "R_MEDD2_LSLOW_WD|R_MEDD2_RD_WD": 0.7,
+    "R_MED_RDLDDEL|R_MED_RD_WA": 0.7
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 13
+  },
+  {
+   "network": "munin2",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "62e6a78f408962e79d2d7931df602302b62cc8d76b544bbff1c43c49ee22a79e",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "1f549a83a90d9cef5a955b2713a5ac4a941939b823a71a7433463192ba0525c3",
+   "orientations": {
+    "L_LNLE_ULND5_DIFSLOW|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_DIFSLOW"
+    ],
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_RD_E"
+    ],
+    "L_LNLE_ULN_DIFSLOW|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULN_DIFSLOW"
+    ],
+    "L_LNLE_ULN_PATHO|L_ULN_RD_EW": [
+     "L_LNLE_ULN_PATHO",
+     "L_ULN_RD_EW"
+    ]
+   },
+   "confidence": {
+    "L_LNLE_ULND5_DIFSLOW|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULN_DIFSLOW|L_LNLE_ULN_PATHO": 0.8,
+    "L_LNLE_ULN_PATHO|L_ULN_RD_EW": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "munin2",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3de8e3fb7374998aa06aa14e599be1ce1d53e4b0473dc36510e811755c962a36",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f8009a5078434ca6a6b8b15696f8c12ae2d5a0596f3ad0eb1e98697ebfa675e8",
+   "orientations": {
+    "L_MYAS_ADM_MUDENS|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_ADM_MUDENS"
+    ],
+    "L_MYAS_ADM_NMT|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_ADM_NMT"
+    ],
+    "L_MYAS_APB_MUDENS|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_APB_MUDENS"
+    ],
+    "L_MYAS_APB_NMT|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_APB_NMT"
+    ],
+    "L_MYAS_DELT_MUDENS|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_DELT_MUDENS"
+    ],
+    "L_MYAS_DELT_NMT|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_DELT_NMT"
+    ],
+    "MYASTHENIA|R_MYAS_ADM_MUDENS": [
+     "MYASTHENIA",
+     "R_MYAS_ADM_MUDENS"
+    ],
+    "MYASTHENIA|R_MYAS_ADM_NMT": [
+     "MYASTHENIA",
+     "R_MYAS_ADM_NMT"
+    ],
+    "MYASTHENIA|R_MYAS_APB_MUDENS": [
+     "MYASTHENIA",
+     "R_MYAS_APB_MUDENS"
+    ],
+    "MYASTHENIA|R_MYAS_APB_NMT": [
+     "MYASTHENIA",
+     "R_MYAS_APB_NMT"
+    ],
+    "MYASTHENIA|R_MYAS_DELT_MUDENS": [
+     "MYASTHENIA",
+     "R_MYAS_DELT_MUDENS"
+    ],
+    "MYASTHENIA|R_MYAS_DELT_NMT": [
+     "MYASTHENIA",
+     "R_MYAS_DELT_NMT"
+    ]
+   },
+   "confidence": {
+    "L_MYAS_ADM_MUDENS|MYASTHENIA": 1.0,
+    "L_MYAS_ADM_NMT|MYASTHENIA": 1.0,
+    "L_MYAS_APB_MUDENS|MYASTHENIA": 1.0,
+    "L_MYAS_APB_NMT|MYASTHENIA": 1.0,
+    "L_MYAS_DELT_MUDENS|MYASTHENIA": 1.0,
+    "L_MYAS_DELT_NMT|MYASTHENIA": 1.0,
+    "MYASTHENIA|R_MYAS_ADM_MUDENS": 1.0,
+    "MYASTHENIA|R_MYAS_ADM_NMT": 1.0,
+    "MYASTHENIA|R_MYAS_APB_MUDENS": 1.0,
+    "MYASTHENIA|R_MYAS_APB_NMT": 1.0,
+    "MYASTHENIA|R_MYAS_DELT_MUDENS": 1.0,
+    "MYASTHENIA|R_MYAS_DELT_NMT": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 3,
+   "parse_ok": true,
+   "order_len": 13
+  },
+  {
+   "network": "munin2",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "55b4b073fec729707ab701e05ae68fdefd4b0fd762c10937f786e9cd55093eea",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "5ee5b9ae4d5551ca20edbaa0fe35fd0ed85e02e0ae3c1d53eb33685b48f46d51",
+   "orientations": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_DIFSLOW"
+    ],
+    "R_LNLE_ULND5_RD_E|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_RD_E"
+    ],
+    "R_LNLE_ULN_DIFSLOW|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULN_DIFSLOW"
+    ],
+    "R_LNLE_ULN_PATHO|R_ULN_RD_EW": [
+     "R_LNLE_ULN_PATHO",
+     "R_ULN_RD_EW"
+    ]
+   },
+   "confidence": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_PATHO": 1.0,
+    "R_LNLE_ULND5_RD_E|R_LNLE_ULN_PATHO": 1.0,
+    "R_LNLE_ULN_DIFSLOW|R_LNLE_ULN_PATHO": 1.0,
+    "R_LNLE_ULN_PATHO|R_ULN_RD_EW": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "munin2",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "fb41dfdcf500eda79cb2b9c54f3a786600568d44e3720e977aace761d8c3bd2a",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "8d81a6fee6e7d9f9bb242ad03ce4030be51a881f2cc9647ee5054f3c1e29e345",
+   "orientations": {
+    "L_LNLE_ULND5_RD_E|L_ULND5_RD_E": [
+     "L_ULND5_RD_E",
+     "L_LNLE_ULND5_RD_E"
+    ],
+    "L_LNLE_ADM_DE_REGEN|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ADM_DE_REGEN"
+    ],
+    "L_LNLE_ADM_MUDENS|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ADM_MUDENS"
+    ],
+    "L_MYAS_ADM_MUDENS|L_MYAS_OTHER_ADM_MUDENS": [
+     "L_MYAS_ADM_MUDENS",
+     "L_MYAS_OTHER_ADM_MUDENS"
+    ],
+    "L_ULN_RDLDCV_E|L_ULN_RD_EW": [
+     "L_ULN_RDLDCV_E",
+     "L_ULN_RD_EW"
+    ],
+    "R_LNLE_ULN_DIFSLOW|R_ULN_DIFSLOW_E": [
+     "R_LNLE_ULN_DIFSLOW",
+     "R_ULN_DIFSLOW_E"
+    ],
+    "R_MYAS_ADM_MUDENS|R_MYAS_OTHER_ADM_MUDENS": [
+     "R_MYAS_ADM_MUDENS",
+     "R_MYAS_OTHER_ADM_MUDENS"
+    ],
+    "R_MUSCLE_APB_MUDENS|R_MYAS_APB_MUDENS": [
+     "R_MUSCLE_APB_MUDENS",
+     "R_MYAS_APB_MUDENS"
+    ]
+   },
+   "confidence": {
+    "L_LNLE_ULND5_RD_E|L_ULND5_RD_E": 0.8,
+    "L_LNLE_ADM_DE_REGEN|L_LNLE_ULN_PATHO": 0.7,
+    "L_LNLE_ADM_MUDENS|L_LNLE_ULN_PATHO": 0.6,
+    "L_MYAS_ADM_MUDENS|L_MYAS_OTHER_ADM_MUDENS": 0.9,
+    "L_ULN_RDLDCV_E|L_ULN_RD_EW": 0.8,
+    "R_LNLE_ULN_DIFSLOW|R_ULN_DIFSLOW_E": 0.8,
+    "R_MYAS_ADM_MUDENS|R_MYAS_OTHER_ADM_MUDENS": 0.9,
+    "R_MUSCLE_APB_MUDENS|R_MYAS_APB_MUDENS": 0.7
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 15
+  },
+  {
+   "network": "munin3",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "a24c078c4a84e56868948a636ae1af86b0b2377f87a4f9f6144772634702c858",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "fd9488b59a7035c9b4c6fd3555a5c125cac93247f7b166867799986824029d0e",
+   "orientations": {
+    "L_MYAS_ADM_MUDENS|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_ADM_MUDENS"
+    ],
+    "L_MYAS_ADM_NMT|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_ADM_NMT"
+    ],
+    "L_MYAS_APB_MUDENS|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_APB_MUDENS"
+    ],
+    "L_MYAS_APB_NMT|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_APB_NMT"
+    ],
+    "L_MYAS_DELT_MUDENS|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_DELT_MUDENS"
+    ],
+    "L_MYAS_DELT_NMT|MYASTHENIA": [
+     "MYASTHENIA",
+     "L_MYAS_DELT_NMT"
+    ],
+    "MYASTHENIA|R_MYAS_ADM_MUDENS": [
+     "MYASTHENIA",
+     "R_MYAS_ADM_MUDENS"
+    ],
+    "MYASTHENIA|R_MYAS_ADM_NMT": [
+     "MYASTHENIA",
+     "R_MYAS_ADM_NMT"
+    ],
+    "MYASTHENIA|R_MYAS_APB_MUDENS": [
+     "MYASTHENIA",
+     "R_MYAS_APB_MUDENS"
+    ],
+    "MYASTHENIA|R_MYAS_APB_NMT": [
+     "MYASTHENIA",
+     "R_MYAS_APB_NMT"
+    ],
+    "MYASTHENIA|R_MYAS_DELT_MUDENS": [
+     "MYASTHENIA",
+     "R_MYAS_DELT_MUDENS"
+    ],
+    "MYASTHENIA|R_MYAS_DELT_NMT": [
+     "MYASTHENIA",
+     "R_MYAS_DELT_NMT"
+    ]
+   },
+   "confidence": {
+    "L_MYAS_ADM_MUDENS|MYASTHENIA": 0.5,
+    "L_MYAS_ADM_NMT|MYASTHENIA": 0.5,
+    "L_MYAS_APB_MUDENS|MYASTHENIA": 0.5,
+    "L_MYAS_APB_NMT|MYASTHENIA": 0.5,
+    "L_MYAS_DELT_MUDENS|MYASTHENIA": 0.5,
+    "L_MYAS_DELT_NMT|MYASTHENIA": 0.5,
+    "MYASTHENIA|R_MYAS_ADM_MUDENS": 0.5,
+    "MYASTHENIA|R_MYAS_ADM_NMT": 0.5,
+    "MYASTHENIA|R_MYAS_APB_MUDENS": 0.5,
+    "MYASTHENIA|R_MYAS_APB_NMT": 0.5,
+    "MYASTHENIA|R_MYAS_DELT_MUDENS": 0.5,
+    "MYASTHENIA|R_MYAS_DELT_NMT": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 13
+  },
+  {
+   "network": "munin3",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "8162f5ce2704f028b6cec58faa105c1fc85a1607e0bc59dd44ca17db776dba06",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "5f9d7ac8c48e079be6d9ea0e77b76c1cd20dc62596f32f977d71133372f0538b",
+   "orientations": {
+    "R_LNLBE_MEDD2_LD_EW|R_MEDD2_LD_EW": [
+     "R_LNLBE_MEDD2_LD_EW",
+     "R_MEDD2_LD_EW"
+    ]
+   },
+   "confidence": {
+    "R_LNLBE_MEDD2_LD_EW|R_MEDD2_LD_EW": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "munin3",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "5a17f08a657a4ee4f35ec9247f18f9aa68616e86cba2e812227d77528118289c",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "471b121582c5fb9414388e997203f91c3bd7813d9504352936f4eb34d7163a08",
+   "orientations": {
+    "L_MYAS_ADM_MUDENS|L_MYAS_OTHER_ADM_MUDENS": [
+     "L_MYAS_ADM_MUDENS",
+     "L_MYAS_OTHER_ADM_MUDENS"
+    ],
+    "L_MUSCLE_APB_MUDENS|L_MYAS_APB_MUDENS": [
+     "L_MUSCLE_APB_MUDENS",
+     "L_MYAS_APB_MUDENS"
+    ],
+    "L_MYAS_DELT_MUDENS|L_MYAS_OTHER_DELT_MUDENS": [
+     "L_MYAS_DELT_MUDENS",
+     "L_MYAS_OTHER_DELT_MUDENS"
+    ],
+    "L_MYAS_DELT_NMT|L_MYAS_DE_REGEN_DELT_NMT": [
+     "L_MYAS_DE_REGEN_DELT_NMT",
+     "L_MYAS_DELT_NMT"
+    ],
+    "R_MEDD2_LD_EW|R_MEDD2_LSLOW_EW": [
+     "R_MEDD2_LD_EW",
+     "R_MEDD2_LSLOW_EW"
+    ],
+    "R_MYAS_ADM_NMT|R_MYAS_DE_REGEN_ADM_NMT": [
+     "R_MYAS_DE_REGEN_ADM_NMT",
+     "R_MYAS_ADM_NMT"
+    ],
+    "R_MUSCLE_APB_MUDENS|R_MYAS_APB_MUDENS": [
+     "R_MUSCLE_APB_MUDENS",
+     "R_MYAS_APB_MUDENS"
+    ],
+    "R_MYAS_DELT_NMT|R_MYAS_DE_REGEN_DELT_NMT": [
+     "R_MYAS_DE_REGEN_DELT_NMT",
+     "R_MYAS_DELT_NMT"
+    ]
+   },
+   "confidence": {
+    "L_MYAS_ADM_MUDENS|L_MYAS_OTHER_ADM_MUDENS": 0.6,
+    "L_MUSCLE_APB_MUDENS|L_MYAS_APB_MUDENS": 0.8,
+    "L_MYAS_DELT_MUDENS|L_MYAS_OTHER_DELT_MUDENS": 0.6,
+    "L_MYAS_DELT_NMT|L_MYAS_DE_REGEN_DELT_NMT": 0.9,
+    "R_MEDD2_LD_EW|R_MEDD2_LSLOW_EW": 0.7,
+    "R_MYAS_ADM_NMT|R_MYAS_DE_REGEN_ADM_NMT": 0.9,
+    "R_MUSCLE_APB_MUDENS|R_MYAS_APB_MUDENS": 0.8,
+    "R_MYAS_DELT_NMT|R_MYAS_DE_REGEN_DELT_NMT": 0.9
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 3,
+   "parse_ok": true,
+   "order_len": 16
+  },
+  {
+   "network": "munin4",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "3406c5fccf26cb36532bbe378c1a0236716edcbedc78ac2b82477faa1d6f8abe",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "fbccf014c3400492a9b2ae3f2ed2207cf06ce7bb2f72463bf4e7feda9ae7a804",
+   "orientations": {
+    "L_AXIL_RD_ED|L_LNLPC5_AXIL_PATHO": [
+     "L_LNLPC5_AXIL_PATHO",
+     "L_AXIL_RD_ED"
+    ],
+    "L_LNLPC5_AXIL_DIFSLOW|L_LNLPC5_AXIL_PATHO": [
+     "L_LNLPC5_AXIL_PATHO",
+     "L_LNLPC5_AXIL_DIFSLOW"
+    ]
+   },
+   "confidence": {
+    "L_AXIL_RD_ED|L_LNLPC5_AXIL_PATHO": 0.5,
+    "L_LNLPC5_AXIL_DIFSLOW|L_LNLPC5_AXIL_PATHO": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "munin4",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "fd713fb182f634abe6ecff41d6b3604b8108333ed7e2f02efdf3e1e318572c19",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f024f5d657211a92f3195070238040286ba9970747a376a615e831e010acc859",
+   "orientations": {
+    "L_LNLE_ULND5_DIFSLOW|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_DIFSLOW"
+    ],
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_RD_E"
+    ],
+    "L_LNLE_ULN_DIFSLOW|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULN_DIFSLOW"
+    ],
+    "L_LNLE_ULN_PATHO|L_ULN_RD_EW": [
+     "L_LNLE_ULN_PATHO",
+     "L_ULN_RD_EW"
+    ]
+   },
+   "confidence": {
+    "L_LNLE_ULND5_DIFSLOW|L_LNLE_ULN_PATHO": 0.5,
+    "L_LNLE_ULND5_RD_E|L_LNLE_ULN_PATHO": 0.0,
+    "L_LNLE_ULN_DIFSLOW|L_LNLE_ULN_PATHO": 0.5,
+    "L_LNLE_ULN_PATHO|L_ULN_RD_EW": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 1,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "munin4",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c3c61b61ce969cdf35ebd31976bf20678387eca1fe4837ccb0598ce84604274b",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "501b2df231c914431c708bd34eeb62135bf486934b91483dc9825edf5162cf51",
+   "orientations": {
+    "L_LNLW_MEDD2_RD_WD|L_LNLW_MED_PATHO": [
+     "L_LNLW_MED_PATHO",
+     "L_LNLW_MEDD2_RD_WD"
+    ],
+    "L_LNLW_MEDD2_RD_WD|L_MEDD2_RD_WD": [
+     "L_LNLW_MEDD2_RD_WD",
+     "L_MEDD2_RD_WD"
+    ],
+    "L_LNLW_MED_PATHO|L_MED_RD_WA": [
+     "L_LNLW_MED_PATHO",
+     "L_MED_RD_WA"
+    ]
+   },
+   "confidence": {
+    "L_LNLW_MEDD2_RD_WD|L_LNLW_MED_PATHO": 0.5,
+    "L_LNLW_MEDD2_RD_WD|L_MEDD2_RD_WD": 0.5,
+    "L_LNLW_MED_PATHO|L_MED_RD_WA": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "munin4",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "c682a16685fd8a5dcb443315d63291d4d0b708f09503b921ac33353ca749ca1b",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "17be0bafaf5030331d1dc17377b83cb48d3bc9d482b597097be30ad651e4c3b3",
+   "orientations": {
+    "R_AXIL_RD_ED|R_LNLPC5_AXIL_PATHO": [
+     "R_AXIL_RD_ED",
+     "R_LNLPC5_AXIL_PATHO"
+    ],
+    "R_LNLPC5_AXIL_DIFSLOW|R_LNLPC5_AXIL_PATHO": [
+     "R_LNLPC5_AXIL_PATHO",
+     "R_LNLPC5_AXIL_DIFSLOW"
+    ]
+   },
+   "confidence": {
+    "R_AXIL_RD_ED|R_LNLPC5_AXIL_PATHO": 1.0,
+    "R_LNLPC5_AXIL_DIFSLOW|R_LNLPC5_AXIL_PATHO": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "munin4",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "7f3d7addca02d48235853d373a9defaabc842e2e93fba685f6c9e0dde7729bed",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "b334f8f4117d0aa4abb901447347e61d3d7fd5da796ab6e2b8932c4d4ba20a10",
+   "orientations": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_DIFSLOW"
+    ],
+    "R_LNLE_ULND5_RD_E|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_RD_E"
+    ],
+    "R_LNLE_ULN_DIFSLOW|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULN_DIFSLOW"
+    ],
+    "R_LNLE_ULN_PATHO|R_ULN_RD_EW": [
+     "R_LNLE_ULN_PATHO",
+     "R_ULN_RD_EW"
+    ]
+   },
+   "confidence": {
+    "R_LNLE_ULND5_DIFSLOW|R_LNLE_ULN_PATHO": 0.0,
+    "R_LNLE_ULND5_RD_E|R_LNLE_ULN_PATHO": 0.0,
+    "R_LNLE_ULN_DIFSLOW|R_LNLE_ULN_PATHO": 0.0,
+    "R_LNLE_ULN_PATHO|R_ULN_RD_EW": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 5
+  },
+  {
+   "network": "munin4",
+   "component": 5,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "6e0051415a1a4cd526a75d4f1bc502a23d54ef2a6a0646a905f93750254d47aa",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f7b3ef11177c9ac7422cf902abbe3a2a1616a79bd80f00fb00ef14751afd265b",
+   "orientations": {
+    "R_LNLW_MEDD2_RD_WD|R_LNLW_MED_PATHO": [
+     "R_LNLW_MED_PATHO",
+     "R_LNLW_MEDD2_RD_WD"
+    ],
+    "R_LNLW_MEDD2_RD_WD|R_MEDD2_RD_WD": [
+     "R_LNLW_MEDD2_RD_WD",
+     "R_MEDD2_RD_WD"
+    ],
+    "R_LNLW_MED_PATHO|R_MED_RD_WA": [
+     "R_LNLW_MED_PATHO",
+     "R_MED_RD_WA"
+    ]
+   },
+   "confidence": {
+    "R_LNLW_MEDD2_RD_WD|R_LNLW_MED_PATHO": 1.0,
+    "R_LNLW_MEDD2_RD_WD|R_MEDD2_RD_WD": 1.0,
+    "R_LNLW_MED_PATHO|R_MED_RD_WA": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "munin4",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "997669ce2165f46d195aef3f7a4aeb6bb0c35158947c2bf463c3332afe83f10f",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "e52ac3d58ef5f6545690e7704c994d32f78ae82e9c865a1d2caa69fddb4f66ab",
+   "orientations": {
+    "L_LNLE_ULND5_SALOSS|L_LNLE_ULN_PATHO": [
+     "L_LNLE_ULN_PATHO",
+     "L_LNLE_ULND5_SALOSS"
+    ],
+    "L_LNLW_APB_MUSIZE|L_LNLW_MED_PATHO": [
+     "L_LNLW_MED_PATHO",
+     "L_LNLW_APB_MUSIZE"
+    ],
+    "L_LNLW_MEDD2_LD_WD|L_LNLW_MED_PATHO": [
+     "L_LNLW_MED_PATHO",
+     "L_LNLW_MEDD2_LD_WD"
+    ],
+    "L_LNLW_MED_PATHO|L_MED_LD_WA": [
+     "L_LNLW_MED_PATHO",
+     "L_MED_LD_WA"
+    ],
+    "R_LNLE_DIFFN_ULND5_DIFSLOW_E|R_LNLE_ULND5_DIFSLOW": [
+     "R_LNLE_ULND5_DIFSLOW",
+     "R_LNLE_DIFFN_ULND5_DIFSLOW_E"
+    ],
+    "R_LNLE_DIFFN_ULND5_DIFSLOW_WD|R_LNLE_ULND5_DIFSLOW": [
+     "R_LNLE_ULND5_DIFSLOW",
+     "R_LNLE_DIFFN_ULND5_DIFSLOW_WD"
+    ],
+    "R_LNLE_ULND5_SALOSS|R_LNLE_ULN_PATHO": [
+     "R_LNLE_ULN_PATHO",
+     "R_LNLE_ULND5_SALOSS"
+    ],
+    "R_ULN_RDLDCV_E|R_ULN_RD_EW": [
+     "R_ULN_RDLDCV_E",
+     "R_ULN_RD_EW"
+    ]
+   },
+   "confidence": {
+    "L_LNLE_ULND5_SALOSS|L_LNLE_ULN_PATHO": 1.0,
+    "L_LNLW_APB_MUSIZE|L_LNLW_MED_PATHO": 1.0,
+    "L_LNLW_MEDD2_LD_WD|L_LNLW_MED_PATHO": 1.0,
+    "L_LNLW_MED_PATHO|L_MED_LD_WA": 1.0,
+    "R_LNLE_DIFFN_ULND5_DIFSLOW_E|R_LNLE_ULND5_DIFSLOW": 1.0,
+    "R_LNLE_DIFFN_ULND5_DIFSLOW_WD|R_LNLE_ULND5_DIFSLOW": 1.0,
+    "R_LNLE_ULND5_SALOSS|R_LNLE_ULN_PATHO": 1.0,
+    "R_ULN_RDLDCV_E|R_ULN_RD_EW": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 13
+  },
+  {
+   "network": "paths",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "bf7b71ffc88ed5c3682ebcfb338e3706faadfba39263051e3390fecb4c6387f1",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f97252ada5f2c8346431dbbb457191026ab6607fe3cd39992c5e657ad4756306",
+   "orientations": {
+    "1|2": [
+     "1",
+     "2"
+    ],
+    "10|11": [
+     "10",
+     "11"
+    ],
+    "10|9": [
+     "9",
+     "10"
+    ],
+    "11|12": [
+     "11",
+     "12"
+    ],
+    "12|13": [
+     "12",
+     "13"
+    ],
+    "13|14": [
+     "13",
+     "14"
+    ],
+    "14|15": [
+     "14",
+     "15"
+    ],
+    "2|3": [
+     "2",
+     "3"
+    ],
+    "3|4": [
+     "3",
+     "4"
+    ],
+    "4|5": [
+     "4",
+     "5"
+    ],
+    "5|6": [
+     "5",
+     "6"
+    ],
+    "6|7": [
+     "6",
+     "7"
+    ],
+    "7|8": [
+     "7",
+     "8"
+    ],
+    "8|9": [
+     "8",
+     "9"
+    ]
+   },
+   "confidence": {
+    "1|2": 1.0,
+    "10|11": 1.0,
+    "10|9": 1.0,
+    "11|12": 1.0,
+    "12|13": 1.0,
+    "13|14": 1.0,
+    "14|15": 1.0,
+    "2|3": 1.0,
+    "3|4": 1.0,
+    "4|5": 1.0,
+    "5|6": 1.0,
+    "6|7": 1.0,
+    "7|8": 1.0,
+    "8|9": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 2,
+   "parse_ok": true,
+   "order_len": 15
+  },
+  {
+   "network": "paths",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "7d9d3a5183f160c65a927b3a81f720495d1f4245aa93058ce6aba51ab727d241",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "cab2b60a5fa5944281207d60549636207460b25adaf787bb791b61b4526d7724",
+   "orientations": {
+    "1|E": [
+     "1",
+     "E"
+    ],
+    "15|D": [
+     "15",
+     "D"
+    ],
+    "7|E": [
+     "7",
+     "E"
+    ],
+    "8|D": [
+     "8",
+     "D"
+    ]
+   },
+   "confidence": {
+    "1|E": 1.0,
+    "15|D": 1.0,
+    "7|E": 1.0,
+    "8|D": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 6
+  },
+  {
+   "network": "sachs",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "5c88d9d2dec0ad543d65b1b6a13a2b17a4d71dc6db0b1f19f808f2932acfc07f",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "03274160cc43e3355684ed67f6bfe4960c1854cf5c38be33d6092a57dacc563b",
+   "orientations": {
+    "Akt|Erk": [
+     "Erk",
+     "Akt"
+    ],
+    "Akt|PKA": [
+     "PKA",
+     "Akt"
+    ],
+    "Erk|Mek": [
+     "Mek",
+     "Erk"
+    ],
+    "Erk|PKA": [
+     "Erk",
+     "PKA"
+    ],
+    "Jnk|PKA": [
+     "PKA",
+     "Jnk"
+    ],
+    "Jnk|PKC": [
+     "PKC",
+     "Jnk"
+    ],
+    "Mek|PKA": [
+     "Mek",
+     "PKA"
+    ],
+    "Mek|PKC": [
+     "Mek",
+     "PKC"
+    ],
+    "Mek|Raf": [
+     "Raf",
+     "Mek"
+    ],
+    "P38|PKA": [
+     "PKA",
+     "P38"
+    ],
+    "P38|PKC": [
+     "PKC",
+     "P38"
+    ],
+    "PKA|PKC": [
+     "PKC",
+     "PKA"
+    ],
+    "PKA|Raf": [
+     "Raf",
+     "PKA"
+    ],
+    "PKC|Raf": [
+     "Raf",
+     "PKC"
+    ]
+   },
+   "confidence": {
+    "Akt|Erk": 0.5,
+    "Akt|PKA": 0.5,
+    "Erk|Mek": 0.5,
+    "Erk|PKA": 0.5,
+    "Jnk|PKA": 0.5,
+    "Jnk|PKC": 0.5,
+    "Mek|PKA": 0.5,
+    "Mek|PKC": 0.5,
+    "Mek|Raf": 0.5,
+    "P38|PKA": 0.5,
+    "P38|PKC": 0.5,
+    "PKA|PKC": 0.5,
+    "PKA|Raf": 0.5,
+    "PKC|Raf": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 8
+  },
+  {
+   "network": "sachs",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0c5e8a5e38b43e2b8a4b03b19dd19c17d3c8dd9c6c2efc03037c4e49ba999b15",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "0698a60c630d2f007a511a28ce4fed293a930d1e1bc0006160b478b4a1566c58",
+   "orientations": {
+    "PIP2|PIP3": [
+     "PIP2",
+     "PIP3"
+    ],
+    "PIP2|Plcg": [
+     "Plcg",
+     "PIP2"
+    ],
+    "PIP3|Plcg": [
+     "Plcg",
+     "PIP3"
+    ]
+   },
+   "confidence": {
+    "PIP2|PIP3": 0.5,
+    "PIP2|Plcg": 0.5,
+    "PIP3|Plcg": 0.5
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 3
+  },
+  {
+   "network": "water",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2d67a3cd2d7faab48ea30e0d37eff330c617991e9b91cfdb3e9f973f2a438337",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "48783724610e4640d2635565ead5ac6994eb13ff45159498730ccf380cbf54dc",
+   "orientations": {
+    "CKNI_12_00|CKNI_12_15": [
+     "CKNI_12_00",
+     "CKNI_12_15"
+    ],
+    "CKNI_12_15|CKNI_12_30": [
+     "CKNI_12_15",
+     "CKNI_12_30"
+    ],
+    "CKNI_12_30|CKNI_12_45": [
+     "CKNI_12_30",
+     "CKNI_12_45"
+    ]
+   },
+   "confidence": {
+    "CKNI_12_00|CKNI_12_15": 1.0,
+    "CKNI_12_15|CKNI_12_30": 1.0,
+    "CKNI_12_30|CKNI_12_45": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "water",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "816b9a51b1d6da38b8343b1b9c79b31a07a2f209d64ffac50e2ad351ac7ee15d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "7d93ce5da3b314fd6d50019714c656cdbfae309259ea68585d077b517f422fe8",
+   "orientations": {
+    "C_NI_12_00|C_NI_12_15": [
+     "C_NI_12_00",
+     "C_NI_12_15"
+    ],
+    "C_NI_12_15|C_NI_12_30": [
+     "C_NI_12_15",
+     "C_NI_12_30"
+    ],
+    "C_NI_12_30|C_NI_12_45": [
+     "C_NI_12_30",
+     "C_NI_12_45"
+    ]
+   },
+   "confidence": {
+    "C_NI_12_00|C_NI_12_15": 1.0,
+    "C_NI_12_15|C_NI_12_30": 1.0,
+    "C_NI_12_30|C_NI_12_45": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "water",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "2a0d4f35efcd90855129dfe1188f7af1583dacec7dc3c11d9010ae071c706771",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "4b8758340fdd24cf27975d83e51f5305bfcf528e6aa527febc9615292c855f09",
+   "orientations": {
+    "CKND_12_15|CKNI_12_00": [
+     "CKNI_12_00",
+     "CKND_12_15"
+    ],
+    "CBODD_12_30|CKNI_12_15": [
+     "CKNI_12_15",
+     "CBODD_12_30"
+    ],
+    "CKND_12_30|CKNI_12_15": [
+     "CKNI_12_15",
+     "CKND_12_30"
+    ],
+    "CBODD_12_45|CKNI_12_30": [
+     "CKNI_12_30",
+     "CBODD_12_45"
+    ],
+    "CKND_12_45|CKNI_12_30": [
+     "CKNI_12_30",
+     "CKND_12_45"
+    ],
+    "CBODD_12_15|C_NI_12_00": [
+     "C_NI_12_00",
+     "CBODD_12_15"
+    ],
+    "CBODD_12_30|C_NI_12_15": [
+     "C_NI_12_15",
+     "CBODD_12_30"
+    ],
+    "CBODD_12_45|C_NI_12_30": [
+     "C_NI_12_30",
+     "CBODD_12_45"
+    ]
+   },
+   "confidence": {
+    "CKND_12_15|CKNI_12_00": 0.8,
+    "CBODD_12_30|CKNI_12_15": 0.8,
+    "CKND_12_30|CKNI_12_15": 0.8,
+    "CBODD_12_45|CKNI_12_30": 0.8,
+    "CKND_12_45|CKNI_12_30": 0.8,
+    "CBODD_12_15|C_NI_12_00": 0.8,
+    "CBODD_12_30|C_NI_12_15": 0.8,
+    "CBODD_12_45|C_NI_12_30": 0.8
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 12
+  },
+  {
+   "network": "win95pts",
+   "component": 0,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "1a1d5ac663a2eb3ff218ff4d528276d1c22e607602b468ea4d1acb3cfc37a16d",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "097201618ecff297b9b41edb7fed300ff56537a4bf38f140132ef5b63a1c2c36",
+   "orientations": {
+    "AppDtGnTm|HrglssDrtnAftrPrnt": [
+     "AppDtGnTm",
+     "HrglssDrtnAftrPrnt"
+    ],
+    "AppDtGnTm|PrtSpool": [
+     "AppDtGnTm",
+     "PrtSpool"
+    ],
+    "PrntPrcssTm|PrtSpool": [
+     "PrtSpool",
+     "PrntPrcssTm"
+    ]
+   },
+   "confidence": {
+    "AppDtGnTm|HrglssDrtnAftrPrnt": 1.0,
+    "AppDtGnTm|PrtSpool": 1.0,
+    "PrntPrcssTm|PrtSpool": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "win95pts",
+   "component": 1,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "4e1fb2f192de2d9861c2e5e934216843622a0d830fc12d299dce54e1430a9a4c",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "985abfaa7c804373982e1ccc285bdd8bae13f50b69d08200a03f300b63d3cd06",
+   "orientations": {
+    "AvlblVrtlMmry|PSERRMEM": [
+     "AvlblVrtlMmry",
+     "PSERRMEM"
+    ],
+    "AvlblVrtlMmry|PrtPScript": [
+     "AvlblVrtlMmry",
+     "PrtPScript"
+    ],
+    "AvlblVrtlMmry|TstpsTxt": [
+     "AvlblVrtlMmry",
+     "TstpsTxt"
+    ],
+    "PSERRMEM|PrtPScript": [
+     "PSERRMEM",
+     "PrtPScript"
+    ],
+    "PrtPScript|TstpsTxt": [
+     "PrtPScript",
+     "TstpsTxt"
+    ]
+   },
+   "confidence": {
+    "AvlblVrtlMmry|PSERRMEM": 1.0,
+    "AvlblVrtlMmry|PrtPScript": 1.0,
+    "AvlblVrtlMmry|TstpsTxt": 1.0,
+    "PSERRMEM|PrtPScript": 1.0,
+    "PrtPScript|TstpsTxt": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 4
+  },
+  {
+   "network": "win95pts",
+   "component": 2,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "0509f6e3e096e1d97da7dce6b41b4d59548398f64dbb225248e38ba997811617",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "d69da7663ccdc18c7a1eb7c314d329862c248bb5ebb17a6a198fec879c3a0859",
+   "orientations": {
+    "PrtMem|PrtStatMem": [
+     "PrtMem",
+     "PrtStatMem"
+    ]
+   },
+   "confidence": {
+    "PrtMem|PrtStatMem": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "win95pts",
+   "component": 3,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "1773c5dfa0da243ddd49adade4220364272e58dbdcd4462ab39c0894a654dda9",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "a3d35cd01e375d01bd9a24c2edbe5d673e1ce15dbe58ed9860a09446da2dd561",
+   "orientations": {
+    "PrtOn|PrtStatOff": [
+     "PrtOn",
+     "PrtStatOff"
+    ]
+   },
+   "confidence": {
+    "PrtOn|PrtStatOff": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "win95pts",
+   "component": 4,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "9eafa136bc6f4fd531cdd06ceba30d2f42a85221fd7cee6d50b6ee97309250da",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "f7ec3027e35400912b806caebfc74e3d657357112536e07259aec710b59fb790",
+   "orientations": {
+    "PrtPaper|PrtStatPaper": [
+     "PrtPaper",
+     "PrtStatPaper"
+    ]
+   },
+   "confidence": {
+    "PrtPaper|PrtStatPaper": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "win95pts",
+   "component": 5,
+   "kind": "open",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "089f303e6ca0783a2dcc4b71cf885e07289e7e235aea55988c9ae1177e175606",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "1426ac6d19ffe74c4c7c8b10ffb3f958cdd95ef08e5ffeda0ebc431ba99caa37",
+   "orientations": {
+    "PrtStatToner|TnrSpply": [
+     "TnrSpply",
+     "PrtStatToner"
+    ]
+   },
+   "confidence": {
+    "PrtStatToner|TnrSpply": 1.0
+   },
+   "declined": [],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 2
+  },
+  {
+   "network": "win95pts",
+   "component": -1,
+   "kind": "compelled_control",
+   "naming": "real",
+   "order_seed": 0,
+   "prompt_sha256": "dc886c85b5abc6089f18ebaab4faee704d05d116d1f593d91182d0b5ee421df1",
+   "model": "Llama-3.3-70B-Instruct",
+   "cache_key": "b1db36e76980422f02bca6661760b59b8fd554be5176c5ffbdbe6f510f70cec3",
+   "orientations": {
+    "AvlblVrtlMmry|GrbldPS": [
+     "AvlblVrtlMmry",
+     "GrbldPS"
+    ],
+    "CmpltPgPrntd|PrtMem": [
+     "PrtMem",
+     "CmpltPgPrntd"
+    ],
+    "DeskPrntSpd|PrtMem": [
+     "PrtMem",
+     "DeskPrntSpd"
+    ],
+    "NnPSGrphc|PrtMem": [
+     "PrtMem",
+     "NnPSGrphc"
+    ],
+    "PrtMem|TTOK": [
+     "PrtMem",
+     "TTOK"
+    ],
+    "PrtData|PrtPaper": [
+     "PrtData",
+     "PrtPaper"
+    ]
+   },
+   "confidence": {
+    "AvlblVrtlMmry|GrbldPS": 1.0,
+    "CmpltPgPrntd|PrtMem": 1.0,
+    "DeskPrntSpd|PrtMem": 1.0,
+    "NnPSGrphc|PrtMem": 1.0,
+    "PrtMem|TTOK": 1.0,
+    "PrtData|PrtPaper": 1.0
+   },
+   "declined": [
+    "Problem6|PrtPScript",
+    "PrtData|TnrSpply"
+   ],
+   "not_reached": [],
+   "invented": 0,
+   "contradicts_order": 0,
+   "parse_ok": true,
+   "order_len": 12
+  }
+ ]
+}

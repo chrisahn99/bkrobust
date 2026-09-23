@@ -1,0 +1,50 @@
+{
+  "shard_id": "llm__D_LLM_GEMMA_27B__munin1",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_GEMMA_27B",
+    "network": "munin1"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_GEMMA_27B",
+  "network": "munin1",
+  "model": "gemma-3-27b-it",
+  "family": "gemma",
+  "naming": "real",
+  "n_frame_rows": 3,
+  "n_scored": 3,
+  "n_cells": 18,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "n_asked": 8,
+  "assert_rate": 0.75,
+  "k_accuracy": 0.8333333333333334,
+  "n_k_correct": 5,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 8,
+  "shd_truth": 2,
+  "instance_status_counts": {
+    "ok": 3
+  },
+  "radius_median_ok": 2,
+  "n_radius_ok": 3,
+  "cache": {
+    "graph_hits": 5937,
+    "graph_misses": 63,
+    "verdict_hits": 3609,
+    "verdict_misses": 45
+  },
+  "elapsed_s": 0.352,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_LLM_GEMMA_27B__munin1.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_LLM_GEMMA_27B__munin1.cells.jsonl",
+  "instances_sha256": "f8c388340fb66455d27b7e170c250f0247ed6666a3432b0858e1ca0375cb5bfe",
+  "cells_sha256": "cf6b70ff46eb085408faafaeebad89fc5a4b154cf2d01e176d176f1d66bdfecd",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:53:00Z"
+}

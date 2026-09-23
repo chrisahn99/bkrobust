@@ -1,0 +1,20 @@
+{
+  "shard_tag": "randHuge",
+  "networks": [
+    "arth150",
+    "diabetes",
+    "link",
+    "munin",
+    "munin2",
+    "munin3"
+  ],
+  "seeds": 2,
+  "max_attempts": 200,
+  "time_limit": 120.0,
+  "interpreter_versions": {
+    "python": "3.14.7",
+    "python_executable": "<repo>/.venv/bin/python",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  }
+}

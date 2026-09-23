@@ -1,0 +1,25 @@
+{
+  "counterexamples": [],
+  "n": 3,
+  "runtime_seconds": 0.023933887481689453,
+  "scope": "all CPDAGs on 3 nodes with <=6 undirected edges and corrected space <=200 elements",
+  "totals": {
+    "c1_checks_run": 3,
+    "c1_checks_skipped": 147,
+    "c1_violations": 0,
+    "c2_violations": 0,
+    "empty_extension_spaces": 0,
+    "n_combos": 150,
+    "n_combos_new": 0,
+    "n_cpdags": 11,
+    "n_dags": 25,
+    "n_radius_comparisons": 150,
+    "n_spaces": 7,
+    "n_states_added_vs_old": 0,
+    "skipped_cpdag_no_undirected": 4,
+    "skipped_cpdag_space_too_big": 0,
+    "skipped_cpdag_too_many_undirected": 0,
+    "skipped_no_valid_z": 162,
+    "skipped_z_fails_at_g0": 0
+  }
+}

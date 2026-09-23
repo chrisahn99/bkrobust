@@ -1,0 +1,29 @@
+{
+  "shard_id": "tiered__diabetes__nt2",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "diabetes",
+    "n_tiers": 2
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 89,
+  "n_scored": 0,
+  "n_cells": 0,
+  "g0_status": "n_k_zero",
+  "n_k": 0,
+  "cache": {
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 0.002,
+  "instances_path": "results/axis_robustness_real/shards/tiered__diabetes__nt2.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__diabetes__nt2.cells.jsonl",
+  "instances_sha256": "f624cce691c3a348aa5a3d237b9d729c9accfd2ecc1fa38b8f563d698aef488d",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "git_sha": "5729709e85c78b18aaf42358a25ed78e64b89eef",
+  "git_dirty": true,
+  "completed_utc": "2026-09-15T23:33:07Z"
+}

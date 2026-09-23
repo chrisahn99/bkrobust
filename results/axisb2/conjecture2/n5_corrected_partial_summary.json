@@ -1,0 +1,21 @@
+{
+  "scope": "n=5, CORRECTED space, PARTIAL: 5480 of 8782 CPDAGs processed before the agent stopped",
+  "cpdags_processed": 5480,
+  "cpdags_total": 8782,
+  "spaces": 3491,
+  "radius_comparisons": 814736,
+  "c2_counterexamples": 0,
+  "c1_violations": 0,
+  "c1_checks_run": 16294,
+  "states_added_by_correction": 313,
+  "combos_involving_added_states": 4784,
+  "skips": {
+    "no_undirected_edges": 1909,
+    "k=7 undirected edges > max_undirected=6": 47,
+    "k=8 undirected edges > max_undirected=6": 21,
+    "k=9 undirected edges > max_undirected=6": 9,
+    "k=10 undirected edges > max_undirected=6": 1,
+    "corrected space has 219 elements > max_space=200": 2
+  },
+  "counterexamples": []
+}

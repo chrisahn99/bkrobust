@@ -1,0 +1,213 @@
+{
+  "predicate_check": {
+    "states_checked": 1588,
+    "failures": 0,
+    "scope": "all CPDAGs n=3,4"
+  },
+  "rate_by_k": [
+    {
+      "n": 4,
+      "k": 1,
+      "cpdags": 12,
+      "mean_correct": 3.0,
+      "mean_old": 3.0,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 4,
+      "k": 2,
+      "cpdags": 12,
+      "mean_correct": 6.0,
+      "mean_old": 6.0,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 4,
+      "k": 3,
+      "cpdags": 12,
+      "mean_correct": 11.666666666666666,
+      "mean_old": 11.666666666666666,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 4,
+      "k": 4,
+      "cpdags": 12,
+      "mean_correct": 32.0,
+      "mean_old": 32.0,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 4,
+      "k": 5,
+      "cpdags": 6,
+      "mean_correct": 52.0,
+      "mean_old": 50.0,
+      "missing_pct": 3.846,
+      "cpdags_affected": 6
+    },
+    {
+      "n": 4,
+      "k": 6,
+      "cpdags": 1,
+      "mean_correct": 219.0,
+      "mean_old": 207.0,
+      "missing_pct": 5.479,
+      "cpdags_affected": 1
+    },
+    {
+      "n": 5,
+      "k": 1,
+      "cpdags": 12,
+      "mean_correct": 3.0,
+      "mean_old": 3.0,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 5,
+      "k": 2,
+      "cpdags": 12,
+      "mean_correct": 6.0,
+      "mean_old": 6.0,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 5,
+      "k": 3,
+      "cpdags": 12,
+      "mean_correct": 18.25,
+      "mean_old": 18.25,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 5,
+      "k": 4,
+      "cpdags": 12,
+      "mean_correct": 32.0,
+      "mean_old": 32.0,
+      "missing_pct": 0.0,
+      "cpdags_affected": 0
+    },
+    {
+      "n": 5,
+      "k": 5,
+      "cpdags": 12,
+      "mean_correct": 52.0,
+      "mean_old": 50.0,
+      "missing_pct": 3.846,
+      "cpdags_affected": 12
+    },
+    {
+      "n": 5,
+      "k": 6,
+      "cpdags": 12,
+      "mean_correct": 105.25,
+      "mean_old": 103.0,
+      "missing_pct": 2.138,
+      "cpdags_affected": 9
+    },
+    {
+      "n": 5,
+      "k": 7,
+      "cpdags": 12,
+      "mean_correct": 153.5,
+      "mean_old": 140.83333333333334,
+      "missing_pct": 8.252,
+      "cpdags_affected": 12
+    },
+    {
+      "n": 5,
+      "k": 8,
+      "cpdags": 12,
+      "mean_correct": 432.0,
+      "mean_old": 388.0,
+      "missing_pct": 10.185,
+      "cpdags_affected": 12
+    }
+  ],
+  "witnesses": [
+    {
+      "cpdag": "V0-V1 V0-V2 V0-V3 V1-V2 V1-V3",
+      "excluded_state": "V0->V1 V0-V2 V0-V3 V1-V2 V1-V3",
+      "knowledge_that_reaches_it": [
+        "V0->V1"
+      ],
+      "meek_closed": true,
+      "chordal_undirected_subgraph": false,
+      "old_is_valid_mpdag": false,
+      "n_dag_extensions": 5,
+      "maximally_oriented": true
+    },
+    {
+      "cpdag": "V0-V1 V0-V2 V0-V3 V1-V2 V1-V3",
+      "excluded_state": "V1->V0 V0-V2 V0-V3 V1-V2 V1-V3",
+      "knowledge_that_reaches_it": [
+        "V1->V0"
+      ],
+      "meek_closed": true,
+      "chordal_undirected_subgraph": false,
+      "old_is_valid_mpdag": false,
+      "n_dag_extensions": 5,
+      "maximally_oriented": true
+    },
+    {
+      "cpdag": "V0-V1 V0-V2 V0-V3 V1-V2 V1-V3 V2-V3",
+      "excluded_state": "V0->V1 V2->V3 V0-V2 V0-V3 V1-V2 V1-V3",
+      "knowledge_that_reaches_it": [
+        "V0->V1",
+        "V2->V3"
+      ],
+      "meek_closed": true,
+      "chordal_undirected_subgraph": false,
+      "old_is_valid_mpdag": false,
+      "n_dag_extensions": 6,
+      "maximally_oriented": true
+    },
+    {
+      "cpdag": "V0-V1 V0-V2 V0-V3 V1-V2 V1-V3 V2-V3",
+      "excluded_state": "V0->V1 V3->V2 V0-V2 V0-V3 V1-V2 V1-V3",
+      "knowledge_that_reaches_it": [
+        "V0->V1",
+        "V3->V2"
+      ],
+      "meek_closed": true,
+      "chordal_undirected_subgraph": false,
+      "old_is_valid_mpdag": false,
+      "n_dag_extensions": 6,
+      "maximally_oriented": true
+    },
+    {
+      "cpdag": "V0-V1 V0-V2 V0-V3 V1-V2 V1-V3 V2-V3",
+      "excluded_state": "V0->V2 V1->V3 V0-V1 V0-V3 V1-V2 V2-V3",
+      "knowledge_that_reaches_it": [
+        "V0->V2",
+        "V1->V3"
+      ],
+      "meek_closed": true,
+      "chordal_undirected_subgraph": false,
+      "old_is_valid_mpdag": false,
+      "n_dag_extensions": 6,
+      "maximally_oriented": true
+    },
+    {
+      "cpdag": "V0-V1 V0-V2 V0-V3 V1-V2 V1-V3 V2-V3",
+      "excluded_state": "V0->V2 V3->V1 V0-V1 V0-V3 V1-V2 V2-V3",
+      "knowledge_that_reaches_it": [
+        "V0->V2",
+        "V3->V1"
+      ],
+      "meek_closed": true,
+      "chordal_undirected_subgraph": false,
+      "old_is_valid_mpdag": false,
+      "n_dag_extensions": 6,
+      "maximally_oriented": true
+    }
+  ]
+}

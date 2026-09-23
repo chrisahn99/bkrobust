@@ -1,0 +1,7 @@
+{
+  "scope": "all CPDAGs on 4 nodes, corrected space, Z = optimal adjustment set",
+  "n_instances": 1044,
+  "e1_vs_bfs_agree": 1044,
+  "e1_vs_local_up_agree": 1044,
+  "disagreements": []
+}

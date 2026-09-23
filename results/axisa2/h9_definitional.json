@@ -1,0 +1,31 @@
+{
+  "purpose": "H9 re-derived as radii, independently of the GAC agreement sweep",
+  "scope": "all CPDAGs n=3,4 with >=1 undirected edge; every space element; every ordered (x,y); Z = O(G0) and every subset of the remaining nodes; instances where Z is invalid at G0 under both definitions are skipped as degenerate",
+  "invariant_violations": 0,
+  "invariant_examples": [],
+  "optimal_set": {
+    "n_instances": 5304,
+    "radii_identical": 5304,
+    "backdoor_r1": 2790,
+    "of_those_gac_strictly_larger": 0,
+    "radius_distribution_backdoor": {
+      "-1": 2040,
+      "1": 2790,
+      "2": 414,
+      "3": 60
+    },
+    "radius_distribution_gac": {
+      "-1": 2040,
+      "1": 2790,
+      "2": 414,
+      "3": 60
+    }
+  },
+  "arbitrary_z": {
+    "n_instances": 16926,
+    "radii_identical": 11994,
+    "backdoor_r1": 6588,
+    "of_those_gac_strictly_larger": 1308
+  },
+  "verdict": "PASS"
+}

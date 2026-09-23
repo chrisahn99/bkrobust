@@ -1,0 +1,36 @@
+{
+  "shard_id": "flip__Didelez_2010__cov100__bw025__r0",
+  "kind": "flip",
+  "spec": {
+    "kind": "flip",
+    "network": "Didelez_2010",
+    "coverage": 1.0,
+    "base_wrongness": 0.25,
+    "bw_abs": null,
+    "replicate": 0
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 8,
+  "n_scored": 8,
+  "n_cells": 8,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "n_claims_actually_wrong": 0,
+  "bw_is_inert": true,
+  "cache": {
+    "graph_hits": 999,
+    "graph_misses": 1,
+    "verdict_hits": 7992,
+    "verdict_misses": 8
+  },
+  "elapsed_s": 0.021,
+  "instances_path": "results/axis_robustness_real/shards/flip__Didelez_2010__cov100__bw025__r0.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/flip__Didelez_2010__cov100__bw025__r0.cells.jsonl",
+  "instances_sha256": "8d6a58c0d16f7ebe18261056f2f595d11eb444f049ecd1e9c7bcbf2fb9d3a4c3",
+  "cells_sha256": "6ad524c0b0a96b09a58c66274fe4ad10fa107d6f0b3a069eaaefbcdaffb267b1",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:36:03Z"
+}

@@ -1,0 +1,29 @@
+{
+  "counterexamples": [],
+  "infeasible": [],
+  "n": 4,
+  "n_cpdags_attempted": 1,
+  "n_cpdags_completed": 1,
+  "n_cpdags_infeasible": 0,
+  "runtime_seconds": 0.9979500770568848,
+  "scope": "the density gap: every CPDAG the main corrected sweep skipped for size (>6 undirected edges, or corrected space >200 elements), run to completion with a generous per-CPDAG size budget; CPDAGs still too large to complete are listed under 'infeasible' rather than silently dropped",
+  "totals": {
+    "c1_checks_run": 6,
+    "c1_checks_skipped": 330,
+    "c1_violations": 0,
+    "c2_violations": 0,
+    "empty_extension_spaces": 0,
+    "n_combos": 336,
+    "n_combos_new": 0,
+    "n_cpdags": 1,
+    "n_dags": 543,
+    "n_radius_comparisons": 336,
+    "n_spaces": 1,
+    "n_states_added_vs_old": 12,
+    "skipped_cpdag_no_undirected": 0,
+    "skipped_cpdag_space_too_big": 0,
+    "skipped_cpdag_too_many_undirected": 0,
+    "skipped_no_valid_z": 2292,
+    "skipped_z_fails_at_g0": 0
+  }
+}

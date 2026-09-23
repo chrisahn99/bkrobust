@@ -1,0 +1,31 @@
+{
+  "shard_id": "tiered__Polzer_2012__nt4",
+  "kind": "tiered",
+  "spec": {
+    "kind": "tiered",
+    "network": "Polzer_2012",
+    "n_tiers": 4
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 49,
+  "n_scored": 18,
+  "n_cells": 198,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 4,
+  "cache": {
+    "graph_hits": 10014,
+    "graph_misses": 986,
+    "verdict_hits": 129528,
+    "verdict_misses": 8892
+  },
+  "elapsed_s": 3.267,
+  "instances_path": "results/axis_robustness_real/shards/tiered__Polzer_2012__nt4.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/tiered__Polzer_2012__nt4.cells.jsonl",
+  "instances_sha256": "1f0f2bb8b57933a2802c5de60c9f0d72cf3269e168b7176102b97e22ab005c18",
+  "cells_sha256": "2ff4d54691663eeef583ac769ea2ad682347673c7e8a4d19447dc0c56ec9795f",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:25:07Z"
+}

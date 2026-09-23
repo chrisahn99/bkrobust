@@ -1,0 +1,32 @@
+{
+  "shard_id": "xarm__Kampen_2014__nt2__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "Kampen_2014",
+    "n_tiers": 2,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 27,
+  "n_scored": 1,
+  "n_cells": 10,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 1,
+  "cache": {
+    "graph_hits": 9878,
+    "graph_misses": 122,
+    "verdict_hits": 5327,
+    "verdict_misses": 47
+  },
+  "elapsed_s": 1.294,
+  "instances_path": "results/axis_robustness_real/shards/xarm__Kampen_2014__nt2__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__Kampen_2014__nt2__tiered.cells.jsonl",
+  "instances_sha256": "0f0ed718840c8c30bcc79053eedcec127989c77ca5a3ecde165e8da01b167c7b",
+  "cells_sha256": "248449bf2f2bfe10a776fd8eb0c67627f73779fbd2b572aee1bd342624399fde",
+  "git_sha": "23a666ffcdacbc17550489bf9053fa140e789674",
+  "git_dirty": true,
+  "completed_utc": "2026-09-16T00:29:07Z"
+}

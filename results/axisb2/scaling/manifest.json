@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-09-04T22:02:27.366043+00:00",
+  "git_sha": "b92ebd5b027745da33152a78edcfd2ad3e680ac0",
+  "git_dirty": true,
+  "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+  "seed": 20260919,
+  "grid": {
+    "n5": "all CPDAGs by k (<=6 per k)",
+    "n6_n7": "sampled erdos_renyi CPDAGs, k in 3..9",
+    "space": "build_space_correct (Task 0 corrected)"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "networkx": "3.2.1",
+    "pandas": "2.3.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "purpose": "Axis B scaling: single-query vs amortised, up-set vs space size"
+}

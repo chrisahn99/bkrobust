@@ -1,0 +1,30 @@
+{
+  "shard_id": "xarm__mediator__nt2__tiered",
+  "kind": "xarm",
+  "spec": {
+    "kind": "xarm",
+    "network": "mediator",
+    "n_tiers": 2,
+    "xarm": "tiered"
+  },
+  "n_draws": 1000,
+  "n_frame_rows": 3,
+  "n_scored": 1,
+  "n_cells": 10,
+  "g0_status": "ok",
+  "n_k": 3,
+  "cache": {
+    "graph_hits": 9990,
+    "graph_misses": 10,
+    "verdict_hits": 8203,
+    "verdict_misses": 8
+  },
+  "elapsed_s": 0.229,
+  "instances_path": "results/axis_robustness_real/shards/xarm__mediator__nt2__tiered.instances.jsonl",
+  "cells_path": "results/axis_robustness_real/shards/xarm__mediator__nt2__tiered.cells.jsonl",
+  "instances_sha256": "6b4c819b0541fe2b1a31d3751fe13a72f30a39334a1c7d4488c107fd95875980",
+  "cells_sha256": "24ae7c758237621dcfc36a0cf711cfd24f0eda4783a901232bed0c90e924eb35",
+  "git_sha": "7886be913ff9682b3f6c4045cc5afeb6769d1ce8",
+  "git_dirty": false,
+  "completed_utc": "2026-09-15T23:30:22Z"
+}

@@ -1,0 +1,31 @@
+# @package perturbation
+# Misspecification by tiered (temporal / topological) background knowledge:
+# a partition of the nodes into ordered tiers forbidding all backward edges.
+# The most common form of knowledge in practice and the most damaging when
+# wrong -- a single misplaced node forbids a whole block of edges at once.
+name: tier
+kind: tier
+
+delta_grid: [0, 1, 2, 3, 4, 5]
+
+tiers:
+  n_tiers: 3
+  assignment: from_topological_order  # from_topological_order | random | fixed
+  fixed: null                         # list[list[node]] when assignment == fixed
+  balanced: true                      # roughly equal-size tiers
+
+scope:
+  # A perturbation moves `delta` nodes to a tier inconsistent with the true DAG.
+  move: nodes               # nodes | boundaries
+  max_move_distance: 1      # how many tiers a node may jump
+  exclude_target_pair: true
+
+distance: orientation_flips  # counts induced orientation changes, NOT nodes
+                             # moved -- one moved node can be worth many flips,
+                             # which is the point of the cascade study
+
+sampling:
+  n_draws: 100
+  max_rejections: 10000
+  require_false: true
+  exact_radius: false       # tier moves rarely hit an exact flip count

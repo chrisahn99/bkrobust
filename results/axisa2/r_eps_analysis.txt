@@ -1,0 +1,27 @@
+rows=560 usable=560 censored=0 errors=0
+
+MIDDLE REGIME (r_eps < r_val) by epsilon, all instances:
+  eps= 0.01:    0/560 =   0.0%
+  eps= 0.02:    0/560 =   0.0%
+  eps= 0.05:    0/560 =   0.0%
+  eps=  0.1:    0/560 =   0.0%
+  eps=  0.2:    0/560 =   0.0%
+  eps=  0.5:    0/560 =   0.0%
+
+by r_val stratum (does room to exist matter?):
+  r_val   n      0.01    0.02    0.05     0.1     0.2     0.5
+      1  120      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+      2  145      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+      3   96      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+      4  115      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+      5   36      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+      6   24      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+      7   16      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+      8    8      0.0%    0.0%    0.0%    0.0%    0.0%    0.0%
+
+r_eps vs r_val relationship at eps=0.05 and 0.2:
+  eps=0.05: r_eps<r_val 0   ==  505   >  29   UNREACHED 26
+  eps=0.2: r_eps<r_val 0   ==  192   >  126   UNREACHED 242
+
+bias at G0 (should be ~0 for a valid set):
+  max 0.000000  median 0.000000  nonzero 0

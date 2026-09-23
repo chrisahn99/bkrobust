@@ -1,0 +1,50 @@
+{
+  "shard_id": "llm__D_SCRAMBLED_72B__hailfinder",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_SCRAMBLED_72B",
+    "network": "hailfinder"
+  },
+  "n_draws": 1000,
+  "condition": "D_SCRAMBLED_72B",
+  "network": "hailfinder",
+  "model": "Qwen2.5-72B-Instruct",
+  "family": "qwen2",
+  "naming": "scrambled",
+  "n_frame_rows": 11,
+  "n_scored": 11,
+  "n_cells": 110,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 17,
+  "n_asked": 17,
+  "assert_rate": 1.0,
+  "k_accuracy": 0.9411764705882353,
+  "n_k_correct": 16,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 17,
+  "shd_truth": 2,
+  "instance_status_counts": {
+    "ok": 11
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 11,
+  "cache": {
+    "graph_hits": 3879,
+    "graph_misses": 6121,
+    "verdict_hits": 0,
+    "verdict_misses": 0
+  },
+  "elapsed_s": 32.798,
+  "instances_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED_72B__hailfinder.instances.jsonl",
+  "cells_path": "results/axis_robustness_llm/shards/llm__D_SCRAMBLED_72B__hailfinder.cells.jsonl",
+  "instances_sha256": "e7d89a56f2b465afb41490ef347505557146ed02390bb4dae88a4212d307ded3",
+  "cells_sha256": "0a9d26b71bbee89f8496791ac6cf78d6bce90a43656fa64e16fddc95e4e40c20",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "29e6c09153ef88196e0c84c7e7ae86e9716f0c70",
+  "git_dirty": true,
+  "completed_utc": "2026-09-22T12:52:33Z"
+}

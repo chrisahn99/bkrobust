@@ -1,0 +1,14 @@
+# @package estimator
+# Total effect of treatment on outcome by OLS with an adjustment set:
+# regress Y on (X, Z), report the coefficient on X.
+name: ols_adjustment
+target: bkrobust.estimation.linear.LinearAdjustmentEstimator
+
+estimand: ate               # ate | total_effect
+fit_intercept: true
+robust_se: HC3              # null | HC0 | HC1 | HC2 | HC3
+alpha: 0.05                 # CI level for coverage metrics
+
+# The adjustment set is supplied by the experiment (O* under the perturbed
+# knowledge), not chosen here.
+requires_scm: false
