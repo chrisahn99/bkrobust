@@ -52,6 +52,30 @@ in ``bkrobust.search.scaling.measure_instance``) whose
 enumeration oracle. This keeps every leg on the same instances and the same
 query within THIS sweep, which is what the composed speedup number needs; it
 does not attempt to match the old envelope's specific rows.
+
+Resample gate (``--gate``)
+---------------------------
+
+Default behaviour (``--gate`` unset) is unchanged from the committed
+``results/e2e_speedup`` run: attempt 0, i.e. the literal
+``dense_instance(n, seed, edge_prob)`` graph, is used for every cell, and a
+cell with no valid query is skipped (not written), exactly as before -- so the
+committed run stays reproducible with its recorded command line.
+
+``--gate`` turns on a deterministic resample gate whose OUTPUT IS NOT the
+session-4 envelope. It is a k>=1-gated draw of the SAME grid: for each grid
+cell ``(n, edge_prob, seed)`` it tries attempt ``a = 0, 1, 2, ..., 100``.
+Attempt 0 uses ``effective_seed = seed`` (so any cell that already passes
+keeps its attempt-0 instance, bit-identical to the ungated run). Attempt
+``a >= 1`` uses ``effective_seed = seed + 10_000 * a`` -- no other source of
+randomness is touched, and no global RNG is mutated. The first attempt whose
+CPDAG has ``k_undirected >= 1`` AND whose ``choose_query`` finds a query is
+accepted; ``attempt`` and ``effective_seed`` are recorded on every row (jsonl
+and csv) regardless of whether the gate is enabled. If no attempt in
+``0..100`` satisfies the gate, the cell is recorded as a ``gate_exhausted``
+error row -- it is never silently dropped. Worker subprocesses rebuild the
+instance from ``(n, effective_seed, edge_prob)`` so they are bit-identical to
+what the driver selected.
 """
 
 from __future__ import annotations
@@ -84,6 +108,7 @@ SEED_GRID: tuple[int, ...] = tuple(range(8))
 
 CAP_S = 120.0
 LEGS = ("space", "search_frozen", "search_fast", "hybrid")
+GATE_MAX_ATTEMPTS = 100  # attempts 0..GATE_MAX_ATTEMPTS inclusive
 
 
 def instance_grid() -> list[tuple[int, float, int]]:
@@ -361,23 +386,81 @@ def run_leg(leg: str, n: int, seed: int, edge_prob: float, x: str, y: str, z: li
 UNREACHED = -1
 
 
-def build_instance_row(n: int, edge_prob: float, seed: int) -> dict[str, Any] | None:
-    """Everything computable without timing: query, keys, topology. None if degenerate."""
-    cpdag, g0 = build_cpdag_and_g0(n, seed, edge_prob)
-    q = choose_query(cpdag, g0)
-    if q is None:
-        return None
-    x, y, z = q
-    row = {
+def build_instance_row(
+    n: int,
+    edge_prob: float,
+    seed: int,
+    gate: bool = False,
+    max_attempts: int = GATE_MAX_ATTEMPTS,
+) -> dict[str, Any] | None:
+    """Everything computable without timing: query, keys, topology.
+
+    ``gate=False`` (default): the original, ungated behaviour -- attempt 0
+    only (``effective_seed = seed``), returns ``None`` if degenerate (no
+    valid query). This keeps the committed ungated run reproducible.
+
+    ``gate=True``: tries attempt ``a = 0, 1, ..., max_attempts``. Attempt 0
+    uses ``effective_seed = seed``; attempt ``a >= 1`` uses
+    ``effective_seed = seed + 10_000 * a``. Accepts the first attempt whose
+    CPDAG has ``k_undirected >= 1`` AND has a valid query. If none of the
+    ``max_attempts + 1`` attempts qualifies, returns a ``gate_exhausted``
+    error-row dict (never ``None`` -- the cell is never silently dropped).
+    Every returned row carries ``attempt`` and ``effective_seed``.
+    """
+    if not gate:
+        cpdag, g0 = build_cpdag_and_g0(n, seed, edge_prob)
+        q = choose_query(cpdag, g0)
+        if q is None:
+            return None
+        x, y, z = q
+        row = {
+            "n": n,
+            "edge_prob": edge_prob,
+            "seed": seed,
+            "attempt": 0,
+            "effective_seed": seed,
+            "x": x,
+            "y": y,
+            "z": sorted(z),
+        }
+        row.update(graph_stats(cpdag, g0))
+        return row
+
+    for a in range(0, max_attempts + 1):
+        effective_seed = seed if a == 0 else seed + 10_000 * a
+        cpdag, g0 = build_cpdag_and_g0(n, effective_seed, edge_prob)
+        gstats = graph_stats(cpdag, g0)
+        if gstats["k_undirected"] < 1:
+            continue
+        q = choose_query(cpdag, g0)
+        if q is None:
+            continue
+        x, y, z = q
+        row = {
+            "n": n,
+            "edge_prob": edge_prob,
+            "seed": seed,
+            "attempt": a,
+            "effective_seed": effective_seed,
+            "x": x,
+            "y": y,
+            "z": sorted(z),
+        }
+        row.update(gstats)
+        return row
+
+    return {
         "n": n,
         "edge_prob": edge_prob,
         "seed": seed,
-        "x": x,
-        "y": y,
-        "z": sorted(z),
+        "attempt": max_attempts,
+        "effective_seed": None,
+        "gate_exhausted": True,
+        "error": (
+            f"gate exhausted: no attempt in 0..{max_attempts} had "
+            "k_undirected >= 1 and a valid query"
+        ),
     }
-    row.update(graph_stats(cpdag, g0))
-    return row
 
 
 def load_completed(jsonl_path: Path) -> set[str]:
@@ -424,17 +507,63 @@ def radius_agreement(row: dict[str, Any]) -> dict[str, Any]:
 
 
 def run_instance(row: dict[str, Any], cap_s: float) -> dict[str, Any]:
-    n, edge_prob, seed, x, y, z = row["n"], row["edge_prob"], row["seed"], row["x"], row["y"], row["z"]
+    # Legs are dispatched on the SAME (n, effective_seed, edge_prob) the driver
+    # used to pick this row's query, so worker subprocesses rebuild a
+    # bit-identical instance (effective_seed == seed when the gate is off, or
+    # for attempt 0 under the gate).
+    n, edge_prob, effective_seed, x, y, z = (
+        row["n"],
+        row["edge_prob"],
+        row.get("effective_seed", row["seed"]),
+        row["x"],
+        row["y"],
+        row["z"],
+    )
     legs: dict[str, Any] = {}
     for leg in LEGS:
-        legs[leg] = run_leg(leg, n, seed, edge_prob, x, y, z, cap_s)
+        legs[leg] = run_leg(leg, n, effective_seed, edge_prob, x, y, z, cap_s)
     out = dict(row)
     out["legs"] = legs
     out["radius_agreement"] = radius_agreement(out)
     return out
 
 
+_CSV_FIELDS = (
+    "n", "edge_prob", "seed", "attempt", "effective_seed",
+    "x", "y", "z_size", "k_undirected", "k_g0", "largest_component",
+    "space_build_s", "space_bfs_query_enum_s", "space_bfs_query_crit_s",
+    "space_censored", "space_error", "space_total_crit_s", "space_total_enum_s",
+    "search_frozen_s", "search_frozen_censored", "search_frozen_error",
+    "search_fast_s", "search_fast_censored", "search_fast_error",
+    "hybrid_total_s", "hybrid_censored", "hybrid_error", "hybrid_method",
+    "radius_agree",
+    "speedup_space_vs_search", "speedup_space_vs_search_lb",
+    "speedup_search_vs_hybrid", "speedup_search_vs_hybrid_lb",
+    "speedup_e2e", "speedup_e2e_lb",
+    "speedup_space_vs_search_enum", "speedup_search_vs_hybrid_enum", "speedup_e2e_enum",
+    "gate_exhausted", "gate_error",
+)
+
+
 def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
+    if row.get("gate_exhausted"):
+        # Never dropped -- recorded as an all-None error row with the same
+        # column set as a normal row, so csv.DictWriter's fieldnames (taken
+        # from row 0) are stable regardless of grid position.
+        out = {k: None for k in _CSV_FIELDS}
+        out.update(
+            {
+                "n": row["n"],
+                "edge_prob": row["edge_prob"],
+                "seed": row["seed"],
+                "attempt": row["attempt"],
+                "effective_seed": row.get("effective_seed"),
+                "gate_exhausted": True,
+                "gate_error": row.get("error"),
+            }
+        )
+        return out
+
     legs = row["legs"]
     space = legs.get("space", {})
     sf = legs.get("search_frozen", {})
@@ -461,6 +590,8 @@ def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
         "n": row["n"],
         "edge_prob": row["edge_prob"],
         "seed": row["seed"],
+        "attempt": row.get("attempt", 0),
+        "effective_seed": row.get("effective_seed", row["seed"]),
         "x": row["x"],
         "y": row["y"],
         "z_size": len(row["z"]),
@@ -483,6 +614,7 @@ def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
         "hybrid_total_s": hybrid_total_s,
         "hybrid_censored": censored(hyb),
         "hybrid_error": errored(hyb),
+        "hybrid_method": hyb.get("method") if not censored(hyb) and not errored(hyb) else None,
         "radius_agree": row["radius_agreement"]["agree"],
     }
 
@@ -509,6 +641,9 @@ def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
     out["speedup_space_vs_search_enum"] = ratio(space_total_enum, search_frozen_s)
     out["speedup_search_vs_hybrid_enum"] = ratio(search_frozen_s, hybrid_total_s)
     out["speedup_e2e_enum"] = ratio(space_total_enum, hybrid_total_s)
+
+    out["gate_exhausted"] = False
+    out["gate_error"] = None
 
     return out
 
@@ -589,6 +724,28 @@ def write_manifest(out_dir: Path, args: argparse.Namespace, total_wall_s: float,
         ),
         "command_line": " ".join(sys.argv),
         "total_wall_s": total_wall_s,
+        "gate": {
+            "enabled": bool(args.gate),
+            "description": (
+                "k>=1-gated draw of the same grid -- NOT a reproduction of "
+                "results/axisb4/hybrid_envelope.jsonl (see module docstring "
+                "and query_rule_verification.json)."
+            ),
+            "max_attempts": getattr(args, "gate_max_attempts", GATE_MAX_ATTEMPTS),
+            "rule": (
+                "For each grid cell (n, edge_prob, seed), attempt a = 0, 1, 2, ..., "
+                "max_attempts. Attempt 0 uses effective_seed = seed (dense_instance(n, "
+                "seed, edge_prob), so any cell that already passes keeps its prior "
+                "instance). Attempt a >= 1 uses effective_seed = seed + 10_000 * a "
+                "(no other source of randomness; no global RNG is touched). Accept the "
+                "first attempt where the CPDAG has k_undirected >= 1 AND choose_query() "
+                "finds a query (first sorted-permutation (x, y) with a non-empty, valid "
+                "optimal adjustment set). If no attempt in 0..max_attempts qualifies, the "
+                "cell is recorded as a gate_exhausted error row -- never silently dropped. "
+                "Worker subprocesses rebuild the instance from (n, effective_seed, "
+                "edge_prob), so they are bit-identical to the driver's choice."
+            ),
+        },
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2, default=str) + "\n")
 
@@ -642,6 +799,23 @@ def main() -> None:
     p.add_argument("--worker", default=None, choices=list(_WORKERS.keys()), help=argparse.SUPPRESS)
     p.add_argument("--worker-payload", default=None, help=argparse.SUPPRESS)
     p.add_argument("--skip-verify", action="store_true", help="skip the (slow) envelope verification pass")
+    p.add_argument(
+        "--gate",
+        action="store_true",
+        help=(
+            "enable the deterministic k>=1 resample gate (see module docstring). "
+            "Default OFF, so the committed ungated run in results/e2e_speedup "
+            "stays reproducible with its recorded command line. This is a "
+            "k>=1-gated draw of the SAME grid, NOT a reproduction of "
+            "results/axisb4/hybrid_envelope.jsonl."
+        ),
+    )
+    p.add_argument(
+        "--gate-max-attempts",
+        type=int,
+        default=GATE_MAX_ATTEMPTS,
+        help="max resample attempts per cell under --gate (attempts 0..N inclusive)",
+    )
     args = p.parse_args()
 
     if args.worker is not None:
@@ -670,16 +844,30 @@ def main() -> None:
 
     mode = "a" if (args.resume and jsonl_path.exists()) else "w"
     n_skipped_degenerate = 0
+    n_gate_exhausted = 0
     n_written = 0
     with jsonl_path.open(mode) as jf:
         for i, (n, ep, seed) in enumerate(grid):
             key = instance_key(n, ep, seed)
             if key in already:
                 continue
-            row = build_instance_row(n, ep, seed)
+            row = build_instance_row(n, ep, seed, gate=args.gate, max_attempts=args.gate_max_attempts)
             if row is None:
+                # Only reachable with --gate unset (old, ungated skip behaviour).
                 n_skipped_degenerate += 1
                 print(f"[e2e_speedup] ({i+1}/{len(grid)}) {key}: no valid query found, skipping", flush=True)
+                continue
+            if row.get("gate_exhausted"):
+                # Never silently dropped -- recorded as an error row with no legs run.
+                jf.write(json.dumps({**row, "legs": {}, "radius_agreement": {"values": {}, "agree": None, "n_legs_completed": 0}}, default=str) + "\n")
+                jf.flush()
+                n_written += 1
+                n_gate_exhausted += 1
+                print(
+                    f"[e2e_speedup] ({i+1}/{len(grid)}) {key}: GATE EXHAUSTED after "
+                    f"{args.gate_max_attempts + 1} attempts, recorded as error row",
+                    flush=True,
+                )
                 continue
             t_inst0 = time.perf_counter()
             result = run_instance(row, args.cap_s)
@@ -689,7 +877,8 @@ def main() -> None:
             n_written += 1
             agree = result["radius_agreement"]["agree"]
             print(
-                f"[e2e_speedup] ({i+1}/{len(grid)}) {key} x={row['x']} y={row['y']} "
+                f"[e2e_speedup] ({i+1}/{len(grid)}) {key} attempt={row.get('attempt', 0)} "
+                f"eff_seed={row.get('effective_seed', seed)} x={row['x']} y={row['y']} "
                 f"|z|={len(row['z'])} k_g0={row['k_g0']} k_und={row['k_undirected']} "
                 f"agree={agree} took={t_inst:.1f}s",
                 flush=True,
@@ -712,12 +901,12 @@ def main() -> None:
 
     total_wall_s = time.perf_counter() - wall0
     write_manifest(out_dir, args, total_wall_s, len(all_rows))
-    write_summary(out_dir, all_rows, csv_rows, verification, n_skipped_degenerate)
+    write_summary(out_dir, all_rows, csv_rows, verification, n_skipped_degenerate, args.gate, args.gate_max_attempts)
 
     print(
         f"[e2e_speedup] done: {n_written} instances written this run, "
         f"{len(all_rows)} total rows, {n_skipped_degenerate} degenerate skips, "
-        f"{total_wall_s:.1f}s wall",
+        f"{n_gate_exhausted} gate-exhausted error rows, {total_wall_s:.1f}s wall",
         flush=True,
     )
 
@@ -735,9 +924,21 @@ def write_summary(
     csv_rows: list[dict[str, Any]],
     verification: dict[str, Any] | None,
     n_skipped_degenerate: int,
+    gate_enabled: bool = False,
+    gate_max_attempts: int = GATE_MAX_ATTEMPTS,
 ) -> None:
+    gate_exhausted_rows = [r for r in csv_rows if r.get("gate_exhausted")]
+    ok_rows = [r for r in csv_rows if not r.get("gate_exhausted")]
+
+    attempts_histogram: dict[str, int] = {}
+    for r in ok_rows:
+        a = r.get("attempt")
+        if a is None:
+            continue
+        attempts_histogram[str(a)] = attempts_histogram.get(str(a), 0) + 1
+
     by_k: dict[int, list[dict[str, Any]]] = {}
-    for r in csv_rows:
+    for r in ok_rows:
         by_k.setdefault(r["k_undirected"], []).append(r)
 
     per_k = {}
@@ -782,22 +983,35 @@ def write_summary(
             ),
         }
 
-    n_agree = sum(1 for r in all_rows if r["radius_agreement"]["agree"])
-    n_disagree = len(all_rows) - n_agree
+    # Radius agreement is only meaningful for rows that ran legs; gate_exhausted
+    # rows carry agree=None (vacuous) and are excluded here, not counted as
+    # disagreements.
+    agreement_rows = [r for r in all_rows if r["radius_agreement"]["agree"] is not None]
+    n_agree = sum(1 for r in agreement_rows if r["radius_agreement"]["agree"])
+    n_disagree = len(agreement_rows) - n_agree
     disagreements = [
         {"n": r["n"], "edge_prob": r["edge_prob"], "seed": r["seed"], "values": r["radius_agreement"]["values"]}
-        for r in all_rows
+        for r in agreement_rows
         if not r["radius_agreement"]["agree"]
     ]
 
     summary = {
         "n_rows": len(all_rows),
         "n_skipped_degenerate": n_skipped_degenerate,
+        "gate": {
+            "enabled": bool(gate_enabled),
+            "max_attempts": gate_max_attempts,
+            "description": "k>=1-gated draw of the same grid -- NOT the session-4 envelope",
+            "n_cells_gate_exhausted": len(gate_exhausted_rows),
+            "n_cells_resolved": len(ok_rows),
+            "attempts_histogram": dict(sorted(attempts_histogram.items(), key=lambda kv: int(kv[0]))),
+            "n_cells_needing_resample": sum(v for a, v in attempts_histogram.items() if a != "0"),
+        },
         "per_k_undirected": per_k,
         "overall": {
-            "median_speedup_space_vs_search": _median([r["speedup_space_vs_search"] for r in csv_rows]),
-            "median_speedup_search_vs_hybrid": _median([r["speedup_search_vs_hybrid"] for r in csv_rows]),
-            "median_speedup_e2e": _median([r["speedup_e2e"] for r in csv_rows]),
+            "median_speedup_space_vs_search": _median([r["speedup_space_vs_search"] for r in ok_rows]),
+            "median_speedup_search_vs_hybrid": _median([r["speedup_search_vs_hybrid"] for r in ok_rows]),
+            "median_speedup_e2e": _median([r["speedup_e2e"] for r in ok_rows]),
         },
         "radius_agreement": {
             "n_agree": n_agree,

@@ -83,3 +83,10 @@ Hybrid overall: median 0.0012 s, max 44.4 s.
 1. Session-4 envelope driver, if a copy exists, to run on the cited instances.
 2. Dispatch fix in `exact_fast.py` + re-run of the hybrid leg only.
 3. Figure script for the Sec. 5.3 figure (data: `e2e_speedup.csv`).
+
+> **Superseded (2026-09-23):** the dispatch defect in finding 2 is fixed; see
+> `results/e2e_speedup_gated/FINDINGS.md`. This directory is kept as the before-fix record.
+> **Correction to finding 2:** re-checking these instances with the fix showed the
+> defect caused 26 of the 109 ladder dispatches (all k = 3), not 105. The other
+> ladder dispatches were genuine budget hits that were merely slower than the
+> unbounded search, so the k = 4–5 dip is a budget-choice effect, not the defect.
