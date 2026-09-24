@@ -12,14 +12,23 @@ profiling explained it:
 * When a failure is near, upward BFS finds it in one expansion. It is
   unbeatable there, and the SAT encoding must still build an ``O(n^4)``-clause
   model before it can say anything -- roughly 37x slower.
-* When there is no failure anywhere, upward BFS must exhaust the entire up-set.
-  It timed out on 26 of 49 such instances at a 60 s cap, while E1 answered all
-  of them, the worst in 8.7 s.
+* When there is no failure anywhere, upward BFS used to have to exhaust the
+  entire up-set to prove it -- it timed out on 26 of 49 such instances at a
+  60 s cap, while E1 answered all of them, the worst in 8.7 s. The top-state
+  check below now answers this case in one oracle call, so the ladder is
+  needed only for instances with a finite radius that lands beyond the search
+  budget.
 
 The discriminator -- has a failure been found yet -- is free at runtime. So the
-dispatch is: run the search under a small depth budget; if it finds a failure,
-that is the answer. If it exhausts the budget without one, hand the instance to
-the E1 ladder, whose UNSAT rungs certify the clean shells directly.
+dispatch is: first check the top of the order, the CPDAG itself. Failure is
+upward-closed and ``Ĉ`` is the maximum element, so ``r = inf`` iff ``Z`` is
+valid in ``Ĉ`` -- a single oracle call answers the "no failure anywhere" case
+outright, with no search and no assumption beyond upward-closure. Only when
+``Z`` fails in ``Ĉ`` is a finite radius possible, and only then does the rest
+of the dispatch run: the bounded search under a small depth budget; if it
+finds a failure, that is the answer. If it exhausts the budget without one,
+hand the instance to the E1 ladder, whose UNSAT rungs certify the clean shells
+directly.
 
 **Two accelerations, both applied by default and both differentially tested.**
 
@@ -34,7 +43,10 @@ are exact *iff Conjecture 2 holds*. Conjecture 2 rests on Anti-Exchange Case B,
 which is now proved via the counting form of the Chickering--Meek theorem
 (``THEOREMS.md`` section 4), so both methods are exact. Every result carries
 this in :attr:`HybridResult.assumes`; do not drop it when the number is copied
-into a table.
+into a table. The one exception is ``method="top_state"``: it is a single
+oracle call at ``Ĉ``, not a search, so it needs no completeness assumption
+from either leg -- its correctness is upward-closure plus ``Ĉ`` being the
+maximum of the order, full stop.
 """
 
 from __future__ import annotations
@@ -68,15 +80,20 @@ class HybridResult:
         radius: The exact radius, or :data:`~bkrobust.core.conventions.UNREACHED`
             when no reachable perturbation makes ``Z`` invalid. ``UNREACHED`` is
             a sentinel, not a number: never average or plot it numerically.
-        method: ``"local_up_fast"`` when the bounded search found the failure,
-            ``"e1_ladder"`` when the search exhausted its budget and the
-            encoding answered, ``"degenerate"`` when ``Z`` already fails at
-            ``G0``.
+        method: ``"top_state"`` when ``Z`` is valid in the CPDAG itself, so no
+            search was needed (see the module docstring); ``"local_up_fast"``
+            when the bounded search found the failure, ``"e1_ladder"`` when
+            the search exhausted its budget and the encoding answered,
+            ``"degenerate"`` when ``Z`` already fails at ``G0``.
         oracle: ``"mpdag_criterion"`` or ``"enumeration"``.
         exact: False only if the ladder timed out; the radius is then not a
             completed search.
         assumes: The assumption chain the answer inherits.
         witness: A nearest failing graph as an edge string, when one was found.
+        top_seconds: Time in the top-state check (the single ``fails(cpdag)``
+            call). Measured on every call, not only when it is the answer, so
+            ``total_seconds`` never under-reports a ``method="top_state"``
+            result as free.
         search_seconds: Time in the bounded upward search.
         ladder_seconds: Time in the E1 ladder, 0.0 if it was not needed.
         stats: Cost counters from the search leg.
@@ -88,14 +105,15 @@ class HybridResult:
     exact: bool = True
     assumes: str = "Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4)"
     witness: str | None = None
+    top_seconds: float = 0.0
     search_seconds: float = 0.0
     ladder_seconds: float = 0.0
     stats: SearchStats = field(default_factory=SearchStats)
 
     @property
     def total_seconds(self) -> float:
-        """Search plus ladder."""
-        return self.search_seconds + self.ladder_seconds
+        """Top-state check, plus search, plus ladder."""
+        return self.top_seconds + self.search_seconds + self.ladder_seconds
 
 
 def breakdown_radius(
@@ -153,6 +171,34 @@ def breakdown_radius(
 
         oracle = "enumeration"
 
+    # Top-state check. Failure is upward-closed and the CPDAG Ĉ is the maximum
+    # element of the order, so r = inf iff Z is valid in Ĉ: one oracle call at
+    # the top settles the "no failure anywhere" case outright, before paying
+    # for any search. This does not depend on Conjecture 2 -- it is upward-
+    # closure plus Ĉ being the top, nothing about search completeness -- so it
+    # gets its own, narrower assumes string. The r = 0 degenerate case (Z
+    # already invalid at G0) is unaffected: by the same upward-closure, if
+    # fails(g0) holds then fails(cpdag) holds too, so this check never fires
+    # for it and the search below still reports it as usual.
+    # Timed unconditionally, on every call -- including when it does not
+    # settle the answer -- so total_seconds never omits it: a method="top_state"
+    # result is not free, and a call that falls through to search still paid
+    # for this check first.
+    t0 = time.perf_counter()
+    top_valid = not fails(cpdag)
+    top_s = time.perf_counter() - t0
+
+    if top_valid:
+        return HybridResult(
+            radius=UNREACHED,
+            method="top_state",
+            oracle=oracle,
+            exact=True,
+            assumes="upward-closure of failure and Ĉ as the maximum of the order "
+            "(no search-completeness assumption; independent of Conjecture 2)",
+            top_seconds=top_s,
+        )
+
     stats = SearchStats()
     t0 = time.perf_counter()
     found = radius_local_up_fast(cpdag, g0, fails, max_depth=search_budget, stats=stats)
@@ -166,6 +212,7 @@ def breakdown_radius(
             oracle=oracle,
             exact=True,
             witness=found.witness,
+            top_seconds=top_s,
             search_seconds=search_s,
             stats=stats,
         )
@@ -178,6 +225,7 @@ def breakdown_radius(
             method="local_up_fast",
             oracle=oracle,
             exact=True,
+            top_seconds=top_s,
             search_seconds=search_s,
             stats=stats,
         )
@@ -191,6 +239,7 @@ def breakdown_radius(
         oracle=oracle,
         exact=lad.exact,
         witness=(lad.witness_orientations and str(lad.witness_orientations)) or None,
+        top_seconds=top_s,
         search_seconds=search_s,
         ladder_seconds=ladder_s,
         stats=stats,

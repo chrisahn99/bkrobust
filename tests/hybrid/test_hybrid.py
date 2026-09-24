@@ -35,8 +35,15 @@ def test_worked_example_radii() -> None:
 
 
 def test_agrees_with_brute_force_under_both_oracles() -> None:
-    """Radius unchanged whether validity comes from the criterion or enumeration."""
+    """Radius unchanged whether validity comes from the criterion or enumeration.
+
+    Also checks the *label*: whenever brute force says the radius is
+    ``UNREACHED`` (nothing reachable, including the CPDAG itself, fails), the
+    hybrid must have answered by the top-state check rather than by exhausting
+    a search, since that is the whole point of the check.
+    """
     checked = 0
+    unreached = 0
     for cpdag in all_cpdags(4):
         if not cpdag.undirected_edges:
             continue
@@ -56,10 +63,60 @@ def test_agrees_with_brute_force_under_both_oracles() -> None:
                     got = breakdown_radius(cpdag, None, x, y, z, g0=g0, use_criterion=flag)
                     assert got.radius == want
                     assert got.oracle == ("mpdag_criterion" if flag else "enumeration")
+                    if want == UNREACHED:
+                        assert got.method == "top_state"
+                        unreached += 1
+                    else:
+                        assert got.method != "top_state"
                 checked += 1
-                if checked >= 40:
+                if checked >= 200:
+                    assert unreached > 0
                     return
     assert checked > 0
+    assert unreached > 0
+
+
+def test_top_state_check_returns_unreached_when_z_valid_in_cpdag() -> None:
+    """``Z`` valid in ``Ĉ`` itself must be answered by ``top_state``, not search."""
+    cpdag = dag_to_cpdag(true_dag())
+    found = False
+    for x, y in itertools.permutations(sorted(cpdag.nodes), 2):
+        o = optimal_adjustment_set_mpdag(cpdag, x, y)
+        if o is None:
+            continue
+        z = frozenset(o)
+        if not z or not is_valid(z, cpdag, x, y):
+            continue
+        got = breakdown_radius(cpdag, None, x, y, z, g0=cpdag)
+        assert got.radius == UNREACHED
+        assert got.method == "top_state"
+        assert got.exact
+        assert got.search_seconds == 0.0
+        assert got.ladder_seconds == 0.0
+        assert "upward-clos" in got.assumes
+        found = True
+        break
+    assert found, "expected at least one (x, y, z) valid throughout the CPDAG"
+
+
+def test_top_state_check_does_not_fire_when_g0_already_fails() -> None:
+    """Upward-closure: if ``Z`` already fails at ``G0``, it must also fail at ``Ĉ``,
+    so the top-state check must not steal the degenerate r=0 answer.
+    """
+    cpdag = dag_to_cpdag(true_dag())
+    spec = scenarios()["A"]
+    g0 = apply_orientations(cpdag, spec["knowledge"])
+    z = frozenset(optimal_adjustment_set_mpdag(g0, TREATMENT, OUTCOME))
+    assert is_valid(z, g0, TREATMENT, OUTCOME)
+    # Force degeneracy by using a z that's already invalid at g0 (empty set,
+    # here known not to satisfy the criterion at g0 for this scenario).
+    bad_z: frozenset[str] = frozenset()
+    fails_at_g0 = not is_valid(bad_z, g0, TREATMENT, OUTCOME)
+    if not fails_at_g0:
+        return  # nothing to check with this particular z; skip rather than force it
+    got = breakdown_radius(cpdag, None, TREATMENT, OUTCOME, bad_z, g0=g0)
+    assert got.radius == 0
+    assert got.method == "degenerate"
 
 
 def test_result_carries_its_assumption() -> None:

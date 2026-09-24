@@ -107,7 +107,7 @@ EDGE_PROB_GRID: tuple[float, ...] = (0.3, 0.5, 0.7, 0.85)
 SEED_GRID: tuple[int, ...] = tuple(range(8))
 
 CAP_S = 120.0
-LEGS = ("space", "search_frozen", "search_fast", "hybrid")
+LEGS = ("space", "search_frozen", "search_fast", "search_fast_top", "hybrid")
 GATE_MAX_ATTEMPTS = 100  # attempts 0..GATE_MAX_ATTEMPTS inclusive
 
 
@@ -298,6 +298,51 @@ def _worker_search_fast(n: int, seed: int, edge_prob: float, x: str, y: str, z: 
     }
 
 
+def _worker_search_fast_top(n: int, seed: int, edge_prob: float, x: str, y: str, z: list[str]) -> dict[str, Any]:
+    """``search_fast``, but with the hybrid's top-state check prepended.
+
+    Isolates what the top-state check buys the search leg alone, independent of
+    the E1 ladder: one criterion call at the CPDAG before paying for any search,
+    exactly the check :func:`bkrobust.hybrid.breakdown_radius` now runs first.
+    """
+    from bkrobust.core.conventions import UNREACHED
+    from bkrobust.mpdag_criterion.criterion import clear_cache as crit_clear_cache
+    from bkrobust.mpdag_criterion.criterion import is_valid_mpdag
+    from bkrobust.search.exact import SearchStats
+    from bkrobust.search.exact_fast import radius_local_up_fast
+
+    cpdag, g0 = build_cpdag_and_g0(n, seed, edge_prob)
+    zf = frozenset(z)
+
+    def fails_crit(g):
+        return not is_valid_mpdag(g, x, y, zf)
+
+    crit_clear_cache()
+    t0 = time.perf_counter()
+    top_valid = not fails_crit(cpdag)
+    top_s = time.perf_counter() - t0
+    if top_valid:
+        return {
+            "search_s": top_s,
+            "radius": UNREACHED,
+            "exact": True,
+            "method": "top_state",
+        }
+
+    st = SearchStats()
+    t0 = time.perf_counter()
+    res = radius_local_up_fast(cpdag, g0, fails_crit, stats=st)
+    search_s = top_s + (time.perf_counter() - t0)
+
+    return {
+        "search_s": search_s,
+        "radius": res.radius,
+        "exact": res.exact,
+        "method": res.method,
+        **st.as_dict(),
+    }
+
+
 def _worker_hybrid(n: int, seed: int, edge_prob: float, x: str, y: str, z: list[str]) -> dict[str, Any]:
     from bkrobust.mpdag_criterion.criterion import clear_cache as crit_clear_cache
     from bkrobust.hybrid import breakdown_radius
@@ -313,6 +358,7 @@ def _worker_hybrid(n: int, seed: int, edge_prob: float, x: str, y: str, z: list[
         "method": res.method,
         "oracle": res.oracle,
         "exact": res.exact,
+        "top_seconds": res.top_seconds,
         "search_seconds": res.search_seconds,
         "ladder_seconds": res.ladder_seconds,
         "total_seconds": res.total_seconds,
@@ -323,6 +369,7 @@ _WORKERS = {
     "space": _worker_space,
     "search_frozen": _worker_search_frozen,
     "search_fast": _worker_search_fast,
+    "search_fast_top": _worker_search_fast_top,
     "hybrid": _worker_hybrid,
 }
 
@@ -494,6 +541,9 @@ def radius_agreement(row: dict[str, Any]) -> dict[str, Any]:
     sfast = row["legs"].get("search_fast", {})
     if "radius" in sfast:
         candidates["search_fast"] = sfast["radius"]
+    sfast_top = row["legs"].get("search_fast_top", {})
+    if "radius" in sfast_top:
+        candidates["search_fast_top"] = sfast_top["radius"]
     hyb = row["legs"].get("hybrid", {})
     if "radius" in hyb:
         candidates["hybrid"] = hyb["radius"]
@@ -506,7 +556,35 @@ def radius_agreement(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def run_instance(row: dict[str, Any], cap_s: float) -> dict[str, Any]:
+def load_space_reuse(path: Path) -> dict[tuple[int, float, int], dict[str, Any]]:
+    """Index a prior run's jsonl by ``(n, edge_prob, seed)`` for space-leg reuse.
+
+    Keyed on ``seed`` (the grid cell), not ``effective_seed``, since that is
+    what callers have on hand before an instance is built; the gate is
+    deterministic (unaffected by any change under test here, which lives
+    entirely in ``bkrobust.hybrid``/``bkrobust.search.exact_fast``), so a run
+    over the same grid with ``--gate`` reproduces the same ``effective_seed``
+    per cell and it is safe to key this way.
+    """
+    out: dict[tuple[int, float, int], dict[str, Any]] = {}
+    with path.open() as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            r = json.loads(line)
+            key = (r["n"], r["edge_prob"], r["seed"])
+            space = r.get("legs", {}).get("space")
+            if space is not None:
+                out[key] = space
+    return out
+
+
+def run_instance(
+    row: dict[str, Any],
+    cap_s: float,
+    space_reuse: dict[tuple[int, float, int], dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     # Legs are dispatched on the SAME (n, effective_seed, edge_prob) the driver
     # used to pick this row's query, so worker subprocesses rebuild a
     # bit-identical instance (effective_seed == seed when the gate is off, or
@@ -521,6 +599,14 @@ def run_instance(row: dict[str, Any], cap_s: float) -> dict[str, Any]:
     )
     legs: dict[str, Any] = {}
     for leg in LEGS:
+        if leg == "space" and space_reuse is not None:
+            key = (row["n"], row["edge_prob"], row["seed"])
+            reused = space_reuse.get(key)
+            if reused is None:
+                legs[leg] = {"error": f"no reference space leg for key {key}"}
+            else:
+                legs[leg] = dict(reused, reused_from_reference=True)
+            continue
         legs[leg] = run_leg(leg, n, effective_seed, edge_prob, x, y, z, cap_s)
     out = dict(row)
     out["legs"] = legs
@@ -535,12 +621,15 @@ _CSV_FIELDS = (
     "space_censored", "space_error", "space_total_crit_s", "space_total_enum_s",
     "search_frozen_s", "search_frozen_censored", "search_frozen_error",
     "search_fast_s", "search_fast_censored", "search_fast_error",
+    "search_fast_top_s", "search_fast_top_censored", "search_fast_top_error",
+    "search_fast_top_method",
     "hybrid_total_s", "hybrid_censored", "hybrid_error", "hybrid_method",
     "radius_agree",
     "speedup_space_vs_search", "speedup_space_vs_search_lb",
     "speedup_search_vs_hybrid", "speedup_search_vs_hybrid_lb",
     "speedup_e2e", "speedup_e2e_lb",
     "speedup_space_vs_search_enum", "speedup_search_vs_hybrid_enum", "speedup_e2e_enum",
+    "speedup_space_vs_search_top", "speedup_search_top_vs_hybrid",
     "gate_exhausted", "gate_error",
 )
 
@@ -568,6 +657,7 @@ def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
     space = legs.get("space", {})
     sf = legs.get("search_frozen", {})
     sfast = legs.get("search_fast", {})
+    sfast_top = legs.get("search_fast_top", {})
     hyb = legs.get("hybrid", {})
 
     def censored(leg: dict[str, Any]) -> bool:
@@ -584,6 +674,9 @@ def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
 
     search_frozen_s = sf.get("search_s") if not censored(sf) and not errored(sf) else None
     search_fast_s = sfast.get("search_s") if not censored(sfast) and not errored(sfast) else None
+    search_fast_top_s = (
+        sfast_top.get("search_s") if not censored(sfast_top) and not errored(sfast_top) else None
+    )
     hybrid_total_s = hyb.get("total_seconds") if not censored(hyb) and not errored(hyb) else None
 
     out: dict[str, Any] = {
@@ -611,6 +704,12 @@ def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
         "search_fast_s": search_fast_s,
         "search_fast_censored": censored(sfast),
         "search_fast_error": errored(sfast),
+        "search_fast_top_s": search_fast_top_s,
+        "search_fast_top_censored": censored(sfast_top),
+        "search_fast_top_error": errored(sfast_top),
+        "search_fast_top_method": (
+            sfast_top.get("method") if not censored(sfast_top) and not errored(sfast_top) else None
+        ),
         "hybrid_total_s": hybrid_total_s,
         "hybrid_censored": censored(hyb),
         "hybrid_error": errored(hyb),
@@ -641,6 +740,9 @@ def flatten_csv_row(row: dict[str, Any]) -> dict[str, Any]:
     out["speedup_space_vs_search_enum"] = ratio(space_total_enum, search_frozen_s)
     out["speedup_search_vs_hybrid_enum"] = ratio(search_frozen_s, hybrid_total_s)
     out["speedup_e2e_enum"] = ratio(space_total_enum, hybrid_total_s)
+
+    out["speedup_space_vs_search_top"] = ratio(space_total_crit, search_fast_top_s)
+    out["speedup_search_top_vs_hybrid"] = ratio(search_fast_top_s, hybrid_total_s)
 
     out["gate_exhausted"] = False
     out["gate_error"] = None
@@ -696,8 +798,15 @@ def write_manifest(out_dir: Path, args: argparse.Namespace, total_wall_s: float,
             "space_leg": "both enumeration (bkrobust.core.oracle.is_valid) and criterion (bkrobust.mpdag_criterion.criterion.is_valid_mpdag), same BFS distances reused for both",
             "search_frozen": "enumeration oracle, bkrobust.search.exact.radius_local_up, unbounded",
             "search_fast": "criterion oracle, bkrobust.search.exact_fast.radius_local_up_fast, unbounded (no max_depth)",
-            "hybrid": "bkrobust.hybrid.breakdown_radius defaults: criterion oracle, search_budget=3",
+            "search_fast_top": (
+                "criterion oracle; the hybrid's top-state check (is Z valid in the CPDAG?) "
+                "run first, then bkrobust.search.exact_fast.radius_local_up_fast, unbounded, "
+                "only if the check does not already resolve it -- isolates what the check "
+                "buys the search leg alone, independent of the E1 ladder"
+            ),
+            "hybrid": "bkrobust.hybrid.breakdown_radius defaults: criterion oracle, search_budget=3, now with the top-state check",
         },
+        "space_leg_reused_from": getattr(args, "reuse_space_from", None),
         "subprocess_timing_discipline": (
             "Every leg for every instance runs in its own fresh Python subprocess "
             "(PYTHONPATH=src), timed inside the child with time.perf_counter() "
@@ -816,6 +925,17 @@ def main() -> None:
         default=GATE_MAX_ATTEMPTS,
         help="max resample attempts per cell under --gate (attempts 0..N inclusive)",
     )
+    p.add_argument(
+        "--reuse-space-from",
+        default=None,
+        help=(
+            "path to a prior run's e2e_speedup.jsonl; when given, the space leg is "
+            "NOT re-run -- its build/BFS timings are looked up by (n, edge_prob, seed) "
+            "from that file instead. Requires the referenced run to have been over the "
+            "same grid under the same --gate setting, since instance/query selection is "
+            "unaffected by anything under test here and is therefore bit-identical."
+        ),
+    )
     args = p.parse_args()
 
     if args.worker is not None:
@@ -828,6 +948,15 @@ def main() -> None:
     csv_path = out_dir / "e2e_speedup.csv"
 
     already = load_completed(jsonl_path) if args.resume else set()
+
+    space_reuse = None
+    if args.reuse_space_from:
+        space_reuse = load_space_reuse(Path(args.reuse_space_from))
+        print(
+            f"[e2e_speedup] reusing space leg from {args.reuse_space_from} "
+            f"({len(space_reuse)} instances indexed)",
+            flush=True,
+        )
 
     grid = instance_grid()
     if args.limit is not None:
@@ -870,7 +999,7 @@ def main() -> None:
                 )
                 continue
             t_inst0 = time.perf_counter()
-            result = run_instance(row, args.cap_s)
+            result = run_instance(row, args.cap_s, space_reuse=space_reuse)
             t_inst = time.perf_counter() - t_inst0
             jf.write(json.dumps(result, default=str) + "\n")
             jf.flush()
@@ -947,6 +1076,9 @@ def write_summary(
         space_censored = [r for r in rs if r["space_censored"]]
         sf_completed = [r for r in rs if not r["search_frozen_censored"] and not r["search_frozen_error"]]
         sfast_completed = [r for r in rs if not r["search_fast_censored"] and not r["search_fast_error"]]
+        sfast_top_completed = [
+            r for r in rs if not r["search_fast_top_censored"] and not r["search_fast_top_error"]
+        ]
         hyb_completed = [r for r in rs if not r["hybrid_censored"] and not r["hybrid_error"]]
 
         per_k[str(k)] = {
@@ -966,14 +1098,23 @@ def write_summary(
                 "n_censored": sum(1 for r in rs if r["search_fast_censored"]),
                 "median_s": _median([r["search_fast_s"] for r in sfast_completed]),
             },
+            "search_fast_top": {
+                "n_completed": len(sfast_top_completed),
+                "n_censored": sum(1 for r in rs if r["search_fast_top_censored"]),
+                "median_s": _median([r["search_fast_top_s"] for r in sfast_top_completed]),
+                "n_top_state": sum(1 for r in rs if r.get("search_fast_top_method") == "top_state"),
+            },
             "hybrid": {
                 "n_completed": len(hyb_completed),
                 "n_censored": sum(1 for r in rs if r["hybrid_censored"]),
                 "median_s": _median([r["hybrid_total_s"] for r in hyb_completed]),
+                "n_top_state": sum(1 for r in rs if r.get("hybrid_method") == "top_state"),
             },
             "median_speedup_space_vs_search": _median([r["speedup_space_vs_search"] for r in rs]),
             "median_speedup_search_vs_hybrid": _median([r["speedup_search_vs_hybrid"] for r in rs]),
             "median_speedup_e2e": _median([r["speedup_e2e"] for r in rs]),
+            "median_speedup_space_vs_search_top": _median([r["speedup_space_vs_search_top"] for r in rs]),
+            "median_speedup_search_top_vs_hybrid": _median([r["speedup_search_top_vs_hybrid"] for r in rs]),
             "n_lower_bound_rows": sum(
                 1
                 for r in rs
@@ -1012,6 +1153,20 @@ def write_summary(
             "median_speedup_space_vs_search": _median([r["speedup_space_vs_search"] for r in ok_rows]),
             "median_speedup_search_vs_hybrid": _median([r["speedup_search_vs_hybrid"] for r in ok_rows]),
             "median_speedup_e2e": _median([r["speedup_e2e"] for r in ok_rows]),
+            "median_speedup_space_vs_search_top": _median(
+                [r["speedup_space_vs_search_top"] for r in ok_rows]
+            ),
+            "median_speedup_search_top_vs_hybrid": _median(
+                [r["speedup_search_top_vs_hybrid"] for r in ok_rows]
+            ),
+            "max_hybrid_total_s": max(
+                (r["hybrid_total_s"] for r in ok_rows if r["hybrid_total_s"] is not None), default=None
+            ),
+            "n_hybrid_top_state": sum(1 for r in ok_rows if r.get("hybrid_method") == "top_state"),
+            "n_search_fast_top_top_state": sum(
+                1 for r in ok_rows if r.get("search_fast_top_method") == "top_state"
+            ),
+            "n_hybrid_e1_ladder": sum(1 for r in ok_rows if r.get("hybrid_method") == "e1_ladder"),
         },
         "radius_agreement": {
             "n_agree": n_agree,
