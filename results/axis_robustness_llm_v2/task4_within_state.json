@@ -1,0 +1,43 @@
+{
+  "n_states_total": 161,
+  "n_states_with_radius_variation": 92,
+  "n_k_constant_within_every_varying_state": true,
+  "k_g0_constant_within_every_varying_state": true,
+  "radius": {
+    "tau_b": 0.4191447599843434,
+    "C": 14918,
+    "D": 3797,
+    "Tx": 16070,
+    "Ty": 1523,
+    "n_states_used": 92,
+    "n_states_total": 92,
+    "ci_lo_2p5": 0.05496887195304333,
+    "ci_hi_97p5": 0.6788482254279423,
+    "n_boot_nan": 0,
+    "n_units": 1973,
+    "n_networks": 18
+  },
+  "separation_same_states": {
+    "tau_b": 0.49135433991804134,
+    "C": 7696,
+    "D": 1306,
+    "Tx": 8952,
+    "Ty": 418,
+    "n_states_used": 70,
+    "n_states_total": 79,
+    "ci_lo_2p5": -0.13507004967582517,
+    "ci_hi_97p5": 0.5979692923428795,
+    "n_boot_nan": 5,
+    "n_units": 1213,
+    "n_networks": 15,
+    "n_states_with_separation_variation": 39
+  },
+  "paper_reference": {
+    "tau_b": 0.42,
+    "ci_lo": 0.05,
+    "ci_hi": 0.68,
+    "n_states": 92,
+    "n_units": 1973,
+    "n_networks": 18
+  }
+}

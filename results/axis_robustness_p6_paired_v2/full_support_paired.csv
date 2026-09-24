@@ -1,0 +1,37 @@
+stratum,arm,predictor_a,predictor_b,endpoint,status,stratum_n,n,n_excluded,n_clusters,tau_a_point,tau_b_point,delta_point,ci_lo_2p5,ci_hi_97p5,frac_delta_gt_0,n_boot,seed,degeneracy_note
+flip_cov0.5_bw0.0,flip,r_val,shd_truth,AUC_frac,ok,321,321,0,321,0.9013771906111986,0.155781998574537,0.7455951920366616,0.6483246409683098,0.8444658757647711,1.0,10000,0,
+flip_cov0.5_bw0.0,flip,r_val,n_k,AUC_frac,ok,321,321,0,321,0.9013771906111986,0.8079144161374853,0.09346277447371332,0.05194443109966005,0.14113735381367512,1.0,10000,0,
+flip_cov0.5_bw0.0,flip,r_val,k_g0,AUC_frac,ok,321,321,0,321,0.9013771906111986,0.5862447960163122,0.3151323945948864,0.2446619235120321,0.39159134709780485,1.0,10000,0,"k_g0 is definitionally shd_cpdag, but differs from n_k here."
+flip_cov0.5_bw0.0,flip,r_val,separation,AUC_frac,ok,321,321,0,321,0.9013771906111986,0.4569813326089149,0.4443958580022837,0.38051813935117973,0.5106245640639477,1.0,10000,0,
+flip_cov0.5_bw0.0,flip,r_val,neg_phi_1,AUC_frac,ok,321,321,0,321,0.9013771906111986,0.3280959653491924,0.5732812252620062,0.4915540800305797,0.6724802467968362,1.0,10000,0,
+flip_cov0.5_bw0.0,flip,r_val,r_claim,AUC_frac,ok,321,92,229,92,0.9245013740614658,0.9245013740614658,0.0,0.0,0.0,0.0,10000,0,"r_val == r_claim on every uncensored row; a zero delta is an identity. 229 of 321 rows right-censored and dropped, not imputed."
+flip_cov0.5_bw0.1,flip,r_val,shd_truth,AUC_frac,ok,250,250,0,250,0.8918308636112482,0.0331287491590239,0.8587021144522243,0.7482370534393575,0.964842954693756,1.0,10000,0,
+flip_cov0.5_bw0.1,flip,r_val,n_k,AUC_frac,ok,250,250,0,250,0.8918308636112482,0.7728939042081908,0.11893695940305737,0.05709536284160845,0.1883030526164979,1.0,10000,0,
+flip_cov0.5_bw0.1,flip,r_val,k_g0,AUC_frac,ok,250,250,0,250,0.8918308636112482,0.5514917746700781,0.34033908894117004,0.23977484274736827,0.45018169736433505,1.0,10000,0,"k_g0 is definitionally shd_cpdag, but differs from n_k here."
+flip_cov0.5_bw0.1,flip,r_val,separation,AUC_frac,ok,250,250,0,250,0.8918308636112482,0.2904789838053414,0.6013518798059068,0.5162043905213244,0.6864453599622315,1.0,10000,0,
+flip_cov0.5_bw0.1,flip,r_val,neg_phi_1,AUC_frac,ok,250,250,0,250,0.8918308636112482,0.3854736556874588,0.5063572079237895,0.40767207800478367,0.6202889485158298,1.0,10000,0,
+flip_cov0.5_bw0.1,flip,r_val,r_claim,AUC_frac,ok,250,91,159,91,0.873312063523496,0.873312063523496,0.0,0.0,0.0,0.0,10000,0,"r_val == r_claim on every uncensored row; a zero delta is an identity. 159 of 250 rows right-censored and dropped, not imputed."
+flip_cov0.5_bw0.25,flip,r_val,shd_truth,AUC_frac,ok,86,86,0,86,0.6263716900023574,0.008007979923987465,0.6183637100783699,0.2388887726610028,0.9823490293649971,0.9982998299829983,10000,0,
+flip_cov0.5_bw0.25,flip,r_val,n_k,AUC_frac,ok,86,86,0,86,0.6263716900023574,-0.6815566746545824,1.3079283646569397,0.8991967610177188,1.6796044989969605,1.0,10000,0,
+flip_cov0.5_bw0.25,flip,r_val,k_g0,AUC_frac,ok,86,86,0,86,0.6263716900023574,-0.49554279940947066,1.121914489411828,0.7163597810405252,1.4187059453014814,0.9998999899989999,10000,0,"k_g0 is definitionally shd_cpdag, but differs from n_k here."
+flip_cov0.5_bw0.25,flip,r_val,separation,AUC_frac,ok,86,86,0,86,0.6263716900023574,0.5944527961678838,0.03191889383447355,-0.3924368047005407,0.3864650776247865,0.5927592759275928,10000,0,
+flip_cov0.5_bw0.25,flip,r_val,neg_phi_1,AUC_frac,ok,86,86,0,86,0.6263716900023574,0.7088424628489547,-0.08247077284659732,-0.3719698689642835,0.13479418309708388,0.31235617808904453,10000,0,
+flip_cov0.5_bw0.25,flip,r_val,r_claim,AUC_frac,ok,86,85,1,85,0.5879522723020888,0.732042185249841,-0.1440899129477522,-0.4459724246979554,0.0,0.0,10000,0,"1 of 86 rows right-censored and dropped, not imputed."
+flip_cov1.0_bw0.0,flip,r_val,shd_truth,AUC_frac,undefined (predictor or endpoint constant on matched sample),150,150,0,150,0.22620296940464085,,,,,,10000,0,
+flip_cov1.0_bw0.0,flip,r_val,n_k,AUC_frac,ok,150,150,0,150,0.22620296940464085,0.0826331646080316,0.14356980479660925,0.03566224493580652,0.26459268908897815,1.0,10000,0,
+flip_cov1.0_bw0.0,flip,r_val,k_g0,AUC_frac,ok,150,150,0,150,0.22620296940464085,0.0826331646080316,0.14356980479660925,0.03566224493580652,0.26459268908897815,1.0,10000,0,"k_g0 == n_k on every row of this stratum; a relabelling, not an independent baseline."
+flip_cov1.0_bw0.0,flip,r_val,separation,AUC_frac,ok,150,150,0,150,0.22620296940464085,0.22620296940464085,0.0,0.0,0.0,0.0,10000,0,"r_val == separation exactly on every row: the generator draws instances at target separations, so a zero delta is an identity, not a null result."
+flip_cov1.0_bw0.0,flip,r_val,neg_phi_1,AUC_frac,undefined (predictor or endpoint constant on matched sample),150,150,0,150,0.22620296940464085,,,,,,10000,0,
+flip_cov1.0_bw0.0,flip,r_val,r_claim,AUC_frac,undefined (predictor or endpoint constant on matched sample),150,2,148,2,,,,,,,10000,0,"r_val == r_claim on every uncensored row; a zero delta is an identity. 148 of 150 rows right-censored and dropped, not imputed."
+flip_cov1.0_bw0.1,flip,r_val,shd_truth,AUC_frac,ok,43,43,0,43,0.9999999999999999,-0.7965820301733912,1.7965820301733912,1.5139561687500467,2.0,1.0,10000,0,
+flip_cov1.0_bw0.1,flip,r_val,n_k,AUC_frac,ok,43,43,0,43,0.9999999999999999,-0.7965820301733912,1.7965820301733912,1.5139561687500467,2.0,1.0,10000,0,
+flip_cov1.0_bw0.1,flip,r_val,k_g0,AUC_frac,ok,43,43,0,43,0.9999999999999999,-0.7965820301733912,1.7965820301733912,1.5139561687500467,2.0,1.0,10000,0,"k_g0 == n_k on every row of this stratum; a relabelling, not an independent baseline."
+flip_cov1.0_bw0.1,flip,r_val,separation,AUC_frac,ok,43,43,0,43,0.9999999999999999,0.9959266633137136,0.0040733366862862885,0.0,0.012959510942622599,0.42034288103700607,10000,0,
+flip_cov1.0_bw0.1,flip,r_val,neg_phi_1,AUC_frac,undefined (predictor or endpoint constant on matched sample),43,43,0,43,0.9999999999999999,,,,,,10000,0,
+flip_cov1.0_bw0.1,flip,r_val,r_claim,AUC_frac,ok,43,2,41,2,1.0,1.0,0.0,0.0,0.0,0.0,10000,0,"r_val == r_claim on every uncensored row; a zero delta is an identity. 41 of 43 rows right-censored and dropped, not imputed."
+flip_cov1.0_bw0.25,flip,r_val,shd_truth,AUC_frac,undefined (predictor or endpoint constant on matched sample),3,3,0,3,0.9999999999999999,,,,,,10000,0,
+flip_cov1.0_bw0.25,flip,r_val,n_k,AUC_frac,undefined (predictor or endpoint constant on matched sample),3,3,0,3,0.9999999999999999,,,,,,10000,0,
+flip_cov1.0_bw0.25,flip,r_val,k_g0,AUC_frac,undefined (predictor or endpoint constant on matched sample),3,3,0,3,0.9999999999999999,,,,,,10000,0,"k_g0 == n_k on every row of this stratum; a relabelling, not an independent baseline."
+flip_cov1.0_bw0.25,flip,r_val,separation,AUC_frac,ok,3,3,0,3,0.9999999999999999,0.9999999999999999,0.0,0.0,0.0,0.0,10000,0,
+flip_cov1.0_bw0.25,flip,r_val,neg_phi_1,AUC_frac,undefined (predictor or endpoint constant on matched sample),3,3,0,3,0.9999999999999999,,,,,,10000,0,
+flip_cov1.0_bw0.25,flip,r_val,r_claim,AUC_frac,insufficient_n,3,1,2,1,,,,,,,10000,0,"r_val == r_claim on every uncensored row; a zero delta is an identity. 2 of 3 rows right-censored and dropped, not imputed."

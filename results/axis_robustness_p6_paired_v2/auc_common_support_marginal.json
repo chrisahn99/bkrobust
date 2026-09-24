@@ -1,0 +1,218 @@
+{
+ "flip_cov0.5_bw0.0": {
+  "arm": "flip",
+  "stratum_n": 480,
+  "n_common_support_depths": 1,
+  "common_support_depths": [
+   1
+  ],
+  "n_kept": 480,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 480,
+   "n": 480,
+   "n_excluded": 0,
+   "tau_b": 0.6811177652601165,
+   "ci_lo_2p5": 0.6632951432910643,
+   "ci_hi_97p5": 0.6952443450955763,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "flip_cov0.5_bw0.1": {
+  "arm": "flip",
+  "stratum_n": 480,
+  "n_common_support_depths": 1,
+  "common_support_depths": [
+   1
+  ],
+  "n_kept": 480,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 480,
+   "n": 480,
+   "n_excluded": 0,
+   "tau_b": 0.6621151952495175,
+   "ci_lo_2p5": 0.6370360881811484,
+   "ci_hi_97p5": 0.682377645606126,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "flip_cov0.5_bw0.25": {
+  "arm": "flip",
+  "stratum_n": 476,
+  "n_common_support_depths": 1,
+  "common_support_depths": [
+   1
+  ],
+  "n_kept": 476,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 476,
+   "n": 476,
+   "n_excluded": 0,
+   "tau_b": 0.5889028541197888,
+   "ci_lo_2p5": 0.545395378509651,
+   "ci_hi_97p5": 0.6233338341068488,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "flip_cov1.0_bw0.0": {
+  "arm": "flip",
+  "stratum_n": 480,
+  "n_common_support_depths": 2,
+  "common_support_depths": [
+   1,
+   2
+  ],
+  "n_kept": 480,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 480,
+   "n": 480,
+   "n_excluded": 0,
+   "tau_b": 0.6591268114172386,
+   "ci_lo_2p5": 0.6408191802008371,
+   "ci_hi_97p5": 0.674011207250148,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "flip_cov1.0_bw0.1": {
+  "arm": "flip",
+  "stratum_n": 480,
+  "n_common_support_depths": 2,
+  "common_support_depths": [
+   1,
+   2
+  ],
+  "n_kept": 480,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 480,
+   "n": 480,
+   "n_excluded": 0,
+   "tau_b": 0.7008612094274537,
+   "ci_lo_2p5": 0.6779170661241971,
+   "ci_hi_97p5": 0.7219196897752478,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "flip_cov1.0_bw0.25": {
+  "arm": "flip",
+  "stratum_n": 334,
+  "n_common_support_depths": 2,
+  "common_support_depths": [
+   1,
+   2
+  ],
+  "n_kept": 334,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 334,
+   "n": 334,
+   "n_excluded": 0,
+   "tau_b": 0.742402338222812,
+   "ci_lo_2p5": 0.7222769063873211,
+   "ci_hi_97p5": 0.7620155839157643,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "tiered_nt2": {
+  "arm": "tiered",
+  "stratum_n": 414,
+  "n_common_support_depths": 3,
+  "common_support_depths": [
+   0,
+   1,
+   2
+  ],
+  "n_kept": 414,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 414,
+   "n": 414,
+   "n_excluded": 0,
+   "tau_b": 0.824692049519746,
+   "ci_lo_2p5": 0.8035768347995468,
+   "ci_hi_97p5": 0.8438892733370477,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "tiered_nt3": {
+  "arm": "tiered",
+  "stratum_n": 480,
+  "n_common_support_depths": 3,
+  "common_support_depths": [
+   0,
+   1,
+   2
+  ],
+  "n_kept": 480,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 480,
+   "n": 480,
+   "n_excluded": 0,
+   "tau_b": 0.8048493874733275,
+   "ci_lo_2p5": 0.7852210581555817,
+   "ci_hi_97p5": 0.8219276734732409,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ },
+ "tiered_nt4": {
+  "arm": "tiered",
+  "stratum_n": 480,
+  "n_common_support_depths": 3,
+  "common_support_depths": [
+   0,
+   1,
+   2
+  ],
+  "n_kept": 480,
+  "note": "exact intersection across all instances",
+  "marginal_tau_r_val": {
+   "predictor": "r_val",
+   "endpoint": "AUC_common",
+   "stratum_n": 480,
+   "n": 480,
+   "n_excluded": 0,
+   "tau_b": 0.7510739829171852,
+   "ci_lo_2p5": 0.7319312865237054,
+   "ci_hi_97p5": 0.7691668637190495,
+   "n_boot": 2000,
+   "seed": 0,
+   "status": "ok"
+  }
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "inputs": {
+  "survival_instances_csv": {
+   "path": "results/axis_robustness_p6/survival_instances.csv",
+   "sha256": "1a5f44fe95a84fd893f46fa4288b483dda7831a3651693267cda5b3868f44de2",
+   "n_rows": 4104
+  },
+  "survival_curves_csv": {
+   "path": "results/axis_robustness_p6/survival_curves.csv",
+   "sha256": "d9b7ce72c477bd86656905d24887c14914b6a3f1913c17a3d7b52940400c066a",
+   "n_rows": 29872
+  },
+  "committed_paired_diff_synth_csv": {
+   "path": "results/axis_robustness_p6_paired/paired_diff_synth.csv",
+   "sha256": "dde140412a5dc33c2ceb6be8c9d8ab12f2ef17bdd0d3e13358b09560d2a4100f"
+  },
+  "survival_samples_csv_gz": {
+   "path": "results/axis_robustness_p6/survival_samples.csv.gz",
+   "sha256": "a10de5511297329d7d59b33880b750813fa2667b5291eeaa421595e7cfdfef3a"
+  }
+ },
+ "n_boot": 10000,
+ "seed": 0,
+ "baselines_new": [
+  "shd_truth",
+  "n_k",
+  "k_g0",
+  "separation",
+  "neg_phi_1",
+  "r_claim"
+ ],
+ "baselines_old": [
+  "shd_truth",
+  "n_k",
+  "k_g0",
+  "separation",
+  "phi_1",
+  "r_claim"
+ ],
+ "n_reproduction_discrepancies": 0,
+ "r_claim_n_used_by_stratum": {
+  "flip_cov0.5_bw0.0": {
+   "stratum_n": 480,
+   "n_r_claim_defined": 240,
+   "n_r_claim_censored_blank": 240
+  },
+  "flip_cov0.5_bw0.1": {
+   "stratum_n": 480,
+   "n_r_claim_defined": 240,
+   "n_r_claim_censored_blank": 240
+  },
+  "flip_cov0.5_bw0.25": {
+   "stratum_n": 476,
+   "n_r_claim_defined": 379,
+   "n_r_claim_censored_blank": 97
+  },
+  "flip_cov1.0_bw0.0": {
+   "stratum_n": 480,
+   "n_r_claim_defined": 200,
+   "n_r_claim_censored_blank": 280
+  },
+  "flip_cov1.0_bw0.1": {
+   "stratum_n": 480,
+   "n_r_claim_defined": 212,
+   "n_r_claim_censored_blank": 268
+  },
+  "tiered_nt3": {
+   "stratum_n": 480,
+   "n_r_claim_defined": 480,
+   "n_r_claim_censored_blank": 0
+  },
+  "tiered_nt4": {
+   "stratum_n": 480,
+   "n_r_claim_defined": 480,
+   "n_r_claim_censored_blank": 0
+  },
+  "flip_cov1.0_bw0.25": {
+   "stratum_n": 334,
+   "n_r_claim_defined": 196,
+   "n_r_claim_censored_blank": 138
+  },
+  "tiered_nt2": {
+   "stratum_n": 414,
+   "n_r_claim_defined": 414,
+   "n_r_claim_censored_blank": 0
+  }
+ },
+ "elapsed_seconds": 539.4112169170039
+}

@@ -1,0 +1,307 @@
+{
+ "by_depth_rank": [
+  {
+   "arm": "flip",
+   "depth_rank": 1,
+   "n": 2730,
+   "frac_undefined": 0.0
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 2,
+   "n": 2730,
+   "frac_undefined": 0.011355311355311355
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 3,
+   "n": 2513,
+   "frac_undefined": 0.07361719060883407
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 4,
+   "n": 2416,
+   "frac_undefined": 0.21564569536423842
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 5,
+   "n": 1873,
+   "frac_undefined": 0.3390282968499733
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 6,
+   "n": 1512,
+   "frac_undefined": 0.5
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 7,
+   "n": 1067,
+   "frac_undefined": 0.5688847235238987
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 8,
+   "n": 830,
+   "frac_undefined": 0.6626506024096386
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 9,
+   "n": 692,
+   "frac_undefined": 0.7442196531791907
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 10,
+   "n": 490,
+   "frac_undefined": 0.8
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 11,
+   "n": 376,
+   "frac_undefined": 0.8829787234042553
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 12,
+   "n": 224,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 13,
+   "n": 131,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 14,
+   "n": 64,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 15,
+   "n": 23,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "flip",
+   "depth_rank": 16,
+   "n": 8,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 1,
+   "n": 1374,
+   "frac_undefined": 0.0
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 2,
+   "n": 1374,
+   "frac_undefined": 0.0
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 3,
+   "n": 1374,
+   "frac_undefined": 0.0
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 4,
+   "n": 1374,
+   "frac_undefined": 0.16302765647743814
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 5,
+   "n": 1374,
+   "frac_undefined": 0.3056768558951965
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 6,
+   "n": 1332,
+   "frac_undefined": 0.6576576576576577
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 7,
+   "n": 1079,
+   "frac_undefined": 0.8646895273401297
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 8,
+   "n": 972,
+   "frac_undefined": 0.9588477366255144
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 9,
+   "n": 706,
+   "frac_undefined": 0.9886685552407932
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 10,
+   "n": 588,
+   "frac_undefined": 0.9965986394557823
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 11,
+   "n": 368,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 12,
+   "n": 215,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 13,
+   "n": 51,
+   "frac_undefined": 1.0
+  },
+  {
+   "arm": "tiered",
+   "depth_rank": 14,
+   "n": 11,
+   "frac_undefined": 1.0
+  }
+ ],
+ "by_frac_grid_position": [
+  {
+   "arm": "flip",
+   "frac": 0.1,
+   "n": 2730,
+   "frac_needed_fallback": 0.9582417582417583
+  },
+  {
+   "arm": "flip",
+   "frac": 0.2,
+   "n": 2730,
+   "frac_needed_fallback": 0.8205128205128205
+  },
+  {
+   "arm": "flip",
+   "frac": 0.3,
+   "n": 2730,
+   "frac_needed_fallback": 0.9582417582417583
+  },
+  {
+   "arm": "flip",
+   "frac": 0.4,
+   "n": 2730,
+   "frac_needed_fallback": 0.8216117216117216
+  },
+  {
+   "arm": "flip",
+   "frac": 0.5,
+   "n": 2730,
+   "frac_needed_fallback": 0.44871794871794873
+  },
+  {
+   "arm": "flip",
+   "frac": 0.6,
+   "n": 2730,
+   "frac_needed_fallback": 0.8586080586080586
+  },
+  {
+   "arm": "flip",
+   "frac": 0.7,
+   "n": 2730,
+   "frac_needed_fallback": 0.984981684981685
+  },
+  {
+   "arm": "flip",
+   "frac": 0.8,
+   "n": 2730,
+   "frac_needed_fallback": 0.9098901098901099
+  },
+  {
+   "arm": "flip",
+   "frac": 0.9,
+   "n": 2730,
+   "frac_needed_fallback": 0.9978021978021978
+  },
+  {
+   "arm": "flip",
+   "frac": 1.0,
+   "n": 2730,
+   "frac_needed_fallback": 0.6827838827838828
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.1,
+   "n": 1374,
+   "frac_needed_fallback": 0.9810771470160117
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.2,
+   "n": 1374,
+   "frac_needed_fallback": 0.8682678311499272
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.3,
+   "n": 1374,
+   "frac_needed_fallback": 0.9810771470160117
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.4,
+   "n": 1374,
+   "frac_needed_fallback": 0.8682678311499272
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.5,
+   "n": 1374,
+   "frac_needed_fallback": 0.5946142649199417
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.6,
+   "n": 1374,
+   "frac_needed_fallback": 0.8915574963609898
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.7,
+   "n": 1374,
+   "frac_needed_fallback": 0.9985443959243085
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.8,
+   "n": 1374,
+   "frac_needed_fallback": 0.9155749636098981
+  },
+  {
+   "arm": "tiered",
+   "frac": 0.9,
+   "n": 1374,
+   "frac_needed_fallback": 1.0
+  },
+  {
+   "arm": "tiered",
+   "frac": 1.0,
+   "n": 1374,
+   "frac_needed_fallback": 0.3398835516739447
+  }
+ ],
+ "note": "depth_rank = 1st,2nd,... smallest measured depth for that instance (raw d not comparable across instances -- flip's d is 1..n_k, tiered's d is a measured, irregular claim delta); frac_needed_fallback = fraction of instances where the exact target depth round(frac*n_k) was NOT itself a defined S, so auc_frac's nearest-neighbour search had to move to another depth."
+}

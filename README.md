@@ -93,11 +93,19 @@ reproduces byte for byte under the Python 3.9 / Matplotlib 3.9 stack that
 drew it, and differs only in rendering under newer Matplotlib. The three
 `mean_*.png` files illustrate notes in `docs/`.
 
+**Note on `r_assumes`.** Result rows written before the anti-exchange Case B
+proof was completed carry `r_assumes = "Conjecture 2 (hence Anti-Exchange Case
+B, verified not proved)"`. The case is now proved (`THEOREMS.md` section 4 and
+Appendix C of the paper); the committed rows are left as written. Results
+answered by the top-state check carry an assumption string that does not
+depend on it.
+
 ### Section 5 and Appendix D: computation
 
 | Claim | Results | Driver |
 |---|---|---|
 | End-to-end timing on 256 instances (Fig. 4, Table 5) | `results/e2e_speedup_gated/` | `experiments/e2e_speedup.py --gate --out results/e2e_speedup_gated` (serial, ~80 min); plots: `experiments/plot_e2e.py` |
+| v2: timing with the top-state check (`r = ∞` iff `Z` is valid in the CPDAG) on the same 256 instances | `results/e2e_speedup_gated_v2/` | `experiments/e2e_speedup.py --gate --reuse-space-from results/e2e_speedup_gated/e2e_speedup.jsonl --out results/e2e_speedup_gated_v2` (~21 min) |
 | Encodings E1/E2/E3 and their differential validation | `results/axisb3/`, `results/axisb4/`, `results/search/` | `bkrobust.sat`, `bkrobust.search.differential` |
 | Anti-exchange property, exhaustive check (Table 4) | `results/epsilon/chickering/` | `python -m bkrobust.epsilon.chickering` |
 
@@ -107,9 +115,11 @@ drew it, and differs only in rendering under newer Matplotlib. The three
 |---|---|---|
 | Synthetic survival, 4,104 instances, 32.8M draws | `results/axis_robustness_p6/` | `python -m bkrobust.robustness.run_survival_p6` (nine shards, then `--merge`; see `RUN_NOTES.md` there) |
 | Paired τ_b differences (Table 10) | `results/axis_robustness_p6_paired/` | `experiments/paired_synth_p6.py` |
+| v2: paired differences with separation, direction-corrected `-phi_1` and `r_claim`; separation held fixed; AUC common support; changed-state decomposition | `results/axis_robustness_p6_paired_v2/` | `experiments/paired_synth_v2.py`, `experiments/paired_synth_v2_addendum.py` |
 | Knowledge elicited from six LLMs, ten conditions | `results/elicit/knowledge.json` | `experiments/questionnaire_build.py`, `experiments/elicit_run.py`, `experiments/remote/` (vLLM on a GPU node) |
 | Real-network query frame (831 rows, 25 networks) | `results/axis_robustness_real/frame.jsonl`, `results/frame/` | `python -m bkrobust.robustness.real_frame`, `experiments/frame_build.py` |
 | Real-structure survival with LLM knowledge (Tables 1, 11–14) | `results/axis_robustness_llm/` | `scripts/run_llm_survival_panel.sh` (resumable, skips finished shards) |
+| v2: paired differences against the knowledge counts and separation on the LLM corpus, pooled, balanced and within state | `results/axis_robustness_llm_v2/` | `experiments/llm_paired_v2.py` |
 | Real-network corpus | `results/axisa3/` | `bkrobust.benchmarks`; parsed from one checksummed archive |
 | Claims-vs-hops units of the corruption axis | `results/axis_robustness/hops_*` | `python -m bkrobust.robustness.run_hops` |
 

@@ -1,0 +1,18 @@
+{
+  "script": "experiments/llm_paired_v2.py",
+  "source_units_csv": "results/axis_robustness_llm/analysis_units.csv",
+  "source_units_csv_untouched": true,
+  "out_dir": "results/axis_robustness_llm_v2",
+  "n_boot": 10000,
+  "seed": 0,
+  "n_units_loaded": 5400,
+  "elapsed_seconds": 118.5,
+  "outputs": [
+    "task1_reproduce.json",
+    "task2_paired_subsets.json",
+    "task3_separation.json",
+    "task4_within_state.json",
+    "FINDINGS.md",
+    "manifest.json"
+  ]
+}

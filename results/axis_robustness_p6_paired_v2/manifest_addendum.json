@@ -1,0 +1,18 @@
+{
+ "script": "experiments/paired_synth_v2_addendum.py",
+ "inputs": {
+  "survival_instances_csv": {
+   "path": "results/axis_robustness_p6/survival_instances.csv",
+   "sha256": "1a5f44fe95a84fd893f46fa4288b483dda7831a3651693267cda5b3868f44de2"
+  },
+  "survival_curves_csv": {
+   "path": "results/axis_robustness_p6/survival_curves.csv",
+   "sha256": "d9b7ce72c477bd86656905d24887c14914b6a3f1913c17a3d7b52940400c066a"
+  }
+ },
+ "task_a_n_boot": 10000,
+ "task_b_common_support_n_boot": 2000,
+ "seed": 0,
+ "note_on_n_boot": "2000 used for common-support paired/marginal bootstraps (per-resample nearest-neighbour AUC rebuild is slow in pure python); 10000 used for task A stratified bootstraps.",
+ "elapsed_seconds": 570.8
+}

@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-09-24T23:10:02.954430+00:00",
+  "git_sha": "bef065601fa99dbdb2e9e212a25d86649d5f809b",
+  "git_dirty": true,
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "packages": {
+    "numpy": "2.5.3",
+    "networkx": "3.6.1",
+    "ortools": "9.15.6755"
+  },
+  "grid": {
+    "n": [
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      24
+    ],
+    "edge_prob": [
+      0.3,
+      0.5,
+      0.7,
+      0.85
+    ],
+    "seed": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "n_instances_grid": 256,
+    "n_rows_written": 256
+  },
+  "cap_s": 120.0,
+  "legs": [
+    "space",
+    "search_frozen",
+    "search_fast",
+    "search_fast_top",
+    "hybrid"
+  ],
+  "oracles": {
+    "space_leg": "both enumeration (bkrobust.core.oracle.is_valid) and criterion (bkrobust.mpdag_criterion.criterion.is_valid_mpdag), same BFS distances reused for both",
+    "search_frozen": "enumeration oracle, bkrobust.search.exact.radius_local_up, unbounded",
+    "search_fast": "criterion oracle, bkrobust.search.exact_fast.radius_local_up_fast, unbounded (no max_depth)",
+    "search_fast_top": "criterion oracle; the hybrid's top-state check (is Z valid in the CPDAG?) run first, then bkrobust.search.exact_fast.radius_local_up_fast, unbounded, only if the check does not already resolve it -- isolates what the check buys the search leg alone, independent of the E1 ladder",
+    "hybrid": "bkrobust.hybrid.breakdown_radius defaults: criterion oracle, search_budget=3, now with the top-state check"
+  },
+  "space_leg_reused_from": "results/e2e_speedup_gated/e2e_speedup.jsonl",
+  "subprocess_timing_discipline": "Every leg for every instance runs in its own fresh Python subprocess (PYTHONPATH=src), timed inside the child with time.perf_counter() around the computation only (imports and instance construction excluded from the timed interval). Legs are run strictly serially, one at a time, never concurrently, to avoid wall-clock contamination between timed processes. A leg exceeding the 120s cap is killed by subprocess.run(timeout=...) and recorded as {censored: true, wall_until_timeout_s: <wall>} with no seconds key.",
+  "query_rule": "The committed results/axisb4/hybrid_envelope.jsonl query rule could not be reconstructed from dense_instance(n, seed, edge_prob) with its own (n, seed, edge_prob) fields -- see the e2e_speedup.py module docstring for the topology-level proof (row 0: x=V0 is isolated in dense_instance(8, 0, 0.3), incompatible with its committed z_size=3). This run instead builds its own 256-instance grid and its own deterministic query per instance: first (x, y) in sorted-node permutation order with a non-empty, valid optimal_adjustment_set_mpdag under the enumeration oracle, matching the iteration order in bkrobust.search.scaling.measure_instance. Verification against the committed envelope (same n/edge_prob/seed, committed x/y, freshly computed z_size) matched on only 6/256 rows, consistent with chance.",
+  "command_line": "experiments/e2e_speedup.py --out results/e2e_speedup_gated_v2 --gate --reuse-space-from results/e2e_speedup_gated/e2e_speedup.jsonl",
+  "total_wall_s": 1258.2432788330043,
+  "gate": {
+    "enabled": true,
+    "description": "k>=1-gated draw of the same grid -- NOT a reproduction of results/axisb4/hybrid_envelope.jsonl (see module docstring and query_rule_verification.json).",
+    "max_attempts": 100,
+    "rule": "For each grid cell (n, edge_prob, seed), attempt a = 0, 1, 2, ..., max_attempts. Attempt 0 uses effective_seed = seed (dense_instance(n, seed, edge_prob), so any cell that already passes keeps its prior instance). Attempt a >= 1 uses effective_seed = seed + 10_000 * a (no other source of randomness; no global RNG is touched). Accept the first attempt where the CPDAG has k_undirected >= 1 AND choose_query() finds a query (first sorted-permutation (x, y) with a non-empty, valid optimal adjustment set). If no attempt in 0..max_attempts qualifies, the cell is recorded as a gate_exhausted error row -- never silently dropped. Worker subprocesses rebuild the instance from (n, effective_seed, edge_prob), so they are bit-identical to the driver's choice."
+  }
+}

@@ -185,3 +185,8 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+# v2 revision (post-review) outputs: new analyses and reruns cited by the v2
+# paper. The committed v1 result trees above are left untouched.
+!/results/e2e_speedup_gated_v2/
+!/results/axis_robustness_p6_paired_v2/
+!/results/axis_robustness_llm_v2/
