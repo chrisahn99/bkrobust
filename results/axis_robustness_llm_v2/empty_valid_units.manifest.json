@@ -1,0 +1,12 @@
+{
+  "script": "experiments/llm_empty_valid_survival_v2.py",
+  "status_split_json": "results/axis_robustness_llm_v2/status_split.json",
+  "out_csv": "results/axis_robustness_llm_v2/empty_valid_units.csv",
+  "n_draws": 1000,
+  "n_units": 122,
+  "n_units_real_naming": 94,
+  "n_groups": 31,
+  "n_r_val_mismatches": 0,
+  "bundle_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "elapsed_s": 20.6
+}

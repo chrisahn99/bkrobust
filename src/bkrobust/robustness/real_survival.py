@@ -341,7 +341,10 @@ def commit_z_star(g0: MPDAG, x: str, y: str) -> tuple[frozenset[str] | None, str
         ``(z_star, "ok")``, or ``(None, reason)``.
     """
     z = optimal_adjustment_set_mpdag(g0, x, y)
-    if not z:
+    # An empty optimal set is a legitimate answer; only None means undefined.
+    # (The committed LLM panel was produced with ``if not z``, which also
+    # skipped valid empty sets; see results/axis_robustness_llm_v2/.)
+    if z is None:
         return None, "optimal_set_undefined"
     z = frozenset(z)
     if not is_gac_valid_mpdag(g0, x, y, z):

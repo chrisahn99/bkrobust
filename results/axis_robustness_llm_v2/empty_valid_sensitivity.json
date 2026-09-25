@@ -1,0 +1,198 @@
+{
+  "manifest": {
+    "script": "experiments/llm_empty_valid_sensitivity_v2.py",
+    "old_source": "results/axis_robustness_llm/analysis_units.csv (untouched, read-only)",
+    "new_source_added_units": "results/axis_robustness_llm_v2/empty_valid_units.csv",
+    "n_units_added": 94,
+    "n_units_added_source": "empty_valid, real-naming (94); scrambled-naming excluded, never pooled, matching llm_analyse.stratifications",
+    "n_boot": 10000,
+    "seed": 0,
+    "elapsed_seconds": 115.4,
+    "assumes_wording_normalised": "New rows' HybridResult.assumes text (current code's 'Conjecture 2 (proved: Anti-Exchange Case B, THEOREMS.md section 4)') was rewritten to the committed panel's text ('Conjecture 2 (hence Anti-Exchange Case B, verified not proved)') before pooling, so that real_analyse.tau_for_stratum's within-stratum uniformity assertion does not fire on a documentation-string vintage mismatch. Same theorem citation (Conjecture 2 / Anti-Exchange Case B), same dispatch legs (local_up_fast/e1_ladder), same oracle (mpdag_criterion), same exact=True in both; see the source comment next to _COMMITTED_ASSUMES for the provenance check."
+  },
+  "pooled_tau_b": {
+    "radius": {
+      "old": {
+        "tau_b": 0.31906985313150255,
+        "ci_lo_2p5": 0.12247966349938952,
+        "ci_hi_97p5": 0.48491899149950096,
+        "n": 2422,
+        "n_networks": 24
+      },
+      "new": {
+        "tau_b": 0.32400745110548795,
+        "ci_lo_2p5": 0.12957601474189512,
+        "ci_hi_97p5": 0.48772073041967595,
+        "n": 2516,
+        "n_networks": 24
+      },
+      "delta_tau_b_new_minus_old": 0.004937597973985408,
+      "old_matches_committed_paper_number": true,
+      "paper_committed": {
+        "tau_b": 0.319,
+        "ci_lo": 0.122,
+        "ci_hi": 0.485
+      }
+    },
+    "k_g0": {
+      "old": {
+        "tau_b": 0.2140376073321336,
+        "ci_lo_2p5": 0.07859178887573104,
+        "ci_hi_97p5": 0.33865380212780094,
+        "n": 2422,
+        "n_networks": 24
+      },
+      "new": {
+        "tau_b": 0.18607837914828662,
+        "ci_lo_2p5": 0.04427412301602081,
+        "ci_hi_97p5": 0.3106771752546485,
+        "n": 2516,
+        "n_networks": 24
+      },
+      "delta_tau_b_new_minus_old": -0.027959228183846968,
+      "old_matches_committed_paper_number": true,
+      "paper_committed": {
+        "tau_b": 0.214,
+        "ci_lo": 0.079,
+        "ci_hi": 0.339
+      }
+    },
+    "n_k": {
+      "old": {
+        "tau_b": 0.1848058564379213,
+        "ci_lo_2p5": 0.07061276610226858,
+        "ci_hi_97p5": 0.3268656455134798,
+        "n": 2422,
+        "n_networks": 24
+      },
+      "new": {
+        "tau_b": 0.16132236360559973,
+        "ci_lo_2p5": 0.04103706176902212,
+        "ci_hi_97p5": 0.30945297120696375,
+        "n": 2516,
+        "n_networks": 24
+      },
+      "delta_tau_b_new_minus_old": -0.023483492832321567,
+      "old_matches_committed_paper_number": true,
+      "paper_committed": {
+        "tau_b": 0.185,
+        "ci_lo": 0.071,
+        "ci_hi": 0.327
+      }
+    },
+    "shd_truth": {
+      "old": {
+        "tau_b": 0.0538364306454087,
+        "ci_lo_2p5": -0.0768030444324638,
+        "ci_hi_97p5": 0.1995478663030385,
+        "n": 2422,
+        "n_networks": 24
+      },
+      "new": {
+        "tau_b": 0.02570027746488011,
+        "ci_lo_2p5": -0.10394269166329949,
+        "ci_hi_97p5": 0.17891009348026543,
+        "n": 2516,
+        "n_networks": 24
+      },
+      "delta_tau_b_new_minus_old": -0.028136153180528593,
+      "old_matches_committed_paper_number": true,
+      "paper_committed": {
+        "tau_b": 0.054,
+        "ci_lo": -0.077,
+        "ci_hi": 0.2
+      }
+    }
+  },
+  "paired_deltas": {
+    "radius_minus_k_g0": {
+      "old": {
+        "delta_point": 0.10503224579936896,
+        "ci_lo_2p5": -0.08722912651347935,
+        "ci_hi_97p5": 0.29953544296873447,
+        "frac_delta_gt_0": 0.8597,
+        "n": 2422,
+        "loo_verdict_flips": false
+      },
+      "new": {
+        "delta_point": 0.13792907195720133,
+        "ci_lo_2p5": -0.06320757731461626,
+        "ci_hi_97p5": 0.31765045174037665,
+        "frac_delta_gt_0": 0.9214,
+        "n": 2516,
+        "loo_verdict_flips": false
+      }
+    },
+    "radius_minus_n_k": {
+      "old": {
+        "delta_point": 0.13426399669358124,
+        "ci_lo_2p5": -0.08219053590580234,
+        "ci_hi_97p5": 0.32142846762997507,
+        "frac_delta_gt_0": 0.8787,
+        "n": 2422,
+        "loo_verdict_flips": false
+      },
+      "new": {
+        "delta_point": 0.16268508749988822,
+        "ci_lo_2p5": -0.06886066266340927,
+        "ci_hi_97p5": 0.34809414757064494,
+        "frac_delta_gt_0": 0.9132,
+        "n": 2516,
+        "loo_verdict_flips": false
+      }
+    },
+    "radius_minus_shd_truth": {
+      "old": {
+        "delta_point": 0.26523342248609383,
+        "ci_lo_2p5": 0.03794582571235749,
+        "ci_hi_97p5": 0.4632590466313062,
+        "frac_delta_gt_0": 0.9917,
+        "n": 2422,
+        "loo_verdict_flips": false
+      },
+      "new": {
+        "delta_point": 0.2983071736406078,
+        "ci_lo_2p5": 0.05971304925114818,
+        "ci_hi_97p5": 0.49122763323298807,
+        "frac_delta_gt_0": 0.9954,
+        "n": 2516,
+        "loo_verdict_flips": false
+      },
+      "old_matches_committed_paper_number": true,
+      "paper_committed": {
+        "delta": 0.265,
+        "ci_lo": 0.041,
+        "ci_hi": 0.456
+      }
+    }
+  },
+  "within_state_tau_b_radius": {
+    "old": {
+      "tau_b": 0.4191447599843434,
+      "ci_lo_2p5": 0.05496887195304333,
+      "ci_hi_97p5": 0.6788482254279423,
+      "n_states": 92,
+      "n_units": 1973,
+      "n_networks": 18
+    },
+    "new": {
+      "tau_b": 0.42938618097202336,
+      "ci_lo_2p5": 0.07128736910518067,
+      "ci_hi_97p5": 0.6867286421502002,
+      "n_states": 93,
+      "n_units": 2067,
+      "n_networks": 18
+    },
+    "delta_tau_b_new_minus_old": 0.010241420987679939,
+    "old_matches_committed_paper_number_approx": true,
+    "paper_committed": {
+      "tau_b": 0.42,
+      "ci_lo": 0.05,
+      "ci_hi": 0.68,
+      "n_states": 92,
+      "n_units": 1973,
+      "n_networks": 18
+    },
+    "note": "n_states/n_units/n_networks here need not equal the paper's 92/1973/18: those describe the paper's own within-state selection at the time it was run; this reproduces the same rule (radius-varying (network,condition) states) live against the current committed analysis_units.csv."
+  }
+}
