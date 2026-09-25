@@ -1,0 +1,60 @@
+{
+  "axis_robustness_llm": {
+    "n_units": 2701,
+    "n_equal": 2701,
+    "n_differ": 0,
+    "n_not_recomputed": 204,
+    "not_recomputed_reasons": {
+      "network_too_large_skipped": 204
+    },
+    "not_recomputed_note": "Skipped diabetes (413 nodes, 179 units) and munin1 (186 nodes, 25 units): a single MPDAG-validity BFS on these took 20-30+ seconds per query on this hardware, which would have consumed the whole time budget. Not attempted, not counted as agreeing or differing.",
+    "n_sanity_checked": 150,
+    "n_sanity_ok": 150,
+    "n_sanity_fail": 0,
+    "seconds": 25.2
+  },
+  "axis_robustness_llm_v2_empty_valid": {
+    "n_units": 122,
+    "n_equal": 122,
+    "n_differ": 0,
+    "n_not_recomputed": 0,
+    "not_recomputed_reasons": {},
+    "n_sanity_checked": 122,
+    "n_sanity_ok": 122,
+    "n_sanity_fail": 0,
+    "seconds": 0.2
+  },
+  "axis_robustness_p6": {
+    "n_units": 4104,
+    "n_equal": 4104,
+    "n_differ": 0,
+    "n_not_recomputed": 0,
+    "not_recomputed_reasons": {},
+    "n_sanity_checked": 100,
+    "n_sanity_ok": 100,
+    "n_sanity_fail": 0,
+    "seconds": 209.2
+  },
+  "axis_robustness_unconfounded_v2": {
+    "n_units": 480,
+    "n_equal": 480,
+    "n_differ": 0,
+    "n_not_recomputed": 0,
+    "not_recomputed_reasons": {},
+    "n_sanity_checked": 100,
+    "n_sanity_ok": 100,
+    "n_sanity_fail": 0,
+    "seconds": 10.6
+  },
+  "_datasets_not_attempted": {
+    "mean_table_relevant_v2 / final_table (effect-scale queries)": "Uses a different computation path (bkrobust.epsilon.certify), not bkrobust.hybrid.breakdown_radius; out of time budget to trace and reimplement separately.",
+    "e2e_speedup_gated_v2 (timing family)": "Not reached within the time budget; lower priority per instructions.",
+    "breakdown_radius_demo (running example)": "Not reached within the time budget; lower priority per instructions."
+  },
+  "_grand_total": {
+    "n_units_recomputed": 7407,
+    "n_equal": 7407,
+    "n_differ": 0,
+    "n_not_recomputed": 204
+  }
+}

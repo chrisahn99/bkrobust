@@ -194,3 +194,7 @@ Thumbs.db
 !/results/axis_robustness_unconfounded_v2/
 /results/axis_robustness_unconfounded_v2/shards/
 /results/axis_robustness_unconfounded_v2/survival_samples.csv.gz
+
+# GAC-vs-back-door breakdown-radius recompute (verification that every
+# reported radius is unchanged if the validity predicate switches to GAC).
+!/results/radius_gac_recompute/
