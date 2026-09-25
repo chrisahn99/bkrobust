@@ -41,6 +41,12 @@ def test_agrees_with_brute_force_under_both_oracles() -> None:
     ``UNREACHED`` (nothing reachable, including the CPDAG itself, fails), the
     hybrid must have answered by the top-state check rather than by exhausting
     a search, since that is the whole point of the check.
+
+    This test is specifically about the back-door predicate (it computes
+    ``want`` with :func:`bkrobust.core.oracle.is_valid`, which is back-door),
+    so it pins ``criterion="backdoor"`` explicitly -- ``breakdown_radius``'s
+    default changed to ``"gac"`` when the GAC migration landed. GAC agreement
+    is covered separately in ``tests/hybrid/test_hybrid_gac.py``.
     """
     checked = 0
     unreached = 0
@@ -60,7 +66,9 @@ def test_agrees_with_brute_force_under_both_oracles() -> None:
                 fails = lambda g, _z=z, _x=x, _y=y: not is_valid(_z, g, _x, _y)  # noqa: E731
                 want, _ = radius(space, dists, fails)
                 for flag in (True, False):
-                    got = breakdown_radius(cpdag, None, x, y, z, g0=g0, use_criterion=flag)
+                    got = breakdown_radius(
+                        cpdag, None, x, y, z, g0=g0, use_criterion=flag, criterion="backdoor"
+                    )
                     assert got.radius == want
                     assert got.oracle == ("mpdag_criterion" if flag else "enumeration")
                     if want == UNREACHED:

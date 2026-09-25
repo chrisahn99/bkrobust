@@ -55,9 +55,11 @@ import time
 from dataclasses import dataclass, field
 
 from bkrobust.core.conventions import UNREACHED
-from bkrobust.core.oracle import is_valid
+from bkrobust.core.oracle import extensions, is_valid
 from bkrobust.demo.graph import MPDAG
 from bkrobust.demo.meek import apply_orientations
+from bkrobust.gac.dag_level import is_gac_valid_dag
+from bkrobust.gac.mpdag_level import is_gac_valid_mpdag
 from bkrobust.mpdag_criterion import is_valid_mpdag
 from bkrobust.sat.e1 import radius_e1
 from bkrobust.search.exact import SearchStats
@@ -70,6 +72,19 @@ Edge = tuple[str, str]
 #: of 3 catches the cases the search is good at while bounding the up-set it can
 #: be forced to exhaust.
 DEFAULT_SEARCH_BUDGET = 3
+
+
+def _is_gac_valid_enum(g: MPDAG, x: str, y: str, z: frozenset[str]) -> bool:
+    """``Z`` is GAC-valid in every DAG extension of ``g``.
+
+    The enumeration fallback for ``use_criterion=False``, mirroring
+    :func:`bkrobust.core.oracle.is_valid`'s empty-``[g]`` convention: a graph
+    representing no model certifies nothing, so the answer is False.
+    """
+    exts = extensions(g)
+    if not exts:
+        return False
+    return all(is_gac_valid_dag(d, x, y, z) for d in exts)
 
 
 @dataclass
@@ -126,6 +141,7 @@ def breakdown_radius(
     g0: MPDAG | None = None,
     search_budget: int = DEFAULT_SEARCH_BUDGET,
     use_criterion: bool = True,
+    criterion: str = "gac",
     time_limit_s: float = 300.0,
 ) -> HybridResult:
     """Compute the exact breakdown radius, dispatching between the two methods.
@@ -143,6 +159,17 @@ def breakdown_radius(
         use_criterion: Decide validity on the MPDAG directly. Setting this False
             falls back to the enumeration oracle, which is far slower but shares
             no code with the criterion -- useful for differential testing.
+        criterion: ``"gac"`` (default) -- the generalised adjustment criterion,
+            via :func:`bkrobust.gac.mpdag_level.is_gac_valid_mpdag` (or, with
+            ``use_criterion=False``, brute-force enumeration over
+            :func:`bkrobust.gac.dag_level.is_gac_valid_dag`) -- or
+            ``"backdoor"`` for Pearl's back-door criterion, the predicate this
+            module used exclusively before the GAC migration
+            (:func:`bkrobust.mpdag_criterion.is_valid_mpdag` /
+            :func:`bkrobust.core.oracle.is_valid`). The same predicate decides
+            the top-state check, the bounded search, and the SAT ladder (called
+            with the matching ``criterion``), so a single flag switches the
+            whole pipeline.
         time_limit_s: Per-rung limit for the ladder leg.
 
     Returns:
@@ -150,15 +177,30 @@ def breakdown_radius(
 
     Raises:
         ValueError: If ``knowledge`` is inconsistent with ``cpdag``, so that no
-            ``G0`` exists.
+            ``G0`` exists, or if ``criterion`` is not ``"gac"``/``"backdoor"``.
     """
+    if criterion not in ("gac", "backdoor"):
+        raise ValueError(f"unknown criterion: {criterion!r}")
     if g0 is None:
         built = apply_orientations(cpdag, knowledge or [])
         if built is None:
             raise ValueError("knowledge is inconsistent with the CPDAG; no G0 exists")
         g0 = built
 
-    if use_criterion:
+    if criterion == "gac":
+        if use_criterion:
+
+            def fails(g: MPDAG) -> bool:
+                return not is_gac_valid_mpdag(g, x, y, z)
+
+            oracle = "gac_criterion"
+        else:
+
+            def fails(g: MPDAG) -> bool:
+                return not _is_gac_valid_enum(g, x, y, z)
+
+            oracle = "gac_enumeration"
+    elif use_criterion:
 
         def fails(g: MPDAG) -> bool:
             return not is_valid_mpdag(g, x, y, z)
@@ -231,7 +273,7 @@ def breakdown_radius(
         )
 
     t0 = time.perf_counter()
-    lad = radius_e1(cpdag, g0, x, y, z, time_limit_s=time_limit_s)
+    lad = radius_e1(cpdag, g0, x, y, z, time_limit_s=time_limit_s, criterion=criterion)
     ladder_s = time.perf_counter() - t0
     return HybridResult(
         radius=lad.radius,

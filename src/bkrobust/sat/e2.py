@@ -128,7 +128,11 @@ def _build(
             sym.append((ov.d[(u, v)], g0.is_directed_edge(u, v)))
 
     e = add_witness_dag(model, ov)
-    add_failure(model, ov, e, x, y, z)
+    # Pinned to back-door: E2 is not part of the GAC migration (only E1, via
+    # bkrobust.hybrid, is); add_failure's default changed to "gac" when that
+    # mode was added, so this call is pinned explicitly to keep E2's existing
+    # back-door semantics and tests unchanged.
+    add_failure(model, ov, e, x, y, z, criterion="backdoor")
     return model, sym, ov.d
 
 

@@ -157,7 +157,9 @@ def _build(
         _one_orientation_apart(model, states[i], states[i + 1])
     last = states[-1]
     e = add_witness_dag(model, last)
-    add_failure(model, last, e, x, y, z)
+    # Pinned to back-door: E3, like E2, is not part of the GAC migration (only
+    # E1, via bkrobust.hybrid, is). See the matching comment in e2.py.
+    add_failure(model, last, e, x, y, z, criterion="backdoor")
     return model, states
 
 

@@ -1,0 +1,106 @@
+{
+  "summary": "SAT E1 GAC failure mode and bkrobust.hybrid's new GAC default, validated against brute-force GAC radius (min |K_G0 Delta K_G| over GAC-invalid G in [cp, *build_space_correct(cp).elements]).",
+  "sat_e1_vs_brute_force": {
+    "description": "radius_e1(..., criterion='gac') called directly (forces the SAT path, not the hybrid's search shortcut) vs. brute-force GAC radius over the small-graph scope of all_cpdags(n) with an undirected edge, every element, every ordered (x, y).",
+    "scopes": {
+      "n3_optimal_z": {
+        "description": "Z = O(g0) via optimal_adjustment_set_mpdag, skipping None and GAC-invalid-at-g0 sets.",
+        "n_queries": 6,
+        "n_equal": 6,
+        "n_differ": 0,
+        "seconds": 0.0247
+      },
+      "n3_arbitrary_z": {
+        "description": "all subsets of V\\{x,y} of size <= 2 that are GAC-valid at g0.",
+        "n_queries": 174,
+        "n_equal": 174,
+        "n_differ": 0,
+        "seconds": 0.234
+      },
+      "n4_optimal_z": {
+        "description": "Z = O(g0), same as n3_optimal_z but n=4.",
+        "n_queries": 1044,
+        "n_equal": 1044,
+        "n_differ": 0,
+        "seconds": 15.23
+      },
+      "n4_arbitrary_z": {
+        "description": "all subsets of V\\{x,y} of size <= 2 that are GAC-valid at g0, n=4 -- the scope where GAC and back-door actually diverge.",
+        "n_queries": 16752,
+        "n_equal": 16752,
+        "n_differ": 0,
+        "seconds": 91.47
+      }
+    },
+    "totals": {
+      "n_queries": 17976,
+      "n_equal": 17976,
+      "n_differ": 0
+    }
+  },
+  "reviewer_counterexample": {
+    "description": "CPDAG W-X-Y, G0: W -> X -> Y, Z = {W}. W is a descendant of X but off the causal route to Y, so back-door bars it (radius 1) while GAC does not (radius 2). Checked via radius_e1 directly (SAT) and via bkrobust.hybrid.breakdown_radius.",
+    "sat_e1_gac_radius": 2,
+    "sat_e1_backdoor_radius": 1,
+    "hybrid_gac_radius": 2,
+    "hybrid_gac_oracle": "gac_criterion",
+    "hybrid_backdoor_radius": 1,
+    "hybrid_backdoor_oracle": "mpdag_criterion",
+    "match_expected": true
+  },
+  "hybrid_gac_vs_brute_force": {
+    "description": "breakdown_radius(cpdag, None, x, y, z, g0=g0) with default criterion='gac', vs. the same brute-force GAC radius. Scope: n=4 all_cpdags with an undirected edge, every element, every ordered (x,y), Z = O(g0).",
+    "default_budget": {
+      "search_budget": 3,
+      "n_queries": 1044,
+      "n_equal": 1044,
+      "n_differ": 0,
+      "seconds": 12.16,
+      "methods": {
+        "top_state": 252,
+        "local_up_fast": 792,
+        "e1_ladder": 0
+      },
+      "note": "at the default search budget (3) the bounded search alone answers every non-degenerate instance on this scope, so the ladder leg is not exercised here -- see the budget_zero row for that."
+    },
+    "budget_zero": {
+      "search_budget": 0,
+      "description": "search_budget=0 forces every non-top_state instance through the E1 SAT ladder, isolating that leg.",
+      "n_queries": 1044,
+      "n_equal": 1044,
+      "n_differ": 0,
+      "seconds": 14.73,
+      "methods": {
+        "top_state": 252,
+        "e1_ladder": 792
+      }
+    }
+  },
+  "existing_tests": {
+    "command": "PYTHONPATH=src .venv/bin/python -m pytest -q tests/sat tests/hybrid tests/gac tests/criterion tests/search tests/epsilon",
+    "result": "217 passed",
+    "expectation_changed": [
+      {
+        "file": "tests/hybrid/test_hybrid.py",
+        "test": "test_agrees_with_brute_force_under_both_oracles",
+        "change": "breakdown_radius(...) calls now pass criterion='backdoor' explicitly.",
+        "why": "This test computes its reference radius with bkrobust.core.oracle.is_valid (back-door) and asserted got.oracle == 'mpdag_criterion'/'enumeration'. It encodes back-door-specific behaviour, not a generic hybrid contract, so it needed pinning rather than a semantic fix once breakdown_radius's default criterion changed to 'gac'. No other test in the owned scope required a change."
+      }
+    ],
+    "unrelated_pre_existing_failures": {
+      "note": "tests/test_adjustment.py, tests/test_consistency.py, tests/test_distances.py, tests/test_meek.py, tests/test_perturb.py, tests/test_radius.py (49 failures total) raise NotImplementedError from src/bkrobust/graphs/mpdag.py, a stub unrelated to this change. Confirmed pre-existing via `git stash` on the same tree before this work's edits."
+    }
+  },
+  "new_regression_tests": [
+    "tests/sat/test_gac_encoding.py",
+    "tests/hybrid/test_hybrid_gac.py"
+  ],
+  "encoding_changes": {
+    "file": "src/bkrobust/sat/failure.py",
+    "summary": "add_failure(..., criterion='gac'|'backdoor', default 'gac') now encodes GAC failure in the witness DAG D: cn[v] = rx[v] (descendant of X) AND (v==Y or ancY[v]) (new forward-from-Y-target fixpoint ancY, mirroring ancz's shape but over full D); forb[v] = v in {x,y} or a descendant (in D) of a cn node (decn fixpoint seeded only at cn, not at X/Y, to avoid silently degenerating into the back-door bar); mode_a' = OR_z forb[z]; D' = D with X->v edges present only when NOT cn[v] (a boolean-gated edge, eprime, not a static graph restriction, since cn is a solver variable); mode_b' reuses the same simple-path/collider machinery as back-door's mode_b (factored into _add_dconn_mode) over D' with ancz' computed over D'; fails = mode_a' OR mode_b'. Back-door mode is unchanged, selectable with criterion='backdoor'. Model size is not affected by the unselected criterion -- only one mode's variables/constraints are built per call. e2.py and e3.py pin criterion='backdoor' explicitly at their single add_failure call site, so their behaviour and existing tests are unchanged. e1.py's own default is also 'backdoor' (unchanged for direct callers); bkrobust.hybrid passes criterion='gac' explicitly to radius_e1."
+  },
+  "hybrid_changes": {
+    "file": "src/bkrobust/hybrid.py",
+    "summary": "breakdown_radius gained a criterion='gac'|'backdoor' parameter (default 'gac'). The top-state check, the bounded search (fails predicate), and the SAT ladder (radius_e1 called with criterion=criterion) all use the SAME predicate: is_gac_valid_mpdag / a new _is_gac_valid_enum (enumeration fallback over gac.dag_level.is_gac_valid_dag) for criterion='gac', or the pre-existing is_valid_mpdag / oracle.is_valid for criterion='backdoor'. oracle is now 'gac_criterion' / 'gac_enumeration' / 'mpdag_criterion' / 'enumeration' depending on (criterion, use_criterion)."
+  }
+}
