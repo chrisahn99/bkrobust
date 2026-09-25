@@ -1,0 +1,5 @@
+stratum,predictor,endpoint,stratum_n,n,tau_b,ci_lo_2p5,ci_hi_97p5,n_boot,n_boot_nan,status,subset
+n_tiers=2,r_val,AUC_frac,0,0,,,,10000,,insufficient_n,separation_undefined
+n_tiers=3,r_val,AUC_frac,0,0,,,,10000,,insufficient_n,separation_undefined
+n_tiers=4,r_val,AUC_frac,0,0,,,,10000,,insufficient_n,separation_undefined
+pooled,r_val,AUC_frac,0,0,,,,10000,,insufficient_n,separation_undefined

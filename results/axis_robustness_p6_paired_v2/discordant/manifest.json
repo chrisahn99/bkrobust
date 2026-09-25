@@ -1,0 +1,20 @@
+{
+ "inputs": {
+  "survival_instances_csv": {
+   "path": "results/axis_robustness_p6/survival_instances.csv",
+   "sha256": "1a5f44fe95a84fd893f46fa4288b483dda7831a3651693267cda5b3868f44de2",
+   "n_rows": 4104
+  }
+ },
+ "n_instances": 4104,
+ "n_discordant_instances": 2287,
+ "frac_discordant_instances": 0.557261208576998,
+ "n_boot_task_a": 10000,
+ "n_boot_task_b": 2000,
+ "n_boot_task_d": 10000,
+ "seed": 0,
+ "task_a_seconds": 25.42330112500349,
+ "task_b_seconds": 116.9199446249986,
+ "task_d_seconds": 52.523888958006864,
+ "elapsed_seconds": 194.89071925000462
+}

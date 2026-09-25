@@ -191,3 +191,6 @@ Thumbs.db
 !/results/axis_robustness_p6_paired_v2/
 !/results/axis_robustness_llm_v2/
 !/results/mean_table_relevant_v2/
+!/results/axis_robustness_unconfounded_v2/
+/results/axis_robustness_unconfounded_v2/shards/
+/results/axis_robustness_unconfounded_v2/survival_samples.csv.gz

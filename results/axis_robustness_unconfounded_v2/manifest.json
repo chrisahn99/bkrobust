@@ -1,0 +1,242 @@
+{
+  "merged_from_shards": [
+    "results/axis_robustness_unconfounded_v2/shards/c06",
+    "results/axis_robustness_unconfounded_v2/shards/c08",
+    "results/axis_robustness_unconfounded_v2/shards/c10",
+    "results/axis_robustness_unconfounded_v2/shards/c12"
+  ],
+  "shard_manifests": [
+    {
+      "created_utc": "2026-09-25T03:31:52.479056+00:00",
+      "git_sha": "17e5e6c85b3d78e77ab22ac81fc6bafe850a4265",
+      "git_dirty": false,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          6
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 200,
+        "time_limit_s": 60.0,
+        "triangle_prob": 0.3,
+        "mode": "full",
+        "shard_name": "c06"
+      },
+      "environment": {
+        "python": "3.14.7",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "numpy": "2.5.3",
+        "networkx": "3.6.1",
+        "pandas": "3.0.5",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3,
+      "design": "separation is NOT a targeted spec parameter here; the query (treatment) is drawn uniformly among admissible candidates after the graph is built. See unconfounded_generator.py module docstring for the exact rule."
+    },
+    {
+      "created_utc": "2026-09-25T03:33:46.588062+00:00",
+      "git_sha": "17e5e6c85b3d78e77ab22ac81fc6bafe850a4265",
+      "git_dirty": false,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          8
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 200,
+        "time_limit_s": 60.0,
+        "triangle_prob": 0.3,
+        "mode": "full",
+        "shard_name": "c08"
+      },
+      "environment": {
+        "python": "3.14.7",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "numpy": "2.5.3",
+        "networkx": "3.6.1",
+        "pandas": "3.0.5",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3,
+      "design": "separation is NOT a targeted spec parameter here; the query (treatment) is drawn uniformly among admissible candidates after the graph is built. See unconfounded_generator.py module docstring for the exact rule."
+    },
+    {
+      "created_utc": "2026-09-25T03:36:24.437265+00:00",
+      "git_sha": "17e5e6c85b3d78e77ab22ac81fc6bafe850a4265",
+      "git_dirty": false,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          10
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 200,
+        "time_limit_s": 60.0,
+        "triangle_prob": 0.3,
+        "mode": "full",
+        "shard_name": "c10"
+      },
+      "environment": {
+        "python": "3.14.7",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "numpy": "2.5.3",
+        "networkx": "3.6.1",
+        "pandas": "3.0.5",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3,
+      "design": "separation is NOT a targeted spec parameter here; the query (treatment) is drawn uniformly among admissible candidates after the graph is built. See unconfounded_generator.py module docstring for the exact rule."
+    },
+    {
+      "created_utc": "2026-09-25T03:39:34.896169+00:00",
+      "git_sha": "17e5e6c85b3d78e77ab22ac81fc6bafe850a4265",
+      "git_dirty": false,
+      "radius_convention": "r = min distance from G0 to a graph where the property fails; shells 0..r-1 are certified clean; safe-moves = r - 1",
+      "seed": 0,
+      "grid": {
+        "component_sizes": [
+          12
+        ],
+        "n_tiers": [
+          2,
+          3,
+          4
+        ],
+        "corruption_rates": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5
+        ],
+        "reps": 1000,
+        "instances_per_cell": 40,
+        "seed_budget": 200,
+        "time_limit_s": 60.0,
+        "triangle_prob": 0.3,
+        "mode": "full",
+        "shard_name": "c12"
+      },
+      "environment": {
+        "python": "3.14.7",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "numpy": "2.5.3",
+        "networkx": "3.6.1",
+        "pandas": "3.0.5",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2"
+      },
+      "gate": "fast_gate",
+      "claim_radius_max_depth": 3,
+      "design": "separation is NOT a targeted spec parameter here; the query (treatment) is drawn uniformly among admissible candidates after the graph is built. See unconfounded_generator.py module docstring for the exact rule."
+    }
+  ],
+  "shard_summaries_elapsed_seconds": {
+    "c06": 197.86449004200404,
+    "c08": 311.96930954098934,
+    "c10": 469.8231429169973,
+    "c12": 660.2618868330028
+  },
+  "sum_of_shard_elapsed_seconds_cpu": 1639.9188293329935,
+  "total_s0_failures": 0,
+  "s0_failures": [],
+  "corruption_denominator_totals": {
+    "n_claims_attempted": 10950539,
+    "n_claims_reversed": 10950539,
+    "corruption_rejected": 2610823,
+    "corruption_accepted": 2669177,
+    "closure_inert": 1165002,
+    "n_rows": 5280000
+  },
+  "separation_status_totals": {
+    "measured": 480
+  },
+  "n_samples_rows": 5280000,
+  "n_curves_rows": 4382,
+  "n_instances_rows": 480,
+  "wall_clock_seconds_launch_to_last_shard_exit": 660.3,
+  "launch_timestamp_utc": "2026-09-25T03:28:34Z",
+  "last_shard_exit_timestamp_utc": "2026-09-25T03:39:35Z",
+  "concurrency": "4 shards (by component_size), run concurrently as independent OS processes (<=5 concurrent instructed budget; machine shared with one other job observed running throughout, per `ps aux` during the run).",
+  "pilot_calibration": {
+    "note": "Runtime estimated from committed axis_robustness_p6 tiered-shard logs (2.24/3.36/4.53/6.94 s/instance at c=6/8/10/12), then calibrated with a live 12-instance pilot (component_size in {6,12}, n_tiers in {2,3,4}, 2 instances/cell) before committing to the full run.",
+    "pilot_measured_seconds_per_instance": {
+      "c06": 1.27,
+      "c12": 5.4
+    },
+    "decision": "40 instances/cell (480 total) fit easily within the 4-hour budget (observed ~11 min wall-clock for the full run at 4 concurrent shards); no reduction to 20/cell was needed."
+  },
+  "design_summary": "Tiered-arm instances only. Query (treatment) drawn uniformly at random among admissible candidates AFTER the component graph is built (component_size in {6,8,10,12}, n_tiers in {2,3,4}, 40 instances/cell, 480 total); separation is measured, never a targeted spec parameter. See src/bkrobust/robustness/unconfounded_generator.py module docstring for the exact admissibility rule and src/bkrobust/robustness/run_unconfounded_v2.py for the driver."
+}

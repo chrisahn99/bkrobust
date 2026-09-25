@@ -1,0 +1,234 @@
+{
+ "by_arm": {
+  "flip": {
+   "n_instances_total": 2730,
+   "n_groups_total": 100,
+   "n_groups_with_separation_variation": 25,
+   "n_instances_in_varying_groups": 1128,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 2730,
+    "n_excluded": 0,
+    "n_strata_total": 100,
+    "n_strata_used": 96,
+    "tau_b_stratified": 0.12013559358762183,
+    "ci_lo_2p5": 0.053570433062786166,
+    "ci_hi_97p5": 0.22498731630221913,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 10000
+   }
+  },
+  "tiered": {
+   "n_instances_total": 1374,
+   "n_groups_total": 46,
+   "n_groups_with_separation_variation": 4,
+   "n_instances_in_varying_groups": 141,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 1374,
+    "n_excluded": 0,
+    "n_strata_total": 46,
+    "n_strata_used": 44,
+    "tau_b_stratified": 0.042169146014246574,
+    "ci_lo_2p5": -0.11739199434609422,
+    "ci_hi_97p5": 0.19531050679326212,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 10000
+   }
+  }
+ },
+ "by_paired_table_stratum": {
+  "flip_cov0.5_bw0.0": {
+   "n_instances_total": 480,
+   "n_groups_total": 10,
+   "n_groups_with_separation_variation": 4,
+   "n_instances_in_varying_groups": 267,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 480,
+    "n_excluded": 0,
+    "n_strata_total": 10,
+    "n_strata_used": 10,
+    "tau_b_stratified": 0.1841655225704639,
+    "ci_lo_2p5": 0.12626247993701575,
+    "ci_hi_97p5": 0.33752826956923043,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 9966
+   }
+  },
+  "flip_cov0.5_bw0.1": {
+   "n_instances_total": 480,
+   "n_groups_total": 14,
+   "n_groups_with_separation_variation": 4,
+   "n_instances_in_varying_groups": 271,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 480,
+    "n_excluded": 0,
+    "n_strata_total": 14,
+    "n_strata_used": 13,
+    "tau_b_stratified": 0.10781923243695213,
+    "ci_lo_2p5": 0.0021243280417653967,
+    "ci_hi_97p5": 0.3521023737004667,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 9992
+   }
+  },
+  "flip_cov0.5_bw0.25": {
+   "n_instances_total": 476,
+   "n_groups_total": 17,
+   "n_groups_with_separation_variation": 5,
+   "n_instances_in_varying_groups": 331,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 476,
+    "n_excluded": 0,
+    "n_strata_total": 17,
+    "n_strata_used": 15,
+    "tau_b_stratified": 0.10707899811609113,
+    "ci_lo_2p5": -0.04213066999967141,
+    "ci_hi_97p5": 0.27231960597705596,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 10000
+   }
+  },
+  "flip_cov1.0_bw0.0": {
+   "n_instances_total": 480,
+   "n_groups_total": 12,
+   "n_groups_with_separation_variation": 0,
+   "n_instances_in_varying_groups": 0,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 480,
+    "n_excluded": 0,
+    "n_strata_total": 12,
+    "n_strata_used": 12,
+    "tau_b_stratified": null,
+    "ci_lo_2p5": null,
+    "ci_hi_97p5": null,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "undefined"
+   }
+  },
+  "flip_cov1.0_bw0.1": {
+   "n_instances_total": 480,
+   "n_groups_total": 24,
+   "n_groups_with_separation_variation": 1,
+   "n_instances_in_varying_groups": 19,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 480,
+    "n_excluded": 0,
+    "n_strata_total": 24,
+    "n_strata_used": 23,
+    "tau_b_stratified": 0.5158942223004527,
+    "ci_lo_2p5": 0.19586309990571069,
+    "ci_hi_97p5": 0.7416198487095663,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 9998
+   }
+  },
+  "flip_cov1.0_bw0.25": {
+   "n_instances_total": 334,
+   "n_groups_total": 23,
+   "n_groups_with_separation_variation": 11,
+   "n_instances_in_varying_groups": 240,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 334,
+    "n_excluded": 0,
+    "n_strata_total": 23,
+    "n_strata_used": 23,
+    "tau_b_stratified": 0.05461323051749209,
+    "ci_lo_2p5": -0.15140427902513118,
+    "ci_hi_97p5": 0.4159027817477261,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 10000
+   }
+  },
+  "tiered_nt2": {
+   "n_instances_total": 414,
+   "n_groups_total": 17,
+   "n_groups_with_separation_variation": 4,
+   "n_instances_in_varying_groups": 141,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 414,
+    "n_excluded": 0,
+    "n_strata_total": 17,
+    "n_strata_used": 15,
+    "tau_b_stratified": 0.042169146014246574,
+    "ci_lo_2p5": -0.11393355642609818,
+    "ci_hi_97p5": 0.1984095225666517,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "ok",
+    "n_boot_valid": 10000
+   }
+  },
+  "tiered_nt3": {
+   "n_instances_total": 480,
+   "n_groups_total": 16,
+   "n_groups_with_separation_variation": 0,
+   "n_instances_in_varying_groups": 0,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 480,
+    "n_excluded": 0,
+    "n_strata_total": 16,
+    "n_strata_used": 16,
+    "tau_b_stratified": null,
+    "ci_lo_2p5": null,
+    "ci_hi_97p5": null,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "undefined"
+   }
+  },
+  "tiered_nt4": {
+   "n_instances_total": 480,
+   "n_groups_total": 13,
+   "n_groups_with_separation_variation": 0,
+   "n_instances_in_varying_groups": 0,
+   "separation_given_r_val": {
+    "predictor": "separation",
+    "endpoint": "AUC_frac",
+    "n_rows": 480,
+    "n_excluded": 0,
+    "n_strata_total": 13,
+    "n_strata_used": 13,
+    "tau_b_stratified": null,
+    "ci_lo_2p5": null,
+    "ci_hi_97p5": null,
+    "n_boot": 10000,
+    "seed": 0,
+    "status": "undefined"
+   }
+  }
+ }
+}
