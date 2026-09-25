@@ -1,0 +1,26 @@
+{
+  "args": {
+    "condition": "D_LLM",
+    "panel": "results/final_table_eps_gt1/instances.jsonl",
+    "epsilons": "0.02,0.10,0.25,0.40,0.60,0.90",
+    "seed": 20260917,
+    "budget": 900,
+    "max_undirected": 10,
+    "out": "results/mean_table_relevant_v2",
+    "networks": ""
+  },
+  "epsilons": [
+    0.02,
+    0.1,
+    0.25,
+    0.4,
+    0.6,
+    0.9
+  ],
+  "n_target_queries": 39,
+  "n_ok": 39,
+  "n_invariance_violations": 0,
+  "n_queries_with_changed_r_mu": 6,
+  "n_queries_with_irrelevant_components": 6,
+  "seconds": 296.9
+}
