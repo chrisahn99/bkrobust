@@ -35,6 +35,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import multiprocessing as mp
 import signal
 import sys
 import time
@@ -515,6 +516,217 @@ def run_llm_dataset(
 
 
 # --------------------------------------------------------------------------
+# Dataset 1b: parallel recompute of a network-filtered subset of the LLM
+# panel (e.g. the large networks skipped by NETWORK_NODE_LIMIT above). One
+# unit per multiprocessing task; each worker process rebuilds (cpdag, g0,
+# z_star) itself via the *same* rs.load_network / ls.build_state /
+# rs.commit_z_star calls the sequential path uses, and scores it with the
+# same gac_radius / gac_valid_at_g0 functions, so results are directly
+# comparable to axis_robustness_llm.csv.
+# --------------------------------------------------------------------------
+
+_worker_bundle = None
+_worker_net_cache: dict = {}
+_worker_g0_cache: dict = {}
+
+
+def _worker_init():
+    """multiprocessing.Pool initializer: load the elicitation bundle once per
+    worker process; reused (along with per-network caches below) across every
+    task that worker subsequently handles."""
+    global _worker_bundle
+    _worker_bundle, _ = ls.load_bundle()
+
+
+def _worker_recompute_unit(task):
+    """Run in a worker process. task = (row_dict, per_unit_timeout_s).
+
+    Returns a dict with the same fields run_llm_dataset produces per row,
+    plus "_not_recomputed_reason" (None on success) that the caller strips
+    before writing the CSV.
+    """
+    row, timeout_s = task
+    cond, net, x, y = row["condition"], row["network"], row["x"], row["y"]
+    stored_radius_raw = row.get("radius", "")
+    stored_radius_val = (
+        int(stored_radius_raw) if stored_radius_raw not in ("", None) else None
+    )
+    out = {
+        "network": net, "x": x, "y": y, "condition": cond,
+        "frame_row_id": row.get("frame_row_id", ""),
+        "shard_id": row.get("shard_id", ""),
+        "z_star": "", "stored_radius": stored_radius_val,
+        "gac_radius": None, "gac_exact": False, "equal": None,
+        "z_gac_valid_at_g0": None, "backdoor_recheck": None,
+        "sanity_status": "",
+        "_not_recomputed_reason": None,
+    }
+    try:
+        if net not in _worker_net_cache:
+            _worker_net_cache[net] = rs.load_network(net)
+        dag, cpdag = _worker_net_cache[net]
+
+        key = (cond, net)
+        if key not in _worker_g0_cache:
+            _worker_g0_cache[key] = ls.build_state(_worker_bundle, cond, net, dag, cpdag)
+        _k, g0, g0_reason, _shared = _worker_g0_cache[key]
+        if g0 is None or g0_reason != "ok":
+            out["_not_recomputed_reason"] = f"g0_{g0_reason}"
+            return out
+
+        z_star, z_reason = rs.commit_z_star(g0, x, y)
+        if z_star is None:
+            out["_not_recomputed_reason"] = f"z_{z_reason}"
+            return out
+        out["z_star"] = json.dumps(sorted(z_star))
+
+        try:
+            with per_unit_timeout(timeout_s):
+                gac_rad, gac_exact, _method = gac_radius(cpdag, g0, x, y, z_star)
+                g0_gac_valid = gac_valid_at_g0(g0, x, y, z_star)
+        except _PerUnitTimeout:
+            out["sanity_status"] = "not_recomputed_timeout"
+            out["_not_recomputed_reason"] = "gac_per_unit_timeout"
+            return out
+
+        out["gac_radius"] = gac_rad
+        out["gac_exact"] = gac_exact
+        out["z_gac_valid_at_g0"] = g0_gac_valid
+        if gac_exact:
+            out["equal"] = (stored_radius_val == gac_rad)
+        else:
+            out["_not_recomputed_reason"] = "gac_bfs_inexact"
+        return out
+    except Exception as exc:  # noqa: BLE001
+        out["_not_recomputed_reason"] = f"exception_{type(exc).__name__}"
+        return out
+
+
+def run_llm_dataset_parallel(
+    csv_path: Path,
+    out_csv: Path,
+    *,
+    only_networks: set[str] | None,
+    max_nodes: int,
+    workers: int,
+    per_unit_timeout: float,
+    time_budget_s: float,
+    limit: int | None = None,
+):
+    """Parallel counterpart to run_llm_dataset, for a network-filtered subset
+    (e.g. the networks that NETWORK_NODE_LIMIT skips in the sequential run).
+
+    max_nodes <= 0 disables the node-count skip entirely. Reuses the exact
+    same rebuild (rs.load_network / ls.build_state / rs.commit_z_star) and
+    scoring (gac_radius / gac_valid_at_g0) functions as run_llm_dataset, via
+    _worker_recompute_unit, so results are directly comparable.
+    """
+    t_start = time.time()
+    with open(csv_path) as f:
+        reader = csv.DictReader(f)
+        all_rows = list(reader)
+
+    scored_rows = [r for r in all_rows if r.get("status") == "ok"]
+    if only_networks:
+        scored_rows = [r for r in scored_rows if r["network"] in only_networks]
+    if max_nodes and max_nodes > 0:
+        node_counts: dict[str, int] = {}
+        kept = []
+        for r in scored_rows:
+            net = r["network"]
+            if net not in node_counts:
+                _dag, cpdag = rs.load_network(net)
+                node_counts[net] = len(cpdag.nodes)
+            if node_counts[net] <= max_nodes:
+                kept.append(r)
+        scored_rows = kept
+    if limit is not None:
+        scored_rows = scored_rows[:limit]
+
+    tasks = [(r, per_unit_timeout) for r in scored_rows]
+    n_total = len(tasks)
+    print(f"[{out_csv.name}] {n_total} units to recompute in parallel "
+          f"(workers={workers}, per_unit_timeout={per_unit_timeout}s, "
+          f"time_budget={time_budget_s}s)", flush=True)
+
+    rows_out = []
+    n_equal = 0
+    n_differ = 0
+    n_not_recomputed = 0
+    not_recomputed_reasons: dict[str, int] = {}
+    differences = []
+    n_done = 0
+    hit_time_budget = False
+
+    pool = mp.Pool(processes=workers, initializer=_worker_init)
+    try:
+        for res in pool.imap_unordered(_worker_recompute_unit, tasks):
+            n_done += 1
+            reason = res.pop("_not_recomputed_reason", None)
+            if reason is not None:
+                n_not_recomputed += 1
+                not_recomputed_reasons[reason] = not_recomputed_reasons.get(reason, 0) + 1
+            elif res["equal"]:
+                n_equal += 1
+            else:
+                n_differ += 1
+                differences.append({
+                    "network": res["network"], "x": res["x"], "y": res["y"],
+                    "condition": res["condition"],
+                    "z": json.loads(res["z_star"]) if res["z_star"] else None,
+                    "stored_radius": res["stored_radius"], "gac_radius": res["gac_radius"],
+                })
+            rows_out.append(res)
+
+            if n_done % 5 == 0 or n_done == n_total:
+                elapsed = time.time() - t_start
+                print(f"[{out_csv.name}] {n_done}/{n_total} done, n_equal={n_equal} "
+                      f"n_differ={n_differ} n_not_recomputed={n_not_recomputed} "
+                      f"elapsed={elapsed:.0f}s", flush=True)
+
+            if time.time() - t_start > time_budget_s:
+                print(f"[{out_csv.name}] overall time budget ({time_budget_s}s) exceeded "
+                      f"after {n_done}/{n_total}; terminating remaining workers.", flush=True)
+                hit_time_budget = True
+                break
+    finally:
+        pool.terminate()
+        pool.join()
+
+    if hit_time_budget:
+        remaining = n_total - n_done
+        n_not_recomputed += remaining
+        not_recomputed_reasons["time_budget_exceeded"] = (
+            not_recomputed_reasons.get("time_budget_exceeded", 0) + remaining
+        )
+
+    fieldnames = [
+        "network", "x", "y", "condition", "frame_row_id", "shard_id",
+        "z_star", "stored_radius", "gac_radius", "gac_exact", "equal",
+        "z_gac_valid_at_g0", "backdoor_recheck", "sanity_status",
+    ]
+    with open(out_csv, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w.writeheader()
+        for r in rows_out:
+            w.writerow({k: r.get(k) for k in fieldnames})
+
+    seconds = time.time() - t_start
+    return {
+        "n_units": n_total,
+        "n_done": n_done,
+        "n_remaining": n_total - n_done,
+        "n_equal": n_equal,
+        "n_differ": n_differ,
+        "n_not_recomputed": n_not_recomputed,
+        "not_recomputed_reasons": not_recomputed_reasons,
+        "differences": differences[:50],
+        "n_differences_total": len(differences),
+        "seconds": seconds,
+    }
+
+
+# --------------------------------------------------------------------------
 # Dataset 2: synthetic survival sweep (axis_robustness_p6): flip + tiered
 # --------------------------------------------------------------------------
 
@@ -616,21 +828,69 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--time-budget", type=float, default=600.0)
     ap.add_argument("--sanity-n", type=int, default=25)
+    ap.add_argument(
+        "--only-networks", type=str, default=None,
+        help="Comma-separated network names restricting the llm dataset "
+             "(e.g. diabetes,munin1). Triggers the parallel path and writes "
+             "to axis_robustness_llm_large.csv / summary key "
+             "axis_robustness_llm_large instead of the default output.",
+    )
+    ap.add_argument(
+        "--max-nodes", type=int, default=None,
+        help="Override NETWORK_NODE_LIMIT for the llm dataset's parallel "
+             "path; 0 disables the node-count skip entirely.",
+    )
+    ap.add_argument(
+        "--workers", type=int, default=1,
+        help="If >1, recompute the llm dataset's units in parallel across "
+             "this many worker processes (one unit per task).",
+    )
+    ap.add_argument(
+        "--per-unit-timeout", type=float, default=None,
+        help="Per-unit GAC BFS timeout in seconds. Default: 8s on the "
+             "sequential path, 1200s (20 min) on the parallel path.",
+    )
     args = ap.parse_args()
 
     summary = {}
 
     if args.dataset in ("llm", "all"):
-        res = run_llm_dataset(
-            Path("results/axis_robustness_llm/analysis_units.csv"),
-            "commit",
-            OUT_DIR / "axis_robustness_llm.csv",
-            limit=args.limit,
-            time_budget_s=args.time_budget,
-            sanity_check_n=args.sanity_n,
+        only_networks = (
+            {n.strip() for n in args.only_networks.split(",") if n.strip()}
+            if args.only_networks else None
         )
-        summary["axis_robustness_llm"] = res
-        print(json.dumps(res, indent=2, default=str))
+        if only_networks or args.workers > 1:
+            per_unit_timeout_val = (
+                args.per_unit_timeout if args.per_unit_timeout is not None else 1200.0
+            )
+            max_nodes_val = args.max_nodes if args.max_nodes is not None else NETWORK_NODE_LIMIT
+            out_csv = OUT_DIR / (
+                "axis_robustness_llm_large.csv" if only_networks else "axis_robustness_llm.csv"
+            )
+            summary_key = "axis_robustness_llm_large" if only_networks else "axis_robustness_llm"
+            res = run_llm_dataset_parallel(
+                Path("results/axis_robustness_llm/analysis_units.csv"),
+                out_csv,
+                only_networks=only_networks,
+                max_nodes=max_nodes_val,
+                workers=max(args.workers, 1),
+                per_unit_timeout=per_unit_timeout_val,
+                time_budget_s=args.time_budget,
+                limit=args.limit,
+            )
+            summary[summary_key] = res
+            print(json.dumps(res, indent=2, default=str))
+        else:
+            res = run_llm_dataset(
+                Path("results/axis_robustness_llm/analysis_units.csv"),
+                "commit",
+                OUT_DIR / "axis_robustness_llm.csv",
+                limit=args.limit,
+                time_budget_s=args.time_budget,
+                sanity_check_n=args.sanity_n,
+            )
+            summary["axis_robustness_llm"] = res
+            print(json.dumps(res, indent=2, default=str))
 
     if args.dataset in ("llm_v2", "all"):
         res = run_llm_dataset(
