@@ -1,0 +1,9 @@
+{
+  "source": "results/final_table/instances.jsonl",
+  "n_units": 99,
+  "n_equal": 99,
+  "n_differ": 0,
+  "n_skipped": 0,
+  "differences": [],
+  "seconds": 45.4
+}
