@@ -1,0 +1,54 @@
+{
+  "check5_oset_radius_agreement": {
+    "by_scope": {
+      "n3_n4_exhaustive": {
+        "backdoor_invalid_at_g0": 9204,
+        "backdoor_invalid_at_g0_but_gac_valid": 0,
+        "n_cpdags": 133,
+        "n_queries": 5304,
+        "n_state_comparisons": 159942,
+        "radius_differ": 0,
+        "radius_equal": 5304,
+        "state_disagreements": 0
+      },
+      "n5_sample": {
+        "backdoor_invalid_at_g0": 96933,
+        "backdoor_invalid_at_g0_but_gac_valid": 0,
+        "n_cpdags": 755,
+        "n_queries": 58414,
+        "n_state_comparisons": 1969701,
+        "radius_differ": 0,
+        "radius_equal": 58414,
+        "state_disagreements": 0
+      }
+    },
+    "counterexample": {
+      "cpdag": "W-X X-Y",
+      "g0": "W->X X->Y",
+      "note": "The reviewer's counterexample, computed with the same machinery as the sweep above rather than asserted separately: CPDAG W-X-Y (undirected edges W-X and X-Y, no v-structure at X), G0 = W->X->Y, x=X, y=Y, Z={W}. Z is a valid but non-optimal adjustment set (O(G0) = the empty set here). r_backdoor = 1 (G0 with W-X reversed to X->W already invalidates Z under the back-door criterion) but r_complete = 2 (the nearest GAC-invalidating element differs from G0 in two directed edges), so the two radii do genuinely diverge once Z is not the committed optimal set -- the paper's claim is specifically that they coincide for O(G0), not for every valid Z.",
+      "optimal_set_at_g0": [],
+      "r_backdoor": 1,
+      "r_complete": 2,
+      "x": "X",
+      "y": "Y",
+      "z": [
+        "W"
+      ]
+    },
+    "radius_disagreement_examples": [],
+    "scope": "Graphs: every CPDAG on 3 and 4 labelled nodes with at least one undirected edge (exhaustive; same scope as check 2/3), plus every 8th CPDAG on 5 nodes with 1-6 undirected edges (bkrobust.search.conjecture_study.all_cpdags(5), deterministic list slice, never an RNG sample). For each such CPDAG, its corrected space is [cpdag, *build_space_correct(cpdag).elements], deduplicated by edge_string(). Queries: every element G0 of that space, every ordered (x, y) with x != y, Z = optimal_adjustment_set_mpdag(G0, x, y) (skipped when None, i.e. when the extensions of G0 disagree on the optimal set). If Z is back-door-invalid at G0 itself the query is excluded from the radius comparison -- a radius is only meaningful for a Z that is valid where it is committed -- but is counted, and whether it is nonetheless GAC-valid there is recorded separately, since back-door validity implies GAC validity and a case of the reverse would be a bug. For every surviving query, r_backdoor and r_complete are each the closed-form radius (Corollary 1(a), see the module-level comment on this check) computed with is_valid_mpdag and is_gac_valid_mpdag respectively, searching the same corrected space of G0's own CPDAG; None (infinite) when no element of the space invalidates Z under that predicate. A state-level comparison of is_valid_mpdag against is_gac_valid_mpdag is also recorded for every surviving (backdoor-valid-at-G0) query, over every G in that query's own space.",
+    "seconds": 93.57,
+    "state_disagreement_examples": [],
+    "totals": {
+      "backdoor_invalid_at_g0": 106137,
+      "backdoor_invalid_at_g0_but_gac_valid": 0,
+      "n_queries": 63718,
+      "n_state_comparisons": 2129643,
+      "radius_differ": 0,
+      "radius_equal": 63718,
+      "state_disagreements": 0
+    }
+  },
+  "generated_by": "PYTHONPATH=src python3 -m bkrobust.gac.sweep --check5",
+  "python": "3.14.7"
+}

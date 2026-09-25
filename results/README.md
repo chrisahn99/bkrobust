@@ -34,7 +34,7 @@ reachable knowledge state invalidates the adjustment set. It is never averaged.
 | Directory | Content | Written by |
 |---|---|---|
 | `axis_robustness/` | First survival sweep (N=200), claims-vs-hops units, null cell, cross-arm, Pareto frontier | `bkrobust.robustness.run_*`, `experiments/run_analyse.py` |
-| `axisa2/` | Synthetic census, separation frontier, gate differential | `bkrobust.synth`, `bkrobust.benchmarks` |
+| `axisa2/` | Synthetic census, separation frontier, gate differential; also `gac_agreement.json` (GAC vs back-door, DAG and MPDAG level, checks 1-4) and `oset_radius_agreement.json` (check 5: the closed-form breakdown radius under back-door vs the complete/GAC criterion agrees for the committed optimal set O(G0) -- exhaustive on 3-4 nodes plus a 5-node sample, 63,718 O-set queries and 2,129,643 state-level comparisons, 0 disagreements either way; includes the reviewer's counterexample showing the two radii genuinely differ for a valid but non-optimal `Z`) | `bkrobust.synth`, `bkrobust.benchmarks`, `bkrobust.gac.sweep` |
 | `axisb2/` | Lattice structure, Conjecture 2 sweep, bounds, scaling | `bkrobust.search`, `bkrobust.core` |
 | `synth/` | Synthetic ensembles: pre-registration, pilot, calibration, census, main run | `bkrobust.synth.runner` |
 | `frame/` | Real-network candidate frame for elicitation | `experiments/frame_build.py` |
