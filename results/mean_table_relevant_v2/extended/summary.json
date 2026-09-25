@@ -1,0 +1,50 @@
+{
+  "args": {
+    "condition": "D_LLM",
+    "epsilons": "0.02,0.10,0.25,0.40,0.60,0.90",
+    "seed": 20260917,
+    "budget": 900,
+    "out": "results/mean_table_relevant_v2/extended",
+    "skip_validate": false
+  },
+  "epsilons": [
+    0.02,
+    0.1,
+    0.25,
+    0.4,
+    0.6,
+    0.9
+  ],
+  "n_skipped_total": 18,
+  "n_ok": 14,
+  "n_finite_r_and_nonzero_bias": 10,
+  "n_no_failure_or_zero_bias": 4,
+  "n_timeout": 4,
+  "timeouts": [
+    [
+      "ecoli70",
+      "cspG",
+      "hupB",
+      13
+    ],
+    [
+      "paths",
+      "1",
+      "10",
+      14
+    ],
+    [
+      "paths",
+      "1",
+      "8",
+      14
+    ],
+    [
+      "paths",
+      "11",
+      "14",
+      14
+    ]
+  ],
+  "seconds": 4161.6
+}
