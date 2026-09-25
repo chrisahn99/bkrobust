@@ -106,6 +106,8 @@ def _build(
     x: str,
     y: str,
     z: frozenset[str],
+    *,
+    criterion: str = "backdoor",
 ) -> tuple[cp_model.CpModel, Any, list[Any], dict[Edge, Any]]:
     """Build the shared E1 model; returns (model, ov, retracted_literals, d)."""
     model = cp_model.CpModel()
@@ -126,7 +128,7 @@ def _build(
             retracted.append(drop)
 
     e = add_witness_dag(model, ov)
-    add_failure(model, ov, e, x, y, z)
+    add_failure(model, ov, e, x, y, z, criterion=criterion)
     return model, ov, retracted, ov.d
 
 
@@ -140,6 +142,7 @@ def radius_e1(
     max_k: int | None = None,
     time_limit_s: float = 60.0,
     seed: int = 0,
+    criterion: str = "backdoor",
 ) -> LadderResult:
     """Compute the breakdown radius by the E1 ladder.
 
@@ -154,12 +157,16 @@ def radius_e1(
         time_limit_s: Per-rung solver time limit.
         seed: Solver seed. Combined with single-threaded operation this makes
             the search deterministic.
+        criterion: ``"backdoor"`` (default, preserves E1's original semantics
+            and every existing caller) or ``"gac"``, forwarded to
+            :func:`bkrobust.sat.failure.add_failure`. :mod:`bkrobust.hybrid`
+            passes ``"gac"`` explicitly.
 
     Returns:
         A :class:`LadderResult`.
     """
     t0 = time.perf_counter()
-    model, _ov, retracted, d = _build(cpdag, g0, x, y, z)
+    model, _ov, retracted, d = _build(cpdag, g0, x, y, z, criterion=criterion)
     build_s = time.perf_counter() - t0
 
     res = LadderResult(radius=UNREACHED, exact=True, build_seconds=build_s)

@@ -6,7 +6,10 @@ scope we can enumerate", and a claim like that is worth exactly what its stated
 scope is worth. This script fixes each scope in code, writes it into the results
 file next to the counts, and can be re-run to reproduce them.
 
-Four checks, matching the four sections of ``results/axisa2/gac_agreement.json``:
+Five checks. The first four match the four sections of
+``results/axisa2/gac_agreement.json``; the fifth is written to a separate file,
+``results/axisa2/oset_radius_agreement.json``, because it answers a different
+question and is comparatively cheap to rerun on its own:
 
 1. **DAG level, GAC vs back-door, classified.** Over exhaustive small DAGs,
    :func:`~bkrobust.gac.dag_level.is_gac_valid_dag` is compared with
@@ -34,10 +37,22 @@ Four checks, matching the four sections of ``results/axisa2/gac_agreement.json``
    dense Erdos-Renyi instances built exactly as :mod:`bkrobust.hybrid` builds
    them. The bar this package was written against is under 5 ms per call at
    ``n = 20``.
+5. **The breakdown-radius claim itself, not just check 3's fixed-``Z`` slice.**
+   The paper states that r_backdoor and r_complete coincide for the committed
+   optimal set O(G0) -- not merely that the two criteria agree *at* O(G0)
+   (check 3), but that the closed-form radius (Corollary 1(a)) computed under
+   back-door validity and under GAC validity comes out to the same integer.
+   Check 3 fixed ``Z = O(CPDAG)`` only; this check lets ``G0`` range over the
+   CPDAG's whole corrected space, since the radius is a property of ``(G0, x,
+   y)``, not of the CPDAG alone. It also records a state-level comparison of
+   the two validity predicates over the same scope, and the reviewer's
+   counterexample showing the two radii genuinely differ once ``Z`` is *not*
+   optimal (``Z = {W}`` on the chain W-X-Y, where O(G0) = the empty set).
 
 Run with::
 
     PYTHONPATH=src python3 -m bkrobust.gac.sweep
+    PYTHONPATH=src python3 -m bkrobust.gac.sweep --check5
 
 Written to run on Python 3.9 as well as the repository's 3.11 target: neither
 ``zip(strict=)`` nor ``itertools.pairwise`` (3.10+) is used, and randomness is
@@ -77,6 +92,10 @@ Node = str
 
 #: Where the sweep's numbers are written, relative to the repository root.
 DEFAULT_OUT = Path("results/axisa2/gac_agreement.json")
+
+#: Where check 5's numbers are written. A separate file, deliberately: checks
+#: 1-4 are slow and unchanged, and this file must not require rerunning them.
+CHECK5_OUT = Path("results/axisa2/oset_radius_agreement.json")
 
 CHECK1_SCOPE = (
     "Graphs: every labelled DAG on 4 nodes (all_dags(4)) and {five} of the "
@@ -688,6 +707,257 @@ def run_check4(
 
 
 # --------------------------------------------------------------------------------
+# Check 5: the O-set radius claim -- Z ranging over G0, not fixed at O(CPDAG)
+# --------------------------------------------------------------------------------
+
+#: Check 3 fixes ``Z = O(CPDAG)`` and only ever evaluates validity, never a
+#: radius. The paper's actual claim is about the *radius*: that
+#: r_backdoor(G0, x, y, O(G0)) == r_complete(G0, x, y, O(G0)) for the analyst's
+#: committed graph G0, which ranges over the CPDAG's whole corrected space, not
+#: just the CPDAG itself. This check computes both radii, by the closed form of
+#: Corollary 1(a) -- the min, over elements G of G0's own corrected space at
+#: which Z is invalid under the predicate in question, of the symmetric
+#: difference between K_G0 = directed_edges(G0) - directed_edges(cpdag) and
+#: K_G = directed_edges(G) - directed_edges(cpdag) -- so it never calls the
+#: search or SAT machinery in bkrobust.hybrid / bkrobust.sat.e1, only the two
+#: validity predicates already under test.
+CHECK5_SCOPE = (
+    "Graphs: every CPDAG on 3 and 4 labelled nodes with at least one undirected "
+    "edge (exhaustive; same scope as check 2/3), plus every 8th CPDAG on 5 nodes "
+    "with 1-6 undirected edges (bkrobust.search.conjecture_study.all_cpdags(5), "
+    "deterministic list slice, never an RNG sample). For each such CPDAG, its "
+    "corrected space is [cpdag, *build_space_correct(cpdag).elements], "
+    "deduplicated by edge_string(). Queries: every element G0 of that space, "
+    "every ordered (x, y) with x != y, Z = optimal_adjustment_set_mpdag(G0, x, "
+    "y) (skipped when None, i.e. when the extensions of G0 disagree on the "
+    "optimal set). If Z is back-door-invalid at G0 itself the query is excluded "
+    "from the radius comparison -- a radius is only meaningful for a Z that is "
+    "valid where it is committed -- but is counted, and whether it is "
+    "nonetheless GAC-valid there is recorded separately, since back-door "
+    "validity implies GAC validity and a case of the reverse would be a bug. "
+    "For every surviving query, r_backdoor and r_complete are each the closed-"
+    "form radius (Corollary 1(a), see the module-level comment on this check) "
+    "computed with is_valid_mpdag and is_gac_valid_mpdag respectively, searching "
+    "the same corrected space of G0's own CPDAG; None (infinite) when no "
+    "element of the space invalidates Z under that predicate. A state-level "
+    "comparison of is_valid_mpdag against is_gac_valid_mpdag is also recorded "
+    "for every surviving (backdoor-valid-at-G0) query, over every G in that "
+    "query's own space."
+)
+
+CHECK5_COUNTEREXAMPLE_NOTE = (
+    "The reviewer's counterexample, computed with the same machinery as the "
+    "sweep above rather than asserted separately: CPDAG W-X-Y (undirected edges "
+    "W-X and X-Y, no v-structure at X), G0 = W->X->Y, x=X, y=Y, Z={W}. Z is a "
+    "valid but non-optimal adjustment set (O(G0) = the empty set here). "
+    "r_backdoor = 1 (G0 with W-X reversed to X->W already invalidates Z under "
+    "the back-door criterion) but r_complete = 2 (the nearest GAC-invalidating "
+    "element differs from G0 in two directed edges), so the two radii do "
+    "genuinely diverge once Z is not the committed optimal set -- the paper's "
+    "claim is specifically that they coincide for O(G0), not for every valid Z."
+)
+
+
+def _corrected_space(cpdag: MPDAG) -> list[MPDAG]:
+    """``[cpdag, *build_space_correct(cpdag).elements]``, deduplicated by edge string.
+
+    Args:
+        cpdag: The CPDAG whose corrected space to build.
+
+    Returns:
+        The space, sorted by edge string for determinism.
+    """
+    seen: dict[str, MPDAG] = {}
+    for element in (cpdag, *build_space_correct(cpdag).elements):
+        seen.setdefault(element.edge_string(), element)
+    return [seen[k] for k in sorted(seen)]
+
+
+def oset_radius(
+    cpdag: MPDAG, space: list[MPDAG], g0: MPDAG, x: Node, y: Node, z: frozenset, valid_fn
+) -> int | None:
+    """The closed-form breakdown radius of ``Corollary 1(a)`` under one predicate.
+
+    ``min`` over elements ``g`` of ``space`` at which ``z`` is invalid under
+    ``valid_fn``, of ``|K_g0 Delta K_g|`` with ``K_g = directed_edges(g) -
+    directed_edges(cpdag)``. This is the paper's closed form for the exact
+    breakdown radius, not an approximation of it, so it needs neither the
+    search of :mod:`bkrobust.search.exact_fast` nor the SAT ladder of
+    :mod:`bkrobust.sat.e1`.
+
+    Args:
+        cpdag: The CPDAG the radius is measured relative to (fixes the ``K``
+            baseline).
+        space: The CPDAG's corrected space -- the candidate perturbations.
+        g0: The analyst's committed graph.
+        x: The treatment node.
+        y: The outcome node.
+        z: The adjustment set held fixed.
+        valid_fn: ``is_valid_mpdag`` or ``is_gac_valid_mpdag``.
+
+    Returns:
+        The radius, or ``None`` if no element of ``space`` invalidates ``z``
+        under ``valid_fn``.
+    """
+    base = set(cpdag.directed_edges)
+    k0 = set(g0.directed_edges) - base
+    best: int | None = None
+    for g in space:
+        if valid_fn(g, x, y, z):
+            continue
+        kg = set(g.directed_edges) - base
+        d = len(k0 ^ kg)
+        if best is None or d < best:
+            best = d
+    return best
+
+
+def run_check5(sizes: tuple[int, ...] = (3, 4), n5_step: int = 8, n5_max_undirected: int = 6) -> dict[str, Any]:
+    """Whether r_backdoor and r_complete agree for O(G0), G0 ranging over the space.
+
+    Args:
+        sizes: Node counts to enumerate exhaustively.
+        n5_step: Take every ``n5_step``-th qualifying 5-node CPDAG.
+        n5_max_undirected: Skip 5-node CPDAGs with more undirected edges than
+            this.
+
+    Returns:
+        A JSON-serialisable record: the scope, per-scope and total counts, the
+        state-level comparison, the reviewer's counterexample (computed and
+        asserted), up to five radius-disagreement examples and up to five
+        state-disagreement examples.
+    """
+    started = time.time()
+    by_scope: dict[str, dict[str, Any]] = {}
+    radius_examples: list[dict[str, Any]] = []
+    state_examples: list[dict[str, Any]] = []
+
+    scopes = {
+        "n3_n4_exhaustive": [c for n in sizes for c in all_cpdags(n) if c.undirected_edges],
+        "n5_sample": [
+            c
+            for c in all_cpdags(5)
+            if 1 <= len(c.undirected_edges) <= n5_max_undirected
+        ][::n5_step],
+    }
+
+    totals = Counter()
+    for scope_name, cpdags in scopes.items():
+        counts = Counter(
+            {
+                "n_queries": 0,
+                "radius_equal": 0,
+                "radius_differ": 0,
+                "backdoor_invalid_at_g0": 0,
+                "backdoor_invalid_at_g0_but_gac_valid": 0,
+                "n_state_comparisons": 0,
+                "state_disagreements": 0,
+            }
+        )
+        for cpdag in cpdags:
+            space = _corrected_space(cpdag)
+            for g0 in space:
+                for x, y in itertools.permutations(sorted(cpdag.nodes), 2):
+                    optimal = optimal_adjustment_set_mpdag(g0, x, y)
+                    if optimal is None:
+                        continue
+                    z = frozenset(optimal)
+
+                    if not is_valid_mpdag(g0, x, y, z):
+                        counts["backdoor_invalid_at_g0"] += 1
+                        if is_gac_valid_mpdag(g0, x, y, z):
+                            counts["backdoor_invalid_at_g0_but_gac_valid"] += 1
+                        continue
+
+                    counts["n_queries"] += 1
+
+                    # State-level comparison, restricted to backdoor-valid-at-G0
+                    # queries (mirroring the radius comparison's own scope):
+                    # every element of the space, is_valid_mpdag versus
+                    # is_gac_valid_mpdag.
+                    for g in space:
+                        counts["n_state_comparisons"] += 1
+                        bd = is_valid_mpdag(g, x, y, z)
+                        gac = is_gac_valid_mpdag(g, x, y, z)
+                        if bd != gac:
+                            counts["state_disagreements"] += 1
+                            if len(state_examples) < 5:
+                                state_examples.append(
+                                    {
+                                        "scope": scope_name,
+                                        "g0": cpdag.edge_string(),
+                                        "graph": g.edge_string(),
+                                        "x": x,
+                                        "y": y,
+                                        "z": sorted(z),
+                                        "backdoor": bd,
+                                        "gac": gac,
+                                    }
+                                )
+
+                    r_bd = oset_radius(cpdag, space, g0, x, y, z, is_valid_mpdag)
+                    r_gac = oset_radius(cpdag, space, g0, x, y, z, is_gac_valid_mpdag)
+                    if r_bd == r_gac:
+                        counts["radius_equal"] += 1
+                    else:
+                        counts["radius_differ"] += 1
+                        if len(radius_examples) < 5:
+                            radius_examples.append(
+                                {
+                                    "scope": scope_name,
+                                    "g0": cpdag.edge_string(),
+                                    "cpdag": cpdag.edge_string(),
+                                    "x": x,
+                                    "y": y,
+                                    "z": sorted(z),
+                                    "r_backdoor": r_bd,
+                                    "r_complete": r_gac,
+                                }
+                            )
+        by_scope[scope_name] = {
+            "n_cpdags": len(cpdags),
+            **{k: counts[k] for k in sorted(counts)},
+        }
+        totals.update(counts)
+
+    # The reviewer's counterexample: computed with the same oset_radius /
+    # predicates the sweep above uses, then asserted -- not merely printed.
+    counter_cpdag = MPDAG(["W", "X", "Y"], directed=[], undirected=[("W", "X"), ("X", "Y")])
+    counter_g0 = MPDAG(["W", "X", "Y"], directed=[("W", "X"), ("X", "Y")], undirected=[])
+    counter_space = _corrected_space(counter_cpdag)
+    counter_x, counter_y, counter_z = "X", "Y", frozenset({"W"})
+    counter_r_backdoor = oset_radius(
+        counter_cpdag, counter_space, counter_g0, counter_x, counter_y, counter_z, is_valid_mpdag
+    )
+    counter_r_complete = oset_radius(
+        counter_cpdag, counter_space, counter_g0, counter_x, counter_y, counter_z, is_gac_valid_mpdag
+    )
+    assert counter_r_backdoor == 1, f"counterexample r_backdoor changed: {counter_r_backdoor}"
+    assert counter_r_complete == 2, f"counterexample r_complete changed: {counter_r_complete}"
+
+    record = {
+        "scope": CHECK5_SCOPE,
+        "by_scope": by_scope,
+        "totals": {k: totals[k] for k in sorted(totals)},
+        "counterexample": {
+            "note": CHECK5_COUNTEREXAMPLE_NOTE,
+            "cpdag": counter_cpdag.edge_string(),
+            "g0": counter_g0.edge_string(),
+            "x": counter_x,
+            "y": counter_y,
+            "z": sorted(counter_z),
+            "optimal_set_at_g0": sorted(optimal_adjustment_set_mpdag(counter_g0, counter_x, counter_y) or []),
+            "r_backdoor": counter_r_backdoor,
+            "r_complete": counter_r_complete,
+        },
+        "radius_disagreement_examples": radius_examples,
+        "state_disagreement_examples": state_examples,
+        "seconds": round(time.time() - started, 2),
+    }
+    return record
+
+
+# --------------------------------------------------------------------------------
 # Entry point
 # --------------------------------------------------------------------------------
 
@@ -720,5 +990,34 @@ def main(out_path: str | Path = DEFAULT_OUT, *, with_n5: bool = True) -> dict[st
     return record
 
 
+def main_check5(out_path: str | Path = CHECK5_OUT) -> dict[str, Any]:
+    """Run check 5 alone and write it to its own file.
+
+    Deliberately separate from :func:`main`: checks 1-4 are slow (check 4
+    alone times dozens of cold-cache calls at ``n`` up to 30) and unchanged by
+    this check, so this entry point never reruns or overwrites
+    ``results/axisa2/gac_agreement.json``.
+
+    Args:
+        out_path: Destination JSON file. Parent directories are created.
+
+    Returns:
+        The record that was written.
+    """
+    record: dict[str, Any] = {
+        "generated_by": "PYTHONPATH=src python3 -m bkrobust.gac.sweep --check5",
+        "python": sys.version.split()[0],
+        "check5_oset_radius_agreement": run_check5(),
+    }
+    path = Path(out_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(record, indent=2, sort_keys=True))
+    return record
+
+
 if __name__ == "__main__":
-    main()
+    if "--check5" in sys.argv[1:]:
+        main_check5()
+    else:
+        main()
