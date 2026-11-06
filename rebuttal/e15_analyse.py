@@ -68,7 +68,7 @@ def main():
             b = np.array(boots[p])
             if np.isfinite(b).sum() > 100:
                 row[p]["lo"], row[p]["hi"] = map(float, np.nanpercentile(b, [2.5, 97.5]))
-        for p in ("-aid_oracle", "-aid_analyst", "-aidx_analyst", "-shd_truth"):
+        for p in ("-aid_oracle", "-aid_analyst", "-aidx_oracle", "-aidx_analyst", "-shd_truth"):
             diff = np.array(boots["r_val"]) - np.array(boots[p])
             if np.isfinite(diff).sum() > 100:
                 row[f"r_val minus {p}"] = {

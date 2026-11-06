@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__Kampen_2014",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "Kampen_2014"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "Kampen_2014",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 27,
+  "n_scored": 19,
+  "n_cells": 190,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 11,
+  "n_asked": 11,
+  "assert_rate": 1.0,
+  "k_accuracy": 0.36363636363636365,
+  "n_k_correct": 4,
+  "n_k_wrong": 7,
+  "n_off_skeleton": 0,
+  "k_g0": 11,
+  "shd_truth": 14,
+  "instance_status_counts": {
+    "ok": 19,
+    "z_invalid_at_g0": 8
+  },
+  "radius_median_ok": 2,
+  "n_radius_ok": 19,
+  "cache": {
+    "graph_hits": 8497,
+    "graph_misses": 1503,
+    "verdict_hits": 9842,
+    "verdict_misses": 741
+  },
+  "elapsed_s": 3.068,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Kampen_2014.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Kampen_2014.cells.jsonl",
+  "instances_sha256": "275ce1ebbcad2207555bf5e7d4d6ba695e0607d8934972a14227dd1684d338aa",
+  "cells_sha256": "0338391094a4032655641134af759b7ebcf62e4cdbfd7ec85e86dae7a5e775ca",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
+  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:12:07Z"
+}

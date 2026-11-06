@@ -8,11 +8,14 @@ variance); data are drawn ancestrally from them.
 PC-stable (Colombo & Maathuis 2014): Fisher-z partial-correlation tests at
 level alpha, order-independent adjacency search up to --max-depth, unshielded
 triples oriented as v-structures when the middle node is not in the
-separating set (conflicting orientations are left undirected), then Meek
-closure with the submitted ``bkrobust.demo.meek.meek_closure``. If the closure
-FAILs, v-structures are dropped one at a time, weakest first, until it
-succeeds. (Implemented as greedy insertion, strongest first, each kept only
-if the closure succeeds.) No package beyond numpy/scipy is used.
+separating set, strongest first, a v-structure being skipped if it would put
+an arrowhead against an earlier one or close a directed cycle; then one Meek
+closure with the submitted ``bkrobust.demo.meek.meek_closure`` (if it FAILs,
+the weakest kept v-structures are dropped until it succeeds). Validated with
+oracle d-separation tests: returns the true CPDAG exactly
+(rebuttal/pc_oracle_check.py). An earlier version closed after every
+v-structure, which let Meek's R1 pre-empt later true v-structures; its E5/E6
+outputs are kept in results/rebuttal/e5/superseded_buggy_pc/ and not used. No package beyond numpy/scipy is used.
 """
 
 from __future__ import annotations
@@ -128,7 +131,7 @@ def pc(nodes, X, alpha=0.01, max_depth=3):
                 vs.append((strength, a, b, c))
     vs.sort(reverse=True)  # strongest (largest separating p-value) first
 
-    def build(vlist):
+    def pdag(vlist):
         head = {}
         for _, a, b, c in vlist:
             for u in (a, c):
@@ -146,21 +149,30 @@ def pc(nodes, X, alpha=0.01, max_depth=3):
                     else:
                         undirected.append((nodes[i], nodes[j]))
         g = MPDAG(nodes, directed=directed, undirected=undirected)
-        if not g.is_acyclic():
-            return None
-        return meek_closure(g)
+        return g if g.is_acyclic() else None
 
-    # Greedy, strongest first: keep a v-structure only if the graph stays
-    # acyclic and Meek-closable with it.
+    # All v-structures first (as PC does), strongest first: one is kept unless
+    # it puts an arrowhead against one already kept or closes a directed
+    # cycle. Meek's rules run once, at the end; if they FAIL, the weakest kept
+    # v-structures are dropped one at a time until they succeed.
     used, dropped = [], 0
-    g = build(used)
+    heads = set()
     for v in vs:
-        h = build(used + [v])
-        if h is None:
+        _, a, b, c = v
+        if (b, a) in heads or (b, c) in heads or pdag(used + [v]) is None:
             dropped += 1
             continue
         used.append(v)
-        g = h
+        heads |= {(a, b), (c, b)}
+    g = None
+    while g is None:
+        base = pdag(used)
+        g = meek_closure(base) if base is not None else None
+        if g is None:
+            if not used:
+                break
+            used.pop()
+            dropped += 1
     if g is None:
         g = MPDAG(nodes, undirected=[(nodes[i], nodes[j]) for i in range(p) for j in adj[i] if i < j])
     return g, {"n_vstructures": len(vs), "vstructures_dropped": dropped,

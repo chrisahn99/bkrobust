@@ -6,7 +6,8 @@ CPDAG-only frame queries (results/frame/frame.jsonl) under the eight
 real-name elicited conditions (results/elicit/knowledge.json, the paper's
 build_state): network size, undirected edges, largest chain component; the
 committed set Z = O(G0) (closed form, E13 b; the paper's enumeration-based
-O is intractable on components this size), its validity at G0, the CPDAG
+O is intractable on components this size, so the paper's tractability gate on
+G0 is bypassed and recorded as ok_gate_bypassed), its validity at G0, the CPDAG
 check, the radius by the submitted hybrid (GAC, SAT rung limit 120 s, whole
 query killed at 900 s), validity in the data-generating DAG, and time per call.
 """
@@ -23,6 +24,7 @@ from common import OUT, ROOT, UNREACHED, Timer, hybrid, is_gac_valid_mpdag, k_of
 from oset import optimal_set_closed_form
 
 from bkrobust.demo.graph import undirected_components
+from bkrobust.demo.meek import apply_orientations
 from bkrobust.robustness import llm_survival as ls
 from bkrobust.robustness import real_survival as rs
 
@@ -53,6 +55,11 @@ def work(net):
     rows = []
     for cond in REAL:
         k, g0, why, shared = ls.build_state(bundle, cond, net, dag, cpdag)
+        if why == "o_g0_extensions_intractable":
+            # The gate exists only because the paper reads O off by enumerating
+            # extensions; the closed-form O needs no enumeration (E13 b).
+            g0 = apply_orientations(cpdag, list(k))
+            why = "ok_gate_bypassed" if g0 is not None else "k_contradictory"
         base = dict(info, condition=cond, n_k=len(k), g0_status=why,
                     k_g0=(len(k_of(cpdag, g0)) if g0 is not None else None))
         for x, y in q:
