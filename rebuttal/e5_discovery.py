@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import multiprocessing as mp
 
@@ -50,7 +51,7 @@ def frame(net):
     und_nodes = {v for e in cp.undirected_edges for v in e}
     pairs = sorted((x, y) for x in sorted(und_nodes) for y in sorted(dag.descendants(x))
                    if y != x)
-    rng = np.random.default_rng(abs(hash(net)) % 1000 + 17)
+    rng = np.random.default_rng(int(hashlib.sha256(net.encode()).hexdigest()[:8], 16) + 17)
     idx = rng.permutation(len(pairs))[:NQ]
     return [pairs[i] for i in sorted(idx)]
 

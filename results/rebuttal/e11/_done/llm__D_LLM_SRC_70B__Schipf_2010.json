@@ -11,7 +11,7 @@
   "model": "Llama-3.3-70B-Instruct",
   "family": "llama",
   "naming": "real",
-  "n_frame_rows": 11,
+  "n_frame_rows": 20,
   "n_scored": 1,
   "n_cells": 1,
   "n_cells_censored_wall_cap": 0,
@@ -27,9 +27,9 @@
   "k_g0": 3,
   "shd_truth": 7,
   "instance_status_counts": {
-    "optimal_set_undefined": 6,
-    "ok": 1,
-    "z_invalid_at_g0": 4
+    "optimal_set_undefined": 7,
+    "z_invalid_at_g0": 12,
+    "ok": 1
   },
   "radius_median_ok": 2,
   "n_radius_ok": 1,
@@ -39,14 +39,14 @@
     "verdict_hits": 999,
     "verdict_misses": 1
   },
-  "elapsed_s": 0.023,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Schipf_2010.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Schipf_2010.cells.jsonl",
-  "instances_sha256": "6a3a86c32cb8b3b430675bf2623b42f53b8505343d44e7e8fcac4c05a5fcdc21",
-  "cells_sha256": "b456f3b6896e8a82e9e77f3bf27b83cd4a7d70755c426a3a30ceacc66e00c98d",
+  "elapsed_s": 0.029,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Schipf_2010.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Schipf_2010.cells.jsonl",
+  "instances_sha256": "c705caaad43c3156ffde8b4c4ddbb8c3208ceef952c32128246133a517369997",
+  "cells_sha256": "168448b56340d9a684223972220d27a051b18068aa4f246a721e95274f0104ea",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:16:19Z"
+  "completed_utc": "2026-11-06T20:00:31Z"
 }

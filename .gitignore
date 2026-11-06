@@ -202,3 +202,4 @@ Thumbs.db
 # Rebuttal experiments (branch iclr_2027_rebuttal): scripts in rebuttal/, small
 # CSV/JSON outputs here; cited by rebuttal/session_report in the paper project.
 !/results/rebuttal/
+/results/rebuttal/e11_superseded_wrong_frame/

@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import itertools
 import multiprocessing as mp
 import signal
@@ -74,7 +75,7 @@ def work(r):
                 if is_gac_valid_mpdag(g0, x, y, z):
                     sets.add(z)
     else:
-        rng = np.random.default_rng(abs(hash((r["network"], x, y))) % 2**32)
+        rng = np.random.default_rng(int(hashlib.sha256(f"{r['network']}|{x}|{y}".encode()).hexdigest()[:8], 16))
         pre = [o, frozenset(cand), frozenset(g0.parents(x)) - forb]
         for z in pre:
             if is_gac_valid_mpdag(g0, x, y, z):

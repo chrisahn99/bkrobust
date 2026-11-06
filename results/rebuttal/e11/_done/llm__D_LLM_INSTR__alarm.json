@@ -1,0 +1,52 @@
+{
+  "shard_id": "llm__D_LLM_INSTR__alarm",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_INSTR",
+    "network": "alarm"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_INSTR",
+  "network": "alarm",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 16,
+  "n_cells": 48,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 3,
+  "n_asked": 4,
+  "assert_rate": 0.75,
+  "k_accuracy": 0.6666666666666666,
+  "n_k_correct": 2,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 3,
+  "shd_truth": 3,
+  "instance_status_counts": {
+    "ok": 16,
+    "optimal_set_undefined": 3,
+    "z_invalid_at_g0": 1
+  },
+  "radius_median_ok": 1.0,
+  "n_radius_ok": 8,
+  "cache": {
+    "graph_hits": 2993,
+    "graph_misses": 7,
+    "verdict_hits": 47888,
+    "verdict_misses": 112
+  },
+  "elapsed_s": 0.096,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_INSTR__alarm.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_INSTR__alarm.cells.jsonl",
+  "instances_sha256": "4110fd9797d7629d9ded27c925347ec8895625be504db8fdf72451d9be3967eb",
+  "cells_sha256": "d35f45ef143f312f3417dbb7fc14cc9b76cb103302b6ae2b399d5a1de1fb4a6f",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T20:00:00Z"
+}

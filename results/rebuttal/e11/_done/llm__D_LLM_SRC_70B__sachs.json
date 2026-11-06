@@ -11,9 +11,9 @@
   "model": "Llama-3.3-70B-Instruct",
   "family": "llama",
   "naming": "real",
-  "n_frame_rows": 12,
-  "n_scored": 9,
-  "n_cells": 90,
+  "n_frame_rows": 20,
+  "n_scored": 7,
+  "n_cells": 70,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,25 +27,25 @@
   "k_g0": 17,
   "shd_truth": 10,
   "instance_status_counts": {
-    "z_invalid_at_g0": 3,
-    "ok": 9
+    "z_invalid_at_g0": 13,
+    "ok": 7
   },
   "radius_median_ok": 1,
-  "n_radius_ok": 9,
+  "n_radius_ok": 7,
   "cache": {
     "graph_hits": 6248,
     "graph_misses": 3752,
-    "verdict_hits": 4761,
-    "verdict_misses": 1224
+    "verdict_hits": 3703,
+    "verdict_misses": 952
   },
-  "elapsed_s": 3.344,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__sachs.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__sachs.cells.jsonl",
-  "instances_sha256": "7c3eba5ae880eb5a25894c47602f4c004e5ea91a6a295c1d8357eac6c5e8e3f1",
-  "cells_sha256": "81fa4a7e8800ade1390423445bf005c404cbcfeac9a880d967116fe225e99c1d",
+  "elapsed_s": 3.024,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__sachs.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__sachs.cells.jsonl",
+  "instances_sha256": "3b92a258464a39021014b8d0a995ae7a9cf49332bc47051c86614925055434f6",
+  "cells_sha256": "ccac4147625dc403deea9a444e6ae5e0f1613aa74e970d4b661875d519e9d841",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:11:02Z"
+  "completed_utc": "2026-11-06T19:57:46Z"
 }

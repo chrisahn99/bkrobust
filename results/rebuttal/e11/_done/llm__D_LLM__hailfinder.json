@@ -11,9 +11,9 @@
   "model": "qwen2.5:7b-instruct",
   "family": "qwen2",
   "naming": "real",
-  "n_frame_rows": 11,
-  "n_scored": 5,
-  "n_cells": 50,
+  "n_frame_rows": 20,
+  "n_scored": 0,
+  "n_cells": 0,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,25 +27,25 @@
   "k_g0": 13,
   "shd_truth": 6,
   "instance_status_counts": {
-    "ok": 5,
-    "optimal_set_undefined": 6
+    "z_invalid_at_g0": 18,
+    "optimal_set_undefined": 2
   },
-  "radius_median_ok": 1,
-  "n_radius_ok": 5,
+  "radius_median_ok": null,
+  "n_radius_ok": 0,
   "cache": {
-    "graph_hits": 6252,
-    "graph_misses": 3748,
-    "verdict_hits": 4935,
-    "verdict_misses": 65
+    "graph_hits": 0,
+    "graph_misses": 0,
+    "verdict_hits": 0,
+    "verdict_misses": 0
   },
-  "elapsed_s": 25.823,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM__hailfinder.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM__hailfinder.cells.jsonl",
-  "instances_sha256": "2b8781c26212dac38cc7580a7b5c0a62ffa2a8e5410703a3be844ec044464814",
-  "cells_sha256": "b663f7ee1eeb7c1e5bdb175273293aaa5ef62ef2b28c5ef9744b77c36f97302a",
+  "elapsed_s": 0.047,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM__hailfinder.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM__hailfinder.cells.jsonl",
+  "instances_sha256": "6d1d301e534f1242bcc13b21781f8187860b86645cbcc6763b04dcb65f2e3ebd",
+  "cells_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:09:14Z"
+  "completed_utc": "2026-11-06T19:56:30Z"
 }

@@ -11,9 +11,9 @@
   "model": "gemma-3-27b-it",
   "family": "gemma",
   "naming": "real",
-  "n_frame_rows": 22,
-  "n_scored": 14,
-  "n_cells": 140,
+  "n_frame_rows": 20,
+  "n_scored": 6,
+  "n_cells": 60,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,26 +27,26 @@
   "k_g0": 22,
   "shd_truth": 13,
   "instance_status_counts": {
-    "optimal_set_undefined": 6,
-    "ok": 14,
-    "z_invalid_at_g0": 2
+    "optimal_set_undefined": 3,
+    "z_invalid_at_g0": 11,
+    "ok": 6
   },
-  "radius_median_ok": 2.0,
-  "n_radius_ok": 14,
+  "radius_median_ok": 1,
+  "n_radius_ok": 3,
   "cache": {
     "graph_hits": 4738,
     "graph_misses": 5262,
-    "verdict_hits": 3696,
-    "verdict_misses": 2212
+    "verdict_hits": 1584,
+    "verdict_misses": 948
   },
-  "elapsed_s": 43.918,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_GEMMA_27B__ecoli70.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_GEMMA_27B__ecoli70.cells.jsonl",
-  "instances_sha256": "f7b6b2bdb99ceb6c687ecc0af4dfdc816d7027d202ea01c946adc623ea85915f",
-  "cells_sha256": "8410b6c6d366c1c010f8d6d25307321c85c3244f462657693d9a25271f794502",
+  "elapsed_s": 32.135,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_GEMMA_27B__ecoli70.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_GEMMA_27B__ecoli70.cells.jsonl",
+  "instances_sha256": "5d07fa8edc58ea614a23e63ff6bcebc08dcc4dfbcfa9e55f01be2b97c900ece5",
+  "cells_sha256": "2fec920ec944a0c9db6511f0dadc35594e123c62698ff3ff05708c9e81059ec5",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:05:27Z"
+  "completed_utc": "2026-11-06T19:54:09Z"
 }

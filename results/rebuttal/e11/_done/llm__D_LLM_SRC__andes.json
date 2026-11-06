@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC__andes",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC",
+    "network": "andes"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC",
+  "network": "andes",
+  "model": "llama3.1:8b",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 7,
+  "n_cells": 56,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 8,
+  "n_asked": 10,
+  "assert_rate": 0.8,
+  "k_accuracy": 0.625,
+  "n_k_correct": 5,
+  "n_k_wrong": 3,
+  "n_off_skeleton": 0,
+  "k_g0": 10,
+  "shd_truth": 6,
+  "instance_status_counts": {
+    "z_invalid_at_g0": 13,
+    "ok": 7
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 1,
+  "cache": {
+    "graph_hits": 7745,
+    "graph_misses": 255,
+    "verdict_hits": 11459,
+    "verdict_misses": 413
+  },
+  "elapsed_s": 1.788,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC__andes.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC__andes.cells.jsonl",
+  "instances_sha256": "0fa60be47ba37d9dbac9dfe662f2930424d7877ce0bea298ace33e9d840516b8",
+  "cells_sha256": "2172da6c48e58412744a28dd19f7cf3736456b07ca3dcd90539f28ebe5676ae7",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:58:39Z"
+}

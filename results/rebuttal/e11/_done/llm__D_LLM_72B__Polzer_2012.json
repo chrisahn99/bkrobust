@@ -11,9 +11,9 @@
   "model": "Qwen2.5-72B-Instruct",
   "family": "qwen2",
   "naming": "real",
-  "n_frame_rows": 49,
-  "n_scored": 48,
-  "n_cells": 384,
+  "n_frame_rows": 20,
+  "n_scored": 16,
+  "n_cells": 128,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,25 +27,25 @@
   "k_g0": 9,
   "shd_truth": 2,
   "instance_status_counts": {
-    "ok": 48,
-    "z_invalid_at_g0": 1
+    "ok": 16,
+    "z_invalid_at_g0": 4
   },
   "radius_median_ok": 1.0,
-  "n_radius_ok": 48,
+  "n_radius_ok": 16,
   "cache": {
     "graph_hits": 7745,
     "graph_misses": 255,
-    "verdict_hits": 148560,
-    "verdict_misses": 2832
+    "verdict_hits": 49520,
+    "verdict_misses": 944
   },
-  "elapsed_s": 0.892,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_72B__Polzer_2012.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_72B__Polzer_2012.cells.jsonl",
-  "instances_sha256": "4ca6aedf477aae97bbdcda7ee23a565949e5c2687c0177941d555d9ebab3c964",
-  "cells_sha256": "48e6be194480b62367e908571ae29b37736bd00e8370b0d0366df240b4588d25",
+  "elapsed_s": 0.433,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_72B__Polzer_2012.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_72B__Polzer_2012.cells.jsonl",
+  "instances_sha256": "cf7057c2baaea51004abf23d937731ed48d4c898168010c8ad59b2f27395f045",
+  "cells_sha256": "c353f1b40d36e316897d3453fa60bbfd84f99314b56e961c0ab54b177a643205",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:12:43Z"
+  "completed_utc": "2026-11-06T19:58:44Z"
 }

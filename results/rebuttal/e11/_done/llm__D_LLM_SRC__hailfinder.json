@@ -11,9 +11,9 @@
   "model": "llama3.1:8b",
   "family": "llama",
   "naming": "real",
-  "n_frame_rows": 11,
-  "n_scored": 11,
-  "n_cells": 110,
+  "n_frame_rows": 20,
+  "n_scored": 3,
+  "n_cells": 30,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,24 +27,25 @@
   "k_g0": 17,
   "shd_truth": 0,
   "instance_status_counts": {
-    "ok": 11
+    "ok": 3,
+    "z_invalid_at_g0": 17
   },
-  "radius_median_ok": 2,
-  "n_radius_ok": 11,
+  "radius_median_ok": 1,
+  "n_radius_ok": 3,
   "cache": {
     "graph_hits": 5450,
     "graph_misses": 4550,
-    "verdict_hits": 946,
-    "verdict_misses": 11
+    "verdict_hits": 258,
+    "verdict_misses": 3
   },
-  "elapsed_s": 31.482,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC__hailfinder.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC__hailfinder.cells.jsonl",
-  "instances_sha256": "d46a87f0586875009322af0fc755ca70fe6670ee235a5a0e4c84a7e7fdb19aa6",
-  "cells_sha256": "3f54eeb3dfe35cb700185fb189b5593a9b50ad2d670a2f5d0def2c50aac7c9ef",
+  "elapsed_s": 24.476,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC__hailfinder.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC__hailfinder.cells.jsonl",
+  "instances_sha256": "0096600474916783624b6bbe7d91a704db2806bda61c1918ddc9349aeccecc87",
+  "cells_sha256": "61e31d96286f15ac2ea5ac3b98f59afe5ddb3636ffbb9db7d96a5459c54774d7",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:08:48Z"
+  "completed_utc": "2026-11-06T19:56:29Z"
 }

@@ -11,9 +11,9 @@
   "model": "qwen2.5:7b-instruct",
   "family": "qwen2",
   "naming": "real",
-  "n_frame_rows": 3,
-  "n_scored": 2,
-  "n_cells": 8,
+  "n_frame_rows": 12,
+  "n_scored": 4,
+  "n_cells": 16,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,25 +27,26 @@
   "k_g0": 4,
   "shd_truth": 5,
   "instance_status_counts": {
-    "ok": 2,
-    "z_invalid_at_g0": 1
+    "ok": 4,
+    "z_invalid_at_g0": 5,
+    "optimal_set_undefined": 3
   },
   "radius_median_ok": 1.0,
-  "n_radius_ok": 2,
+  "n_radius_ok": 4,
   "cache": {
     "graph_hits": 3985,
     "graph_misses": 15,
-    "verdict_hits": 2872,
-    "verdict_misses": 14
+    "verdict_hits": 5744,
+    "verdict_misses": 28
   },
-  "elapsed_s": 0.066,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM__mediator.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM__mediator.cells.jsonl",
-  "instances_sha256": "7256459a2dfe4ed20550f14796d8e0a1db83ea2b5f1050411fe6537a8223c4f2",
-  "cells_sha256": "f04407b11e7081729a6ffdec317c041d9abdd50296e25da9f3664aac8e6a77ef",
+  "elapsed_s": 0.063,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM__mediator.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM__mediator.cells.jsonl",
+  "instances_sha256": "84f854be3983215784d7f9d12e431aca01c0326fdb76eee254fabf3897c8e577",
+  "cells_sha256": "c8c1609245259f5a2cc53f55a9e8f9cb50eca014ab9728e1390ab56d91fd6beb",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:15:44Z"
+  "completed_utc": "2026-11-06T20:00:05Z"
 }

@@ -11,7 +11,7 @@
   "model": "qwen2.5:7b-instruct",
   "family": "qwen2",
   "naming": "real",
-  "n_frame_rows": 14,
+  "n_frame_rows": 20,
   "n_scored": 14,
   "n_cells": 70,
   "n_cells_censored_wall_cap": 0,
@@ -27,24 +27,25 @@
   "k_g0": 6,
   "shd_truth": 6,
   "instance_status_counts": {
-    "ok": 14
+    "ok": 14,
+    "z_invalid_at_g0": 6
   },
-  "radius_median_ok": 2.0,
-  "n_radius_ok": 14,
+  "radius_median_ok": 2,
+  "n_radius_ok": 11,
   "cache": {
     "graph_hits": 4969,
     "graph_misses": 31,
     "verdict_hits": 33082,
     "verdict_misses": 154
   },
-  "elapsed_s": 0.187,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM__water.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM__water.cells.jsonl",
-  "instances_sha256": "aa1e78b39eadee51f5f1fa4f3f14d99308fbcc20771438cdcd3ddf7de7b704cb",
-  "cells_sha256": "f7bfe33f0664825fb61449c8dbc1cf670d058ee36b4c0c6869686c7060b05960",
+  "elapsed_s": 0.152,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM__water.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM__water.cells.jsonl",
+  "instances_sha256": "8a7f2e948250daeeba5aa5895492b5f1c01d30e4b65b1b9250cf1ce65bec9383",
+  "cells_sha256": "7e39dbc7ced6402a44e552352e9e8b7163f6c7d26a4c72891e0bebbe1b791d9d",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:14:51Z"
+  "completed_utc": "2026-11-06T19:59:34Z"
 }

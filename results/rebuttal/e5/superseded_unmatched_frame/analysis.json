@@ -1,0 +1,318 @@
+{
+ "e5_by_arm_n": [
+  {
+   "arm": "LLM",
+   "n": "1000",
+   "queries": 800,
+   "share_committed": 0.171,
+   "share_no_path_claimed": 0.652,
+   "share_not_amenable": 0.176,
+   "n_committed": 137,
+   "share_invalid_at_truth": 0.657,
+   "by_network_invalid": {
+    "arth150": 0.588,
+    "ecoli70": 0.4,
+    "magic-irri": 0.621,
+    "magic-niab": 0.737
+   }
+  },
+  {
+   "arm": "LLM",
+   "n": "200",
+   "queries": 800,
+   "share_committed": 0.071,
+   "share_no_path_claimed": 0.861,
+   "share_not_amenable": 0.068,
+   "n_committed": 57,
+   "share_invalid_at_truth": 0.439,
+   "by_network_invalid": {
+    "arth150": 0.714,
+    "ecoli70": 0.067,
+    "magic-irri": 0.0,
+    "magic-niab": 0.655
+   }
+  },
+  {
+   "arm": "LLM",
+   "n": "5000",
+   "queries": 800,
+   "share_committed": 0.195,
+   "share_no_path_claimed": 0.602,
+   "share_not_amenable": 0.202,
+   "n_committed": 156,
+   "share_invalid_at_truth": 0.462,
+   "by_network_invalid": {
+    "arth150": 0.375,
+    "ecoli70": 0.333,
+    "magic-irri": 0.818,
+    "magic-niab": 0.427
+   }
+  },
+  {
+   "arm": "LLM",
+   "n": "oracle",
+   "queries": 160,
+   "share_committed": 0.65,
+   "share_no_path_claimed": 0.05,
+   "share_not_amenable": 0.3,
+   "n_committed": 104,
+   "share_invalid_at_truth": 0.038,
+   "by_network_invalid": {
+    "arth150": 0.0,
+    "ecoli70": 0.0,
+    "magic-irri": 0.071,
+    "magic-niab": 0.077
+   }
+  },
+  {
+   "arm": "NONE",
+   "n": "1000",
+   "queries": 800,
+   "share_committed": 0.146,
+   "share_no_path_claimed": 0.619,
+   "share_not_amenable": 0.235,
+   "n_committed": 117,
+   "share_invalid_at_truth": 0.709,
+   "by_network_invalid": {
+    "arth150": 0.625,
+    "ecoli70": 1.0,
+    "magic-irri": 0.577,
+    "magic-niab": 0.754
+   }
+  },
+  {
+   "arm": "NONE",
+   "n": "200",
+   "queries": 800,
+   "share_committed": 0.054,
+   "share_no_path_claimed": 0.845,
+   "share_not_amenable": 0.101,
+   "n_committed": 43,
+   "share_invalid_at_truth": 0.558,
+   "by_network_invalid": {
+    "arth150": 0.714,
+    "ecoli70": 0.0,
+    "magic-irri": 0.0,
+    "magic-niab": 0.679
+   }
+  },
+  {
+   "arm": "NONE",
+   "n": "5000",
+   "queries": 800,
+   "share_committed": 0.126,
+   "share_no_path_claimed": 0.562,
+   "share_not_amenable": 0.311,
+   "n_committed": 101,
+   "share_invalid_at_truth": 0.584,
+   "by_network_invalid": {
+    "arth150": 0.6,
+    "ecoli70": 0.615,
+    "magic-irri": 0.8,
+    "magic-niab": 0.529
+   }
+  },
+  {
+   "arm": "NONE",
+   "n": "oracle",
+   "queries": 160,
+   "share_committed": 0.438,
+   "share_no_path_claimed": 0.0,
+   "share_not_amenable": 0.562,
+   "n_committed": 70,
+   "share_invalid_at_truth": 0.0,
+   "by_network_invalid": {
+    "arth150": 0.0,
+    "ecoli70": 0.0,
+    "magic-irri": 0.0,
+    "magic-niab": 0.0
+   }
+  },
+  {
+   "arm": "TRUE",
+   "n": "1000",
+   "queries": 800,
+   "share_committed": 0.34,
+   "share_no_path_claimed": 0.652,
+   "share_not_amenable": 0.006,
+   "n_committed": 272,
+   "share_invalid_at_truth": 0.43,
+   "by_network_invalid": {
+    "arth150": 0.333,
+    "ecoli70": 0.137,
+    "magic-irri": 0.5,
+    "magic-niab": 0.64
+   }
+  },
+  {
+   "arm": "TRUE",
+   "n": "200",
+   "queries": 800,
+   "share_committed": 0.131,
+   "share_no_path_claimed": 0.869,
+   "share_not_amenable": 0.0,
+   "n_committed": 105,
+   "share_invalid_at_truth": 0.362,
+   "by_network_invalid": {
+    "arth150": 0.28,
+    "ecoli70": 0.176,
+    "magic-irri": 0.222,
+    "magic-niab": 0.622
+   }
+  },
+  {
+   "arm": "TRUE",
+   "n": "5000",
+   "queries": 800,
+   "share_committed": 0.312,
+   "share_no_path_claimed": 0.659,
+   "share_not_amenable": 0.025,
+   "n_committed": 250,
+   "share_invalid_at_truth": 0.38,
+   "by_network_invalid": {
+    "arth150": 0.219,
+    "ecoli70": 0.259,
+    "magic-irri": 0.769,
+    "magic-niab": 0.396
+   }
+  },
+  {
+   "arm": "TRUE",
+   "n": "oracle",
+   "queries": 160,
+   "share_committed": 1.0,
+   "share_no_path_claimed": 0.0,
+   "share_not_amenable": 0.0,
+   "n_committed": 160,
+   "share_invalid_at_truth": 0.0,
+   "by_network_invalid": {
+    "arth150": 0.0,
+    "ecoli70": 0.0,
+    "magic-irri": 0.0,
+    "magic-niab": 0.0
+   }
+  }
+ ],
+ "e5_invalid_by_radius_bin": {
+  "LLM": {
+   "1": {
+    "n": 51,
+    "share_invalid": 0.333
+   },
+   "2": {
+    "n": 6,
+    "share_invalid": 0.333
+   },
+   ">=3": {
+    "n": 32,
+    "share_invalid": 0.062
+   },
+   "inf": {
+    "n": 261,
+    "share_invalid": 0.636
+   }
+  },
+  "NONE": {
+   "inf": {
+    "n": 261,
+    "share_invalid": 0.636
+   }
+  },
+  "TRUE": {
+   "1": {
+    "n": 313,
+    "share_invalid": 0.236
+   },
+   "2": {
+    "n": 40,
+    "share_invalid": 0.2
+   },
+   ">=3": {
+    "n": 13,
+    "share_invalid": 0.154
+   },
+   "inf": {
+    "n": 261,
+    "share_invalid": 0.636
+   }
+  }
+ },
+ "e5_invalid_by_near_skeleton_error": {
+  "LLM": {
+   "near_error": {
+    "n": 301,
+    "share_invalid": 0.548
+   },
+   "no_near_error": {
+    "n": 49,
+    "share_invalid": 0.449
+   }
+  },
+  "NONE": {
+   "near_error": {
+    "n": 224,
+    "share_invalid": 0.643
+   },
+   "no_near_error": {
+    "n": 37,
+    "share_invalid": 0.595
+   }
+  },
+  "TRUE": {
+   "near_error": {
+    "n": 538,
+    "share_invalid": 0.405
+   },
+   "no_near_error": {
+    "n": 89,
+    "share_invalid": 0.36
+   }
+  }
+ },
+ "e5_auc_1_over_r": 0.31597785351457935,
+ "e5_auc_near_error": 0.6154032984682886,
+ "e6": {
+  "n": 272,
+  "n_invalid": 114,
+  "auc_instability": 0.6414334887852542,
+  "share_invalid_if_stable_1": 0.0,
+  "n_stable_1": 5,
+  "share_invalid_if_unstable": 0.427,
+  "n_unstable": 267,
+  "share_invalid_if_stable_ge_0.9": 0.231,
+  "auc_combined_instability_plus_near": 0.6047079724628025,
+  "by_arm": {
+   "LLM": {
+    "n": 85,
+    "auc": 0.5689752252252251,
+    "inv_if_stable": null
+   },
+   "NONE": {
+    "n": 57,
+    "auc": 0.5837468982630272,
+    "inv_if_stable": null
+   },
+   "TRUE": {
+    "n": 130,
+    "auc": 0.7032867494824017,
+    "inv_if_stable": 0.0
+   }
+  }
+ },
+ "e7": {
+  "hop1": {
+   "n": 300,
+   "committed": 115,
+   "no_path_claimed": 165,
+   "share_invalid": 0.313,
+   "share_invalid_hidden_confounder": 0.5
+  },
+  "hop2plus": {
+   "n": 300,
+   "committed": 111,
+   "no_path_claimed": 175,
+   "share_invalid": 0.279,
+   "share_invalid_hidden_confounder": null
+  }
+ }
+}

@@ -11,9 +11,9 @@
   "model": "Llama-3.3-70B-Instruct",
   "family": "llama",
   "naming": "real",
-  "n_frame_rows": 3,
-  "n_scored": 3,
-  "n_cells": 24,
+  "n_frame_rows": 20,
+  "n_scored": 5,
+  "n_cells": 40,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,24 +27,25 @@
   "k_g0": 8,
   "shd_truth": 0,
   "instance_status_counts": {
-    "ok": 3
+    "z_invalid_at_g0": 15,
+    "ok": 5
   },
-  "radius_median_ok": 1,
-  "n_radius_ok": 3,
+  "radius_median_ok": 1.5,
+  "n_radius_ok": 2,
   "cache": {
     "graph_hits": 7745,
     "graph_misses": 255,
-    "verdict_hits": 3552,
-    "verdict_misses": 69
+    "verdict_hits": 5920,
+    "verdict_misses": 115
   },
-  "elapsed_s": 1.294,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__munin1.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__munin1.cells.jsonl",
-  "instances_sha256": "78ec1b5373a0cd67f20a919ccdf2b05cdbd33c82aae87ba9b09ae993b9bc84fa",
-  "cells_sha256": "ed722d36a3ad38a864a1fa98f441564e7c009278821fa218d60b907de544a3f5",
+  "elapsed_s": 1.055,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__munin1.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__munin1.cells.jsonl",
+  "instances_sha256": "ae7a911ea6c10e5826d54105e115f654b06606be3cf77ef5132ce6c824eb22eb",
+  "cells_sha256": "9cb5330d2e6d9a9947edd8bc0056924f45c579f953493f8855a38c8f19d3e558",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:10:50Z"
+  "completed_utc": "2026-11-06T19:57:36Z"
 }

@@ -11,9 +11,9 @@
   "model": "Qwen2.5-72B-Instruct",
   "family": "qwen2",
   "naming": "real",
-  "n_frame_rows": 21,
-  "n_scored": 16,
-  "n_cells": 96,
+  "n_frame_rows": 20,
+  "n_scored": 13,
+  "n_cells": 78,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,25 +27,26 @@
   "k_g0": 6,
   "shd_truth": 8,
   "instance_status_counts": {
-    "ok": 16,
-    "optimal_set_undefined": 5
+    "ok": 13,
+    "optimal_set_undefined": 4,
+    "z_invalid_at_g0": 3
   },
   "radius_median_ok": 1.0,
-  "n_radius_ok": 16,
+  "n_radius_ok": 10,
   "cache": {
     "graph_hits": 5937,
     "graph_misses": 63,
-    "verdict_hits": 34592,
-    "verdict_misses": 416
+    "verdict_hits": 28106,
+    "verdict_misses": 338
   },
-  "elapsed_s": 0.364,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_72B_INSTR__magic-niab.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_72B_INSTR__magic-niab.cells.jsonl",
-  "instances_sha256": "6d5c5bc3ba785c90b87b2fc26d18edd78658c008e33c6820b9bba76ff1864fb0",
-  "cells_sha256": "2a5b655b830e8481bdcca55b1d5b54b6f5fec71a2ce32406c16943c4b0c457bc",
+  "elapsed_s": 0.259,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_72B_INSTR__magic-niab.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_72B_INSTR__magic-niab.cells.jsonl",
+  "instances_sha256": "5b199409e51d50879f203c1c5e9d415675b2abc88f8504be204214d35e0f5094",
+  "cells_sha256": "b13404044547eb4fdab616d159b9594b07d67960ee5f94b50fe5db963ad77c23",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:13:35Z"
+  "completed_utc": "2026-11-06T19:59:10Z"
 }

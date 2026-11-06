@@ -12,8 +12,8 @@
   "family": "qwen2",
   "naming": "real",
   "n_frame_rows": 20,
-  "n_scored": 20,
-  "n_cells": 200,
+  "n_scored": 9,
+  "n_cells": 90,
   "n_cells_censored_wall_cap": 0,
   "wall_cap_s": 18000.0,
   "g0_status": "ok",
@@ -27,24 +27,25 @@
   "k_g0": 14,
   "shd_truth": 28,
   "instance_status_counts": {
-    "ok": 20
+    "ok": 9,
+    "z_invalid_at_g0": 11
   },
-  "radius_median_ok": 4.5,
-  "n_radius_ok": 20,
+  "radius_median_ok": 4,
+  "n_radius_ok": 9,
   "cache": {
     "graph_hits": 5416,
     "graph_misses": 4584,
-    "verdict_hits": 23000,
-    "verdict_misses": 140
+    "verdict_hits": 10350,
+    "verdict_misses": 63
   },
-  "elapsed_s": 6.734,
-  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_72B__paths.instances.jsonl",
-  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_72B__paths.cells.jsonl",
-  "instances_sha256": "f4f7f38ad73d876a6ccbec0bc687ff28e1ab01681e23cb48bc9925929f705290",
-  "cells_sha256": "1d38e388d8c281f3c999c5080843e04eb49b6657aea287628864a67a73bdd81e",
+  "elapsed_s": 4.312,
+  "instances_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_72B__paths.instances.jsonl",
+  "cells_path": "/Users/ahn/Documents/Research/iclr27/bkrobust/results/rebuttal/e11/shards/llm__D_LLM_72B__paths.cells.jsonl",
+  "instances_sha256": "8419e6d74225a4abf3329ebb3560bf17fbfe9efddf06ba4ffde14ccf24624df6",
+  "cells_sha256": "3b47c88dcfe6190eb174d81a145f07407d6a5b26f67d995e6e05117aa740edad",
   "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
-  "frame_sha256": "73881798319206be0a657c849431ad35c4cbddc5c4c3eecc4790d18c84981f38",
-  "git_sha": "71520bcd8ceae6bd10373cf4e838186fb5633da0",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
   "git_dirty": true,
-  "completed_utc": "2026-11-06T19:11:25Z"
+  "completed_utc": "2026-11-06T19:58:00Z"
 }
