@@ -198,3 +198,7 @@ Thumbs.db
 # GAC-vs-back-door breakdown-radius recompute (verification that every
 # reported radius is unchanged if the validity predicate switches to GAC).
 !/results/radius_gac_recompute/
+
+# Rebuttal experiments (branch iclr_2027_rebuttal): scripts in rebuttal/, small
+# CSV/JSON outputs here; cited by rebuttal/session_report in the paper project.
+!/results/rebuttal/

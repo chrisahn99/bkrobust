@@ -1,0 +1,34 @@
+{
+  "a_counts": {
+    "n": 1144
+  },
+  "a_by_class": {
+    "none": {
+      "not_amenable": 898
+    },
+    "empty_valid": {
+      "amenable_O_size0_valid=True": 94
+    },
+    "empty_invalid": {
+      "y_not_descendant": 150,
+      "not_amenable": 2
+    }
+  },
+  "b": {
+    "status_match=True": 5280,
+    "zsize_match=True": 2335,
+    "gac_valid_at_g0=True": 2365,
+    "enum_equal=True": 2212,
+    "zsize_match=False": 30,
+    "enum_timeout": 64,
+    "enum_too_many": 89
+  },
+  "c": {
+    "cor1c_holds=True": 657,
+    "margin_0": 123,
+    "recheck_invalid_at_truth=True": 657,
+    "margin_>0": 534
+  },
+  "c_violations": [],
+  "examples": []
+}
