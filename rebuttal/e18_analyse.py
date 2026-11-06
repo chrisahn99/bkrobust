@@ -77,7 +77,7 @@ def main():
             "n_queries_draw0": len(d0),
             "distinct_signatures_draw0": len({sig(a) for a in d0}),
             "distinct_signatures_mean_over_draws": float(np.mean([len({sig(a) for a in v}) for v in per_draw.values()])),
-            "share_ceiling_ge_1_draw0": float(np.mean([a["b_top"] >= 1 for a in d0])) if d0 else None,
+            "share_ceiling_ge_1_draw0": float(np.mean([a["b_top"] >= 1 - 1e-9 for a in d0])) if d0 else None,
             "median_ceiling_all_draws": float(np.median([a["b_top"] for v in per_draw.values() for a in v])),
             "share_never_reached_by_eps_all_draws": {e: float(np.mean([a["r_mu"][e] == -1 for v in per_draw.values() for a in v])) for e in EPS},
             "var_sortability_median": float(np.median([a["var_sortability"] for v in per_draw.values() for a in v if a["var_sortability"] is not None])),
