@@ -1,0 +1,56 @@
+arm: E23-pc-ges-disagreement-check
+says: >
+  For every certifiable A_ORACLE_R row of a stored learned graph (PC or GES, n 200/1000/5000), the
+  committed set Z is checked with the GAC in the state built from the other method's graph learned on
+  the same sample, with the same knowledge rule; no discovery is rerun; E5's rows are reproduced.
+repo: ../../..
+code: [experiments/rebuttal/E23_e23_pc_ges_disagreement_check/run.py,
+       experiments/rebuttal/E23_e23_pc_ges_disagreement_check/vendor_e5.py,
+       experiments/rebuttal/E23_e23_pc_ges_disagreement_check/vendor_bkrobust.py]
+runs: ../../../results/rebuttal/E23/config.*.json
+rubric:
+  - id: criterion
+    says: every validity check uses the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: arm
+    says: the repaired truthful-knowledge arm of E5
+    config: {key: arm, equals: A_ORACLE_R}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: networks
+    says: the four Gaussian networks of the panel
+    config: {key: networks, equals: [ecoli70, arth150, magic-niab, magic-irri]}
+  - id: n-grid
+    says: the three sample sizes
+    config: {key: n_grid, equals: [200, 1000, 5000]}
+  - id: data-graphs
+    says: the stored learned graphs, unchanged
+    config: {key: input_sha256.graphs_jsonl, equals: 708871335eff33eac4db09754ab9c561e8fa7ba552cbce0b8cf679375115b402}
+  - id: data-graphs-retry
+    says: the two retried arth150 GES graphs, unchanged
+    config: {key: input_sha256.graphs_retry_jsonl, equals: 71f2bffada8d467294766eb26c5f6e472fcdd4973aa4ead750285cc5d1f2b093}
+  - id: data-frame
+    says: the 80 stored frame queries, unchanged
+    config: {key: input_sha256.frame_jsonl, equals: 530bbdd0619b0e23606a8513ae5d643ce6ee9cc471d9add43360632a3609a530}
+  - id: e5-rows
+    says: the E5 rows used for the rebuild check are the finished E5 run
+    config: {key: e5_rows_sha256.rows_shard0of1_jsonl, equals: de743309fbc521c1f2823a690bb23581285fff3ce29924149975b2322ce44e24}
+  - id: no-discovery
+    says: no discovery algorithm is called; graphs come from the stored panel only
+    check: "! grep -Eq 'causallearn|learn_graph|sample_for\\(' experiments/rebuttal/E23_e23_pc_ges_disagreement_check/run.py"
+  - id: e5-knowledge
+    says: the knowledge comes from E5's plans_transfer, copied verbatim
+    check: grep -q "def plans_transfer" experiments/rebuttal/E23_e23_pc_ges_disagreement_check/vendor_e5.py
+  - id: src-unpatched
+    says: src/ is the committed submitted code, unmodified
+    check: git diff --quiet HEAD -- src
+  - id: rows-gac
+    says: every row records criterion gac and a single repository commit
+    check: python3 -c "import json,glob,sys; R=[json.loads(l) for p in glob.glob('results/rebuttal/E23/rows.*.jsonl') for l in open(p)]; sys.exit(0 if R and all(r['criterion']=='gac' for r in R) and len({r['repo_commit'] for r in R})==1 else 1)"
+  - id: population
+    says: the rebuilt certifiable rows equal E5's A_ORACLE_R learned rows (987), both directions present
+    check: python3 -c "import json,glob,sys; R={json.loads(l)['unit']:json.loads(l) for p in glob.glob('results/rebuttal/E23/rows.*.jsonl') for l in open(p)}; sys.exit(0 if len(R)==987 and {r['direction'] for r in R.values()}=={'pc->ges','ges->pc'} else 1)"
+  - id: consistency
+    says: analyse.py found no consistency failure (E5 rebuild, own-state validity, identical graphs)
+    check: python3 -c "import json,sys; sys.exit(0 if json.load(open('results/rebuttal/E23/results.json'))['consistency_ok'] else 1)"

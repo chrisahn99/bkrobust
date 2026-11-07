@@ -1,0 +1,71 @@
+# Is a run in results/rebuttal/E8 really E8? Decided apart from the rates.
+# python experiments/rebuttal/fidelity_gate.py experiments/rebuttal/E8_missed_and_extra_edges/FIDELITY.yaml --no-judge
+arm: E8-missed-and-extra-edges
+says: >
+  X3's skeleton-perturbation population on fresh seeds (1,000,000 + s), every single-edge deletion
+  and every single-edge addition with every acyclic orientation, O* recomputed on
+  Meek(CPDAG(perturbed DAG), K) and judged against the true DAG with the generalised adjustment
+  criterion, decided by two independent implementations.
+repo: ../../..
+code:
+  - experiments/rebuttal/E8_missed_and_extra_edges/run.py
+  - experiments/rebuttal/E8_missed_and_extra_edges/vendor_x3.py
+  - experiments/rebuttal/E8_missed_and_extra_edges/analyse.py
+runs: ../../../results/rebuttal/E8/config_shard*.json
+rubric:
+  - id: criterion
+    says: validity is the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the run is the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: fresh-seeds
+    says: SCM seeds start at 1,000,000, disjoint from X3's 0..15999
+    config: {key: seed_offset, equals: 1000000}
+  - id: master-seed
+    says: the registered master seed for size and density draws
+    config: {key: master_seed, equals: 20261106}
+  - id: draws
+    says: X3's draw counts per ensemble
+    config: {key: n_draw, equals: {original: 12000, licensed: 16000, large: 4800}}
+  - id: knowledge
+    says: four true orientations of undirected CPDAG edges, as X3
+    config: {key: max_k, equals: 4}
+  - id: additions-exhaustive
+    says: no cap on additions per SCM, every acyclic orientation
+    config: {key: add_cap, equals: 0}
+  - id: add-orientations
+    says: both orientations of a pair with no ancestral relation are tested
+    config: {key: add_orientations, equals: all_acyclic}
+  - id: two-oracles
+    says: validity decided by the vendored X3 criterion and by bkrobust.gac.is_gac_valid_dag
+    config: {key: oracles, equals: [vendor_x3.is_valid_adjustment_set, bkrobust.gac.is_gac_valid_dag]}
+  - id: vendored-from-x3
+    says: the vendored functions name their source commit
+    check: grep -q 8486bb3509decf17adf490c078607b225d8df1b0 experiments/rebuttal/E8_missed_and_extra_edges/vendor_x3.py
+  - id: all-units
+    says: every drawn unit (32,800) was written once, every row stamped gac
+    check: >
+      python3 -c "import json,glob,sys; r={};
+      [r.__setitem__(j['key'], j) for f in glob.glob('results/rebuttal/E8/E8_shard*.jsonl') for l in open(f) for j in [json.loads(l)]];
+      sys.exit(0 if len(r)==32800 and all(v.get('criterion')=='gac' for v in r.values()) else 1)"
+  - id: no-disagreement
+    says: the two GAC oracles never disagreed and no theory anomaly was recorded
+    check: >
+      python3 -c "import json,glob,sys;
+      bad=[1 for f in glob.glob('results/rebuttal/E8/E8_shard*.jsonl') for l in open(f) for j in [json.loads(l)]
+      if j.get('status')=='oracle_disagree' or j.get('anomalies')]; sys.exit(1 if bad else 0)"
+  - id: one-commit
+    says: every row comes from one commit of the repository
+    check: >
+      python3 -c "import json,glob,sys; c={json.loads(l).get('commit') for f in glob.glob('results/rebuttal/E8/E8_shard*.jsonl') for l in open(f)};
+      sys.exit(0 if len(c)==1 and 'unknown' not in c else 1)"
+  - id: additions-complete
+    says: in every analysed SCM the tested additions equal the candidate additions
+    check: >
+      python3 -c "import json,glob,sys;
+      bad=[1 for f in glob.glob('results/rebuttal/E8/E8_shard*.jsonl') for l in open(f) for j in [json.loads(l)]
+      if j.get('status')=='ok' and j['n_add_tested']!=j['n_add_candidates']]; sys.exit(1 if bad else 0)"
+  - id: prereg-untouched
+    says: PREREG.md is unchanged since it was committed before the run
+    check: git diff --quiet HEAD -- experiments/rebuttal/E8_missed_and_extra_edges/PREREG.md && git ls-files --error-unmatch experiments/rebuttal/E8_missed_and_extra_edges/PREREG.md

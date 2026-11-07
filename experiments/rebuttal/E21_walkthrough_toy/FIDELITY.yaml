@@ -1,0 +1,55 @@
+# Is a run of E21 really E21? Checked with experiments/rebuttal/fidelity_gate.py, apart from the values.
+arm: E21-walkthrough-toy
+says: >
+  The walkthrough toy (CPDAG U-X, X-Y, X-W, W-Y; K = U->X, X->Y, X->W; query X->Y), the Figure 2(a)
+  toy (CPDAG A-W, W-X, W-Y, X-Y; K = A->W, X->Y) and the running example scenario B, each with
+  Z = O(G0) committed by the submitted commit_z_star, the radius under the GAC computed six ways
+  (hybrid with criterion, enumeration and forced-SAT dispatch, BFS on the full corrected space,
+  upward retractions, closed form over the class), plus the up-set, witnesses and claim radius.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E21_walkthrough_toy/run.py
+  - experiments/rebuttal/E21_walkthrough_toy/analyse.py
+runs: ../../../results/rebuttal/E21/config*.json
+rubric:
+  - id: criterion
+    says: the registered criterion is the GAC
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: units
+    says: all three toys were selected
+    config: {key: units_selected, equals: [walkthrough, fig2a, running_example_B]}
+  - id: sat-forced
+    says: the third hybrid dispatch forces the SAT ladder (search budget 0)
+    config: {key: sat_forced_search_budget, equals: 0}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: commit
+    says: the submitted commit
+    config: {key: commit, equals: 5421cabc23b28af8f7c6e4124a698d66a76e0a08}
+  - id: toys-as-registered
+    says: the toy inputs in run.py are the registered CPDAGs and claims, the query is X->Y
+    check: >
+      grep -q '("U", "X"), ("X", "Y"), ("X", "W"), ("W", "Y")' experiments/rebuttal/E21_walkthrough_toy/run.py &&
+      grep -q '"knowledge": \[("U", "X"), ("X", "Y"), ("X", "W")\]' experiments/rebuttal/E21_walkthrough_toy/run.py &&
+      grep -q '("A", "W"), ("W", "X"), ("W", "Y"), ("X", "Y")' experiments/rebuttal/E21_walkthrough_toy/run.py &&
+      grep -q '"knowledge": \[("A", "W"), ("X", "Y")\]' experiments/rebuttal/E21_walkthrough_toy/run.py
+  - id: rows-complete
+    says: every unit ran without a crash, records the commit and the GAC, and Z came from commit_z_star
+    check: >
+      python3 -c "import json,glob,sys; r={}; [r.__setitem__(x['unit'],x) for f in sorted(glob.glob('results/rebuttal/E21/rows*.jsonl')) for x in map(json.loads,open(f))];
+      sys.exit(0 if set(r)=={'walkthrough','fig2a','running_example_B'} and all(x['status']=='ok' and x['criterion']=='gac' and x.get('commit') not in (None,'unknown','') and x.get('z_status')=='ok' for x in r.values()) else 1)"
+  - id: six-ways
+    says: every row carries all six radius computations and the SAT leg actually ran where the radius is finite
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E21/rows*.jsonl') for l in open(f)];
+      need={'hybrid_criterion','hybrid_enumeration','hybrid_sat_forced','space_bfs','upset_retractions','closed_form'};
+      sys.exit(0 if r and all(set(x.get('radii',{}))==need and (x['r_val'] in (0,-1) or x['hybrid']['sat_forced']['method']=='e1_ladder') for x in r) else 1)"
+  - id: full-space
+    says: the space was enumerated in full and the join and Lemma O checks covered every pair
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E21/rows*.jsonl') for l in open(f)];
+      sys.exit(0 if r and all(len(x['space'])==x['n_space'] and x['join_pairs_checked']==x['n_space']*(x['n_space']-1)//2 for x in r) else 1)"

@@ -1,0 +1,73 @@
+# Is a run of E1 really E1? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E1-cpdag-check-on-lower-bound-rows
+says: >
+  The 372 released rows with hop_method local_up_fast_budget, rebuilt from the released files and
+  verified against their hashes, each checked for validity of its committed set at the CPDAG under
+  the GAC (registered) and the back-door criterion, with the released search settings and a ten-fold
+  closure budget on the rows not settled.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E1_cpdag_check_on_lower_bound_rows/run.py
+  - experiments/rebuttal/E1_cpdag_check_on_lower_bound_rows/search.py
+  - experiments/rebuttal/E1_cpdag_check_on_lower_bound_rows/vendor_optimal.py
+runs: ../../../results/rebuttal/E1/config*.json
+rubric:
+  - id: criterion
+    says: the registered criterion is the GAC, and the back-door criterion is run beside it
+    config: {key: criterion, equals: gac}
+  - id: criteria
+    says: both criteria are computed
+    config: {key: criteria, equals: [gac, backdoor]}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: population
+    says: all 372 released lower-bound rows were selected
+    config: {key: n_selected, equals: 372}
+  - id: records-file
+    says: the released per_query_records.csv, byte for byte (release/SHA256SUMS)
+    config: {key: records_sha256, equals: 13541300e559b7aae464d35121b1f5f8a9678209dac99063ba1e31768412452e}
+  - id: knowledge-file
+    says: the released knowledge_states.json, byte for byte (release/SHA256SUMS)
+    config: {key: knowledge_sha256, equals: 45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb}
+  - id: seed
+    says: D_RAND knowledge rebuilt with the released sweep's seed
+    config: {key: seed, equals: 20260913}
+  - id: release-budget
+    says: the released search settings are replayed (4000 closures)
+    config: {key: release_closures, equals: 4000}
+  - id: larger-budget
+    says: the rerun uses the registered larger budget
+    config: {key: closure_budget, equals: 40000}
+  - id: time-limit
+    says: the rerun uses the registered per-search time limit
+    config: {key: search_time_limit, equals: 300.0}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: commit-known
+    says: every row records a repository commit and the GAC as its criterion
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E1/rows*.jsonl') for l in open(f)];
+      sys.exit(0 if r and all(x.get('commit') not in (None,'unknown') and x.get('criterion')=='gac' for x in r) else 1)"
+  - id: all-rows-rebuilt
+    says: all 372 rows were run and rebuilt exactly (hashes, |Z|, verdict, counts); none left in error
+    check: >
+      python3 -c "import json,glob,sys; r={}; [r.__setitem__(x['key'],x) for f in sorted(glob.glob('results/rebuttal/E1/rows*.jsonl')) for x in map(json.loads,open(f))];
+      sys.exit(0 if len(r)==372 and all(x['status']=='ok' for x in r.values()) else 1)"
+  - id: hybrid-called
+    says: on every row the GAC check settles, the submitted breakdown_radius was called and returned top_state
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E1/rows*.jsonl') for l in open(f)];
+      g=[x['gac'] for x in r if x.get('status')=='ok' and x['gac']['valid_at_cpdag']];
+      sys.exit(0 if all(y['hybrid'] and y['hybrid']['method']=='top_state' for y in g) else 1)"
+  - id: larger-search-ran
+    says: every row not settled under a criterion has a larger-budget search under that criterion
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E1/rows*.jsonl') for l in open(f)];
+      sys.exit(0 if all(x[c]['large_search'] for x in r if x.get('status')=='ok' for c in ('gac','backdoor') if not x[c]['valid_at_cpdag']) else 1)"
+  - id: release-reproduced
+    says: the released search settings reproduce the released hop_lower_bound on most rows under at least one criterion (else the rebuild is not the released state)
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E1/rows*.jsonl') for l in open(f)]; ok=[x for x in r if x.get('status')=='ok'];
+      sys.exit(0 if ok and max(sum(x[c]['reproduces_released_lb'] for x in ok) for c in ('gac','backdoor')) >= 0.9*len(ok) else 1)"

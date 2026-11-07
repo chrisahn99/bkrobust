@@ -1,0 +1,49 @@
+# Is a run of E24 really E24? Checked apart from the score, after the run:
+#   python ../fidelity_gate.py FIDELITY.yaml --no-judge
+arm: E24-far-error-transplant
+says: >
+  For every certifiable A_ORACLE_R unit of E5 (214 learned graphs, 80 frame queries), hybrid DAGs carry
+  the truth on pairs within d hops of {x, y} (d = none, 1, 2, 3, all) and a Dor-Tarsi extension of the
+  learned G0 elsewhere; the committed set of each hybrid's CPDAG plus truthful repaired knowledge is
+  tested in the true DAG with the GAC.
+repo: ../../..
+code: [experiments/rebuttal/E24_e24_far_error_transplant/run.py,
+       experiments/rebuttal/E24_e24_far_error_transplant/vendor_e5.py]
+runs: ../../../results/rebuttal/E24/config.*.json
+rubric:
+  - id: criterion
+    says: every validity check uses the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: networks
+    says: the four Gaussian networks of the P-EST panel
+    config: {key: networks, equals: [ecoli70, arth150, magic-niab, magic-irri]}
+  - id: levels
+    says: the three registered hop levels plus the two controls
+    config: {key: levels, equals: [none, "1", "2", "3", all]}
+  - id: arm
+    says: the repaired oracle arm of E5
+    config: {key: arm, equals: A_ORACLE_R}
+  - id: data-graphs
+    says: the stored learned graphs, unchanged (same hash as E5)
+    config: {key: input_sha256.graphs_jsonl, equals: 708871335eff33eac4db09754ab9c561e8fa7ba552cbce0b8cf679375115b402}
+  - id: data-graphs-retry
+    says: the two retried arth150 GES graphs, unchanged
+    config: {key: input_sha256.graphs_retry_jsonl, equals: 71f2bffada8d467294766eb26c5f6e472fcdd4973aa4ead750285cc5d1f2b093}
+  - id: data-frame
+    says: the 80 stored frame queries, unchanged
+    config: {key: input_sha256.frame_jsonl, equals: 530bbdd0619b0e23606a8513ae5d643ce6ee9cc471d9add43360632a3609a530}
+  - id: src-unpatched
+    says: src/ is the committed submitted code, unmodified
+    check: git diff --quiet HEAD -- src
+  - id: rows-gac
+    says: every output row records criterion gac and a single repository commit
+    check: python3 -c "import json,glob,sys; R=[json.loads(l) for p in glob.glob('results/rebuttal/E24/rows.*.jsonl') for l in open(p)]; sys.exit(0 if R and all(r['criterion']=='gac' for r in R) and len({r['repo_commit'] for r in R})==1 else 1)"
+  - id: population
+    says: the 987 certifiable units of E5 (PC 408, GES 579), each with five hybrid levels
+    check: python3 -c "import json,glob,sys; R={json.loads(l)['unit']:json.loads(l) for p in glob.glob('results/rebuttal/E24/rows.*.jsonl') for l in open(p)}.values(); g=[r for r in R if r['level']=='g0' and r['status']=='ok']; h=[r for r in R if r['unit'].startswith('h|')]; sys.exit(0 if len(g)==987 and len(h)==5*987 else 1)"
+  - id: consistency
+    says: analyse.py found no consistency failure (E5 agreement, extension, truth inside N_d, d = all equals truth, anchor 25/0)
+    check: python3 -c "import json,sys; sys.exit(0 if json.load(open('results/rebuttal/E24/results.json'))['consistency_ok'] else 1)"

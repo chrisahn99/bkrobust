@@ -1,0 +1,58 @@
+# Is a run really E2? Decided apart from the timings. Written 2026-11-06, before the run.
+# Check commands run in `repo` and only read files. Run with:
+#   python ../fidelity_gate.py experiments/rebuttal/E2_running_time_by_graph_size/FIDELITY.yaml --no-judge
+arm: E2-running-time-gac
+says: >
+  The submitted hybrid breakdown_radius, criterion gac, search budget 3, timed stage by stage
+  (CPDAG build, top-state check, single validity call, depth-3 search, SAT build, SAT ladder,
+  end-to-end hybrid) on the Appendix D family (n 8-24) and a sparse family (n 16-400), 8 seeds,
+  120 s cap per leg, serial.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E2_running_time_by_graph_size/run.py
+  - src/bkrobust/hybrid.py
+  - src/bkrobust/sat/e1.py
+runs: ../../../results/rebuttal/E2/run_config_shard*of*.json
+rubric:
+  - id: criterion
+    says: the run used the generalized adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: budget
+    says: the hybrid's depth budget is the submitted default, 3
+    config: {key: search_budget, equals: 3}
+  - id: cap
+    says: each leg is capped at 120 s, as in Appendix D
+    config: {key: cap_s, equals: 120.0}
+  - id: not-smoke
+    says: the run is the full grid, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: serial
+    says: units ran one at a time, so timings are not perturbed by concurrent units
+    config: {key: workers, equals: 1}
+  - id: memory
+    says: each leg ran under the registered 4 GB memory limit
+    config: {key: mem_gb, equals: 4.0}
+  - id: default-is-gac
+    says: the submitted hybrid defaults to the GAC and the script passes the criterion explicitly
+    check: |-
+      grep -q 'criterion: str = "gac"' src/bkrobust/hybrid.py && grep -q 'criterion=CRITERION, time_limit_s' experiments/rebuttal/E2_running_time_by_graph_size/run.py && grep -q '^CRITERION = "gac"' experiments/rebuttal/E2_running_time_by_graph_size/run.py
+  - id: src-untouched
+    says: the library code timed is the committed code of the submitted branch
+    check: |-
+      git diff --quiet HEAD -- src
+  - id: rows-gac
+    says: every output row records criterion gac and a commit, and every hybrid that finished used the GAC oracle
+    check: |-
+      python3 -c "import json,glob,sys; R=[json.loads(l) for f in glob.glob('results/rebuttal/E2/rows_*.jsonl') for l in open(f) if l.strip()]; sys.exit(0 if R and all(r.get('criterion')=='gac' and r.get('commit') not in (None,'unknown') for r in R) and all(r['legs']['hybrid'].get('oracle')=='gac_criterion' for r in R if r.get('status')=='ok' and r['legs'].get('hybrid',{}).get('status')=='ok') else 1)"
+  - id: full-grid
+    says: all 416 registered units (256 appD + 160 sparse) have a row
+    check: |-
+      python3 -c "import json,glob,sys; U={json.loads(l)['uid'] for f in glob.glob('results/rebuttal/E2/rows_*.jsonl') for l in open(f) if l.strip()}; a=sum(u.startswith('appD') for u in U); s=sum(u.startswith('sparse') for u in U); print(a,s); sys.exit(0 if (a,s)==(256,160) else 1)"
+  - id: consistency
+    says: no unit has a consistency failure (methods agree on the radius, top check matches dispatch)
+    check: |-
+      python3 -c "import json,glob,sys; R=[json.loads(l) for f in glob.glob('results/rebuttal/E2/rows_*.jsonl') for l in open(f) if l.strip()]; sys.exit(0 if R and not any(r.get('consistency_failures') for r in R) else 1)"
+  - id: stages-timed
+    says: every finished unit carries the top-check, validity-call, SAT-build and hybrid timings
+    check: |-
+      python3 -c "import json,glob,sys; R=[json.loads(l) for f in glob.glob('results/rebuttal/E2/rows_*.jsonl') for l in open(f) if l.strip()]; ok=[r for r in R if r.get('status')=='ok']; sys.exit(0 if ok and all('top_median_s' in r['prep'] and 'g0_call_median_s' in r['prep'] and 'sat' in r['legs'] and 'hybrid' in r['legs'] for r in ok) else 1)"

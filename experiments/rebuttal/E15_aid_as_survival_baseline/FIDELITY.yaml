@@ -1,0 +1,47 @@
+# Is a run of E15 really E15? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E15-aid-as-survival-baseline
+says: >
+  All 480 untargeted and 4,104 targeted stored survival instances, rebuilt from their seeds with the
+  submitted builders and checked against the stored x, Z*, radius and separation; GAC radius and the
+  oset AID from G0 to the true DAG and to the CPDAG (ours, and gadjid's beside it) for each; Kendall
+  tau_b with the stored AUC_frac, paired against the radius.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E15_aid_as_survival_baseline/run.py
+  - experiments/rebuttal/E15_aid_as_survival_baseline/aid.py
+  - experiments/rebuttal/E15_aid_as_survival_baseline/analyse.py
+runs: ../../../results/rebuttal/E15/config*.json
+rubric:
+  - id: criterion
+    says: the radius is computed under the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: population
+    says: all 4,584 stored instances (480 untargeted + 4,104 targeted) are in the unit list
+    config: {key: n_units_total, equals: 4584}
+  - id: untargeted-file
+    says: the submitted untargeted survival table, byte for byte
+    config: {key: untargeted_sha256, equals: 4d911e7f5f6ec5eb5aaa8cb61238cea5f858b007d9c0b4390a1ab1deed1b308a}
+  - id: targeted-file
+    says: the submitted targeted (point 6) survival table, byte for byte
+    config: {key: targeted_sha256, equals: 1a5f44fe95a84fd893f46fa4288b483dda7831a3651693267cda5b3868f44de2}
+  - id: gadjid
+    says: the published AID implementation was available, so its columns exist beside ours
+    config: {key: gadjid_available, equals: true}
+  - id: src-clean
+    says: the submitted library code was not modified for the run
+    config: {key: src_dirty, equals: false}
+  - id: all-units-written
+    says: one row per instance, none missing, none duplicated
+    check: test "$(cat results/rebuttal/E15/units_shard*.jsonl | python3 -c 'import sys,json; ids=[json.loads(l)["unit_id"] for l in sys.stdin if l.strip()]; print(len(ids), len(set(ids)))')" = "4584 4584"
+  - id: consistency
+    says: every rebuilt instance reproduced its stored x, Z*, radius and (untargeted) separation
+    check: test "$(cat results/rebuttal/E15/units_shard*.jsonl | python3 -c 'import sys,json; print(sum(json.loads(l)["status"]!="ok" for l in sys.stdin if l.strip()))')" = "0"
+  - id: gac-rows
+    says: every row records the GAC criterion and a repository commit
+    check: cat results/rebuttal/E15/units_shard*.jsonl | python3 -c 'import sys,json; rs=[json.loads(l) for l in sys.stdin if l.strip()]; sys.exit(0 if rs and all(r["criterion"]=="gac" and r["radius_oracle"]=="gac_criterion" and len(r["repo_commit"])==40 for r in rs) else 1)'
+  - id: registered-analysis
+    says: results.json holds the registered paired statistic computed on the untargeted pool
+    check: python3 -c 'import json; r=json.load(open("results/rebuttal/E15/results.json")); s=r["registered"]; assert "neg_aid_cpdag_graph_norm" in s["statistic"] and s["result"].get("n_boot")==10000'

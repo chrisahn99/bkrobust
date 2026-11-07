@@ -1,0 +1,99 @@
+# Is a run of E10 really E10? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E10-radius-across-valid-sets
+says: >
+  Every certifiable released query (status ok) of the ten elicited arms and D_RAND, rebuilt from the
+  released files and verified against their hashes; every GAC-valid set in G0 listed (exhaustive up to
+  12 candidate nodes, else at most 20 by a seeded walk); each set's radius under the GAC from the
+  submitted breakdown_radius (networks of at most 60 nodes) or the same top-state check plus a
+  budgeted search over the submitted cover generator (larger networks), and its validity at the true
+  DAG. Plus the exhaustive 4- and 5-node census under the GAC, hybrid radius checked against the exact
+  BFS radius on the corrected space.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E10_radius_across_valid_sets/run.py
+  - experiments/rebuttal/E10_radius_across_valid_sets/vendor_ledger.py
+  - experiments/rebuttal/E10_radius_across_valid_sets/vendor_search.py
+runs: ../../../results/rebuttal/E10/config*.json
+rubric:
+  - id: criterion
+    says: the criterion is the GAC
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: both-parts
+    says: networks and census both run
+    config: {key: part, equals: all}
+  - id: arms
+    says: the ten elicited arms and D_RAND, nothing else
+    config: {key: arms, equals: [D_LLM, D_LLM_INSTR, D_LLM_SRC, D_SCRAMBLED, D_LLM_72B, D_LLM_72B_INSTR, D_SCRAMBLED_72B, D_LLM_32B, D_LLM_SRC_70B, D_LLM_GEMMA_27B, D_RAND]}
+  - id: population
+    says: all 3,014 released status-ok rows of those arms were selected
+    config: {key: n_selected_networks, equals: 3014}
+  - id: census-scope
+    says: census over 4 nodes with at most 6 undirected edges and 5 nodes with at most 4
+    config: {key: census_sizes, equals: [[4, 6], [5, 4]]}
+  - id: records-file
+    says: the released per_query_records.csv, byte for byte (release/SHA256SUMS)
+    config: {key: records_sha256, equals: 13541300e559b7aae464d35121b1f5f8a9678209dac99063ba1e31768412452e}
+  - id: knowledge-file
+    says: the released knowledge_states.json, byte for byte (release/SHA256SUMS)
+    config: {key: knowledge_sha256, equals: 45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb}
+  - id: seed
+    says: D_RAND knowledge rebuilt with the released sweep's seed
+    config: {key: seed, equals: 20260913}
+  - id: set-cap
+    says: at most 20 sets per query on large pools, exhaustive up to 12 candidate nodes
+    config: {key: max_sets, equals: 20}
+  - id: exhaustive-threshold
+    says: exhaustive listing up to 12 candidate nodes
+    config: {key: exhaustive_max_candidates, equals: 12}
+  - id: budgets
+    says: the registered search budgets (4,000 closures, 20 s per set, ladder 60 s per rung)
+    config: {key: closure_budget, equals: 4000}
+  - id: set-time
+    says: 20 s per set on the budgeted search
+    config: {key: set_time_limit, equals: 20.0}
+  - id: ladder-time
+    says: 60 s per ladder rung
+    config: {key: ladder_time_limit, equals: 60.0}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: commit-and-criterion-per-row
+    says: every row records a repository commit and the GAC
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E10/rows_*.jsonl') for l in open(f)];
+      sys.exit(0 if r and all(x.get('commit') not in (None,'unknown') and x.get('criterion')=='gac' for x in r) else 1)"
+  - id: all-network-rows-rebuilt
+    says: all 3,014 rows ran and rebuilt exactly; none left in error or mismatch
+    check: >
+      python3 -c "import json,glob,sys; r={}; [r.__setitem__(x['key'],x) for f in sorted(glob.glob('results/rebuttal/E10/rows_networks*.jsonl')) for x in map(json.loads,open(f))];
+      sys.exit(0 if len(r)==3014 and all(x['status']=='ok' for x in r.values()) else 1)"
+  - id: o-first-and-valid
+    says: on every row the first listed set is the committed set and every listed set has a radius record and a truth verdict
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E10/rows_networks*.jsonl') for l in open(f)]; r=[x for x in r if x.get('status')=='ok'];
+      sys.exit(0 if r and all(x['sets'][0]['z']==x['z_o'] and all('exact' in s and 'valid_at_truth' in s for s in x['sets']) for x in r) else 1)"
+  - id: hybrid-used-small
+    says: on networks of at most 60 nodes every radius came from the submitted breakdown_radius
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E10/rows_networks*.jsonl') for l in open(f)];
+      m={s['method'] for x in r if x.get('status')=='ok' and x['n_nodes']<=60 for s in x['sets']};
+      sys.exit(0 if m and m <= {'top_state','local_up_fast','degenerate','e1_ladder','e1_ladder+bfs'} else 1)"
+  - id: ladder-cross-checked
+    says: every ladder answer has an independent search beside it
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E10/rows_networks*.jsonl') for l in open(f)];
+      sys.exit(0 if all('bfs_check' in s for x in r if x.get('status')=='ok' for s in x['sets'] if s['method'].startswith('e1_ladder')) else 1)"
+  - id: census-complete
+    says: every census CPDAG unit ran on the corrected space, none in error
+    check: >
+      python3 -c "import json,glob,sys; r={}; [r.__setitem__(x['key'],x) for f in sorted(glob.glob('results/rebuttal/E10/rows_census*.jsonl')) for x in map(json.loads,open(f))];
+      c=[json.load(open(f)) for f in glob.glob('results/rebuttal/E10/config*.json')];
+      sys.exit(0 if r and c and len(r)==c[0]['n_selected_census'] and all(x['status']=='ok' and x['space']=='build_space_correct' for x in r.values()) else 1)"
+  - id: no-consistency-failure
+    says: no row records a consistency failure (hybrid against BFS, ladder against search, truth oracles, released values)
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E10/rows_*.jsonl') for l in open(f)];
+      sys.exit(0 if r and not any(x.get('hard_failures') for x in r) else 1)"

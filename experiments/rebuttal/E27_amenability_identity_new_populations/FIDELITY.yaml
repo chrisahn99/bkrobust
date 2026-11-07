@@ -1,0 +1,57 @@
+# Is a run of E27 really E27? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E27-amenability-identity-new-populations
+says: >
+  The radius of the committed optimal set (submitted breakdown_radius, criterion gac, 300 s) and the
+  amenability radius (submitted radius_local_up_fast with "not amenable" as failure, the first author's
+  e10b definition) computed per query on the frozen 648-pair CPDAG-only frame crossed with all ten
+  elicited knowledge states built as in E11, plus a census of the loadable networks outside the 33 under
+  the frame_build.py rule; both radii checked by plain enumeration when G0 commits at most 12 orientations.
+repo: ../../..
+code:
+  - experiments/rebuttal/E27_amenability_identity_new_populations/run.py
+  - experiments/rebuttal/E27_amenability_identity_new_populations/analyse.py
+runs: ../../../results/rebuttal/E27/config*.json
+rubric:
+  - id: criterion
+    says: the registered criterion is the GAC
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: inputs-frozen
+    says: both frames and the elicitation bundle match their frozen hashes
+    config: {key: hash_ok, equals: true}
+  - id: all-conditions
+    says: all ten elicited conditions of the bundle are scored
+    config: {key: n_conditions, equals: 10}
+  - id: frame-size
+    says: the CPDAG-only frame has its 648 frozen pairs
+    config: {key: n_frame_pairs, equals: 648}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: population
+    says: every frame pair x condition was written, whatever its status
+    check: >
+      python3 -c "import json,glob,sys; r={x['key'] for f in glob.glob('results/rebuttal/E27/units*.jsonl') for x in map(json.loads,open(f))};
+      sys.exit(0 if len(r)==648*10 else 1)"
+  - id: both-radii-on-ok-units
+    says: every unit with a committed set carries both radii calls and both timings
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E27/units*.jsonl') for l in open(f)]; ok=[x for x in r if x['status']=='ok'];
+      sys.exit(0 if ok and all('t_val_s' in x and 't_amen_s' in x for x in ok) else 1)"
+  - id: census-written
+    says: the population A census was written from the pinned manifest
+    check: >
+      python3 -c "import json,sys; c=json.load(open('results/rebuttal/E27/census_population_A.json')); sys.exit(0 if c['n_files_manifest']==40 else 1)"
+  - id: enumeration-ran
+    says: the enumeration check ran on at least 100 units
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E27/results.json')); sys.exit(0 if r['enumeration_check']['r_amen'][1]>=100 else 1)"
+  - id: no-consistency-failure
+    says: no enumeration-vs-search mismatch, no r_val above r_amen, no zero radius on a valid set
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E27/results.json')); sys.exit(0 if r['consistency_failures']==0 and r['errors']==0 else 1)"
+  - id: same-states-as-E11
+    says: the r_val of each real-name unit equals E11's GAC radius on the same key where both are exact (judged from E11's cluster shards)
+    judge: compare r_val with E11 radius on matching (condition, network, x, y); quote the count
