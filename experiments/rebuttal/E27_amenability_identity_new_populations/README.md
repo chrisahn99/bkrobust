@@ -17,5 +17,5 @@ r_amen and the enumeration are the unknown part; every call has a 600 s wall clo
 Outputs in results/rebuttal/E27/: units.*.jsonl (one line per unit), census_population_A.json, config.*.json,
 consistency_failures.*.jsonl, errors.*.jsonl, results.json, analyse.txt, run.log, DONE.
 
-Not covered here (card V2): the 388 E12 units on the five networks above 500 nodes with the synthetic arms,
+Not covered here: the 388 E12 units on the five networks above 500 nodes with the synthetic arms,
 and the E5 learned graphs. The E11 frame already contains link, munin and munin1-4 rows with elicited knowledge.

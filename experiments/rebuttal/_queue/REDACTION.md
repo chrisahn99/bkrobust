@@ -39,3 +39,7 @@ A row whose first two hashes differ was already edited after registration; its o
 | `E7_one_hidden_variable/FIDELITY.yaml` | `7b0647abfb02e085` | `c07010e5615dc5bb` | `c333952d671872e4` |
 | `E8_missed_and_extra_edges/FIDELITY.yaml` | `213f6a7e12086015` | `213f6a7e12086015` | `e8da59f8f414a8a1` |
 | `E9_parametric_bootstrap_validity/FIDELITY.yaml` | `03e55fc4d61a840d` | `03e55fc4d61a840d` | `a3a6aca32f8d8aee` |
+| `E28_joint_radius_edges/PREREG.md` | `73a8d11bbfd3e47d` | `73a8d11bbfd3e47d` | `1440e15db69672c7` |
+| `E29_radius_vs_degree_sep_undefined/PREREG.md` | `c3067b143ff4a57a` | `c3067b143ff4a57a` | `1672f164200795b9` |
+
+Rows for E28 and E29 added on 9 November 2026: the planning-note labels, the workstation's host name and the wording "this cycle / a SUMMARY and a DECISIONS row" were replaced in the two pre-registrations after their runs had finished; the registered hashes in `PREREG_SHA256.txt` are unchanged, and E28's fidelity item `prereg-frozen` checks the run's recorded hash against that file, not against the current text.

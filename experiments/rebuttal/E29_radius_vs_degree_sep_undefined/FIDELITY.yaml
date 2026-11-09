@@ -1,0 +1,50 @@
+# Is a run of E29 really E29? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E29-radius-vs-degree-sep-undefined
+says: >
+  On E16's 1,033 separation-undefined units of the submitted Table 1 cohort, states rebuilt as the GAC
+  recompute rebuilt them, the GAC radius recomputed with its witness (checked against the stored radius and
+  the submitted radius_local_up_fast), the undirected degree of X and the size of its chain component in the
+  CPDAG, the analyst's orientations at X, every distance-1 witness with what it retracts and why Z fails there;
+  registered statistics tau_b(radius, undirected degree of X) by tau_for_stratum (10,000 network resamples,
+  seed 0) and the share of radius-1 units whose only orientation at X is the retracted one.
+repo: ../../..
+code:
+  - experiments/rebuttal/E29_radius_vs_degree_sep_undefined/run.py
+  - experiments/rebuttal/E29_radius_vs_degree_sep_undefined/analyse.py
+runs: ../../../results/rebuttal/E29/config*.json
+rubric:
+  - id: criterion
+    says: the radius is the GAC radius
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: inputs-frozen
+    says: the unit table, both GAC recompute files and the elicitation bundle match their frozen hashes
+    config: {key: hash_ok, equals: true}
+  - id: population-size
+    says: the selection rule found E16's 1,033 units
+    config: {key: n_population, equals: 1033}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: all-units-ok
+    says: every one of the 1,033 units was scored with status ok
+    check: >
+      python3 -c "import json,glob,sys; r={}; [r.__setitem__(x['key'],x) for f in sorted(glob.glob('results/rebuttal/E29/units*.jsonl')) for x in map(json.loads,open(f))];
+      sys.exit(0 if len(r)==1033 and all(x['status']=='ok' for x in r.values()) else 1)"
+  - id: no-consistency-failure
+    says: no radius, witness, committed-set or K_G0 mismatch, and no item error
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E29/results.json')); sys.exit(0 if r['consistency_failures']==0 and r['errors']==0 else 1)"
+  - id: resamples
+    says: 10,000 bootstrap resamples, seed 0, in the analysis
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E29/results.json')); sys.exit(0 if r['n_boot']==10000 and r['seed']==0 else 1)"
+  - id: e16-within-reproduced
+    says: the within-state population and point of E16 (757 units, 48 states, +0.0827) are reproduced
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E29/results.json')); sys.exit(0 if r['within_paired_radius_minus_degree'].get('e16_reproduced') else 1)"
+  - id: degree-is-cpdag-undirected
+    says: deg_u_x counts undirected edges at X in the CPDAG (not in G0, not all adjacencies)
+    judge: read measure() in run.py and quote the line that sets deg_u_x

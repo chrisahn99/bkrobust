@@ -50,3 +50,9 @@ E26 frozen 2026-11-07T00:58:43Z, before any full run
 0b44556fcaf29df4faeedd6dbc05f44586ddbe0cd35343a9fb94a33f361a44a6  E25_amenability_check/PREREG.md
 65ba45805a16590d4c37f81c045117290ca226cc8e878ad316c9bec18265ecee  E25_amenability_check/FIDELITY.yaml
 E25 appended 2026-11-07T00:59:42Z, before the first full run
+c3067b143ff4a57a7ac5b9014120aad72aed5d3781b2f441af54710f58cc4f4c  E29_radius_vs_degree_sep_undefined/PREREG.md
+026c7a69f5654f024ccd6d2ff02610873dba333d61e40c11307f8d67f49c78b1  E29_radius_vs_degree_sep_undefined/FIDELITY.yaml
+E29 frozen 2026-11-07T17:56:35Z, before the first full run (smoke seen, disclosed in PREREG)
+73a8d11bbfd3e47dca661ea48453668215d8739f85e5d003a11279ebe84d2787  E28_joint_radius_edges/PREREG.md
+ebdb59a9e05aa7d6af307e4e8460c3df0d00cdc252a8bbb7d3d4b447e8f4ea93  E28_joint_radius_edges/FIDELITY.yaml
+E28 frozen 2026-11-07T17:58:37Z, before the first full run (smoke of 6 rows read before freezing, disclosed in PREREG.md)

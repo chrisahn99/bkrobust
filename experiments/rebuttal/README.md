@@ -1,6 +1,6 @@
 # Rebuttal experiments (ICLR 2027, submission 46323)
 
-This folder holds the experiments run during the discussion period, E1 to E27. Each one answers one
+This folder holds the experiments run during the discussion period, E1 to E29. Each one answers one
 reviewer point. Every experiment folder is self-contained: a pre-registration written before the run
 (`PREREG.md`), the code (`run.py`, `analyse.py`, and `vendor_*.py` copies of older helpers with their
 source commit in the header), a launcher (`launch.sh`), a fidelity rubric (`FIDELITY.yaml`), a short
@@ -41,6 +41,8 @@ Outputs are written to `results/rebuttal/<E>/` (or `results/rebuttal/<E>_smoke/`
 | E25 | `E25_amenability_check` | whether the nearest failing states are exactly the non-amenable states |
 | E26 | `E26_taeb_edge_addition_tolerance` | an edge-addition tolerance in the sense of Taeb et al., compared with the radius |
 | E27 | `E27_amenability_identity_new_populations` | the radius versus the amenability radius on query populations not used before |
+| E28 | `E28_joint_radius_edges` | a joint radius over orientation retractions and edge additions near the query, against the discovery errors of the learned graphs |
+| E29 | `E29_radius_vs_degree_sep_undefined` | the radius against the undirected degree of the treatment where the separation score is undefined |
 
 ## Setting up
 
