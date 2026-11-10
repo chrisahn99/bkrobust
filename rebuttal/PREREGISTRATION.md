@@ -134,3 +134,66 @@ workers. The long-cap validation subsample is therefore cut from 60 to 30
 instances (10 per decade 10^5, 10^6, 10^7), still with 1,800 s each. Nothing else
 changes. Smoke: no consistency failure; listing and pruned listing agree with the
 hybrid on every complete unit.
+
+# E3S (10 November 2026): the SAT stage against other exact solvers
+
+Written before any run of this experiment (branch `iclr_2027_rebuttal_solvers`,
+cut from `iclr_2027_rebuttal` at the E4L results). Addresses qQYf-W1 ("the
+choice of SAT over other optimization approaches ... is not thoroughly
+motivated").
+
+**Question.** The SAT stage of Algorithm 1 answers "is there a Meek-closed state
+within k retractions of G0 where Z fails (GAC)?" with CP-SAT, as a ladder over k.
+Do other exact formulations of the same problem do better?
+
+**One model, several solvers.** The submitted E1 encoding (`bkrobust.sat.e1._build`,
+criterion "gac") is built once per query. Its constraint types are bool_or,
+bool_and (enforced), exactly_one, lin_max over Booleans, linear (cardinalities
+and enforced position differences for acyclicity). It is translated mechanically,
+with no reformulation, to
+- a MILP (big-M on enforced linear constraints with M from the variable bounds;
+  lin_max of Booleans as out >= each, out <= sum), minimising the number of
+  retractions;
+- a weighted CNF (positions in order encoding; cardinalities by a sequential
+  counter), each retraction a unit soft clause of weight 1 (MaxSAT).
+Translators are checked on every instance: every returned witness is decoded to
+a state, re-closed, and checked to make Z fail with the claimed number of
+retractions; every exact answer must equal the hybrid radius.
+
+**Arms** (no search stage, start at k = 0, single thread, cap 300 s per arm per query):
+A1 CP-SAT ladder (submitted); A2 CP-SAT one minimise call; A3 CP-SAT minimise with
+core-based search only (`optimize_with_core`, a MaxSAT-style algorithm inside
+CP-SAT); A4 MILP SCIP; A5 MILP HiGHS; A6 MILP CBC (all three bundled with OR-Tools
+9.15); A7 MaxSAT RC2 and A8 plain SAT ladder with CaDiCaL (PySAT), only if PySAT
+is installed (decision recorded below before the run); A9 explicit retraction
+search with unbounded depth (`radius_local_up_fast`, max_depth = |K_G0|), the
+"explicit search" of the question.
+
+**Populations.**
+- P-E3: the 132 E3 queries (dense ER, n = 10..24, radii 1..13; 63 with r >= 4).
+- P-SATR: the E4L queries the hybrid sent to its SAT stage (1,911; 1,847
+  synthetic, 56 release, 8 E2); all if the budget allows, otherwise a seeded
+  sample of 400 stratified by population and radius.
+- P-SCALE: the deepest finite query per (n, family) for n in {24, 32, 48, 64}
+  from the E2 sparse and dense generators, 10 per n, to see where each
+  formulation stops building or solving.
+
+**Registered statistics.** Per arm and radius class (1-3, 4-6, >= 7): share
+solved exactly within the cap (Wilson 95%); median time (build + solve) with
+order-statistic interval; paired time ratio to A1 (median, cluster bootstrap
+over graphs); share of queries on which the arm is fastest; model size
+(variables, constraints, clauses). The ladder's certificate time (UNSAT rungs)
+reported separately for A1 and A8.
+
+**Prediction.** CP-SAT (A1 or A2) is fastest on most queries in every radius
+class. MILP solves fewer deep queries within the cap and is slower by a median
+factor of at least 10 on r >= 4 (weak LP relaxation of logical and big-M
+constraints). MaxSAT (A7, A3) is within a factor of 3 of CP-SAT and may win on
+some deep queries. Explicit search (A9) wins on r <= 2 and loses from r >= 4.
+
+**Against us.** If any non-CP-SAT arm is fastest on the majority of r >= 4
+queries, the response says so and that CP-SAT was an engineering choice, not an
+optimal one; App. D.3 reports it.
+
+**Consistency (any failure is a bug, to be fixed before analysis).** Every exact
+arm returns the hybrid radius; every witness re-checks.
