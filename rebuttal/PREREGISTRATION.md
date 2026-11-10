@@ -197,3 +197,6 @@ optimal one; App. D.3 reports it.
 
 **Consistency (any failure is a bug, to be fixed before analysis).** Every exact
 arm returns the hybrid radius; every witness re-checks.
+
+**E3S decision before the run.** PySAT is installed (python-sat 1.9.dev21, user approval
+10 November 2026), so arms A7 (RC2) and A8 (CaDiCaL ladder) are included.
