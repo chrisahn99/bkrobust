@@ -126,3 +126,11 @@ failing DAG gives an upper bound >= hybrid radius.
 **Against us.** If BNB matches or beats the hybrid on most large-class
 instances, the response says a pruned listing is a competitive exact method and
 the hybrid's advantage is engineering, not asymptotics.
+
+**E4L amendment after the smoke run (24 units), before the full run.** A class-size
+census (counting only, 15 s cap) gives about 280 units with |[C^]| in 10^4..10^6 and
+about 830 above 10^6; at the caps above the main run needs about 8 hours on 8
+workers. The long-cap validation subsample is therefore cut from 60 to 30
+instances (10 per decade 10^5, 10^6, 10^7), still with 1,800 s each. Nothing else
+changes. Smoke: no consistency failure; listing and pruned listing agree with the
+hybrid on every complete unit.
