@@ -104,7 +104,7 @@ def build(q):
         import e4l_listing as e4l
         cpdag, g0, x, y = e4l.build(q["unit"])
     z, st = optimal_set_closed_form(g0, x, y)
-    assert st == "ok" and z, st
+    assert st == "ok", st  # Z may be empty (amendment 2, E3S)
     return cpdag, g0, x, y, frozenset(z)
 
 

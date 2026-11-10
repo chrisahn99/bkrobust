@@ -208,3 +208,17 @@ r >= 4 queries. P-SATR is cheap (median under 0.3 s per arm except CBC), so
 all 1,911 queries are run and no sample is drawn. The P-SCALE query id now
 includes the edge probability (two smoke queries shared an id). Ladder rung
 times are recorded for A1 and A8. Nothing else changes; cap 300 s, 8 workers.
+
+**E3S amendment 2, after the full run (10 November 2026, 22:05).** The full run
+(18,747 tasks, 19:35-22:01) produced 378 rows with status
+`error:AssertionError:ok`: all 9 arms on 42 P-SATR queries. Cause: a driver bug,
+not a solver failure. `build()` in `rebuttal/e3s_solvers.py` asserted a
+non-empty optimal set, but on these 42 queries O(G0) is the empty set (a valid
+adjustment set, and included in E4L). Fix: the assertion now checks only the
+closed-form status. The 378 error rows were moved to
+`results/rebuttal/e3s/errors_emptyZ.jsonl` and the 378 tasks rerun with the same
+settings (cap 300 s, 8 workers; log `run_amend2.log`). No other row was touched.
+After the rerun: 0 errors, 0 radius mismatches, 0 witness failures. The
+descriptive statistics in `rebuttal/e3s_explore.py` (fastest arm among the
+solver arms only, solve-only ratios, explicit search by radius) were not
+registered and are reported as exploratory.
