@@ -200,3 +200,11 @@ arm returns the hybrid radius; every witness re-checks.
 
 **E3S decision before the run.** PySAT is installed (python-sat 1.9.dev21, user approval
 10 November 2026), so arms A7 (RC2) and A8 (CaDiCaL ladder) are included.
+
+**E3S amendment after the smoke run (12 queries) and a 16-query census of
+P-SATR, before the full run (10 November 2026, 19:40).** Smoke: no radius
+mismatch, every witness re-checks; the three MILP arms hit the cap on most
+r >= 4 queries. P-SATR is cheap (median under 0.3 s per arm except CBC), so
+all 1,911 queries are run and no sample is drawn. The P-SCALE query id now
+includes the edge probability (two smoke queries shared an id). Ladder rung
+times are recorded for A1 and A8. Nothing else changes; cap 300 s, 8 workers.
