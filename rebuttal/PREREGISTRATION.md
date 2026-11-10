@@ -74,3 +74,55 @@ No new package was installed. PC discovery (E5-E7) is implemented in-house
   from the truth, so validity at truth is unchanged by definition; the
   meaningful test is whether Z committed at the perturbed G0 stays valid at
   truth. Expect damage concentrated within hop 1 of the query.
+
+---
+
+# E4L (10 November 2026): listing the class, at scale
+
+Written before any run of this experiment. José's E4 (branch `ze/rebuttal`,
+`experiments/rebuttal/E4_class_enumeration_baseline`) compared listing the class
+with the hybrid on three small populations (four-node; 144 regenerated dense;
+256 timing instances, n <= 24; caps 10^5 DAGs, 120 s) and found listing faster
+on 8% of the timing instances and 27% of the four-node ones. E4L does not repeat
+it; it extends the same comparison to the populations the paper and the
+response actually use, and measures how long listing would take where it cannot
+finish.
+
+**Populations** (all rebuilt from stored parameters with the submitted code;
+Z = closed-form O(G0), checked valid at G0):
+- P-E2: the 2,676 queries of E2 (n = 8..400, dense App. D grid and sparse
+  degree 2-4, full and half recovering knowledge);
+- P-REL: the 2,365 committed release queries of the ten elicited conditions;
+- P-BIG: the committed queries on the five networks above 500 nodes (E12);
+- P-SYN: the 4,584 synthetic survival instances of Section 6.
+
+**Legs, per instance, in one process:** class size |[C^]| counted exactly by
+root-picking (He, Jia & Yu 2015; cap 60 s); hybrid (final, GAC, b = 3);
+LIST = depth-first listing of [C^] with Meek closure and DAG-level GAC in every
+DAG (Corollary 1(c)); BNB = the same listing pruned on reversed K_G0
+orientations. LIST runs to completion when |[C^]| <= 10^6 (cap 300 s);
+otherwise for 20 s only, to measure its throughput. BNB cap 120 s. The listing
+and pruning rules follow José's E4 so the two runs are comparable.
+
+**Registered statistics.** (1) Per population and class-size bin
+(1, 2-10, 11-100, 101-10^3, 10^3-10^4, 10^4-10^6, 10^6-10^9, >10^9, unknown):
+fraction of instances where LIST finishes faster than the hybrid (Wilson 95%).
+(2) Projected LIST time = |[C^]| / measured throughput, by population, against
+the hybrid time; share of instances where the projection exceeds 1 hour and
+1 year. (3) Same as (1) for BNB. (4) Validation of the projection on a
+long-cap subsample: 60 instances with |[C^]| in 10^5..10^8, stratified by
+decade, LIST given 1,800 s; ratio of actual DAGs listed to projected.
+
+**Prediction.** Listing is faster only on classes of size <= 100; on P-E2 at
+n >= 100 and on P-BIG its projected time exceeds 1 hour on most instances with a
+finite radius, while the hybrid takes under a second; BNB beats the hybrid on
+few instances outside small classes. Throughput is roughly constant per
+instance, so the projection is accurate within a factor of 2.
+
+**Consistency (any failure is a bug).** A complete LIST or BNB radius equals the
+hybrid radius; a complete LIST count equals |[C^]|; a capped LIST that found a
+failing DAG gives an upper bound >= hybrid radius.
+
+**Against us.** If BNB matches or beats the hybrid on most large-class
+instances, the response says a pruned listing is a competitive exact method and
+the hybrid's advantage is engineering, not asymptotics.
