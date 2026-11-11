@@ -403,3 +403,11 @@ flag for invalidity at truth. **Prediction:** unflagged invalid share <= 0.05 at
 n >= 10k; AUC > 0.6. **Against us:** the AUC interval includes 0.5, or the unflagged
 invalid share is above 0.10 at n >= 10k. Reported with the share of sets flagged
 (a flag that flags everything is useless).
+
+**E30-E34 amendment 2 (11 November 2026, before any E34 run): E34 cost.** One Meek
+closure of the corrupted claims takes 0.8 / 3.3 / 7.8 / 54 ms on the true CPDAGs of
+magic-niab / magic-irri / ecoli70 / arth150 (laptop), so the registered E34 (200 draws
+per depth, every committed set) would take more than 40 laptop-hours. Changed before
+running: 100 draws per depth (the paper uses 1,000), and at most the first 10 committed
+sets per (graph, arm) in frame order (fixed before seeing any outcome). Everything else
+as registered.
