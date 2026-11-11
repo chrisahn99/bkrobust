@@ -94,7 +94,7 @@ def units(draws, max_per_graph):
     out = []
     for line in src.open():
         r = json.loads(line)
-        if "error" in r:
+        if "error" in r or "rows" not in r:  # errors and learning timeouts have no rows
             continue
         keep = r["n"] == "oracle" or (r["learner"] in LEARNERS and r["n"] in NS and r["seed"] in SEEDS)
         if not keep:

@@ -1,0 +1,20 @@
+committed rows 156483 guarantee rows 46838 violations 0
+guarantee by arm {'LLM': 12222, 'NONE': 8935, 'TRUE': 25681}
+LLM locally correct: within 12139 invalid 0 | beyond 1514 invalid 810 0.535
+>=1 hop 11802 28 0.0024
+>=2 hops 5219 2 0.0004
+touching 62494 0.332
+share no error touching (boss+grasp, 4 nets) by n: {100: 0.0, 200: 0.0, 500: 0.007, 1000: 0.019, 2000: 0.066, 5000: 0.118, 10000: 0.137, 20000: 0.246, 50000: 0.366, 100000: 0.473}
+    learner       n     network      I     Cm   P_LC  committed
+36     boss  100000     arth150  0.103  0.822  0.739        329
+37     boss  100000     ecoli70  0.000  1.000  0.975        400
+38     boss  100000  magic-irri  0.246  0.792  0.331        317
+39     boss  100000  magic-niab  0.000  0.995  1.000        398
+115     ges  100000     arth150  0.000  0.725  0.241         29
+116     ges  100000     ecoli70  0.030  0.992  0.708        397
+117     ges  100000  magic-irri  0.344  0.858  0.294        343
+118     ges  100000  magic-niab  0.005  0.970  0.928        388
+155   grasp  100000     arth150  0.056  0.852  0.692        341
+156   grasp  100000     ecoli70  0.008  0.985  0.944        394
+157   grasp  100000  magic-irri  0.184  0.868  0.389        347
+158   grasp  100000  magic-niab  0.000  0.995  0.927        398

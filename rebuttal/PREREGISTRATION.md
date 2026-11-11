@@ -435,3 +435,10 @@ composition with n, the interim report pools the three complete networks (ecoli7
 magic-irri, magic-niab) and gives arth150 separately. The registered four-network
 statistics are computed after the run completes and supersede the interim ones. E34 has
 not been run.
+
+**E30-E34 note 6 (11 November 2026, 23:59): E30 complete, E34 bug.** E30 finished
+all 4,004 tasks (41 GES learning timeouts on arth150, 0 errors). The registered
+four-network statistics in `results/rebuttal/e30/analysis.json` supersede the interim
+ones of note 5. E34's first launch stopped at once with KeyError: it read the
+learn_timeout records, which have no rows. Fix: skip records without rows. No unit had
+been computed; relaunched with the amendment-2 settings.
