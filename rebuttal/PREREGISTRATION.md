@@ -421,3 +421,9 @@ capped task is recorded as `learn_timeout` and counted per (learner, network, n)
 has no rows. The statistics are computed on the graphs that finished, and the counts
 of capped graphs are reported beside every pooled number for that learner. The one
 3,141 s graph, which finished before the cap existed, is kept.
+
+**E30-E34 amendment 4 (11 November 2026, 11:25): interruption.** The E30 run was
+stopped on the user's request (laptop to be closed) after 3,667 of 4,004 tasks, all
+written lines valid. Tasks in flight were discarded, not written. The run is resumed
+with the identical command; finished tasks are skipped, so the only effect is that the
+in-flight tasks are recomputed from scratch on the same samples. No setting changes.

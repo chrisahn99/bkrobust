@@ -21,9 +21,12 @@ INF = 10 ** 6
 
 
 def load(path=ODIR / "rows.jsonl"):
-    G, R, errs = [], [], []
+    G, R, errs, tos = [], [], [], []
     for line in path.open():
         r = json.loads(line)
+        if r.get("learn_timeout"):
+            tos.append({k: r[k] for k in ("network", "n", "seed", "learner")})
+            continue
         if "error" in r:
             errs.append({k: r[k] for k in ("id", "error")})
             continue
@@ -42,6 +45,7 @@ def load(path=ODIR / "rows.jsonl"):
         R["g0_ok"] = R.g0_ok.fillna(False).astype(bool)
         R["guarantee"] = R.class_ok & R.k_err.notna() & ((R.rnum >= INF) | (R.k_err < R.rnum))
         R["violation"] = R.guarantee & R.inv
+    load.timeouts = pd.DataFrame(tos)
     return G, R, errs
 
 
@@ -150,6 +154,8 @@ def e33(R, arm="TRUE"):
         tb = np.array([t for t in tb if not np.isnan(t)])
         rec["tau_b_ci"] = [round(float(np.quantile(tb, q)), 4) for q in (0.025, 0.975)] if len(tb) else None
         out.append(rec)
+    if not out:
+        return pd.DataFrame(columns=["learner", "n"])
     return pd.DataFrame(out).sort_values(["learner", "n"])
 
 
@@ -190,6 +196,9 @@ def main():
     G, R, errs = load()
     rng = np.random.default_rng(SEED)
     res = {"errors": errs, "graphs": int(len(G)), "rows": int(len(R))}
+    to = load.timeouts
+    res["learn_timeouts"] = (to.groupby(["learner", "network", "n"]).size().reset_index(name="count")
+                             .to_dict("records") if len(to) else [])
     t = e30_tables(R, rng)
     t.to_csv(ODIR / "e30_table.csv", index=False)
     res["e30"] = t.to_dict("records")
