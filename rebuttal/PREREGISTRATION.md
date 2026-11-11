@@ -390,3 +390,16 @@ within 1 and 2 hops; the LLM and NONE arms beyond what is registered above.
 One launch of the full grid (E30-E33 share one run), resumed only after a crash.
 No rerun with changed settings. A failed consistency check is fixed, rerun, and both
 runs are reported as amendments below.
+
+**E30-E34 amendment 1 (11 November 2026, during the E30 run, before any E30 row was
+analysed): E35, local agreement between learners as a data-only flag (C2Bd-Q3).**
+E30 stores every learned CPDAG, all learners on the same samples, so this costs no new
+run. For each (network, n, seed) and each TRUE-arm committed set of the reference
+learner `boss`, the region R = {x, y} u Z plus their neighbours in C_hat_boss (data
+only, no truth). Flag = the CPDAGs of boss, ges, grasp and pcan on the same sample
+disagree on some pair inside R (adjacency or mark). **Registered statistics:** the
+invalid share among unflagged sets, per n, with the graph-cluster bootstrap; AUC of the
+flag for invalidity at truth. **Prediction:** unflagged invalid share <= 0.05 at
+n >= 10k; AUC > 0.6. **Against us:** the AUC interval includes 0.5, or the unflagged
+invalid share is above 0.10 at n >= 10k. Reported with the share of sets flagged
+(a flag that flags everything is useless).
