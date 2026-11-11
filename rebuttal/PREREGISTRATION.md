@@ -411,3 +411,13 @@ per depth, every committed set) would take more than 40 laptop-hours. Changed be
 running: 100 draws per depth (the paper uses 1,000), and at most the first 10 committed
 sets per (graph, arm) in frame order (fixed before seeing any outcome). Everything else
 as registered.
+
+**E30-E34 amendment 3 (11 November 2026, 05:57, after 100 of 4,004 E30 tasks, before
+any analysis): learning time cap.** causal-learn's GES took 3,141 s on one magic-irri
+graph (n = 100k, seed 3), and 7 of 8 workers had been inside GES fits on arth150 /
+magic-irri for over an hour. The run was stopped and resumed (the 100 finished tasks are
+kept, unchanged) with a cap of 900 laptop-seconds on the learning step (SIGALRM). A
+capped task is recorded as `learn_timeout` and counted per (learner, network, n); it
+has no rows. The statistics are computed on the graphs that finished, and the counts
+of capped graphs are reported beside every pooled number for that learner. The one
+3,141 s graph, which finished before the cap existed, is kept.

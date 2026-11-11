@@ -28,6 +28,7 @@ import hashlib
 import json
 import multiprocessing as mp
 import os
+import signal
 import time
 import traceback
 
@@ -45,6 +46,15 @@ from bkrobust.demo.meek import apply_orientations
 NS = (100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000)
 LEARNER_ORDER = ("pc01d3", "pc01", "pc001", "pcan", "cpc", "mpc", "hc", "ges", "boss", "grasp")
 RUNG_S = 30
+LEARN_CAP_S = 900  # amendment 3: per-graph learning cap (laptop seconds)
+
+
+class LearnTimeout(Exception):
+    pass
+
+
+def _alarm(signum, frame):
+    raise LearnTimeout()
 ODIR = OUT / "e30"
 
 
@@ -174,7 +184,16 @@ def run_task(task):
         else:
             nodes, X = D.sample(net, n, seed)
             t = time.perf_counter()
-            cp, info = L.learn(learner, nodes, X)
+            signal.signal(signal.SIGALRM, _alarm)
+            signal.alarm(LEARN_CAP_S)
+            try:
+                cp, info = L.learn(learner, nodes, X)
+            except LearnTimeout:
+                return {"id": task_id(net, n, seed, learner), "network": net, "n": n, "seed": seed,
+                        "learner": learner, "learn_timeout": True,
+                        "learn_secs_laptop": round(time.perf_counter() - t, 1)}
+            finally:
+                signal.alarm(0)
             secs = time.perf_counter() - t
         rec = {"id": task_id(net, n, seed, learner), "network": net, "n": n, "seed": seed,
                "learner": learner, "learn_secs_laptop": round(secs, 2),
@@ -221,7 +240,7 @@ if __name__ == "__main__":
         for line in path.open():
             r = json.loads(line)
             if "error" not in r:
-                done.add(r["id"])
+                done.add(r["id"])  # timeouts count as done (not rerun)
     T = [t for t in tasks(a.seeds, [int(x) for x in a.ns.split(",")], a.learners.split(","),
                           a.nets.split(",")) if task_id(*t) not in done]
     T.sort(key=cost, reverse=True)
@@ -231,5 +250,5 @@ if __name__ == "__main__":
         for i, r in enumerate(P.imap_unordered(run_task, T)):
             f.write(json.dumps(r, default=str) + "\n")
             f.flush()
-            msg = r.get("error", f"learn {r.get('learn_secs_laptop')}s score {r.get('score_secs_laptop')}s")
+            msg = "LEARN_TIMEOUT" if r.get("learn_timeout") else r.get("error", f"learn {r.get('learn_secs_laptop')}s score {r.get('score_secs_laptop')}s")
             print(i, r["id"], msg, f"elapsed {time.time() - t0:.0f}s", flush=True)
