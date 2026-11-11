@@ -1,0 +1,60 @@
+# Is a run of E28 really E28? Checked apart from the score, after the run:
+#   python ../fidelity_gate.py FIDELITY.yaml --no-judge
+arm: E28-joint-radius-edges
+says: >
+  Takes the 984 scored E22 rows (learned PC/GES CPDAGs, A_ORACLE_R knowledge), rebuilds G, K and the committed set
+  with E5's functions and checks them against the stored row, and computes the joint radius over retractions of K
+  and directed edge additions between non-adjacent nodes within two hops of {x, y} u Z (depth 1 exhaustive with its
+  witness list, depth 2 when needed), the orientation-only radius with the ledger function, and whether a true
+  missing edge in An_true({x, y} u Z) is a distance-1 witness.
+repo: ../../..
+code: [experiments/rebuttal/E28_joint_radius_edges/run.py,
+       experiments/rebuttal/E28_joint_radius_edges/vendor_e5.py,
+       experiments/rebuttal/E28_joint_radius_edges/vendor_bkrobust.py]
+runs: ../../../results/rebuttal/E28/config.*.json
+rubric:
+  - id: criterion
+    says: validity uses the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: arm
+    says: the repaired oracle arm of E5
+    config: {key: arm, equals: A_ORACLE_R}
+  - id: not-smoke
+    says: the full population, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: hops
+    says: additions within two hops of {x, y} u Z
+    config: {key: hops, equals: 2}
+  - id: depth
+    says: joint search to depth 2
+    config: {key: max_joint_depth, equals: 2}
+  - id: limits
+    says: the registered time limits, 1800 s for depth 1 and 600 s for depth 2
+    check: python3 -c "import json,glob,sys; C=[json.load(open(p)) for p in glob.glob('results/rebuttal/E28/config.*.json')]; sys.exit(0 if C and all(c['depth1_limit_s']==1800.0 and c['depth2_limit_s']==600.0 for c in C) else 1)"
+  - id: population
+    says: 984 scored E22 rows, 534 invalid, 452 with a true edge missing in A
+    check: python3 -c "import json,glob,sys; C=[json.load(open(p)) for p in glob.glob('results/rebuttal/E28/config.*.json')]; sys.exit(0 if C and all((c['n_rows_population'],c['n_invalid_population'],c['n_invalid_missing_in_A'])==(984,534,452) for c in C) else 1)"
+  - id: data-e22-rows
+    says: the finished E22 rows, unchanged
+    config: {key: input_sha256.e22_rows, equals: f7929e065d3d84642f8a85472cc0dde464767b33700a56b9992287825236bd34}
+  - id: data-graphs
+    says: the stored learned graphs, unchanged
+    config: {key: input_sha256.graphs_jsonl, equals: 708871335eff33eac4db09754ab9c561e8fa7ba552cbce0b8cf679375115b402}
+  - id: prereg-frozen
+    says: the PREREG.md the run read is the one whose hash was recorded before the run
+    check: python3 -c "import json,glob,sys; L=open('experiments/rebuttal/_queue/PREREG_SHA256.txt').read(); C=[json.load(open(p)) for p in glob.glob('results/rebuttal/E28/config.*.json')]; sys.exit(0 if C and all(c['prereg_sha256']+'  E28_joint_radius_edges/PREREG.md' in L for c in C) else 1)"
+  - id: radius-primitive
+    says: states are built with the radius's apply_orientations after the Meek closure of G plus the additions
+    check: grep -q "return apply_orientations(cur, k_kept)" experiments/rebuttal/E28_joint_radius_edges/run.py && grep -q "cur = meek_closure(cur)" experiments/rebuttal/E28_joint_radius_edges/run.py
+  - id: vendor-e5-functions
+    says: K is rebuilt with E5's truthful and greedy_consistent
+    check: grep -q "oracle = truthful(dag, sorted(g.undirected_edges))" experiments/rebuttal/E28_joint_radius_edges/vendor_e5.py && grep -q "return greedy_consistent(g, oracle)" experiments/rebuttal/E28_joint_radius_edges/vendor_e5.py
+  - id: src-unpatched
+    says: src/ is the committed submitted code, unmodified
+    check: git diff --quiet HEAD -- src
+  - id: rows-complete
+    says: every population row is written once with criterion gac, one commit, and a rebuilt Z
+    check: python3 -c "import json,glob,sys; R={json.loads(l)['unit']:json.loads(l) for p in glob.glob('results/rebuttal/E28/rows.*.jsonl') for l in open(p)}; V=list(R.values()); sys.exit(0 if len(V)==984 and all(r.get('criterion')=='gac' and r.get('reconstruct_ok')==1 for r in V) and len({r['repo_commit'] for r in V})==1 else 1)"
+  - id: consistency
+    says: analyse.py found no consistency failure and a complete population
+    check: python3 -c "import json,sys; sys.exit(0 if json.load(open('results/rebuttal/E28/results.json'))['consistency_ok'] else 1)"

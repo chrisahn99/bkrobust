@@ -1,0 +1,75 @@
+# Is a run of E11 really E11? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E11-survival-on-cpdag-only-queries
+says: >
+  The submitted elicited-knowledge survival protocol (K from knowledge.json, Meek closure, optimal set
+  with valid empty sets committed, 1000 GAC survival draws per depth on the frac10 grid, committed seed
+  family) run on the frozen 648-row CPDAG-only frame for the eight real-name conditions, radius under
+  the GAC (registered) and the back-door criterion, with the Table 1 frame rescored as a same-code
+  reference; the registered statistic is the within-state tau_b of the GAC radius on the CPDAG-only frame.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E11_survival_on_cpdag_only_queries/run.py
+  - experiments/rebuttal/E11_survival_on_cpdag_only_queries/analyse.py
+runs: ../../../results/rebuttal/E11/config*.json
+rubric:
+  - id: criterion
+    says: the registered criterion is the GAC
+    config: {key: criterion, equals: gac}
+  - id: criteria
+    says: the GAC and the back-door radius are both computed
+    config: {key: criteria, equals: [gac, backdoor]}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: draws
+    says: 1000 draws per grid point, as in the committed panel
+    config: {key: n_draws, equals: 1000}
+  - id: frames
+    says: both frames are scored (CPDAG-only primary, Table 1 reference)
+    config: {key: frames, equals: [cpdag_only, table1]}
+  - id: inputs-frozen
+    says: frames and elicitation bundle match their frozen hashes
+    config: {key: hash_ok, equals: true}
+  - id: real-naming
+    says: the eight real-name conditions, no scrambled control pooled in
+    config: {key: n_conditions, equals: 8}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: population
+    says: all 648 CPDAG-only rows x 8 conditions were written, whatever their status
+    check: >
+      python3 -c "import json,glob,sys; r={x['key']:x for f in glob.glob('results/rebuttal/E11/units*.jsonl') for x in map(json.loads,open(f))};
+      c=[x for x in r.values() if x['frame']=='cpdag_only' and x.get('naming')=='real']; sys.exit(0 if len(c)==648*8 else 1)"
+  - id: rows-record-gac-and-commit
+    says: every unit row records criterion gac, a repository commit, and is not from the smoke subset
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E11/units*.jsonl') for l in open(f)];
+      sys.exit(0 if r and all(x.get('criterion')=='gac' and x.get('commit') not in (None,'unknown') and not x.get('smoke') for x in r) else 1)"
+  - id: gac-oracle
+    says: every scored radius came from the GAC criterion oracle, and the back-door one from mpdag_criterion
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E11/units*.jsonl') for l in open(f)]; ok=[x for x in r if x.get('status')=='ok'];
+      sys.exit(0 if ok and all(x['oracle']=='gac_criterion' and x['bd_oracle']=='mpdag_criterion' for x in ok) else 1)"
+  - id: empty-set-rule
+    says: valid empty optimal sets are scored, not dropped (at least one ok unit has z_size 0)
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E11/units*.jsonl') for l in open(f)];
+      sys.exit(0 if any(x.get('status')=='ok' and x.get('z_size')==0 for x in r) else 1)"
+  - id: no-consistency-failure
+    says: no cross-frame, zero-radius or enumeration-vs-criterion mismatch was recorded
+    check: >
+      python3 -c "import glob,sys; sys.exit(0 if sum(len(open(f).read().splitlines()) for f in glob.glob('results/rebuttal/E11/consistency_failures*.jsonl'))==0 else 1)"
+  - id: enumeration-checked
+    says: the enumeration oracle cross-checked at least 10 GAC radii exactly
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E11/results.json')); sys.exit(0 if r['n_xcheck_exact']>=10 else 1)"
+  - id: reproduces-committed-endpoint
+    says: the Table 1 frame rescored reproduces the committed survival endpoint on every matched unit (same draws, same predicate)
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E11/results.json'))['reproduction_table1_backdoor_vs_committed'];
+      sys.exit(0 if r.get('n_matched_ok_units',0)>0 and r['auc_agree']==r['n_matched_ok_units'] else 1)"
+  - id: statistic-matches-paper-code
+    says: the registered tau_b and a short bootstrap equal experiments/llm_paired_v2.py on the same states
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E11/results.json')); sys.exit(0 if not r['analysis_errors'] else 1)"

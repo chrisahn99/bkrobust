@@ -1,0 +1,62 @@
+# Is a run E3 as registered in PREREG.md (2026-11-06)? Paths are relative to this file.
+arm: E3-depth-budget-x-sat-mode
+says: >
+  The 144 high-k instances, criterion GAC, CPDAG check on, b in {0,1,2,3,4,6} x SAT mode
+  {ladder, minimise}, serial, CP-SAT single-threaded seed 0, every arm on every instance,
+  plus the library breakdown_radius at b = 3 as a reference.
+repo: ../../..
+code:
+  - experiments/rebuttal/E3_depth_budget_and_sat_mode/run.py
+  - experiments/rebuttal/E3_depth_budget_and_sat_mode/sat_minimise.py
+  - src/bkrobust/sat/e1.py
+runs: ../../../results/rebuttal/E3/full/config_shard*.json
+rubric:
+  - id: criterion
+    says: the generalised adjustment criterion decides validity everywhere
+    config: {key: criterion, equals: gac}
+  - id: top-check
+    says: the CPDAG (top-state) check is on
+    config: {key: top_state_check, equals: true}
+  - id: budgets
+    says: the six registered budgets, no more and no fewer
+    config: {key: budgets, equals: [0, 1, 2, 3, 4, 6]}
+  - id: modes
+    says: both SAT modes
+    config: {key: modes, equals: [ladder, minimise]}
+  - id: serial
+    says: one worker, so timings are not contended
+    config: {key: workers, equals: 1}
+  - id: solver-threads
+    says: CP-SAT runs single-threaded with seed 0 in both modes
+    config: {key: solver.num_workers, equals: 1}
+  - id: solver-seed
+    says: CP-SAT seed 0
+    config: {key: solver.random_seed, equals: 0}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: population
+    says: the instance file is the committed results/axisb3/highk.jsonl, byte for byte
+    config: {key: instances_sha256, equals: 5a3d99fb5dd0f2e99b64334560f1ebb96c8af4ca8a7acec3e4f43156a72f1a51}
+  - id: clean-src
+    says: src/ is the submitted code, unmodified
+    config: {key: src_dirty, equals: false}
+  - id: reference
+    says: the library breakdown_radius is called as a reference on every instance
+    config: {key: reference_call, equals: true}
+  - id: minimise-same-model
+    says: the minimise mode builds the submitted E1 model and changes only the solve
+    check: grep -q "from bkrobust.sat.e1 import _build" experiments/rebuttal/E3_depth_budget_and_sat_mode/sat_minimise.py && grep -q "model.Minimize(sum(retracted))" experiments/rebuttal/E3_depth_budget_and_sat_mode/sat_minimise.py
+  - id: budget-reaches-search
+    says: the budget b is what bounds the upward search
+    check: grep -q "radius_local_up_fast(cpdag, g0, fails, max_depth=b" experiments/rebuttal/E3_depth_budget_and_sat_mode/run.py
+  - id: all-units-all-arms
+    says: 144 instances written, each with all 12 arms, each row tagged gac and with a commit
+    check: >
+      python3 -c "import json,glob;
+      R={};[R.__setitem__(json.loads(l)['unit'],json.loads(l)) for f in glob.glob('results/rebuttal/E3/full/rows_shard*.jsonl') for l in open(f) if l.strip()];
+      ok=len(R)==144 and all(len(r.get('arms',[]))==12 and r['criterion']=='gac' and r['commit']!='unknown' for r in R.values());
+      raise SystemExit(0 if ok else 1)"
+  - id: minimise-only-solve-differs
+    says: radius_minimise uses the same parameters as radius_e1 and differs only in replacing the rung loop by one Minimize call
+    judge: true

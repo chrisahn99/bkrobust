@@ -1,0 +1,118 @@
+{
+ "pc_reproduces_discovery_pc": [
+  {
+   "net": "ecoli70",
+   "n": 200,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "ecoli70",
+   "n": 200,
+   "seed": 1,
+   "equal": true
+  },
+  {
+   "net": "ecoli70",
+   "n": 5000,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "ecoli70",
+   "n": 5000,
+   "seed": 1,
+   "equal": true
+  },
+  {
+   "net": "magic-irri",
+   "n": 200,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "magic-irri",
+   "n": 200,
+   "seed": 1,
+   "equal": true
+  },
+  {
+   "net": "magic-irri",
+   "n": 5000,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "magic-irri",
+   "n": 5000,
+   "seed": 1,
+   "equal": true
+  },
+  {
+   "net": "magic-niab",
+   "n": 200,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "magic-niab",
+   "n": 200,
+   "seed": 1,
+   "equal": true
+  },
+  {
+   "net": "magic-niab",
+   "n": 5000,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "magic-niab",
+   "n": 5000,
+   "seed": 1,
+   "equal": true
+  },
+  {
+   "net": "arth150",
+   "n": 200,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "arth150",
+   "n": 200,
+   "seed": 1,
+   "equal": true
+  },
+  {
+   "net": "arth150",
+   "n": 5000,
+   "seed": 0,
+   "equal": true
+  },
+  {
+   "net": "arth150",
+   "n": 5000,
+   "seed": 1,
+   "equal": true
+  }
+ ],
+ "dor_tarsi": [
+  {
+   "net": "ecoli70",
+   "consistent": true
+  },
+  {
+   "net": "magic-irri",
+   "consistent": true
+  },
+  {
+   "net": "magic-niab",
+   "consistent": true
+  },
+  {
+   "net": "arth150",
+   "consistent": true
+  }
+ ]
+}

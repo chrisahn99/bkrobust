@@ -1,0 +1,1458 @@
+{
+  "walkthrough": {
+    "toy": "walkthrough",
+    "cpdag": "U-X W-X W-Y X-Y",
+    "K": [
+      [
+        "U",
+        "X"
+      ],
+      [
+        "X",
+        "Y"
+      ],
+      [
+        "X",
+        "W"
+      ]
+    ],
+    "G0": "U->X X->W X->Y W-Y",
+    "K_G0": [
+      [
+        "U",
+        "X"
+      ],
+      [
+        "X",
+        "W"
+      ],
+      [
+        "X",
+        "Y"
+      ]
+    ],
+    "Z": [],
+    "Z_valid_at_G0": true,
+    "Z_valid_at_Chat": false,
+    "n_states": 32,
+    "shells": {
+      "0": {
+        "states": 1,
+        "Z_invalid": 0
+      },
+      "1": {
+        "states": 3,
+        "Z_invalid": 0
+      },
+      "2": {
+        "states": 5,
+        "Z_invalid": 2
+      },
+      "3": {
+        "states": 7,
+        "Z_invalid": 5
+      },
+      "4": {
+        "states": 5,
+        "Z_invalid": 5
+      },
+      "5": {
+        "states": 6,
+        "Z_invalid": 6
+      },
+      "6": {
+        "states": 3,
+        "Z_invalid": 3
+      },
+      "7": {
+        "states": 2,
+        "Z_invalid": 2
+      }
+    },
+    "r_by_full_space": 2,
+    "nearest_failing_states": [
+      {
+        "state": "X->W U-X W-Y X-Y",
+        "K": [
+          [
+            "X",
+            "W"
+          ]
+        ],
+        "d": 2,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "X->Y U-X W-X W-Y",
+        "K": [
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 2,
+        "above_G0": true,
+        "Z_valid": false
+      }
+    ],
+    "r_hybrid": "2",
+    "hybrid_method": "local_up_fast",
+    "hybrid_witness": "X->W U-X W-Y X-Y",
+    "r_retraction_bruteforce": 2,
+    "retraction_witnesses": [
+      [
+        [
+          "U",
+          "X"
+        ],
+        [
+          "X",
+          "W"
+        ]
+      ],
+      [
+        [
+          "U",
+          "X"
+        ],
+        [
+          "X",
+          "Y"
+        ]
+      ]
+    ],
+    "r_claim": 2,
+    "claim_witnesses": [
+      [
+        [
+          "U",
+          "X"
+        ],
+        [
+          "X",
+          "W"
+        ]
+      ],
+      [
+        [
+          "U",
+          "X"
+        ],
+        [
+          "X",
+          "Y"
+        ]
+      ]
+    ],
+    "up_set_states": 5,
+    "states_table": [
+      {
+        "state": "U-X W-X W-Y X-Y",
+        "K": [],
+        "d": 3,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y U-X W-X X-Y",
+        "K": [
+          [
+            "W",
+            "Y"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->U W-X W-Y X-Y",
+        "K": [
+          [
+            "X",
+            "U"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->W U-X W-Y X-Y",
+        "K": [
+          [
+            "X",
+            "W"
+          ]
+        ],
+        "d": 2,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "X->Y U-X W-X W-Y",
+        "K": [
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 2,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "Y->W U-X W-X X-Y",
+        "K": [
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X X->U W-Y X-Y",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "X",
+            "U"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y X->U W-X X-Y",
+        "K": [
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "U"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y X->Y U-X W-X",
+        "K": [
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->U X->W W-Y X-Y",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "W"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->U X->Y W-X W-Y",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->U Y->W W-X X-Y",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->U Y->X W-X W-Y",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->W X->Y U-X W-Y",
+        "K": [
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 1,
+        "above_G0": true,
+        "Z_valid": true
+      },
+      {
+        "state": "X->W Y->W U-X X-Y",
+        "K": [
+          [
+            "X",
+            "W"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "U->X X->W X->Y W-Y",
+        "K": [
+          [
+            "U",
+            "X"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 0,
+        "above_G0": true,
+        "Z_valid": true
+      },
+      {
+        "state": "W->X W->Y X->U X-Y",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "U"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X X->U Y->X W-Y",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "X",
+            "U"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y X->U X->Y W-X",
+        "K": [
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y X->W X->Y U-X",
+        "K": [
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 2,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "X->U X->W X->Y W-Y",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 2,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "X->U X->W Y->W X-Y",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->U Y->W Y->X W-X",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "Y",
+            "W"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "X->W X->Y Y->W U-X",
+        "K": [
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 2,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "U->X W->Y X->W X->Y",
+        "K": [
+          [
+            "U",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 1,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "U->X X->W X->Y Y->W",
+        "K": [
+          [
+            "U",
+            "X"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 1,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "W->X W->Y X->U X->Y",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X W->Y X->U Y->X",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "U"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 7,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X X->U Y->W Y->X",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "X",
+            "U"
+          ],
+          [
+            "Y",
+            "W"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 7,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y X->U X->W X->Y",
+        "K": [
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "X->U X->W X->Y Y->W",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "X->U X->W Y->W Y->X",
+        "K": [
+          [
+            "X",
+            "U"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "Y",
+            "W"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      }
+    ],
+    "join_G0_nearest": {
+      "state": "X->W U-X W-Y X-Y",
+      "d_to_G0": 2,
+      "Z_valid": false
+    }
+  },
+  "figure2a": {
+    "toy": "figure2a",
+    "cpdag": "A-W W-X W-Y X-Y",
+    "K": [
+      [
+        "A",
+        "W"
+      ],
+      [
+        "X",
+        "Y"
+      ]
+    ],
+    "G0": "A->W W->X W->Y X->Y",
+    "K_G0": [
+      [
+        "A",
+        "W"
+      ],
+      [
+        "W",
+        "X"
+      ],
+      [
+        "W",
+        "Y"
+      ],
+      [
+        "X",
+        "Y"
+      ]
+    ],
+    "Z": [
+      "W"
+    ],
+    "Z_valid_at_G0": true,
+    "Z_valid_at_Chat": false,
+    "n_states": 32,
+    "shells": {
+      "0": {
+        "states": 1,
+        "Z_invalid": 0
+      },
+      "1": {
+        "states": 2,
+        "Z_invalid": 1
+      },
+      "2": {
+        "states": 4,
+        "Z_invalid": 3
+      },
+      "3": {
+        "states": 6,
+        "Z_invalid": 6
+      },
+      "4": {
+        "states": 7,
+        "Z_invalid": 7
+      },
+      "5": {
+        "states": 4,
+        "Z_invalid": 4
+      },
+      "6": {
+        "states": 5,
+        "Z_invalid": 5
+      },
+      "7": {
+        "states": 2,
+        "Z_invalid": 2
+      },
+      "8": {
+        "states": 1,
+        "Z_invalid": 1
+      }
+    },
+    "r_by_full_space": 1,
+    "nearest_failing_states": [
+      {
+        "state": "A->W W->X W->Y X-Y",
+        "K": [
+          [
+            "A",
+            "W"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ]
+        ],
+        "d": 1,
+        "above_G0": true,
+        "Z_valid": false
+      }
+    ],
+    "r_hybrid": "1",
+    "hybrid_method": "local_up_fast",
+    "hybrid_witness": "A->W W->X W->Y X-Y",
+    "r_retraction_bruteforce": 1,
+    "retraction_witnesses": [
+      [
+        [
+          "X",
+          "Y"
+        ]
+      ]
+    ],
+    "r_claim": 1,
+    "claim_witnesses": [
+      [
+        [
+          "A",
+          "W"
+        ]
+      ],
+      [
+        [
+          "X",
+          "Y"
+        ]
+      ]
+    ],
+    "up_set_states": 9,
+    "states_table": [
+      {
+        "state": "A-W W-X W-Y X-Y",
+        "K": [],
+        "d": 4,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W-X W-Y X-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X A-W W-Y X-Y",
+        "K": [
+          [
+            "W",
+            "X"
+          ]
+        ],
+        "d": 3,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y A-W W-X X-Y",
+        "K": [
+          [
+            "W",
+            "Y"
+          ]
+        ],
+        "d": 3,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "X->Y A-W W-X W-Y",
+        "K": [
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 3,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "Y->X A-W W-X W-Y",
+        "K": [
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->X W-Y X-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "X"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->Y W-X X-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "Y"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A X->W W-Y X-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "X",
+            "W"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A X->Y W-X W-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A Y->W W-X X-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A Y->X W-X W-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X W->Y A-W X-Y",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ]
+        ],
+        "d": 2,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X Y->X A-W W-Y",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->Y X->Y A-W W-X",
+        "K": [
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 2,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "A->W W->X W->Y X-Y",
+        "K": [
+          [
+            "A",
+            "W"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ]
+        ],
+        "d": 1,
+        "above_G0": true,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->X W->Y X-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->X Y->X W-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->Y X->Y W-X",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A X->W X->Y W-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 5,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A X->W Y->W X-Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 7,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A Y->W Y->X W-X",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "Y",
+            "W"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 7,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->X W->Y X->Y A-W",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 1,
+        "above_G0": true,
+        "Z_valid": true
+      },
+      {
+        "state": "W->X W->Y Y->X A-W",
+        "K": [
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 3,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "A->W W->X W->Y X->Y",
+        "K": [
+          [
+            "A",
+            "W"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 0,
+        "above_G0": true,
+        "Z_valid": true
+      },
+      {
+        "state": "A->W W->X W->Y Y->X",
+        "K": [
+          [
+            "A",
+            "W"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 2,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->X W->Y X->Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 2,
+        "above_G0": false,
+        "Z_valid": true
+      },
+      {
+        "state": "W->A W->X W->Y Y->X",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->X Y->W Y->X",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "X"
+          ],
+          [
+            "Y",
+            "W"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A W->Y X->W X->Y",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "W",
+            "Y"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ]
+        ],
+        "d": 4,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A X->W X->Y Y->W",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "X",
+            "Y"
+          ],
+          [
+            "Y",
+            "W"
+          ]
+        ],
+        "d": 6,
+        "above_G0": false,
+        "Z_valid": false
+      },
+      {
+        "state": "W->A X->W Y->W Y->X",
+        "K": [
+          [
+            "W",
+            "A"
+          ],
+          [
+            "X",
+            "W"
+          ],
+          [
+            "Y",
+            "W"
+          ],
+          [
+            "Y",
+            "X"
+          ]
+        ],
+        "d": 8,
+        "above_G0": false,
+        "Z_valid": false
+      }
+    ],
+    "join_G0_nearest": {
+      "state": "A->W W->X W->Y X-Y",
+      "d_to_G0": 1,
+      "Z_valid": false
+    }
+  }
+}

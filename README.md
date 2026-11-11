@@ -150,6 +150,22 @@ computational checks behind them.
 appendix or were used to design the experiments above. See
 [`results/README.md`](results/README.md).
 
+## Discussion-period experiments
+
+Experiments added during the discussion live in two folders, written
+independently: `experiments/rebuttal/` (each with its own pre-registration and
+fidelity rubric) and `rebuttal/` (pre-registrations in
+`rebuttal/PREREGISTRATION.md`). Neither modifies `src/`; both call the submitted
+code. They cover running time and solvers (App. D.2, D.3), the radius across
+valid sets, survival on CPDAG-only queries, networks above 500 nodes, and
+learned equivalence classes (App. H.4: nine CPDAG learners from n = 100 to
+100,000, `rebuttal/e30_ladder.py`, `rebuttal/learners.py`,
+`rebuttal/e34_survival.py`). Run the `rebuttal/` drivers from the repository root
+with `PYTHONPATH=src:rebuttal`; those that read the paper's released knowledge
+states expect the paper's release folder at `$BKROBUST_PAPER_DIR/release`.
+`rebuttal/learners.py` additionally needs `causal-learn` (GES, BOSS, GRaSP).
+Timings in these folders were measured on a 10-core laptop.
+
 ---
 
 ## Repository map
@@ -172,6 +188,11 @@ src/bkrobust/
   epsilon/           bias functional B, eps-bias radius, mean profile, checks
   analysis/          figure scripts and a verifier for the real-structure run
 experiments/         sweep drivers for the results above
+experiments/rebuttal/  discussion-period experiments, one folder each (PREREG.md,
+                     run.py, analyse.py, FIDELITY.yaml)
+rebuttal/            discussion-period experiments: drivers, analyses and
+                     PREREGISTRATION.md (registered before each run, amended
+                     with dated notes); outputs in results/rebuttal/<exp>/
 scripts/             make_paper_figures.py, run_llm_survival_panel.sh
 results/             one directory per sweep, each with a manifest
 figures/             paper figures

@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_72B__water",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_72B",
+    "network": "water"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_72B",
+  "network": "water",
+  "model": "Qwen2.5-72B-Instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 10,
+  "n_cells": 60,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 6,
+  "n_asked": 6,
+  "assert_rate": 1.0,
+  "k_accuracy": 1.0,
+  "n_k_correct": 6,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 6,
+  "shd_truth": 0,
+  "instance_status_counts": {
+    "ok": 10,
+    "z_invalid_at_g0": 10
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 7,
+  "cache": {
+    "graph_hits": 5937,
+    "graph_misses": 63,
+    "verdict_hits": 22690,
+    "verdict_misses": 150
+  },
+  "elapsed_s": 0.213,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_72B__water.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_72B__water.cells.jsonl",
+  "instances_sha256": "2ed605313edb27cf049042afae7e7dfec2b6b954747844631e4615ed4227cf74",
+  "cells_sha256": "a8ab2072da03d9db8474b4444e77984e4350bc2df87200c07815304df94a01e1",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:59:24Z"
+}

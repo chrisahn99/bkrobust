@@ -1,0 +1,52 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__andes",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "andes"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "andes",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 6,
+  "n_cells": 42,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 7,
+  "n_asked": 10,
+  "assert_rate": 0.7,
+  "k_accuracy": 0.5714285714285714,
+  "n_k_correct": 4,
+  "n_k_wrong": 3,
+  "n_off_skeleton": 0,
+  "k_g0": 9,
+  "shd_truth": 7,
+  "instance_status_counts": {
+    "z_invalid_at_g0": 13,
+    "optimal_set_undefined": 1,
+    "ok": 6
+  },
+  "radius_median_ok": null,
+  "n_radius_ok": 0,
+  "cache": {
+    "graph_hits": 6873,
+    "graph_misses": 127,
+    "verdict_hits": 7896,
+    "verdict_misses": 174
+  },
+  "elapsed_s": 0.991,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__andes.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__andes.cells.jsonl",
+  "instances_sha256": "95f7db277f89625bcea17a1f801f1bc5be6bc27cffd9244a9dc3b80d47528893",
+  "cells_sha256": "2187defaa9c482f6f671bb7a130b6b00d4bf8419c9dac431e83b5373c8b555ed",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:58:59Z"
+}

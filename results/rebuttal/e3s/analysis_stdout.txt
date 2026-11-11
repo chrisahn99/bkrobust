@@ -1,0 +1,381 @@
+{
+ "n_rows": 18747,
+ "n_queries": 2083,
+ "status": {
+  "ok": 18608,
+  "cap": 134,
+  "killed": 5
+ },
+ "mismatch": [],
+ "witness_fail": [],
+ "errors": [],
+ "n_queries_all_arms": 2083,
+ "scale_by_n": {
+  "24": {
+   "n": 10,
+   "arms": {
+    "cpsat_ladder": {
+     "solved": 10,
+     "median_s": 7.3368255
+    },
+    "cpsat_min": {
+     "solved": 10,
+     "median_s": 3.245094
+    },
+    "cpsat_core": {
+     "solved": 10,
+     "median_s": 3.2423495
+    },
+    "milp_scip": {
+     "solved": 9,
+     "median_s": 78.857609
+    },
+    "milp_highs": {
+     "solved": 7,
+     "median_s": 116.8425135
+    },
+    "milp_cbc": {
+     "solved": 3,
+     "median_s": 300.0
+    },
+    "maxsat_rc2": {
+     "solved": 10,
+     "median_s": 10.9825245
+    },
+    "sat_cadical": {
+     "solved": 10,
+     "median_s": 10.678445
+    },
+    "explicit": {
+     "solved": 10,
+     "median_s": 0.0145175
+    }
+   },
+   "radius": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    5,
+    6
+   ]
+  },
+  "32": {
+   "n": 10,
+   "arms": {
+    "cpsat_ladder": {
+     "solved": 10,
+     "median_s": 0.6297465
+    },
+    "cpsat_min": {
+     "solved": 10,
+     "median_s": 0.444944
+    },
+    "cpsat_core": {
+     "solved": 10,
+     "median_s": 0.468988
+    },
+    "milp_scip": {
+     "solved": 10,
+     "median_s": 3.292428
+    },
+    "milp_highs": {
+     "solved": 10,
+     "median_s": 3.3604849999999997
+    },
+    "milp_cbc": {
+     "solved": 6,
+     "median_s": 90.4899115
+    },
+    "maxsat_rc2": {
+     "solved": 10,
+     "median_s": 1.3355575
+    },
+    "sat_cadical": {
+     "solved": 10,
+     "median_s": 1.2683114999999998
+    },
+    "explicit": {
+     "solved": 10,
+     "median_s": 0.003945
+    }
+   },
+   "radius": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3
+   ]
+  },
+  "48": {
+   "n": 10,
+   "arms": {
+    "cpsat_ladder": {
+     "solved": 10,
+     "median_s": 2.2195755000000004
+    },
+    "cpsat_min": {
+     "solved": 10,
+     "median_s": 1.5787200000000001
+    },
+    "cpsat_core": {
+     "solved": 10,
+     "median_s": 1.5701635
+    },
+    "milp_scip": {
+     "solved": 10,
+     "median_s": 8.801955
+    },
+    "milp_highs": {
+     "solved": 10,
+     "median_s": 11.242561
+    },
+    "milp_cbc": {
+     "solved": 9,
+     "median_s": 64.414993
+    },
+    "maxsat_rc2": {
+     "solved": 10,
+     "median_s": 4.1815835
+    },
+    "sat_cadical": {
+     "solved": 10,
+     "median_s": 4.134384
+    },
+    "explicit": {
+     "solved": 10,
+     "median_s": 0.0127755
+    }
+   },
+   "radius": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3
+   ]
+  },
+  "64": {
+   "n": 10,
+   "arms": {
+    "cpsat_ladder": {
+     "solved": 10,
+     "median_s": 6.0389155
+    },
+    "cpsat_min": {
+     "solved": 10,
+     "median_s": 4.527113
+    },
+    "cpsat_core": {
+     "solved": 10,
+     "median_s": 4.4589225
+    },
+    "milp_scip": {
+     "solved": 10,
+     "median_s": 24.888782499999998
+    },
+    "milp_highs": {
+     "solved": 10,
+     "median_s": 33.788802000000004
+    },
+    "milp_cbc": {
+     "solved": 0,
+     "median_s": 300.0
+    },
+    "maxsat_rc2": {
+     "solved": 10,
+     "median_s": 9.439600500000001
+    },
+    "sat_cadical": {
+     "solved": 10,
+     "median_s": 9.288568
+    },
+    "explicit": {
+     "solved": 10,
+     "median_s": 0.0218205
+    }
+   },
+   "radius": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  }
+ },
+ "ladder_certificate": {
+  "cpsat_ladder": {
+   "n": 2083,
+   "unsat_rungs_median_s": 0.032718,
+   "sat_rung_median_s": 0.013081,
+   "unsat_share_of_solve_median": 0.7162465176326697
+  },
+  "sat_cadical": {
+   "n": 2083,
+   "unsat_rungs_median_s": 0.000239,
+   "sat_rung_median_s": 3.1e-05,
+   "unsat_share_of_solve_median": 0.8873239436619718
+  }
+ }
+}
+== P-E3 all n=132
+  cpsat_ladder  solved   132/132   (0.972, 1.0) med 0.7194 (0.5804, 1.2056) ratio 1 fastest 0.0 solve_only 0.473642
+  cpsat_min     solved   132/132   (0.972, 1.0) med 0.4573 (0.2912, 0.7045) ratio 0.54 fastest 0.061 solve_only 0.20054650000000002
+  cpsat_core    solved   132/132   (0.972, 1.0) med 0.4431 (0.2914, 0.6661) ratio 0.533 fastest 0.053 solve_only 0.181154
+  milp_scip     solved   125/132   (0.895, 0.974) med 6.554 (3.7834, 11.8577) ratio 8.16 fastest 0.0 solve_only 3.157451
+  milp_highs    solved   106/132   (0.727, 0.862) med 14.47 (7.6353, 28.0414) ratio 12.4 fastest 0.0 solve_only 4.4668589999999995
+  milp_cbc      solved    69/132   (0.438, 0.606) med 266.9 (109.9756, 300.0) ratio 84.8 fastest 0.0 solve_only 18.651347
+  maxsat_rc2    solved   132/132   (0.972, 1.0) med 1.576 (1.0157, 2.4774) ratio 1.93 fastest 0.0 solve_only 0.0673145
+  sat_cadical   solved   132/132   (0.972, 1.0) med 1.544 (0.9801, 2.4431) ratio 1.94 fastest 0.0 solve_only 0.026248
+  explicit      solved   127/132   (0.914, 0.984) med 0.01055 (0.0032, 0.0433) ratio 0.0134 fastest 0.886 solve_only None
+== P-E3 1-3 n=66
+  cpsat_ladder  solved    66/66    (0.945, 1.0) med 0.3857 (0.2103, 0.6957) ratio 1 fastest 0.0 solve_only 0.177656
+  cpsat_min     solved    66/66    (0.945, 1.0) med 0.3291 (0.1787, 0.5706) ratio 0.833 fastest 0.0 solve_only 0.11871799999999999
+  cpsat_core    solved    66/66    (0.945, 1.0) med 0.333 (0.2022, 0.547) ratio 0.821 fastest 0.0 solve_only 0.1236855
+  milp_scip     solved    65/66    (0.919, 0.997) med 3.229 (1.7542, 6.4669) ratio 7.43 fastest 0.0 solve_only 1.075216
+  milp_highs    solved    63/66    (0.875, 0.984) med 3.366 (1.797, 5.6808) ratio 8.08 fastest 0.0 solve_only 1.234917
+  milp_cbc      solved    54/66    (0.709, 0.893) med 19.2 (9.906, 41.9079) ratio 49.2 fastest 0.0 solve_only 9.3334355
+  maxsat_rc2    solved    66/66    (0.945, 1.0) med 1.242 (0.7183, 2.1467) ratio 3.31 fastest 0.0 solve_only 0.0405785
+  sat_cadical   solved    66/66    (0.945, 1.0) med 1.255 (0.7126, 2.0753) ratio 3.17 fastest 0.0 solve_only 0.0221335
+  explicit      solved    66/66    (0.945, 1.0) med 0.001187 (0.001, 0.0017) ratio 0.00337 fastest 1.0 solve_only None
+== P-E3 4-6 n=58
+  cpsat_ladder  solved    58/58    (0.938, 1.0) med 1.343 (0.629, 2.4038) ratio 1 fastest 0.0 solve_only 1.0826639999999998
+  cpsat_min     solved    58/58    (0.938, 1.0) med 0.531 (0.2577, 0.869) ratio 0.385 fastest 0.052 solve_only 0.239197
+  cpsat_core    solved    58/58    (0.938, 1.0) med 0.521 (0.2592, 0.8655) ratio 0.378 fastest 0.086 solve_only 0.236207
+  milp_scip     solved    58/58    (0.938, 1.0) med 8.978 (4.0876, 29.1635) ratio 8.53 fastest 0.0 solve_only 7.389766
+  milp_highs    solved    42/58    (0.598, 0.822) med 45.51 (30.2169, 246.1801) ratio 37.1 fastest 0.0 solve_only 26.515323000000002
+  milp_cbc      solved    14/58    (0.15, 0.365) med 300 (300.0, 300.0) ratio 180 fastest 0.0 solve_only 108.4554275
+  maxsat_rc2    solved    58/58    (0.938, 1.0) med 1.887 (0.9562, 3.3255) ratio 1.39 fastest 0.0 solve_only 0.0868815
+  sat_cadical   solved    58/58    (0.938, 1.0) med 1.813 (0.9555, 3.2342) ratio 1.37 fastest 0.0 solve_only 0.028699000000000002
+  explicit      solved    58/58    (0.938, 1.0) med 0.1133 (0.0703, 0.1664) ratio 0.0967 fastest 0.862 solve_only None
+== P-E3 >=7 n=8
+  cpsat_ladder  solved     8/8     (0.676, 1.0) med 17.85 (1.3096, 32.6986) ratio 1 fastest 0.0 solve_only 17.004633000000002
+  cpsat_min     solved     8/8     (0.676, 1.0) med 3.155 (0.3979, 5.0417) ratio 0.163 fastest 0.625 solve_only 1.9640985
+  cpsat_core    solved     8/8     (0.676, 1.0) med 3.884 (0.4006, 5.1215) ratio 0.219 fastest 0.25 solve_only 2.533731
+  milp_scip     solved     2/8     (0.071, 0.591) med 300 (6.6415, 300.0) ratio 12.9 fastest 0.0 solve_only 97.59529950000001
+  milp_highs    solved     1/8     (0.022, 0.471) med 300 (17.1333, 300.0) ratio 14.3 fastest 0.0 solve_only 15.009933
+  milp_cbc      solved     1/8     (0.022, 0.471) med 300 (182.7979, 300.0) ratio 16.9 fastest 0.0 solve_only 180.760989
+  maxsat_rc2    solved     8/8     (0.676, 1.0) med 11.39 (1.3557, 15.692) ratio 0.639 fastest 0.0 solve_only 0.7249065
+  sat_cadical   solved     8/8     (0.676, 1.0) med 10.14 (1.4085, 15.4781) ratio 0.495 fastest 0.0 solve_only 0.547198
+  explicit      solved     3/8     (0.137, 0.694) med 300 (0.0185, 300.0) ratio 9.31 fastest 0.125 solve_only None
+== P-SATR all n=1911
+  cpsat_ladder  solved  1911/1911  (0.998, 1.0) med 0.06208 (0.0598, 0.0644) ratio 1 fastest 0.0 solve_only 0.04475
+  cpsat_min     solved  1911/1911  (0.998, 1.0) med 0.03076 (0.0296, 0.0318) ratio 0.501 fastest 0.003 solve_only 0.014709
+  cpsat_core    solved  1911/1911  (0.998, 1.0) med 0.03087 (0.03, 0.0318) ratio 0.502 fastest 0.004 solve_only 0.01471
+  milp_scip     solved  1911/1911  (0.998, 1.0) med 0.2083 (0.2043, 0.2117) ratio 3.46 fastest 0.0 solve_only 0.061202
+  milp_highs    solved  1908/1911  (0.995, 0.999) med 0.2117 (0.2085, 0.2157) ratio 3.61 fastest 0.0 solve_only 0.064929
+  milp_cbc      solved  1902/1911  (0.991, 0.998) med 1.07 (1.0408, 1.1261) ratio 18.1 fastest 0.0 solve_only 0.9213715
+  maxsat_rc2    solved  1911/1911  (0.998, 1.0) med 0.1279 (0.1253, 0.1303) ratio 2.17 fastest 0.0 solve_only 0.011861
+  sat_cadical   solved  1911/1911  (0.998, 1.0) med 0.1244 (0.1226, 0.1266) ratio 2.08 fastest 0.0 solve_only 0.008114
+  explicit      solved  1911/1911  (0.998, 1.0) med 0.002812 (0.0026, 0.0031) ratio 0.0451 fastest 0.993 solve_only None
+== P-SATR 4-6 n=1480
+  cpsat_ladder  solved  1480/1480  (0.997, 1.0) med 0.05236 (0.0498, 0.0542) ratio 1 fastest 0.0 solve_only 0.0371545
+  cpsat_min     solved  1480/1480  (0.997, 1.0) med 0.02907 (0.0279, 0.0307) ratio 0.534 fastest 0.003 solve_only 0.014526500000000001
+  cpsat_core    solved  1480/1480  (0.997, 1.0) med 0.02975 (0.0284, 0.0307) ratio 0.532 fastest 0.003 solve_only 0.014398000000000001
+  milp_scip     solved  1480/1480  (0.997, 1.0) med 0.2002 (0.1945, 0.2053) ratio 3.64 fastest 0.0 solve_only 0.056721999999999995
+  milp_highs    solved  1478/1480  (0.995, 1.0) med 0.2038 (0.1987, 0.2097) ratio 3.8 fastest 0.0 solve_only 0.060010499999999994
+  milp_cbc      solved  1472/1480  (0.989, 0.997) med 1.038 (1.0182, 1.0993) ratio 20.5 fastest 0.0 solve_only 0.8980710000000001
+  maxsat_rc2    solved  1480/1480  (0.997, 1.0) med 0.1234 (0.1204, 0.1264) ratio 2.34 fastest 0.0 solve_only 0.011927
+  sat_cadical   solved  1480/1480  (0.997, 1.0) med 0.1209 (0.1165, 0.1235) ratio 2.26 fastest 0.0 solve_only 0.008123
+  explicit      solved  1480/1480  (0.997, 1.0) med 0.002161 (0.002, 0.0025) ratio 0.045 fastest 0.993 solve_only None
+== P-SATR >=7 n=431
+  cpsat_ladder  solved   431/431   (0.991, 1.0) med 0.08185 (0.0759, 0.0955) ratio 1 fastest 0.0 solve_only 0.06561
+  cpsat_min     solved   431/431   (0.991, 1.0) med 0.03414 (0.0323, 0.036) ratio 0.398 fastest 0.002 solve_only 0.01511
+  cpsat_core    solved   431/431   (0.991, 1.0) med 0.03483 (0.0332, 0.0368) ratio 0.404 fastest 0.005 solve_only 0.015325
+  milp_scip     solved   431/431   (0.991, 1.0) med 0.2254 (0.2156, 0.2632) ratio 2.81 fastest 0.0 solve_only 0.069528
+  milp_highs    solved   430/431   (0.987, 1.0) med 0.2302 (0.2195, 0.2759) ratio 2.89 fastest 0.0 solve_only 0.07659250000000001
+  milp_cbc      solved   430/431   (0.987, 1.0) med 1.191 (1.0707, 1.2219) ratio 15 fastest 0.0 solve_only 1.0407739999999999
+  maxsat_rc2    solved   431/431   (0.991, 1.0) med 0.1439 (0.1344, 0.1504) ratio 1.66 fastest 0.0 solve_only 0.011763
+  sat_cadical   solved   431/431   (0.991, 1.0) med 0.1369 (0.131, 0.1456) ratio 1.61 fastest 0.0 solve_only 0.008067
+  explicit      solved   431/431   (0.991, 1.0) med 0.003751 (0.0035, 0.004) ratio 0.046 fastest 0.993 solve_only None
+== P-SCALE all n=40
+  cpsat_ladder  solved    40/40    (0.912, 1.0) med 2.721 (2.1008, 5.993) ratio 1 fastest 0.0 solve_only 1.8277315
+  cpsat_min     solved    40/40    (0.912, 1.0) med 1.915 (1.3394, 3.4664) ratio 0.713 fastest 0.0 solve_only 0.8226005000000001
+  cpsat_core    solved    40/40    (0.912, 1.0) med 1.836 (1.2491, 3.4532) ratio 0.692 fastest 0.0 solve_only 0.8064445
+  milp_scip     solved    39/40    (0.871, 0.996) med 16.28 (8.1274, 24.8324) ratio 5.06 fastest 0.0 solve_only 8.1892
+  milp_highs    solved    37/40    (0.801, 0.974) med 14.25 (9.2918, 32.8573) ratio 5.5 fastest 0.0 solve_only 5.709033
+  milp_cbc      solved    18/40    (0.307, 0.602) med 300 (103.6755, 300.0) ratio 45.5 fastest 0.0 solve_only 48.069706499999995
+  maxsat_rc2    solved    40/40    (0.912, 1.0) med 4.22 (3.7429, 9.4383) ratio 1.63 fastest 0.0 solve_only 0.117845
+  sat_cadical   solved    40/40    (0.912, 1.0) med 4.181 (3.6606, 9.2696) ratio 1.64 fastest 0.0 solve_only 0.058342000000000005
+  explicit      solved    40/40    (0.912, 1.0) med 0.01398 (0.01, 0.0207) ratio 0.00486 fastest 1.0 solve_only None
+== P-SCALE 1-3 n=38
+  cpsat_ladder  solved    38/38    (0.908, 1.0) med 2.568 (2.0817, 5.7515) ratio 1 fastest 0.0 solve_only 1.6358709999999999
+  cpsat_min     solved    38/38    (0.908, 1.0) med 1.606 (1.3355, 3.4664) ratio 0.72 fastest 0.0 solve_only 0.6332455
+  cpsat_core    solved    38/38    (0.908, 1.0) med 1.593 (1.1841, 3.4532) ratio 0.698 fastest 0.0 solve_only 0.5940449999999999
+  milp_scip     solved    37/38    (0.865, 0.995) med 14.84 (7.1956, 22.6735) ratio 5.01 fastest 0.0 solve_only 7.709669
+  milp_highs    solved    37/38    (0.865, 0.995) med 13.62 (9.1519, 32.8558) ratio 5.3 fastest 0.0 solve_only 5.709033
+  milp_cbc      solved    18/38    (0.325, 0.627) med 300 (94.5685, 300.0) ratio 46.8 fastest 0.0 solve_only 48.069706499999995
+  maxsat_rc2    solved    38/38    (0.908, 1.0) med 4.184 (3.7341, 9.4277) ratio 1.66 fastest 0.0 solve_only 0.1163215
+  sat_cadical   solved    38/38    (0.908, 1.0) med 4.149 (3.5507, 9.2517) ratio 1.66 fastest 0.0 solve_only 0.056874
+  explicit      solved    38/38    (0.908, 1.0) med 0.0135 (0.0096, 0.0176) ratio 0.00453 fastest 1.0 solve_only None
+== P-SCALE 4-6 n=2
+  cpsat_ladder  solved     2/2     (0.342, 1.0) med 13.58 (10.9137, 16.2437) ratio 1 fastest 0.0 solve_only 11.562013499999999
+  cpsat_min     solved     2/2     (0.342, 1.0) med 4.16 (3.2798, 5.0403) ratio 0.305 fastest 0.0 solve_only 2.11502
+  cpsat_core    solved     2/2     (0.342, 1.0) med 4.011 (3.2214, 4.8011) ratio 0.295 fastest 0.0 solve_only 1.9675224999999998
+  milp_scip     solved     2/2     (0.342, 1.0) med 232.2 (198.4835, 265.8537) ratio 17.3 fastest 0.0 solve_only 213.07519200000002
+  milp_highs    solved     0/2     (0.0, 0.658) med 300 (300.0, 300.0) ratio 23 fastest 0.0 solve_only None
+  milp_cbc      solved     0/2     (0.0, 0.658) med 300 (300.0, 300.0) ratio 23 fastest 0.0 solve_only None
+  maxsat_rc2    solved     2/2     (0.342, 1.0) med 12.6 (10.2219, 14.9833) ratio 0.93 fastest 0.0 solve_only 0.354977
+  sat_cadical   solved     2/2     (0.342, 1.0) med 12.41 (10.0927, 14.7204) ratio 0.916 fastest 0.0 solve_only 0.1509135
+  explicit      solved     2/2     (0.342, 1.0) med 2.041 (1.4835, 2.5978) ratio 0.165 fastest 1.0 solve_only None
+== ALL all n=2083
+  cpsat_ladder  solved  2083/2083  (0.998, 1.0) med 0.06575 (0.0639, 0.0677) ratio 1 fastest 0.0 solve_only 0.047529
+  cpsat_min     solved  2083/2083  (0.998, 1.0) med 0.03265 (0.0317, 0.0337) ratio 0.504 fastest 0.007 solve_only 0.015285
+  cpsat_core    solved  2083/2083  (0.998, 1.0) med 0.03294 (0.0318, 0.034) ratio 0.503 fastest 0.007 solve_only 0.015398
+  milp_scip     solved  2075/2083  (0.992, 0.998) med 0.2151 (0.2113, 0.2191) ratio 3.54 fastest 0.0 solve_only 0.063688
+  milp_highs    solved  2051/2083  (0.978, 0.989) med 0.2203 (0.2155, 0.2283) ratio 3.69 fastest 0.0 solve_only 0.068345
+  milp_cbc      solved  1989/2083  (0.945, 0.963) med 1.18 (1.1125, 1.3232) ratio 19.5 fastest 0.0 solve_only 0.965273
+  maxsat_rc2    solved  2083/2083  (0.998, 1.0) med 0.1326 (0.1299, 0.1353) ratio 2.16 fastest 0.0 solve_only 0.01221
+  sat_cadical   solved  2083/2083  (0.998, 1.0) med 0.1285 (0.1264, 0.131) ratio 2.07 fastest 0.0 solve_only 0.008408
+  explicit      solved  2078/2083  (0.994, 0.999) med 0.002989 (0.0028, 0.0032) ratio 0.0443 fastest 0.987 solve_only None
+== ALL 1-3 n=104
+  cpsat_ladder  solved   104/104   (0.964, 1.0) med 0.764 (0.5413, 1.3347) ratio 1 fastest 0.0 solve_only 0.4008655
+  cpsat_min     solved   104/104   (0.964, 1.0) med 0.6489 (0.4461, 0.9855) ratio 0.788 fastest 0.0 solve_only 0.256321
+  cpsat_core    solved   104/104   (0.964, 1.0) med 0.6049 (0.4617, 0.9759) ratio 0.767 fastest 0.0 solve_only 0.23749900000000002
+  milp_scip     solved   102/104   (0.933, 0.995) med 7.097 (3.7834, 10.2362) ratio 6.88 fastest 0.0 solve_only 2.4312735
+  milp_highs    solved   100/104   (0.905, 0.985) med 6.153 (3.774, 9.4302) ratio 7.43 fastest 0.0 solve_only 2.4989245
+  milp_cbc      solved    72/104   (0.598, 0.773) med 56.34 (26.0089, 140.0834) ratio 47.9 fastest 0.0 solve_only 10.930833
+  maxsat_rc2    solved   104/104   (0.964, 1.0) med 2.096 (1.4373, 3.347) ratio 2.74 fastest 0.0 solve_only 0.0922425
+  sat_cadical   solved   104/104   (0.964, 1.0) med 2.026 (1.403, 3.3146) ratio 2.69 fastest 0.0 solve_only 0.0349265
+  explicit      solved   104/104   (0.964, 1.0) med 0.002744 (0.0017, 0.004) ratio 0.00382 fastest 1.0 solve_only None
+== ALL 4-6 n=1540
+  cpsat_ladder  solved  1540/1540  (0.998, 1.0) med 0.05384 (0.052, 0.057) ratio 1 fastest 0.0 solve_only 0.0383305
+  cpsat_min     solved  1540/1540  (0.998, 1.0) med 0.03029 (0.0288, 0.0316) ratio 0.529 fastest 0.005 solve_only 0.0147985
+  cpsat_core    solved  1540/1540  (0.998, 1.0) med 0.03037 (0.0295, 0.0317) ratio 0.526 fastest 0.006 solve_only 0.014754
+  milp_scip     solved  1540/1540  (0.998, 1.0) med 0.2045 (0.1988, 0.2099) ratio 3.68 fastest 0.0 solve_only 0.0583655
+  milp_highs    solved  1520/1540  (0.98, 0.992) med 0.2086 (0.2027, 0.2144) ratio 3.84 fastest 0.0 solve_only 0.061344
+  milp_cbc      solved  1486/1540  (0.955, 0.973) med 1.083 (1.0332, 1.1424) ratio 21.6 fastest 0.0 solve_only 0.904156
+  maxsat_rc2    solved  1540/1540  (0.998, 1.0) med 0.1256 (0.1227, 0.1288) ratio 2.31 fastest 0.0 solve_only 0.0121255
+  sat_cadical   solved  1540/1540  (0.998, 1.0) med 0.1229 (0.1199, 0.1249) ratio 2.23 fastest 0.0 solve_only 0.00825
+  explicit      solved  1540/1540  (0.998, 1.0) med 0.002392 (0.0021, 0.0027) ratio 0.0456 fastest 0.988 solve_only None
+== ALL >=7 n=439
+  cpsat_ladder  solved   439/439   (0.991, 1.0) med 0.08888 (0.0764, 0.0973) ratio 1 fastest 0.0 solve_only 0.067976
+  cpsat_min     solved   439/439   (0.991, 1.0) med 0.03444 (0.0324, 0.0363) ratio 0.398 fastest 0.014 solve_only 0.015192
+  cpsat_core    solved   439/439   (0.991, 1.0) med 0.03544 (0.0335, 0.0374) ratio 0.402 fastest 0.009 solve_only 0.015476
+  milp_scip     solved   433/439   (0.971, 0.994) med 0.2501 (0.2163, 0.2658) ratio 2.83 fastest 0.0 solve_only 0.069612
+  milp_highs    solved   431/439   (0.964, 0.991) med 0.2493 (0.2203, 0.2779) ratio 2.9 fastest 0.0 solve_only 0.076619
+  milp_cbc      solved   431/439   (0.964, 0.991) med 1.195 (1.0909, 1.3178) ratio 15 fastest 0.0 solve_only 1.042359
+  maxsat_rc2    solved   439/439   (0.991, 1.0) med 0.1452 (0.135, 0.1507) ratio 1.65 fastest 0.0 solve_only 0.011818
+  sat_cadical   solved   439/439   (0.991, 1.0) med 0.1379 (0.1312, 0.1459) ratio 1.6 fastest 0.0 solve_only 0.008097
+  explicit      solved   434/439   (0.974, 0.995) med 0.003772 (0.0036, 0.004) ratio 0.0466 fastest 0.977 solve_only None

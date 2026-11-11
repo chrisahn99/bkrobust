@@ -1,0 +1,52 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__Polzer_2012",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "Polzer_2012"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "Polzer_2012",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 13,
+  "n_cells": 104,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 8,
+  "n_asked": 9,
+  "assert_rate": 0.8888888888888888,
+  "k_accuracy": 0.875,
+  "n_k_correct": 7,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 8,
+  "shd_truth": 3,
+  "instance_status_counts": {
+    "z_invalid_at_g0": 2,
+    "ok": 13,
+    "optimal_set_undefined": 5
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 13,
+  "cache": {
+    "graph_hits": 7745,
+    "graph_misses": 255,
+    "verdict_hits": 22581,
+    "verdict_misses": 767
+  },
+  "elapsed_s": 0.431,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Polzer_2012.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__Polzer_2012.cells.jsonl",
+  "instances_sha256": "ca476d23fcc3cebcb647cefcda42bf70ed51e26972c26279c6031b155deca435",
+  "cells_sha256": "19415073dd36665416f3412ef0a490026b9f6148994587766bbd537c2b6ef6dd",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:58:45Z"
+}

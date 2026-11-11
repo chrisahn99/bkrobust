@@ -1,0 +1,78 @@
+# Is a run of E18 really E18? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E18-section7-standardised-models
+says: >
+  The 49 queries of Table 6 (39 x_component rows plus the 10 extended rows with finite r_val and
+  non-zero bias of results/mean_table_relevant_v2), D_LLM knowledge, Z the optimal set of G0; three
+  arms (naive random_sem of the submitted code, the same covariance rescaled to unit variances, and the
+  same weights internally standardised in topological order) times ten coefficient draws, draw 0 on the
+  stored seed. Profile over the states agreeing with G0 outside X's component, r_mu at
+  2/10/25/40/60/90 %, ceiling B(Chat)/|theta_Z|, radius under the GAC.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E18_section7_standardised_models/run.py
+  - experiments/rebuttal/E18_section7_standardised_models/vendor_scm.py
+  - experiments/rebuttal/E18_section7_standardised_models/analyse.py
+runs: ../../../results/rebuttal/E18/config.s*.json
+rubric:
+  - id: criterion
+    says: the radius is decided with the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: arms
+    says: exactly the three arms, naive first
+    config: {key: arms, equals: [naive, posthoc, internal]}
+  - id: draws
+    says: ten coefficient draws
+    config: {key: draws, equals: 10}
+  - id: population
+    says: all 49 Table 6 queries selected
+    config: {key: n_selected, equals: 49}
+  - id: tolerances
+    says: the six tolerances of Table 6
+    config: {key: epsilons, equals: [0.02, 0.1, 0.25, 0.4, 0.6, 0.9]}
+  - id: seed
+    says: the stored Section 7 base seed
+    config: {key: seed, equals: 20260917}
+  - id: generator
+    says: the submitted random_sem ranges, |w| in U(0.3, 1.5), noise variance in U(0.5, 1.5)
+    config: {key: weight_range, equals: [0.3, 1.5]}
+  - id: noise
+    says: noise variance range of the submitted generator
+    config: {key: noise_range, equals: [0.5, 1.5]}
+  - id: condition
+    says: knowledge elicited from the primary language model
+    config: {key: condition, equals: D_LLM}
+  - id: x-component-file
+    says: the stored 39-row x_component run, byte for byte
+    config: {key: x_component_sha256, equals: 1bccbac0893f35479e29a32c35a5729d0269e5e9244f5d832feaacfabd7f5f38}
+  - id: extended-file
+    says: the stored 18-row extended run, byte for byte
+    config: {key: extended_sha256, equals: 086c78be577090b839238ebaea1bf2f2c8e464161b3b97a7ff84a1ae3653cbc3}
+  - id: all-units
+    says: 1,470 units written, one per query, draw and arm, no duplicates
+    check: >
+      python3 -c "import json,glob,sys; k=[(r['network'],r['x'],r['y'],r['draw'],r['arm']) for p in glob.glob('results/rebuttal/E18/units.*.jsonl') for r in map(json.loads,open(p))]; sys.exit(0 if len(set(k))==1470 and len(k)==1470 else 1)"
+  - id: no-consistency-failure
+    says: no consistency failure was logged (posthoc = naive, draw 0 = stored rows, radius = stored)
+    check: >
+      python3 -c "import glob,sys; n=sum(1 for p in glob.glob('results/rebuttal/E18/failures.*.jsonl') for _ in open(p)); sys.exit(0 if n==0 else 1)"
+  - id: draw0-reproduces
+    says: naive draw 0 reproduced every stored row, and the direct uncached path agreed where run
+    check: >
+      python3 -c "import json,glob,sys; r=[r for p in glob.glob('results/rebuttal/E18/units.*.jsonl') for r in map(json.loads,open(p)) if r['draw']==0 and r['arm']=='naive']; sys.exit(0 if len(r)==49 and all(x['status']=='ok' and x['checks']['repro_stored'] and x['checks'].get('direct_match',True) for x in r) else 1)"
+  - id: gac-in-rows
+    says: every row records the GAC criterion and a repository commit
+    check: >
+      python3 -c "import json,glob,sys; r=[r for p in glob.glob('results/rebuttal/E18/units.*.jsonl') for r in map(json.loads,open(p))]; sys.exit(0 if r and all(x['criterion']=='gac' and x.get('commit') not in (None,'unknown') for x in r) else 1)"
+  - id: internal-unit-variance
+    says: every internal-arm model has unit marginal variances
+    check: >
+      python3 -c "import json,glob,sys; r=[r for p in glob.glob('results/rebuttal/E18/units.*.jsonl') for r in map(json.loads,open(p)) if r['arm']=='internal' and r['status']=='ok']; sys.exit(0 if r and all(x['checks']['unit_variance'] for x in r) else 1)"
+  - id: same-weights-across-arms
+    says: the internal arm standardises the naive draw's own weights rather than drawing new ones
+    check: grep -q "vendor_scm.iscm_population(sem)" experiments/rebuttal/E18_section7_standardised_models/run.py
+  - id: posthoc-is-rescaling
+    says: the posthoc arm divides the naive covariance by the outer product of its sds
+    check: grep -q "sigma / np.outer(sd, sd)" experiments/rebuttal/E18_section7_standardised_models/run.py

@@ -1,0 +1,60 @@
+# FIDELITY.yaml -- E4, class listing as a timing baseline (ICLR 2027 rebuttal). Written 2026-11-06, BEFORE any run.
+# Run on the compute machine after the full run, from the repository root's parent paths below:
+#   python ../fidelity_gate.py FIDELITY.yaml --no-judge
+# The verdict is recorded beside results.json and decided apart from the timing outcome.
+arm: E4-class-enumeration
+says: >
+  For every four-node, highk (144) and timing (256) instance, the breakdown radius is computed twice under the
+  generalised adjustment criterion: by bkrobust.hybrid.breakdown_radius with its defaults, and by Corollary 1(c),
+  listing the DAGs of the class [C^] (cap 1e5, 120 s) and taking the least number of reversed G0 closure
+  orientations over DAGs where Z fails; both are timed in the same process, and every complete listing must give
+  the hybrid's radius.
+repo: ../../..                      # repository root, relative to this file
+code: [experiments/rebuttal/E4_class_enumeration_baseline/run.py, experiments/rebuttal/E4_class_enumeration_baseline/analyse.py]
+runs: results/rebuttal/E4/manifest_*.json
+rubric:
+  - id: criterion
+    says: the radius criterion is GAC in the run configuration
+    config: {key: config.criterion, equals: gac}
+  - id: cap
+    says: the class listing stops at 1e5 DAGs
+    config: {key: config.cap, equals: 100000}
+  - id: enum-limit
+    says: the listing has a 120 s wall limit
+    config: {key: config.enum_limit_s, equals: 120.0}
+  - id: full-run
+    says: the run is not the smoke subset
+    config: {key: config.smoke, equals: false}
+  - id: four-filter
+    says: four-node instances are selected with the back-door filter that reproduces App. D's selection
+    config: {key: four_filter, equals: backdoor}
+  - id: rows-gac
+    says: every output row records criterion gac
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check criterion_gac
+  - id: rows-commit
+    says: every output row records the repository commit
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check commit_recorded
+  - id: rows-not-smoke
+    says: no row comes from a smoke run
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check not_smoke
+  - id: all-units
+    says: every shard wrote one row per assigned unit, and all shards are present
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check all_units
+  - id: families
+    says: 144 highk rows, 256 timing rows, and as many four-node rows as the selection produced
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check families_complete
+  - id: consistent
+    says: no unit has a radius mismatch, a count mismatch, a dead branch, a non-extension or an exception
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check no_inconsistency
+  - id: listing-is-class
+    says: every complete listing has exactly the independently counted class size
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check listing_is_class
+  - id: lib-cross-check
+    says: where k <= 14 the library brute force lists the same DAG set as the depth-first listing
+    check: .venv/bin/python experiments/rebuttal/E4_class_enumeration_baseline/analyse.py results/rebuttal/E4 --check lib_cross_checked
+  - id: hybrid-call
+    says: the hybrid leg calls breakdown_radius with the run's criterion and its default search budget
+    check: grep -q 'breakdown_radius(cpdag, None, x, y, z, g0=g0, criterion=criterion' experiments/rebuttal/E4_class_enumeration_baseline/run.py
+  - id: corollary-1c
+    says: the listing's score of a failing DAG is |K_G0 minus dir(D)|, K_G0 the G0 orientations absent from C^
+    check: grep -q 'k0 = frozenset(g0.directed_edges - cpdag.directed_edges)' experiments/rebuttal/E4_class_enumeration_baseline/run.py && grep -q 'c = len(k0 - d.directed_edges)' experiments/rebuttal/E4_class_enumeration_baseline/run.py

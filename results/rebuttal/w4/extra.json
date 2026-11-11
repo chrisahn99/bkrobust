@@ -1,0 +1,99 @@
+{
+ "original": {
+  "n_states_total_any": 161,
+  "n_states_var": 92,
+  "n_units": 1973,
+  "tau": 0.4191447599843434,
+  "loo_min": {
+   "net": "insurance",
+   "tau_b": 0.2167774566492034,
+   "lo": 0.016163351023219294,
+   "hi": 0.6659078738597418
+  },
+  "loo_max": {
+   "net": "barley",
+   "tau_b": 0.6400548608672533,
+   "lo": 0.42817146793100963,
+   "hi": 0.691442234410533
+  },
+  "loo_any_ci_includes_zero": false,
+  "n_networks": 18,
+  "n_networks_positive": 16,
+  "states_C_gt_D": 71,
+  "states_C_lt_D": 15,
+  "states_C_eq_D": 6,
+  "perm_n": 10000,
+  "perm_ge_obs": 0,
+  "share_within_sep_undefined": 0.38418651799290415,
+  "agree_r_eq_s_within_sepdef": 0.5588477366255145,
+  "balanced_paired": {
+   "k_g0": {
+    "delta_point": 0.11851191942692352,
+    "ci_lo_2p5": -0.22383188625111544,
+    "ci_hi_97p5": 0.5333007048372946,
+    "n": 248
+   },
+   "n_k": {
+    "delta_point": 0.16560604615111912,
+    "ci_lo_2p5": -0.15505765814450215,
+    "ci_hi_97p5": 0.5943128149909834,
+    "n": 248
+   }
+  },
+  "pooled_paired_sep": {
+   "delta_point": 0.0386086177695657,
+   "ci_lo_2p5": -0.18151365039418357,
+   "ci_hi_97p5": 0.2838412156272436,
+   "n": 1389
+  }
+ },
+ "corrected": {
+  "n_states_total_any": 161,
+  "n_states_var": 93,
+  "n_units": 2067,
+  "tau": 0.42938618097202336,
+  "loo_min": {
+   "net": "insurance",
+   "tau_b": 0.2445889610669732,
+   "lo": 0.028492115287883323,
+   "hi": 0.6898939674852324
+  },
+  "loo_max": {
+   "net": "barley",
+   "tau_b": 0.6458365286533887,
+   "lo": 0.4564239403695072,
+   "hi": 0.7046693402171968
+  },
+  "loo_any_ci_includes_zero": false,
+  "n_networks": 18,
+  "n_networks_positive": 16,
+  "states_C_gt_D": 73,
+  "states_C_lt_D": 15,
+  "states_C_eq_D": 5,
+  "perm_n": 10000,
+  "perm_ge_obs": 0,
+  "share_within_sep_undefined": 0.366715045960329,
+  "agree_r_eq_s_within_sepdef": 0.5676088617265088,
+  "balanced_paired": {
+   "k_g0": {
+    "delta_point": 0.0409120309739765,
+    "ci_lo_2p5": -0.12236984474451462,
+    "ci_hi_97p5": 0.5281779632684935,
+    "n": 304
+   },
+   "n_k": {
+    "delta_point": 0.08140528481253517,
+    "ci_lo_2p5": -0.12937647157875048,
+    "ci_hi_97p5": 0.5932856220045105,
+    "n": 304
+   }
+  },
+  "pooled_paired_sep": {
+   "delta_point": 0.08811031757073107,
+   "ci_lo_2p5": -0.15634370866345174,
+   "ci_hi_97p5": 0.35937755376271185,
+   "n": 1483
+  }
+ },
+ "_note": "Assembled from two runs on 2026-11-11 (laptop): w4_extra.py with NPERM=20 for all fields, then the 10,000-permutation test alone (seed 0), which gave 0/10,000 on both cohorts (observed 0.4191 original, 0.4294 corrected); perm_* fields hold the latter."
+}

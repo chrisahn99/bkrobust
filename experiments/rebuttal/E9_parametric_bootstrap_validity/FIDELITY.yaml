@@ -1,0 +1,97 @@
+# Is a run in results/rebuttal/E9 really E9? Decided apart from the AUC.
+# python experiments/rebuttal/fidelity_gate.py experiments/rebuttal/E9_parametric_bootstrap_validity/FIDELITY.yaml --no-judge
+arm: E9-parametric-bootstrap-validity
+says: >
+  Per network, a linear-Gaussian SEM fitted by least squares (ML variance) to one DAG extension
+  of the analyst's state on the panel's n = 5000 reference sample; S = 200 datasets of n = 5000
+  simulated from it; PC (Fisher-z, alpha 0.01, stable) rerun on each; every arm's knowledge
+  re-imposed; the committed set recomputed and checked with the GAC in the simulated truth, on
+  the 244 certifiable rows of the learned-CPDAG panel; compared with E6 by a paired AUC difference.
+repo: ../../..
+code:
+  - experiments/rebuttal/E9_parametric_bootstrap_validity/run.py
+  - experiments/rebuttal/E9_parametric_bootstrap_validity/vendor_pest.py
+  - experiments/rebuttal/E9_parametric_bootstrap_validity/analyse.py
+runs: ../../../results/rebuttal/E9/config.json
+rubric:
+  - id: criterion
+    says: validity is the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: discovery
+    says: PC with Fisher-z at alpha 0.01, as in the panel
+    config: {key: alpha, equals: 0.01}
+  - id: method
+    says: the discovery method is PC
+    config: {key: method, equals: pc}
+  - id: simulations
+    says: 200 simulated datasets per network
+    config: {key: S, equals: 200}
+  - id: extensions
+    says: five random extra extensions per state for the secondary score
+    config: {key: n_ext, equals: 5}
+  - id: not-smoke
+    says: the run is the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: sample-size
+    says: simulated datasets have the panel's n = 5000
+    config: {key: panel_n, equals: 5000}
+  - id: networks
+    says: all four Gaussian networks
+    config: {key: networks, equals: [ecoli70, arth150, magic-niab, magic-irri]}
+  - id: parametric
+    says: parametric bootstrap from the fitted linear-Gaussian model, not a row resample
+    config: {key: resample, equals: parametric_linear_gaussian_ols_ml_variance}
+  - id: truth-is-state-dag
+    says: the simulated truth is a DAG extension of the analyst's state
+    config: {key: simulated_truth, equals: dor_tarsi_sorted_extension_of_state}
+  - id: causal-learn
+    says: the causal-learn version that produced the panel
+    config: {key: causal_learn_version, equals: 0.1.4.8}
+  - id: inputs
+    says: the panel files used are the ones of results/pest (chat_e.json, knowledge.json, rows.csv)
+    check: >
+      python3 -c "import json,sys; h=json.load(open('results/rebuttal/E9/config.json'))['inputs_sha256'];
+      sys.exit(0 if h=={'chat_e.json':'7f2d22ca4b778f25376d4071ed3f6ddae2e2a085f308a1e8940f21637318e30a',
+      'knowledge.json':'fbe8741137df8b670114e72b6fdc6c2ac9e79d11a1cc83bc48550b021604040c',
+      'rows.csv':'0763a714f002e3698351ff6fd39770aace23f1e983a2f6b21d808338c94bcd7c'} else 1)"
+  - id: population
+    says: all 244 certifiable rows were rebuilt, matched the frozen panel, and every model check passed
+    check: test "$(wc -l < results/rebuttal/E9/reference.jsonl | tr -d ' ')" -eq 244 && test ! -e results/rebuttal/E9/reference_problems.txt && test ! -e results/rebuttal/E9/model_problems.txt
+  - id: one-law
+    says: every state's fitted truth has the same covariance as the simulated model D_0
+    check: >
+      python3 -c "import json,sys; m=json.load(open('results/rebuttal/E9/models.json'));
+      g=[x['cov_rel_vs_d0'] for e in m.values() for x in e['groups'].values()];
+      sys.exit(0 if len(m)==4 and g and all(v is not None and v<1e-6 for v in g) else 1)"
+  - id: identity
+    says: PC on the reference sample gives back the reference CPDAG on every network
+    check: >
+      python3 -c "import json,glob,sys; u=[json.loads(l) for f in glob.glob('results/rebuttal/E9/units_*.jsonl') for l in open(f)];
+      i={r['network']:r.get('is_reference_cpdag') for r in u if r['b']==-1};
+      sys.exit(0 if len(i)==4 and all(v==1 for v in i.values()) else 1)"
+  - id: all-units
+    says: 201 distinct units per network, each stamped gac, each simulation from the fitted model with its own data
+    check: >
+      python3 -c "import json,glob,sys,collections; u={}; [u.setdefault(json.loads(l)['unit'],json.loads(l)) for f in glob.glob('results/rebuttal/E9/units_*.jsonl') for l in open(f)];
+      c=collections.Counter(r['network'] for r in u.values());
+      s=[r for r in u.values() if r['b']>=0];
+      ok=len(c)==4 and all(v==201 for v in c.values()) and all(r['criterion']=='gac' for r in u.values());
+      ok=ok and all(r['simulated_from']!='reference_sample' for r in s) and len({r['data_sha256'] for r in s})==len(s);
+      sys.exit(0 if ok else 1)"
+  - id: same-k
+    says: the simulated state is the learned graph with the SAME knowledge, not re-elicited
+    check: grep -q 'state = apply_orientations(used, k)' experiments/rebuttal/E9_parametric_bootstrap_validity/run.py
+  - id: z-recomputed
+    says: Z_b is recomputed on the simulated state with the panel's rule and checked in the simulated truth
+    check: grep -q 'committed_adjustment_set(state, x, y)' experiments/rebuttal/E9_parametric_bootstrap_validity/run.py && grep -q 'is_gac_valid_dag(truths\[0\], x, y, zb)' experiments/rebuttal/E9_parametric_bootstrap_validity/run.py
+  - id: e6-paired
+    says: the comparison uses E6's full run, not its smoke output
+    check: >
+      python3 -c "import json,sys; r=json.load(open('results/rebuttal/E9/results.json'));
+      sys.exit(0 if r['provisional'] is False and r['e6_smoke'] is False and r['paired_rows']>=200 else 1)"
+  - id: prereg-unchanged
+    says: PREREG.md is the one the run started under
+    check: >
+      python3 -c "import json,hashlib,sys; c=json.load(open('results/rebuttal/E9/config.json'));
+      h=hashlib.sha256(open('experiments/rebuttal/E9_parametric_bootstrap_validity/PREREG.md','rb').read()).hexdigest();
+      sys.exit(0 if c['prereg_sha256']==h else 1)"

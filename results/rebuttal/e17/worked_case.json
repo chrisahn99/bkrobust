@@ -1,0 +1,378 @@
+{
+ "real_conditions": {
+  "1": {
+   "n": 1166,
+   "share_invalid": 0.3644939965694683,
+   "lo": 0.2369470101054856,
+   "hi": 0.5043354230072228
+  },
+  "2": {
+   "n": 168,
+   "share_invalid": 0.23214285714285715,
+   "lo": 0.11173042565862235,
+   "hi": 0.421065531475748
+  },
+  ">=3": {
+   "n": 100,
+   "share_invalid": 0.67,
+   "lo": 0.14705882352941177,
+   "hi": 0.896551724137931
+  },
+  "inf": {
+   "n": 542,
+   "share_invalid": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "auc_1_over_r_for_invalid": 0.6757609524368072,
+  "auc_ci": [
+   0.5850502586670465,
+   0.7576256227784731
+  ],
+  "n_networks": 27
+ },
+ "D_LLM": {
+  "1": {
+   "n": 126,
+   "share_invalid": 0.3888888888888889,
+   "lo": 0.1926605504587156,
+   "hi": 0.6282079646017699
+  },
+  "2": {
+   "n": 18,
+   "share_invalid": 0.3333333333333333,
+   "lo": 0.058823529411764705,
+   "hi": 0.6666666666666666
+  },
+  ">=3": {
+   "n": 17,
+   "share_invalid": 0.6470588235294118,
+   "lo": 0.0,
+   "hi": 0.9285714285714286
+  },
+  "inf": {
+   "n": 68,
+   "share_invalid": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "auc_1_over_r_for_invalid": 0.683212493028444,
+  "auc_ci": [
+   0.5593184644333663,
+   0.8018230356986209
+  ],
+  "n_networks": 25
+ },
+ "D_RAND": {
+  "1": {
+   "n": 340,
+   "share_invalid": 0.6058823529411764,
+   "lo": 0.5016668779312967,
+   "hi": 0.725352638217364
+  },
+  "2": {
+   "n": 74,
+   "share_invalid": 0.35135135135135137,
+   "lo": 0.18309859154929578,
+   "hi": 0.5303030303030303
+  },
+  ">=3": {
+   "n": 34,
+   "share_invalid": 0.38235294117647056,
+   "lo": 0.06666666666666667,
+   "hi": 0.6363636363636364
+  },
+  "inf": {
+   "n": 201,
+   "share_invalid": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "auc_1_over_r_for_invalid": 0.7934077591432612,
+  "auc_ci": [
+   0.7204755406788955,
+   0.8670419994254421
+  ],
+  "n_networks": 24
+ },
+ "A_TRUE": {
+  "1": {
+   "n": 117,
+   "share_invalid": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "2": {
+   "n": 16,
+   "share_invalid": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  ">=3": {
+   "n": 8,
+   "share_invalid": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "inf": {
+   "n": 68,
+   "share_invalid": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "auc_1_over_r_for_invalid": NaN,
+  "auc_ci": [
+   NaN,
+   NaN
+  ],
+  "n_networks": 25
+ },
+ "worked_Polzer_2012": [
+  {
+   "x": "Caries",
+   "y": "Diabetes",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "Caries->Psychosocial",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "Caries",
+   "y": "Mortality",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "Caries->Psychosocial",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "Caries",
+   "y": "Psychosocial",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "Caries->Psychosocial",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "Caries",
+   "y": "ToothLoss",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "Caries->Psychosocial",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "Psychosocial",
+   "y": "Diabetes",
+   "z_size": 2.0,
+   "r_hop": 2.0,
+   "r_claim": 1.0,
+   "witness": "Caries->Psychosocial",
+   "z_valid_at_truth": 1.0
+  },
+  {
+   "x": "Psychosocial",
+   "y": "Mortality",
+   "z_size": 3.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "Caries->Psychosocial",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "Psychosocial",
+   "y": "Smoking",
+   "z_size": 2.0,
+   "r_hop": 2.0,
+   "r_claim": 1.0,
+   "witness": "Caries->Psychosocial",
+   "z_valid_at_truth": 1.0
+  }
+ ],
+ "worked_Polzer_2012_state": {
+  "n_k": 4.0,
+  "k_g0": 5.0,
+  "n_wrong_claims": 1.0
+ },
+ "worked_Acid_1996": [
+  {
+   "x": "x1",
+   "y": "x10",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x11",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x12",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x13",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x14",
+   "z_size": 2.0,
+   "r_hop": -1.0,
+   "r_claim": NaN,
+   "witness": NaN,
+   "z_valid_at_truth": 1.0
+  },
+  {
+   "x": "x1",
+   "y": "x15",
+   "z_size": 3.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x16",
+   "z_size": 2.0,
+   "r_hop": -1.0,
+   "r_claim": NaN,
+   "witness": NaN,
+   "z_valid_at_truth": 1.0
+  },
+  {
+   "x": "x1",
+   "y": "x17",
+   "z_size": 3.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x18",
+   "z_size": 3.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x3",
+   "z_size": 1.0,
+   "r_hop": -1.0,
+   "r_claim": NaN,
+   "witness": NaN,
+   "z_valid_at_truth": 1.0
+  },
+  {
+   "x": "x1",
+   "y": "x5",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x6",
+   "z_size": 1.0,
+   "r_hop": -1.0,
+   "r_claim": NaN,
+   "witness": NaN,
+   "z_valid_at_truth": 1.0
+  },
+  {
+   "x": "x1",
+   "y": "x7",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x1",
+   "y": "x9",
+   "z_size": 2.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x4",
+   "y": "x1",
+   "z_size": 0.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x4",
+   "y": "x10",
+   "z_size": 1.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x4",
+   "y": "x11",
+   "z_size": 1.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x4",
+   "y": "x12",
+   "z_size": 1.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  },
+  {
+   "x": "x4",
+   "y": "x13",
+   "z_size": 1.0,
+   "r_hop": 1.0,
+   "r_claim": 1.0,
+   "witness": "x4->x1",
+   "z_valid_at_truth": 0.0
+  }
+ ],
+ "worked_Acid_1996_state": {
+  "n_k": 1.0,
+  "k_g0": 1.0,
+  "n_wrong_claims": 1.0
+ }
+}

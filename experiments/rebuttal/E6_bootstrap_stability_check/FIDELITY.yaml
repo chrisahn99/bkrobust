@@ -1,0 +1,79 @@
+# Is a run in results/rebuttal/E6 really E6? Decided apart from the AUC.
+# python experiments/rebuttal/fidelity_gate.py experiments/rebuttal/E6_bootstrap_stability_check/FIDELITY.yaml --no-judge
+arm: E6-bootstrap-stability
+says: >
+  B = 100 row resamples of the panel's n = 5000 reference sample per network, PC (Fisher-z,
+  alpha 0.01, stable) rerun on each, every arm's knowledge re-imposed, and the frozen committed
+  set Z checked with the GAC on each replicate state, on the 244 certifiable rows of the
+  learned-CPDAG panel.
+repo: ../../..
+code:
+  - experiments/rebuttal/E6_bootstrap_stability_check/run.py
+  - experiments/rebuttal/E6_bootstrap_stability_check/vendor_pest.py
+  - experiments/rebuttal/E6_bootstrap_stability_check/analyse.py
+runs: ../../../results/rebuttal/E6/config.json
+rubric:
+  - id: criterion
+    says: validity is the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: discovery
+    says: PC with Fisher-z at alpha 0.01, as in the panel
+    config: {key: alpha, equals: 0.01}
+  - id: method
+    says: the discovery method is PC
+    config: {key: method, equals: pc}
+  - id: replicates
+    says: 100 bootstrap replicates per network
+    config: {key: B, equals: 100}
+  - id: not-smoke
+    says: the run is the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: sample-size
+    says: replicates resample the n = 5000 reference sample
+    config: {key: panel_n, equals: 5000}
+  - id: networks
+    says: all four Gaussian networks
+    config: {key: networks, equals: [ecoli70, arth150, magic-niab, magic-irri]}
+  - id: resampling
+    says: nonparametric bootstrap, rows with replacement
+    config: {key: resample, equals: rows_with_replacement}
+  - id: causal-learn
+    says: the causal-learn version that produced the panel
+    config: {key: causal_learn_version, equals: 0.1.4.8}
+  - id: inputs
+    says: the panel files used are the ones of results/pest (chat_e.json, knowledge.json, rows.csv)
+    check: >
+      python3 -c "import json,sys; h=json.load(open('results/rebuttal/E6/config.json'))['inputs_sha256'];
+      sys.exit(0 if h=={'chat_e.json':'7f2d22ca4b778f25376d4071ed3f6ddae2e2a085f308a1e8940f21637318e30a',
+      'knowledge.json':'fbe8741137df8b670114e72b6fdc6c2ac9e79d11a1cc83bc48550b021604040c',
+      'rows.csv':'0763a714f002e3698351ff6fd39770aace23f1e983a2f6b21d808338c94bcd7c'} else 1)"
+  - id: population
+    says: all 244 certifiable rows were rebuilt and matched the frozen panel
+    check: test "$(wc -l < results/rebuttal/E6/reference.jsonl | tr -d ' ')" -eq 244 && test ! -e results/rebuttal/E6/reference_problems.txt
+  - id: identity
+    says: the identity replicate of every network gives back the reference CPDAG
+    check: >
+      python3 -c "import json,glob,sys; u=[json.loads(l) for f in glob.glob('results/rebuttal/E6/units_*.jsonl') for l in open(f)];
+      i={r['network']:r.get('is_reference_cpdag') for r in u if r['b']==-1};
+      sys.exit(0 if len(i)==4 and all(v==1 for v in i.values()) else 1)"
+  - id: all-units
+    says: 101 distinct units per network, each row stamped gac and with a real resample
+    check: >
+      python3 -c "import json,glob,sys,collections; u={}; [u.setdefault(json.loads(l)['unit'],json.loads(l)) for f in glob.glob('results/rebuttal/E6/units_*.jsonl') for l in open(f)];
+      c=collections.Counter(r['network'] for r in u.values());
+      ref={r['network']:r['resample_sha256'] for r in u.values() if r['b']==-1};
+      ok=len(c)==4 and all(v==101 for v in c.values()) and all(r['criterion']=='gac' for r in u.values());
+      ok=ok and all(r['resample_sha256']!=ref.get(r['network']) for r in u.values() if r['b']>=0);
+      sys.exit(0 if ok else 1)"
+  - id: same-k
+    says: the replicate state is the learned graph with the SAME knowledge, not re-elicited
+    check: grep -q 'state = apply_orientations(used, k)' experiments/rebuttal/E6_bootstrap_stability_check/run.py
+  - id: z-frozen
+    says: Z is the reference committed set, checked on the replicate state with the GAC
+    check: grep -q 'is_gac_valid_mpdag(state, x, y, z)' experiments/rebuttal/E6_bootstrap_stability_check/run.py
+  - id: prereg-unchanged
+    says: PREREG.md is the one the run started under
+    check: >
+      python3 -c "import json,hashlib,sys; c=json.load(open('results/rebuttal/E6/config.json'));
+      h=hashlib.sha256(open('experiments/rebuttal/E6_bootstrap_stability_check/PREREG.md','rb').read()).hexdigest();
+      sys.exit(0 if c['prereg_sha256']==h else 1)"

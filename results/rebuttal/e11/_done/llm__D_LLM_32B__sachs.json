@@ -1,0 +1,52 @@
+{
+  "shard_id": "llm__D_LLM_32B__sachs",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_32B",
+    "network": "sachs"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_32B",
+  "network": "sachs",
+  "model": "Qwen2.5-32B-Instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 5,
+  "n_cells": 35,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 7,
+  "n_asked": 17,
+  "assert_rate": 0.4117647058823529,
+  "k_accuracy": 0.2857142857142857,
+  "n_k_correct": 2,
+  "n_k_wrong": 5,
+  "n_off_skeleton": 0,
+  "k_g0": 15,
+  "shd_truth": 14,
+  "instance_status_counts": {
+    "z_invalid_at_g0": 12,
+    "ok": 5,
+    "optimal_set_undefined": 3
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 5,
+  "cache": {
+    "graph_hits": 6873,
+    "graph_misses": 127,
+    "verdict_hits": 12745,
+    "verdict_misses": 255
+  },
+  "elapsed_s": 0.241,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_32B__sachs.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_32B__sachs.cells.jsonl",
+  "instances_sha256": "540882822259607e0bef7a27ebc0d2c676cf57cef00bc6d82a2160c23dbb6411",
+  "cells_sha256": "b57040aa37b6f9d276d39b21a40df01e2d30b56309ba337af48e55ba96509167",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:59:02Z"
+}

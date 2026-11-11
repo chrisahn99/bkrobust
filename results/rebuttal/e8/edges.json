@@ -1,0 +1,28 @@
+{
+ "extra_edge": {
+  "valid": 23895,
+  "invalid": 0
+ },
+ "missed_edge_by_hop": {
+  "0": {
+   "valid": 9597,
+   "invalid": 814,
+   "share_invalid": 0.07818653347420997
+  },
+  "1": {
+   "valid": 8466,
+   "invalid": 152,
+   "share_invalid": 0.017637502900905083
+  },
+  "2": {
+   "valid": 2961,
+   "invalid": 0,
+   "share_invalid": 0.0
+  },
+  "3": {
+   "valid": 1905,
+   "invalid": 0,
+   "share_invalid": 0.0
+  }
+ }
+}

@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_INSTR__insurance",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_INSTR",
+    "network": "insurance"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_INSTR",
+  "network": "insurance",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 11,
+  "n_cells": 55,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 5,
+  "n_asked": 18,
+  "assert_rate": 0.2777777777777778,
+  "k_accuracy": 0.8,
+  "n_k_correct": 4,
+  "n_k_wrong": 1,
+  "n_off_skeleton": 0,
+  "k_g0": 18,
+  "shd_truth": 8,
+  "instance_status_counts": {
+    "ok": 11,
+    "z_invalid_at_g0": 9
+  },
+  "radius_median_ok": 3,
+  "n_radius_ok": 11,
+  "cache": {
+    "graph_hits": 4969,
+    "graph_misses": 31,
+    "verdict_hits": 11088,
+    "verdict_misses": 88
+  },
+  "elapsed_s": 3.223,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_INSTR__insurance.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_INSTR__insurance.cells.jsonl",
+  "instances_sha256": "240564a20951441f84c2cb1716facfa58c3312229dbea81bfa6fdb96a76dccd7",
+  "cells_sha256": "df6ac0f54438942f7edb21b59853bc3c2ff08a750936235e914752c42c0a1806",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:59:18Z"
+}

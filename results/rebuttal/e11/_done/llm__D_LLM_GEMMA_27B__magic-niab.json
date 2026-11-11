@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_GEMMA_27B__magic-niab",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_GEMMA_27B",
+    "network": "magic-niab"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_GEMMA_27B",
+  "network": "magic-niab",
+  "model": "gemma-3-27b-it",
+  "family": "gemma",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 17,
+  "n_cells": 153,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 9,
+  "n_asked": 10,
+  "assert_rate": 0.9,
+  "k_accuracy": 0.4444444444444444,
+  "n_k_correct": 4,
+  "n_k_wrong": 5,
+  "n_off_skeleton": 0,
+  "k_g0": 10,
+  "shd_truth": 10,
+  "instance_status_counts": {
+    "ok": 17,
+    "z_invalid_at_g0": 3
+  },
+  "radius_median_ok": 1.0,
+  "n_radius_ok": 14,
+  "cache": {
+    "graph_hits": 8489,
+    "graph_misses": 511,
+    "verdict_hits": 96713,
+    "verdict_misses": 4879
+  },
+  "elapsed_s": 0.934,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_GEMMA_27B__magic-niab.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_GEMMA_27B__magic-niab.cells.jsonl",
+  "instances_sha256": "e1d528d26b6774bfc38e9ff795ef799405bff2c75c255cf50779e9331d6b92a6",
+  "cells_sha256": "ec240c740ee61dc51b7e57733b68aa36bdbd728b9e8ba0ce79681f9c52912ed3",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:58:27Z"
+}

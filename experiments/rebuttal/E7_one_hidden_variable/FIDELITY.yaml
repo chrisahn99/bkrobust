@@ -1,0 +1,80 @@
+# Is a run in results/rebuttal/E7 really E7? Decided apart from the deltas.
+# python experiments/rebuttal/fidelity_gate.py experiments/rebuttal/E7_one_hidden_variable/FIDELITY.yaml --no-judge
+arm: E7-one-hidden-variable
+says: >
+  On the panel's n = 5000 samples (seeds 0-4) of the four Gaussian networks, PC (Fisher-z,
+  alpha 0.01, stable) runs once on the full sample and once per hidden variable with that
+  column dropped; the committed set of every frame query is scored with the GAC in the full
+  true DAG, paired with the nothing-hidden run, near (hop 1) and far (hop >= 2) strata.
+repo: ../../..
+code:
+  - experiments/rebuttal/E7_one_hidden_variable/run.py
+  - experiments/rebuttal/E7_one_hidden_variable/vendor_pest.py
+  - experiments/rebuttal/E7_one_hidden_variable/analyse.py
+runs: ../../../results/rebuttal/E7/config.json
+rubric:
+  - id: criterion
+    says: validity and radius use the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: method
+    says: the discovery method is PC
+    config: {key: method, equals: pc}
+  - id: alpha
+    says: Fisher-z at alpha 0.01, as in the panel
+    config: {key: alpha, equals: 0.01}
+  - id: sample-size
+    says: the panel's n = 5000 samples
+    config: {key: panel_n, equals: 5000}
+  - id: seeds
+    says: five sample seeds
+    config: {key: seeds, equals: [0, 1, 2, 3, 4]}
+  - id: networks
+    says: all four Gaussian networks
+    config: {key: networks, equals: [ecoli70, arth150, magic-niab, magic-irri]}
+  - id: arms
+    says: the registered oracle arm and the no-knowledge arm
+    config: {key: arms, equals: [A_ORACLE, D_DEGEN]}
+  - id: hide-seed
+    says: hidden variables drawn with the preregistered seed
+    config: {key: hide_seed, equals: 20261106}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: causal-learn
+    says: the causal-learn version that produced the panel
+    config: {key: causal_learn_version, equals: 0.1.4.8}
+  - id: ladder
+    says: SAT ladder skipped above 60 nodes, as in the panel sweep
+    config: {key: ladder_max_nodes, equals: 60}
+  - id: inputs
+    says: the panel files are the ones of results/pest in the second author's tree
+    check: >
+      python3 -c "import json,sys; h=json.load(open('results/rebuttal/E7/config.json'))['inputs_sha256'];
+      sys.exit(0 if h=={'frame.jsonl':'530bbdd0619b0e23606a8513ae5d643ce6ee9cc471d9add43360632a3609a530',
+      'structure.csv':'25c3f88099c54e777a642e6e100d79b93d2bd93d5b0dc7e6255ed9f319f89c41',
+      'graphs.jsonl':'708871335eff33eac4db09754ab9c561e8fa7ba552cbce0b8cf679375115b402'} else 1)"
+  - id: all-units
+    says: every (network, seed, h) unit and every nothing-hidden unit written once, all stamped gac, none with a problem
+    check: >
+      python3 -c "import json,glob,sys; c=json.load(open('results/rebuttal/E7/config.json'));
+      u={}; [u.setdefault(json.loads(l)['unit'],json.loads(l)) for f in glob.glob('results/rebuttal/E7/units_*.jsonl') for l in open(f)];
+      want={f'{n}|{s}|{h}' for n in c['networks'] for s in c['seeds'] for h in ['-',*c['hidden'][n]]};
+      ok=set(u)==want and all(r['criterion']=='gac' and not r['problems'] for r in u.values());
+      sys.exit(0 if ok else 1)"
+  - id: panel-reproduced
+    says: every nothing-hidden unit learned the stored panel graph from the panel sample (regenerated, or the vendored copy with the panel's hash; DEVIATIONS.md)
+    check: >
+      python3 -c "import json,glob,sys; u=[json.loads(l) for f in glob.glob('results/rebuttal/E7/units_*.jsonl') for l in open(f)];
+      b=[r for r in u if r['h']=='-']; sys.exit(0 if len(b)==20 and all(r['status']=='ok' and not r['problems'] for r in b) else 1)"
+  - id: column-dropped
+    says: the hidden unit runs PC on the sample without column h, never on the full sample
+    check: grep -q 'matrix = learn_graph(data\[:, cols\], "pc", ALPHA)' experiments/rebuttal/E7_one_hidden_variable/run.py
+  - id: truth-is-full-dag
+    says: validity at truth is decided in the full true DAG, hidden node included, by two implementations
+    check: grep -q 'v_sub = is_gac_valid_dag(dag, x, y, z)' experiments/rebuttal/E7_one_hidden_variable/run.py && grep -q 'v_nx = is_valid_adjustment_set_gac_dag(dag, x, y, z)' experiments/rebuttal/E7_one_hidden_variable/run.py
+  - id: prereg-unchanged
+    says: PREREG.md is the one the run started under
+    check: >
+      python3 -c "import json,hashlib,sys; c=json.load(open('results/rebuttal/E7/config.json'));
+      h=hashlib.sha256(open('experiments/rebuttal/E7_one_hidden_variable/PREREG.md','rb').read()).hexdigest();
+      sys.exit(0 if c['prereg_sha256']==h else 1)"

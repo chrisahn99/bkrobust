@@ -1,0 +1,57 @@
+# Is a run of E16 really E16? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E16-radius-where-separation-undefined
+says: >
+  Kendall tau_b of the GAC breakdown radius with survival AUC on the 1,033 pooled real-name Table 1
+  units where separation is undefined, network-cluster bootstrap with 10,000 resamples and seed 0, on
+  the submitted and the corrected cohort, plus the within-state paired lead over separation, with the
+  committed unit tables byte for byte and the published Table 1 points reproduced.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E16_radius_where_separation_undefined/run.py
+  - experiments/rebuttal/E16_radius_where_separation_undefined/analyse.py
+runs: ../../../results/rebuttal/E16/config*.json
+rubric:
+  - id: criterion
+    says: the radius is the GAC radius
+    config: {key: criterion, equals: gac}
+  - id: endpoint
+    says: survival is the Table 1 endpoint AUC_frac
+    config: {key: endpoint, equals: AUC_frac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: resamples
+    says: 10,000 bootstrap resamples
+    config: {key: n_boot, equals: 10000}
+  - id: seed
+    says: seed 0, as in Table 1
+    config: {key: seed, equals: 0}
+  - id: units-file
+    says: the committed analysis_units.csv, byte for byte
+    config: {key: sha256.units_csv, equals: 58de266a17e2dfd4acddfba3d76cc3b1afd5d6981809d667dbbc1caa18307658}
+  - id: empty-valid-file
+    says: the committed empty_valid_units.csv (the 94 added units), byte for byte
+    config: {key: sha256.empty_valid_csv, equals: 24fc59fa8ad22de772881dd303940e7a0fd8475d6c88067d6ee482b0bacb794b}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: rows-gac-commit
+    says: every row records the GAC criterion and a known repository commit
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E16/rows*.jsonl') for l in open(f)];
+      sys.exit(0 if r and all(x.get('criterion')=='gac' and x.get('commit') not in (None,'unknown') for x in r) else 1)"
+  - id: all-cells
+    says: all 18 cells (2 cohorts x 9 statistics) were written with 10,000 resamples and no consistency failure
+    check: >
+      python3 -c "import json,glob,sys; r={}; [r.__setitem__(x['key'],x) for f in sorted(glob.glob('results/rebuttal/E16/rows*.jsonl')) for x in map(json.loads,open(f))];
+      sys.exit(0 if len(r)==18 and all(x['n_boot']==10000 and not x['consistency_failures'] for x in r.values()) else 1)"
+  - id: population
+    says: the registered cell uses exactly the 1,033 separation-undefined units
+    check: >
+      python3 -c "import json,glob,sys; r={x['key']:x for f in glob.glob('results/rebuttal/E16/rows*.jsonl') for x in map(json.loads,open(f))};
+      sys.exit(0 if r['submitted/pooled_tau_radius_undefined']['result']['n']==1033 else 1)"
+  - id: table1-reproduced
+    says: the published Table 1 within-state interval (0.055, 0.679) is reproduced, so the bootstrap is the paper's
+    check: >
+      python3 -c "import json,glob,sys; r={x['key']:x for f in glob.glob('results/rebuttal/E16/rows*.jsonl') for x in map(json.loads,open(f))};
+      sys.exit(0 if r['submitted/within_tau_radius_all']['reproduction'].get('ci_ok') is True else 1)"

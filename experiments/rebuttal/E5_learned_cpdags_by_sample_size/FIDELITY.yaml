@@ -1,0 +1,79 @@
+# Is a run of E5 really E5? Checked apart from the score, after the run:
+#   python ../fidelity_gate.py FIDELITY.yaml --no-judge
+arm: E5-learned-cpdags-by-sample-size
+says: >
+  Phase A re-scores the 560 stored P-EST rows on the reference learned CPDAG with the submitted
+  code and reproduces them; Phase B scores every stored learned graph (PC and GES, n 200/1000/5000,
+  every seed) and the true CPDAG on the 80 frame queries, six knowledge arms, GAC criterion.
+repo: ../../..
+code: [experiments/rebuttal/E5_learned_cpdags_by_sample_size/run.py,
+       experiments/rebuttal/E5_learned_cpdags_by_sample_size/vendor_bkrobust.py,
+       src/bkrobust/hybrid.py]
+runs: ../../../results/rebuttal/E5/config.*.json
+rubric:
+  - id: criterion
+    says: the radius and every validity check use the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: both-phases
+    says: Phase A (reproduction) and Phase B (learned graphs) both ran
+    config: {key: phase, equals: all}
+  - id: networks
+    says: the four Gaussian networks of the P-EST panel
+    config: {key: networks, equals: [ecoli70, arth150, magic-niab, magic-irri]}
+  - id: n-grid
+    says: the three sample sizes
+    config: {key: n_grid, equals: [200, 1000, 5000]}
+  - id: methods
+    says: both discovery methods
+    config: {key: methods, equals: [pc, ges]}
+  - id: rand-reps
+    says: three D_RAND reps with the stored seed
+    config: {key: rand_reps, equals: 3}
+  - id: rand-seed
+    says: D_RAND seeded as in the stored sweep
+    config: {key: drand_seed, equals: 20260913}
+  - id: ladder-limit
+    says: ladder per-rung limit of the stored sweep
+    config: {key: radius_limit, equals: 5.0}
+  - id: ladder-nodes
+    says: ladder skipped above 60 nodes, as in the stored sweep
+    config: {key: ladder_max_nodes, equals: 60}
+  - id: data-graphs
+    says: the stored learned graphs, unchanged
+    config: {key: input_sha256.graphs_jsonl, equals: 708871335eff33eac4db09754ab9c561e8fa7ba552cbce0b8cf679375115b402}
+  - id: data-graphs-retry
+    says: the two retried arth150 GES graphs, unchanged
+    config: {key: input_sha256.graphs_retry_jsonl, equals: 71f2bffada8d467294766eb26c5f6e472fcdd4973aa4ead750285cc5d1f2b093}
+  - id: data-rows
+    says: the stored rows Phase A reproduces, unchanged
+    config: {key: input_sha256.rows_csv, equals: 0763a714f002e3698351ff6fd39770aace23f1e983a2f6b21d808338c94bcd7c}
+  - id: data-knowledge
+    says: the stored supplier knowledge, unchanged
+    config: {key: input_sha256.knowledge_json, equals: fbe8741137df8b670114e72b6fdc6c2ac9e79d11a1cc83bc48550b021604040c}
+  - id: data-frame
+    says: the 80 stored frame queries, unchanged
+    config: {key: input_sha256.frame_jsonl, equals: 530bbdd0619b0e23606a8513ae5d643ce6ee9cc471d9add43360632a3609a530}
+  - id: data-chat
+    says: the stored reference CPDAG, unchanged
+    config: {key: input_sha256.chat_e_json, equals: 7f2d22ca4b778f25376d4071ed3f6ddae2e2a085f308a1e8940f21637318e30a}
+  - id: submitted-radius
+    says: the radius comes from the submitted bkrobust.hybrid.breakdown_radius
+    check: grep -q "from bkrobust.hybrid import DEFAULT_SEARCH_BUDGET, breakdown_radius" experiments/rebuttal/E5_learned_cpdags_by_sample_size/run.py
+  - id: src-unpatched
+    says: src/ is the committed submitted code, unmodified
+    check: git diff --quiet HEAD -- src
+  - id: rows-gac
+    says: every output row records criterion gac and a single repository commit
+    check: python3 -c "import json,glob,sys; R=[json.loads(l) for p in glob.glob('results/rebuttal/E5/rows.*.jsonl') for l in open(p)]; sys.exit(0 if R and all(r['criterion']=='gac' for r in R) and len({r['repo_commit'] for r in R})==1 else 1)"
+  - id: phase-a-complete
+    says: Phase A covers all 560 stored rows, 244 of them certifiable
+    check: python3 -c "import json,glob,sys; R={json.loads(l)['unit']:json.loads(l) for p in glob.glob('results/rebuttal/E5/rows.*.jsonl') for l in open(p)}; A=[r for r in R.values() if r['phase']=='A']; sys.exit(0 if len(A)==560 and sum(r['status']=='ok' for r in A)==244 else 1)"
+  - id: phase-b-graphs
+    says: Phase B covers 214 learned graphs and the 4 true CPDAGs
+    check: python3 -c "import json,glob,sys; G={(r['gid'],r['graph_kind']) for p in glob.glob('results/rebuttal/E5/rows.*.jsonl') for l in open(p) for r in [json.loads(l)] if r['phase']=='B'}; sys.exit(0 if sum(k=='learned' for _,k in G)==214 and sum(k=='true_cpdag' for _,k in G)==4 else 1)"
+  - id: consistency
+    says: analyse.py found no consistency failure (Phase A, extension implication, enumeration cross-check, cross-phase)
+    check: python3 -c "import json,sys; sys.exit(0 if json.load(open('results/rebuttal/E5/results.json'))['consistency_ok'] else 1)"

@@ -1,0 +1,82 @@
+# Is a run of E13 really E13? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E13-committed-set-consistency-checks
+says: >
+  (a) the 1,229 "none" units of status_split.json (898 real-name) rebuilt and tested for amenability
+  and the closed-form set; (b) all 8,308 released rows rebuilt against their hashes, closed-form set
+  compared with the optimal sets of every DAG extension of G0; (c) Corollary 1(c) checked on the
+  rows invalid at the truth. GAC throughout.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E13_committed_set_consistency_checks/run.py
+  - experiments/rebuttal/E13_committed_set_consistency_checks/vendor_optimal.py
+  - experiments/rebuttal/E13_committed_set_consistency_checks/vendor_audit.py
+  - experiments/rebuttal/E13_committed_set_consistency_checks/vendor_ledger.py
+runs: ../../../results/rebuttal/E13/config*.json
+rubric:
+  - id: criterion
+    says: the criterion is the GAC
+    config: {key: criterion, equals: gac}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: parts
+    says: both parts ran
+    config: {key: parts, equals: [a, bc]}
+  - id: population
+    says: all 1,229 none units and all 8,308 released rows were selected
+    config: {key: n_selected, equals: {a: 1229, bc: 8308}}
+  - id: records-file
+    says: the released per_query_records.csv, byte for byte (release/SHA256SUMS)
+    config: {key: records_sha256, equals: 13541300e559b7aae464d35121b1f5f8a9678209dac99063ba1e31768412452e}
+  - id: knowledge-file
+    says: the released knowledge_states.json (= results/elicit/knowledge.json), byte for byte
+    config: {key: knowledge_sha256, equals: 45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb}
+  - id: status-split-file
+    says: the submitted status_split.json, byte for byte
+    config: {key: status_split_sha256, equals: 78fb541ba667fb46dae6a45870b0746955950719476480cda1937090fdcbf1c2}
+  - id: seed
+    says: D_RAND knowledge rebuilt with the released sweep's seed
+    config: {key: seed, equals: 20260913}
+  - id: caps
+    says: the registered enumeration caps (4,096 extensions of G0, 256 of the CPDAG, 600 s)
+    config: {key: max_extensions, equals: 4096}
+  - id: chat-cap
+    says: the registered cap on extensions of the CPDAG
+    config: {key: max_chat_extensions, equals: 256}
+  - id: time-cap
+    says: the registered enumeration time limit
+    config: {key: enum_time_limit, equals: 600.0}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: commit-and-criterion-per-row
+    says: every row records a repository commit and the GAC
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E13/rows*.jsonl') for l in open(f)];
+      sys.exit(0 if r and all(x.get('commit') not in (None,'unknown') and x.get('criterion')=='gac' for x in r) else 1)"
+  - id: all-units-run
+    says: 1,229 part-a units and 8,308 part-bc rows are present, none left in error
+    check: >
+      python3 -c "import json,glob,sys; r={}; [r.__setitem__(x['key'],x) for f in sorted(glob.glob('results/rebuttal/E13/rows*.jsonl')) for x in map(json.loads,open(f))];
+      a=[x for x in r.values() if x['part']=='a']; b=[x for x in r.values() if x['part']=='bc'];
+      sys.exit(0 if len(a)==1229 and len(b)==8308 and all(x['status']!='error' for x in r.values()) else 1)"
+  - id: rebuild-exact
+    says: at least 99% of released rows are rebuilt exactly (hashes, verdict, |Z|, counts); else this is not the released state
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E13/rows*.jsonl') for l in open(f)]; b=[x for x in r if x['part']=='bc'];
+      sys.exit(0 if b and sum(x['status']=='ok' for x in b) >= 0.99*len(b) else 1)"
+  - id: none-reproduced
+    says: at least 99% of part-a units reproduce the released 'none' classification (extensions disagree)
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E13/rows*.jsonl') for l in open(f)]; a=[x for x in r if x['part']=='a'];
+      sys.exit(0 if a and sum(x['status']=='ok' for x in a) >= 0.99*len(a) else 1)"
+  - id: truth-validity-reproduced
+    says: on every rebuilt ok row with a set, z_valid_at_truth was recomputed and matches the release
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E13/rows*.jsonl') for l in open(f)]; b=[x for x in r if x['part']=='bc' and x['status']=='ok' and x.get('z')];
+      sys.exit(0 if b and all('c' in x and str(int(x['c']['valid_at_truth']))==x['released']['z_valid_at_truth'] for x in b) else 1)"
+  - id: enumeration-ran
+    says: part b enumerated the extensions of G0 on most closed_form rows (not silently skipped)
+    check: >
+      python3 -c "import json,glob,sys; r=[json.loads(l) for f in glob.glob('results/rebuttal/E13/rows*.jsonl') for l in open(f)]; b=[x for x in r if x['part']=='bc' and x['status']=='ok' and x.get('verdict')=='closed_form'];
+      sys.exit(0 if b and sum(x['b']['enumeration']=='complete' for x in b) >= 0.8*len(b) else 1)"

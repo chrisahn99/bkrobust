@@ -1,0 +1,51 @@
+# Is a run of E20 really E20? Checked with experiments/rebuttal/fidelity_gate.py, apart from the score.
+arm: E20-uumc-generator
+says: >
+  The Section 7 mean-bias profiles of the 49 Table 6 queries (D_LLM knowledge, Z = O(G0), GAC radius)
+  are recomputed under three coefficient generators: the submitted naive random_sem, its exact
+  population internal standardisation (iSCM), and UUMC (Herman et al. 2025, Algorithm 1). Each has
+  draws 0-9, naive draw 0 reproduces the stored instances to 1e-9, and every unit passes the
+  consistency checks of PREREG.md.
+repo: ../../..                      # repository root, relative to this file
+code:
+  - experiments/rebuttal/E20_uumc_generator/run.py
+  - experiments/rebuttal/E20_uumc_generator/generators.py
+  - experiments/rebuttal/E20_uumc_generator/analyse.py
+runs: ../../../results/rebuttal/E20/config*.json
+rubric:
+  - id: criterion
+    says: the radius criterion is the GAC
+    config: {key: criterion, equals: gac}
+  - id: arms
+    says: all three generators are run, UUMC among them
+    config: {key: arms, equals: [naive, iscm, uumc]}
+  - id: draws
+    says: ten coefficient draws per arm
+    config: {key: draws, equals: 10}
+  - id: seed
+    says: the committed base seed, so naive draw 0 is the stored instance
+    config: {key: seed, equals: 20260917}
+  - id: condition
+    says: knowledge elicited from the primary language model
+    config: {key: condition, equals: D_LLM}
+  - id: not-smoke
+    says: the full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: clean-src
+    says: the submitted src/ was unmodified when the run started
+    config: {key: src_dirty, equals: false}
+  - id: uumc-is-algorithm-1
+    says: UUMC draws a'' ~ N(0, I_d), r = u^(1/d), scales to r/||a''||, noise s' = sqrt(1 - r^2), then standardises
+    check: grep -q "rng.uniform() \*\* (1.0 / d)" experiments/rebuttal/E20_uumc_generator/generators.py && grep -q "a1 = r \* a2 / np.linalg.norm(a2)" experiments/rebuttal/E20_uumc_generator/generators.py && grep -q "np.sqrt(max(1.0 - r \* r, 0.0))" experiments/rebuttal/E20_uumc_generator/generators.py
+  - id: naive-is-submitted
+    says: the naive arm calls the submitted random_sem with its defaults, not a copy
+    check: grep -q "return random_sem(dag, rng)" experiments/rebuttal/E20_uumc_generator/generators.py
+  - id: population
+    says: 49 queries x 3 arms x 10 draws = 1470 units were written, whatever their status
+    check: .venv/bin/python -c "import json,glob; k={(r['network'],r['x'],r['y'],r['arm'],r['draw']) for f in glob.glob('results/rebuttal/E20/units.*.jsonl') for r in map(json.loads,open(f))}; raise SystemExit(0 if len(k)==1470 else 1)"
+  - id: consistent
+    says: analyse.py found no consistency failure (reproduction, post hoc invariance, Theorem 1, two parent-set routes, GAC radius, unit variances)
+    check: .venv/bin/python -c "import json; r=json.load(open('results/rebuttal/E20/results.json')); raise SystemExit(0 if r['n_consistency_failures']==0 else 1)"
+  - id: reproduces-paper
+    says: naive draw 0 gives the paper's 22 signatures, 32 with the ceiling, 22 for (radius, ceiling), 21 ceilings, on 49 queries
+    check: .venv/bin/python -c "import json; r=json.load(open('results/rebuttal/E20/results.json')); raise SystemExit(0 if all(v[2] for v in r['naive_draw0_vs_paper'].values()) else 1)"

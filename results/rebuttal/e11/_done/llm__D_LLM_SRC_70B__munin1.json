@@ -1,0 +1,51 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__munin1",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "munin1"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "munin1",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 5,
+  "n_cells": 40,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 8,
+  "n_asked": 8,
+  "assert_rate": 1.0,
+  "k_accuracy": 1.0,
+  "n_k_correct": 8,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 8,
+  "shd_truth": 0,
+  "instance_status_counts": {
+    "z_invalid_at_g0": 15,
+    "ok": 5
+  },
+  "radius_median_ok": 1.5,
+  "n_radius_ok": 2,
+  "cache": {
+    "graph_hits": 7745,
+    "graph_misses": 255,
+    "verdict_hits": 5920,
+    "verdict_misses": 115
+  },
+  "elapsed_s": 1.055,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__munin1.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__munin1.cells.jsonl",
+  "instances_sha256": "ae7a911ea6c10e5826d54105e115f654b06606be3cf77ef5132ce6c824eb22eb",
+  "cells_sha256": "9cb5330d2e6d9a9947edd8bc0056924f45c579f953493f8855a38c8f19d3e558",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:57:36Z"
+}

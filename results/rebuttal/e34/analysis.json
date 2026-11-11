@@ -1,0 +1,282 @@
+[
+ {
+  "arm": "LLM",
+  "learner": "boss",
+  "n": "500",
+  "units": 143,
+  "graphs": 15,
+  "tau_b": 0.94,
+  "ci": [
+   0.868,
+   0.993
+  ],
+  "share_r_inf": 0.832,
+  "mean_auc": 0.858
+ },
+ {
+  "arm": "LLM",
+  "learner": "boss",
+  "n": "5000",
+  "units": 171,
+  "graphs": 18,
+  "tau_b": 0.943,
+  "ci": [
+   0.897,
+   0.976
+  ],
+  "share_r_inf": 0.743,
+  "mean_auc": 0.821
+ },
+ {
+  "arm": "LLM",
+  "learner": "boss",
+  "n": "50000",
+  "units": 185,
+  "graphs": 20,
+  "tau_b": 0.917,
+  "ci": [
+   0.874,
+   0.951
+  ],
+  "share_r_inf": 0.622,
+  "mean_auc": 0.752
+ },
+ {
+  "arm": "LLM",
+  "learner": "ges",
+  "n": "500",
+  "units": 77,
+  "graphs": 8,
+  "tau_b": 0.988,
+  "ci": [
+   0.978,
+   1.0
+  ],
+  "share_r_inf": 0.883,
+  "mean_auc": 0.89
+ },
+ {
+  "arm": "LLM",
+  "learner": "ges",
+  "n": "5000",
+  "units": 140,
+  "graphs": 14,
+  "tau_b": 0.982,
+  "ci": [
+   0.945,
+   0.998
+  ],
+  "share_r_inf": 0.886,
+  "mean_auc": 0.928
+ },
+ {
+  "arm": "LLM",
+  "learner": "ges",
+  "n": "50000",
+  "units": 170,
+  "graphs": 17,
+  "tau_b": 0.956,
+  "ci": [
+   0.924,
+   0.979
+  ],
+  "share_r_inf": 0.776,
+  "mean_auc": 0.851
+ },
+ {
+  "arm": "LLM",
+  "learner": "oracle",
+  "n": "oracle",
+  "units": 40,
+  "graphs": 4,
+  "tau_b": 0.955,
+  "ci": [
+   0.906,
+   0.997
+  ],
+  "share_r_inf": 0.775,
+  "mean_auc": 0.85
+ },
+ {
+  "arm": "LLM",
+  "learner": "pcan",
+  "n": "500",
+  "units": 93,
+  "graphs": 12,
+  "tau_b": 0.946,
+  "ci": [
+   0.916,
+   0.978
+  ],
+  "share_r_inf": 0.817,
+  "mean_auc": 0.857
+ },
+ {
+  "arm": "LLM",
+  "learner": "pcan",
+  "n": "5000",
+  "units": 87,
+  "graphs": 11,
+  "tau_b": 0.929,
+  "ci": [
+   0.832,
+   0.981
+  ],
+  "share_r_inf": 0.736,
+  "mean_auc": 0.841
+ },
+ {
+  "arm": "LLM",
+  "learner": "pcan",
+  "n": "50000",
+  "units": 137,
+  "graphs": 16,
+  "tau_b": 0.935,
+  "ci": [
+   0.874,
+   0.982
+  ],
+  "share_r_inf": 0.803,
+  "mean_auc": 0.866
+ },
+ {
+  "arm": "TRUE",
+  "learner": "boss",
+  "n": "500",
+  "units": 199,
+  "graphs": 20,
+  "tau_b": 0.839,
+  "ci": [
+   0.746,
+   0.907
+  ],
+  "share_r_inf": 0.528,
+  "mean_auc": 0.717
+ },
+ {
+  "arm": "TRUE",
+  "learner": "boss",
+  "n": "5000",
+  "units": 200,
+  "graphs": 20,
+  "tau_b": 0.796,
+  "ci": [
+   0.689,
+   0.88
+  ],
+  "share_r_inf": 0.495,
+  "mean_auc": 0.736
+ },
+ {
+  "arm": "TRUE",
+  "learner": "boss",
+  "n": "50000",
+  "units": 200,
+  "graphs": 20,
+  "tau_b": 0.641,
+  "ci": [
+   0.54,
+   0.729
+  ],
+  "share_r_inf": 0.35,
+  "mean_auc": 0.672
+ },
+ {
+  "arm": "TRUE",
+  "learner": "ges",
+  "n": "500",
+  "units": 170,
+  "graphs": 17,
+  "tau_b": 0.952,
+  "ci": [
+   0.922,
+   0.98
+  ],
+  "share_r_inf": 0.806,
+  "mean_auc": 0.851
+ },
+ {
+  "arm": "TRUE",
+  "learner": "ges",
+  "n": "5000",
+  "units": 200,
+  "graphs": 20,
+  "tau_b": 0.92,
+  "ci": [
+   0.888,
+   0.951
+  ],
+  "share_r_inf": 0.705,
+  "mean_auc": 0.834
+ },
+ {
+  "arm": "TRUE",
+  "learner": "ges",
+  "n": "50000",
+  "units": 170,
+  "graphs": 17,
+  "tau_b": 0.804,
+  "ci": [
+   0.735,
+   0.875
+  ],
+  "share_r_inf": 0.541,
+  "mean_auc": 0.746
+ },
+ {
+  "arm": "TRUE",
+  "learner": "oracle",
+  "n": "oracle",
+  "units": 40,
+  "graphs": 4,
+  "tau_b": 0.838,
+  "ci": [
+   0.802,
+   0.871
+  ],
+  "share_r_inf": 0.55,
+  "mean_auc": 0.777
+ },
+ {
+  "arm": "TRUE",
+  "learner": "pcan",
+  "n": "500",
+  "units": 155,
+  "graphs": 17,
+  "tau_b": 0.821,
+  "ci": [
+   0.729,
+   0.889
+  ],
+  "share_r_inf": 0.529,
+  "mean_auc": 0.756
+ },
+ {
+  "arm": "TRUE",
+  "learner": "pcan",
+  "n": "5000",
+  "units": 109,
+  "graphs": 11,
+  "tau_b": 0.826,
+  "ci": [
+   0.723,
+   0.893
+  ],
+  "share_r_inf": 0.477,
+  "mean_auc": 0.771
+ },
+ {
+  "arm": "TRUE",
+  "learner": "pcan",
+  "n": "50000",
+  "units": 150,
+  "graphs": 15,
+  "tau_b": 0.798,
+  "ci": [
+   0.724,
+   0.855
+  ],
+  "share_r_inf": 0.493,
+  "mean_auc": 0.762
+ }
+]

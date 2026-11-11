@@ -1,0 +1,52 @@
+{
+  "shard_id": "llm__D_LLM__munin1",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM",
+    "network": "munin1"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM",
+  "network": "munin1",
+  "model": "qwen2.5:7b-instruct",
+  "family": "qwen2",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 4,
+  "n_cells": 8,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 2,
+  "n_asked": 8,
+  "assert_rate": 0.25,
+  "k_accuracy": 1.0,
+  "n_k_correct": 2,
+  "n_k_wrong": 0,
+  "n_off_skeleton": 0,
+  "k_g0": 2,
+  "shd_truth": 6,
+  "instance_status_counts": {
+    "optimal_set_undefined": 11,
+    "z_invalid_at_g0": 5,
+    "ok": 4
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 1,
+  "cache": {
+    "graph_hits": 1997,
+    "graph_misses": 3,
+    "verdict_hits": 7988,
+    "verdict_misses": 12
+  },
+  "elapsed_s": 1.154,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM__munin1.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM__munin1.cells.jsonl",
+  "instances_sha256": "3d54c125e04b3d5939c43ee60120f5d8c21bc87fd10723334d8177767a0196e8",
+  "cells_sha256": "602e17fa0dbeaa334ced78b09d88c67a8f504fc04691bf28c6190662f855fd55",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T20:00:09Z"
+}

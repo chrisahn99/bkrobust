@@ -1,0 +1,52 @@
+{
+  "shard_id": "llm__D_LLM_SRC_70B__ecoli70",
+  "kind": "llm",
+  "spec": {
+    "condition": "D_LLM_SRC_70B",
+    "network": "ecoli70"
+  },
+  "n_draws": 1000,
+  "condition": "D_LLM_SRC_70B",
+  "network": "ecoli70",
+  "model": "Llama-3.3-70B-Instruct",
+  "family": "llama",
+  "naming": "real",
+  "n_frame_rows": 20,
+  "n_scored": 6,
+  "n_cells": 60,
+  "n_cells_censored_wall_cap": 0,
+  "wall_cap_s": 18000.0,
+  "g0_status": "ok",
+  "n_k": 16,
+  "n_asked": 25,
+  "assert_rate": 0.64,
+  "k_accuracy": 0.625,
+  "n_k_correct": 10,
+  "n_k_wrong": 6,
+  "n_off_skeleton": 0,
+  "k_g0": 17,
+  "shd_truth": 22,
+  "instance_status_counts": {
+    "optimal_set_undefined": 5,
+    "z_invalid_at_g0": 9,
+    "ok": 6
+  },
+  "radius_median_ok": 1,
+  "n_radius_ok": 3,
+  "cache": {
+    "graph_hits": 4200,
+    "graph_misses": 5800,
+    "verdict_hits": 1188,
+    "verdict_misses": 534
+  },
+  "elapsed_s": 31.046,
+  "instances_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__ecoli70.instances.jsonl",
+  "cells_path": "results/rebuttal/e11/shards/llm__D_LLM_SRC_70B__ecoli70.cells.jsonl",
+  "instances_sha256": "c591fa344154a634f4d31331eb006f4442a449717615e24acd42987d2cd3bc15",
+  "cells_sha256": "d5d2cdcbc6c4989af6ce723c625a3a17c72a2d5cf7a904d5c18d5b2955c93bff",
+  "knowledge_json_sha256": "45119393225fee57ed1dd4c002130f805d6a655c2ee7648006470918c2dfc7bb",
+  "frame_sha256": "76d4c9b082a4c274dba93f17be519423802f86524f74d88c7b87dc82b8bd898c",
+  "git_sha": "d1ef6e499d754e555de770134f1cc0fc5f889869",
+  "git_dirty": true,
+  "completed_utc": "2026-11-06T19:54:41Z"
+}

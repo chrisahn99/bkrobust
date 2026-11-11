@@ -1,0 +1,51 @@
+arm: E22-discovery-error-census
+says: >
+  Takes every certifiable A_ORACLE_R row of E5 on a learned graph, rebuilds G0 and the committed set
+  with E5's functions and checks them against the stored row, diffs the learned CPDAG against the true
+  CPDAG, names the failing GAC condition at the truth, and tests the S3 hypothesis inside the true
+  ancestral closure of {x, y} and Z.
+repo: ../../..
+code: [experiments/rebuttal/E22_e22_discovery_error_census/run.py,
+       experiments/rebuttal/E22_e22_discovery_error_census/vendor_e5.py,
+       experiments/rebuttal/E22_e22_discovery_error_census/vendor_bkrobust.py]
+runs: ../../../results/rebuttal/E22/config.*.json
+rubric:
+  - id: criterion
+    says: validity and the failing conditions use the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: arm
+    says: the repaired oracle arm of E5
+    config: {key: arm, equals: A_ORACLE_R}
+  - id: not-smoke
+    says: the full population, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: extension-witness
+    says: a witness DAG is built for every row that satisfies the hypothesis
+    config: {key: build_extension, equals: true}
+  - id: networks
+    says: the four Gaussian networks of the P-EST panel
+    config: {key: networks, equals: [ecoli70, arth150, magic-niab, magic-irri]}
+  - id: data-e5-rows
+    says: the finished E5 rows, unchanged
+    config: {key: input_sha256.e5_rows, equals: de743309fbc521c1f2823a690bb23581285fff3ce29924149975b2322ce44e24}
+  - id: data-graphs
+    says: the stored learned graphs, unchanged
+    config: {key: input_sha256.graphs_jsonl, equals: 708871335eff33eac4db09754ab9c561e8fa7ba552cbce0b8cf679375115b402}
+  - id: data-graphs-retry
+    says: the two retried arth150 GES graphs, unchanged
+    config: {key: input_sha256.graphs_retry_jsonl, equals: 71f2bffada8d467294766eb26c5f6e472fcdd4973aa4ead750285cc5d1f2b093}
+  - id: population
+    says: 987 certifiable rows (534 invalid) on 178 learned graphs
+    config: {key: n_rows_population, equals: 987}
+  - id: vendor-e5-functions
+    says: G0 is rebuilt with E5's truthful and greedy_consistent
+    check: grep -q "oracle = truthful(dag, sorted(g.undirected_edges))" experiments/rebuttal/E22_e22_discovery_error_census/vendor_e5.py && grep -q "return greedy_consistent(g, oracle)" experiments/rebuttal/E22_e22_discovery_error_census/vendor_e5.py
+  - id: src-unpatched
+    says: src/ is the committed submitted code, unmodified
+    check: git diff --quiet HEAD -- src
+  - id: rows-complete
+    says: every population row is written, with criterion gac and one commit, and reconstructs its stored Z
+    check: python3 -c "import json,glob,sys; R={json.loads(l)['unit']:json.loads(l) for p in glob.glob('results/rebuttal/E22/rows.*.jsonl') for l in open(p)}; V=list(R.values()); sys.exit(0 if len(V)==987 and all(r['criterion']=='gac' and r.get('reconstruct_ok')==1 for r in V) and len({r['repo_commit'] for r in V})==1 else 1)"
+  - id: consistency
+    says: analyse.py found no consistency failure and a complete population
+    check: python3 -c "import json,sys; sys.exit(0 if json.load(open('results/rebuttal/E22/results.json'))['consistency_ok'] else 1)"

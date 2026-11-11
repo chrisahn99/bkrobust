@@ -1,0 +1,64 @@
+arm: E19-bias-radius-internal-standardisation
+says: >-
+  The 900 ok instances of the App. E.4 study (results/epsilon/study/results.csv), rebuilt from their
+  stored index and seed, each evaluated on one random_sem draw as naive (control, reproduces the
+  stored row), post hoc standardised (must equal naive) and internally standardised (iSCM, every
+  implied variance 1), with the gac criterion and the relative tolerance grid 1% to 100%.
+repo: ../../..                  # repository root; check commands run there
+code:
+  - experiments/rebuttal/E19_bias_radius_internal_standardisation/run.py
+  - experiments/rebuttal/E19_bias_radius_internal_standardisation/sem_variants.py
+  - experiments/run_r_epsilon.py
+runs: ../../../results/rebuttal/E19/run_config.shard*of*.json
+rubric:
+  - id: criterion
+    says: validity uses the generalised adjustment criterion
+    config: {key: criterion, equals: gac}
+  - id: arms
+    says: all three arms run, naive included as the control
+    config: {key: arms, equals: [naive, posthoc, internal]}
+  - id: eps-grid
+    says: the study's seven relative tolerances
+    config: {key: eps_relative, equals: [0.01, 0.02, 0.05, 0.1, 0.25, 0.5, 1.0]}
+  - id: seed
+    says: the study's root seed, so instance i is rebuilt from seed 20260916 + i
+    config: {key: root_seed, equals: 20260916}
+  - id: grid
+    says: the study's 420-cell grid
+    config: {key: n_cells, equals: 420}
+  - id: baseline
+    says: the stored App. E.4 study file, unchanged
+    config: {key: baseline_csv_sha256, equals: b725f1937813b6aac464c5faf23ef32eefb89a391ec44425d96b9f5b7b024751}
+  - id: not-smoke
+    says: a full run, not the smoke subset
+    config: {key: smoke, equals: false}
+  - id: no-limit
+    says: no unit cap
+    config: {key: limit, equals: 0}
+  - id: covers-900
+    says: every one of the 900 stored ok instances is written, and nothing else
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py covers_900
+  - id: identity
+    says: the rebuilt graph, query, set and knowledge size match the stored row
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py identity
+  - id: naive-reproduces
+    says: the naive arm reproduces the stored r_val, r_eps, r_0, shape and staircase (1e-9)
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py naive_reproduces
+  - id: posthoc-equals-naive
+    says: post hoc standardisation changes nothing in relative units
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py posthoc_equals_naive
+  - id: internal-standardised
+    says: the internal arm has unit variances (1e-9) and the naive arm does not
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py internal_is_standardised
+  - id: same-r-val
+    says: r_val is identical across arms (it is graphical)
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py same_r_val
+  - id: strategies-agree
+    says: incremental and bisection give the same radius at eps = 100% in every arm
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py strategies_agree
+  - id: commit
+    says: one clean commit of src/ and run_r_epsilon.py for every row, criterion gac in every row
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py criterion_and_commit
+  - id: exclusions
+    says: at most 5% of instances excluded by a timeout or error (otherwise the reduced-set clause applies)
+    check: .venv/bin/python experiments/rebuttal/E19_bias_radius_internal_standardisation/fidelity_checks.py exclusions_small

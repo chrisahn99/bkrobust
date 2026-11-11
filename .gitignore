@@ -198,3 +198,17 @@ Thumbs.db
 # GAC-vs-back-door breakdown-radius recompute (verification that every
 # reported radius is unchanged if the validity predicate switches to GAC).
 !/results/radius_gac_recompute/
+
+# Rebuttal experiments (branch iclr_2027_rebuttal): scripts in rebuttal/, small
+# CSV/JSON outputs here; cited by rebuttal/session_report in the paper project.
+!/results/rebuttal/
+/results/rebuttal/e11_superseded_wrong_frame/
+
+# Rebuttal experiments (experiments/rebuttal/): code, pre-registrations and fidelity rubrics are
+# tracked; outputs go to results/rebuttal/ (ignored above) and these local by-products stay out.
+/experiments/rebuttal/**/FIDELITY.verdict.json
+/experiments/rebuttal/_smoke/SUMMARY.txt
+/experiments/rebuttal/_queue/STATUS.txt
+/experiments/rebuttal/**/*.before_tie_fix
+/experiments/rebuttal/_redaction_hashes.tsv
+/logs/
