@@ -320,10 +320,9 @@ Use ids **E30 onwards**: José used E1–E29 and we used E1–E21, E3S and E4L.
 
 ## 9. Prompt to start the new session
 
-> Read `rebuttal/HANDOVER_DISCOVERY.md` and the files it lists under "Read first".
-> Work on branch `iclr_2027_rebuttal_discovery`. Goal: quantitative results on how
-> finite-sample causal discovery limits the breakdown radius, for reviewer points
-> C2Bd-W2, C2Bd-Q3 and h8pC-W2 — at what sample size results become coherent, with
-> PC, GES and other CPDAG learners — framed to support the paper where the data
-> honestly allow. Propose the concrete experiment plan (E30+) and what you need to
-> install, then preregister before running.
+The session is started from the parent folder `/Users/ahn/Documents/Research/iclr27`
+(not a git repo; it holds this repo as `bkrobust/` and the Overleaf clone as
+`6ab5a4476c152c4289d9bb25/`, plus older snapshots to ignore). The full start prompt,
+with the folder map, branch checkout and rules, is in
+`/Users/ahn/Documents/Research/iclr27/PROMPT_discovery.md`. All paths in this
+handover are relative to `bkrobust/`; "Overleaf" means `../6ab5a4476c152c4289d9bb25/`.
