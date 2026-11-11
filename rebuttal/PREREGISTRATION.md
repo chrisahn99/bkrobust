@@ -427,3 +427,11 @@ stopped on the user's request (laptop to be closed) after 3,667 of 4,004 tasks, 
 written lines valid. Tasks in flight were discarded, not written. The run is resumed
 with the identical command; finished tasks are skipped, so the only effect is that the
 in-flight tasks are recomputed from scratch on the same samples. No setting changes.
+
+**E30-E34 note 5 (11 November 2026, 12:00): interim analysis on 3,667 of 4,004 tasks,
+at the user's request (deadline).** Missing: 337 arth150 tasks (boss, grasp, hc, pc01,
+pc001, pc01d3, pcan at n >= 5k). Because the pooled four-network numbers then change
+composition with n, the interim report pools the three complete networks (ecoli70,
+magic-irri, magic-niab) and gives arth150 separately. The registered four-network
+statistics are computed after the run completes and supersede the interim ones. E34 has
+not been run.
