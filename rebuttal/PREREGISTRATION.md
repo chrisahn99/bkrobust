@@ -222,3 +222,171 @@ After the rerun: 0 errors, 0 radius mismatches, 0 witness failures. The
 descriptive statistics in `rebuttal/e3s_explore.py` (fastest arm among the
 solver arms only, solve-only ratios, explicit search by radius) were not
 registered and are reported as exploratory.
+
+---
+
+# E30-E34 (11 November 2026): finite-sample discovery and the radius
+
+Written before the main run of any of these experiments (branch
+`iclr_2027_rebuttal_discovery`). Addresses C2Bd-W2 ("finite-sample discovery errors
+... are not captured"), C2Bd-Q3 and h8pC-W2 ("the metric neglects the bias caused by
+the recovery of the CPDAG"). Laptop (Apple M5, 10 cores, 32 GB): all times are laptop
+times. Package installed with the user's approval (11 November 2026): causal-learn
+0.1.4.8 (pip, into `.venv`). No Java, no pytetrad.
+
+**Framing (the user's, kept).** The radius is a sensitivity analysis of the orientation
+knowledge *conditional on the equivalence class*. Judging "discovery + radius" as one
+pipeline mixes two error sources. So the registered statistics separate "class locally
+correct near the query" from "class wrong near the query", and ask how fast the former
+becomes the norm as n grows, per learner.
+
+## What was seen before writing this (disclosed, not hidden)
+
+- Population edge strength (no data): partial correlation of each true edge given the
+  child's other parents; 50%-power sample size of a Fisher-z test at alpha = 0.01 is
+  <= 5,000 for 99% of edges in every network, <= 7,651 except one arth150 edge
+  (about 750,000).
+- **Oracle check of E5's PC at its depth cap.** With oracle d-separation tests and
+  conditioning sets of size <= 3 (E5's setting), PC returns the true CPDAG on ecoli70
+  only; it keeps 73 / 48 / 40 extra adjacencies on magic-irri / magic-niab / arth150
+  (true edges 102 / 66 / 150). With no depth cap it returns the true CPDAG
+  (`pc_oracle_check.py` used the maximum degree, which is why E5's validation passed).
+  So E5's learner is not consistent on three of the four networks; part of the E5
+  plateau may be this cap, not the sample size. E5's learner is kept as arm `pc01d3`;
+  the other PC arms have no cap.
+- causal-learn timings on seed 0, n = 5,000 (edge counts only): BOSS 0.6 / 4.6 s,
+  GRaSP 0.7 / 4.4 s, GES 1.5 / 118 s on magic-niab / arth150.
+- Structure errors (missing / extra / mark differences against the true CPDAG) of
+  pc01d3, pc01, pcan, cpc, hc on magic-irri and arth150, seed 0, n = 100 and 100,000.
+- Five smoke tasks of the driver (committed / invalid counts, all arms pooled):
+  oracle magic-niab 82 / 3 (LLM arm); pc01d3 magic-niab n = 1,000 seed 0: 1 / 0;
+  boss ecoli70 5,000 s0: 60 / 7; hc ecoli70 5,000 s0: 38 / 9; cpc ecoli70 5,000 s0: 7 / 0.
+  Theorem violations: 0. These tasks are part of the registered population and are rerun.
+
+## Common design
+
+- **Networks.** ecoli70, magic-irri, magic-niab, arth150 (fitted linear-Gaussian
+  bnlearn networks, `discovery.GAUSSIAN`), sampled ancestrally with `discovery.sample`.
+- **Ladder.** n in {100, 200, 500, 1k, 2k, 5k, 10k, 20k, 50k, 100k}; seeds 0-9. Seeds
+  0-4 at n in {200, 1k, 5k} are E5's data sets (same sampler).
+- **Learners** (`rebuttal/learners.py`; all on the same samples):
+  `pc01d3` E5's PC-stable (Fisher-z, alpha 0.01, depth <= 3, sepset collider rule);
+  `pc01`, `pc001` the same without depth cap at alpha 0.01, 0.001;
+  `pcan` without cap, alpha_n = 1/sqrt(n);
+  `cpc`, `mpc` as pcan with the conservative / majority collider rule (ambiguous
+  triples left unoriented; Meek may propagate through them, unlike Tetrad's CPC);
+  `hc` greedy hill climbing over DAGs with Gaussian BIC (lambda 0.5), CPDAG of the result;
+  `ges`, `boss`, `grasp` causal-learn, `local_score_BIC_from_cov`, lambda 0.5 (standard
+  BIC; BOSS/GRaSP's package default is 2), GRaSP depth 3.
+- **Frame and arms.** E5's 40 pairs per network (`e5_discovery.frame`: y a true
+  descendant of x, x on an undirected edge of the true CPDAG) and E5's knowledge arms
+  (`e5_discovery.arms`): TRUE (truthful orientation of every undirected edge of C_hat
+  that is a true edge, added in sorted order, skipping those that do not close; José's
+  A_ORACLE_R), LLM (released D_LLM claims), NONE. **TRUE is the registered arm.**
+  Reference: the same pipeline on the true CPDAG ("oracle").
+- **Per committed set** (status ok: amenable, O(G0) exists and is valid at G0):
+  validity in the true DAG (GAC); radius on C_hat (hybrid, 30 s per rung, exactness
+  recorded); local check on A = An_true({x, y} u Z) (inclusive):
+  `class_ok` = no true edge inside A missing from C_hat, no directed C_hat edge inside A
+  reversing a true edge, and the true orientations of the undirected C_hat edges inside
+  A Meek-close; `g0_ok` = the same on G0; `k_err` = |K_G0 \ dir(D)| for one D in
+  [C_hat] built from the class_ok orientations (closure, then G0's closure orientations
+  that still close, sorted, then Dor-Tarsi).
+  Theorem used (Remark 8(i) localised to the ancestral set A, with Corollary 1(c)):
+  `class_ok` and (r = inf or k_err < r) imply Z valid in the true DAG.
+  Exploratory: agreement of C_hat with the true CPDAG on all pairs within 1 or 2 hops
+  of {x, y} in the true skeleton.
+- **Per graph:** skeleton precision / recall, v-structure precision / recall, SHD
+  between CPDAGs, number of undirected edges, whether C_hat is a CPDAG (equals the
+  CPDAG of its Dor-Tarsi extension), learning time.
+- **Intervals.** Percentile bootstrap, 2,000 draws, seed 20261111, resampling seeds
+  with replacement within each (network, n) cell (graphs are the clusters); pooled
+  statistics weight networks by their committed rows, as in E5.
+- **Timeouts and errors.** A task that raises is recorded with its traceback and
+  counted; no task is dropped silently. Radius rungs that time out are recorded as
+  non-exact.
+
+## E30: the sample-size ladder and the coherence threshold
+
+**Registered statistics** (TRUE arm, per learner, pooled over networks; also per network):
+I(n) = share of committed sets invalid in the true DAG (oracle: 0 by construction);
+Cm(n) = share of the 160 frame queries with a committed set (oracle: 1.00 in E5);
+V(n) = share of frame queries with a committed set that is valid (fixed denominator).
+**Coherence threshold** n*(learner) = the smallest ladder n such that at n and at every
+larger ladder n, I(n) <= 0.05 and Cm(n) >= 0.95 (point estimates); "not reached" if none.
+Also reported at (0.10, 0.90).
+
+**Predictions.** (a) For ges, boss, grasp and pcan, I(n) falls with n: I(100k) < I(1k)
+with the bootstrap interval of the difference below 0. (b) At least one of ges, boss,
+grasp reaches n*(0.05, 0.95) by 100k. (c) pc01d3 does not reach it (depth cap), and at
+n >= 20k its I(n) exceeds that of pc01. (d) seeds 0-4 of pc01d3 at n in {200, 1k, 5k}
+reproduce E5's TRUE-arm rows (status, Z, validity) exactly.
+
+**Against us.** No learner reaches n*(0.05, 0.95) by n = 100k: then we report that on
+these networks the learned class is not coherent near the query even at 100k samples,
+for any learner tried, and the answer says so with the measured I(100k).
+
+## E31: learners compared
+
+The same statistics side by side on the same samples, plus graph-level accuracy and
+learning time. **Prediction:** the score-based learners (ges, boss, grasp) have lower
+I(n) than PC at alpha 0.01 at n >= 5k. Reported, not registered: cpc and mpc against
+pcan (do careful collider rules lower invalidity at the cost of fewer committed sets?).
+
+## E32: the conditional guarantee (main)
+
+**Registered statistics** (TRUE arm, per learner and n): P_LC(n) = share of committed
+sets with `class_ok`; the decomposition
+I(n) = (1 - P_LC) * P(invalid | not class_ok) + P_LC * P(invalid | class_ok);
+the number of **theorem violations** (class_ok, r = inf or k_err < r, Z invalid in the
+truth), in every arm (TRUE, LLM, NONE), learner and n.
+
+**Predictions.** (a) 0 theorem violations (any violation is a bug or a false theorem
+and stops the analysis until found). (b) P(invalid | class_ok) is near 0 in the TRUE
+arm (it is 0 whenever k_err < r or r = inf). (c) For ges, boss, grasp and pcan,
+P_LC rises with n and reaches >= 0.9 at n = 100k. (d) P(invalid | not class_ok) stays
+>= 0.3 at every n with at least 30 such rows, i.e. invalidity is carried by local
+class error.
+
+**Against us.** P_LC stays below 0.5 at n = 100k for every learner: local class errors
+do not become rare on these networks, and the answer says so.
+
+## E33: does the radius on the learned class converge to the oracle radius?
+
+**Registered statistics** (TRUE arm; queries committed both on C_hat and on the true
+CPDAG): P(r_hat = r_oracle), Kendall tau_b(r_hat, r_oracle) (inf ranked highest),
+and P(Z_hat = Z_oracle), per learner and n. Also for the LLM arm (secondary).
+
+**Prediction.** For ges, boss, grasp and pcan, P(r_hat = r_oracle) rises with n and is
+>= 0.8 at 100k. **Against us:** below 0.5 at 100k for every learner.
+
+## E34: does the radius still rank survival on learned classes?
+
+**Design** (`rebuttal/e34_survival.py`, to be written; reads the learned CPDAGs stored by
+E30, no rerun of discovery). Learners pcan, ges, boss; n in {500, 5k, 50k}; seeds 0-4;
+plus the true CPDAG. Units: committed sets of the TRUE arm (registered) and the LLM
+arm (secondary). Claims K = the orientations the arm actually applied. The paper's
+flip arm: at each depth of `real_survival.depth_grid(|K|)`, 200 draws (the paper uses
+1,000; reduced for time) of `flip_draw` (seeded by the unit id), Meek-close on C_hat,
+survival = share of non-contradictory draws in which Z stays valid;
+survival AUC = `auc_over_grid` over the depth grid.
+
+**Registered statistic.** Kendall tau_b between the radius on C_hat (inf highest) and
+the survival AUC, pooled over units per (learner, n), with the graph-cluster bootstrap;
+the same on the true CPDAG as reference.
+
+**Prediction.** tau_b > 0 with the interval excluding 0 for every learner at n >= 5k,
+and within 0.15 of the oracle-class value at n = 50k. **Against us:** an interval that
+includes 0, or a negative tau_b, at n >= 5k.
+
+## Exploratory (labelled so wherever reported)
+
+Radius bins and the AUC of 1/r for invalidity at truth on learned classes, by n;
+edge strength near the query against local error; cpc/mpc against pcan; agreement
+within 1 and 2 hops; the LLM and NONE arms beyond what is registered above.
+
+## Stopping rule
+
+One launch of the full grid (E30-E33 share one run), resumed only after a crash.
+No rerun with changed settings. A failed consistency check is fixed, rerun, and both
+runs are reported as amendments below.
